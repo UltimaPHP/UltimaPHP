@@ -30,6 +30,7 @@ class UltimaPHP
     static $start_time;
     static $basedir;
     static $conf;
+    static $servers = array();
 
     /* Server Clients Sockets Variables */
     static $socketServer;
@@ -176,6 +177,14 @@ class UltimaPHP
         	}
         	self::stop();
         }
+
+        self::$servers[] = array(
+            'name' => UltimaPHP::$conf['server']['name'],
+            'ip' => UltimaPHP::$conf['server']['ip'],
+            'port' => UltimaPHP::$conf['server']['port'],
+            'full' => (UltimaPHP::$conf['server']['max_players'] == 0 ? 0 : ceil((UltimaPHP::$clients/UltimaPHP::$conf['server']['max_players']) * 100)),
+            'timezone' => UltimaPHP::$conf['server']['timezone']
+        );
 
         self::setStatus(self::STATUS_FILE_LOADED);
     }

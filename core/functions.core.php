@@ -43,7 +43,7 @@ class Functions
         return $ret;
     }
 
-    public static function hexToStr($data, $from = null, $to = null, $explodeOnChr0 = false){
+    public static function hexToChr($data, $from = null, $to = null, $explodeOnChr0 = false){
         if (is_array($data)) {
             $hex = self::implodeByte($data, $from, $to);
         } else {

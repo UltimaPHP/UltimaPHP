@@ -33,21 +33,27 @@ class Sockets
         if (UltimaPHP::$socketClients[(string)$microtime]['socket'] = @socket_accept(UltimaPHP::$socketServer)) {
             // Create the socket between the client and the server
             $id = (string)$microtime;
-            socket_getpeername(UltimaPHP::$socketClients[(String)$microtime]['socket'], UltimaPHP::$socketClients[(String)$microtime]['ip'], UltimaPHP::$socketClients[(String)$microtime]['port']);
-            UltimaPHP::log("Client connection request from " . UltimaPHP::$socketClients[(String)$microtime]['ip'], UltimaPHP::LOG_NORMAL);
+            socket_getpeername(UltimaPHP::$socketClients[$id]['socket'], UltimaPHP::$socketClients[$id]['ip'], UltimaPHP::$socketClients[$id]['port']);
             UltimaPHP::$socketClients[$id]['LastInput'] = $microtime;
+            UltimaPHP::$socketClients[$id]['packets'] = array();
         }
-        
-        if (!isset(UltimaPHP::$socketClients[(string)$microtime]['ip'])) {
-            unset(UltimaPHP::$socketClients[(string)$microtime]);
-        }
-        
-        foreach (UltimaPHP::$socketClients as $k => $v) {
-            if (isset(UltimaPHP::$socketClients[$k]) && isset(UltimaPHP::$socketClients[$k]['socket']) && UltimaPHP::$socketClients[$k]['socket'] != null) {
-                $input = @socket_read(UltimaPHP::$socketClients[$k]['socket'], 8192);
+
+        foreach (UltimaPHP::$socketClients as $client => $socket) {
+            if (isset($socket) && isset($socket['socket']) && $socket['socket'] != null) {
+                $input = @socket_read($socket['socket'], 8192);
                 if (strlen($input) > 0) {
-                    self::in($input, $k);
-                    UltimaPHP::$socketClients[$k]['LastInput'] = $microtime;
+                    self::in($input, $client);
+                    UltimaPHP::$socketClients[$client]['LastInput'] = $microtime;
+                }
+
+                foreach ($socket['packets'] as $packet_id => $packet) {
+                    if ($packet['time'] <= $microtime) {
+                        $err = NULL;
+                        socket_write($socket['socket'], $packet['packet']) or $err = socket_last_error(UltimaPHP::$socketClients[$client]['socket']);
+                        if ($err === NULL) {
+                            unset(UltimaPHP::$socketClients[$client]['packets'][$packet_id]);
+                        }
+                    }
                 }
             }
         }
@@ -55,10 +61,9 @@ class Sockets
     
     private static function in($input, $client) {
         $packet = "packet_0x" . strtoupper(dechex(ord(substr($input, 0, 1))));
-        
         $len = strlen($input);
         $data = dechex(ord(substr($input, 0, 1)));
-        
+
         for ($i = 1; $i <= $len; $i++) {
             $ch = dechex(ord(substr($input, $i, 1)));
             
@@ -69,7 +74,7 @@ class Sockets
                 $data.= " $ch";
             }
         }
-        
+
         if (method_exists("Packets", $packet)) {
             Packets::$packet(explode(" ", $data), $client);
         } 
@@ -79,23 +84,16 @@ class Sockets
         }
     }
     
-    public static function out($client, $packet, $test = false) {
+    public static function out($client, $packet, $dontConvert = false) {
         $err = NULL;
 
-        if ($test === false) {
-        	$packet = Functions::hexToStr($packet);
+        if ($dontConvert === false) {
+        	$packet = Functions::hexToChr($packet);
 		} else {
 			$packet = $packet;
 		}
 
-		echo "Trying to send packet: " . $packet . "\n";
-
-        socket_write(UltimaPHP::$socketClients[$client]['socket'], $packet) or $err = socket_last_error(UltimaPHP::$socketClients[$client]['socket']);
-
-        if ($err !== NULL) {
-        	UltimaPHP::log("Could not send packet to client." , UltimaPHP::LOG_WARNING);
-        	UltimaPHP::log("Packet: " . $packet);
-        }
+        UltimaPHP::$socketClients[$client]['packets'][] = array('packet' => $packet, 'time' => (microtime(true) + 0.00100));
     }
     
     public static function addEvent($client, $event, $time) {
