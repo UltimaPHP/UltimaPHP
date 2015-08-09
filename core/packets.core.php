@@ -8,9 +8,10 @@ class Packets
 {
     
     /**
-     * Strange package sent from client sometimes on login process
+     * Strange package received from client in the login proccess...
      */
     public static function packet_0x1($data, $client) {
+        // If the 2 first packets was merged, send only the bytes from packet 0x91
         if (count($data) == 70) {
             self::packet_0x91(array_slice($data,4), $client, true);
         }
@@ -145,13 +146,14 @@ class Packets
         $login = false;
         
         UltimaPHP::$socketClients[$client]['account'] = array('account' => $account, 'password' => sha1($password));
-        UltimaPHP::log("Account $account connected from " . UltimaPHP::$socketClients[$client]['ip']);
+        UltimaPHP::log("Account $account logged from " . UltimaPHP::$socketClients[$client]['ip']);
         
         if (strlen($account) > 0 && strlen($password) > 0) {
             $login = true;
         }
         
         if ($login === true) {
+            UltimaPHP::$socketClients[$client]['compressed'] = true;
             $packet = "B9110882DF"; // ???? How to mont this flags?
             Sockets::out($client, $packet);
         } 

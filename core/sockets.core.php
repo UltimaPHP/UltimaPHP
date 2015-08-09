@@ -36,6 +36,7 @@ class Sockets
             socket_getpeername(UltimaPHP::$socketClients[$id]['socket'], UltimaPHP::$socketClients[$id]['ip'], UltimaPHP::$socketClients[$id]['port']);
             UltimaPHP::$socketClients[$id]['LastInput'] = $microtime;
             UltimaPHP::$socketClients[$id]['packets'] = array();
+            UltimaPHP::$socketClients[$id]['compressed'] = false;
         }
 
         foreach (UltimaPHP::$socketClients as $client => $socket) {
@@ -92,6 +93,11 @@ class Sockets
 		} else {
 			$packet = $packet;
 		}
+
+        if (isset(UltimaPHP::$socketClients[$client]['compressed']) && UltimaPHP::$socketClients[$client]['compressed'] === true) {
+            // $huffman = new Huffman();
+            // $packet = Functions::hexToChr($huffman->compress($packet));
+        }
 
         UltimaPHP::$socketClients[$client]['packets'][] = array('packet' => $packet, 'time' => (microtime(true) + 0.00100));
     }
