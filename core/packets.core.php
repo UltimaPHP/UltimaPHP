@@ -153,9 +153,14 @@ class Packets
         }
         
         if ($login === true) {
-            UltimaPHP::$socketClients[$client]['compressed'] = true;
             $packet = "B9110882DF"; // ???? How to mont this flags?
             Sockets::out($client, $packet);
+
+            // Set the flag on the connection to send next packets compressed
+            UltimaPHP::$socketClients[$client]['compressed'] = true;
+
+            // Send the character list to the client
+            // TODO
         } 
         else {
             self::packet_0x82("", $client, 3);
