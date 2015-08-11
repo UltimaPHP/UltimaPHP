@@ -1,267 +1,68 @@
 <?php
+
+/**
+ * Ultima PHP - OpenSource Ultima Online Server written in PHP
+ * Version: 0.1 - Pre Alpha
+ */
 class Huffman
 {
-	public function compress($data) {
-		$HuffmanTable = array(
-			array(2,1),
-			array(4,3),
-			array(0,5),
-			array(7,6),
-			array(9,8),
-			array(11,10),
-			array(13,12),
-			array(14,-256),
-			array(16,15),
-			array(18,17),
-			array(20,19),
-			array(22,21),
-			array(23,-1),
-			array(25,24),
-			array(27,26),
-			array(29,28),
-			array(31,30),
-			array(33,32),
-			array(35,34),
-			array(37,36),
-			array(39,38),
-			array(-64,40),
-			array(42,41),
-			array(44,43),
-			array(45,-6),
-			array(47,46),
-			array(49,48),
-			array(51,50),
-			array(52,-119),
-			array(53,-32),
-			array(-14,54),
-			array(-5,55),
-			array(57,56),
-			array(59,58),
-			array(-2,60),
-			array(62,61),
-			array(64,63),
-			array(66,65),
-			array(68,67),
-			array(70,69),
-			array(72,71),
-			array(73,-51),
-			array(75,74),
-			array(77,76),
-			array(-111,-101),
-			array(-97,-4),
-			array(79,78),
-			array(80,-110),
-			array(-116,81),
-			array(83,82),
-			array(-255,84),
-			array(86,85),
-			array(88,87),
-			array(90,89),
-			array(-10,-15),
-			array(92,91),
-			array(93,-21),
-			array(94,-117),
-			array(96,95),
-			array(98,97),
-			array(100,99),
-			array(101,-114),
-			array(102,-105),
-			array(103,-26),
-			array(105,104),
-			array(107,106),
-			array(109,108),
-			array(111,110),
-			array(-3,112),
-			array(-7,113),
-			array(-131,114),
-			array(-144,115),
-			array(117,116),
-			array(118,-20),
-			array(120,119),
-			array(122,121),
-			array(124,123),
-			array(126,125),
-			array(128,127),
-			array(-100,129),
-			array(-8,130),
-			array(132,131),
-			array(134,133),
-			array(135,-120),
-			array(-31,136),
-			array(138,137),
-			array(-234,-109),
-			array(140,139),
-			array(142,141),
-			array(144,143),
-			array(145,-112),
-			array(146,-19),
-			array(148,147),
-			array(-66,149),
-			array(-145,150),
-			array(-65,-13),
-			array(152,151),
-			array(154,153),
-			array(155,-30),
-			array(157,156),
-			array(158,-99),
-			array(160,159),
-			array(162,161),
-			array(163,-23),
-			array(164,-29),
-			array(165,-11),
-			array(-115,166),
-			array(168,167),
-			array(170,169),
-			array(171,-16),
-			array(172,-34),
-			array(-132,173),
-			array(-108,174),
-			array(-22,175),
-			array(-9,176),
-			array(-84,177),
-			array(-37,-17),
-			array(178,-28),
-			array(180,179),
-			array(182,181),
-			array(184,183),
-			array(186,185),
-			array(-104,187),
-			array(-78,188),
-			array(-61,189),
-			array(-178,-79),
-			array(-134,-59),
-			array(-25,190),
-			array(-18,-83),
-			array(-57,191),
-			array(192,-67),
-			array(193,-98),
-			array(-68,-12),
-			array(195,194),
-			array(-128,-55),
-			array(-50,-24),
-			array(196,-70),
-			array(-33,-94),
-			array(-129,197),
-			array(198,-74),
-			array(199,-82),
-			array(-87,-56),
-			array(200,-44),
-			array(201,-248),
-			array(-81,-163),
-			array(-123,-52),
-			array(-113,202),
-			array(-41,-48),
-			array(-40,-122),
-			array(-90,203),
-			array(204,-54),
-			array(-192,-86),
-			array(206,205),
-			array(-130,207),
-			array(208,-53),
-			array(-45,-133),
-			array(210,209),
-			array(-91,211),
-			array(213,212),
-			array(-88,-106),
-			array(215,214),
-			array(217,216),
-			array(-49,218),
-			array(220,219),
-			array(222,221),
-			array(224,223),
-			array(226,225),
-			array(-102,227),
-			array(228,-160),
-			array(229,-46),
-			array(230,-127),
-			array(231,-103),
-			array(233,232),
-			array(234,-60),
-			array(-76,235),
-			array(-121,236),
-			array(-73,237),
-			array(238,-149),
-			array(-107,239),
-			array(240,-35),
-			array(-27,-71),
-			array(241,-69),
-			array(-77,-89),
-			array(-118,-62),
-			array(-85,-75),
-			array(-58,-72),
-			array(-80,-63),
-			array(-42,242),
-			array(-157,-150),
-			array(-236,-139),
-			array(-243,-126),
-			array(-214,-142),
-			array(-206,-138),
-			array(-146,-240),
-			array(-147,-204),
-			array(-201,-152),
-			array(-207,-227),
-			array(-209,-154),
-			array(-254,-153),
-			array(-156,-176),
-			array(-210,-165),
-			array(-185,-172),
-			array(-170,-195),
-			array(-211,-232),
-			array(-239,-219),
-			array(-177,-200),
-			array(-212,-175),
-			array(-143,-244),
-			array(-171,-246),
-			array(-221,-203),
-			array(-181,-202),
-			array(-250,-173),
-			array(-164,-184),
-			array(-218,-193),
-			array(-220,-199),
-			array(-249,-190),
-			array(-217,-230),
-			array(-216,-169),
-			array(-197,-191),
-			array(243,-47),
-			array(245,244),
-			array(247,246),
-			array(-159,-148),
-			array(249,248),
-			array(-93,-92),
-			array(-225,-96),
-			array(-95,-151),
-			array(251,250),
-			array(252,-241),
-			array(-36,-161),
-			array(254,253),
-			array(-39,-135),
-			array(-124,-187),
-			array(-251,255),
-			array(-238,-162),
-			array(-38,-242),
-			array(-125,-43),
-			array(-253,-215),
-			array(-208,-140),
-			array(-235,-137),
-			array(-237,-158),
-			array(-205,-136),
-			array(-141,-155),
-			array(-229,-228),
-			array(-168,-213),
-			array(-194,-224),
-			array(-226,-196),
-			array(-233,-183),
-			array(-167,-231),
-			array(-189,-174),
-			array(-166,-252),
-			array(-222,-198),
-			array(-179,-188),
-			array(-182,-223),
-			array(-186,-180),
-			array(-247,-245)
-		);
-	
-		return $data;
-	}
+    static $HuffmanTable = array(array(0x02, 0x00), array(0x05, 0x1F), array(0x06, 0x22), array(0x07, 0x34), array(0x07, 0x75), array(0x06, 0x28), array(0x06, 0x3B), array(0x07, 0x32), array(0x08, 0xE0), array(0x08, 0x62), array(0x07, 0x56), array(0x08, 0x79), array(0x09, 0x19D), array(0x08, 0x97), array(0x06, 0x2A), array(0x07, 0x57), array(0x08, 0x71), array(0x08, 0x5B), array(0x09, 0x1CC), array(0x08, 0xA7), array(0x07, 0x25), array(0x07, 0x4F), array(0x08, 0x66), array(0x08, 0x7D), array(0x09, 0x191), array(0x09, 0x1CE), array(0x07, 0x3F), array(0x09, 0x90), array(0x08, 0x59), array(0x08, 0x7B), array(0x08, 0x91), array(0x08, 0xC6), array(0x06, 0x2D), array(0x09, 0x186), array(0x08, 0x6F), array(0x09, 0x93), array(0x0A, 0x1CC), array(0x08, 0x5A), array(0x0A, 0x1AE), array(0x0A, 0x1C0), array(0x09, 0x148), array(0x09, 0x14A), array(0x09, 0x82), array(0x0A, 0x19F), array(0x09, 0x171), array(0x09, 0x120), array(0x09, 0xE7), array(0x0A, 0x1F3), array(0x09, 0x14B), array(0x09, 0x100), array(0x09, 0x190), array(0x06, 0x13), array(0x09, 0x161), array(0x09, 0x125), array(0x09, 0x133), array(0x09, 0x195), array(0x09, 0x173), array(0x09, 0x1CA), array(0x09, 0x86), array(0x09, 0x1E9), array(0x09, 0xDB), array(0x09, 0x1EC), array(0x09, 0x8B), array(0x09, 0x85), array(0x05, 0x0A), array(0x08, 0x96), array(0x08, 0x9C), array(0x09, 0x1C3), array(0x09, 0x19C), array(0x09, 0x8F), array(0x09, 0x18F), array(0x09, 0x91), array(0x09, 0x87), array(0x09, 0xC6), array(0x09, 0x177), array(0x09, 0x89), array(0x09, 0xD6), array(0x09, 0x8C), array(0x09, 0x1EE), array(0x09, 0x1EB), array(0x09, 0x84), array(0x09, 0x164), array(0x09, 0x175), array(0x09, 0x1CD), array(0x08, 0x5E), array(0x09, 0x88), array(0x09, 0x12B), array(0x09, 0x172), array(0x09, 0x10A), array(0x09, 0x8D), array(0x09, 0x13A), array(0x09, 0x11C), array(0x0A, 0x1E1), array(0x0A, 0x1E0), array(0x09, 0x187), array(0x0A, 0x1DC), array(0x0A, 0x1DF), array(0x07, 0x74), array(0x09, 0x19F), array(0x08, 0x8D), array(0x08, 0xE4), array(0x07, 0x79), array(0x09, 0xEA), array(0x09, 0xE1), array(0x08, 0x40), array(0x07, 0x41), array(0x09, 0x10B), array(0x09, 0xB0), array(0x08, 0x6A), array(0x08, 0xC1), array(0x07, 0x71), array(0x07, 0x78), array(0x08, 0xB1), array(0x09, 0x14C), array(0x07, 0x43), array(0x08, 0x76), array(0x07, 0x66), array(0x07, 0x4D), array(0x09, 0x8A), array(0x06, 0x2F), array(0x08, 0xC9), array(0x09, 0xCE), array(0x09, 0x149), array(0x09, 0x160), array(0x0A, 0x1BA), array(0x0A, 0x19E), array(0x0A, 0x39F), array(0x09, 0xE5), array(0x09, 0x194), array(0x09, 0x184), array(0x09, 0x126), array(0x07, 0x30), array(0x08, 0x6C), array(0x09, 0x121), array(0x09, 0x1E8), array(0x0A, 0x1C1), array(0x0A, 0x11D), array(0x0A, 0x163), array(0x0A, 0x385), array(0x0A, 0x3DB), array(0x0A, 0x17D), array(0x0A, 0x106), array(0x0A, 0x397), array(0x0A, 0x24E), array(0x07, 0x2E), array(0x08, 0x98), array(0x0A, 0x33C), array(0x0A, 0x32E), array(0x0A, 0x1E9), array(0x09, 0xBF), array(0x0A, 0x3DF), array(0x0A, 0x1DD), array(0x0A, 0x32D), array(0x0A, 0x2ED), array(0x0A, 0x30B), array(0x0A, 0x107), array(0x0A, 0x2E8), array(0x0A, 0x3DE), array(0x0A, 0x125), array(0x0A, 0x1E8), array(0x09, 0xE9), array(0x0A, 0x1CD), array(0x0A, 0x1B5), array(0x09, 0x165), array(0x0A, 0x232), array(0x0A, 0x2E1), array(0x0B, 0x3AE), array(0x0B, 0x3C6), array(0x0B, 0x3E2), array(0x0A, 0x205), array(0x0A, 0x29A), array(0x0A, 0x248), array(0x0A, 0x2CD), array(0x0A, 0x23B), array(0x0B, 0x3C5), array(0x0A, 0x251), array(0x0A, 0x2E9), array(0x0A, 0x252), array(0x09, 0x1EA), array(0x0B, 0x3A0), array(0x0B, 0x391), array(0x0A, 0x23C), array(0x0B, 0x392), array(0x0B, 0x3D5), array(0x0A, 0x233), array(0x0A, 0x2CC), array(0x0B, 0x390), array(0x0A, 0x1BB), array(0x0B, 0x3A1), array(0x0B, 0x3C4), array(0x0A, 0x211), array(0x0A, 0x203), array(0x09, 0x12A), array(0x0A, 0x231), array(0x0B, 0x3E0), array(0x0A, 0x29B), array(0x0B, 0x3D7), array(0x0A, 0x202), array(0x0B, 0x3AD), array(0x0A, 0x213), array(0x0A, 0x253), array(0x0A, 0x32C), array(0x0A, 0x23D), array(0x0A, 0x23F), array(0x0A, 0x32F), array(0x0A, 0x11C), array(0x0A, 0x384), array(0x0A, 0x31C), array(0x0A, 0x17C), array(0x0A, 0x30A), array(0x0A, 0x2E0), array(0x0A, 0x276), array(0x0A, 0x250), array(0x0B, 0x3E3), array(0x0A, 0x396), array(0x0A, 0x18F), array(0x0A, 0x204), array(0x0A, 0x206), array(0x0A, 0x230), array(0x0A, 0x265), array(0x0A, 0x212), array(0x0A, 0x23E), array(0x0B, 0x3AC), array(0x0B, 0x393), array(0x0B, 0x3E1), array(0x0A, 0x1DE), array(0x0B, 0x3D6), array(0x0A, 0x31D), array(0x0B, 0x3E5), array(0x0B, 0x3E4), array(0x0A, 0x207), array(0x0B, 0x3C7), array(0x0A, 0x277), array(0x0B, 0x3D4), array(0x08, 0xC0), array(0x0A, 0x162), array(0x0A, 0x3DA), array(0x0A, 0x124), array(0x0A, 0x1B4), array(0x0A, 0x264), array(0x0A, 0x33D), array(0x0A, 0x1D1), array(0x0A, 0x1AF), array(0x0A, 0x39E), array(0x0A, 0x24F), array(0x0B, 0x373), array(0x0A, 0x249), array(0x0B, 0x372), array(0x09, 0x167), array(0x0A, 0x210), array(0x0A, 0x23A), array(0x0A, 0x1B8), array(0x0B, 0x3AF), array(0x0A, 0x18E), array(0x0A, 0x2EC), array(0x07, 0x62), array(0x04, 0x0D));
+    
+    public function compress($source) {
+        $source = unpack("C*", $source);
+        $length = count($source);
+        $retval = array();
+        $current = 0;
+        $cBits = 0;
+        
+        for ($i = 0; $i < $length; $i++) {
+            $nrBits = (int)self::$HuffmanTable[$i][0] - 1;
+            $val = (int)self::$HuffmanTable[$i][1];
+            
+            for ($n = $nrBits; $n >= 0; $n--) {
+                $x = ($val >> $n) % 2;
+                $current <<= 1;
+                $current+= $x;
+                
+                $cBits++;
+                if ($cBits == 8) {
+                    $retval[count($retval) - 1] = $current;
+                    $cBits = 0;
+                }
+            }
+        }
+        
+        $nrBits = (int)self::$HuffmanTable[256][0] - 1;
+        $val = (int)self::$HuffmanTable[256][1];
+        
+        for ($n = $nrBits; $n >= 0; $n--) {
+            $x = ($val >> $n) % 2;
+            $current <<= 1;
+            $current+= $x;
+            
+            $cBits++;
+            if ($cBits == 8) {
+                $retval[count($retval) - 1] = $current;
+                $cBits = 0;
+            }
+        }
+        
+        while ($cBits != 0) {
+            $current <<= 1;
+            $cBits++;
+            
+            if ($cBits == 8) {
+                $retval[count($retval) - 1] = $current;
+                $cBits = 0;
+            }
+        }
+        
+        $return = "";
+        foreach ($retval as $key => $value) {
+            $return.= chr($value);
+        }
+        
+        return $return;
+    }
 }
 ?>

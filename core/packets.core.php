@@ -113,6 +113,59 @@ class Packets
         
         Sockets::out($client, $packet);
     }
+
+    /**
+     * Send the account characters to the client
+     */
+    public static function packet_0xA9($data, $client) {
+        $packet = "";
+
+        $characters = array(
+            array('name' => "UltimaPHP player 1"),
+            array('name' => "UltimaPHP player 2")
+        );
+
+        $startingLocations = array(
+            array(
+                'name' => "Britain",
+                'area' => 'Sweet Dreams Inn',
+                'position' => array("x" => 1300, "y" => 1300, "z" => 25, 'map' => 0)
+            )
+        );
+
+        $tmpPacket = str_pad(dechex(count($characters)), 2, "0", STR_PAD_LEFT);
+
+        foreach ($characters as $key => $character) {
+            $tmpPacket.= str_pad(Functions::strToHex($character['name']), 60, "0", STR_PAD_RIGHT);
+        }
+
+        $tmpPacket .= str_pad(dechex(count($startingLocations)), 2, "0", STR_PAD_LEFT);
+        foreach ($startingLocations as $key => $location) {
+            $tmpPacket .= str_pad(dechex($key), 2, "0", STR_PAD_LEFT);
+            if (UltimaPHP::$socketClients[$client]['version']['major'] >= 7 && UltimaPHP::$socketClients[$client]['version']['minor'] >= 0 && UltimaPHP::$socketClients[$client]['version']['revision'] >= 13 && UltimaPHP::$socketClients[$client]['version']['prototype'] >= 0) {
+                $tmpPacket.= str_pad(Functions::strToHex($location['name']), 32, "0", STR_PAD_RIGHT);
+                $tmpPacket.= str_pad(Functions::strToHex($location['area']), 32, "0", STR_PAD_RIGHT);
+                $tmpPacket.= str_pad(Functions::strToHex($location['position']['x']), 8, "0", STR_PAD_RIGHT);
+                $tmpPacket.= str_pad(Functions::strToHex($location['position']['y']), 8, "0", STR_PAD_RIGHT);
+                $tmpPacket.= str_pad(Functions::strToHex($location['position']['z']), 8, "0", STR_PAD_RIGHT);
+                $tmpPacket.= str_pad(Functions::strToHex($location['position']['map']), 8, "0", STR_PAD_RIGHT);
+                $tmpPacket.= str_pad("", 8, "0", STR_PAD_RIGHT);
+                $tmpPacket.= str_pad("", 8, "0", STR_PAD_RIGHT);
+            } else {
+                $tmpPacket .= str_pad(Functions::strToHex($location['name']), 31, "0", STR_PAD_RIGHT);
+                $tmpPacket .= str_pad(Functions::strToHex($location['area']), 31, "0", STR_PAD_RIGHT);
+            }
+        }
+
+        $tmpPacket .= str_pad(0x01, 8, "0", STR_PAD_RIGHT);
+
+
+        $packet = "A9";
+        $packet.= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 3), 4, "0", STR_PAD_LEFT);
+        $packet.= $tmpPacket;
+        
+        Sockets::out($client, $packet);
+    }
     
     /**
      * Disconnect player from server
@@ -145,22 +198,21 @@ class Packets
 
         $login = false;
         
-        UltimaPHP::$socketClients[$client]['account'] = array('account' => $account, 'password' => sha1($password));
-        UltimaPHP::log("Account $account logged from " . UltimaPHP::$socketClients[$client]['ip']);
-        
         if (strlen($account) > 0 && strlen($password) > 0) {
             $login = true;
         }
         
         if ($login === true) {
+            UltimaPHP::$socketClients[$client]['account'] = array('account' => $account, 'password' => sha1($password));
+            UltimaPHP::log("Account $account logged from " . UltimaPHP::$socketClients[$client]['ip']);
+
             $packet = "B9110882DF"; // ???? How to mont this flags?
             Sockets::out($client, $packet);
 
             // Set the flag on the connection to send next packets compressed
             UltimaPHP::$socketClients[$client]['compressed'] = true;
 
-            // Send the character list to the client
-            // TODO
+            self::packet_0xA9("", $client);
         } 
         else {
             self::packet_0x82("", $client, 3);

@@ -95,10 +95,8 @@ class Sockets
 		}
 
         if (isset(UltimaPHP::$socketClients[$client]['compressed']) && UltimaPHP::$socketClients[$client]['compressed'] === true) {
-            echo "Client is compressed... compressing packet before send!\n";
             $huffman = new Huffman();
             $packet = $huffman->compress($packet);
-            echo "Pactet compressed: " . $packet . "\n";
         }
 
         UltimaPHP::$socketClients[$client]['packets'][] = array('packet' => $packet, 'time' => (microtime(true) + 0.00100));
