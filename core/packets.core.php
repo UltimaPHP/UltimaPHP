@@ -11,8 +11,14 @@ class Packets
      * Strange package received from client in the login proccess...
      */
     public static function packet_0x1($data, $client) {
-        // If the 2 first packets was merged, send only the bytes from packet 0x91
         if (count($data) == 70) {
+            $major = hexdec($data[0]);
+            $minor = hexdec($data[1]);
+            $revision = hexdec($data[2]);
+            $prototype = hexdec($data[3]);
+            
+            UltimaPHP::$socketClients[$client]['version'] = array('major' => $major, 'minor' => $minor, 'revision' => $revision, 'prototype' => $prototype);
+
             self::packet_0x91(array_slice($data,4), $client, true);
         }
     }
@@ -64,10 +70,10 @@ class Packets
             $packet.= str_pad(dechex($ip[2]), 2, "0", STR_PAD_LEFT);
             $packet.= str_pad(dechex($ip[3]), 2, "0", STR_PAD_LEFT);
             $packet.= str_pad(dechex(UltimaPHP::$servers[UltimaPHP::$socketClients[$client]['connected_server']]['port']), 4, "0", STR_PAD_LEFT);
-            $packet.= str_pad(dechex($ip[3]), 2, "0", STR_PAD_LEFT);
-            $packet.= str_pad(dechex($ip[2]), 2, "0", STR_PAD_LEFT);
-            $packet.= str_pad(dechex($ip[1]), 2, "0", STR_PAD_LEFT);
-            $packet.= str_pad(dechex($ip[0]), 2, "0", STR_PAD_LEFT);
+            $packet.= str_pad(dechex(UltimaPHP::$socketClients[$client]['version']['major']), 2, "0", STR_PAD_LEFT);
+            $packet.= str_pad(dechex(UltimaPHP::$socketClients[$client]['version']['minor']), 2, "0", STR_PAD_LEFT);
+            $packet.= str_pad(dechex(UltimaPHP::$socketClients[$client]['version']['revision']), 2, "0", STR_PAD_LEFT);
+            $packet.= str_pad(dechex(UltimaPHP::$socketClients[$client]['version']['prototype']), 2, "0", STR_PAD_LEFT);
             
             Sockets::out($client, $packet);
         }
@@ -121,49 +127,101 @@ class Packets
         $packet = "";
 
         $characters = array(
-            array('name' => "UltimaPHP player 1"),
-            array('name' => "UltimaPHP player 2")
+            array('name' => "Player 1"),
+            array('name' => "Player 2")
         );
 
         $startingLocations = array(
             array(
+                'name' => "Yew",
+                'area' => 'The Sturdy Bow',
+                'position' => array("x" => 567, "y" => 978, "z" => 0, 'map' => 0),
+                'clioc' => 1075072
+            ),
+            array(
+                'name' => "Minoc",
+                'area' => 'The Barnacle Tavern',
+                'position' => array("x" => 2477, "y" => 407, "z" => 15, 'map' => 0),
+                'clioc' => 1075073
+            ),
+            array(
                 'name' => "Britain",
                 'area' => 'Sweet Dreams Inn',
-                'position' => array("x" => 1300, "y" => 1300, "z" => 25, 'map' => 0)
+                'position' => array("x" => 1496, "y" => 1629, "z" => 10, 'map' => 0),
+                'clioc' => 1075074
+            ),
+            array(
+                'name' => "Moonglow",
+                'area' => 'The Scholars Inn',
+                'position' => array("x" => 4404, "y" => 1169, "z" => 0, 'map' => 0),
+                'clioc' => 1075075
+            ),
+            array(
+                'name' => "Trinsic",
+                'area' => 'The Traveller\'s Inn',
+                'position' => array("x" => 1844, "y" => 2745, "z" => 0, 'map' => 0),
+                'clioc' => 1075076
+            ),
+            array(
+                'name' => "New Magincia",
+                'area' => 'The Great Horns Tavern',
+                'position' => array("x" => 3738, "y" => 2223, "z" => 20, 'map' => 0),
+                'clioc' => 1075077
+            ),
+            array(
+                'name' => "Jhelom",
+                'area' => 'The Morning Star Inn',
+                'position' => array("x" => 1378, "y" => 3817, "z" => 0, 'map' => 0),
+                'clioc' => 1075078
+            ),
+            array(
+                'name' => "Skara Brae",
+                'area' => 'The Falconers Inn',
+                'position' => array("x" => 594, "y" => 2227, "z" => 0, 'map' => 0),
+                'clioc' => 1075079
+            ),
+            array(
+                'name' => "Vesper",
+                'area' => 'The Iron wood Inn',
+                'position' => array("x" => 2771, "y" => 977, "z" => 0, 'map' => 0),
+                'clioc' => 1075080
             )
         );
 
-        $tmpPacket = str_pad(dechex(count($characters)), 2, "0", STR_PAD_LEFT);
+        $tmpPacket = "05";
 
-        foreach ($characters as $key => $character) {
-            $tmpPacket.= str_pad(Functions::strToHex($character['name']), 60, "0", STR_PAD_RIGHT);
+        for ($i=0; $i < 5; $i++) { 
+            $tmpPacket.= str_pad((isset($characters[$i]) ? Functions::strToHex($characters[$i]['name']) : 0), 120, "0", STR_PAD_RIGHT);
         }
 
         $tmpPacket .= str_pad(dechex(count($startingLocations)), 2, "0", STR_PAD_LEFT);
         foreach ($startingLocations as $key => $location) {
-            $tmpPacket .= str_pad(dechex($key), 2, "0", STR_PAD_LEFT);
-            if (UltimaPHP::$socketClients[$client]['version']['major'] >= 7 && UltimaPHP::$socketClients[$client]['version']['minor'] >= 0 && UltimaPHP::$socketClients[$client]['version']['revision'] >= 13 && UltimaPHP::$socketClients[$client]['version']['prototype'] >= 0) {
-                $tmpPacket.= str_pad(Functions::strToHex($location['name']), 32, "0", STR_PAD_RIGHT);
-                $tmpPacket.= str_pad(Functions::strToHex($location['area']), 32, "0", STR_PAD_RIGHT);
-                $tmpPacket.= str_pad(Functions::strToHex($location['position']['x']), 8, "0", STR_PAD_RIGHT);
-                $tmpPacket.= str_pad(Functions::strToHex($location['position']['y']), 8, "0", STR_PAD_RIGHT);
-                $tmpPacket.= str_pad(Functions::strToHex($location['position']['z']), 8, "0", STR_PAD_RIGHT);
-                $tmpPacket.= str_pad(Functions::strToHex($location['position']['map']), 8, "0", STR_PAD_RIGHT);
-                $tmpPacket.= str_pad("", 8, "0", STR_PAD_RIGHT);
+            // If Client version is bigger then 7.0.13.0
+            if (isset(UltimaPHP::$socketClients[$client]['version']) && UltimaPHP::$socketClients[$client]['version']['major'] >= 7 && UltimaPHP::$socketClients[$client]['version']['minor'] >= 0 && UltimaPHP::$socketClients[$client]['version']['revision'] >= 13 && UltimaPHP::$socketClients[$client]['version']['prototype'] >= 0) {
+                $tmpPacket .= str_pad(dechex($key+1), 2, "0", STR_PAD_LEFT);
+                $tmpPacket.= str_pad(Functions::strToHex($location['name']), 64, "0", STR_PAD_RIGHT);
+                $tmpPacket.= str_pad(Functions::strToHex($location['area']), 64, "0", STR_PAD_RIGHT);
+                $tmpPacket.= str_pad(strtoupper(dechex($location['position']['x'])), 8, "0", STR_PAD_LEFT);
+                $tmpPacket.= str_pad(strtoupper(dechex($location['position']['y'])), 8, "0", STR_PAD_LEFT);
+                $tmpPacket.= str_pad(strtoupper(dechex($location['position']['z'])), 8, "0", STR_PAD_LEFT);
+                $tmpPacket.= str_pad(strtoupper(dechex($location['position']['map'])), 8, "0", STR_PAD_LEFT);
+                $tmpPacket.= str_pad(strtoupper(dechex($location['clioc'])), 8, "0", STR_PAD_LEFT);
                 $tmpPacket.= str_pad("", 8, "0", STR_PAD_RIGHT);
             } else {
-                $tmpPacket .= str_pad(Functions::strToHex($location['name']), 31, "0", STR_PAD_RIGHT);
-                $tmpPacket .= str_pad(Functions::strToHex($location['area']), 31, "0", STR_PAD_RIGHT);
+                $tmpPacket .= str_pad(dechex($key+1), 2, "0", STR_PAD_LEFT);
+                $tmpPacket .= str_pad(Functions::strToHex($location['name']), 62, "0", STR_PAD_RIGHT);
+                $tmpPacket .= str_pad(Functions::strToHex($location['area']), 62, "0", STR_PAD_RIGHT);
             }
         }
 
-        $tmpPacket .= str_pad(0x01, 8, "0", STR_PAD_RIGHT);
-
+        $flags = "0580";
+        $tmpPacket .= str_pad($flags, 8, "0", STR_PAD_LEFT);
+        $tmpPacket .= "0000";
 
         $packet = "A9";
         $packet.= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 3), 4, "0", STR_PAD_LEFT);
         $packet.= $tmpPacket;
-        
+
         Sockets::out($client, $packet);
     }
     
@@ -206,9 +264,6 @@ class Packets
             UltimaPHP::$socketClients[$client]['account'] = array('account' => $account, 'password' => sha1($password));
             UltimaPHP::log("Account $account logged from " . UltimaPHP::$socketClients[$client]['ip']);
 
-            $packet = "B9110882DF"; // ???? How to mont this flags?
-            Sockets::out($client, $packet);
-
             // Set the flag on the connection to send next packets compressed
             UltimaPHP::$socketClients[$client]['compressed'] = true;
 
@@ -224,10 +279,10 @@ class Packets
      */
     public static function packet_0xEF($data, $client) {
         if (count($data) < 21) {
-            echo "0x82 4\n";
             self::packet_0x82("", $client, 4);
             return;
         }
+
         $command = $data[0];
         $seed = Functions::getDword($data[1] . $data[2] . $data[3] . $data[4]);
         $major = Functions::getDword($data[5] . $data[6] . $data[7] . $data[8]);
@@ -235,7 +290,7 @@ class Packets
         $revision = Functions::getDword($data[13] . $data[14] . $data[15] . $data[16]);
         $prototype = Functions::getDword($data[17] . $data[18] . $data[19] . $data[20]);
         
-        UltimaPHP::$socketClients[$client]['version'] = array('major' => $major, 'minor' => $minor, 'revision' => $revision, 'prototype' => $prototype,);
+        UltimaPHP::$socketClients[$client]['version'] = array('major' => $major, 'minor' => $minor, 'revision' => $revision, 'prototype' => $prototype);
     }
 }
 ?>

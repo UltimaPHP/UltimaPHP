@@ -42,6 +42,7 @@ class Sockets
         foreach (UltimaPHP::$socketClients as $client => $socket) {
             if (isset($socket) && isset($socket['socket']) && $socket['socket'] != null) {
                 $input = @socket_read($socket['socket'], 8192);
+
                 if (strlen($input) > 0) {
                     self::in($input, $client);
                     UltimaPHP::$socketClients[$client]['LastInput'] = $microtime;
@@ -62,6 +63,11 @@ class Sockets
     
     private static function in($input, $client) {
         $packet = "packet_0x" . strtoupper(dechex(ord(substr($input, 0, 1))));
+        // Fix for capture wrong packets received from client
+        if (strlen(strtoupper(dechex(ord(substr($input, 0, 1))))) == 1) {
+            $packet = "packet_0x1";
+        }
+
         $len = strlen($input);
         $data = dechex(ord(substr($input, 0, 1)));
 
@@ -88,15 +94,15 @@ class Sockets
     public static function out($client, $packet, $dontConvert = false) {
         $err = NULL;
 
-        if ($dontConvert === false) {
-        	$packet = Functions::hexToChr($packet);
-		} else {
-			$packet = $packet;
-		}
-
         if (isset(UltimaPHP::$socketClients[$client]['compressed']) && UltimaPHP::$socketClients[$client]['compressed'] === true) {
-            $huffman = new Huffman();
-            $packet = $huffman->compress($packet);
+            $compression = new Compression();
+            $packet = "B30CEC99E8D0".unpack('H*', $compression->compress($packet))[1];
+        }
+
+        if ($dontConvert === false) {
+            $packet = Functions::hexToChr($packet);
+        } else {
+            $packet = $packet;
         }
 
         UltimaPHP::$socketClients[$client]['packets'][] = array('packet' => $packet, 'time' => (microtime(true) + 0.00100));

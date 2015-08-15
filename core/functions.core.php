@@ -43,7 +43,7 @@ class Functions
         return $ret;
     }
 
-    public static function hexToChr($data, $from = null, $to = null, $explodeOnChr0 = false){
+    public static function hexToChr($data, $from = null, $to = null, $explodeOnChr = false){
         if (is_array($data)) {
             $hex = self::implodeByte($data, $from, $to);
         } else {
@@ -55,7 +55,7 @@ class Functions
             $string .= chr(hexdec($hex[$i].$hex[$i+1]));
         }
 
-        if ($explodeOnChr0) {
+        if ($explodeOnChr) {
             $string = explode(chr(0), $string);
             $string = $string[0];
         }
@@ -69,6 +69,15 @@ class Functions
             $ret .= $byteArray[$i];
         }
         return $ret;
+    }
+
+    public static function bytesToInt($hexArray = array()) {
+        $l = count($hexArray);
+        $i = $j = 0;
+        for(; $i < $l;$i++) {
+            $j = ($j << 8) | $hexArray[$i];
+        }
+        return $j;
     }
 }
 ?>
