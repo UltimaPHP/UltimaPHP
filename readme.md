@@ -20,25 +20,25 @@ First of all, you need a installation of PHP 5.4 or greater in your systen, for 
 
 After install the PHP on the machine, edit the file ```ultimaphp.ini``` as you wish and follow the next steps to start the server:
 
-  ### Linux
-  
-  1) Open the terminal and navigate to the root folder of UltimaPHP
-  2) Type: ```php startserver.php```
+### Linux
+
+1) Open the terminal and navigate to the root folder of UltimaPHP
+2) Type: ```php startserver.php```
 
 
-  ### MacOS
-  
-  (need someone with mac to help us)
+### MacOS
 
-  ### Windows
-  
-  1) Open the manu bar and open ```cmd```
-  2) Navigate to PHP installation folder
-  3) type ```php.exe c:\ultimaphp\instalation\folder\startserver.php```
+(need someone with mac to help us)
+
+### Windows
+
+1) Open the manu bar and open ```cmd```
+2) Navigate to PHP installation folder
+3) type ```php.exe c:\ultimaphp\instalation\folder\startserver.php```
 
 Note: On ```ultimaphp.ini``` there is some database information but untill now there is nothing programmed using databases, so there is no need for install MySQL for now.
 
-### Usefull links to help coding
+#### Usefull links to help coding
 
  * [SocketSniff](http://nirsoft.net/utils/socket_sniffer.html) program i use to monitor an program sockets communication
  * [POL Packet Guide](http://docs.polserver.com/packets/index.php) for learning all about the packages sent trought server and client
