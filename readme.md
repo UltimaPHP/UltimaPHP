@@ -22,19 +22,19 @@ After install the PHP on the machine, edit the file ```ultimaphp.ini``` as you w
 
 ### Linux
 
-1) Open the terminal and navigate to the root folder of UltimaPHP
-2) Type: ```php startserver.php```
+ * Open the terminal and navigate to the root folder of UltimaPHP
+ * Type: ```php startserver.php```
 
 
 ### MacOS
 
-(need someone with mac to help us)
+ * We need someone with mac to help us
 
 ### Windows
 
-1) Open the manu bar and open ```cmd```
-2) Navigate to PHP installation folder
-3) type ```php.exe c:\ultimaphp\instalation\folder\startserver.php```
+ * Open the manu bar and open ```cmd```
+ * Navigate to PHP installation folder
+ * type ```php.exe c:\ultimaphp\instalation\folder\startserver.php```
 
 Note: On ```ultimaphp.ini``` there is some database information but untill now there is nothing programmed using databases, so there is no need for install MySQL for now.
 
