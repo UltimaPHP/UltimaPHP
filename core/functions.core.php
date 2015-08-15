@@ -26,35 +26,36 @@ class Functions
         }
         return $ans;
     }
-
-    public static function strToHex($string){
+    
+    public static function strToHex($string) {
         $hex = '';
-        for ($i=0; $i<strlen($string); $i++){
-            $hex .= substr('0'.dechex(ord($string[$i])), -2);
+        for ($i = 0; $i < strlen($string); $i++) {
+            $hex.= substr('0' . dechex(ord($string[$i])), -2);
         }
         return strToUpper($hex);
     }
-
+    
     public static function strToChr($string) {
         $ret = "";
-        for ($i=0; $i < strlen($string); $i++) { 
-            $ret .= chr(dechex(ord($string[$i])));
+        for ($i = 0; $i < strlen($string); $i++) {
+            $ret.= chr(dechex(ord($string[$i])));
         }
         return $ret;
     }
-
-    public static function hexToChr($data, $from = null, $to = null, $explodeOnChr = false){
+    
+    public static function hexToChr($data, $from = null, $to = null, $explodeOnChr = false) {
         if (is_array($data)) {
             $hex = self::implodeByte($data, $from, $to);
-        } else {
+        } 
+        else {
             $hex = $data;
         }
-
-        $string='';
-        for ($i=0; $i < strlen($hex)-1; $i+=2){
-            $string .= chr(hexdec($hex[$i].$hex[$i+1]));
+        
+        $string = '';
+        for ($i = 0; $i < strlen($hex) - 1; $i+= 2) {
+            $string.= chr(hexdec($hex[$i] . $hex[$i + 1]));
         }
-
+        
         if ($explodeOnChr) {
             $string = explode(chr(0), $string);
             $string = $string[0];
@@ -62,19 +63,19 @@ class Functions
         
         return $string;
     }
-
+    
     public static function implodeByte($byteArray = array(), $from, $to) {
         $ret = "";
-        for ($i=$from; $i <= $to; $i++) { 
-            $ret .= $byteArray[$i];
+        for ($i = $from; $i <= $to; $i++) {
+            $ret.= $byteArray[$i];
         }
         return $ret;
     }
-
+    
     public static function bytesToInt($hexArray = array()) {
         $l = count($hexArray);
         $i = $j = 0;
-        for(; $i < $l;$i++) {
+        for (; $i < $l; $i++) {
             $j = ($j << 8) | $hexArray[$i];
         }
         return $j;
