@@ -81,6 +81,8 @@ class UltimaPHP
         
         self::setStatus(self::STATUS_RUNNING, array(self::$conf['server']['ip'], self::$conf['server']['port']));
 
+        $comp = new Compression();
+
         while (self::$status != self::STATUS_FATAL && self::$status != self::STATUS_STOP) {
             Sockets::monitor();
             Sockets::runEvents();

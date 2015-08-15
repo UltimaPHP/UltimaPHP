@@ -15,7 +15,7 @@ class Sockets
         }
         
         if (!socket_set_nonblock(UltimaPHP::$socketServer)) {
-        	echo "???";
+            echo "???";
         }
         
         if (socket_bind(UltimaPHP::$socketServer, UltimaPHP::$conf['server']['ip'], UltimaPHP::$conf['server']['port'])) {
@@ -124,23 +124,23 @@ class Sockets
         $mt = microtime(true);
         foreach (UltimaPHP::$socketEvents as $registerTime => $event) {
             if ($mt >= $event['time']) {
-            	if (class_exists($event['event']['class'])) {
-            		if (method_exists($event['event']['class'], $event['event']['method'])) {
-            			$event['event']['args'] = (isset($event['event']['args']) ? $event['event']['args'] : array());
+                if (class_exists($event['event']['class'])) {
+                    if (method_exists($event['event']['class'], $event['event']['method'])) {
+                        $event['event']['args'] = (isset($event['event']['args']) ? $event['event']['args'] : array());
 
-            			call_user_func_array(array($event['event']['class'], $event['event']['method']), array("", $event['client'], $event['event']['args']));
-            			
-            			unset(UltimaPHP::$socketEvents[$registerTime]);
-            		} else {
-            			// Event method called don't exists
-            			UltimaPHP::log("Event called a invalid method: " . $event['event']['method'] . " from class: " . $event['event']['class'], UltimaPHP::LOG_WARNING);
-            			unset(UltimaPHP::$socketEvents[$registerTime]);
-            		}
-            	} else {
-            		// Event class called
-            		UltimaPHP::log("Event called a invalid class: " . $event['event']['class'], UltimaPHP::LOG_WARNING);
-            		unset(UltimaPHP::$socketEvents[$registerTime]);
-            	}
+                        call_user_func_array(array($event['event']['class'], $event['event']['method']), array("", $event['client'], $event['event']['args']));
+                        
+                        unset(UltimaPHP::$socketEvents[$registerTime]);
+                    } else {
+                        // Event method called don't exists
+                        UltimaPHP::log("Event called a invalid method: " . $event['event']['method'] . " from class: " . $event['event']['class'], UltimaPHP::LOG_WARNING);
+                        unset(UltimaPHP::$socketEvents[$registerTime]);
+                    }
+                } else {
+                    // Event class called
+                    UltimaPHP::log("Event called a invalid class: " . $event['event']['class'], UltimaPHP::LOG_WARNING);
+                    unset(UltimaPHP::$socketEvents[$registerTime]);
+                }
             }
         }
     }
