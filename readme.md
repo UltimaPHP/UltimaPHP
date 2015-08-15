@@ -1,12 +1,12 @@
 # UltimaPHP - OpenSource Ultima Online Server
 
-UltimaPHP is a moder Ultima Online server, fully written in PHP 5.4
+UltimaPHP is a modern Ultima Online server written in PHP 5.4.
 
-This server was created for attend those who ever wanted to create differend addaptations on the core of your shard or even in Ultima Online.
+This server was created for thoes who ever wanted to create differend addaptations on the core of your shard or even in Ultima Online.
 
-The base idea of this server was developed by Matthew [Ankron, from sphere community] and for study propose I re-scripted the entire server to understand how it works, and after that i decided to create a standalone version of the server to work in any OS.  
+The idea of the server written in PHP came from Matthew [Ankron, on sphere community] and for study propose i re-scripted the entire server to understand how it works, and after all i decided to create a standalone version of the server to work in any OS.
 
-Feature list from UltimaPHP:
+Here is the feature list of UltimaPHP (for now):
 
  * Handle the socket connections
  * Compress / Decompress IN/OUT data
