@@ -124,10 +124,7 @@ class Packets
      * Send the account characters to the client
      */
     public static function packet_0xA9($data, $client) {
-        $packet = "";
-        
         $characters = array(array('name' => "Escriba"), array('name' => "Escriba94"));
-        
         $startingLocations = array(array('name' => "Yew", 'area' => 'The Sturdy Bow', 'position' => array("x" => 567, "y" => 978, "z" => 0, 'map' => 0), 'clioc' => 1075072), array('name' => "Minoc", 'area' => 'The Barnacle Tavern', 'position' => array("x" => 2477, "y" => 407, "z" => 15, 'map' => 0), 'clioc' => 1075073), array('name' => "Britain", 'area' => 'Sweet Dreams Inn', 'position' => array("x" => 1496, "y" => 1629, "z" => 10, 'map' => 0), 'clioc' => 1075074), array('name' => "Moonglow", 'area' => 'The Scholars Inn', 'position' => array("x" => 4404, "y" => 1169, "z" => 0, 'map' => 0), 'clioc' => 1075075), array('name' => "Trinsic", 'area' => 'The Traveller\'s Inn', 'position' => array("x" => 1844, "y" => 2745, "z" => 0, 'map' => 0), 'clioc' => 1075076), array('name' => "New Magincia", 'area' => 'The Great Horns Tavern', 'position' => array("x" => 3738, "y" => 2223, "z" => 20, 'map' => 0), 'clioc' => 1075077), array('name' => "Jhelom", 'area' => 'The Morning Star Inn', 'position' => array("x" => 1378, "y" => 3817, "z" => 0, 'map' => 0), 'clioc' => 1075078), array('name' => "Skara Brae", 'area' => 'The Falconers Inn', 'position' => array("x" => 594, "y" => 2227, "z" => 0, 'map' => 0), 'clioc' => 1075079), array('name' => "Vesper", 'area' => 'The Ironwood Inn', 'position' => array("x" => 2771, "y" => 977, "z" => 0, 'map' => 0), 'clioc' => 1075080));
         
         $tmpPacket = "05";
