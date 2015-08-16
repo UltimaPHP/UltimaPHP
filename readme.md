@@ -8,7 +8,6 @@ The base idea of how to keep the server written in PHP alive and monitoring the 
 
 I decided to help the project and for study propose i've re-scripted the entire socket server to understand how it works and after that i decided to create a lightweight standalone version of the server that runs in any OS easly.
 
-
 ## How to install?
 
 First of all you will need to install PHP 5.4 or greater and MySQL Server 5 or greater (or any database compatible with PDO) on your machine, for that open this links:
@@ -23,7 +22,6 @@ After install PHP and MySQL on the machine (mysql will ask to create the passwor
  * Open the terminal and navigate to the root folder of UltimaPHP
  * Type: ```php startserver.php```
 
-
 ### Mac
 
  * We need someone with mac to help us
@@ -33,7 +31,6 @@ After install PHP and MySQL on the machine (mysql will ask to create the passwor
  * Open the manu bar and open ```cmd```
  * Navigate to PHP installation folder
  * type ```php.exe c:\ultimaphp\instalation\folder\startserver.php```
-
 
 ### What is allready working?
 
@@ -57,9 +54,8 @@ After install PHP and MySQL on the machine (mysql will ask to create the passwor
  * Connecting the client to the world (80%, we need to script a few packets to make it works)
  * Support for Encrypted clients (0%, we founded information about encrypt/decrypt the packets using the BLOWFISH/TWOFISH algorythin so it's an feature improvement)
 
-
  #### Usefull links that could help you code
-
+ 
  * [SocketSniff](http://nirsoft.net/utils/socket_sniffer.html) program i use to monitor an program sockets communication
  * [POL Packet Guide](http://docs.polserver.com/packets/index.php) for learning all about the packages sent trought server and client
  * [Sphere 0.56b leaked code](https:///github.com/necr0potenc3/Sphere) to see how things works
