@@ -45,7 +45,7 @@ class Compression
             $current+= $x;
             $cBits++;
             if ($cBits == 8) {
-                $retval[] = bindec($current);
+                $retval[] = $current;
                 $cBits = 0;
             }
         }
@@ -55,7 +55,7 @@ class Compression
             $cBits++;
             
             if ($cBits == 8) {
-                $retval[] = bindec($current);
+                $retval[] = $current;
                 $current = 0;
                 $cBits = 0;
             }

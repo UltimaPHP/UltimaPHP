@@ -93,12 +93,12 @@ class Sockets
         }
     }
     
-    public static function out($client, $packet, $dontConvert = false) {
+    public static function out($client, $packet, $prefix = null, $dontConvert = false) {
         $err = NULL;
         
         if (isset(UltimaPHP::$socketClients[$client]['compressed']) && UltimaPHP::$socketClients[$client]['compressed'] === true) {
             $compression = new Compression();
-            $packet = "B30CEC99E8D0" . unpack('H*', $compression->compress($packet)) [1];
+            $packet = unpack('H*', $compression->compress($packet)) [1];
         }
         
         if ($dontConvert === false) {
@@ -106,6 +106,10 @@ class Sockets
         } 
         else {
             $packet = $packet;
+        }
+
+        if ($prefix !== null) {
+            $packet = $prefix.$packet;
         }
         
         UltimaPHP::$socketClients[$client]['packets'][] = array('packet' => $packet, 'time' => (microtime(true) + 0.00100));
