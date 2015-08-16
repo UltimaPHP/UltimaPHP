@@ -10,7 +10,7 @@ Here is the feature list of UltimaPHP (for now):
 
  * Handle the socket connections
  * Compress / Decompress IN/OUT data
- * Support for encrypted clients (working on it)
+ * Future support for encrypted clients (working on it)
  * Works in any OS with an standalone PHP 5.4 (or greater) instalation
 
 

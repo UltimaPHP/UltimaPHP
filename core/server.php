@@ -194,6 +194,15 @@ class UltimaPHP
                 }
             }
         }
+
+        // Update the variable as array
+        $clientVersion = explode(".", self::$conf['server']['client']);
+        self::$conf['server']['client'] = array(
+            'major' => $clientVersion[0],
+            'minor' => $clientVersion[1],
+            'revision' => $clientVersion[2],
+            'prototype' => $clientVersion[3]
+        );
         
         if (isset($iniMessage)) {
             self::log($iniMessage . " in ultimaphp.ini.", self::LOG_ERROR);
