@@ -14,10 +14,13 @@ class UltimaPHP
     const STATUS_FILE_LOADING = 8;
     const STATUS_FILE_LOAD_FAIL = 16;
     const STATUS_FILE_LOADED = 32;
-    const STATUS_UNHANDLED = 64;
-    const STATUS_UNKNOWN = 128;
-    const STATUS_LISTENING = 256;
-    const STATUS_RUNNING = 512;
+    const STATUS_DATABASE_CONNECTING = 64;
+    const STATUS_DATABASE_CONNECTED = 128;
+    const STATUS_DATABASE_CONNECTION_FAILED = 256;
+    const STATUS_UNHANDLED = 512;
+    const STATUS_UNKNOWN = 1024;
+    const STATUS_LISTENING = 2048;
+    const STATUS_RUNNING = 4096;
     
     /* Server Log Types */
     const LOG_NORMAL = "NORMAL";
@@ -36,6 +39,9 @@ class UltimaPHP
     static $socketServer;
     static $socketClients = array();
     static $socketEvents = array();
+    
+    /* Server Database Connection Variables */
+    static $db;
     
     /* Shard Variables */
     static $clients = 0;
@@ -79,6 +85,16 @@ class UltimaPHP
             self::setStatus(self::STATUS_FILE_LOADED);
         }
         
+        self::setStatus(self::STATUS_DATABASE_CONNECTING);
+        try {
+            $dnsString = self::$conf['database']['type'] . ":host=" . self::$conf['database']['host'] . ";dbname=" . self::$conf['database']['schema'] . ";charset=utf8";
+            self::$db = new PDO($dnsString, self::$conf['database']['user'], self::$conf['database']['password']);
+            self::setStatus(self::STATUS_DATABASE_CONNECTED);
+        }
+        catch(PDOException $e) {
+            self::setStatus(self::STATUS_DATABASE_CONNECTION_FAILED, array("\n" . $e->getMessage()));
+        }
+        
         self::setStatus(self::STATUS_RUNNING, array(self::$conf['server']['ip'], self::$conf['server']['port']));
         
         while (self::$status != self::STATUS_FATAL && self::$status != self::STATUS_STOP) {
@@ -111,6 +127,9 @@ class UltimaPHP
         elseif (!isset(self::$conf['accounts'])) {
             $iniMessage = "No [accounts] configuration section";
         } 
+        elseif (!isset(self::$conf['logs'])) {
+            $iniMessage = "No [logs] configuration section";
+        } 
         elseif (!isset(self::$conf['server']['name'])) {
             $iniMessage = "Server name not defined";
         } 
@@ -129,6 +148,9 @@ class UltimaPHP
         } 
         elseif (!isset(self::$conf['server']['save_time'])) {
             $iniMessage = "Server save time not defined";
+        } 
+        elseif (!isset(self::$conf['server']['client'])) {
+            $iniMessage = "Server client not defined";
         } 
         elseif (!isset(self::$conf['database']['type'])) {
             $iniMessage = "Server database type not defined";
@@ -172,6 +194,9 @@ class UltimaPHP
         elseif (!isset(self::$conf['accounts']['ConnectingMaxIp'])) {
             $iniMessage = "Server accounts maximoun connection per ip not defined";
         }
+        elseif (!isset(self::$conf['logs']['debug'])) {
+            $iniMessage = "Server logs debug not defined";
+        }
         
         $ip = explode(".", self::$conf['server']['ip']);
         
@@ -194,15 +219,13 @@ class UltimaPHP
                 }
             }
         }
-
+        
         // Update the variable as array
         $clientVersion = explode(".", self::$conf['server']['client']);
-        self::$conf['server']['client'] = array(
-            'major' => $clientVersion[0],
-            'minor' => $clientVersion[1],
-            'revision' => $clientVersion[2],
-            'prototype' => $clientVersion[3]
-        );
+        self::$conf['server']['client'] = array('major' => $clientVersion[0], 'minor' => $clientVersion[1], 'revision' => $clientVersion[2], 'prototype' => $clientVersion[3]);
+
+        // Update the debug variable
+        self::$conf['logs']['debug'] = (bool)self::$conf['logs']['debug'];
         
         if (isset($iniMessage)) {
             self::log($iniMessage . " in ultimaphp.ini.", self::LOG_ERROR);
@@ -248,6 +271,22 @@ class UltimaPHP
             case self::STATUS_FILE_LOADED:
                 $message = NULL;
                 $type = self::LOG_NORMAL;
+                break;
+
+            case self::STATUS_DATABASE_CONNECTING:
+                $message = "Trying to connect to the database";
+                $type = SELF::LOG_NORMAL;
+                break;
+
+            case self::STATUS_DATABASE_CONNECTED:
+                $message = "Database connected successfully";
+                $type = SELF::LOG_NORMAL;
+                break;
+
+            case self::STATUS_DATABASE_CONNECTION_FAILED:
+                $message = "Server could not connect to the database with error: " . $args[0];
+                $type = SELF::LOG_DANGER;
+                $shutdown = true;
                 break;
 
             case self::STATUS_UNKNOWN:

@@ -74,16 +74,23 @@ class Packets
         
         switch ($type) {
             case 0x00:
+                
                 // God client ???
                 break;
+
             case 0x04:
+                
                 // Client asking to server send the status information to the client
                 break;
+
             case 0x05:
+                
                 // Client asking to server send the skills information to the client
                 self::packet_0x3A($serial, $client);
                 break;
+
             default:
+                
                 // Unknow status type received
                 break;
         }
@@ -146,10 +153,12 @@ class Packets
         $login = false;
         
         // Account / Password validadion TODO
-        UltimaPHP::$socketClients[$client]['account'] = array('account' => $account, 'password' => sha1($password));
+        UltimaPHP::$socketClients[$client]['account'] = array('account' => $account, 'password' => md5($password));
         UltimaPHP::log("Account $account connected from " . UltimaPHP::$socketClients[$client]['ip']);
         
-        if (strlen($account) > 0 && strlen($password) > 0) {
+        $acc = new Account($account, md5($password), $client);
+        
+        if ($acc->isValid === true) {
             $login = true;
         }
         
@@ -175,10 +184,9 @@ class Packets
      * 7 - General IGR authentication failure.
      */
     public static function packet_0x82($data, $client, $reason = 4) {
-        $packet = Functions::strToHex(chr(130) . chr(hexdec($reason)));
+        $packet = chr(130) . chr(hexdec($reason));
         UltimaPHP::log("Client " . UltimaPHP::$socketClients[$client]['ip'] . " disconnected from the server");
-        Sockets::out($client, $packet);
-        unset(UltimaPHP::$socketClients[$client]);
+        Sockets::out($client, $packet, null, true, true);
     }
     
     /**
@@ -207,12 +215,43 @@ class Packets
     }
     
     /**
+     * Send to the client the features from server
+     */
+    public static function packet_0x91($data, $client, $redirected = false) {
+        $command = $data[0];
+        $keyUsed = hexdec($data[1]) . hexdec($data[2]) . hexdec($data[3]) . hexdec($data[4]);
+        $account = Functions::hexToChr($data, 5, 34, true);
+        $password = Functions::hexToChr($data, 35, 64, true);
+        
+        $login = false;
+        
+        $acc = new Account($account, md5($password), $client);
+        
+        if ($acc->isValid === true) {
+            $login = true;
+        }
+        
+        if ($login === true) {
+            UltimaPHP::log("Account $account logged from " . UltimaPHP::$socketClients[$client]['ip']);
+            
+            // Set the flag on the connection to send next packets compressed
+            UltimaPHP::$socketClients[$client]['compressed'] = true;
+            
+            self::packet_0xB9("", $client);
+            self::packet_0xA9("", $client);
+        } 
+        else {
+            self::packet_0x82("", $client, 3);
+        }
+    }
+    
+    /**
      * Receive the selected server from client
      */
     public static function packet_0xA0($data, $client) {
         $server = Functions::getDword($data[1] . $data[2]);
         UltimaPHP::$socketClients[$client]['connected_server'] = ((int)$server - 1);
-        UltimaPHP::log("Account " . UltimaPHP::$socketClients[$client]['account']['account'] . " connecting on server " . UltimaPHP::$servers[UltimaPHP::$socketClients[$client]['connected_server']]['name']);
+        UltimaPHP::log("Account " . UltimaPHP::$socketClients[$client]['account']->account . " connecting on server " . UltimaPHP::$servers[UltimaPHP::$socketClients[$client]['connected_server']]['name']);
         self::packet_0x8C("", $client);
     }
     
@@ -328,48 +367,80 @@ class Packets
                 break;
 
             case 11:
-                 // Client language
+                
+                // Client language
                 $language = Functions::hexToChr($data, 5, 8);
                 UltimaPHP::$socketClients[$client]['language'] = $language;
                 break;
 
             case 15:
-                 // ClientType
+                
+                // ClientType
                 $unk1 = hexdec($data[5]);
                 $ClientType = Functions::hexToChr($data, 6, 9);
                 UltimaPHP::$socketClients[$client]['type'] = $ClientType;
+                
+                // Send the next packets in the next two second
+                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 1), 0.2);
+                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 2), 0.4);
+                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 3), 0.6);
+                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 4), 0.8);
+                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 5), 1.0);
+                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 6), 1.2);
+                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 7), 1.4);
+                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 8), 1.6);
+                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 9), 1.8);
+                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 10), 2.0);
                 break;
         }
     }
     
-    /**
-     * Send to the client the features from server
-     */
-    public static function packet_0x91($data, $client, $redirected = false) {
-        $command = $data[0];
-        $keyUsed = hexdec($data[1]) . hexdec($data[2]) . hexdec($data[3]) . hexdec($data[4]);
-        $account = Functions::hexToChr($data, 5, 34, true);
-        $password = Functions::hexToChr($data, 35, 64, true);
-        
-        $login = false;
-        
-        if (strlen($account) > 0 && strlen($password) > 0) {
-            $login = true;
+    public static function todoPackets($data, $client, $args) {
+        echo "Sending loop $args\n";
+        switch ($args) {
+            case 1:
+                
+                $packet = "BF0600000800";
+                break;
+
+            case 2:
+                $packet = "BF310000180000000500000000000000000000000000000000000000000000000000000000000000000000000000000000";
+                break;
+
+            case 3:
+                $packet = "6D001B";
+                break;
+
+            case 4:
+                $packet = "65FF0010";
+                break;
+
+            case 5:
+                $packet = "BC0101";
+                break;
+
+            case 6:
+                $packet = "4F00";
+                break;
+
+            case 7:
+                $packet = "BF0600000800";
+                break;
+
+            case 8:
+                $packet = "7835000006C08803DB05C606C4000683EA18074001B94E0E75154000FAEB90960901BE40070B1F3EA6194004BCA01F0B0600000000";
+                break;
+
+            case 9:
+                $packet = "170F000006C0880002000100000200";
+                break;
+
+            case 10:
+                $packet = "200006C08803DB0083EA1805C606C400000600";
+                break;
         }
         
-        if ($login === true) {
-            UltimaPHP::$socketClients[$client]['account'] = array('account' => $account, 'password' => sha1($password));
-            UltimaPHP::log("Account $account logged from " . UltimaPHP::$socketClients[$client]['ip']);
-            
-            // Set the flag on the connection to send next packets compressed
-            UltimaPHP::$socketClients[$client]['compressed'] = true;
-            
-            self::packet_0xB9("", $client);
-            self::packet_0xA9("", $client);
-        } 
-        else {
-            self::packet_0x82("", $client, 3);
-        }
+        Sockets::out($client, $packet);
     }
     
     /**
