@@ -28,8 +28,6 @@ class Packets
         }
     }
     
-    
-    
     /**
      * Packet received from client asking for status information
      *
@@ -105,7 +103,7 @@ class Packets
         UltimaPHP::log("Account $account connected from " . UltimaPHP::$socketClients[$client]['ip']);
         
         UltimaPHP::$socketClients[$client]['account'] = new Account($account, md5($password), $client);
-
+        
         if (UltimaPHP::$socketClients[$client]['account']->isValid === true) {
             UltimaPHP::$socketClients[$client]['account']->sendServerList();
         } 

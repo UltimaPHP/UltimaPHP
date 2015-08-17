@@ -23,10 +23,10 @@ class Account
     
     /* Character object array */
     public $characters = null;
-
+    
     /* Logged player variables */
     public $player = null;
-
+    
     /**
      * Looks for the account credentials in the database and define the base variables
      */
@@ -68,7 +68,7 @@ class Account
             return $this;
         }
     }
-
+    
     /**
      * Send ping response to the client
      */
@@ -104,7 +104,7 @@ class Account
             return $this->characters;
         }
     }
-
+    
     /**
      * Send the server list to the client
      */
@@ -186,14 +186,14 @@ class Account
         
         Sockets::out($this->client, $packet);
     }
-
+    
     /**
      * Process the character login request
      */
     public function loginCharacter($info = array()) {
         if (isset($this->characters[$info['slotchoosen']])) {
             $this->player = new Player($this->client, $this->characters[$info['slotchoosen']]['uid']);
-
+            
             Sockets::addEvent($this->client, array("option" => "player", "method" => "sendClientLocaleBody"), 0.0);
             Sockets::addEvent($this->client, array("option" => "player", "method" => "updateCursorColor", "args" => 0), 0.0);
             Sockets::addEvent($this->client, array("option" => "player", "method" => "enableMapDiffs"), 0.0);
@@ -211,11 +211,12 @@ class Account
             Sockets::addEvent($this->client, array("option" => "player", "method" => "drawPlayer"), 0.0);
             Sockets::addEvent($this->client, array("option" => "player", "method" => "setWarMode", "args" => 0), 0.0);
             Sockets::addEvent($this->client, array("option" => "player", "method" => "confirmLogin"), 0.0);
-        } else {
+        } 
+        else {
             $this->disconnect(4);
         }
     }
-
+    
     /**
      * Send the connection confirmation of selected server
      */

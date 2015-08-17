@@ -95,7 +95,7 @@ class UltimaPHP
         catch(PDOException $e) {
             self::setStatus(self::STATUS_DATABASE_CONNECTION_FAILED, array("\n" . $e->getMessage()));
         }
-
+        
         self::updateStartingLocations();
         
         self::setStatus(self::STATUS_RUNNING, array(self::$conf['server']['ip'], self::$conf['server']['port']));
@@ -196,7 +196,7 @@ class UltimaPHP
         } 
         elseif (!isset(self::$conf['accounts']['ConnectingMaxIp'])) {
             $iniMessage = "Server accounts maximoun connection per ip not defined";
-        }
+        } 
         elseif (!isset(self::$conf['logs']['debug'])) {
             $iniMessage = "Server logs debug not defined";
         }
@@ -226,7 +226,7 @@ class UltimaPHP
         // Update the variable as array
         $clientVersion = explode(".", self::$conf['server']['client']);
         self::$conf['server']['client'] = array('major' => $clientVersion[0], 'minor' => $clientVersion[1], 'revision' => $clientVersion[2], 'prototype' => $clientVersion[3]);
-
+        
         // Update the debug variable
         self::$conf['logs']['debug'] = (bool)self::$conf['logs']['debug'];
         
@@ -326,7 +326,7 @@ class UltimaPHP
             echo date("H:i:s") . ($type != self::LOG_NORMAL ? " (" . $type . ") " : "") . ": " . $message . "\n";
         }
     }
-
+    
     public static function updateStartingLocations() {
         $query = "SELECT
                         a.name,
@@ -339,22 +339,12 @@ class UltimaPHP
         $sth = UltimaPHP::$db->prepare($query);
         $sth->execute();
         $result = $sth->fetchAll(PDO::FETCH_ASSOC);
-
+        
         foreach ($result as $key => $location) {
             $position = explode(",", $location['position']);
-            self::$starting_locations[] = array(
-                'name' => $location['name'],
-                'area' => $location['area'],
-                'position' => array(
-                    "x" => $position[0],
-                    "y" => $position[1],
-                    "z" => $position[2],
-                    'map' => $position[3]
-                ),
-                'clioc' => $location['clioc']
-            );
+            self::$starting_locations[] = array('name' => $location['name'], 'area' => $location['area'], 'position' => array("x" => $position[0], "y" => $position[1], "z" => $position[2], 'map' => $position[3]), 'clioc' => $location['clioc']);
         }
-
+        
         return true;
     }
 }

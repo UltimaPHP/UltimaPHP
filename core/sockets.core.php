@@ -46,16 +46,18 @@ class Sockets
                 
                 if (strlen($input) > 0) {
                     UltimaPHP::$socketClients[$client]['LastInput'] = $microtime;
-
+                    
                     if (!isset(UltimaPHP::$socketClients[$client]['version']) && UltimaPHP::$conf['server']['client']['major'] == ord($input[0]) && UltimaPHP::$conf['server']['client']['minor'] == ord($input[1]) && UltimaPHP::$conf['server']['client']['revision'] == ord($input[2]) && UltimaPHP::$conf['server']['client']['prototype'] == ord($input[3])) {
                         self::in(Functions::strToHex($input), $client, true);
-                    } else {
-                        $validation = self::validatePacket(str_split(Functions::strToHex($input),2));
+                    } 
+                    else {
+                        $validation = self::validatePacket(str_split(Functions::strToHex($input), 2));
                         if ($validation !== false) {
-                            foreach($validation as $packetArray) {
+                            foreach ($validation as $packetArray) {
                                 self::in(implode("", $packetArray), $client);
                             }
-                        } else {
+                        } 
+                        else {
                             echo "Invalid packet received: " . Functions::strToHex($input) . "\n";
                         }
                     }
@@ -65,6 +67,7 @@ class Sockets
                     if ($packet['time'] <= $microtime) {
                         $err = NULL;
                         socket_write($socket['socket'], $packet['packet']) or $err = socket_last_error(UltimaPHP::$socketClients[$client]['socket']);
+                        
                         // Release the socket from server after send disconnect packet
                         if (dechex(ord($packet['packet'][0])) == 82) {
                             unset(UltimaPHP::$socketClients[$client]);
@@ -79,15 +82,17 @@ class Sockets
     }
     
     private static function in($input, $client, $firstConnectionPacket = false) {
+        
         // Handler merged packets received from the first communiction between server and cleint after the client connect to a server
         if ($firstConnectionPacket === true) {
             $packet = "packet_0x1";
-        } else {
+        } 
+        else {
             $packet = "packet_0x" . strtoupper(substr($input, 0, 2));
         }
-
+        
         if (method_exists("Packets", $packet)) {
-            Packets::$packet(str_split($input,2), $client);
+            Packets::$packet(str_split($input, 2), $client);
         } 
         else {
             UltimaPHP::log("Client sent an unknow packet 0x" . strtoupper(substr($input, 0, 2)) . " to the server:", UltimaPHP::LOG_WARNING);
@@ -109,13 +114,13 @@ class Sockets
         else {
             $packet = $packet;
         }
-
+        
         if ($prefix !== null) {
-            $packet = $prefix.$packet;
+            $packet = $prefix . $packet;
         }
-
+        
         if (UltimaPHP::$conf['logs']['debug'] === true) {
-            echo "Sending packet: " . Functions::strToHex($packet)."\n\n";
+            echo "Sending packet: " . Functions::strToHex($packet) . "\n\n";
         }
         
         UltimaPHP::$socketClients[$client]['packets'][] = array('packet' => $packet, 'time' => (microtime(true) + 0.00100));
@@ -145,15 +150,15 @@ class Sockets
             }
         }
     }
-
+    
     public static function validatePacket($inputArray = array()) {
         if (count($inputArray) == 0) {
             return false;
         }
         $return = array();
-        if (isset(Packets::$packets[hexdec($inputArray[0])])) {
-            $expectedLength = Packets::$packets[hexdec($inputArray[0])];
-
+        if (isset(Packets::$packets[hexdec($inputArray[0]) ])) {
+            $expectedLength = Packets::$packets[hexdec($inputArray[0]) ];
+            
             if ($expectedLength > 0) {
                 if (count($inputArray) > $expectedLength) {
                     $return[] = array_slice($inputArray, 0, $expectedLength);
@@ -163,14 +168,18 @@ class Sockets
                             $return[] = $value;
                         }
                     }
-                } elseif (count($inputArray) == $expectedLength) {
+                } 
+                elseif (count($inputArray) == $expectedLength) {
                     $return[] = $inputArray;
-                } else {
+                } 
+                else {
                     return false;
                 }
-            } elseif ($expectedLength == -1) { // The packet have the information of lenth
-                $length = hexdec($inputArray[1].$inputArray[2]);
-
+            } 
+            elseif ($expectedLength == - 1) {
+                 // The packet have the information of lenth
+                $length = hexdec($inputArray[1] . $inputArray[2]);
+                
                 $return[] = array_slice($inputArray, 0, $length);
                 $next = self::validatePacket(array_slice($inputArray, $length));
                 if ($next !== false) {
@@ -178,13 +187,15 @@ class Sockets
                         $return[] = $value;
                     }
                 }
-            } elseif ($expectedLength === false) {
+            } 
+            elseif ($expectedLength === false) {
                 $return[] = $inputArray;
             }
-        } else {
+        } 
+        else {
             return false;
         }
-
+        
         return $return;
     }
 }
