@@ -100,7 +100,7 @@ class Sockets
         
         if ($dontCompress === false && isset(UltimaPHP::$socketClients[$client]['compressed']) && UltimaPHP::$socketClients[$client]['compressed'] === true) {
             $compression = new Compression();
-            $packet = unpack('H*', $compression->compress($packet)) [1];
+            $packet = unpack('H*', $compression->compress(strtoupper($packet))) [1];
         }
         
         if ($dontConvert === false) {
@@ -117,6 +117,7 @@ class Sockets
         if (UltimaPHP::$conf['logs']['debug'] === true) {
             echo "Sending packet: " . Functions::strToHex($packet)."\n\n";
         }
+        
         UltimaPHP::$socketClients[$client]['packets'][] = array('packet' => $packet, 'time' => (microtime(true) + 0.00100));
     }
     
@@ -137,27 +138,9 @@ class Sockets
         foreach (UltimaPHP::$socketEvents as $registerTime => $events) {
             foreach ($events as $eventKey => $event) {
                 if ($mt >= $event['time']) {
-                    if (class_exists($event['event']['class'])) {
-                        if (method_exists($event['event']['class'], $event['event']['method'])) {
-                            $event['event']['args'] = (isset($event['event']['args']) ? $event['event']['args'] : array());
-                            
-                            call_user_func_array(array($event['event']['class'], $event['event']['method']), array("", $event['client'], $event['event']['args']));
-                            
-                            unset(UltimaPHP::$socketEvents[$registerTime][$eventKey]);
-                        } 
-                        else {
-                            
-                            // Event method called don't exists
-                            UltimaPHP::log("Event called a invalid method: " . $event['event']['method'] . " from class: " . $event['event']['class'], UltimaPHP::LOG_WARNING);
-                            unset(UltimaPHP::$socketEvents[$registerTime][$eventKey]);
-                        }
-                    } 
-                    else {
-                        
-                        // Event class called
-                        UltimaPHP::log("Event called a invalid class: " . $event['event']['class'], UltimaPHP::LOG_WARNING);
-                        unset(UltimaPHP::$socketEvents[$registerTime][$eventKey]);
-                    }
+                    $args = (isset($event['event']['args']) ? $event['event']['args'] : array());
+                    UltimaPHP::$socketClients[$event['client']]['account']->$event['event']['option']->$event['event']['method']($args);
+                    unset(UltimaPHP::$socketEvents[$registerTime][$eventKey]);
                 }
             }
         }

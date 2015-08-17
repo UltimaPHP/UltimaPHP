@@ -28,34 +28,7 @@ class Packets
         }
     }
     
-    /**
-     * Send to the client the locale and body information
-     */
-    public static function packet_0x1B($data, $client) {
-        $player_serial = 442500;
-        $body_type = 987;
-        $pos = array('x' => 100, 'y' => 100, 'z' => 5, 'facing' => 6);
-        $map_size = array('x' => 6144, 'y' => 4096);
-        
-        $packet = "1B";
-        $packet.= str_pad(dechex($player_serial), 8, "0", STR_PAD_LEFT);
-        $packet.= "00000000";
-        $packet.= str_pad(dechex($body_type), 4, "0", STR_PAD_LEFT);
-        $packet.= str_pad(dechex($pos['x']), 4, "0", STR_PAD_LEFT);
-        $packet.= str_pad(dechex($pos['y']), 4, "0", STR_PAD_LEFT);
-        $packet.= "00";
-        $packet.= str_pad(dechex($pos['z']), 2, "0", STR_PAD_LEFT);
-        $packet.= str_pad(dechex($pos['facing']), 2, "0", STR_PAD_LEFT);
-        $packet.= "00FFFFFF";
-        $packet.= "FF000000";
-        $packet.= "00";
-        $packet.= str_pad(dechex($map_size['x']), 2, "0", STR_PAD_LEFT);
-        $packet.= str_pad(dechex($map_size['y']), 2, "0", STR_PAD_LEFT);
-        $packet.= "0000";
-        $packet.= "00000000";
-        
-        Sockets::out($client, $packet);
-    }
+    
     
     /**
      * Packet received from client asking for status information
@@ -86,7 +59,7 @@ class Packets
             case 0x05:
                 
                 // Client asking to server send the skills information to the client
-                self::packet_0x3A($serial, $client);
+                Sockets::addEvent($client, array("option" => "player", "method" => "sendFullSkillList"), 5.0);
                 break;
 
             default:
@@ -94,28 +67,6 @@ class Packets
                 // Unknow status type received
                 break;
         }
-    }
-    
-    /**
-     * Send the skills information to the client
-     */
-    public static function packet_0x3A($data, $client, $type = 2) {
-        $skills = 58;
-        $tmpPacket = str_pad(dechex($type), 2, "0", STR_PAD_LEFT);
-        for ($i = 1; $i <= 58; $i++) {
-            $tmpPacket.= str_pad(dechex($i), 4, "0", STR_PAD_LEFT);
-            $tmpPacket.= str_pad(dechex(1000), 4, "0", STR_PAD_LEFT);
-            $tmpPacket.= str_pad(dechex(1000), 4, "0", STR_PAD_LEFT);
-            $tmpPacket.= "00";
-            $tmpPacket.= str_pad(dechex(1000), 4, "0", STR_PAD_LEFT);
-        }
-        $tmpPacket.= "0000";
-        
-        $packet = "3A";
-        $packet.= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 3), 4, "0", STR_PAD_LEFT);
-        $packet.= $tmpPacket;
-        
-        Sockets::out($client, $packet);
     }
     
     /**
@@ -129,17 +80,14 @@ class Packets
         $slotchoosen = hexdec($data[65] . $data[66] . $data[67] . $data[68]);
         $clientIP = hexdec($data[69]) . "." . hexdec($data[70]) . "." . hexdec($data[71]) . "." . hexdec($data[72]);
         
-        UltimaPHP::$socketClients[$client]['connected'] = array('slotchoosen' => $slotchoosen, 'charname' => $charname, 'loginaccount' => $loginaccount, 'clientIP' => $clientIP, 'clientFlag' => $clientflag);
-        
-        self::packet_0x1B("", $client);
+        UltimaPHP::$socketClients[$client]['account']->loginCharacter(array('slotchoosen' => $slotchoosen, 'charname' => $charname, 'loginaccount' => $loginaccount, 'clientIP' => $clientIP, 'clientFlag' => $clientflag));
     }
     
     /**
      * Send ping response to the client
      */
     public static function packet_0x73($data, $client) {
-        $packet = Functions::strToHex(chr(115) . chr(1));
-        Sockets::out($client, $packet);
+        UltimaPHP::$socketClients[$client]['account']->sendPingResponse();
     }
     
     /**
@@ -156,61 +104,13 @@ class Packets
         UltimaPHP::$socketClients[$client]['account'] = array('account' => $account, 'password' => md5($password));
         UltimaPHP::log("Account $account connected from " . UltimaPHP::$socketClients[$client]['ip']);
         
-        $acc = new Account($account, md5($password), $client);
-        
-        if ($acc->isValid === true) {
-            $login = true;
-        }
-        
-        if ($login === true) {
-            self::packet_0xA8("", $client);
+        UltimaPHP::$socketClients[$client]['account'] = new Account($account, md5($password), $client);
+
+        if (UltimaPHP::$socketClients[$client]['account']->isValid === true) {
+            UltimaPHP::$socketClients[$client]['account']->sendServerList();
         } 
         else {
-            self::packet_0x82("", $client, 3);
-        }
-    }
-    
-    /**
-     * Disconnect player from server
-     *
-     * Reasons:
-     * 0 - Incorrect name/password.
-     * 1 - Someone is already using this account.
-     * 2 - Your account has been blocked.
-     * 3 - Your account credentials are invalid.
-     * 4 - Communication problem. [DEFAULT]
-     * 5 - The IGR concurrency limit has been met.
-     * 6 - The IGR time limit has been met.
-     * 7 - General IGR authentication failure.
-     */
-    public static function packet_0x82($data, $client, $reason = 4) {
-        $packet = chr(130) . chr(hexdec($reason));
-        UltimaPHP::log("Client " . UltimaPHP::$socketClients[$client]['ip'] . " disconnected from the server");
-        Sockets::out($client, $packet, null, true, true);
-    }
-    
-    /**
-     * Send the connection confirmation of selected server
-     */
-    public static function packet_0x8C($data, $client) {
-        if (isset(UltimaPHP::$socketClients[$client]['connected_server'])) {
-            $ip = explode(".", UltimaPHP::$servers[UltimaPHP::$socketClients[$client]['connected_server']]['ip']);
-            
-            $packet = "8C";
-            $packet.= str_pad(dechex($ip[0]), 2, "0", STR_PAD_LEFT);
-            $packet.= str_pad(dechex($ip[1]), 2, "0", STR_PAD_LEFT);
-            $packet.= str_pad(dechex($ip[2]), 2, "0", STR_PAD_LEFT);
-            $packet.= str_pad(dechex($ip[3]), 2, "0", STR_PAD_LEFT);
-            $packet.= str_pad(dechex(UltimaPHP::$servers[UltimaPHP::$socketClients[$client]['connected_server']]['port']), 4, "0", STR_PAD_LEFT);
-            $packet.= str_pad(dechex(UltimaPHP::$socketClients[$client]['version']['major']), 2, "0", STR_PAD_LEFT);
-            $packet.= str_pad(dechex(UltimaPHP::$socketClients[$client]['version']['minor']), 2, "0", STR_PAD_LEFT);
-            $packet.= str_pad(dechex(UltimaPHP::$socketClients[$client]['version']['revision']), 2, "0", STR_PAD_LEFT);
-            $packet.= str_pad(dechex(UltimaPHP::$socketClients[$client]['version']['prototype']), 2, "0", STR_PAD_LEFT);
-            
-            Sockets::out($client, $packet);
-        } 
-        else {
-            self::packet_0x82("", $client, 4);
+            UltimaPHP::$socketClients[$client]['account']->disconnect(3);
         }
     }
     
@@ -225,23 +125,18 @@ class Packets
         
         $login = false;
         
-        $acc = new Account($account, md5($password), $client);
+        UltimaPHP::$socketClients[$client]['account'] = new Account($account, md5($password), $client);
         
-        if ($acc->isValid === true) {
-            $login = true;
-        }
-        
-        if ($login === true) {
+        if (UltimaPHP::$socketClients[$client]['account']->isValid === true) {
             UltimaPHP::log("Account $account logged from " . UltimaPHP::$socketClients[$client]['ip']);
             
             // Set the flag on the connection to send next packets compressed
             UltimaPHP::$socketClients[$client]['compressed'] = true;
-            
-            self::packet_0xB9("", $client);
-            self::packet_0xA9("", $client);
+            UltimaPHP::$socketClients[$client]['account']->enableLockedFeatures();
+            UltimaPHP::$socketClients[$client]['account']->sendCharacterList();
         } 
         else {
-            self::packet_0x82("", $client, 3);
+            UltimaPHP::$socketClients[$client]['account']->disconnect(3);
         }
     }
     
@@ -252,89 +147,7 @@ class Packets
         $server = Functions::getDword($data[1] . $data[2]);
         UltimaPHP::$socketClients[$client]['connected_server'] = ((int)$server - 1);
         UltimaPHP::log("Account " . UltimaPHP::$socketClients[$client]['account']->account . " connecting on server " . UltimaPHP::$servers[UltimaPHP::$socketClients[$client]['connected_server']]['name']);
-        self::packet_0x8C("", $client);
-    }
-    
-    /**
-     * Send the server list to the client
-     */
-    public static function packet_0xA8($data, $client) {
-        $packet = "";
-        $tmpPacket = "";
-        foreach (UltimaPHP::$servers as $key => $server) {
-            $ip = explode(".", $server['ip']);
-            
-            $tmpPacket.= str_pad(dechex(($key + 1)), 4, "0", STR_PAD_LEFT);
-            $tmpPacket.= str_pad(Functions::strToHex($server['name']), 64, "0", STR_PAD_RIGHT);
-            $tmpPacket.= str_pad(dechex($server['full']), 2, "0", STR_PAD_LEFT);
-            $tmpPacket.= str_pad(dechex($server['timezone']), 2, "0", STR_PAD_LEFT);
-            $tmpPacket.= str_pad(dechex($ip[3]), 2, "0", STR_PAD_LEFT);
-            $tmpPacket.= str_pad(dechex($ip[2]), 2, "0", STR_PAD_LEFT);
-            $tmpPacket.= str_pad(dechex($ip[1]), 2, "0", STR_PAD_LEFT);
-            $tmpPacket.= str_pad(dechex($ip[0]), 2, "0", STR_PAD_LEFT);
-        }
-        
-        $packet = "A8";
-        $packet.= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 6), 4, "0", STR_PAD_LEFT);
-        $packet.= "FF";
-        $packet.= str_pad(dechex(count(UltimaPHP::$servers)), 4, "0", STR_PAD_LEFT);
-        $packet.= $tmpPacket;
-        
-        Sockets::out($client, $packet);
-    }
-    
-    /**
-     * Send the account characters to the client
-     */
-    public static function packet_0xA9($data, $client) {
-        $characters = array(array('name' => "Player 1"), array('name' => "Player 2"));
-        $startingLocations = array(array('name' => "Yew", 'area' => 'The Sturdy Bow', 'position' => array("x" => 567, "y" => 978, "z" => 0, 'map' => 0), 'clioc' => 1075072), array('name' => "Minoc", 'area' => 'The Barnacle Tavern', 'position' => array("x" => 2477, "y" => 407, "z" => 15, 'map' => 0), 'clioc' => 1075073), array('name' => "Britain", 'area' => 'Sweet Dreams Inn', 'position' => array("x" => 1496, "y" => 1629, "z" => 10, 'map' => 0), 'clioc' => 1075074), array('name' => "Moonglow", 'area' => 'The Scholars Inn', 'position' => array("x" => 4404, "y" => 1169, "z" => 0, 'map' => 0), 'clioc' => 1075075), array('name' => "Trinsic", 'area' => 'The Traveller\'s Inn', 'position' => array("x" => 1844, "y" => 2745, "z" => 0, 'map' => 0), 'clioc' => 1075076), array('name' => "New Magincia", 'area' => 'The Great Horns Tavern', 'position' => array("x" => 3738, "y" => 2223, "z" => 20, 'map' => 0), 'clioc' => 1075077), array('name' => "Jhelom", 'area' => 'The Morning Star Inn', 'position' => array("x" => 1378, "y" => 3817, "z" => 0, 'map' => 0), 'clioc' => 1075078), array('name' => "Skara Brae", 'area' => 'The Falconers Inn', 'position' => array("x" => 594, "y" => 2227, "z" => 0, 'map' => 0), 'clioc' => 1075079), array('name' => "Vesper", 'area' => 'The Ironwood Inn', 'position' => array("x" => 2771, "y" => 977, "z" => 0, 'map' => 0), 'clioc' => 1075080));
-        
-        $tmpPacket = "05";
-        
-        for ($i = 0; $i < 5; $i++) {
-            $tmpPacket.= str_pad((isset($characters[$i]) ? Functions::strToHex($characters[$i]['name']) : 0), 120, "0", STR_PAD_RIGHT);
-        }
-        
-        $tmpPacket.= str_pad(dechex(count($startingLocations)), 2, "0", STR_PAD_LEFT);
-        foreach ($startingLocations as $key => $location) {
-            
-            // If Client version is bigger then 7.0.13.0
-            if (isset(UltimaPHP::$socketClients[$client]['version']) && UltimaPHP::$socketClients[$client]['version']['major'] >= 7 && UltimaPHP::$socketClients[$client]['version']['minor'] >= 0 && UltimaPHP::$socketClients[$client]['version']['revision'] >= 13 && UltimaPHP::$socketClients[$client]['version']['prototype'] >= 0) {
-                $tmpPacket.= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
-                $tmpPacket.= str_pad(Functions::strToHex($location['name']), 64, "0", STR_PAD_RIGHT);
-                $tmpPacket.= str_pad(Functions::strToHex($location['area']), 64, "0", STR_PAD_RIGHT);
-                $tmpPacket.= str_pad(strtoupper(dechex($location['position']['x'])), 8, "0", STR_PAD_LEFT);
-                $tmpPacket.= str_pad(strtoupper(dechex($location['position']['y'])), 8, "0", STR_PAD_LEFT);
-                $tmpPacket.= str_pad(strtoupper(dechex($location['position']['z'])), 8, "0", STR_PAD_LEFT);
-                $tmpPacket.= str_pad(strtoupper(dechex($location['position']['map'])), 8, "0", STR_PAD_LEFT);
-                $tmpPacket.= str_pad(strtoupper(dechex($location['clioc'])), 8, "0", STR_PAD_LEFT);
-                $tmpPacket.= str_pad("", 8, "0", STR_PAD_RIGHT);
-            } 
-            else {
-                $tmpPacket.= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
-                $tmpPacket.= str_pad(Functions::strToHex($location['name']), 62, "0", STR_PAD_RIGHT);
-                $tmpPacket.= str_pad(Functions::strToHex($location['area']), 62, "0", STR_PAD_RIGHT);
-            }
-        }
-        
-        $flags = "0580";
-        $tmpPacket.= str_pad($flags, 8, "0", STR_PAD_LEFT);
-        $tmpPacket.= "0000";
-        
-        $packet = "A9";
-        $packet.= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 3), 4, "0", STR_PAD_LEFT);
-        $packet.= $tmpPacket;
-        
-        Sockets::out($client, $packet, Functions::hexToChr("B30CEC99E8D0"));
-    }
-    
-    /**
-     * Enable locked client features
-     */
-    public static function packet_0xB9($data, $client) {
-        $packet = "B9000C829F";
-        Sockets::out($client, $packet);
+        UltimaPHP::$socketClients[$client]['account']->sendConnectionConfirmation();
     }
     
     /**
@@ -379,68 +192,8 @@ class Packets
                 $unk1 = hexdec($data[5]);
                 $ClientType = Functions::hexToChr($data, 6, 9);
                 UltimaPHP::$socketClients[$client]['type'] = $ClientType;
-                
-                // Send the next packets in the next two second
-                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 1), 0.2);
-                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 2), 0.4);
-                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 3), 0.6);
-                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 4), 0.8);
-                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 5), 1.0);
-                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 6), 1.2);
-                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 7), 1.4);
-                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 8), 1.6);
-                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 9), 1.8);
-                Sockets::addEvent($client, array("class" => "Packets", "method" => "todoPackets", "args" => 10), 2.0);
                 break;
         }
-    }
-    
-    public static function todoPackets($data, $client, $args) {
-        echo "Sending loop $args\n";
-        switch ($args) {
-            case 1:
-                
-                $packet = "BF0600000800";
-                break;
-
-            case 2:
-                $packet = "BF310000180000000500000000000000000000000000000000000000000000000000000000000000000000000000000000";
-                break;
-
-            case 3:
-                $packet = "6D001B";
-                break;
-
-            case 4:
-                $packet = "65FF0010";
-                break;
-
-            case 5:
-                $packet = "BC0101";
-                break;
-
-            case 6:
-                $packet = "4F00";
-                break;
-
-            case 7:
-                $packet = "BF0600000800";
-                break;
-
-            case 8:
-                $packet = "7835000006C08803DB05C606C4000683EA18074001B94E0E75154000FAEB90960901BE40070B1F3EA6194004BCA01F0B0600000000";
-                break;
-
-            case 9:
-                $packet = "170F000006C0880002000100000200";
-                break;
-
-            case 10:
-                $packet = "200006C08803DB0083EA1805C606C400000600";
-                break;
-        }
-        
-        Sockets::out($client, $packet);
     }
     
     /**
@@ -448,7 +201,7 @@ class Packets
      */
     public static function packet_0xEF($data, $client) {
         if (count($data) < 21) {
-            self::packet_0x82("", $client, 4);
+            UltimaPHP::$socketClients[$client]['account']->disconnect(4);
             return;
         }
         

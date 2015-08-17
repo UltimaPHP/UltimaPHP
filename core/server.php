@@ -44,6 +44,7 @@ class UltimaPHP
     static $db;
     
     /* Shard Variables */
+    static $starting_locations = array();
     static $clients = 0;
     static $items = 0;
     static $npcs = 0;
@@ -94,6 +95,8 @@ class UltimaPHP
         catch(PDOException $e) {
             self::setStatus(self::STATUS_DATABASE_CONNECTION_FAILED, array("\n" . $e->getMessage()));
         }
+
+        self::updateStartingLocations();
         
         self::setStatus(self::STATUS_RUNNING, array(self::$conf['server']['ip'], self::$conf['server']['port']));
         
@@ -322,6 +325,37 @@ class UltimaPHP
         if ($message !== NULL && $type !== NULL) {
             echo date("H:i:s") . ($type != self::LOG_NORMAL ? " (" . $type . ") " : "") . ": " . $message . "\n";
         }
+    }
+
+    public static function updateStartingLocations() {
+        $query = "SELECT
+                        a.name,
+                        a.area,
+                        a.position,
+                        a.clioc
+                    FROM
+                        starting_locations a";
+        
+        $sth = UltimaPHP::$db->prepare($query);
+        $sth->execute();
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($result as $key => $location) {
+            $position = explode(",", $location['position']);
+            self::$starting_locations[] = array(
+                'name' => $location['name'],
+                'area' => $location['area'],
+                'position' => array(
+                    "x" => $position[0],
+                    "y" => $position[1],
+                    "z" => $position[2],
+                    'map' => $position[3]
+                ),
+                'clioc' => $location['clioc']
+            );
+        }
+
+        return true;
     }
 }
 ?>

@@ -17,6 +17,9 @@ First of all you will need to install PHP 5.4 or greater and MySQL Server 5 or g
 
 After install PHP and MySQL on the machine (mysql will ask to create the password or a new user on the instalation), edit the file ```ultimaphp.ini``` as you wish, import the file ```database.sql``` to your database (with some query program, like [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)) and follow the next steps to start the server:
 
+Note 1: The default owner account/password in the database is: test/test
+Note 2: Passwords is allways stored in MD5 encryption
+
 ### Linux
 
  * Open the terminal and navigate to the root folder of UltimaPHP
@@ -51,7 +54,19 @@ After install PHP and MySQL on the machine (mysql will ask to create the passwor
  * Receive the client flags (I dunno what this is too... but the client sends anyway before connect to the server)
  * Send the player locale and body information to the client
  * Send all skill status to the client (80%, the packet is already done but we need to create the database to store the skills and show the information on the packet to the client)
- * Connecting the client to the world (80%, we need to script a few packets to make it works)
+ * Connecting the client to the world (98%, all packets was done... but no map appeared untill now)
+ * Changes cursor color
+ * Play music
+ * Update status bar info
+ * Changes light
+ * Changes weather
+ * Changes season
+ * Enable map diffs on the client
+ * Drawn char and player
+ * Defines mount speed
+ * Show extended status
+ * Change war mode
+ * Send confirmation login packet
  * Support for Encrypted clients (0%, we founded information about encrypt/decrypt the packets using the BLOWFISH/TWOFISH algorythin so it's an feature improvement)
 
  #### Usefull links that could help you code
