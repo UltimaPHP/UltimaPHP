@@ -125,5 +125,6 @@ Note 2: Passwords is allways stored in MD5 encryption
 ```
 
 ### Authors
-Escriba - Brazil
-Ankron  - USA
+
+ * Escriba - Brazil
+ * Ankron  - USA
