@@ -35,6 +35,23 @@ Note 2: Passwords is allways stored in MD5 encryption
  * Navigate to PHP installation folder
  * type ```php.exe c:\ultimaphp\instalation\folder\startserver.php```
 
+
+### Coding padronization
+
+ * All .php files should start with <?php and end with ?>
+ * All .php files should have the comment line header
+ * All class names starts with UPPERCASE character, IE: class ClassName {...}
+ * All method names muust start with LOWERCASE character and all next words start with UPPDERCASE character with no space, IE: goodMethodName()
+ * All codes must be idented with tab
+ * All codes must be formatted in K&R style before commited, manually or using your preffered tool
+
+### Database padronization
+
+ * All data storage tables must have an ID indexed
+ * All secure information, like passwords, must be stored encrypted
+ * All relashionship must have an foreign key linkng the table columns
+ * All tables names must be LOWERCASE and words separated with underline, IE: good_table_name
+
 ### What is already working?
 
  * Package compression using the Huffman algorythin and the pre-defined Ultima Online Byte Tree
@@ -69,11 +86,44 @@ Note 2: Passwords is allways stored in MD5 encryption
  * Send confirmation login packet
  * Support for Encrypted clients (0%, we founded information about encrypt/decrypt the packets using the BLOWFISH/TWOFISH algorythin so it's an feature improvement)
 
- #### Usefull links that could help you code
-
+#### Usefull links that could help you code
+ * [Sublime Text 3](http://www.sublimetext.com/3) recommended IDE used to program the server
+ * [CodeFormatter](https://github.com/akalongman/sublimetext-codeformatter) used to format the code in K&R style
  * [SocketSniff](http://nirsoft.net/utils/socket_sniffer.html) program i use to monitor an program sockets communication
  * [POL Packet Guide](http://docs.polserver.com/packets/index.php) for learning all about the packages sent trought server and client
  * [Sphere 0.56b leaked code](https:///github.com/necr0potenc3/Sphere) to see how things works
  * [RunUO repository](https://github.com/runuo/runuo) to see how things works
  * [POL Repository](https://github.com/polserver/polserver) to see how things works
  * [NodeUO](https://github.com/chjj/node-uo)
+
+#### CodeFormatter PHP configuration default:
+```js
+"codeformatter_php_path": "C:/php/php.exe",
+"codeformatter_php_options":
+{
+    "indent_size": 1,
+    "indent_with_tabs": true,
+    "indent_style": "k&r",
+    "newline_before_comment": true,
+    "new_line_before": "",
+    "new_line_after": "",
+    "format_array_nested": true,
+    "pear": true,
+    "pear_add_header": "",
+    "pear_newline_class": true,
+    "pear_newline_trait": true,
+    "pear_newline_function": false,
+    "pear_switch_without_indent": false,
+    "lowercase": true,
+    "fluent": false,
+    "list_class_function": false,
+    "equals_align": false,
+    "phpbb": false,
+    "space_in_paren": false,
+    "space_in_square": false
+}
+```
+
+### Authors
+Escriba - Brazil
+Ankron  - USA
