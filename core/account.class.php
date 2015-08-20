@@ -74,9 +74,9 @@ class Account {
 	/**
 	 * Send ping response to the client
 	 */
-	public function sendPingResponse() {
+	public function sendPingResponse($runInLot = false) {
 		$packet = Functions::strToHex(chr(115) . chr(1));
-		Sockets::out($this->client, $packet);
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	/**
@@ -114,7 +114,7 @@ class Account {
 	/**
 	 * Send the server list to the client
 	 */
-	public function sendServerList() {
+	public function sendServerList($runInLot = false) {
 		$packet = "";
 		$tmpPacket = "";
 		foreach (UltimaPHP::$servers as $key => $server) {
@@ -136,21 +136,21 @@ class Account {
 		$packet .= str_pad(dechex(count(UltimaPHP::$servers)), 4, "0", STR_PAD_LEFT);
 		$packet .= $tmpPacket;
 
-		Sockets::out($this->client, $packet);
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	/**
 	 * Enable locked client features
 	 */
-	public function enableLockedFeatures() {
+	public function enableLockedFeatures($runInLot = false) {
 		$packet = "B9000C829F";
-		Sockets::out($this->client, $packet);
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	/**
 	 * Send the account characters list to the client
 	 */
-	public function sendCharacterList() {
+	public function sendCharacterList($runInLot = false) {
 		$characters = $this->characters;
 		$startingLocations = UltimaPHP::$starting_locations;
 
@@ -189,7 +189,7 @@ class Account {
 		$packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 3), 4, "0", STR_PAD_LEFT);
 		$packet .= $tmpPacket;
 
-		Sockets::out($this->client, $packet);
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	/**
@@ -202,78 +202,106 @@ class Account {
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "sendClientLocaleBody",
-			), 0.0);
+			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "updateCursorColor",
 				"args" => 0,
-			), 0.0);
+			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "enableMapDiffs",
-			), 0.0);
+			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "playMusic",
 				"args" => 29,
-			), 0.0);
+			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "setWeather",
-				"args" => 2,
-			), 0.0);
+				"args" => 16,
+			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "setSeasonal",
 				"args" => 1,
-			), 0.0);
+			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "setLight",
 				"args" => 0,
-			), 0.0);
+			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "updateCursorColor",
 				"args" => 0,
-			), 0.0);
+			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "drawChar",
-			), 0.0);
+			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "updateStatusBar",
-			), 0.0);
+			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "drawPlayer",
-			), 0.0);
+			), 0.0, true);
+			Sockets::addEvent($this->client, array(
+				"option" => "player",
+				"method" => "setLight",
+				"args" => 0,
+			), 0.0, true);
+			Sockets::addEvent($this->client, array(
+				"option" => "player",
+				"method" => "setWeather",
+				"args" => 16,
+			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "mountSpeed",
-			), 0.0);
+			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "statusBarInfo",
-			), 0.0);
+			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "extendedStats",
-			), 0.0);
+			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "drawPlayer",
-			), 0.0);
+			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "setWarMode",
 				"args" => 0,
-			), 0.0);
+			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "confirmLogin",
-			), 0.0);
+			), 0.0, true);
+			Sockets::addEvent($this->client, array(
+				"option" => "player",
+				"method" => "setTime",
+			), 0.0, true);
+			Sockets::addEvent($this->client, array(
+				"option" => "player",
+				"method" => "setSeasonal",
+				"args" => 1,
+			), 0.0, true);
+			Sockets::addEvent($this->client, array(
+				"option" => "player",
+				"method" => "setLight",
+				"args" => 0,
+			), 0.0, true);
+			Sockets::addEvent($this->client, array(
+				"option" => "player",
+				"method" => "finalPacket"
+			), 0.0, true, true);
 		} else {
 			$this->disconnect(4);
 		}
@@ -282,7 +310,7 @@ class Account {
 	/**
 	 * Send the connection confirmation of selected server
 	 */
-	public function sendConnectionConfirmation() {
+	public function sendConnectionConfirmation($runInLot = false) {
 		if (isset(UltimaPHP::$socketClients[$this->client]['connected_server'])) {
 			$ip = explode(".", UltimaPHP::$servers[UltimaPHP::$socketClients[$this->client]['connected_server']]['ip']);
 
@@ -297,7 +325,7 @@ class Account {
 			$packet .= str_pad(dechex(UltimaPHP::$socketClients[$this->client]['version']['revision']), 2, "0", STR_PAD_LEFT);
 			$packet .= str_pad(dechex(UltimaPHP::$socketClients[$this->client]['version']['prototype']), 2, "0", STR_PAD_LEFT);
 
-			Sockets::out($this->client, $packet);
+			Sockets::out($this->client, $packet, $runInLot);
 		} else {
 			$this->disconnect(4);
 		}
@@ -319,7 +347,7 @@ class Account {
 	public function disconnect($reason = 4) {
 		$packet = chr(130) . chr(hexdec($reason));
 		UltimaPHP::log("Client " . UltimaPHP::$socketClients[$this->client]['ip'] . " disconnected from the server");
-		Sockets::out($this->client, $packet, null, true, true);
+		Sockets::out($this->client, $packet, false, true, true);
 	}
 }
 ?>

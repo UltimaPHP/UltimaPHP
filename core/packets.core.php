@@ -303,10 +303,6 @@ class Packets {
 		case 0x05:
 
 			// Client asking to server send the skills information to the client
-			Sockets::addEvent($client, array(
-				"option" => "player",
-				"method" => "sendFullSkillList",
-			), 5.0);
 			break;
 
 		default:
@@ -387,8 +383,18 @@ class Packets {
 
 			// Set the flag on the connection to send next packets compressed
 			UltimaPHP::$socketClients[$client]['compressed'] = true;
-			UltimaPHP::$socketClients[$client]['account']->enableLockedFeatures();
-			UltimaPHP::$socketClients[$client]['account']->sendCharacterList();
+
+			Sockets::addEvent($client, array(
+				"option" => "account",
+				"method" => "enableLockedFeatures",
+			), 0.0, true);
+			Sockets::addEvent($client, array(
+				"option" => "account",
+				"method" => "sendCharacterList",
+			), 0.0, true, true);
+
+			// UltimaPHP::$socketClients[$client]['account']->enableLockedFeatures();
+			// UltimaPHP::$socketClients[$client]['account']->sendCharacterList();
 		} else {
 			UltimaPHP::$socketClients[$client]['account']->disconnect(3);
 		}

@@ -142,7 +142,7 @@ class Player {
 	/**
 	 * Send to the client the locale and body information
 	 */
-	public function sendClientLocaleBody() {
+	public function sendClientLocaleBody($runInLot = false) {
 		$body_type = $this->body;
 		$pos = array(
 			'x' => $this->position['x'],
@@ -172,13 +172,13 @@ class Player {
 		$packet .= "0000";
 		$packet .= "00000000";
 
-		Sockets::out($this->client, $packet);
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	/**
 	 * Send the skills information to the client
 	 */
-	public function sendFullSkillList() {
+	public function sendFullSkillList($runInLot = false) {
 		$skills = 58;
 		$tmpPacket = "02";
 		for ($i = 1; $i <= 58; $i++) {
@@ -194,7 +194,7 @@ class Player {
 		$packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 3), 4, "0", STR_PAD_LEFT);
 		$packet .= $tmpPacket;
 
-		Sockets::out($this->client, $packet);
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	/**
@@ -205,32 +205,32 @@ class Player {
 	 * 2 = ILSHENAR color?
 	 *
 	 */
-	public function updateCursorColor($color = 0) {
+	public function updateCursorColor($runInLot = false, $color = 0) {
 		$packet = "BF00060008" . str_pad(dechex($color), 2, "0", STR_PAD_LEFT);
 
-		Sockets::out($this->client, $packet);
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	/**
 	 * Send the information to client enable map diffs
 	 */
-	public function enableMapDiffs() {
+	public function enableMapDiffs($runInLot = false) {
 		$packet = "BF310000180000000500000000000000000000000000000000000000000000000000000000000000000000000000000000";
 
-		Sockets::out($this->client, $packet);
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	/**
 	 * Send the client start to play music
 	 */
-	public function playMusic($music = null) {
+	public function playMusic($runInLot = false, $music = null) {
 		if (null === $music) {
 			return false;
 		}
 
 		$packet = "6D" . str_pad(dechex($music), 4, "0", STR_PAD_LEFT);
 
-		Sockets::out($this->client, $packet);
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	/**
@@ -244,14 +244,14 @@ class Player {
 	 * 255 = None (Turns off sound)
 	 *
 	 */
-	public function setWeather($weather = null, $effect = 0, $temperature = 10) {
+	public function setWeather($runInLot = false, $weather = null, $effect = 0, $temperature = 10) {
 		if (null === $weather) {
 			return false;
 		}
 
 		$packet = "65" . str_pad(dechex($weather), 2, "0", STR_PAD_LEFT) . str_pad(dechex($effect), 2, "0", STR_PAD_LEFT) . str_pad(dechex($temperature), 2, "0", STR_PAD_LEFT);
 
-		Sockets::out($this->client, $packet);
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	/**
@@ -264,13 +264,13 @@ class Player {
 	 * 4 = Desolation
 	 *
 	 */
-	public function setSeasonal($season = null, $playSound = true) {
+	public function setSeasonal($runInLot = false, $season = null, $playSound = true) {
 		if (null === $season) {
 			return false;
 		}
 
 		$packet = "BC" . str_pad(dechex($season), 2, "0", STR_PAD_LEFT) . str_pad(dechex((int) $playSound), 2, "0", STR_PAD_LEFT);
-		Sockets::out($this->client, $packet);
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	/**
@@ -279,7 +279,7 @@ class Player {
 	 * 9 = OSI night
 	 * 31 - Black (Max val)
 	 */
-	public function setLight($level = 0) {
+	public function setLight($runInLot = false, $level = 0) {
 		if ($level < 0) {
 			$level = 0;
 		}
@@ -290,13 +290,13 @@ class Player {
 
 		$packet = "4F" . str_pad(dechex($level), 2, "0", STR_PAD_LEFT);
 
-		Sockets::out($this->client, $packet);
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	/**
 	 * Drawn character on client
 	 */
-	public function drawChar() {
+	public function drawChar($runInLot = false) {
 		$packet = "78";
 		$packet .= str_pad(dechex(30), 4, "0", STR_PAD_LEFT);
 		$packet .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);
@@ -313,13 +313,13 @@ class Player {
 		// Backpack
 		$packet .= "00000000";
 
-		Sockets::out($this->client, $packet);
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	/**
 	 * Draw the player on client
 	 */
-	public function drawPlayer() {
+	public function drawPlayer($runInLot = false) {
 		$packet = "20";
 		$packet .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex($this->body), 4, "0", STR_PAD_LEFT);
@@ -332,7 +332,7 @@ class Player {
 		$packet .= str_pad(dechex($this->position['facing']), 2, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex($this->position['z']), 2, "0", STR_PAD_LEFT);
 
-		Sockets::out($this->client, strtoupper($packet));
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	/**
@@ -344,32 +344,32 @@ class Player {
 	 * >2 = Hybrid Moviment?
 	 *
 	 */
-	public function mountSpeed($speed = 0) {
+	public function mountSpeed($runInLot = false, $speed = 0) {
 		$packet = "BF00060026" . str_pad(dechex($speed), 2, "0", STR_PAD_LEFT);
 
-		Sockets::out($this->client, $packet);
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	/**
 	 * Update the client status bar information
 	 */
-	public function updateStatusBar() {
+	public function updateStatusBar($runInLot = false) {
 		$packet = "17";
 		$packet .= "000F";
 		$packet .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);
 		$packet .= "0002000100000200";
 
-		Sockets::out($this->client, $packet);
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	/**
 	 * Update the status bar information on the client
 	 */
-	public function statusBarInfo() {
+	public function statusBarInfo($runInLot = false) {
 		$packet = "11";
-		$packet = "005B";
+		$packet .= "005B";
 		$packet .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);
-		$packet .= str_pad($this->name, 30, "0", STR_PAD_RIGHT);
+		$packet .= str_pad(Functions::strToHex($this->name), 60, "0", STR_PAD_RIGHT);
 		$packet .= str_pad(dechex($this->hits), 4, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex($this->maxhits), 4, "0", STR_PAD_LEFT);
 		$packet .= "00";
@@ -386,14 +386,15 @@ class Player {
 		$packet .= "0000";
 		$packet .= str_pad("6", 4, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex(400), 4, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex($this->race), 4, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($this->race), 2, "0", STR_PAD_LEFT);
+
 		if ($this->statscap > 0) {
 			$packet .= str_pad(dechex($this->statscap), 4, "0", STR_PAD_LEFT);
 		} else {
 			$packet .= "0000";
 		}
-		$packet .= str_pad(dechex($this->pets), 4, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex($this->maxpets), 4, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($this->pets), 2, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($this->maxpets), 2, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex($this->resist_fire), 4, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex($this->resist_cold), 4, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex($this->resist_poison), 4, "0", STR_PAD_LEFT);
@@ -403,20 +404,22 @@ class Player {
 		$packet .= str_pad(dechex($this->damage_max), 4, "0", STR_PAD_LEFT);
 		$packet .= "00000000";
 
-		Sockets::out($this->client, $packet);
+		echo "\n\n\n\n\n$packet\n\n\n\n\n\n";
+
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	/**
 	 * Send extended stats to the client
 	 */
-	public function extendedStats($flag = 0) {
+	public function extendedStats($runInLot = false, $flag = 0) {
 		if (is_array($flag) && count($flag) == 0) {
 			$flag = 0;
 		}
 
 		$packet = "BF000C001902" . str_pad($this->serial, 8, "0", STR_PAD_LEFT) . "00" . str_pad(dechex($flag), 2, "0", STR_PAD_LEFT);
 
-		Sockets::out($this->client, $packet);
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	/**
@@ -426,20 +429,49 @@ class Player {
 	 * 1 = Fighting
 	 *
 	 */
-	public function setWarMode($warmode = 0) {
+	public function setWarMode($runInLot = false, $warmode = 0) {
 		$packet = "72";
 		$packet .= str_pad(dechex($warmode), 2, "0", STR_PAD_LEFT);
 		$packet .= "003200";
 
-		Sockets::out($this->client, $packet);
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	/**
 	 * Send the login complete confirmation to the client
 	 */
-	public function confirmLogin() {
+	public function confirmLogin($runInLot = false) {
 		$packet = "55";
 
-		Sockets::out($this->client, $packet);
+		Sockets::out($this->client, $packet, $runInLot);
+	}
+
+	/**
+	 * Send time information to the client
+	 */
+	public function setTime($runInLot = false) {
+		$packet = "5B";
+		$packet .= str_pad(dechex(date("H")), 2, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex(date("i")), 2, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex(date("s")), 2, "0", STR_PAD_LEFT);
+
+		Sockets::out($this->client, $packet, $runInLot);
+	}
+
+	public function updateCurrentMana($runInLot = false) {
+		$packet = "A2" . str_pad(dechex(442500 + $this->uid), 8, "0", STR_PAD_LEFT) . "00640064";
+
+		Sockets::out($this->client, $packet, $runInLot);
+	}
+
+	public function updateCurrentStamina($runInLot = false) {
+		$packet = "A3" . str_pad(dechex(442500 + $this->uid), 8, "0", STR_PAD_LEFT) . "00640064";
+
+		Sockets::out($this->client, $packet, $runInLot);
+	}
+
+	public function finalPacket($runInLot = false) {
+		$packet = "254006D58B0EED00E6780029007A01400765090000";
+		Sockets::out($this->client, $packet, $runInLot);
 	}
 }
