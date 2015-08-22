@@ -4,10 +4,13 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-class Packets {
-
+class Packets
+{
+	
 	/**
-	 * Packet list with the packet length, note: dynamic packets are marked with -1 this way the server looks on the packet for the right length
+	 * Packet list with the packet length
+	 * Note: Dynamic length packets are marked with -1 this way the server looks on the packet for the right length
+	 * Note: Packets with no "length" are marked as false, this way the server treat the entire received packet as one single packet.
 	 */
 	static $packets = array(
 		0x00 => 0x0068,
@@ -199,9 +202,9 @@ class Packets {
 		0xBA => 0x0006,
 		0xBB => 0x0009,
 		0xBC => 0x0003,
-		0xBD => -1,
+		0xBD => - 1,
 		0xBE => false,
-		0xBF => -1,
+		0xBF => - 1,
 		0xC0 => 0x0024,
 		0xC1 => false,
 		0xC2 => false,
@@ -247,7 +250,7 @@ class Packets {
 		0xF5 => 21,
 		0xF8 => 106,
 	);
-
+	
 	/**
 	 * Strange package received from client in the login proccess...
 	 */
@@ -257,18 +260,18 @@ class Packets {
 			$minor = hexdec($data[1]);
 			$revision = hexdec($data[2]);
 			$prototype = hexdec($data[3]);
-
+			
 			UltimaPHP::$socketClients[$client]['version'] = array(
 				'major' => $major,
 				'minor' => $minor,
 				'revision' => $revision,
 				'prototype' => $prototype,
 			);
-
-			self::packet_0x91(array_slice($data, 4), $client, true);
+			
+			self::packet_0x91(array_slice($data, 4) , $client, true);
 		}
 	}
-
+	
 	/**
 	 * Packet received from client asking for status information
 	 *
@@ -288,30 +291,30 @@ class Packets {
 			$data[8],
 			$data[9],
 		);
-
+		
 		switch ($type) {
-		case 0x00:
+			case 0x00:
+				
+				// God client ???
+				break;
 
-			// God client ???
-			break;
+			case 0x04:
+				
+				// Client asking to server send the status information to the client
+				break;
 
-		case 0x04:
+			case 0x05:
+				
+				// Client asking to server send the skills information to the client
+				break;
 
-			// Client asking to server send the status information to the client
-			break;
-
-		case 0x05:
-
-			// Client asking to server send the skills information to the client
-			break;
-
-		default:
-
-			// Unknow status type received
-			break;
+			default:
+				
+				// Unknow status type received
+				break;
 		}
 	}
-
+	
 	/**
 	 * Packet received after client choose a character
 	 */
@@ -322,7 +325,7 @@ class Packets {
 		$loginaccount = Functions::hexToChr($data, 45, 48, true);
 		$slotchoosen = hexdec($data[65] . $data[66] . $data[67] . $data[68]);
 		$clientIP = hexdec($data[69]) . "." . hexdec($data[70]) . "." . hexdec($data[71]) . "." . hexdec($data[72]);
-
+		
 		UltimaPHP::$socketClients[$client]['account']->loginCharacter(array(
 			'slotchoosen' => $slotchoosen,
 			'charname' => $charname,
@@ -331,14 +334,14 @@ class Packets {
 			'clientFlag' => $clientflag,
 		));
 	}
-
+	
 	/**
 	 * Send ping response to the client
 	 */
 	public static function packet_0x73($data, $client) {
 		UltimaPHP::$socketClients[$client]['account']->sendPingResponse();
 	}
-
+	
 	/**
 	 * Receive login request from client
 	 */
@@ -346,25 +349,29 @@ class Packets {
 		$command = $data[0];
 		$account = Functions::hexToChr($data, 1, 30, true);
 		$password = Functions::hexToChr($data, 31, 61, true);
-
+		
 		$login = false;
-
+		
 		// Account / Password validadion TODO
 		UltimaPHP::$socketClients[$client]['account'] = array(
 			'account' => $account,
-			'password' => md5($password),
+			'password' => md5($password) ,
 		);
 		UltimaPHP::log("Account $account connected from " . UltimaPHP::$socketClients[$client]['ip']);
-
-		UltimaPHP::$socketClients[$client]['account'] = new Account($account, md5($password), $client);
-
+		
+		UltimaPHP::$socketClients[$client]['account'] = new Account($account, md5($password) , $client);
+		
 		if (true === UltimaPHP::$socketClients[$client]['account']->isValid) {
+			
+			// Send the client an client version request
+			Sockets::out($client, "bd0003");
 			UltimaPHP::$socketClients[$client]['account']->sendServerList();
-		} else {
+		} 
+		else {
 			UltimaPHP::$socketClients[$client]['account']->disconnect(3);
 		}
 	}
-
+	
 	/**
 	 * Send to the client the features from server
 	 */
@@ -373,59 +380,63 @@ class Packets {
 		$keyUsed = hexdec($data[1]) . hexdec($data[2]) . hexdec($data[3]) . hexdec($data[4]);
 		$account = Functions::hexToChr($data, 5, 34, true);
 		$password = Functions::hexToChr($data, 35, 64, true);
-
+		
 		$login = false;
-
-		UltimaPHP::$socketClients[$client]['account'] = new Account($account, md5($password), $client);
-
+		
+		UltimaPHP::$socketClients[$client]['account'] = new Account($account, md5($password) , $client);
+		
 		if (true === UltimaPHP::$socketClients[$client]['account']->isValid) {
 			UltimaPHP::log("Account $account logged from " . UltimaPHP::$socketClients[$client]['ip']);
-
+			
 			// Set the flag on the connection to send next packets compressed
 			UltimaPHP::$socketClients[$client]['compressed'] = true;
-
+			
 			Sockets::addEvent($client, array(
 				"option" => "account",
 				"method" => "enableLockedFeatures",
-			), 0.0, true);
+			) , 0.0, true);
 			Sockets::addEvent($client, array(
 				"option" => "account",
 				"method" => "sendCharacterList",
-			), 0.0, true, true);
-
-			// UltimaPHP::$socketClients[$client]['account']->enableLockedFeatures();
-			// UltimaPHP::$socketClients[$client]['account']->sendCharacterList();
-		} else {
+			) , 0.0, true, true);
+		} 
+		else {
 			UltimaPHP::$socketClients[$client]['account']->disconnect(3);
 		}
 	}
-
+	
 	/**
 	 * Receive the selected server from client
 	 */
 	public static function packet_0xA0($data, $client) {
-		$server = Functions::getDword($data[1] . $data[2]);
-		UltimaPHP::$socketClients[$client]['connected_server'] = ((int) $server - 1);
+		$server = dechex($data[1] . $data[2]);
+		UltimaPHP::$socketClients[$client]['connected_server'] = ((int)$server - 1);
 		UltimaPHP::log("Account " . UltimaPHP::$socketClients[$client]['account']->account . " connecting on server " . UltimaPHP::$servers[UltimaPHP::$socketClients[$client]['connected_server']]['name']);
 		UltimaPHP::$socketClients[$client]['account']->sendConnectionConfirmation();
 	}
-
+	
 	/**
-	 * Receive client version information after connect to the server
+	 * Receive client version information from the client 6.0.5.0-, newer send packet 0xEF
 	 */
 	public static function packet_0xBD($data, $client) {
 		$comand = $data[0];
 		$length = hexdec($data[1] . $data[2]);
 		$version = explode(".", Functions::hexToChr(implode("", array_slice($data, 3))));
-
+		
+		// Fix for versions with glued last char, IE: 4.0.11c
+		if (strlen($version[2]) > 2) {
+			$version[3] = substr($version[2], 2) . (isset($version[3]) ? $version[3] : "");
+			$version[2] = substr($version[2], 0, 2);
+		}
+		
 		UltimaPHP::$socketClients[$client]['version'] = array(
 			'major' => $version[0],
 			'minor' => $version[1],
 			'revision' => $version[2],
-			'prototype' => $version[3],
+			'prototype' => $version[3]
 		);
 	}
-
+	
 	/**
 	 * Send/Request general information
 	 */
@@ -433,49 +444,49 @@ class Packets {
 		$comand = $data[0];
 		$length = hexdec($data[1] . $data[2]);
 		$subcomand = hexdec($data[3] . $data[4]);
-
+		
 		switch ($subcomand) {
-		case 5:
+			case 5:
+				
+				// Screen Size
+				$unknow1 = Functions::hexToChr($data, 5, 6, true);
+				$x = Functions::hexToChr($data, 7, 8, true);
+				$y = Functions::hexToChr($data, 9, 10, true);
+				$unknow2 = Functions::hexToChr($data, 11, 12, true);
+				break;
 
-			// Screen Size
-			$unknow1 = Functions::hexToChr($data, 5, 6, true);
-			$x = Functions::hexToChr($data, 7, 8, true);
-			$y = Functions::hexToChr($data, 9, 10, true);
-			$unknow2 = Functions::hexToChr($data, 11, 12, true);
-			break;
+			case 11:
+				
+				// Client language
+				$language = Functions::hexToChr($data, 5, 8);
+				UltimaPHP::$socketClients[$client]['language'] = $language;
+				break;
 
-		case 11:
-
-			// Client language
-			$language = Functions::hexToChr($data, 5, 8);
-			UltimaPHP::$socketClients[$client]['language'] = $language;
-			break;
-
-		case 15:
-
-			// ClientType
-			$unk1 = hexdec($data[5]);
-			$ClientType = Functions::hexToChr($data, 6, 9);
-			UltimaPHP::$socketClients[$client]['type'] = $ClientType;
-			break;
+			case 15:
+				
+				// ClientType
+				$unk1 = hexdec($data[5]);
+				$ClientType = Functions::hexToChr($data, 6, 9);
+				UltimaPHP::$socketClients[$client]['type'] = $ClientType;
+				break;
 		}
 	}
-
+	
 	/**
-	 * Receive client version information
+	 * Receive client version information from client version 6.0.5.0+
 	 */
 	public static function packet_0xEF($data, $client) {
 		if (count($data) < 21) {
 			UltimaPHP::$socketClients[$client]['account']->disconnect(4);
 			return;
 		}
-
+		
 		$command = $data[0];
-		$seed = Functions::getDword($data[1] . $data[2] . $data[3] . $data[4]);
-		$major = Functions::getDword($data[5] . $data[6] . $data[7] . $data[8]);
-		$minor = Functions::getDword($data[9] . $data[10] . $data[11] . $data[12]);
-		$revision = Functions::getDword($data[13] . $data[14] . $data[15] . $data[16]);
-		$prototype = Functions::getDword($data[17] . $data[18] . $data[19] . $data[20]);
+		$seed = hexdec(Functions::implodeByte($data, 1, 4));
+		$major = hexdec(Functions::implodeByte($data, 5, 8));
+		$minor = hexdec(Functions::implodeByte($data, 9, 12));
+		$revision = hexdec(Functions::implodeByte($data, 13, 16));
+		$prototype = hexdec(Functions::implodeByte($data, 17, 20));
 
 		UltimaPHP::$socketClients[$client]['version'] = array(
 			'major' => $major,

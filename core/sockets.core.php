@@ -6,6 +6,10 @@
  */
 class Sockets
 {
+	/**
+	 * The socket server constructor!
+	 * This method creates an socket to listen the choosen port to monitor ultima online communication
+	 */
 	function __construct() {
 		
 		// Create a TCP Stream socket
@@ -31,6 +35,9 @@ class Sockets
 		socket_listen(UltimaPHP::$socketServer);
 	}
 	
+	/**
+	 * Method called every tick of the server to monitor the incoming/outgoing data from sockets
+	 */
 	public static function monitor() {
 		$microtime = microtime(true);
 		if (UltimaPHP::$socketClients[(string)$microtime]['socket'] = @socket_accept(UltimaPHP::$socketServer)) {
@@ -85,6 +92,9 @@ class Sockets
 		}
 	}
 	
+	/**
+	 * Incoming packet handler
+	 */
 	private static function in($input, $client, $firstConnectionPacket = false) {
 		
 		// Handler merged packets received from the first communiction between server and cleint after the client connect to a server
@@ -104,6 +114,9 @@ class Sockets
 		}
 	}
 	
+	/**
+	 * Outgoing packet handler
+	 */
 	public static function out($client, $packet, $lot = array() , $dontConvert = false, $dontCompress = false) {
 		$err = null;
 		
@@ -127,7 +140,7 @@ class Sockets
 			$packet = UltimaPHP::$socketClients[$client]['packetLot'] . $packet;
 			UltimaPHP::$socketClients[$client]['packetLot'] = null;
 		}
-
+		
 		if ($packet !== null) {
 			if (true === UltimaPHP::$conf['logs']['debug']) {
 				echo "Sending packet: " . Functions::strToHex($packet) . "\n\n";
@@ -164,6 +177,9 @@ class Sockets
 		}
 	}
 	
+	/**
+	 * Method called on every server tick to trigger registered events on the right time
+	 */
 	public static function runEvents() {
 		$mt = microtime(true);
 		foreach (UltimaPHP::$socketEvents as $registerTime => $events) {
@@ -172,7 +188,8 @@ class Sockets
 					$args = (isset($event['event']['args']) ? $event['event']['args'] : array());
 					if ($event['event']['option'] == "account") {
 						UltimaPHP::$socketClients[$event['client']]['account']->$event['event']['method']($event['lot'], $args);
-					} else {
+					} 
+					else {
 						UltimaPHP::$socketClients[$event['client']]['account']->$event['event']['option']->$event['event']['method']($event['lot'], $args);
 					}
 					unset(UltimaPHP::$socketEvents[$registerTime][$eventKey]);
@@ -181,6 +198,9 @@ class Sockets
 		}
 	}
 	
+	/**
+	 * Validates the "packet string" received/sent and return a multi-dimensional array of splited "packets"
+	 */
 	public static function validatePacket($inputArray = array()) {
 		if (count($inputArray) == 0) {
 			return false;
