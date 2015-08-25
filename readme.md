@@ -2,11 +2,13 @@
 
 UltimaPHP is a modern Ultima Online server written in PHP 5.4.
 
-This server was created for thoes who ever wanted to create differend addaptations on the core of your shard or even in Ultima Online.
+This server was created for thoes who ever wanted to create differend addaptations on the core of your shard.
 
 The base idea of how to keep the server written in PHP alive and monitoring the sockets came from Matthew [Ankron, on sphere community].
 
 I decided to help the project and for study propose i've re-scripted the entire socket server to understand how it works and after that i decided to create a lightweight standalone version of the server that runs in any OS easly.
+
+Note: The server works with clients 6.0.13 or greater, since this version many packets was changed and we will not spent time with older clients for now.
 
 ## How to install?
 
@@ -34,23 +36,6 @@ Note 2: Passwords is allways stored in MD5 encryption
  * Open the manu bar and open ```cmd```
  * Navigate to PHP installation folder
  * type ```php.exe c:\ultimaphp\instalation\folder\startserver.php```
-
-
-### Coding padronization
-
- * All .php files should start with <?php and end with ?>
- * All .php files should have the comment line header
- * All class names starts with UPPERCASE character, IE: class ClassName {...}
- * All method names must start with LOWERCASE character and all next words start with UPPERCASE character with no space, IE: goodMethodName()
- * All codes must be idented with tab
- * All codes must be formatted in K&R style before commited, manually or using your preffered tool
-
-### Database padronization
-
- * All data storage tables must have an ID indexed
- * All secure information, like passwords, must be stored encrypted
- * All relashionship must have an foreign key linkng the table columns
- * All tables names must be LOWERCASE and words separated with underline, IE: good_table_name
 
 ### What is already working?
 
@@ -95,6 +80,22 @@ Note 2: Passwords is allways stored in MD5 encryption
  * [RunUO repository](https://github.com/runuo/runuo) to see how things works
  * [POL Repository](https://github.com/polserver/polserver) to see how things works
  * [NodeUO](https://github.com/chjj/node-uo)
+
+### Coding padronization
+
+ * All .php files should start with <?php and end with ?>
+ * All .php files should have the comment line header
+ * All class names starts with UPPERCASE character, IE: class ClassName {...}
+ * All method names must start with LOWERCASE character and all next words start with UPPERCASE character with no space, IE: goodMethodName()
+ * All codes must be idented with tab
+ * All codes must be formatted in K&R style before commited, manually or using your preffered tool
+
+### Database padronization
+
+ * All data storage tables must have an ID indexed
+ * All secure information, like passwords, must be stored encrypted
+ * All relashionship must have an foreign key linkng the table columns
+ * All tables names must be LOWERCASE and words separated with underline, IE: good_table_name
 
 #### CodeFormatter PHP configuration default:
 ```js
