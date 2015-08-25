@@ -5,7 +5,7 @@
  * Version: 0.1 - Pre Alpha
  */
 class Compression {
-	static $HuffmanTable = array(
+	static $huffmanTable = array(
 		array(
 			0x02,
 			0x00,
@@ -1049,8 +1049,8 @@ class Compression {
 		$current = $val = $cBits = 0;
 
 		for ($i = 0; $i < $length; $i++) {
-			$nrBits = (int) self::$HuffmanTable[$source[$i]][0] - 1;
-			$val = (int) self::$HuffmanTable[$source[$i]][1];
+			$nrBits = (int) self::$huffmanTable[$source[$i]][0] - 1;
+			$val = (int) self::$huffmanTable[$source[$i]][1];
 
 			for ($n = $nrBits; $n >= 0; $n--) {
 				$x = ($val >> $n) % 2;
@@ -1064,8 +1064,8 @@ class Compression {
 			}
 		}
 
-		$nrBits = (int) self::$HuffmanTable[256][0] - 1;
-		$val = (int) self::$HuffmanTable[256][1];
+		$nrBits = (int) self::$huffmanTable[256][0] - 1;
+		$val = (int) self::$huffmanTable[256][1];
 
 		for ($n = $nrBits; $n >= 0; $n--) {
 			$x = ($val >> $n) % 2;
@@ -1151,8 +1151,8 @@ class Compression {
 		for ($i = 0; $i < 257; $i++) {
 			$current = $mTree;
 
-			$nrBits = (int) self::$HuffmanTable[$i][0] - 1;
-			$val = (int) self::$HuffmanTable[$i][1];
+			$nrBits = (int) self::$huffmanTable[$i][0] - 1;
+			$val = (int) self::$huffmanTable[$i][1];
 
 			for ($n = $nrBits; $n >= 0; $n--) {
 

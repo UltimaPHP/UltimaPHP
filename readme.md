@@ -41,7 +41,7 @@ Note 2: Passwords is allways stored in MD5 encryption
  * All .php files should start with <?php and end with ?>
  * All .php files should have the comment line header
  * All class names starts with UPPERCASE character, IE: class ClassName {...}
- * All method names muust start with LOWERCASE character and all next words start with UPPDERCASE character with no space, IE: goodMethodName()
+ * All method names must start with LOWERCASE character and all next words start with UPPERCASE character with no space, IE: goodMethodName()
  * All codes must be idented with tab
  * All codes must be formatted in K&R style before commited, manually or using your preffered tool
 
