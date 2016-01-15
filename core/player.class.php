@@ -475,9 +475,7 @@ class Player {
 	 * Send the login complete confirmation to the client
 	 */
 	public function confirmLogin($runInLot = false) {
-		$packet = "55";
-
-		Sockets::out($this->client, $packet, $runInLot);
+		Sockets::out($this->client, "55", $runInLot);
 	}
 
 	/**
@@ -492,14 +490,20 @@ class Player {
 		Sockets::out($this->client, $packet, $runInLot);
 	}
 
+	public function updateCurrentHealth($runInLot = false) {
+		$packet = "A1" . str_pad(dechex(442500 + $this->uid), 8, "0", STR_PAD_LEFT) . str_pad(dechex($this->maxhits), 2, "0", STR_PAD_LEFT) . str_pad(dechex($this->hits), 2, "0", STR_PAD_LEFT);
+
+		Sockets::out($this->client, $packet, $runInLot);
+	}
+
 	public function updateCurrentMana($runInLot = false) {
-		$packet = "A2" . str_pad(dechex(442500 + $this->uid), 8, "0", STR_PAD_LEFT) . "00640064";
+		$packet = "A2" . str_pad(dechex(442500 + $this->uid), 8, "0", STR_PAD_LEFT) . str_pad(dechex($this->maxmana), 2, "0", STR_PAD_LEFT) . str_pad(dechex($this->mana), 2, "0", STR_PAD_LEFT);
 
 		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	public function updateCurrentStamina($runInLot = false) {
-		$packet = "A3" . str_pad(dechex(442500 + $this->uid), 8, "0", STR_PAD_LEFT) . "00640064";
+		$packet = "A3" . str_pad(dechex(442500 + $this->uid), 8, "0", STR_PAD_LEFT) . str_pad(dechex($this->maxstam), 2, "0", STR_PAD_LEFT) . str_pad(dechex($this->stam), 2, "0", STR_PAD_LEFT);
 
 		Sockets::out($this->client, $packet, $runInLot);
 	}
