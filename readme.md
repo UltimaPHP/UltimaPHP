@@ -56,7 +56,7 @@ Note 2: Passwords is allways stored in MD5 encryption
  * Receive the client flags (I dunno what this is too... but the client sends anyway before connect to the server)
  * Send the player locale and body information to the client
  * Send all skill status to the client (80%, the packet is already done but we need to create the database to store the skills and show the information on the packet to the client)
- * Connecting the client to the world (98%, all packets was done... but no map appeared untill now)
+ * Connecting the client to the world
  * Changes cursor color
  * Play music
  * Update status bar info
@@ -69,7 +69,7 @@ Note 2: Passwords is allways stored in MD5 encryption
  * Show extended status
  * Change war mode
  * Send confirmation login packet
- * Support for Encrypted clients (0%, we founded information about encrypt/decrypt the packets using the BLOWFISH/TWOFISH algorythin so it's an feature improvement)
+ * Support for Encrypted clients (10%, we founded information about encrypt/decrypt the packets using the BLOWFISH/TWOFISH algorythin so it's an feature improvement)
 
 #### Usefull links that could help you code
  * [Sublime Text 3](http://www.sublimetext.com/3) recommended IDE used to program the server
@@ -79,7 +79,6 @@ Note 2: Passwords is allways stored in MD5 encryption
  * [Sphere 0.56b leaked code](https:///github.com/necr0potenc3/Sphere) to see how things works
  * [RunUO repository](https://github.com/runuo/runuo) to see how things works
  * [POL Repository](https://github.com/polserver/polserver) to see how things works
- * [NodeUO](https://github.com/chjj/node-uo)
 
 ### Coding padronization
 
