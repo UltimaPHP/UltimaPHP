@@ -215,7 +215,7 @@ class Player {
 	 * Send the information to client enable map diffs
 	 */
 	public function enableMapDiffs($runInLot = false) {
-		$packet = "BF310000180000000500000000000000000000000000000000000000000000000000000000000000000000000000000000";
+		$packet = "BF003100180000000500000000000000000000000000000000000000000000000000000000000000000000000000000000";
 
 		Sockets::out($this->client, $packet, $runInLot);
 	}
@@ -244,7 +244,11 @@ class Player {
 	 * 255 = None (Turns off sound)
 	 *
 	 */
-	public function setWeather($runInLot = false, $weather = null, $effect = 0, $temperature = 10) {
+	public function setWeather($runInLot = false, $args = array()) {
+		$weather = (isset($args[0]) ? $args[0] : null);
+		$effect = (isset($args[1]) ? $args[1] : 0);
+		$temperature = (isset($args[2]) ? $args[2] : 16);
+
 		if (null === $weather) {
 			return false;
 		}
@@ -404,7 +408,7 @@ class Player {
 		$packet .= str_pad(dechex($this->damage_max), 4, "0", STR_PAD_LEFT);
 		$packet .= "00000000";
 
-		echo "\n\n\n\n\n$packet\n\n\n\n\n\n";
+		// echo "\n\n\n\n\n$packet\n\n\n\n\n\n";
 
 		Sockets::out($this->client, $packet, $runInLot);
 	}

@@ -48,8 +48,8 @@ CREATE TABLE IF NOT EXISTS `players` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 INSERT INTO `players` (`id`, `account`, `name`, `body`, `sex`, `race`, `position`, `hits`, `maxhits`, `mana`, `maxmana`, `stam`, `maxstam`, `str`, `maxstr`, `int`, `maxint`, `dex`, `maxdex`, `statscap`, `pets`, `maxpets`, `resist_fire`, `resist_cold`, `resist_poison`, `resist_energy`, `luck`, `damage_min`, `damage_max`, `karma`, `fame`, `title`) VALUES
-(1, 1, 'Owner test', '987', 1, 1, '1000,1000,0,0', 100, 100, 100, 100, 100, 100, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, NULL, 0, 5, 0, 0, 0, 0, 0, 0, 0, 10000, 10000, 'Shard Owner'),
-(2, 1, 'Player test', '987', 2, 1, '1000,1000,0,0', 1, 4, 1, 1, 1, 1, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, NULL, 0, 5, 0, 0, 0, 0, 0, 0, 0, 10000, 10000, NULL);
+(1, 1, 'Owner test', '400', 1, 1, '1000,1000,0,0', 100, 100, 100, 100, 100, 100, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, NULL, 0, 5, 0, 0, 0, 0, 0, 0, 0, 10000, 10000, 'Shard Owner'),
+(2, 1, 'Player test', '400', 2, 1, '1000,1000,0,0', 1, 4, 1, 1, 1, 1, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, NULL, 0, 5, 0, 0, 0, 0, 0, 0, 0, 10000, 10000, NULL);
 
 CREATE TABLE IF NOT EXISTS `starting_locations` (
   `id` int(11) NOT NULL,

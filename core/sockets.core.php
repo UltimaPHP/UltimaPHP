@@ -106,6 +106,9 @@ class Sockets
 		}
 		
 		if (method_exists("Packets", $packet)) {
+			if (true === UltimaPHP::$conf['logs']['debug']) {
+				echo "----------------------------------------------\nReceived packet: " . $input . "\n----------------------------------------------\n";
+			}
 			Packets::$packet(str_split($input, 2) , $client);
 		} 
 		else {
@@ -143,7 +146,7 @@ class Sockets
 		
 		if ($packet !== null) {
 			if (true === UltimaPHP::$conf['logs']['debug']) {
-				echo "Sending packet: " . Functions::strToHex($packet) . "\n\n";
+				echo "----------------------------------------------\nSending packet: " . Functions::strToHex($packet) . "\n----------------------------------------------\n";
 			}
 			
 			UltimaPHP::$socketClients[$client]['packets'][] = array(

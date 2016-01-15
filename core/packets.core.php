@@ -471,6 +471,13 @@ class Packets
 				break;
 		}
 	}
+
+	/**
+	 * Spy on client
+	 */
+	public static function packet_0xD9($data, $client) {
+		
+	}
 	
 	/**
 	 * Receive client version information from client version 6.0.5.0+
