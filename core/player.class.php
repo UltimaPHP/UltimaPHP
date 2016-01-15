@@ -473,9 +473,4 @@ class Player {
 
 		Sockets::out($this->client, $packet, $runInLot);
 	}
-
-	public function finalPacket($runInLot = false) {
-		$packet = "254006D58B0EED00E6780029007A01400765090000";
-		Sockets::out($this->client, $packet, $runInLot);
-	}
 }

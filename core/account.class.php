@@ -199,10 +199,6 @@ class Account {
 		if (isset($this->characters[$info['slotchoosen']])) {
 			$this->player = new Player($this->client, $this->characters[$info['slotchoosen']]['uid']);
 
-			// Sockets::out($this->client, "481D63CC900FAE8B2AD2E006862C58B100644710003480CECE034080C8019102800000000000000000000DC11EF4F5C5A0F38871D0743FFE80F5C5A080CECE03407D2B9D63CC9223E111A0B4EB1E64FD7146311655A5C00D0DF5C5A0F38871D080CEC6B8D05B238758F32737976CC0000000000000738E71407384A4804A252404801A4EE751C01CBF1DE28398644711C40CE92E01A080CCE9CE88EB1E648680B4EB1E64FD7146311655A5C00D0D8619034044688E56A19FD0743FFE80F5C5A0", false, false, true);
-
-			// return true;
-
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "sendClientLocaleBody",
@@ -246,10 +242,6 @@ class Account {
 				"method" => "updateCursorColor",
 				"args" => 0,
 			), 0.0, true);
-			// Sockets::addEvent($this->client, array(
-			// 	"option" => "player",
-			// 	"method" => "drawChar",
-			// ), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "updateStatusBar",
