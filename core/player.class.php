@@ -268,10 +268,9 @@ class Player {
 	 * 4 = Desolation
 	 *
 	 */
-	public function setSeasonal($runInLot = false, $season = null, $playSound = true) {
-		if (null === $season) {
-			return false;
-		}
+	public function setSeasonal($runInLot = false, $args = array()) {
+		$season = (isset($args[0]) ? $args[0] : 0);
+		$playSound = (isset($args[1]) ? $args[1] : false);
 
 		$packet = "BC" . str_pad(dechex($season), 2, "0", STR_PAD_LEFT) . str_pad(dechex((int) $playSound), 2, "0", STR_PAD_LEFT);
 		Sockets::out($this->client, $packet, $runInLot);

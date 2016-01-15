@@ -201,103 +201,70 @@ class Account {
 
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
-				"method" => "sendClientLocaleBody",
+				"method" => "sendClientLocaleBody"
+			), 0.0, true);
+			Sockets::addEvent($this->client, array(
+				"option" => "player",
+				"method" => "drawPlayer"
+			), 0.0, true);
+			Sockets::addEvent($this->client, array(
+				"option" => "player",
+				"method" => "updateStatusBar"
+			), 0.0, true);
+			Sockets::addEvent($this->client, array(
+				"option" => "player",
+				"method" => "enableMapDiffs"
 			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "updateCursorColor",
-				"args" => 0,
-			), 0.0, true);
-			Sockets::addEvent($this->client, array(
-				"option" => "player",
-				"method" => "enableMapDiffs",
-			), 0.0, true);
-			Sockets::addEvent($this->client, array(
-				"option" => "player",
-				"method" => "playMusic",
-				"args" => 29,
-			), 0.0, true);
-			Sockets::addEvent($this->client, array(
-				"option" => "player",
-				"method" => "setLight",
-				"args" => 2,
-			), 0.0, true);
-			Sockets::addEvent($this->client, array(
-				"option" => "player",
-				"method" => "setWeather",
-				"args" => array(255,0,16),
-			), 0.0, true);
-			Sockets::addEvent($this->client, array(
-				"option" => "player",
-				"method" => "setSeasonal",
-				"args" => 1,
-			), 0.0, true);
-			Sockets::addEvent($this->client, array(
-				"option" => "player",
-				"method" => "setLight",
-				"args" => 2,
-			), 0.0, true);
-			Sockets::addEvent($this->client, array(
-				"option" => "player",
-				"method" => "updateCursorColor",
-				"args" => 0,
-			), 0.0, true);
-			Sockets::addEvent($this->client, array(
-				"option" => "player",
-				"method" => "updateStatusBar",
-			), 0.0, true);
-			Sockets::addEvent($this->client, array(
-				"option" => "player",
-				"method" => "drawPlayer",
-			), 0.0, true);
-			Sockets::addEvent($this->client, array(
-				"option" => "player",
-				"method" => "setLight",
-				"args" => 2,
-			), 0.0, true);
-			Sockets::addEvent($this->client, array(
-				"option" => "player",
-				"method" => "setWeather",
-				"args" => array(255,0,16),
+				"args" => 0
 			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "mountSpeed",
+				"args" => 0
 			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
-				"method" => "statusBarInfo",
+				"method" => "statusBarInfo"
 			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
-				"method" => "extendedStats",
+				"method" => "extendedStats"
 			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
-				"method" => "drawPlayer",
+				"method" => "confirmLogin"
 			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "setWarMode",
-				"args" => 0,
-			), 0.0, true);
-			Sockets::addEvent($this->client, array(
-				"option" => "player",
-				"method" => "confirmLogin",
-			), 0.0, true);
-			Sockets::addEvent($this->client, array(
-				"option" => "player",
-				"method" => "setTime",
+				"args" => 0
 			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "setSeasonal",
-				"args" => 1,
+				"args" => array(0,true)
+			), 0.0, true);
+			Sockets::addEvent($this->client, array(
+				"option" => "player",
+				"method" => "setWeather",
+				"args" => array(255,0,16)
 			), 0.0, true);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "setLight",
-				"args" => 2,
+				"args" => 2
+			), 0.0, true);
+			Sockets::addEvent($this->client, array(
+				"option" => "player",
+				"method" => "setTime"
+			), 0.0, true);
+			Sockets::addEvent($this->client, array(
+				"option" => "player",
+				"method" => "playMusic",
+				"args" => 29
 			), 0.0, true, true);
 		} else {
 			$this->disconnect(4);
