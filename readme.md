@@ -57,12 +57,15 @@ Note 2: Passwords is allways stored in MD5 encryption
  * Send the player locale and body information to the client
  * Send all skill status to the client (80%, the packet is already done but we need to create the database to store the skills and show the information on the packet to the client)
  * Connecting the client to the world
- * Changes cursor color
+ * Update cursor color
  * Play music
  * Update status bar info
+ * Walk with the character on the world
+ * Open Paperdoll
  * Changes light
  * Changes weather
  * Changes season
+ * Change player render range
  * Enable map diffs on the client
  * Drawn char and player
  * Defines mount speed

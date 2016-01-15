@@ -37,11 +37,13 @@ class Player {
 	public $resist_poison;
 	public $resist_energy;
 	public $luck;
+	public $view_range;
 	public $damage_min;
 	public $damage_max;
 	public $karma;
 	public $fame;
 	public $title;
+	public $warmode;
 
 	function __construct($client = null, $character_uid = null) {
 		if (null === $client || null === $character_uid) {
@@ -97,7 +99,7 @@ class Player {
 		if (isset($result[0])) {
 			$position = explode(",", $result[0]['position']);
 
-			$this->serial = str_pad(dechex(442500 + $this->uid), 8, "0", STR_PAD_LEFT);
+			$this->serial = str_pad(442500 + $this->uid, 8, "0", STR_PAD_LEFT);
 			$this->name = $result[0]['name'];
 			$this->body = $result[0]['body'];
 			$this->sex = $result[0]['sex'];
@@ -134,9 +136,31 @@ class Player {
 			$this->karma = $result[0]['karma'];
 			$this->fame = $result[0]['fame'];
 			$this->title = $result[0]['title'];
+			$this->warmode = false;
 		} else {
 			UltimaPHP::$socketClients[$this->client]['account']->disconnect();
 		}
+	}
+
+	public function dclick($uid = null) {
+		if ($uid === null) {
+			return false;
+		}
+
+		// Check if the character dclick itself
+		if (($this->serial | "80000000") == $uid) {
+			$this->openPaperdoll();
+		} else {
+			echo "Clicou em outra coisa\n";
+		}
+	}
+
+	public function openPaperdoll() {
+		$packet = "88";
+		$packet .= $this->serial;
+		$packet .= str_pad("ESCRIBA", 120, "0", STR_PAD_RIGHT);
+		$packet .= "00";
+		Sockets::out($this->client, $packet, false);
 	}
 
 	/**
@@ -338,6 +362,11 @@ class Player {
 		Sockets::out($this->client, $packet, $runInLot);
 	}
 
+	public function movePlayer($runInLot = false, $direction = false, $sequence = false, $running = false, $fastwalk_prevention = 0) {
+		$packet = "22" . str_pad($sequence, 2, "0", STR_PAD_LEFT) . "01";
+		Sockets::out($this->client, $packet, false);
+	}
+
 	/**
 	 * Defines mount speed on the client
 	 *
@@ -436,6 +465,8 @@ class Player {
 		$packet = "72";
 		$packet .= str_pad(dechex($warmode), 2, "0", STR_PAD_LEFT);
 		$packet .= "003200";
+
+		$this->warmode = $warmode;
 
 		Sockets::out($this->client, $packet, $runInLot);
 	}

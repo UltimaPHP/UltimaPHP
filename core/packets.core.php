@@ -250,8 +250,8 @@ class Packets
 		0xF5 => 21,
 		0xF8 => 106,
 	);
-	
-	/**
+
+	/*
 	 * Strange package received from client in the login proccess...
 	 */
 	public static function packet_0x1($data, $client) {
@@ -270,6 +270,40 @@ class Packets
 			
 			self::packet_0x91(array_slice($data, 4) , $client, true);
 		}
+	}
+
+	/**
+	 * Packet received when the player try to walk/move
+	 * 
+	 * Directions:
+	 * 	0x00 - North
+	 * 	0x01 - Northeast
+	 * 	0x02 - East
+	 * 	0x03 - Southeast
+	 * 	0x04 - South
+	 * 	0x05 - Southwest
+	 * 	0x06 - West
+	 * 	0x07 - Northwest
+	 */
+	public static function packet_0x02($data, $client) {
+		$command = Functions::strToHex(Functions::hexToChr($data, 0, 0, true));
+		$direction = Functions::strToHex(Functions::hexToChr($data, 1, 1, true));
+		$sequence_number = Functions::strToHex(Functions::hexToChr($data, 2, 2, true));
+		$fastwalk_prevention = Functions::strToHex(Functions::hexToChr($data, 3, 6, true));
+
+		UltimaPHP::$socketClients[$client]['account']->player->movePlayer(false, $direction, $sequence_number, $fastwalk_prevention);
+	}
+	
+	/**
+	 * Packet received when client triggers a DClick
+	 */
+	public static function packet_0x06($data, $client) {
+		$command = $data[0];
+		$uid = $data[1] . $data[2] . $data[3] . $data[4];
+
+		$player = UltimaPHP::$socketClients[$client]['account']->player;
+		$player->dclick($uid);
+		// UltimaPHP::log("Character " . $player->name . " double clicked on UID '$uid'");
 	}
 	
 	/**
@@ -299,12 +333,12 @@ class Packets
 				break;
 
 			case 0x04:
-				
 				// Client asking to server send the status information to the client
+				UltimaPHP::$socketClients[$client]['account']->player->statusBarInfo(false);
 				break;
 
 			case 0x05:
-				
+				UltimaPHP::$socketClients[$client]['account']->player->sendFullSkillList(false);
 				// Client asking to server send the skills information to the client
 				break;
 
@@ -333,6 +367,17 @@ class Packets
 			'clientIP' => $clientIP,
 			'clientFlag' => $clientflag,
 		));
+	}
+
+	/**
+	 * Packet received when client changes war/peace mode
+	 */
+	public static function packet_0x72($data, $client) {
+		$command = $data[0];
+		$flag = $data[1];
+		$unknow = $data[2].$data[3].$data[4];
+
+		UltimaPHP::$socketClients[$client]['account']->player->setWarMode(false, $flag);
 	}
 	
 	/**
@@ -416,6 +461,16 @@ class Packets
 	}
 	
 	/**
+	 * Open Chat Window (????)
+	 *
+	 * This message is very incomplete. From the server, just know that it is 0xB5 len len, and pass the data through as is appropriate.
+	 */
+	public static function packet_0xB5($data, $client) {
+		$command = $data[0];
+		$chatname = hexdec(Functions::implodeByte($data, 1, 63));
+	}
+	
+	/**
 	 * Receive client version information from the client 6.0.5.0-, newer send packet 0xEF
 	 */
 	public static function packet_0xBD($data, $client) {
@@ -472,11 +527,16 @@ class Packets
 		}
 	}
 
+	public static function packet_0xC8($data, $client) {
+		$command = $data[0];
+		$range = hexdec($data[1]);
+		UltimaPHP::$socketClients[$client]['account']->player->view_range = ($range > 18 ? 18 : $range);
+	}
+	
 	/**
 	 * Spy on client
 	 */
 	public static function packet_0xD9($data, $client) {
-		
 	}
 	
 	/**
@@ -494,7 +554,7 @@ class Packets
 		$minor = hexdec(Functions::implodeByte($data, 9, 12));
 		$revision = hexdec(Functions::implodeByte($data, 13, 16));
 		$prototype = hexdec(Functions::implodeByte($data, 17, 20));
-
+		
 		UltimaPHP::$socketClients[$client]['version'] = array(
 			'major' => $major,
 			'minor' => $minor,
