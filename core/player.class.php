@@ -163,6 +163,24 @@ class Player {
 		Sockets::out($this->client, $packet, false);
 	}
 
+	public function speech($type, $color, $font, $language, $text) {
+		$tmpPacket = Functions::strToHex($text, true);
+
+		$packet = "AE";
+		$packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 50), 4, "0", STR_PAD_LEFT);
+		$packet .= $this->serial;
+		$packet .= str_pad(dechex($this->body), 4, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($type), 2, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($color), 4, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($font), 4, "0", STR_PAD_LEFT);
+		$packet .= Functions::strToHex($language);
+		$packet .= str_pad(Functions::strToHex($this->name), 60, "0", STR_PAD_RIGHT);
+		$packet .= $tmpPacket;
+		$packet .= "0000";
+
+		Sockets::out($this->client, $packet, false);
+	}
+
 	/**
 	 * Send to the client the locale and body information
 	 */

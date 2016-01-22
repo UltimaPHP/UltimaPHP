@@ -7,10 +7,10 @@
 
 class Functions
 {
-	public static function strToHex($string) {
+	public static function strToHex($string, $addEmptyByte = false) {
 		$hex = '';
 		for ($i = 0; $i < strlen($string); $i++) {
-			$hex.= substr('0' . dechex(ord($string[$i])) , -2);
+			$hex.= ($addEmptyByte ? "00" : "") . substr('0' . dechex(ord($string[$i])) , -2);
 		}
 		return strToUpper($hex);
 	}
@@ -42,6 +42,18 @@ class Functions
 			$ret.= $byteArray[$i];
 		}
 		return $ret;
+	}
+
+	public static function readUnicodeStringSafe($data = array()) {
+		$text = "";
+
+		foreach ($data as $key => $value) {
+			if (hexdec($value) >= 0x20 && hexdec($value) < 0xFFFE) {
+				$text .= chr(hexdec($value));
+			}
+		}
+
+		return $text;
 	}
 }
 ?>
