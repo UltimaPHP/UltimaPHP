@@ -202,28 +202,33 @@ class Player {
 	}
 
 	public function runCommand($command = array()) {
-		if (!isset($command[0])) {
-			// Send sysmessage to player
-			echo "Command not received\n";
+		if (UltimaPHP::$socketClients[$this->client]['account']->plevel > 1 && !isset($command[0])) {
+			$this->sysmessage("Sorry, but no command was received from client.");
 			return false;
 		}
 
-		if (array_key_exists($command[0], UltimaPHP::$commands)) {
-			// send sysmessage to player
-			echo "Command not founded\n";
+		if (!isset(UltimaPHP::$commands[$command[0]])) {
+			$this->sysmessage("Sorry, the command you are trying to run was has been found.");
+			return false;
+		}
+
+		if (UltimaPHP::$commands[$command[0]]['minPlevel'] > UltimaPHP::$socketClients[$this->client]['account']->plevel) {
+			$this->sysmessage("Sorry, but you can't run this command, your account have no rights to do that.");
 			return false;
 		}
 
 		$cmd = $command[0];
 		$args = array_slice($command, 1);
 
-		if (!class_exists($args[0])) {
-			$this->sysmessage("Item '".$args[0]."' not founded.");
-			return false;
-		}
+		if ($cmd == "add") {
+			if (!class_exists($args[0])) {
+				$this->sysmessage("Sorry, but the item you are trying to create (".$args[0].") has not been found.");
+				return false;
+			}
 
-		$item = new $args[0]();
-		$this->addItemToMap($item);		
+			$item = new $args[0]();
+			$this->addItemToMap($item);		
+		}
 	}
 
 	public function sysmessage($message, $color = null) {

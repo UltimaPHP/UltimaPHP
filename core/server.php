@@ -47,7 +47,11 @@ class UltimaPHP {
 	static $clients = 0;
 	static $items = 0;
 	static $npcs = 0;
-	static $commands = array();
+	static $commands = array(
+		'add' => array(
+			'minPlevel' => 4
+		)
+	);
 
 	function __construct($dir) {
 		self::$basedir = $dir . "/";
