@@ -109,7 +109,7 @@ class Player {
 				'y' => $position[1],
 				'z' => $position[2],
 				'map' => $position[3],
-				'facing' => 6,
+				'facing' => 6
 			);
 			$this->hits = $result[0]['hits'];
 			$this->maxhits = $result[0]['maxhits'];
@@ -164,18 +164,92 @@ class Player {
 	}
 
 	public function speech($type, $color, $font, $language, $text) {
-		$tmpPacket = Functions::strToHex($text, true);
+		switch (substr($text, 0, 1)) {
+			case '.':
+				$command = explode(" ", substr($text, 1));
+				$this->runCommand($command);
+				return true;
+				break;
+		}
 
-		$packet = "AE";
-		$packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 50), 4, "0", STR_PAD_LEFT);
-		$packet .= $this->serial;
-		$packet .= str_pad(dechex($this->body), 4, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex($type), 2, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex($color), 4, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex($font), 4, "0", STR_PAD_LEFT);
-		$packet .= Functions::strToHex($language);
-		$packet .= str_pad(Functions::strToHex($this->name), 60, "0", STR_PAD_RIGHT);
-		$packet .= $tmpPacket;
+		if (dechex($type) == 0x06) {
+			$tmpPacket = Functions::strToHex($text);
+			$packet = "1C";
+			$packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 45), 4, "0", STR_PAD_LEFT);
+			$packet .= str_pad((dechex($type) == 0x06 ? "FFFFFFFF" : $this->serial), 2, "0", STR_PAD_LEFT);
+			$packet .= str_pad((dechex($type) == 0x06 ? "FFFF" : $this->body), 2, "0", STR_PAD_LEFT);
+			$packet .= str_pad(dechex($type), 2, "0", STR_PAD_LEFT);
+			$packet .= str_pad(dechex($color), 4, "0", STR_PAD_LEFT);
+			$packet .= str_pad(dechex($font), 4, "0", STR_PAD_LEFT);
+			$packet .= str_pad(Functions::strToHex($this->name), 60, "0", STR_PAD_RIGHT);
+			$packet .= $tmpPacket;
+			$packet .= "00";
+		} else {
+			$tmpPacket = Functions::strToHex($text, true);
+			$packet = "AE";
+			$packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 50), 4, "0", STR_PAD_LEFT);
+			$packet .= $this->serial;
+			$packet .= str_pad(dechex($this->body), 4, "0", STR_PAD_LEFT);
+			$packet .= str_pad(dechex($type), 2, "0", STR_PAD_LEFT);
+			$packet .= str_pad(dechex($color), 4, "0", STR_PAD_LEFT);
+			$packet .= str_pad(dechex($font), 4, "0", STR_PAD_LEFT);
+			$packet .= Functions::strToHex($language);
+			$packet .= str_pad(Functions::strToHex($this->name), 60, "0", STR_PAD_RIGHT);
+			$packet .= $tmpPacket;
+			$packet .= "0000";
+		}
+		Sockets::out($this->client, $packet, false);
+	}
+
+	public function runCommand($command = array()) {
+		if (!isset($command[0])) {
+			// Send sysmessage to player
+			echo "Command not received\n";
+			return false;
+		}
+
+		if (array_key_exists($command[0], UltimaPHP::$commands)) {
+			// send sysmessage to player
+			echo "Command not founded\n";
+			return false;
+		}
+
+		$cmd = $command[0];
+		$args = array_slice($command, 1);
+
+		if (!class_exists($args[0])) {
+			$this->sysmessage("Item '".$args[0]."' not founded.");
+			return false;
+		}
+
+		$item = new $args[0]();
+		$this->addItemToMap($item);		
+	}
+
+	public function sysmessage($message, $color = null) {
+		if ($color === null) {
+			$color = UltimaPHP::$conf['colors']['text'];
+		}
+
+		$this->speech("06", $color, 3, "PTB ", $message);
+		return true;
+	}
+
+	public function addItemToMap(Object $item) {
+		$packet = "F3";
+		$packet .= "0001";
+		$packet .= "00";
+		$packet .= $item->serial;
+		$packet .= str_pad(dechex($item->graphic), 4, "0", STR_PAD_LEFT);
+		$packet .= "00";
+		$packet .= str_pad(dechex($item->amount), 4, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($item->amount), 4, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($this->position['x']), 4, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($this->position['y']), 4, "0", STR_PAD_LEFT);
+		$packet .= str_pad("00", 2, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($item->layer), 2, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($item->color), 4, "0", STR_PAD_LEFT);
+		$packet .= "20";
 		$packet .= "0000";
 
 		Sockets::out($this->client, $packet, false);
@@ -380,7 +454,61 @@ class Player {
 		Sockets::out($this->client, $packet, $runInLot);
 	}
 
+	/**
+	 * Packet sent to confirm player movement request
+	 * 
+	 * Directions:
+	 * 	0x00 - North
+	 * 	0x01 - Northeast
+	 * 	0x02 - East
+	 * 	0x03 - Southeast
+	 * 	0x04 - South
+	 * 	0x05 - Southwest
+	 * 	0x06 - West
+	 * 	0x07 - Northwest
+	 */
 	public function movePlayer($runInLot = false, $direction = false, $sequence = false, $running = false, $fastwalk_prevention = 0) {
+		/**
+		 * Remove direction flags
+		 */
+		$direction = hexdec($direction);
+		$direction &= ~0x80;
+
+		if (dechex($this->position['facing']) != $direction) {
+			$this->position['facing'] = $direction;
+		} else {
+			switch ($direction) {
+				case 0x00:
+					$this->position['y']--;
+					break;
+				case 0x01:
+					$this->position['x']++;
+					$this->position['y']--;
+					break;
+				case 0x02:
+					$this->position['x']++;
+					break;
+				case 0x03:
+					$this->position['x']++;
+					$this->position['y']++;
+					break;
+				case 0x04:
+					$this->position['y']++;
+					break;
+				case 0x05:
+					$this->position['x']--;
+					$this->position['y']++;
+					break;
+				case 0x06:
+					$this->position['x']--;
+					break;
+				case 0x07:
+					$this->position['x']--;
+					$this->position['y']--;
+					break;
+			}
+		}
+
 		$packet = "22" . str_pad($sequence, 2, "0", STR_PAD_LEFT) . "01";
 		Sockets::out($this->client, $packet, false);
 	}

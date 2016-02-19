@@ -74,6 +74,8 @@ Note 2: Passwords is allways stored in MD5 encryption
  * Send confirmation login packet
  * Support for Encrypted clients (10%, we founded information about encrypt/decrypt the packets using the BLOWFISH/TWOFISH algorythin so it's an feature improvement)
  * Character Speech fully working
+ * Sysmessages working
+ * Item renderization on map
 
 #### Usefull links that could help you code
  * [Sublime Text 3](http://www.sublimetext.com/3) recommended IDE used to program the server

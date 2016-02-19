@@ -47,6 +47,7 @@ class UltimaPHP {
 	static $clients = 0;
 	static $items = 0;
 	static $npcs = 0;
+	static $commands = array();
 
 	function __construct($dir) {
 		self::$basedir = $dir . "/";
@@ -87,6 +88,21 @@ class UltimaPHP {
 				self::stop();
 			}
 			self::setStatus(self::STATUS_FILE_LOADED);
+		}
+
+		// Load items
+		foreach (self::$conf['scripts']['load'] as $folder) {
+			foreach (glob(self::$basedir . $folder. "*.php") as $file) {
+				self::setStatus(self::STATUS_FILE_LOADING, array(
+					$folder . basename($file),
+				));
+
+				if (!require_once ($file)) {
+					self::setStatus(self::STATUS_FILE_LOAD_FAIL);
+					self::stop();
+				}
+				self::setStatus(self::STATUS_FILE_LOADED);
+			}
 		}
 
 		self::setStatus(self::STATUS_DATABASE_CONNECTING);
@@ -168,7 +184,7 @@ class UltimaPHP {
 		} elseif (!isset(self::$conf['accounts']['password_crypt'])) {
 			$iniMessage = "Server accounts password encrypt not defined";
 		} elseif (!isset(self::$conf['accounts']['max_chars'])) {
-			$iniMessage = "Server accounts maximoun characters per account not defined";
+			$iniMessage = "Server accounts maximum characters per account not defined";
 		} elseif (!isset(self::$conf['accounts']['char_delete_time'])) {
 			$iniMessage = "Server accounts character deletion minimum time not defined";
 		} elseif (!isset(self::$conf['accounts']['login_tries'])) {
@@ -180,7 +196,7 @@ class UltimaPHP {
 		} elseif (!isset(self::$conf['accounts']['allow_nocrypt'])) {
 			$iniMessage = "Server accounts allow nocrypt not defined";
 		} elseif (!isset(self::$conf['accounts']['ConnectingMaxIp'])) {
-			$iniMessage = "Server accounts maximoun connection per ip not defined";
+			$iniMessage = "Server accounts maximum connection per ip not defined";
 		} elseif (!isset(self::$conf['logs']['debug'])) {
 			$iniMessage = "Server logs debug not defined";
 		}

@@ -534,7 +534,6 @@ class Packets
 		} else {
 			$text = Functions::readUnicodeStringSafe(array_slice($data, $actual_byte, -1));
 		}
-		
 		UltimaPHP::$socketClients[$client]['account']->player->speech($type, $color, $font, $language, $text);
 	}
 	
