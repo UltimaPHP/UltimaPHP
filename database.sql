@@ -7,16 +7,18 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `last_login` datetime DEFAULT NULL,
   `plevel` tinyint(1) NOT NULL DEFAULT '1',
   `status` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 INSERT INTO `accounts` (`id`, `account`, `password`, `maxchars`, `creation_date`, `last_login`, `plevel`, `status`) VALUES
-(1, 'test', '098f6bcd4621d373cade4e832627b4f6', 5, '2015-08-16 02:41:25', NULL, 7, 1);
+(1, 'test', '098f6bcd4621d373cade4e832627b4f6', 5, '2015-08-16 02:41:25', NULL, 7, 1),
+(2, 'test2', '098f6bcd4621d373cade4e832627b4f6', 5, '2015-08-16 02:41:25', NULL, 7, 1);
 
 CREATE TABLE IF NOT EXISTS `players` (
   `id` int(9) NOT NULL,
   `account` int(9) NOT NULL,
   `name` varchar(255) NOT NULL,
   `body` varchar(20) NOT NULL,
+  `color` varchar(8) NOT NULL DEFAULT '0',
   `sex` tinyint(1) NOT NULL DEFAULT '1',
   `race` tinyint(1) NOT NULL DEFAULT '1',
   `position` varchar(15) NOT NULL,
@@ -47,9 +49,9 @@ CREATE TABLE IF NOT EXISTS `players` (
   `title` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
-INSERT INTO `players` (`id`, `account`, `name`, `body`, `sex`, `race`, `position`, `hits`, `maxhits`, `mana`, `maxmana`, `stam`, `maxstam`, `str`, `maxstr`, `int`, `maxint`, `dex`, `maxdex`, `statscap`, `pets`, `maxpets`, `resist_fire`, `resist_cold`, `resist_poison`, `resist_energy`, `luck`, `damage_min`, `damage_max`, `karma`, `fame`, `title`) VALUES
-(1, 1, 'Owner test', '400', 1, 1, '1000,1000,0,0', 100, 100, 100, 100, 100, 100, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, NULL, 0, 5, 0, 0, 0, 0, 0, 0, 0, 10000, 10000, 'Shard Owner'),
-(2, 1, 'Player test', '400', 2, 1, '1000,1000,0,0', 1, 4, 1, 1, 1, 1, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, NULL, 0, 5, 0, 0, 0, 0, 0, 0, 0, 10000, 10000, NULL);
+INSERT INTO `players` (`id`, `account`, `name`, `body`, `color`, `sex`, `race`, `position`, `hits`, `maxhits`, `mana`, `maxmana`, `stam`, `maxstam`, `str`, `maxstr`, `int`, `maxint`, `dex`, `maxdex`, `statscap`, `pets`, `maxpets`, `resist_fire`, `resist_cold`, `resist_poison`, `resist_energy`, `luck`, `damage_min`, `damage_max`, `karma`, `fame`, `title`) VALUES
+(1, 1, 'Owner test', '400', '33770', 0, 0, '1000,1000,0,0', 100, 100, 100, 100, 100, 100, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 225, 0, 5, 0, 0, 0, 0, 28, 10, 10, 10000, 10000, 'Shard Owner'),
+(2, 2, 'Player test', '401', '33770', 1, 0, '1000,1003,0,0', 100, 100, 100, 100, 100, 100, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, NULL, 0, 5, 0, 0, 0, 0, 0, 0, 0, 10000, 10000, NULL);
 
 CREATE TABLE IF NOT EXISTS `starting_locations` (
   `id` int(11) NOT NULL,
@@ -72,15 +74,21 @@ INSERT INTO `starting_locations` (`id`, `name`, `area`, `position`, `clioc`) VAL
 
 ALTER TABLE `accounts`
   ADD PRIMARY KEY (`id`);
+
 ALTER TABLE `players`
   ADD PRIMARY KEY (`id`), ADD KEY `idx_account` (`account`);
+
 ALTER TABLE `starting_locations`
   ADD PRIMARY KEY (`id`);
+
 ALTER TABLE `accounts`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+
 ALTER TABLE `players`
   MODIFY `id` int(9) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+
 ALTER TABLE `starting_locations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  
 ALTER TABLE `players`
 ADD CONSTRAINT `fk_account` FOREIGN KEY (`account`) REFERENCES `accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;

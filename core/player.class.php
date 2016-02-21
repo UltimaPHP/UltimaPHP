@@ -10,7 +10,7 @@ class Player {
 	public $client;
 
 	/* Player variables */
-	public $uid;
+	public $id;
 	public $serial;
 	public $name;
 	public $body;
@@ -53,18 +53,20 @@ class Player {
 		'npcs' => array()
 	);
 
-	function __construct($client = null, $character_uid = null) {
-		if (null === $client || null === $character_uid) {
+	function __construct($client = null, $character_serial = null) {
+		if (null === $client || null === $character_serial) {
 			return false;
 		}
 
 		$this->client = $client;
-		$this->uid = $character_uid;
+		$this->serial = str_pad($character_serial, 8, "0", STR_PAD_LEFT);
+		$this->id = ($character_serial - 442500);
 
 		$query = "SELECT
                         a.id,
                         a.name,
                         a.body,
+                        a.color,
                         a.sex,
                         a.race,
                         a.position,
@@ -96,20 +98,20 @@ class Player {
                     FROM
                         players a
                     WHERE
-                        a.id = :player_uid";
+                        a.id = :player_id";
 
 		$sth = UltimaPHP::$db->prepare($query);
 		$sth->execute(array(
-			":player_uid" => $this->uid,
+			":player_id" => $this->id,
 		));
 		$result = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 		if (isset($result[0])) {
 			$position = explode(",", $result[0]['position']);
 
-			$this->serial = dechex((UltimaPHP::BITMASK_ITEM | UltimaPHP::BITMASK_RESOURCE) | dechex($this->uid));
 			$this->name = $result[0]['name'];
 			$this->body = $result[0]['body'];
+			$this->color = $result[0]['color'];
 			$this->sex = $result[0]['sex'];
 			$this->race = $result[0]['race'];
 			$this->position = array(
@@ -117,7 +119,8 @@ class Player {
 				'y' => $position[1],
 				'z' => $position[2],
 				'map' => $position[3],
-				'facing' => 6
+				'facing' => 6,
+				'running' => 0
 			);
 			$this->hits = $result[0]['hits'];
 			$this->maxhits = $result[0]['maxhits'];
@@ -161,21 +164,22 @@ class Player {
 
 	}
 
-	public function dclick($uid = null) {
-		if ($uid === null) {
+	public function dclick($serial = null) {
+		if ($serial === null) {
 			return false;
 		}
 
 		// Check if the character dclick itself
-		if (($this->serial | "80000000") == $uid) {
-			$this->openPaperdoll();
+
+		if (($this->serial | "80000000") || Functions::isChar($serial)) {
+			$this->openPaperdoll($serial);
 		} else {
 			echo "Clicked something else\n";
 		}
 	}
 
 	public function pickUp($item_serial, $amount) {
-			echo "Player tryies to pickup {$amount}x item uid: $item_serial";
+			echo "Player tryies to pickup {$amount}x item serial: $item_serial";
 
 			$packet = "13";
 			$packet .= $item_serial;
@@ -184,11 +188,24 @@ class Player {
 			Sockets::out($this->client, $packet, false);
 	}
 
-	public function openPaperdoll() {
+	public function openPaperdoll($serial) {
+		if ($serial | 0x80000000) {
+			$serial = "0" . substr($serial, 1);
+		}
+
 		$packet = "88";
-		$packet .= $this->serial;
-		$packet .= str_pad("ESCRIBA", 120, "0", STR_PAD_RIGHT);
-		$packet .= "00";
+		$packet .= $serial;
+		$packet .= str_pad($this->name . " " . $this->title, 120, "0", STR_PAD_RIGHT);
+
+		$flags = 0x00;
+
+		// Can alter paperdoll
+		if ($serial == $this->serial) {
+			$flags = $flags | 0x02;
+		}
+
+		$packet .= str_pad(dechex($flags), 2, "0", STR_PAD_LEFT);
+
 		Sockets::out($this->client, $packet, false);
 	}
 
@@ -429,7 +446,7 @@ class Player {
 	}
 
 	/**
-	 * Drawn character on client
+	 * Draw character on client
 	 */
 	public function drawChar($runInLot = false, $client_id = null) {
 		if ($client_id != null) {
@@ -440,13 +457,13 @@ class Player {
 
 		$packet = "78";
 		$packet .= str_pad(dechex(23), 4, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex($player->serial), 8, "0", STR_PAD_LEFT);
+		$packet .= str_pad($player->serial, 8, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex($player->body), 4, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex($player->position['x']), 4, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex($player->position['y']), 4, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex($player->position['z']), 2, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex($player->position['facing']), 2, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex(33770), 4, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($player->color), 4, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex(0), 2, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex(1), 2, "0", STR_PAD_LEFT);
 		$packet .= "00000000";
@@ -462,7 +479,7 @@ class Player {
 		$packet .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex($this->body), 4, "0", STR_PAD_LEFT);
 		$packet .= "00";
-		$packet .= str_pad(dechex(33770), 4, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($this->color), 4, "0", STR_PAD_LEFT);
 		$packet .= "18";
 		$packet .= str_pad(dechex($this->position['x']), 4, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex($this->position['y']), 4, "0", STR_PAD_LEFT);
@@ -486,8 +503,14 @@ class Player {
 
 		$oldPosition = $this->position;
 
-		if (hexdec($this->position['facing']) != hexdec($direction)) {
-			$this->position['facing'] = $direction;
+		if ((int)$direction >= 80) {
+			$this->position['running'] = true;
+		} else {
+			$this->position['running'] = false;
+		}
+
+		if ((int) $this->position['facing'] != (int) $tmpDirection) {
+			$this->position['facing'] = (int)$tmpDirection;
 		} else {
 			switch (hexdec($tmpDirection)) {
 				case 0: /* North */
@@ -533,14 +556,15 @@ class Player {
 	 */
 	public function updatePlayer($client_id) {
 		$player = UltimaPHP::$socketClients[$client_id]['account']->player;
+		$direction = str_pad(($player->position['running'] === true ? 80 + $player->position['facing'] : $player->position['facing']), 2, "0", STR_PAD_LEFT);
 
 		$packet = "77";
-		$packet .= str_pad(dechex($player->serial), 8, "0", STR_PAD_LEFT);
+		$packet .= str_pad($player->serial, 8, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex($player->body), 4, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex($player->position['x']), 4, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex($player->position['y']), 4, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex($player->position['z']), 2, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex($player->position['facing']), 2, "0", STR_PAD_LEFT);
+		$packet .= str_pad($direction, 2, "0", STR_PAD_LEFT);
 		$packet .= str_pad(dechex($player->color), 4, "0", STR_PAD_LEFT);
 		$packet .= "00";
 		$packet .= "01";
@@ -671,19 +695,19 @@ class Player {
 	}
 
 	public function updateCurrentHealth($runInLot = false) {
-		$packet = "A1" . str_pad(dechex(442500 + $this->uid), 8, "0", STR_PAD_LEFT) . str_pad(dechex($this->maxhits), 2, "0", STR_PAD_LEFT) . str_pad(dechex($this->hits), 2, "0", STR_PAD_LEFT);
+		$packet = "A1" . str_pad($this->serial, 8, "0", STR_PAD_LEFT) . str_pad(dechex($this->maxhits), 2, "0", STR_PAD_LEFT) . str_pad(dechex($this->hits), 2, "0", STR_PAD_LEFT);
 
 		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	public function updateCurrentMana($runInLot = false) {
-		$packet = "A2" . str_pad(dechex(442500 + $this->uid), 8, "0", STR_PAD_LEFT) . str_pad(dechex($this->maxmana), 2, "0", STR_PAD_LEFT) . str_pad(dechex($this->mana), 2, "0", STR_PAD_LEFT);
+		$packet = "A2" . str_pad($this->serial, 8, "0", STR_PAD_LEFT) . str_pad(dechex($this->maxmana), 2, "0", STR_PAD_LEFT) . str_pad(dechex($this->mana), 2, "0", STR_PAD_LEFT);
 
 		Sockets::out($this->client, $packet, $runInLot);
 	}
 
 	public function updateCurrentStamina($runInLot = false) {
-		$packet = "A3" . str_pad(dechex(442500 + $this->uid), 8, "0", STR_PAD_LEFT) . str_pad(dechex($this->maxstam), 2, "0", STR_PAD_LEFT) . str_pad(dechex($this->stam), 2, "0", STR_PAD_LEFT);
+		$packet = "A3" . str_pad($this->serial, 8, "0", STR_PAD_LEFT) . str_pad(dechex($this->maxstam), 2, "0", STR_PAD_LEFT) . str_pad(dechex($this->stam), 2, "0", STR_PAD_LEFT);
 
 		Sockets::out($this->client, $packet, $runInLot);
 	}

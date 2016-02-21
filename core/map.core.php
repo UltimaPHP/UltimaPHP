@@ -100,12 +100,16 @@ class Map
 			$player = UltimaPHP::$socketClients[$client_id]['account']->player;
 
 			if ($actual_player->serial != $player->serial && $player->position['x'] >= $updateRange['from']['x'] && $player->position['x'] <= $updateRange['to']['x'] && $player->position['y'] >= $updateRange['from']['y'] && $player->position['y'] <= $updateRange['to']['y']) {
-				$actual_player->mapRange['players'][$client_id] = true;
-				$actual_player->drawChar(false, $client_id);
+				if (!array_key_exists($client_id, $actual_player->mapRange['players'])) {
+					$actual_player->mapRange['players'][$client_id] = true;
+					$actual_player->drawChar(false, $client_id);
+				}
 				$actual_player->updatePlayer($client_id);
 
-				$player->mapRange['players'][$actual_player->client] = true;
-				$player->drawChar(false, $actual_player->client);
+				if (!array_key_exists($actual_player->client, $player->mapRange['players'])) {
+					$player->mapRange['players'][$actual_player->client] = true;
+					$player->drawChar(false, $actual_player->client);
+				}
 				$player->updatePlayer($client);
 			} else {
 				if (isset($actual_player->mapRange['players'][$player->client])) {

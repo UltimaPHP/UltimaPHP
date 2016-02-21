@@ -11,7 +11,7 @@ class Account {
 	public $client;
 
 	/* Account information variables */
-	public $uid;
+	public $serial;
 	public $account;
 	public $password;
 	public $maxchars;
@@ -56,7 +56,7 @@ class Account {
 		$result = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 		if (isset($result[0])) {
-			$this->uid = $result[0]['id'];
+			$this->serial = $result[0]['id'];
 			$this->account = $result[0]['account'];
 			$this->password = $result[0]['password'];
 			$this->maxchars = $result[0]['maxchars'];
@@ -90,21 +90,22 @@ class Account {
                     FROM
                         players a
                     WHERE
-                        a.account = :account_uid";
+                        a.account = :account_serial";
 
 			$sth = UltimaPHP::$db->prepare($query);
 			$sth->execute(array(
-				":account_uid" => $this->uid,
+				":account_serial" => $this->serial,
 			));
 			$result = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 			$chars = array();
 			foreach ($result as $char) {
 				$chars[] = array(
-					'uid' => $char['id'],
-					'name' => $char['name'],
+					'serial' => (442500 + $char['id']),
+					'name' => $char['name']
 				);
 			}
+
 			return $chars;
 		} else {
 			return $this->characters;
@@ -197,8 +198,7 @@ class Account {
 	 */
 	public function loginCharacter($info = array()) {
 		if (isset($this->characters[$info['slotchoosen']])) {
-			$this->player = new Player($this->client, $this->characters[$info['slotchoosen']]['uid']);
-
+			$this->player = new Player($this->client, $this->characters[$info['slotchoosen']]['serial']);
 			Sockets::addEvent($this->client, array(
 				"option" => "player",
 				"method" => "sendClientLocaleBody"

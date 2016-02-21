@@ -55,5 +55,17 @@ class Functions
 
 		return $text;
 	}
+
+	public static function isChar($serial) {
+		if (($serial & (UltimaPHP::BITMASK_ITEM|UltimaPHP::BITMASK_RESOURCE)) == 0) {
+			return self::isValidSerial($serial);
+		}
+		return false;
+	}
+
+	public static function isValidSerial($serial) {
+		return ($serial && ($serial & UltimaPHP::BITMASK_INDEX_MASK) != UltimaPHP::BITMASK_INDEX_MASK);
+	}
+		
 }
 ?>
