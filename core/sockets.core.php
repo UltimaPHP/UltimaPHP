@@ -120,7 +120,7 @@ class Sockets
 	/**
 	 * Outgoing packet handler
 	 */
-	public static function out($client, $packet, $lot = array() , $dontConvert = false, $dontCompress = false) {
+	public static function out($client, $packet, $lot = array(), $dontConvert = false, $dontCompress = false) {
 		$err = null;
 		
 		if (false === $dontCompress && isset(UltimaPHP::$socketClients[$client]['compressed']) && true === UltimaPHP::$socketClients[$client]['compressed']) {
@@ -191,8 +191,9 @@ class Sockets
 					$args = (isset($event['event']['args']) ? $event['event']['args'] : array());
 					if ($event['event']['option'] == "account") {
 						UltimaPHP::$socketClients[$event['client']]['account']->$event['event']['method']($event['lot'], $args);
-					} 
-					else {
+					} else if ($event['event']['option'] == "map") {
+						Map::$event['event']['method']($args);
+					} else {
 						UltimaPHP::$socketClients[$event['client']]['account']->$event['event']['option']->$event['event']['method']($event['lot'], $args);
 					}
 					unset(UltimaPHP::$socketEvents[$registerTime][$eventKey]);

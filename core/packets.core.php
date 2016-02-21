@@ -305,6 +305,30 @@ class Packets
 		$player->dclick($uid);
 		// UltimaPHP::log("Character " . $player->name . " double clicked on UID '$uid'");
 	}
+
+	/**
+	 * 	Packet received when player tryies to pick up item
+	 */
+	public static function packet_0x07($data, $client) {
+		$command = $data[0];
+		$item_serial = $data[1] . $data[2] . $data[3] . $data[4];
+		$amount = hexdec($data[5] . $data[6]);
+
+		// What to do now?
+		
+		// $player = UltimaPHP::$socketClients[$client]['account']->player;
+		// $player->pickUp($item_serial, $amount);
+	}
+
+	/**
+	 * Packet received when player tryies to click on object
+	 */
+	public static function packet_0x09($data, $client) {
+		$command = $data[0];
+		$object = $data[1] . $data[2] . $data[3] . $data[4];
+
+		UltimaPHP::$socketClients[$client]['account']->player->click($object);
+	}
 	
 	/**
 	 * Packet received from client asking for status information

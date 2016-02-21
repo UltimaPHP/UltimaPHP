@@ -14,6 +14,7 @@ class Player {
 	public $serial;
 	public $name;
 	public $body;
+	public $color;
 	public $sex;
 	public $race;
 	public $position;
@@ -44,6 +45,13 @@ class Player {
 	public $fame;
 	public $title;
 	public $warmode;
+
+	/* Temporary Variables */
+	public $mapRange = array(
+		'objects' => array(),
+		'players' => array(),
+		'npcs' => array()
+	);
 
 	function __construct($client = null, $character_uid = null) {
 		if (null === $client || null === $character_uid) {
@@ -99,7 +107,7 @@ class Player {
 		if (isset($result[0])) {
 			$position = explode(",", $result[0]['position']);
 
-			$this->serial = str_pad(442500 + $this->uid, 8, "0", STR_PAD_LEFT);
+			$this->serial = dechex((UltimaPHP::BITMASK_ITEM | UltimaPHP::BITMASK_RESOURCE) | dechex($this->uid));
 			$this->name = $result[0]['name'];
 			$this->body = $result[0]['body'];
 			$this->sex = $result[0]['sex'];
@@ -142,6 +150,17 @@ class Player {
 		}
 	}
 
+	public function click($object = null) {
+		if ($object === null) {
+			return false;
+		}
+
+		if (hexdec($object) & UltimaPHP::BITMASK_ITEM) {
+			echo "clicked on object";
+		}
+
+	}
+
 	public function dclick($uid = null) {
 		if ($uid === null) {
 			return false;
@@ -151,8 +170,18 @@ class Player {
 		if (($this->serial | "80000000") == $uid) {
 			$this->openPaperdoll();
 		} else {
-			echo "Clicou em outra coisa\n";
+			echo "Clicked something else\n";
 		}
+	}
+
+	public function pickUp($item_serial, $amount) {
+			echo "Player tryies to pickup {$amount}x item uid: $item_serial";
+
+			$packet = "13";
+			$packet .= $item_serial;
+			$packet .= "15"; // Backpack
+			$packet .= $this->serial;
+			Sockets::out($this->client, $packet, false);
 	}
 
 	public function openPaperdoll() {
@@ -197,6 +226,8 @@ class Player {
 			$packet .= str_pad(Functions::strToHex($this->name), 60, "0", STR_PAD_RIGHT);
 			$packet .= $tmpPacket;
 			$packet .= "0000";
+
+			Map::sendSpeechPacket($packet, $this->client);
 		}
 		Sockets::out($this->client, $packet, false);
 	}
@@ -227,7 +258,7 @@ class Player {
 			}
 
 			$item = new $args[0]();
-			$this->addItemToMap($item);		
+			Map::addObjectToMap($item, $this->position['x'], $this->position['y'], $this->position['z'], 0);
 		}
 	}
 
@@ -238,26 +269,6 @@ class Player {
 
 		$this->speech("06", $color, 3, "PTB ", $message);
 		return true;
-	}
-
-	public function addItemToMap(Object $item) {
-		$packet = "F3";
-		$packet .= "0001";
-		$packet .= "00";
-		$packet .= $item->serial;
-		$packet .= str_pad(dechex($item->graphic), 4, "0", STR_PAD_LEFT);
-		$packet .= "00";
-		$packet .= str_pad(dechex($item->amount), 4, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex($item->amount), 4, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex($this->position['x']), 4, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex($this->position['y']), 4, "0", STR_PAD_LEFT);
-		$packet .= str_pad("00", 2, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex($item->layer), 2, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex($item->color), 4, "0", STR_PAD_LEFT);
-		$packet .= "20";
-		$packet .= "0000";
-
-		Sockets::out($this->client, $packet, false);
 	}
 
 	/**
@@ -420,21 +431,24 @@ class Player {
 	/**
 	 * Drawn character on client
 	 */
-	public function drawChar($runInLot = false) {
-		$packet = "78";
-		$packet .= str_pad(dechex(30), 4, "0", STR_PAD_LEFT);
-		$packet .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex($this->body), 4, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex($this->position['x']), 4, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex($this->position['y']), 4, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex($this->position['z']), 2, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex($this->position['facing']), 2, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex(33770), 4, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex(24), 2, "0", STR_PAD_LEFT);
-		$packet .= str_pad(dechex(7), 2, "0", STR_PAD_LEFT);
-		$packet .= "400551800E7515";
+	public function drawChar($runInLot = false, $client_id = null) {
+		if ($client_id != null) {
+			$player = UltimaPHP::$socketClients[$client_id]['account']->player;
+		} else {
+			$player = $this;
+		}
 
-		// Backpack
+		$packet = "78";
+		$packet .= str_pad(dechex(23), 4, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($player->serial), 8, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($player->body), 4, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($player->position['x']), 4, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($player->position['y']), 4, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($player->position['z']), 2, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($player->position['facing']), 2, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex(33770), 4, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex(0), 2, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex(1), 2, "0", STR_PAD_LEFT);
 		$packet .= "00000000";
 
 		Sockets::out($this->client, $packet, $runInLot);
@@ -462,59 +476,75 @@ class Player {
 	/**
 	 * Packet sent to confirm player movement request
 	 * 
-	 * Directions:
-	 * 	0x00 - North
-	 * 	0x01 - Northeast
-	 * 	0x02 - East
-	 * 	0x03 - Southeast
-	 * 	0x04 - South
-	 * 	0x05 - Southwest
-	 * 	0x06 - West
-	 * 	0x07 - Northwest
 	 */
 	public function movePlayer($runInLot = false, $direction = false, $sequence = false, $running = false, $fastwalk_prevention = 0) {
 		/**
-		 * Remove direction flags
+		 * Remove dirname(path)ection flags
 		 */
-		$direction = hexdec($direction);
-		$direction &= ~0x80;
+		$tmpDirection = hexdec($direction);
+		$tmpDirection &= ~0x80;
 
-		if (dechex($this->position['facing']) != $direction) {
+		$oldPosition = $this->position;
+
+		if (hexdec($this->position['facing']) != hexdec($direction)) {
 			$this->position['facing'] = $direction;
 		} else {
-			switch ($direction) {
-				case 0x00:
+			switch (hexdec($tmpDirection)) {
+				case 0: /* North */
 					$this->position['y']--;
 					break;
-				case 0x01:
+				case 1: /* Northeast */
 					$this->position['x']++;
 					$this->position['y']--;
 					break;
-				case 0x02:
+				case 2: /* East */
 					$this->position['x']++;
 					break;
-				case 0x03:
+				case 3: /* Southeast */
 					$this->position['x']++;
 					$this->position['y']++;
 					break;
-				case 0x04:
+				case 4: /* South */
 					$this->position['y']++;
 					break;
-				case 0x05:
+				case 5: /* Southwest */
 					$this->position['x']--;
 					$this->position['y']++;
 					break;
-				case 0x06:
+				case 6: /* West */
 					$this->position['x']--;
 					break;
-				case 0x07:
+				case 7: /* Northwest */
 					$this->position['x']--;
 					$this->position['y']--;
 					break;
 			}
 		}
 
+		$newPosition = $this->position;
+		Map::updatePlayerLocation($this->client, $oldPosition, $newPosition);
+
 		$packet = "22" . str_pad($sequence, 2, "0", STR_PAD_LEFT) . "01";
+		Sockets::out($this->client, $packet, false);
+	}
+
+	/**
+	 * Send the update information of some player
+	 */
+	public function updatePlayer($client_id) {
+		$player = UltimaPHP::$socketClients[$client_id]['account']->player;
+
+		$packet = "77";
+		$packet .= str_pad(dechex($player->serial), 8, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($player->body), 4, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($player->position['x']), 4, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($player->position['y']), 4, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($player->position['z']), 2, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($player->position['facing']), 2, "0", STR_PAD_LEFT);
+		$packet .= str_pad(dechex($player->color), 4, "0", STR_PAD_LEFT);
+		$packet .= "00";
+		$packet .= "01";
+
 		Sockets::out($this->client, $packet, false);
 	}
 
@@ -587,8 +617,6 @@ class Player {
 		$packet .= str_pad(dechex($this->damage_max), 4, "0", STR_PAD_LEFT);
 		$packet .= "00000000";
 
-		// echo "\n\n\n\n\n$packet\n\n\n\n\n\n";
-
 		Sockets::out($this->client, $packet, $runInLot);
 	}
 
@@ -626,6 +654,7 @@ class Player {
 	 * Send the login complete confirmation to the client
 	 */
 	public function confirmLogin($runInLot = false) {
+		Map::addPlayerToMap($this);
 		Sockets::out($this->client, "55", $runInLot);
 	}
 
