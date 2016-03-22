@@ -38,7 +38,7 @@ class Player {
 	public $resist_poison;
 	public $resist_energy;
 	public $luck;
-	public $view_range;
+	public $render_range;
 	public $damage_min;
 	public $damage_max;
 	public $karma;
@@ -61,6 +61,7 @@ class Player {
 		$this->client = $client;
 		$this->serial = str_pad($character_serial, 8, "0", STR_PAD_LEFT);
 		$this->id = ($character_serial - 442500);
+		$this->render_range = UltimaPHP::$conf['render_range'];
 
 		$query = "SELECT
                         a.id,
@@ -244,7 +245,7 @@ class Player {
 			$packet .= $tmpPacket;
 			$packet .= "0000";
 
-			Map::sendSpeechPacket($packet, $this->client);
+			Map::sendPacketRange($packet, $this->client);
 		}
 		Sockets::out($this->client, $packet, false);
 	}
