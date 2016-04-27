@@ -14,103 +14,168 @@
 // O_INDEX_FREE	    0x01000000	// Spellbook needs unused UID's ?
 
 class Object {
-	/**
-	 * Item variables
-	 */
-	public $cont;
-	public $serial;
-	public $id;
-	public $graphic;
-	public $type;
-	public $name;
 
-	/**
-	 * Item Position
-	 */
-	public $location;
-	public $pos_x;
-	public $pos_y;
-	public $pos_z;
-	
-	public $hits;
-	public $maxHits;
-	
-	public $direction;
-	public $color;
-	public $flags;
-	public $value;
-	public $amount;
-	public $layer;
+    /**
+     * Item variables
+     */
+    public $cont;
+    public $serial;
+    public $id;
+    public $graphic;
+    public $type;
+    public $name;
 
-	function __construct($serial = null) {
-		$this->build();
-		if ($serial === null) {
-			$this->serial = dechex(UltimaPHP::BITMASK_ITEM | dechex(rand(111111,900000)));
-		}
-	}
+    /**
+     * Item Position
+     */
+    public $location;
+    public $pos_x;
+    public $pos_y;
+    public $pos_z;
+    public $hits;
+    public $maxHits;
+    public $direction;
+    public $color;
+    public $flags;
+    public $value;
+    public $amount;
+    public $layer;
 
-	/**
-	 * Object create/destroy methods
-	 */
-	public function create() {}
-	public function destroy() {}
+    function __construct($serial = null) {
+        $this->build();
+        if ($serial === null) {
+            $this->serial = dechex(UltimaPHP::BITMASK_ITEM | dechex(rand(111111, 900000)));
+        }
+    }
 
-	/**
-	 * Object Buy/Sell methods
-	 */
-	public function buy() {}
-	public function sell() {}
+    /**
+     * Object create/destroy methods
+     */
+    public function create() {
+        
+    }
 
-	/**
-	 * Object Equip/Unequip methods
-	 */
-	public function equip() {}
-	public function unequip() {}
+    public function destroy() {
+        
+    }
 
-	/**
-	 * Object damage methods
-	 */
-	public function damage() {}
-	public function spellEffect() {}
+    /**
+     * Object Buy/Sell methods
+     */
+    public function buy() {
+        
+    }
 
-	/**
-	 * Step on item method
-	 */
-	public function step() {}
+    public function sell() {
+        
+    }
 
-	/**
-	 * Timer events method
-	 */
-	public function timer() {}
-	
-	/**
-	 * Object Click and DClick methods
-	 */
-	public function click() {}
-	public function dclick() {}
-	
-	/**
-	 * Object dropping methods
-	 */
-	public function dropOnChar() {}
-	public function dropOnGround() {}
-	public function dropOnItem() {}
-	public function dropOnSeld() {}
-	public function dropOnTrade() {}
-	
-	/**
-	 * Object pickingup methods
-	 */
-	public function pickupGround() {}
-	public function pickupPack() {}
-	public function pickupSelf() {}
-	public function pickupStack() {}
-	
-	/**
-	 * Object targeting methods
-	 */
-	public function targOnCancel() {}
-	public function targOnChar() {}
-	public function targOnGround() {}
-	public function targOnItem() {}
+    /**
+     * Object Equip/Unequip methods
+     */
+    public function equip() {
+        
+    }
+
+    public function unequip() {
+        
+    }
+
+    /**
+     * Object damage methods
+     */
+    public function damage() {
+        
+    }
+
+    public function spellEffect() {
+        
+    }
+
+    /**
+     * Step on item method
+     */
+    public function step() {
+        
+    }
+
+    /**
+     * Timer events method
+     */
+    public function timer() {
+        
+    }
+
+    /**
+     * Object Click and DClick methods
+     */
+    public function click() {
+        
+    }
+
+    public function dclick() {
+        
+    }
+
+    /**
+     * Object dropping methods
+     */
+    public function dropOnChar() {
+        
+    }
+
+    public function dropOnGround() {
+        
+    }
+
+    public function dropOnItem() {
+        
+    }
+
+    public function dropOnSeld() {
+        
+    }
+
+    public function dropOnTrade() {
+        
+    }
+
+    /**
+     * Object pickingup methods
+     */
+    public function pickupGround() {
+        
+    }
+
+    public function pickupPack() {
+        
+    }
+
+    public function pickupSelf() {
+        
+    }
+
+    public function pickupStack() {
+        
+    }
+
+    /**
+     * Object targeting methods
+     */
+    public function targOnCancel() {
+        
+    }
+
+    public function targOnChar() {
+        
+    }
+
+    public function targOnGround() {
+        
+    }
+
+    public function targOnItem() {
+        
+    }
+
 }
