@@ -320,5 +320,3 @@ class Account {
     }
 
 }
-
-?>
