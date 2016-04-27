@@ -12,7 +12,7 @@ Note: The server works with clients 6.0.13 or greater, since this version many p
 
 ## How to install?
 
-First of all you will need to install PHP 5.4 or greater and MySQL Server 5 or greater (or any database compatible with PDO) on your machine, for that open this links:
+First of all you will need to install PHP 5.4 or greater, I reccomend to use PHP 7 it's ultra fasti reccomend to use PHP 7 it's ultra fast, and MySQL Server 5 or greater (or any database compatible with PDO) on your machine, for that open this links:
 
 * [PHP download page](http://php.net/downloads.php) and get the version of PHP you want to use
 * [MySQL dowload page](http://dev.mysql.com/downloads/mysql/) and get the right version of MySQL for your machine.
@@ -33,9 +33,17 @@ Note 2: Passwords is allways stored in MD5 encryption
 
 ### Windows
 
- * Open the manu bar and open ```cmd```
- * Navigate to PHP installation folder
- * type ```php.exe c:\ultimaphp\instalation\folder\startserver.php```
+ * Open the run dialog (SUPER+R) and type ```cmd``` then run
+ * Navigate to PHP installation folder ```cd c:\php\installation\folder\```
+ * Start server ```php.exe c:\ultimaphp\instalation\folder\startserver.php```
+
+## Base PHP compilation
+For those, like me, who preffer to use an 
+```bash
+./configure --prefix=/usr --with-config-file-path=/etc --enable-sockets --enable-bcmath --enable-mbstring --enable-zip --enable-pcntl --enable-ftp --enable-exif --enable-calendar --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-wddx --with-apxs2 --with-curl --with-mcrypt --with-iconv --with-pspell --with-gd --with-jpeg-dir=/usr --with-png-dir=/usr --with-zlib-dir=/usr --with-xpm-dir=/usr --with-freetype-dir=/usr --enable-gd-native-ttf --enable-gd-jis-conv --with-openssl --with-pdo-mysql=/usr --with-gettext=/usr --with-zlib=/usr --with-bz2=/usr --with-recode=/usr --with-mysqli=/usr/bin/mysql_config
+make
+make install
+```
 
 ### What is already working?
 
