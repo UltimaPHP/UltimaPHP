@@ -20,100 +20,100 @@ class Map {
         /**
          * Render the maps inside chunk arrays
          */
-        while (isset(UltimaPHP::$conf["muls"]["map{$actualMap}"])) {
-            $mapFile = UltimaPHP::$conf['muls']['location'] . "map{$actualMap}.mul";
-            $mapSize = explode(",", UltimaPHP::$conf["muls"]["map{$actualMap}"]);
+        // while (isset(UltimaPHP::$conf["muls"]["map{$actualMap}"])) {
+        //     $mapFile = UltimaPHP::$conf['muls']['location'] . "map{$actualMap}.mul";
+        //     $mapSize = explode(",", UltimaPHP::$conf["muls"]["map{$actualMap}"]);
 
-            UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_LOADING, array(
-                $mapFile,
-            ));
+        //     UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_LOADING, array(
+        //         $mapFile,
+        //     ));
 
-            if (!is_file($mapFile)) {
-                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_LOAD_FAIL);
-                UltimaPHP::stop();
-            }
+        //     if (!is_file($mapFile)) {
+        //         UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_LOAD_FAIL);
+        //         UltimaPHP::stop();
+        //     }
 
-            $chunks_x = ceil($mapSize[0] / self::$chunkSize);
-            $chunks_y = ceil($mapSize[1] / self::$chunkSize);
+        //     $chunks_x = ceil($mapSize[0] / self::$chunkSize);
+        //     $chunks_y = ceil($mapSize[1] / self::$chunkSize);
 
-            // Build the array that will store map chunks
-            for ($xChunk = 0; $xChunk < $chunks_x; $xChunk++) {
-                self::$chunks[$xChunk] = array();
-                for ($yChunk = 0; $yChunk < $chunks_y; $yChunk++) {
-                    self::$chunks[$xChunk][$yChunk] = array(
-                        'objects' => array(),
-                        'players' => array(),
-                        'npcs' => array(),
-                    );
-                }
-            }
+        //     // Build the array that will store map chunks
+        //     for ($xChunk = 0; $xChunk < $chunks_x; $xChunk++) {
+        //         self::$chunks[$xChunk] = array();
+        //         for ($yChunk = 0; $yChunk < $chunks_y; $yChunk++) {
+        //             self::$chunks[$xChunk][$yChunk] = array(
+        //                 'objects' => array(),
+        //                 'players' => array(),
+        //                 'npcs' => array(),
+        //             );
+        //         }
+        //     }
 
-            // Store information about the map muls and size
-            self::$maps[$actualMap] = array(
-                'mul' => null,
-                'size' => array(
-                    'x' => null,
-                    'y' => null,
-                ),
-            );
+        //     // Store information about the map muls and size
+        //     self::$maps[$actualMap] = array(
+        //         'mul' => null,
+        //         'size' => array(
+        //             'x' => null,
+        //             'y' => null,
+        //         ),
+        //     );
 
-            self::$mapSizes[$actualMap]['x'] = $mapSize[0];
-            self::$mapSizes[$actualMap]['y'] = $mapSize[1];
-            self::$maps[$actualMap]['mul'] = fopen($mapFile, "rb");
-            self::$maps[$actualMap]['size']['x'] = (int) $mapSize[0] >> 3;
-            self::$maps[$actualMap]['size']['y'] = (int) $mapSize[1] >> 3;
+        //     self::$mapSizes[$actualMap]['x'] = $mapSize[0];
+        //     self::$mapSizes[$actualMap]['y'] = $mapSize[1];
+        //     self::$maps[$actualMap]['mul'] = fopen($mapFile, "rb");
+        //     self::$maps[$actualMap]['size']['x'] = (int) $mapSize[0] >> 3;
+        //     self::$maps[$actualMap]['size']['y'] = (int) $mapSize[1] >> 3;
 
-            for ($x = 0; $x < self::$maps[$actualMap]['size']['x']; ++$x) {
-                self::$maps[$actualMap][$x] = array();
-                for ($y = 0; $y < self::$maps[$actualMap]['size']['y']; ++$y) {
-                    self::$maps[$actualMap][$x][$y] = array();
+        //     for ($x = 0; $x < self::$maps[$actualMap]['size']['x']; ++$x) {
+        //         self::$maps[$actualMap][$x] = array();
+        //         for ($y = 0; $y < self::$maps[$actualMap]['size']['y']; ++$y) {
+        //             self::$maps[$actualMap][$x][$y] = array();
 
-                    fseek(self::$maps[$actualMap]['mul'], ((($x * self::$maps[$actualMap]['size']['y']) + $y) * 196), SEEK_SET);
-                    $header = hexdec(bin2hex(fread(self::$maps[$actualMap]['mul'], 4)));
+        //             fseek(self::$maps[$actualMap]['mul'], ((($x * self::$maps[$actualMap]['size']['y']) + $y) * 196), SEEK_SET);
+        //             $header = hexdec(bin2hex(fread(self::$maps[$actualMap]['mul'], 4)));
 
 
-                    for ($i = 0; $i < 64; ++$i) {
-                        $tile = bin2hex(fread(self::$maps[$actualMap]['mul'], 2));
-                        $z = hexdec(bin2hex(fread(self::$maps[$actualMap]['mul'], 1)));
-                        if ((hexdec($tile) < 0) || ($tile >= 0x4000)) {
-                            $tile = 0;
-                        }
-                        if ($z < -128) {
-                            $z = -128;
-                        }
-                        if ($z > 127) {
-                            $z = 127;
-                        }
-                        if ($tile > 0) {
-                            echo "$tile|$x,$y,$z,$actualMap\n";
-                            // self::$maps[$actualMap][$x][$y][$z] = $tile;
-                        }
-                    }
-                }
-            }
+        //             for ($i = 0; $i < 64; ++$i) {
+        //                 $tile = bin2hex(fread(self::$maps[$actualMap]['mul'], 2));
+        //                 $z = hexdec(bin2hex(fread(self::$maps[$actualMap]['mul'], 1)));
+        //                 if ((hexdec($tile) < 0) || ($tile >= 0x4000)) {
+        //                     $tile = 0;
+        //                 }
+        //                 if ($z < -128) {
+        //                     $z = -128;
+        //                 }
+        //                 if ($z > 127) {
+        //                     $z = 127;
+        //                 }
+        //                 if ($tile > 0) {
+        //                     echo "$tile|$x,$y,$z,$actualMap\n";
+        //                     // self::$maps[$actualMap][$x][$y][$z] = $tile;
+        //                 }
+        //             }
+        //         }
+        //     }
 
-            /* Send the server proccess and map the statics from actual map */
-            // self::readStaticsFromPosition(0, 1429, 1695);
-            // self::readStatics($actualMap);
+        //     /* Send the server proccess and map the statics from actual map */
+        //     // self::readStaticsFromPosition(0, 1429, 1695);
+        //     // self::readStatics($actualMap);
 
-            UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_LOADED);
-            $actualMap++;
-        }
+        //     UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_LOADED);
+        //     $actualMap++;
+        // }
 
-        $chunks_x = ceil($mapSize[0] / self::$chunkSize);
-        $chunks_y = ceil($mapSize[1] / self::$chunkSize);
+        // $chunks_x = ceil($mapSize[0] / self::$chunkSize);
+        // $chunks_y = ceil($mapSize[1] / self::$chunkSize);
 
-        // Build the array that will store map chunks
-        for ($x = 0; $x < $chunks_x; $x++) {
-            self::$chunks[$x] = array();
-            for ($y = 0; $y < $chunks_y; $y++) {
-                self::$chunks[$x][$y] = array(
-                    'objects' => array(),
-                    'players' => array(),
-                    'npcs' => array(),
-                );
-            }
-        }
+        // // Build the array that will store map chunks
+        // for ($x = 0; $x < $chunks_x; $x++) {
+        //     self::$chunks[$x] = array();
+        //     for ($y = 0; $y < $chunks_y; $y++) {
+        //         self::$chunks[$x][$y] = array(
+        //             'objects' => array(),
+        //             'players' => array(),
+        //             'npcs' => array(),
+        //         );
+        //     }
+        // }
     }
 
     /**
