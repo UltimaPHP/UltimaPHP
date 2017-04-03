@@ -99,7 +99,7 @@ make install
  * [CodeFormatter](https://github.com/akalongman/sublimetext-codeformatter) used to format the code in K&R style
  * [SocketSniff](http://nirsoft.net/utils/socket_sniffer.html) program i use to monitor an program sockets communication
  * [POL Packet Guide](http://docs.polserver.com/packets/index.php) for learning all about the packages sent trought server and client
- * [Sphere 0.56b leaked code](https:///github.com/necr0potenc3/Sphere) to see how things works
+ * [Sphere 0.56d source](https://github.com/Sphereserver/Source) to discover how things works, maybe...
  * [RunUO repository](https://github.com/runuo/runuo) to see how things works
  * [POL Repository](https://github.com/polserver/polserver) to see how things works
  * [Ultima Online Classic - Patch 59 - 7.0.20.0](https://docs.google.com/uc?id=0B5JIbJ4zjyOaTnZEMmhjZW5oYnc&export=download) to download the same version i'm using to build the server
