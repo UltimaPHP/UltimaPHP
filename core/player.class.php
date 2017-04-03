@@ -289,6 +289,10 @@ class Player {
             $item = new $itemDef();
             Map::addObjectToMap($item, $this->position['x'], $this->position['y'], $this->position['z'], 0);
         }
+
+        if ($cmp == "sysmessage") {
+            $this->sysmessage($args[0]);
+        }
     }
 
     public function sysmessage($message, $color = null) {
