@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 
 INSERT INTO `accounts` (`id`, `account`, `password`, `maxchars`, `creation_date`, `last_login`, `plevel`, `status`) VALUES
 (1, 'test', '098f6bcd4621d373cade4e832627b4f6', 5, '2015-08-16 02:41:25', NULL, 7, 1),
-(2, 'test2', '098f6bcd4621d373cade4e832627b4f6', 5, '2015-08-16 02:41:25', NULL, 7, 1);
+(2, 'test2', '098f6bcd4621d373cade4e832627b4f6', 5, '2015-08-16 02:41:25', NULL, 1, 1);
 
 CREATE TABLE IF NOT EXISTS `players` (
   `id` int(9) NOT NULL,

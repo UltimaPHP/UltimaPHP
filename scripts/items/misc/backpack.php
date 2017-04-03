@@ -4,7 +4,7 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-class i_backpack extends Object {
+class backpack extends Object {
 
     public function build() {
         $this->name = "Backpack%s";
@@ -15,5 +15,4 @@ class i_backpack extends Object {
         $this->amount = 1;
         $this->color = 0x0;
     }
-
 }

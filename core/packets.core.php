@@ -329,6 +329,11 @@ class Packets {
         UltimaPHP::$socketClients[$client]['account']->player->click($object);
     }
 
+    /*
+     * Packet received from GOD client to fix map Z
+     */
+    public static function packet_0x14($data, $client) {}
+
     /**
      * Packet received from client asking for status information
      *
@@ -407,7 +412,12 @@ class Packets {
      * Send ping response to the client
      */
     public static function packet_0x73($data, $client) {
-        UltimaPHP::$socketClients[$client]['account']->sendPingResponse();
+        if (isset(UltimaPHP::$socketClients[$client]['account'])) {
+            UltimaPHP::$socketClients[$client]['account']->sendPingResponse();
+        } else {
+            socket_close(UltimaPHP::$socketClients[$client]['socket']);
+            unset(UltimaPHP::$socketClients[$client]);
+        }
     }
 
     /**
@@ -425,15 +435,26 @@ class Packets {
             'account' => $account,
             'password' => md5($password),
         );
-        UltimaPHP::log("Account $account connected from " . UltimaPHP::$socketClients[$client]['ip']);
-
         UltimaPHP::$socketClients[$client]['account'] = new Account($account, md5($password), $client);
 
         if (true === UltimaPHP::$socketClients[$client]['account']->isValid) {
+            UltimaPHP::log("Account $account connected from " . UltimaPHP::$socketClients[$client]['ip']);
 
-            // Send the client an client version request
-            Sockets::out($client, "bd0003");
+            // Send to the client an client version request
+            Sockets::out($client, "BD0003");
+
+            // Send to the client the server list
             UltimaPHP::$socketClients[$client]['account']->sendServerList();
+
+            // Sockets::addEvent($client, array(
+            //     "option" => "account",
+            //     "method" => "sendClientVersionRequest",
+            // ), 0.01);
+
+            // Sockets::addEvent($client, array(
+            //     "option" => "account",
+            //     "method" => "sendServerList",
+            // ), 0.01);
         } else {
             UltimaPHP::$socketClients[$client]['account']->disconnect(3);
         }
@@ -453,7 +474,7 @@ class Packets {
         UltimaPHP::$socketClients[$client]['account'] = new Account($account, md5($password), $client);
 
         if (true === UltimaPHP::$socketClients[$client]['account']->isValid) {
-            UltimaPHP::log("Account $account logged from " . UltimaPHP::$socketClients[$client]['ip']);
+            UltimaPHP::log("Account $account logged from IP " . UltimaPHP::$socketClients[$client]['ip']);
 
             // Set the flag on the connection to send next packets compressed
             UltimaPHP::$socketClients[$client]['compressed'] = true;

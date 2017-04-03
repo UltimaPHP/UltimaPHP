@@ -40,7 +40,7 @@ Note 2: Passwords is allways stored in MD5 encryption
 ## Base PHP compilation
 For those, like me, who preffer to use an 
 ```bash
-./configure --prefix=/usr --with-config-file-path=/etc --enable-sockets --enable-bcmath --enable-mbstring --enable-zip --enable-pcntl --enable-ftp --enable-exif --enable-calendar --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-wddx --with-apxs2 --with-curl --with-mcrypt --with-iconv --with-pspell --with-gd --with-jpeg-dir=/usr --with-png-dir=/usr --with-zlib-dir=/usr --with-xpm-dir=/usr --with-freetype-dir=/usr --enable-gd-native-ttf --enable-gd-jis-conv --with-openssl --with-pdo-mysql=/usr --with-gettext=/usr --with-zlib=/usr --with-bz2=/usr --with-recode=/usr --with-mysqli=/usr/bin/mysql_config
+./configure --prefix=/usr --with-config-file-path=/etc --enable-sockets --enable-bcmath --enable-mbstring --enable-zip --enable-pcntl --enable-ftp --enable-exif --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-wddx --with-mcrypt --with-iconv --with-zlib-dir=/usr --with-xpm-dir=/usr --with-openssl --with-pdo-mysql=/usr --with-gettext=/usr --with-zlib=/usr --with-bz2=/usr --with-mysqli=/usr/bin/mysql_config
 make
 make install
 ```
@@ -83,7 +83,7 @@ make install
  * Support for Encrypted clients (10%, we founded information about encrypt/decrypt the packets using the BLOWFISH/TWOFISH algorythin so it's an feature improvement)
  * Character Speech fully working
  * Sysmessages working
- * Item renderization on map
+ * Item renderization on map (command: .i <item> or .i <item>,arguments you want)
 
 #### Usefull links that could help you code
  * [Sublime Text 3](http://www.sublimetext.com/3) recommended IDE used to program the server

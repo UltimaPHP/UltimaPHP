@@ -289,6 +289,7 @@ class Account {
             $packet .= str_pad(dechex($ip[2]), 2, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex($ip[3]), 2, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex(UltimaPHP::$servers[UltimaPHP::$socketClients[$this->client]['connected_server']]['port']), 4, "0", STR_PAD_LEFT);
+
             $packet .= str_pad(dechex(UltimaPHP::$socketClients[$this->client]['version']['major']), 2, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex(UltimaPHP::$socketClients[$this->client]['version']['minor']), 2, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex(UltimaPHP::$socketClients[$this->client]['version']['revision']), 2, "0", STR_PAD_LEFT);
@@ -319,4 +320,7 @@ class Account {
         Sockets::out($this->client, $packet, false, true, true);
     }
 
+    public function sendClientVersionRequest($runInLot = false) {
+        Sockets::out($this->client, "BD0003", $runInLot);
+    }
 }

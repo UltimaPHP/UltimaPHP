@@ -59,7 +59,7 @@ class UltimaPHP {
     static $items = 0;
     static $npcs = 0;
     static $commands = array(
-        'add' => array(
+        'i' => array(
             'minPlevel' => 4
         )
     );
@@ -141,11 +141,14 @@ class UltimaPHP {
         while (self::STATUS_FATAL != self::$status && self::STATUS_STOP != self::$status) {
             Sockets::monitor();
             Sockets::runEvents();
+            usleep(100);
         }
     }
 
     public static function stop() {
-        self::setStatus(self::STATUS_STOP);
+        if (self::$status != self::STATUS_STOP) {
+            self::setStatus(self::STATUS_STOP);
+        }
         exit();
     }
 
@@ -276,6 +279,7 @@ class UltimaPHP {
             case self::STATUS_STOP:
                 $message = "Stoping server";
                 $type = self::LOG_NORMAL;
+                $shutdown = true;
                 break;
 
             case self::STATUS_FATAL:
@@ -321,7 +325,6 @@ class UltimaPHP {
                 break;
 
             case self::STATUS_LISTENING:
-                $message = "Server is listening on " . $args[0] . " at port " . $args[1];
                 $type = self::LOG_NORMAL;
                 break;
 
@@ -336,8 +339,12 @@ class UltimaPHP {
                 $status = self::$status;
                 break;
         }
+
         self::$status = $status;
-        self::log($message, $type);
+        
+        if (isset($message)) {
+            self::log($message, $type);
+        }
 
         if (isset($shutdown)) {
             self::stop();

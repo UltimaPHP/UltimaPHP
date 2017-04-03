@@ -4,7 +4,7 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-class i_sword_viking extends Object {
+class sword_viking extends Object {
 
     public function build() {
         $this->name = "Viking Sword%s";
@@ -15,5 +15,4 @@ class i_sword_viking extends Object {
         $this->amount = 1;
         $this->color = 0x0;
     }
-
 }

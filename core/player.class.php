@@ -61,7 +61,7 @@ class Player {
         $this->client = $client;
         $this->serial = str_pad($character_serial, 8, "0", STR_PAD_LEFT);
         $this->id = ($character_serial - 442500);
-        $this->render_range = UltimaPHP::$conf['render_range'];
+        $this->render_range = UltimaPHP::$conf['muls']['render_range'];
 
         $query = "SELECT
                         a.id,
@@ -212,8 +212,18 @@ class Player {
     public function speech($type, $color, $font, $language, $text) {
         switch (substr($text, 0, 1)) {
             case '.':
-                $command = explode(" ", substr($text, 1));
-                $this->runCommand($command);
+                if (strstr($text, ",")) {
+                    $tmp = explode(",", $text);
+                    $command = explode(" ", substr($tmp[0], 1));
+                    $args = $tmp;
+                    unset($args[0]);
+                    array_merge([], $args);
+                } else {
+                    $command = explode(" ", substr($text, 1));
+                    $args = [];
+                }
+
+                $this->runCommand($command, $args);
                 return true;
                 break;
         }
@@ -249,14 +259,14 @@ class Player {
         Sockets::out($this->client, $packet, false);
     }
 
-    public function runCommand($command = array()) {
+    public function runCommand($command = [], $args = []) {
         if (UltimaPHP::$socketClients[$this->client]['account']->plevel > 1 && !isset($command[0])) {
             $this->sysmessage("Sorry, but no command was received from client.");
             return false;
         }
 
         if (!isset(UltimaPHP::$commands[$command[0]])) {
-            $this->sysmessage("Sorry, the command you are trying to run was has been found.");
+            $this->sysmessage("Sorry, the command you are trying to run was not been found.");
             return false;
         }
 
@@ -268,13 +278,15 @@ class Player {
         $cmd = $command[0];
         $args = array_slice($command, 1);
 
-        if ($cmd == "add") {
-            if (!class_exists($args[0])) {
+        if ($cmd == "i") {
+
+            $itemDef = str_replace(" ", "_", $args[0]);
+            if (!class_exists($itemDef)) {
                 $this->sysmessage("Sorry, but the item you are trying to create (" . $args[0] . ") has not been found.");
                 return false;
             }
 
-            $item = new $args[0]();
+            $item = new $itemDef();
             Map::addObjectToMap($item, $this->position['x'], $this->position['y'], $this->position['z'], 0);
         }
     }
