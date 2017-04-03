@@ -8,7 +8,7 @@ I decided to build this project for study propose i've re-scripted the entire so
 
 Note 1: The server works with clients 6.0.13 or greater, since this version many packets was changed and we will not spent time with older clients for now.
 
-Note 2: I'm developing using the Ultina Online Classic Client Patch 59 - 7.0.20.0
+Note 2: I'm developing using the Ultima Online Classic Client Patch version 59 - 7.0.20.0
 
 ## How to install?
 
