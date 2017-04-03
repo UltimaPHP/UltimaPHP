@@ -106,7 +106,7 @@ make install
 
 ### Coding padronization
 
- * All .php files should start with `<?php and end with ?>`
+ * All .php files should start with `<?php` and end without `?>`
  * All .php files should have the comment line header
  * All class names starts with UPPERCASE character, IE: class ClassName {...}
  * All method names must start with LOWERCASE character and all next words start with UPPERCASE character with no space, IE: goodMethodName()
