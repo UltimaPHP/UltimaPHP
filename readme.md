@@ -7,6 +7,7 @@ This server was created for thoes who ever wanted to create differend addaptatio
 I decided to build this project for study propose i've re-scripted the entire socket server to understand how it works and after that i decided to create a lightweight standalone version of the server that runs in any OS easly.
 
 Note 1: The server works with clients 6.0.13 or greater, since this version many packets was changed and we will not spent time with older clients for now.
+
 Note 2: I'm developing using the Ultina Online Classic Client Patch 59 - 7.0.20.0
 
 ## How to install?
@@ -19,7 +20,9 @@ First of all you will need to install PHP 7.0 or greater, I reccomend to use PHP
 After install PHP and MySQL on the machine (mysql will ask to create the password or a new user on the instalation), edit the file ```ultimaphp.ini``` as you wish, import the file ```database.sql``` to your database (with some query program, like [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)) and follow the next steps to start the server:
 
 Note 1: The default owner account/password in the database is: test/test
+
 Note 2: The default player account/password in the database is: test2/test
+
 Note 3: Passwords is allways stored in MD5 encryption both in database and in server variables
 
 ### Linux
