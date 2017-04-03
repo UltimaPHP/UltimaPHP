@@ -4,11 +4,10 @@ UltimaPHP is a modern Ultima Online server written in PHP 7.0.
 
 This server was created for thoes who ever wanted to create differend addaptations on the core of your shard.
 
-The base idea of how to keep the server written in PHP alive and monitoring the sockets came from Matthew [Ankron, on sphere community].
+I decided to build this project for study propose i've re-scripted the entire socket server to understand how it works and after that i decided to create a lightweight standalone version of the server that runs in any OS easly.
 
-I decided to help the project and for study propose i've re-scripted the entire socket server to understand how it works and after that i decided to create a lightweight standalone version of the server that runs in any OS easly.
-
-Note: The server works with clients 6.0.13 or greater, since this version many packets was changed and we will not spent time with older clients for now.
+Note 1: The server works with clients 6.0.13 or greater, since this version many packets was changed and we will not spent time with older clients for now.
+Note 2: I'm developing using the Ultina Online Classic Client Patch 59 - 7.0.20.0
 
 ## How to install?
 
@@ -100,6 +99,7 @@ make install
  * [Sphere 0.56b leaked code](https:///github.com/necr0potenc3/Sphere) to see how things works
  * [RunUO repository](https://github.com/runuo/runuo) to see how things works
  * [POL Repository](https://github.com/polserver/polserver) to see how things works
+ * [Ultima Online Classic - Patch 59 - 7.0.20.0](https://docs.google.com/uc?id=0B5JIbJ4zjyOaTnZEMmhjZW5oYnc&export=download) to download the same version i'm using to build the server
 
 ### Coding padronization
 
