@@ -167,6 +167,7 @@ class Account {
             }
         }
         $tmpPacket .= str_pad(dechex(count($startingLocations)), 2, "0", STR_PAD_LEFT);
+
         foreach ($startingLocations as $key => $location) {
             // If Client version is bigger then 7.0.13.0
             $tmpPacket .= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
@@ -178,25 +179,26 @@ class Account {
             $tmpPacket .= str_pad(strtoupper(dechex($location['position']['map'])), 8, "0", STR_PAD_LEFT);
             $tmpPacket .= str_pad(strtoupper(dechex($location['clioc'])), 8, "0", STR_PAD_LEFT);
             $tmpPacket .= str_pad("", 8, "0", STR_PAD_RIGHT);
+
+
             /*if (isset(UltimaPHP::$socketClients[$this->client]['version']) && UltimaPHP::$socketClients[$this->client]['version']['major'] >= 7 && UltimaPHP::$socketClients[$this->client]['version']['minor'] >= 0 && UltimaPHP::$socketClients[$this->client]['version']['revision'] >= 13 && UltimaPHP::$socketClients[$this->client]['version']['prototype'] >= 0) {
 
-        $tmpPacket .= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
-        $tmpPacket .= str_pad(Functions::strToHex($location['name']), 64, "0", STR_PAD_RIGHT);
-        $tmpPacket .= str_pad(Functions::strToHex($location['area']), 64, "0", STR_PAD_RIGHT);
-        $tmpPacket .= str_pad(strtoupper(dechex($location['position']['x'])), 8, "0", STR_PAD_LEFT);
-        $tmpPacket .= str_pad(strtoupper(dechex($location['position']['y'])), 8, "0", STR_PAD_LEFT);
-        $tmpPacket .= str_pad(strtoupper(dechex($location['position']['z'])), 8, "0", STR_PAD_LEFT);
-        $tmpPacket .= str_pad(strtoupper(dechex($location['position']['map'])), 8, "0", STR_PAD_LEFT);
-        $tmpPacket .= str_pad(strtoupper(dechex($location['clioc'])), 8, "0", STR_PAD_LEFT);
-        $tmpPacket .= str_pad("", 8, "0", STR_PAD_RIGHT);
-        } else {
-        $tmpPacket .= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
-        $tmpPacket .= str_pad(Functions::strToHex($location['name']), 62, "0", STR_PAD_RIGHT);
-        $tmpPacket .= str_pad(Functions::strToHex($location['area']), 62, "0", STR_PAD_RIGHT);
-        }*/
+            $tmpPacket .= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(Functions::strToHex($location['name']), 64, "0", STR_PAD_RIGHT);
+            $tmpPacket .= str_pad(Functions::strToHex($location['area']), 64, "0", STR_PAD_RIGHT);
+            $tmpPacket .= str_pad(strtoupper(dechex($location['position']['x'])), 8, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(strtoupper(dechex($location['position']['y'])), 8, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(strtoupper(dechex($location['position']['z'])), 8, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(strtoupper(dechex($location['position']['map'])), 8, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(strtoupper(dechex($location['clioc'])), 8, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad("", 8, "0", STR_PAD_RIGHT);
+            } else {
+            $tmpPacket .= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(Functions::strToHex($location['name']), 62, "0", STR_PAD_RIGHT);
+            $tmpPacket .= str_pad(Functions::strToHex($location['area']), 62, "0", STR_PAD_RIGHT);
+            }*/
         }
-        $flags = "01A8";
-        $tmpPacket .= str_pad($flags, 8, "0", STR_PAD_LEFT);
+        $tmpPacket .= str_pad("01A8", 8, "0", STR_PAD_LEFT);
         $tmpPacket .= "0000";
 
         $packet = "A9";
@@ -204,6 +206,8 @@ class Account {
         $packet .= "07"; // CharLimit $packet[3]
         $packet .= $tmpPacket;
 
+        $version = Functions::getClientVersion($this->client);
+        
         Sockets::out($this->client, $packet, $runInLot);
     }
 

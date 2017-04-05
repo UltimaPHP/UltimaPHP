@@ -445,16 +445,6 @@ class Packets {
 
             // Send to the client the server list
             UltimaPHP::$socketClients[$client]['account']->sendServerList();
-
-            // Sockets::addEvent($client, array(
-            //     "option" => "account",
-            //     "method" => "sendClientVersionRequest",
-            // ), 0.01);
-
-            // Sockets::addEvent($client, array(
-            //     "option" => "account",
-            //     "method" => "sendServerList",
-            // ), 0.01);
         } else {
             UltimaPHP::$socketClients[$client]['account']->disconnect(3);
         }
@@ -479,14 +469,9 @@ class Packets {
             // Set the flag on the connection to send next packets compressed
             UltimaPHP::$socketClients[$client]['compressed'] = true;
 
-            Sockets::addEvent($client, array(
-                "option" => "account",
-                "method" => "enableLockedFeatures",
-            ), 0.0, true);
-            Sockets::addEvent($client, array(
-                "option" => "account",
-                "method" => "sendCharacterList",
-            ), 0.0, true, true);
+    
+            UltimaPHP::$socketClients[$client]['account']->enableLockedFeatures();
+            UltimaPHP::$socketClients[$client]['account']->sendCharacterList();
         } else {
             UltimaPHP::$socketClients[$client]['account']->disconnect(3);
         }

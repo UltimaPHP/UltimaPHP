@@ -61,6 +61,19 @@ class Sockets {
 
                 foreach ($socket['packets'] as $packet_id => $packet) {
                     if ($packet['time'] <= $microtime) {
+
+                        if (true === UltimaPHP::$conf['logs']['debug']) {
+                            $packetTemp = Functions::strToHex($packet['packet']);
+
+                            if (isset(UltimaPHP::$socketClients[$client]['compressed']) && UltimaPHP::$socketClients[$client]['compressed'] === true) {
+                                $compress = new Compression();
+                                $packetTemp = Functions::strToHex($compress->decompress($packetTemp));
+                                echo "----------------------------------------------\nSending compressed packet to socket #$client (Length: ".(strlen($packetTemp)/2) .") :: " . $packetTemp . "\n----------------------------------------------\n";
+                            } else {
+                                echo "----------------------------------------------\nSending packet to socket #$client (Length: ".(strlen($packetTemp)/2) .") :: " . $packetTemp . "\n----------------------------------------------\n";
+                            }
+                        }
+
                         $err = null;
                         @socket_write($socket['socket'], $packet['packet']) or $err = socket_last_error($socket['socket']);
 
@@ -152,12 +165,6 @@ class Sockets {
         }
 
         if ($packet !== null) {
-            if (true === UltimaPHP::$conf['logs']['debug']) {
-                // $compression = new Compression();
-                // $packetD = $compression->decompress(strtoupper($packet));
-                echo "----------------------------------------------\nSending packet to socket #$client (Length: ".strlen($packet).") :: " . Functions::strToHex($packet) . "\n----------------------------------------------\n";
-            }
-
             UltimaPHP::$socketClients[$client]['packets'][] = array(
                 'packet' => $packet,
                 'time' => (microtime(true) + 0.00100),

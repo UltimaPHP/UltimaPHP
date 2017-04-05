@@ -6,6 +6,18 @@
  */
 class Functions {
 
+    public static function getClientVersion($client = null) {
+        if ($client === null) {
+            return false;
+        }
+
+        if (!isset(UltimaPHP::$socketClients[$client]['version']) || !is_array(UltimaPHP::$socketClients[$client]['version'])) {
+            return false;
+        }
+
+        return UltimaPHP::$socketClients[$client]['version'];
+    }
+
     public static function strToHex($string, $addEmptyByte = false) {
         $hex = '';
         for ($i = 0; $i < strlen($string); $i++) {
