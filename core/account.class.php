@@ -145,7 +145,7 @@ class Account {
      */
     public function enableLockedFeatures($runInLot = false) {
         $tmpPacket = "";
-        $expansion = dechex(expansionDefs::EXPANSION_TOL);
+        $expansion = dechex(clientDefs::EXPANSION_TOL);
         
         // IF the client is the Old Version change 8 to 4
         for($i = 0;$i <8-strlen($expansion);++$i)
@@ -362,5 +362,61 @@ class Account {
     
     public function createCharacter70160($runInLot = false, $charName, $flags, $loginCount, $profession, $genderRace, $str, $dex, $int, $skillid1,$skillvalue1, $skillid2, $skillvalue2, $skillid3, $skillvalue3, $skillid4, $skillvalue4 , $skinColor, $hairStyle, $beardStyle, $beardColor, $shardIndex, $startCity, $charSlot, $shirtColor, $pantsColor){
 		//Ainda nao fiz			
+		
+		$female = TRUE;
+		$tRace = 0;
+		$body = 400;
+		
+		if(($genderRace % 2) != 0)
+		{
+			$female = FALSE;
+		}
+				
+		if ($genderRace <= 3)
+		{
+			$tRace = 0;		// Its a Human!		
+			if($female)
+			{
+				$body = 401;
+			}
+			else
+			{
+				$body = 400;
+			}
+		}
+		else if ($genderRace > 3 && $genderRace < 6)
+		{		
+			$tRace = 1;			// Its a Elf!
+			if($female)
+			{
+				$body = 606;
+			}
+			else
+			{
+				$body = 606;
+			}
+		}
+		else
+		{		
+			$tRace = 2;		// Its a Gargoyle!
+			if($female)
+			{
+				$body = 667;
+			}
+			else
+			{
+				$body = 666;
+			}
+		}
+		
+		$statSum = $str + $dex + $int;
+		
+		// Every stat needs to be below 60 && the sum lower/equal than 80
+		if ($statSum > 90 || ($str > 60) || ($dex > 60) || ($int > 60))
+		{
+			echo "Submitted invalid stats during char creation (".$str.",".$dex.",".$int.").\n";			
+		}		
+
+        
 	}
 }
