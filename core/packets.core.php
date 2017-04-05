@@ -150,13 +150,7 @@ class Packets {
         $slotchoosen  = hexdec($data[65] . $data[66] . $data[67] . $data[68]);
         $clientIP     = hexdec($data[69]) . "." . hexdec($data[70]) . "." . hexdec($data[71]) . "." . hexdec($data[72]);
 
-        UltimaPHP::$socketClients[$client]['account']->loginCharacter(array(
-            'slotchoosen'  => $slotchoosen,
-            'charname'     => $charname,
-            'loginaccount' => $loginaccount,
-            'clientIP'     => $clientIP,
-            'clientFlag'   => $clientflag,
-        ));
+        UltimaPHP::$socketClients[$client]['account']->loginCharacter($slotchoosen);
     }
 
     /**

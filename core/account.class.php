@@ -180,6 +180,8 @@ class Account {
         }
         $tmpPacket .= str_pad(dechex(count($startingLocations)), 2, "0", STR_PAD_LEFT);
 
+        print_r(Functions::getClientVersion($this->client));
+
         foreach ($startingLocations as $key => $location) {
             // If Client version is bigger then 7.0.13.0
             $tmpPacket .= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
