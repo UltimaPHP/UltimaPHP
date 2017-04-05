@@ -145,21 +145,14 @@ class Account {
      */
     public function enableLockedFeatures($runInLot = false) {
         $tmpPacket = "";
-        $expansion = dechex(clientDefs::EXPANSION_TOL);
-        
-        // IF the client is the Old Version change 8 to 4
-        for($i = 0;$i <8-strlen($expansion);++$i)
-        {	
-			$tmpPacket .= "0";				
-		}
-        
-        $tmpPacket .= $expansion;
-        // if (versaoAntiga){
-			//Versao antiga o pacote é 3 bytes
-		//}else{
-			//Versao nova o pacote tem 5 bytes
-		//}
-		
+
+        $version = Functions::getClientVersion($this->client);
+        if ($version['major'] <= 6 && $version['revision'] <= 14 && filter_var($version['prototype'], FILTER_SANITIZE_NUMBER_INT) <= 2) {
+            $tmpPacket = str_pad(dechex(clientDefs::EXPANSION_ML), 4, "0", STR_PAD_LEFT);
+        } else {
+            $tmpPacket = str_pad(dechex(clientDefs::EXPANSION_TOL), 8, "0", STR_PAD_LEFT);
+        }
+
         $packet = "B9";
         $packet .= $tmpPacket;
         Sockets::out($this->client, $packet, $runInLot);

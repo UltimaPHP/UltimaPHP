@@ -100,7 +100,7 @@ class Sockets {
                 if (strlen($input) > 0) {
 
                     UltimaPHP::$socketClients[$client]['LastInput'] = $microtime;
-
+                    
                     if (!isset($socket[$client]['version']) && ord($input[0]) == UltimaPHP::$conf['server']['client']['major'] && ord($input[1]) == UltimaPHP::$conf['server']['client']['minor'] && ord($input[2]) == UltimaPHP::$conf['server']['client']['revision'] && ord($input[3]) == UltimaPHP::$conf['server']['client']['prototype']) {
                         self::in(Functions::strToHex($input), $client, true);
                     } else if (self::validatePacket(str_split(Functions::strToHex($input), 2)) === false) {
