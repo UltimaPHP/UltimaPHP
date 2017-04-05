@@ -417,7 +417,7 @@ class Packets {
             ],
             'shard' => $shardIndex,
             'slot' => $charSlot,
-            'start' => UltimaPHP::$starting_locations[$startCity],
+            'start' => UltimaPHP::$starting_locations[($startCity-1)],
             'ip' => $clientIp
         ];
 
