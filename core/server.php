@@ -105,6 +105,19 @@ class UltimaPHP {
             self::setStatus(self::STATUS_FILE_LOADED);
         }
 
+        // Load definitions
+        foreach (glob(self::$basedir . "core/defs/*.def.php") as $file) {
+            self::setStatus(self::STATUS_FILE_LOADING, array(
+                "core/defs/" . basename($file),
+            ));
+
+            if (!require_once ($file)) {
+                self::setStatus(self::STATUS_FILE_LOAD_FAIL);
+                self::stop();
+            }
+            self::setStatus(self::STATUS_FILE_LOADED);
+        }
+
         // Load items
         foreach (self::$conf['scripts']['load'] as $folder) {
             foreach (glob(self::$basedir . $folder . "*.php") as $file) {
@@ -141,7 +154,7 @@ class UltimaPHP {
         while (self::STATUS_FATAL != self::$status && self::STATUS_STOP != self::$status) {
             Sockets::monitor();
             Sockets::runEvents();
-            usleep(100);
+            usleep(250);
         }
     }
 

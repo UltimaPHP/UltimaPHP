@@ -151,4 +151,4 @@ make install
 ### Authors
 
  * João Escribano - Brazil
- * Ankron  - USA
+ * Maurício Nunes - Brazil

@@ -201,9 +201,9 @@ class Packets {
         0xBA => 0x0006,
         0xBB => 0x0009,
         0xBC => 0x0003,
-        0xBD => - 1,
+        0xBD => -1,
         0xBE => false,
-        0xBF => - 1,
+        0xBF => -1,
         0xC0 => 0x0024,
         0xC1 => false,
         0xC2 => false,
@@ -256,15 +256,15 @@ class Packets {
 
     public static function packet_0x1($data, $client) {
         if (count($data) >= 68) {
-            $major = hexdec($data[0]);
-            $minor = hexdec($data[1]);
-            $revision = hexdec($data[2]);
+            $major     = hexdec($data[0]);
+            $minor     = hexdec($data[1]);
+            $revision  = hexdec($data[2]);
             $prototype = hexdec($data[3]);
 
             UltimaPHP::$socketClients[$client]['version'] = array(
-                'major' => $major,
-                'minor' => $minor,
-                'revision' => $revision,
+                'major'     => $major,
+                'minor'     => $minor,
+                'revision'  => $revision,
                 'prototype' => $prototype,
             );
 
@@ -274,21 +274,21 @@ class Packets {
 
     /**
      * Packet received when the player try to walk/move
-     * 
+     *
      * Directions:
-     * 	0x00 - North
-     * 	0x01 - Northeast
-     * 	0x02 - East
-     * 	0x03 - Southeast
-     * 	0x04 - South
-     * 	0x05 - Southwest
-     * 	0x06 - West
-     * 	0x07 - Northwest
+     *     0x00 - North
+     *     0x01 - Northeast
+     *     0x02 - East
+     *     0x03 - Southeast
+     *     0x04 - South
+     *     0x05 - Southwest
+     *     0x06 - West
+     *     0x07 - Northwest
      */
     public static function packet_0x02($data, $client) {
-        $command = Functions::strToHex(Functions::hexToChr($data, 0, 0, true));
-        $direction = Functions::strToHex(Functions::hexToChr($data, 1, 1, true));
-        $sequence_number = Functions::strToHex(Functions::hexToChr($data, 2, 2, true));
+        $command             = Functions::strToHex(Functions::hexToChr($data, 0, 0, true));
+        $direction           = Functions::strToHex(Functions::hexToChr($data, 1, 1, true));
+        $sequence_number     = Functions::strToHex(Functions::hexToChr($data, 2, 2, true));
         $fastwalk_prevention = Functions::strToHex(Functions::hexToChr($data, 3, 6, true));
 
         UltimaPHP::$socketClients[$client]['account']->player->movePlayer(false, $direction, $sequence_number, $fastwalk_prevention);
@@ -299,7 +299,7 @@ class Packets {
      */
     public static function packet_0x06($data, $client) {
         $command = $data[0];
-        $uid = $data[1] . $data[2] . $data[3] . $data[4];
+        $uid     = $data[1] . $data[2] . $data[3] . $data[4];
 
         $player = UltimaPHP::$socketClients[$client]['account']->player;
         $player->dclick($uid);
@@ -307,12 +307,12 @@ class Packets {
     }
 
     /**
-     * 	Packet received when player tryies to pick up item
+     *     Packet received when player tryies to pick up item
      */
     public static function packet_0x07($data, $client) {
-        $command = $data[0];
+        $command     = $data[0];
         $item_serial = $data[1] . $data[2] . $data[3] . $data[4];
-        $amount = hexdec($data[5] . $data[6]);
+        $amount      = hexdec($data[5] . $data[6]);
 
         // What to do now?
         // $player = UltimaPHP::$socketClients[$client]['account']->player;
@@ -324,7 +324,7 @@ class Packets {
      */
     public static function packet_0x09($data, $client) {
         $command = $data[0];
-        $object = $data[1] . $data[2] . $data[3] . $data[4];
+        $object  = $data[1] . $data[2] . $data[3] . $data[4];
 
         UltimaPHP::$socketClients[$client]['account']->player->click($object);
     }
@@ -345,9 +345,9 @@ class Packets {
      */
     public static function packet_0x34($data, $client) {
         $command = $data[0];
-        $unknow = $data[1] . $data[2] . $data[3] . $data[4];
-        $type = $data[5];
-        $serial = array(
+        $unknow  = $data[1] . $data[2] . $data[3] . $data[4];
+        $type    = $data[5];
+        $serial  = array(
             $data[6],
             $data[7],
             $data[8],
@@ -355,25 +355,25 @@ class Packets {
         );
 
         switch ($type) {
-            case 0x00:
+        case 0x00:
 
-                // God client ???
-                break;
+            // God client ???
+            break;
 
-            case 0x04:
-                // Client asking to server send the status information to the client
-                UltimaPHP::$socketClients[$client]['account']->player->statusBarInfo(false);
-                break;
+        case 0x04:
+            // Client asking to server send the status information to the client
+            UltimaPHP::$socketClients[$client]['account']->player->statusBarInfo(false);
+            break;
 
-            case 0x05:
-                UltimaPHP::$socketClients[$client]['account']->player->sendFullSkillList(false);
-                // Client asking to server send the skills information to the client
-                break;
+        case 0x05:
+            UltimaPHP::$socketClients[$client]['account']->player->sendFullSkillList(false);
+            // Client asking to server send the skills information to the client
+            break;
 
-            default:
+        default:
 
-                // Unknow status type received
-                break;
+            // Unknow status type received
+            break;
         }
     }
 
@@ -381,19 +381,19 @@ class Packets {
      * Packet received after client choose a character
      */
     public static function packet_0x5D($data, $client) {
-        $command = $data[0];
-        $charname = Functions::hexToChr($data, 5, 34, true);
-        $clientflag = Functions::hexToChr($data, 37, 40, true);
+        $command      = $data[0];
+        $charname     = Functions::hexToChr($data, 5, 34, true);
+        $clientflag   = Functions::hexToChr($data, 37, 40, true);
         $loginaccount = Functions::hexToChr($data, 45, 48, true);
-        $slotchoosen = hexdec($data[65] . $data[66] . $data[67] . $data[68]);
-        $clientIP = hexdec($data[69]) . "." . hexdec($data[70]) . "." . hexdec($data[71]) . "." . hexdec($data[72]);
+        $slotchoosen  = hexdec($data[65] . $data[66] . $data[67] . $data[68]);
+        $clientIP     = hexdec($data[69]) . "." . hexdec($data[70]) . "." . hexdec($data[71]) . "." . hexdec($data[72]);
 
         UltimaPHP::$socketClients[$client]['account']->loginCharacter(array(
-            'slotchoosen' => $slotchoosen,
-            'charname' => $charname,
+            'slotchoosen'  => $slotchoosen,
+            'charname'     => $charname,
             'loginaccount' => $loginaccount,
-            'clientIP' => $clientIP,
-            'clientFlag' => $clientflag,
+            'clientIP'     => $clientIP,
+            'clientFlag'   => $clientflag,
         ));
     }
 
@@ -402,8 +402,8 @@ class Packets {
      */
     public static function packet_0x72($data, $client) {
         $command = $data[0];
-        $flag = $data[1];
-        $unknow = $data[2] . $data[3] . $data[4];
+        $flag    = $data[1];
+        $unknow  = $data[2] . $data[3] . $data[4];
 
         UltimaPHP::$socketClients[$client]['account']->player->setWarMode(false, $flag);
     }
@@ -424,15 +424,15 @@ class Packets {
      * Receive login request from client
      */
     public static function packet_0x80($data, $client) {
-        $command = $data[0];
-        $account = Functions::hexToChr($data, 1, 30, true);
+        $command  = $data[0];
+        $account  = Functions::hexToChr($data, 1, 30, true);
         $password = Functions::hexToChr($data, 31, 61, true);
 
         $login = false;
 
         // Account / Password validadion TODO
         UltimaPHP::$socketClients[$client]['account'] = array(
-            'account' => $account,
+            'account'  => $account,
             'password' => md5($password),
         );
         UltimaPHP::$socketClients[$client]['account'] = new Account($account, md5($password), $client);
@@ -464,9 +464,9 @@ class Packets {
      * Send to the client the features from server
      */
     public static function packet_0x91($data, $client, $redirected = false) {
-        $command = $data[0];
-        $keyUsed = hexdec($data[1]) . hexdec($data[2]) . hexdec($data[3]) . hexdec($data[4]);
-        $account = Functions::hexToChr($data, 5, 34, true);
+        $command  = $data[0];
+        $keyUsed  = hexdec($data[1]) . hexdec($data[2]) . hexdec($data[3]) . hexdec($data[4]);
+        $account  = Functions::hexToChr($data, 5, 34, true);
         $password = Functions::hexToChr($data, 35, 64, true);
 
         $login = false;
@@ -482,11 +482,11 @@ class Packets {
             Sockets::addEvent($client, array(
                 "option" => "account",
                 "method" => "enableLockedFeatures",
-                    ), 0.0, true);
+            ), 0.0, true);
             Sockets::addEvent($client, array(
                 "option" => "account",
                 "method" => "sendCharacterList",
-                    ), 0.0, true, true);
+            ), 0.0, true, true);
         } else {
             UltimaPHP::$socketClients[$client]['account']->disconnect(3);
         }
@@ -496,35 +496,163 @@ class Packets {
      * Receive the selected server from client
      */
     public static function packet_0xA0($data, $client) {
-        $server = dechex($data[1] . $data[2]);
+        $server                                                = dechex($data[1] . $data[2]);
         UltimaPHP::$socketClients[$client]['connected_server'] = ((int) $server - 1);
         UltimaPHP::log("Account " . UltimaPHP::$socketClients[$client]['account']->account . " connecting on server " . UltimaPHP::$servers[UltimaPHP::$socketClients[$client]['connected_server']]['name']);
         UltimaPHP::$socketClients[$client]['account']->sendConnectionConfirmation();
     }
 
     /**
+     * Receive the CharCreator 0x00 -  Old Clients < 7.0.16
+     */
+    public static function packet_0x00($data, $client) {
+        if (true === UltimaPHP::$conf['logs']['debug']) {
+            echo "OLHA AQUIIIII";
+        }
+    }
+
+    /**
+     * Receive the CharCreator 0xF8 -  New Clients >= 7.0.16
+     */
+    public static function packet_0xF8($data, $client) {
+        $command     = $data[0];
+        $unknown1    = hexdec(Functions::implodeByte($data, 1, 4));
+        $unknown2    = hexdec(Functions::implodeByte($data, 5, 8));
+        $unknown3    = hexdec($data[9]);
+        $charName    = Functions::hexToChr($data, 10, 39);
+        $unknown4    = hexdec(Functions::implodeByte($data, 40, 41));
+        $flags       = hexdec(Functions::implodeByte($data, 42, 45));
+        $unknown5    = hexdec(Functions::implodeByte($data, 46, 49));
+        $loginCount  = hexdec(Functions::implodeByte($data, 50, 53));
+        $profession  = hexdec($data[54]);
+        $unknown6    = hexdec(Functions::implodeByte($data, 55, 69));
+        $genderRace  = hexdec($data[70]);
+        $str         = hexdec($data[71]);
+        $dex         = hexdec($data[72]);
+        $int         = hexdec($data[73]);
+        $skillid1    = hexdec($data[74]);
+        $skillvalue1 = hexdec($data[75]);
+        $skillid2    = hexdec($data[76]);
+        $skillvalue2 = hexdec($data[77]);
+        $skillid3    = hexdec($data[78]);
+        $skillvalue3 = hexdec($data[79]);
+        $skillid4    = hexdec($data[80]);
+        $skillvalue4 = hexdec($data[81]);
+        $skinColor   = hexdec(Functions::implodeByte($data, 82, 83));
+        $hairStyle   = hexdec(Functions::implodeByte($data, 84, 85));
+        $hairColor   = hexdec(Functions::implodeByte($data, 86, 87));
+        $beardStyle  = hexdec(Functions::implodeByte($data, 88, 89));
+        $beardColor  = hexdec(Functions::implodeByte($data, 90, 91));
+        $shardIndex  = hexdec($data[92]);
+        $startCity   = hexdec($data[93]);
+        $charSlot    = hexdec(Functions::implodeByte($data, 94, 97));
+        $clientIp    = hexdec(Functions::implodeByte($data, 98, 101));
+        $shirtColor  = hexdec(Functions::implodeByte($data, 102, 103));
+        $pantsColor  = hexdec(Functions::implodeByte($data, 104, 105));
+
+        switch ($profession) {
+            case 1: // Warrior
+                $skillid1    = skillsDefs::SKILL_SWORDSMANSHIP; // Swordsmanship
+                $skillvalue1 = 30;
+                $skillid2    = skillsDefs::SKILL_TACTICS; // Tactics
+                $skillvalue2 = 50;
+                $skillid3    = skillsDefs::SKILL_HEALING; // Healing
+                $skillvalue3 = 45;
+                $skillid4    = skillsDefs::SKILL_ANATOMY; // Anatomy
+                $skillvalue4 = 30;
+                break;
+            case 2: // Mage
+                $skillid1    = skillsDefs::SKILL_EVALUATINGINTEL; // Swordsmanship
+                $skillvalue1 = 30;
+                $skillid2    = skillsDefs::SKILL_WRESTLING; // Tactics
+                $skillvalue2 = 30;
+                $skillid3    = skillsDefs::SKILL_MAGERY; // Healing
+                $skillvalue3 = 50;
+                $skillid4    = skillsDefs::SKILL_MEDITATION; // Anatomy
+                $skillvalue4 = 50;
+                break;
+            case 3: // Blacksmith
+                $skillid1    = skillsDefs::SKILL_MINING; // Swordsmanship
+                $skillvalue1 = 30;
+                $skillid2    = skillsDefs::SKILL_ARMSLORE; // Tactics
+                $skillvalue2 = 30;
+                $skillid3    = skillsDefs::SKILL_BLACKSMITHING; // Healing
+                $skillvalue3 = 50;
+                $skillid4    = skillsDefs::SKILL_TINKERING; // Anatomy
+                $skillvalue4 = 50;
+                break;
+            case 4: // Necromancer
+                $skillid1    = skillsDefs::SKILL_NECROMANCY; // Swordsmanship
+                $skillvalue1 = 50;
+                $skillid2    = skillsDefs::SKILL_FOCUS; // Tactics
+                $skillvalue2 = 30;
+                $skillid3    = skillsDefs::SKILL_SPIRITSPEAK; // Healing
+                $skillvalue3 = 30;
+                $skillid4    = skillsDefs::SKILL_SWORDSMANSHIP; // Anatomy
+                $skillvalue4 = 30;
+                break;
+            case 5: // Paladin
+                $skillid1    = skillsDefs::SKILL_CHIVALRY; // Swordsmanship
+                $skillvalue1 = 51;
+                $skillid2    = skillsDefs::SKILL_SWORDSMANSHIP; // Tactics
+                $skillvalue2 = 49;
+                $skillid3    = skillsDefs::SKILL_FOCUS; // Healing
+                $skillvalue3 = 30;
+                $skillid4    = skillsDefs::SKILL_TACTICS; // Anatomy
+                $skillvalue4 = 30;
+                break;
+            case 6: // Samurai
+                $skillid1    = skillsDefs::SKILL_BUSHIDO; // Swordsmanship
+                $skillvalue1 = 50;
+                $skillid2    = skillsDefs::SKILL_SWORDSMANSHIP; // Tactics
+                $skillvalue2 = 50;
+                $skillid3    = skillsDefs::SKILL_ANATOMY; // Healing
+                $skillvalue3 = 30;
+                $skillid4    = skillsDefs::SKILL_HEALING; // Anatomy
+                $skillvalue4 = 30;
+                break;
+            case 7: // Ninja
+                $skillid1    = skillsDefs::SKILL_NINJITSU; // Swordsmanship
+                $skillvalue1 = 50;
+                $skillid2    = skillsDefs::SKILL_HIDING; // Tactics
+                $skillvalue2 = 50;
+                $skillid3    = skillsDefs::SKILL_FENCING; // Healing
+                $skillvalue3 = 30;
+                $skillid4    = skillsDefs::SKILL_STEALTH; // Anatomy
+                $skillvalue4 = 30;
+                break;
+            default:
+                break;
+        }
+
+        if (true === UltimaPHP::$conf['logs']['debug']) {
+            echo "0xF8 - Ainda não finalizado";
+        }
+    }
+
+    /**
      * Unicode/Ascii speech request
      */
     public static function packet_0XAD($data, $client) {
-        $command = $data[0];
-        $length = hexdec($data[1] . $data[2]);
-        $type = $data[3];
-        $color = hexdec($data[4] . $data[5]);
-        $font = hexdec($data[6] . $data[7]);
+        $command  = $data[0];
+        $length   = hexdec($data[1] . $data[2]);
+        $type     = $data[3];
+        $color    = hexdec($data[4] . $data[5]);
+        $font     = hexdec($data[6] . $data[7]);
         $language = Functions::hexToChr($data, 8, 11);
 
         // $types = array(
-        // 	0x00 => 'Normal ',
-        // 	0x01 => 'Broadcast/System',
-        // 	0x02 => 'Emote ',
-        // 	0x06 => 'System/Lower Corner',
-        // 	0x07 => 'Message/Corner With Name',
-        // 	0x08 => 'Whisper',
-        // 	0x09 => 'Yell',
-        // 	0x0A => 'Spell',
-        // 	0x0D => 'Guild Chat',
-        // 	0x0E => 'Alliance Chat',
-        // 	0x0F => 'Command Prompts'
+        //     0x00 => 'Normal ',
+        //     0x01 => 'Broadcast/System',
+        //     0x02 => 'Emote ',
+        //     0x06 => 'System/Lower Corner',
+        //     0x07 => 'Message/Corner With Name',
+        //     0x08 => 'Whisper',
+        //     0x09 => 'Yell',
+        //     0x0A => 'Spell',
+        //     0x0D => 'Guild Chat',
+        //     0x0E => 'Alliance Chat',
+        //     0x0F => 'Command Prompts'
         // );
         // Cheks if the type have the 0xc0 mask
         $type_masked = false;
@@ -540,9 +668,9 @@ class Packets {
 
         if ($type_masked) {
             $value = hexdec($data[$actual_byte] . $data[($actual_byte + 1)]);
-            $actual_byte +=2;
+            $actual_byte += 2;
             $count = ($value & 0xFFF0) >> 4;
-            $hold = $value & 0xF;
+            $hold  = $value & 0xF;
 
             if ($count < 0 || $count > 50) {
                 return;
@@ -558,12 +686,12 @@ class Packets {
                     $hold |= hexdec($data[$actual_byte]);
                     $actual_byte++;
                     $speechID = $hold;
-                    $hold = 0;
+                    $hold     = 0;
                 } else {
                     $value = hexdec($data[$actual_byte] . $data[($actual_byte + 1)]);
-                    $actual_byte+=2;
+                    $actual_byte += 2;
                     $speechID = ($value & 0xFFF0) >> 4;
-                    $hold = $value & 0xF;
+                    $hold     = $value & 0xF;
                 }
 
                 if (!in_array($speechID, $keywordList)) {
@@ -584,7 +712,7 @@ class Packets {
      * This message is very incomplete. From the server, just know that it is 0xB5 len len, and pass the data through as is appropriate.
      */
     public static function packet_0xB5($data, $client) {
-        $command = $data[0];
+        $command  = $data[0];
         $chatname = hexdec(Functions::implodeByte($data, 1, 63));
     }
 
@@ -592,8 +720,8 @@ class Packets {
      * Receive client version information from the client 6.0.5.0-, newer send packet 0xEF
      */
     public static function packet_0xBD($data, $client) {
-        $comand = $data[0];
-        $length = hexdec($data[1] . $data[2]);
+        $comand  = $data[0];
+        $length  = hexdec($data[1] . $data[2]);
         $version = explode(".", Functions::hexToChr(implode("", array_slice($data, 3))));
 
         // Fix for versions with glued last char, IE: 4.0.11c
@@ -603,10 +731,10 @@ class Packets {
         }
 
         UltimaPHP::$socketClients[$client]['version'] = array(
-            'major' => $version[0],
-            'minor' => $version[1],
-            'revision' => $version[2],
-            'prototype' => $version[3]
+            'major'     => $version[0],
+            'minor'     => $version[1],
+            'revision'  => $version[2],
+            'prototype' => $version[3],
         );
     }
 
@@ -614,40 +742,40 @@ class Packets {
      * Send/Request general information
      */
     public static function packet_0xBF($data, $client) {
-        $comand = $data[0];
-        $length = hexdec($data[1] . $data[2]);
+        $comand    = $data[0];
+        $length    = hexdec($data[1] . $data[2]);
         $subcomand = hexdec($data[3] . $data[4]);
 
         switch ($subcomand) {
-            case 5:
+        case 5:
 
-                // Screen Size
-                $unknow1 = Functions::hexToChr($data, 5, 6, true);
-                $x = Functions::hexToChr($data, 7, 8, true);
-                $y = Functions::hexToChr($data, 9, 10, true);
-                $unknow2 = Functions::hexToChr($data, 11, 12, true);
-                break;
+            // Screen Size
+            $unknow1 = Functions::hexToChr($data, 5, 6, true);
+            $x       = Functions::hexToChr($data, 7, 8, true);
+            $y       = Functions::hexToChr($data, 9, 10, true);
+            $unknow2 = Functions::hexToChr($data, 11, 12, true);
+            break;
 
-            case 11:
+        case 11:
 
-                // Client language
-                $language = Functions::hexToChr($data, 5, 8);
-                UltimaPHP::$socketClients[$client]['language'] = $language;
-                break;
+            // Client language
+            $language                                      = Functions::hexToChr($data, 5, 8);
+            UltimaPHP::$socketClients[$client]['language'] = $language;
+            break;
 
-            case 15:
+        case 15:
 
-                // ClientType
-                $unk1 = hexdec($data[5]);
-                $ClientType = Functions::hexToChr($data, 6, 9);
-                UltimaPHP::$socketClients[$client]['type'] = $ClientType;
-                break;
+            // ClientType
+            $unk1                                      = hexdec($data[5]);
+            $ClientType                                = Functions::hexToChr($data, 6, 9);
+            UltimaPHP::$socketClients[$client]['type'] = $ClientType;
+            break;
         }
     }
 
     public static function packet_0xC8($data, $client) {
-        $command = $data[0];
-        $range = hexdec($data[1]);
+        $command                                                          = $data[0];
+        $range                                                            = hexdec($data[1]);
         UltimaPHP::$socketClients[$client]['account']->player->view_range = ($range > 18 ? 18 : $range);
     }
 
@@ -655,7 +783,7 @@ class Packets {
      * Spy on client
      */
     public static function packet_0xD9($data, $client) {
-        
+
     }
 
     /**
@@ -667,17 +795,17 @@ class Packets {
             return;
         }
 
-        $command = $data[0];
-        $seed = hexdec(Functions::implodeByte($data, 1, 4));
-        $major = hexdec(Functions::implodeByte($data, 5, 8));
-        $minor = hexdec(Functions::implodeByte($data, 9, 12));
-        $revision = hexdec(Functions::implodeByte($data, 13, 16));
+        $command   = $data[0];
+        $seed      = hexdec(Functions::implodeByte($data, 1, 4));
+        $major     = hexdec(Functions::implodeByte($data, 5, 8));
+        $minor     = hexdec(Functions::implodeByte($data, 9, 12));
+        $revision  = hexdec(Functions::implodeByte($data, 13, 16));
         $prototype = hexdec(Functions::implodeByte($data, 17, 20));
 
         UltimaPHP::$socketClients[$client]['version'] = array(
-            'major' => $major,
-            'minor' => $minor,
-            'revision' => $revision,
+            'major'     => $major,
+            'minor'     => $minor,
+            'revision'  => $revision,
             'prototype' => $prototype,
         );
     }

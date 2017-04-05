@@ -37,6 +37,9 @@ class Sockets {
      * Method called every tick of the server to monitor the incoming/outgoing data from sockets
      */
     public static function monitor() {
+
+        echo skillsDefs::SKILL_ITEMID;
+        exit(); 
         $microtime = microtime(true);
         if ($socket = @socket_accept(UltimaPHP::$socketServer)) {
 
@@ -62,7 +65,7 @@ class Sockets {
                 foreach ($socket['packets'] as $packet_id => $packet) {
                     if ($packet['time'] <= $microtime) {
                         $err = null;
-                        @socket_write($socket['socket'], $packet['packet']) or $err = socket_last_error(UltimaPHP::$socketClients[$client]['socket']);
+                        @socket_write($socket['socket'], $packet['packet']) or $err = socket_last_error($socket['socket']);
 
                         if ($err === null) {
                             unset(UltimaPHP::$socketClients[$client]['packets'][$packet_id]);
@@ -78,16 +81,17 @@ class Sockets {
                 $input = @socket_read($socket['socket'], 8192);
 
                 // Fix to wait the entire packet before proccess <3
-                if (UltimaPHP::$socketClients[$client]['tempPacket'] !== null) {
-                    $input = UltimaPHP::$socketClients[$client]['tempPacket'] . $input;
+                if ($socket['tempPacket'] !== null) {
+                    $input = $socket['tempPacket'] . $input;
                     UltimaPHP::$socketClients[$client]['tempPacket'] = null;
                 }
 
                 // Only procces or try to, if the $input is not empty
                 if (strlen($input) > 0) {
+
                     UltimaPHP::$socketClients[$client]['LastInput'] = $microtime;
 
-                    if (!isset(UltimaPHP::$socketClients[$client]['version']) && ord($input[0]) == UltimaPHP::$conf['server']['client']['major'] && ord($input[1]) == UltimaPHP::$conf['server']['client']['minor'] && ord($input[2]) == UltimaPHP::$conf['server']['client']['revision'] && ord($input[3]) == UltimaPHP::$conf['server']['client']['prototype']) {
+                    if (!isset($socket[$client]['version']) && ord($input[0]) == UltimaPHP::$conf['server']['client']['major'] && ord($input[1]) == UltimaPHP::$conf['server']['client']['minor'] && ord($input[2]) == UltimaPHP::$conf['server']['client']['revision'] && ord($input[3]) == UltimaPHP::$conf['server']['client']['prototype']) {
                         self::in(Functions::strToHex($input), $client, true);
                     } else if (self::validatePacket(str_split(Functions::strToHex($input), 2)) === false) {
                         UltimaPHP::$socketClients[$client]['tempPacket'] = $input;

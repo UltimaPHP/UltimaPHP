@@ -154,17 +154,33 @@ class Account {
     public function sendCharacterList($runInLot = false) {
         $characters = $this->characters;
         $startingLocations = UltimaPHP::$starting_locations;
+        
+        $charLimit = 7;
+        $tmpPacket = "";        
+        
+        for ($i = 0; $i < $charLimit; $i++) {
+            if ($i < count($characters)) {
+                $tmpPacket .= str_pad((isset($characters[$i]) ? Functions::strToHex($characters[$i]['name']) : 0), 60, "0", STR_PAD_RIGHT);
+                $tmpPacket .= str_pad("00", 60, "0", STR_PAD_RIGHT);
+            } else {
+                $tmpPacket .= str_pad("00", 120, "0",STR_PAD_RIGHT);                            
+            }    
+        }                               
 
-        $tmpPacket = "05";
+        $tmpPacket .= str_pad(dechex(count($startingLocations)), 2, "0", STR_PAD_LEFT); 
 
-        for ($i = 0; $i < 5; $i++) {
-            $tmpPacket .= str_pad((isset($characters[$i]) ? Functions::strToHex($characters[$i]['name']) : 0), 120, "0", STR_PAD_RIGHT);
-        }
-
-        $tmpPacket .= str_pad(dechex(count($startingLocations)), 2, "0", STR_PAD_LEFT);
         foreach ($startingLocations as $key => $location) {
-
             // If Client version is bigger then 7.0.13.0
+            $tmpPacket .= str_pad(dechex($key+1), 2, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(Functions::strToHex($location['name']), 64, "0", STR_PAD_RIGHT);
+            $tmpPacket .= str_pad(Functions::strToHex($location['area']), 64, "0", STR_PAD_RIGHT);
+            $tmpPacket .= str_pad(strtoupper(dechex($location['position']['x'])), 8, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(strtoupper(dechex($location['position']['y'])), 8, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(strtoupper(dechex($location['position']['z'])), 8, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(strtoupper(dechex($location['position']['map'])), 8, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(strtoupper(dechex($location['clioc'])), 8, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad("", 8, "0", STR_PAD_RIGHT);
+
             if (isset(UltimaPHP::$socketClients[$this->client]['version']) && UltimaPHP::$socketClients[$this->client]['version']['major'] >= 7 && UltimaPHP::$socketClients[$this->client]['version']['minor'] >= 0 && UltimaPHP::$socketClients[$this->client]['version']['revision'] >= 13 && UltimaPHP::$socketClients[$this->client]['version']['prototype'] >= 0) {
                 $tmpPacket .= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
                 $tmpPacket .= str_pad(Functions::strToHex($location['name']), 64, "0", STR_PAD_RIGHT);
@@ -180,14 +196,16 @@ class Account {
                 $tmpPacket .= str_pad(Functions::strToHex($location['name']), 62, "0", STR_PAD_RIGHT);
                 $tmpPacket .= str_pad(Functions::strToHex($location['area']), 62, "0", STR_PAD_RIGHT);
             }
+
         }
 
-        $flags = "0580";
+        $flags = "01A8";
         $tmpPacket .= str_pad($flags, 8, "0", STR_PAD_LEFT);
         $tmpPacket .= "0000";
-
-        $packet = "A9";
-        $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 3), 4, "0", STR_PAD_LEFT);
+        
+        $packet = "A9";             
+        $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 4), 4, "0", STR_PAD_LEFT);
+        $packet .= "07";
         $packet .= $tmpPacket;
 
         Sockets::out($this->client, $packet, $runInLot);
