@@ -154,7 +154,7 @@ class UltimaPHP {
         while (self::STATUS_FATAL != self::$status && self::STATUS_STOP != self::$status) {
             Sockets::monitor();
             Sockets::runEvents();
-            usleep(250);
+            usleep(100);
         }
     }
 

@@ -37,9 +37,6 @@ class Sockets {
      * Method called every tick of the server to monitor the incoming/outgoing data from sockets
      */
     public static function monitor() {
-
-        echo skillsDefs::SKILL_ITEMID;
-        exit(); 
         $microtime = microtime(true);
         if ($socket = @socket_accept(UltimaPHP::$socketServer)) {
 
@@ -156,6 +153,8 @@ class Sockets {
 
         if ($packet !== null) {
             if (true === UltimaPHP::$conf['logs']['debug']) {
+                // $compression = new Compression();
+                // $packetD = $compression->decompress(strtoupper($packet));
                 echo "----------------------------------------------\nSending packet to socket #$client (Length: ".strlen($packet).") :: " . Functions::strToHex($packet) . "\n----------------------------------------------\n";
             }
 

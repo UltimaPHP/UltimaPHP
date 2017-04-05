@@ -625,6 +625,34 @@ class Packets {
                 break;
         }
 
+        echo "charName: " . $charName . "\n";
+        echo "flags: " . $flags . "\n";
+        echo "loginCount: " . $loginCount . "\n";
+        echo "profession: " . $profession . "\n";
+        echo "genderRace: " . $genderRace . "\n";
+        echo "str: " . $str . "\n";
+        echo "dex: " . $dex . "\n";
+        echo "int: " . $int . "\n";
+        echo "skillid1: " . $skillid1 . "\n";
+        echo "skillvalue1: " . $skillvalue1 . "\n";
+        echo "skillid2: " . $skillid2 . "\n";
+        echo "skillvalue2: " . $skillvalue2 . "\n";
+        echo "skillid3: " . $skillid3 . "\n";
+        echo "skillvalue3: " . $skillvalue3 . "\n";
+        echo "skillid4: " . $skillid4 . "\n";
+        echo "skillvalue4: " . $skillvalue4 . "\n";
+        echo "skinColor: " . $skinColor . "\n";
+        echo "hairStyle: " . $hairStyle . "\n";
+        echo "hairColor: " . $hairColor . "\n";
+        echo "beardStyle: " . $beardStyle . "\n";
+        echo "beardColor: " . $beardColor . "\n";
+        echo "shardIndex: " . $shardIndex . "\n";
+        echo "startCity: " . $startCity . "\n";
+        echo "charSlot: " . $charSlot . "\n";
+        echo "clientIp: " . $clientIp . "\n";
+        echo "shirtColor: " . $shirtColor . "\n";
+        echo "pantsColor: " . $pantsColor . "\n";
+
         if (true === UltimaPHP::$conf['logs']['debug']) {
             echo "0xF8 - Ainda não finalizado";
         }

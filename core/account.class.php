@@ -29,7 +29,7 @@ class Account {
     /**
      * Looks for the account credentials in the database and define the base variables
      */
-    function __construct($account = null, $password = null, $client = null) {
+    public function __construct($account = null, $password = null, $client = null) {
         $this->client = $client;
 
         $query = "SELECT
@@ -50,22 +50,22 @@ class Account {
 
         $sth = UltimaPHP::$db->prepare($query);
         $sth->execute(array(
-            ":account" => $account,
+            ":account"  => $account,
             ":password" => $password,
         ));
         $result = $sth->fetchAll(PDO::FETCH_ASSOC);
 
         if (isset($result[0])) {
-            $this->serial = $result[0]['id'];
-            $this->account = $result[0]['account'];
-            $this->password = $result[0]['password'];
-            $this->maxchars = $result[0]['maxchars'];
+            $this->serial        = $result[0]['id'];
+            $this->account       = $result[0]['account'];
+            $this->password      = $result[0]['password'];
+            $this->maxchars      = $result[0]['maxchars'];
             $this->creation_date = $result[0]['creation_date'];
-            $this->last_login = $result[0]['last_login'];
-            $this->plevel = $result[0]['plevel'];
-            $this->status = $result[0]['status'];
-            $this->characters = $this->getCharacterList();
-            $this->isValid = true;
+            $this->last_login    = $result[0]['last_login'];
+            $this->plevel        = $result[0]['plevel'];
+            $this->status        = $result[0]['status'];
+            $this->characters    = $this->getCharacterList();
+            $this->isValid       = true;
 
             return $this;
         }
@@ -102,7 +102,7 @@ class Account {
             foreach ($result as $char) {
                 $chars[] = array(
                     'serial' => (442500 + $char['id']),
-                    'name' => $char['name']
+                    'name'   => $char['name'],
                 );
             }
 
@@ -116,7 +116,7 @@ class Account {
      * Send the server list to the client
      */
     public function sendServerList($runInLot = false) {
-        $packet = "";
+        $packet    = "";
         $tmpPacket = "";
         foreach (UltimaPHP::$servers as $key => $server) {
             $ip = explode(".", $server['ip']);
@@ -152,60 +152,56 @@ class Account {
      * Send the account characters list to the client
      */
     public function sendCharacterList($runInLot = false) {
-        $characters = $this->characters;
+        $characters        = $this->characters;
         $startingLocations = UltimaPHP::$starting_locations;
-        
+
         $charLimit = 7;
-        $tmpPacket = "";        
-        
+        $tmpPacket = "";
+
         for ($i = 0; $i < $charLimit; $i++) {
             if ($i < count($characters)) {
                 $tmpPacket .= str_pad((isset($characters[$i]) ? Functions::strToHex($characters[$i]['name']) : 0), 60, "0", STR_PAD_RIGHT);
                 $tmpPacket .= str_pad("00", 60, "0", STR_PAD_RIGHT);
             } else {
-                $tmpPacket .= str_pad("00", 120, "0",STR_PAD_RIGHT);                            
-            }    
-        }                               
-
-        $tmpPacket .= str_pad(dechex(count($startingLocations)), 2, "0", STR_PAD_LEFT); 
-
+                $tmpPacket .= str_pad("00", 120, "0", STR_PAD_RIGHT);
+            }
+        }
+        $tmpPacket .= str_pad(dechex(count($startingLocations)), 2, "0", STR_PAD_LEFT);
         foreach ($startingLocations as $key => $location) {
             // If Client version is bigger then 7.0.13.0
-            $tmpPacket .= str_pad(dechex($key+1), 2, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(Functions::strToHex($location['name']), 64, "0", STR_PAD_RIGHT);
-            $tmpPacket .= str_pad(Functions::strToHex($location['area']), 64, "0", STR_PAD_RIGHT);
+            $tmpPacket .= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(strtoupper(Functions::strToHex($location['name'])), 64, "0", STR_PAD_RIGHT);
+            $tmpPacket .= str_pad(strtoupper(Functions::strToHex($location['area'])), 64, "0", STR_PAD_RIGHT);
             $tmpPacket .= str_pad(strtoupper(dechex($location['position']['x'])), 8, "0", STR_PAD_LEFT);
             $tmpPacket .= str_pad(strtoupper(dechex($location['position']['y'])), 8, "0", STR_PAD_LEFT);
             $tmpPacket .= str_pad(strtoupper(dechex($location['position']['z'])), 8, "0", STR_PAD_LEFT);
             $tmpPacket .= str_pad(strtoupper(dechex($location['position']['map'])), 8, "0", STR_PAD_LEFT);
             $tmpPacket .= str_pad(strtoupper(dechex($location['clioc'])), 8, "0", STR_PAD_LEFT);
             $tmpPacket .= str_pad("", 8, "0", STR_PAD_RIGHT);
+            /*if (isset(UltimaPHP::$socketClients[$this->client]['version']) && UltimaPHP::$socketClients[$this->client]['version']['major'] >= 7 && UltimaPHP::$socketClients[$this->client]['version']['minor'] >= 0 && UltimaPHP::$socketClients[$this->client]['version']['revision'] >= 13 && UltimaPHP::$socketClients[$this->client]['version']['prototype'] >= 0) {
 
-            if (isset(UltimaPHP::$socketClients[$this->client]['version']) && UltimaPHP::$socketClients[$this->client]['version']['major'] >= 7 && UltimaPHP::$socketClients[$this->client]['version']['minor'] >= 0 && UltimaPHP::$socketClients[$this->client]['version']['revision'] >= 13 && UltimaPHP::$socketClients[$this->client]['version']['prototype'] >= 0) {
-                $tmpPacket .= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
-                $tmpPacket .= str_pad(Functions::strToHex($location['name']), 64, "0", STR_PAD_RIGHT);
-                $tmpPacket .= str_pad(Functions::strToHex($location['area']), 64, "0", STR_PAD_RIGHT);
-                $tmpPacket .= str_pad(strtoupper(dechex($location['position']['x'])), 8, "0", STR_PAD_LEFT);
-                $tmpPacket .= str_pad(strtoupper(dechex($location['position']['y'])), 8, "0", STR_PAD_LEFT);
-                $tmpPacket .= str_pad(strtoupper(dechex($location['position']['z'])), 8, "0", STR_PAD_LEFT);
-                $tmpPacket .= str_pad(strtoupper(dechex($location['position']['map'])), 8, "0", STR_PAD_LEFT);
-                $tmpPacket .= str_pad(strtoupper(dechex($location['clioc'])), 8, "0", STR_PAD_LEFT);
-                $tmpPacket .= str_pad("", 8, "0", STR_PAD_RIGHT);
-            } else {
-                $tmpPacket .= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
-                $tmpPacket .= str_pad(Functions::strToHex($location['name']), 62, "0", STR_PAD_RIGHT);
-                $tmpPacket .= str_pad(Functions::strToHex($location['area']), 62, "0", STR_PAD_RIGHT);
-            }
-
+        $tmpPacket .= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
+        $tmpPacket .= str_pad(Functions::strToHex($location['name']), 64, "0", STR_PAD_RIGHT);
+        $tmpPacket .= str_pad(Functions::strToHex($location['area']), 64, "0", STR_PAD_RIGHT);
+        $tmpPacket .= str_pad(strtoupper(dechex($location['position']['x'])), 8, "0", STR_PAD_LEFT);
+        $tmpPacket .= str_pad(strtoupper(dechex($location['position']['y'])), 8, "0", STR_PAD_LEFT);
+        $tmpPacket .= str_pad(strtoupper(dechex($location['position']['z'])), 8, "0", STR_PAD_LEFT);
+        $tmpPacket .= str_pad(strtoupper(dechex($location['position']['map'])), 8, "0", STR_PAD_LEFT);
+        $tmpPacket .= str_pad(strtoupper(dechex($location['clioc'])), 8, "0", STR_PAD_LEFT);
+        $tmpPacket .= str_pad("", 8, "0", STR_PAD_RIGHT);
+        } else {
+        $tmpPacket .= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
+        $tmpPacket .= str_pad(Functions::strToHex($location['name']), 62, "0", STR_PAD_RIGHT);
+        $tmpPacket .= str_pad(Functions::strToHex($location['area']), 62, "0", STR_PAD_RIGHT);
+        }*/
         }
-
         $flags = "01A8";
         $tmpPacket .= str_pad($flags, 8, "0", STR_PAD_LEFT);
         $tmpPacket .= "0000";
-        
-        $packet = "A9";             
+
+        $packet = "A9";
         $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 4), 4, "0", STR_PAD_LEFT);
-        $packet .= "07";
+        $packet .= "07"; // CharLimit $packet[3]
         $packet .= $tmpPacket;
 
         Sockets::out($this->client, $packet, $runInLot);
@@ -219,76 +215,76 @@ class Account {
             $this->player = new Player($this->client, $this->characters[$info['slotchoosen']]['serial']);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
-                "method" => "sendClientLocaleBody"
-                    ), 0.0, true);
+                "method" => "sendClientLocaleBody",
+            ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
-                "method" => "drawPlayer"
-                    ), 0.0, true);
+                "method" => "drawPlayer",
+            ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
-                "method" => "updateStatusBar"
-                    ), 0.0, true);
+                "method" => "updateStatusBar",
+            ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
-                "method" => "enableMapDiffs"
-                    ), 0.0, true);
+                "method" => "enableMapDiffs",
+            ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
                 "method" => "updateCursorColor",
-                "args" => 0
-                    ), 0.0, true);
+                "args"   => 0,
+            ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
                 "method" => "mountSpeed",
-                "args" => 0
-                    ), 0.0, true);
+                "args"   => 0,
+            ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
-                "method" => "statusBarInfo"
-                    ), 0.0, true);
+                "method" => "statusBarInfo",
+            ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
-                "method" => "extendedStats"
-                    ), 0.0, true);
+                "method" => "extendedStats",
+            ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
-                "method" => "confirmLogin"
-                    ), 0.0, true);
+                "method" => "confirmLogin",
+            ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
                 "method" => "setWarMode",
-                "args" => 0
-                    ), 0.0, true);
+                "args"   => 0,
+            ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
                 "method" => "setSeasonal",
-                "args" => array(0, true)
-                    ), 0.0, true);
+                "args"   => array(0, true),
+            ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
                 "method" => "setWeather",
-                "args" => array(255, 0, 16)
-                    ), 0.0, true);
+                "args"   => array(255, 0, 16),
+            ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
                 "method" => "setLight",
-                "args" => 2
-                    ), 0.0, true);
+                "args"   => 2,
+            ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
-                "method" => "setTime"
-                    ), 0.0, true);
+                "method" => "setTime",
+            ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
                 "method" => "playMusic",
-                "args" => 29
-                    ), 0.0, true, true);
+                "args"   => 29,
+            ), 0.0, true, true);
             Sockets::addEvent($this->client, array(
                 "option" => "map",
                 "method" => "updatePlayerLocation",
-                "args" => $this->client
-                    ), 0.2, false);
+                "args"   => $this->client,
+            ), 0.2, false);
         } else {
             $this->disconnect(4);
         }
