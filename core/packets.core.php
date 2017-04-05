@@ -552,73 +552,73 @@ class Packets {
 
         switch ($profession) {
             case 1: // Warrior
-                $skillid1    = skillsDefs::SKILL_SWORDSMANSHIP; // Swordsmanship
+                $skillid1    = skillsDefs::SKILL_SWORDSMANSHIP;
                 $skillvalue1 = 30;
-                $skillid2    = skillsDefs::SKILL_TACTICS; // Tactics
+                $skillid2    = skillsDefs::SKILL_TACTICS;
                 $skillvalue2 = 50;
-                $skillid3    = skillsDefs::SKILL_HEALING; // Healing
+                $skillid3    = skillsDefs::SKILL_HEALING;
                 $skillvalue3 = 45;
-                $skillid4    = skillsDefs::SKILL_ANATOMY; // Anatomy
+                $skillid4    = skillsDefs::SKILL_ANATOMY;
                 $skillvalue4 = 30;
                 break;
-            case 2: // Mage
-                $skillid1    = skillsDefs::SKILL_EVALUATINGINTEL; // Swordsmanship
+            case 2:
+                $skillid1    = skillsDefs::SKILL_EVALUATINGINTEL;
                 $skillvalue1 = 30;
-                $skillid2    = skillsDefs::SKILL_WRESTLING; // Tactics
+                $skillid2    = skillsDefs::SKILL_WRESTLING;
                 $skillvalue2 = 30;
-                $skillid3    = skillsDefs::SKILL_MAGERY; // Healing
+                $skillid3    = skillsDefs::SKILL_MAGERY;
                 $skillvalue3 = 50;
-                $skillid4    = skillsDefs::SKILL_MEDITATION; // Anatomy
+                $skillid4    = skillsDefs::SKILL_MEDITATION;
                 $skillvalue4 = 50;
                 break;
-            case 3: // Blacksmith
-                $skillid1    = skillsDefs::SKILL_MINING; // Swordsmanship
+            case 3:
+                $skillid1    = skillsDefs::SKILL_MINING;
                 $skillvalue1 = 30;
-                $skillid2    = skillsDefs::SKILL_ARMSLORE; // Tactics
+                $skillid2    = skillsDefs::SKILL_ARMSLORE;
                 $skillvalue2 = 30;
-                $skillid3    = skillsDefs::SKILL_BLACKSMITHING; // Healing
+                $skillid3    = skillsDefs::SKILL_BLACKSMITHING;
                 $skillvalue3 = 50;
-                $skillid4    = skillsDefs::SKILL_TINKERING; // Anatomy
+                $skillid4    = skillsDefs::SKILL_TINKERING;
                 $skillvalue4 = 50;
                 break;
-            case 4: // Necromancer
-                $skillid1    = skillsDefs::SKILL_NECROMANCY; // Swordsmanship
+            case 4:
+                $skillid1    = skillsDefs::SKILL_NECROMANCY;
                 $skillvalue1 = 50;
-                $skillid2    = skillsDefs::SKILL_FOCUS; // Tactics
+                $skillid2    = skillsDefs::SKILL_FOCUS;
                 $skillvalue2 = 30;
-                $skillid3    = skillsDefs::SKILL_SPIRITSPEAK; // Healing
+                $skillid3    = skillsDefs::SKILL_SPIRITSPEAK;
                 $skillvalue3 = 30;
-                $skillid4    = skillsDefs::SKILL_SWORDSMANSHIP; // Anatomy
+                $skillid4    = skillsDefs::SKILL_SWORDSMANSHIP;
                 $skillvalue4 = 30;
                 break;
-            case 5: // Paladin
-                $skillid1    = skillsDefs::SKILL_CHIVALRY; // Swordsmanship
+            case 5:
+                $skillid1    = skillsDefs::SKILL_CHIVALRY;
                 $skillvalue1 = 51;
-                $skillid2    = skillsDefs::SKILL_SWORDSMANSHIP; // Tactics
+                $skillid2    = skillsDefs::SKILL_SWORDSMANSHIP;
                 $skillvalue2 = 49;
-                $skillid3    = skillsDefs::SKILL_FOCUS; // Healing
+                $skillid3    = skillsDefs::SKILL_FOCUS;
                 $skillvalue3 = 30;
-                $skillid4    = skillsDefs::SKILL_TACTICS; // Anatomy
+                $skillid4    = skillsDefs::SKILL_TACTICS;
                 $skillvalue4 = 30;
                 break;
-            case 6: // Samurai
-                $skillid1    = skillsDefs::SKILL_BUSHIDO; // Swordsmanship
+            case 6:
+                $skillid1    = skillsDefs::SKILL_BUSHIDO;
                 $skillvalue1 = 50;
-                $skillid2    = skillsDefs::SKILL_SWORDSMANSHIP; // Tactics
+                $skillid2    = skillsDefs::SKILL_SWORDSMANSHIP;
                 $skillvalue2 = 50;
-                $skillid3    = skillsDefs::SKILL_ANATOMY; // Healing
+                $skillid3    = skillsDefs::SKILL_ANATOMY;
                 $skillvalue3 = 30;
-                $skillid4    = skillsDefs::SKILL_HEALING; // Anatomy
+                $skillid4    = skillsDefs::SKILL_HEALING;
                 $skillvalue4 = 30;
                 break;
             case 7: // Ninja
-                $skillid1    = skillsDefs::SKILL_NINJITSU; // Swordsmanship
+                $skillid1    = skillsDefs::SKILL_NINJITSU;
                 $skillvalue1 = 50;
-                $skillid2    = skillsDefs::SKILL_HIDING; // Tactics
+                $skillid2    = skillsDefs::SKILL_HIDING;
                 $skillvalue2 = 50;
-                $skillid3    = skillsDefs::SKILL_FENCING; // Healing
+                $skillid3    = skillsDefs::SKILL_FENCING;
                 $skillvalue3 = 30;
-                $skillid4    = skillsDefs::SKILL_STEALTH; // Anatomy
+                $skillid4    = skillsDefs::SKILL_STEALTH;
                 $skillvalue4 = 30;
                 break;
             default:
