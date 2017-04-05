@@ -727,5 +727,6 @@ class Player {
 
         Sockets::out($this->client, $packet, $runInLot);
     }
+        
 
 }

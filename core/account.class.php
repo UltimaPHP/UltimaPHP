@@ -144,7 +144,24 @@ class Account {
      * Enable locked client features
      */
     public function enableLockedFeatures($runInLot = false) {
-        $packet = "B9000C829F";
+        $tmpPacket = "";
+        $expansion = dechex(expansionDefs::EXPANSION_TOL);
+        
+        // IF the client is the Old Version change 8 to 4
+        for($i = 0;$i <8-strlen($expansion);++$i)
+        {	
+			$tmpPacket .= "0";				
+		}
+        
+        $tmpPacket .= $expansion;
+        // if (versaoAntiga){
+			//Versao antiga o pacote é 3 bytes
+		//}else{
+			//Versao nova o pacote tem 5 bytes
+		//}
+		
+        $packet = "B9";
+        $packet .= $tmpPacket;
         Sockets::out($this->client, $packet, $runInLot);
     }
 
@@ -198,8 +215,9 @@ class Account {
             $tmpPacket .= str_pad(Functions::strToHex($location['area']), 62, "0", STR_PAD_RIGHT);
             }*/
         }
-        $tmpPacket .= str_pad("01A8", 8, "0", STR_PAD_LEFT);
-        $tmpPacket .= "0000";
+		
+        $tmpPacket .= str_pad("11E8", 8, "0", STR_PAD_LEFT);
+        $tmpPacket .= "FFFF";
 
         $packet = "A9";
         $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 4), 4, "0", STR_PAD_LEFT);
@@ -292,7 +310,7 @@ class Account {
         } else {
             $this->disconnect(4);
         }
-    }
+    }        
 
     /**
      * Send the connection confirmation of selected server
@@ -341,4 +359,8 @@ class Account {
     public function sendClientVersionRequest($runInLot = false) {
         Sockets::out($this->client, "BD0003", $runInLot);
     }
+    
+    public function createCharacter70160($runInLot = false, $charName, $flags, $loginCount, $profession, $genderRace, $str, $dex, $int, $skillid1,$skillvalue1, $skillid2, $skillvalue2, $skillid3, $skillvalue3, $skillid4, $skillvalue4 , $skinColor, $hairStyle, $beardStyle, $beardColor, $shardIndex, $startCity, $charSlot, $shirtColor, $pantsColor){
+		//Ainda nao fiz			
+	}
 }
