@@ -138,6 +138,7 @@ class UltimaPHP {
             $dnsString = self::$conf['database']['type'] . ":host=" . self::$conf['database']['host'] . ";dbname=" . self::$conf['database']['schema'] . ";charset=utf8";
             self::$db = new PDO($dnsString, self::$conf['database']['user'], self::$conf['database']['password']);
             self::setStatus(self::STATUS_DATABASE_CONNECTED);
+            self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             self::setStatus(self::STATUS_DATABASE_CONNECTION_FAILED, array(
                 "\n" . $e->getMessage(),
@@ -154,7 +155,7 @@ class UltimaPHP {
         while (self::STATUS_FATAL != self::$status && self::STATUS_STOP != self::$status) {
             Sockets::monitor();
             Sockets::runEvents();
-            usleep(100);
+            usleep(250);
         }
     }
 

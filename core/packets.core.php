@@ -292,116 +292,136 @@ class Packets {
         $shardIndex  = hexdec($data[92]);
         $startCity   = hexdec($data[93]);
         $charSlot    = hexdec(Functions::implodeByte($data, 94, 97));
-        $clientIp    = hexdec(Functions::implodeByte($data, 98, 101));
+        $clientIp     = hexdec($data[98]) . "." . hexdec($data[99]) . "." . hexdec($data[100]) . "." . hexdec($data[101]);
         $shirtColor  = hexdec(Functions::implodeByte($data, 102, 103));
         $pantsColor  = hexdec(Functions::implodeByte($data, 104, 105));
 
         switch ($profession) {
-        case 1: // Warrior
-            $skillid1    = skillsDefs::SKILL_SWORDSMANSHIP;
-            $skillvalue1 = 30;
-            $skillid2    = skillsDefs::SKILL_TACTICS;
-            $skillvalue2 = 50;
-            $skillid3    = skillsDefs::SKILL_HEALING;
-            $skillvalue3 = 45;
-            $skillid4    = skillsDefs::SKILL_ANATOMY;
-            $skillvalue4 = 30;
-            break;
-        case 2:
-            $skillid1    = skillsDefs::SKILL_EVALUATINGINTEL;
-            $skillvalue1 = 30;
-            $skillid2    = skillsDefs::SKILL_WRESTLING;
-            $skillvalue2 = 30;
-            $skillid3    = skillsDefs::SKILL_MAGERY;
-            $skillvalue3 = 50;
-            $skillid4    = skillsDefs::SKILL_MEDITATION;
-            $skillvalue4 = 50;
-            break;
-        case 3:
-            $skillid1    = skillsDefs::SKILL_MINING;
-            $skillvalue1 = 30;
-            $skillid2    = skillsDefs::SKILL_ARMSLORE;
-            $skillvalue2 = 30;
-            $skillid3    = skillsDefs::SKILL_BLACKSMITHING;
-            $skillvalue3 = 50;
-            $skillid4    = skillsDefs::SKILL_TINKERING;
-            $skillvalue4 = 50;
-            break;
-        case 4:
-            $skillid1    = skillsDefs::SKILL_NECROMANCY;
-            $skillvalue1 = 50;
-            $skillid2    = skillsDefs::SKILL_FOCUS;
-            $skillvalue2 = 30;
-            $skillid3    = skillsDefs::SKILL_SPIRITSPEAK;
-            $skillvalue3 = 30;
-            $skillid4    = skillsDefs::SKILL_SWORDSMANSHIP;
-            $skillvalue4 = 30;
-            break;
-        case 5:
-            $skillid1    = skillsDefs::SKILL_CHIVALRY;
-            $skillvalue1 = 51;
-            $skillid2    = skillsDefs::SKILL_SWORDSMANSHIP;
-            $skillvalue2 = 49;
-            $skillid3    = skillsDefs::SKILL_FOCUS;
-            $skillvalue3 = 30;
-            $skillid4    = skillsDefs::SKILL_TACTICS;
-            $skillvalue4 = 30;
-            break;
-        case 6:
-            $skillid1    = skillsDefs::SKILL_BUSHIDO;
-            $skillvalue1 = 50;
-            $skillid2    = skillsDefs::SKILL_SWORDSMANSHIP;
-            $skillvalue2 = 50;
-            $skillid3    = skillsDefs::SKILL_ANATOMY;
-            $skillvalue3 = 30;
-            $skillid4    = skillsDefs::SKILL_HEALING;
-            $skillvalue4 = 30;
-            break;
-        case 7: // Ninja
-            $skillid1    = skillsDefs::SKILL_NINJITSU;
-            $skillvalue1 = 50;
-            $skillid2    = skillsDefs::SKILL_HIDING;
-            $skillvalue2 = 50;
-            $skillid3    = skillsDefs::SKILL_FENCING;
-            $skillvalue3 = 30;
-            $skillid4    = skillsDefs::SKILL_STEALTH;
-            $skillvalue4 = 30;
-            break;
-        default:
-            break;
+            case 1: // Warrior
+                $skillid1    = skillsDefs::SKILL_SWORDSMANSHIP;
+                $skillvalue1 = 30;
+                $skillid2    = skillsDefs::SKILL_TACTICS;
+                $skillvalue2 = 50;
+                $skillid3    = skillsDefs::SKILL_HEALING;
+                $skillvalue3 = 45;
+                $skillid4    = skillsDefs::SKILL_ANATOMY;
+                $skillvalue4 = 30;
+                $professionTitle = "Warrior";
+                break;
+            case 2:
+                $skillid1    = skillsDefs::SKILL_EVALUATINGINTEL;
+                $skillvalue1 = 30;
+                $skillid2    = skillsDefs::SKILL_WRESTLING;
+                $skillvalue2 = 30;
+                $skillid3    = skillsDefs::SKILL_MAGERY;
+                $skillvalue3 = 50;
+                $skillid4    = skillsDefs::SKILL_MEDITATION;
+                $skillvalue4 = 50;
+                $professionTitle = "Mage";
+                break;
+            case 3:
+                $skillid1    = skillsDefs::SKILL_MINING;
+                $skillvalue1 = 30;
+                $skillid2    = skillsDefs::SKILL_ARMSLORE;
+                $skillvalue2 = 30;
+                $skillid3    = skillsDefs::SKILL_BLACKSMITHING;
+                $skillvalue3 = 50;
+                $skillid4    = skillsDefs::SKILL_TINKERING;
+                $skillvalue4 = 50;
+                $professionTitle = "Blacksmith";
+                break;
+            case 4:
+                $skillid1    = skillsDefs::SKILL_NECROMANCY;
+                $skillvalue1 = 50;
+                $skillid2    = skillsDefs::SKILL_FOCUS;
+                $skillvalue2 = 30;
+                $skillid3    = skillsDefs::SKILL_SPIRITSPEAK;
+                $skillvalue3 = 30;
+                $skillid4    = skillsDefs::SKILL_SWORDSMANSHIP;
+                $skillvalue4 = 30;
+                $professionTitle = "Necromancer";
+                break;
+            case 5:
+                $skillid1    = skillsDefs::SKILL_CHIVALRY;
+                $skillvalue1 = 51;
+                $skillid2    = skillsDefs::SKILL_SWORDSMANSHIP;
+                $skillvalue2 = 49;
+                $skillid3    = skillsDefs::SKILL_FOCUS;
+                $skillvalue3 = 30;
+                $skillid4    = skillsDefs::SKILL_TACTICS;
+                $skillvalue4 = 30;
+                $professionTitle = "Paladin";
+                break;
+            case 6:
+                $skillid1    = skillsDefs::SKILL_BUSHIDO;
+                $skillvalue1 = 50;
+                $skillid2    = skillsDefs::SKILL_SWORDSMANSHIP;
+                $skillvalue2 = 50;
+                $skillid3    = skillsDefs::SKILL_ANATOMY;
+                $skillvalue3 = 30;
+                $skillid4    = skillsDefs::SKILL_HEALING;
+                $skillvalue4 = 30;
+                $professionTitle = "Samurai";
+                break;
+            case 7: // Ninja
+                $skillid1    = skillsDefs::SKILL_NINJITSU;
+                $skillvalue1 = 50;
+                $skillid2    = skillsDefs::SKILL_HIDING;
+                $skillvalue2 = 50;
+                $skillid3    = skillsDefs::SKILL_FENCING;
+                $skillvalue3 = 30;
+                $skillid4    = skillsDefs::SKILL_STEALTH;
+                $skillvalue4 = 30;
+                $professionTitle = "Ninja";
+                break;
+            default:
+                $professionTitle = "Adventurer";
+                break;
         }
 
-        echo "charName: " . $charName . "\n";
-        echo "flags: " . $flags . "\n";
-        echo "loginCount: " . $loginCount . "\n";
-        echo "profession: " . $profession . "\n";
-        echo "genderRace: " . $genderRace . "\n";
-        echo "str: " . $str . "\n";
-        echo "dex: " . $dex . "\n";
-        echo "int: " . $int . "\n";
-        echo "skillid1: " . $skillid1 . "\n";
-        echo "skillvalue1: " . $skillvalue1 . "\n";
-        echo "skillid2: " . $skillid2 . "\n";
-        echo "skillvalue2: " . $skillvalue2 . "\n";
-        echo "skillid3: " . $skillid3 . "\n";
-        echo "skillvalue3: " . $skillvalue3 . "\n";
-        echo "skillid4: " . $skillid4 . "\n";
-        echo "skillvalue4: " . $skillvalue4 . "\n";
-        echo "skinColor: " . $skinColor . "\n";
-        echo "hairStyle: " . $hairStyle . "\n";
-        echo "hairColor: " . $hairColor . "\n";
-        echo "beardStyle: " . $beardStyle . "\n";
-        echo "beardColor: " . $beardColor . "\n";
-        echo "shardIndex: " . $shardIndex . "\n";
-        echo "startCity: " . $startCity . "\n";
-        echo "charSlot: " . $charSlot . "\n";
-        echo "clientIp: " . $clientIp . "\n";
-        echo "shirtColor: " . $shirtColor . "\n";
-        echo "pantsColor: " . $pantsColor . "\n";
+        $gender = ($genderRace % 2); // 0 = male && 1 = female
+        $race = ($genderRace <= 3 ? 0 : ($genderRace > 3 && $genderRace < 6 ? 1 : 2));
+        $body = ($genderRace <= 3 ? ($gender ? 401 : 400) : ($genderRace > 3 && $genderRace < 6 ? ($gender ? 606 : 605) : ($gender ? 667 : 666)));
 
-        if (true === UltimaPHP::$conf['logs']['debug']) {
-            echo "0xF8 - Ainda não finalizado";
-        }
+        $newChar = [
+            'name' => $charName,
+            'flags' => $flags,
+            'profession' => $profession,
+            'title' => $professionTitle,
+            'sex' => $gender,
+            'race' => $race,
+            'body' => $body,
+            'color' => [
+                'skin' => $skinColor,
+                'pants' => $pantsColor,
+                'shirt' => $shirtColor
+            ],
+            'hair' => [
+                'style' => $hairStyle,
+                'color' => $hairColor,
+            ],
+            'beard' => [
+                'style' => $beardStyle,
+                'color' => $beardColor,
+            ],
+            'stats' => [
+                'str' => $str,
+                'dex' => $dex,
+                'int' => $int,
+            ],
+            'skills' => [
+                ['skill' => $skillid1, 'value' => $skillvalue1],
+                ['skill' => $skillid2, 'value' => $skillvalue2],
+                ['skill' => $skillid3, 'value' => $skillvalue3],
+                ['skill' => $skillid4, 'value' => $skillvalue4]
+            ],
+            'shard' => $shardIndex,
+            'slot' => $charSlot,
+            'start' => UltimaPHP::$starting_locations[$startCity],
+            'ip' => $clientIp
+        ];
+
+        UltimaPHP::$socketClients[$client]['account']->createNewChar($newChar, true);
     }
 
     /**

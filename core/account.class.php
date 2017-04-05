@@ -82,8 +82,8 @@ class Account {
     /**
      * Update the initial list of charactes in the account to show the character list
      */
-    public function getCharacterList() {
-        if (null === $this->characters) {
+    public function getCharacterList($updateList = false) {
+        if ($updateList || $this->characters === null) {
             $query = "SELECT
                         a.id,
                         a.name
@@ -144,14 +144,15 @@ class Account {
      * Enable locked client features
      */
     public function enableLockedFeatures($runInLot = false) {
+        $version = Functions::getClientVersion($this->client);
+
         $tmpPacket = "";
 
-        $version = Functions::getClientVersion($this->client);
-        if ($version['major'] <= 6 && $version['revision'] <= 14 && filter_var($version['prototype'], FILTER_SANITIZE_NUMBER_INT) <= 2) {
-            $tmpPacket = str_pad(dechex(clientDefs::EXPANSION_ML), 4, "0", STR_PAD_LEFT);
-        } else {
-            $tmpPacket = str_pad(dechex(clientDefs::EXPANSION_TOL), 8, "0", STR_PAD_LEFT);
-        }
+        // if ($version['major'] <= 6 && $version['revision'] <= 14 && filter_var($version['prototype'], FILTER_SANITIZE_NUMBER_INT) <= 2) {
+        //     $tmpPacket = str_pad(dechex(clientDefs::EXPANSION_ML), 4, "0", STR_PAD_LEFT);
+        // } else {
+        $tmpPacket = str_pad(dechex(clientDefs::EXPANSION_TOL), 8, "0", STR_PAD_LEFT);
+        // }
 
         $packet = "B9";
         $packet .= $tmpPacket;
@@ -162,6 +163,7 @@ class Account {
      * Send the account characters list to the client
      */
     public function sendCharacterList($runInLot = false) {
+        $version           = Functions::getClientVersion();
         $characters        = $this->characters;
         $startingLocations = UltimaPHP::$starting_locations;
 
@@ -190,25 +192,24 @@ class Account {
             $tmpPacket .= str_pad(strtoupper(dechex($location['clioc'])), 8, "0", STR_PAD_LEFT);
             $tmpPacket .= str_pad("", 8, "0", STR_PAD_RIGHT);
 
-
             /*if (isset(UltimaPHP::$socketClients[$this->client]['version']) && UltimaPHP::$socketClients[$this->client]['version']['major'] >= 7 && UltimaPHP::$socketClients[$this->client]['version']['minor'] >= 0 && UltimaPHP::$socketClients[$this->client]['version']['revision'] >= 13 && UltimaPHP::$socketClients[$this->client]['version']['prototype'] >= 0) {
 
-            $tmpPacket .= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(Functions::strToHex($location['name']), 64, "0", STR_PAD_RIGHT);
-            $tmpPacket .= str_pad(Functions::strToHex($location['area']), 64, "0", STR_PAD_RIGHT);
-            $tmpPacket .= str_pad(strtoupper(dechex($location['position']['x'])), 8, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(strtoupper(dechex($location['position']['y'])), 8, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(strtoupper(dechex($location['position']['z'])), 8, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(strtoupper(dechex($location['position']['map'])), 8, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(strtoupper(dechex($location['clioc'])), 8, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad("", 8, "0", STR_PAD_RIGHT);
-            } else {
-            $tmpPacket .= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(Functions::strToHex($location['name']), 62, "0", STR_PAD_RIGHT);
-            $tmpPacket .= str_pad(Functions::strToHex($location['area']), 62, "0", STR_PAD_RIGHT);
-            }*/
+        $tmpPacket .= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
+        $tmpPacket .= str_pad(Functions::strToHex($location['name']), 64, "0", STR_PAD_RIGHT);
+        $tmpPacket .= str_pad(Functions::strToHex($location['area']), 64, "0", STR_PAD_RIGHT);
+        $tmpPacket .= str_pad(strtoupper(dechex($location['position']['x'])), 8, "0", STR_PAD_LEFT);
+        $tmpPacket .= str_pad(strtoupper(dechex($location['position']['y'])), 8, "0", STR_PAD_LEFT);
+        $tmpPacket .= str_pad(strtoupper(dechex($location['position']['z'])), 8, "0", STR_PAD_LEFT);
+        $tmpPacket .= str_pad(strtoupper(dechex($location['position']['map'])), 8, "0", STR_PAD_LEFT);
+        $tmpPacket .= str_pad(strtoupper(dechex($location['clioc'])), 8, "0", STR_PAD_LEFT);
+        $tmpPacket .= str_pad("", 8, "0", STR_PAD_RIGHT);
+        } else {
+        $tmpPacket .= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
+        $tmpPacket .= str_pad(Functions::strToHex($location['name']), 62, "0", STR_PAD_RIGHT);
+        $tmpPacket .= str_pad(Functions::strToHex($location['area']), 62, "0", STR_PAD_RIGHT);
+        }*/
         }
-		
+
         $tmpPacket .= str_pad("11E8", 8, "0", STR_PAD_LEFT);
         $tmpPacket .= "FFFF";
 
@@ -218,16 +219,16 @@ class Account {
         $packet .= $tmpPacket;
 
         $version = Functions::getClientVersion($this->client);
-        
+
         Sockets::out($this->client, $packet, $runInLot);
     }
 
     /**
      * Process the character login request
      */
-    public function loginCharacter($info = array()) {
-        if (isset($this->characters[$info['slotchoosen']])) {
-            $this->player = new Player($this->client, $this->characters[$info['slotchoosen']]['serial']);
+    public function loginCharacter($slot = 0) {
+        if (isset($this->characters[$slot])) {
+            $this->player = new Player($this->client, $this->characters[$slot]['serial']);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
                 "method" => "sendClientLocaleBody",
@@ -303,7 +304,7 @@ class Account {
         } else {
             $this->disconnect(4);
         }
-    }        
+    }
 
     /**
      * Send the connection confirmation of selected server
@@ -352,64 +353,25 @@ class Account {
     public function sendClientVersionRequest($runInLot = false) {
         Sockets::out($this->client, "BD0003", $runInLot);
     }
-    
-    public function createCharacter70160($runInLot = false, $charName, $flags, $loginCount, $profession, $genderRace, $str, $dex, $int, $skillid1,$skillvalue1, $skillid2, $skillvalue2, $skillid3, $skillvalue3, $skillid4, $skillvalue4 , $skinColor, $hairStyle, $beardStyle, $beardColor, $shardIndex, $startCity, $charSlot, $shirtColor, $pantsColor){
-		//Ainda nao fiz			
-		
-		$female = TRUE;
-		$tRace = 0;
-		$body = 400;
-		
-		if(($genderRace % 2) != 0)
-		{
-			$female = FALSE;
-		}
-				
-		if ($genderRace <= 3)
-		{
-			$tRace = 0;		// Its a Human!		
-			if($female)
-			{
-				$body = 401;
-			}
-			else
-			{
-				$body = 400;
-			}
-		}
-		else if ($genderRace > 3 && $genderRace < 6)
-		{		
-			$tRace = 1;			// Its a Elf!
-			if($female)
-			{
-				$body = 606;
-			}
-			else
-			{
-				$body = 606;
-			}
-		}
-		else
-		{		
-			$tRace = 2;		// Its a Gargoyle!
-			if($female)
-			{
-				$body = 667;
-			}
-			else
-			{
-				$body = 666;
-			}
-		}
-		
-		$statSum = $str + $dex + $int;
-		
-		// Every stat needs to be below 60 && the sum lower/equal than 80
-		if ($statSum > 90 || ($str > 60) || ($dex > 60) || ($int > 60))
-		{
-			echo "Submitted invalid stats during char creation (".$str.",".$dex.",".$int.").\n";			
-		}		
 
-        
-	}
+    public function createNewChar($info = []) {
+        $statSum = $info['stats']['str'] + $info['stats']['dex'] + $info['stats']['int'];
+
+        // Every stat needs to be below 60 && the sum lower/equal than 80
+        if ($statSum > 90 || ($info['stats']['str'] > 60) || ($info['stats']['dex'] > 60) || ($info['stats']['int'] > 60)) {
+            echo "Client sent invalid stats during character creation (" . $str . "," . $dex . "," . $int . ").\n";
+            return false;
+        }
+
+        $position = $info['start']['position']['x'] . "," . $info['start']['position']['y'] . "," . $info['start']['position']['z'] . "," . $info['start']['position']['map'];
+        $maxPets  = 5;
+
+        UltimaPHP::$db->query("INSERT INTO players (account, name, body, color, sex, race, position, hits, maxhits, mana, maxmana, stam, maxstam, str, maxstr, `int`, maxint, dex, maxdex, statscap, maxpets, title) VALUES (".$this->serial.",'".$info['name']."','".$info['body']."','".$info['color']['skin']."',".$info['sex'].",".$info['race'].",'".$position."',".$info['stats']['str'].",".$info['stats']['str'].",".$info['stats']['int'].",".$info['stats']['int'].",".$info['stats']['dex'].",".$info['stats']['dex'].",".$info['stats']['str'].",".$info['stats']['str'].",".$info['stats']['int'].",".$info['stats']['int'].",".$info['stats']['dex'].",".$info['stats']['dex'].",".UltimaPHP::$conf['accounts']['statscap'].",".$maxPets.",'".$info['title']."')");
+        UltimaPHP::log("New character ".$info['name']." (#" . $this->serial . ") created for account: " . $this->account);
+
+        // Update account instace characters
+        $this->characters    = $this->getCharacterList(true);
+        // Send login request for new char
+        $this->loginCharacter($info['slot']);
+    }
 }
