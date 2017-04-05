@@ -7,7 +7,7 @@
 abstract class expansionDefs {
     const EXPANSION_NONE               = clientDefs::CLIENT_NONE;
     const EXPANSION_T2A                = clientDefs::CLIENT_T2A;
-    const EXPANSION_UOR                = self::EXPANSION_T2A | clientDefs::CLIENT_UOR;
+    const EXPANSION_UOR                = self::EXPANSION_T2A  | clientDefs::CLIENT_UOR;
     const EXPANSION_UOTD               = self::EXPANSION_UOR  | clientDefs::CLIENT_UOTD;
     const EXPANSION_LBR                = self::EXPANSION_UOTD | clientDefs::CLIENT_LBR;
     const EXPANSION_AOS                = self::EXPANSION_LBR  | clientDefs::CLIENT_AOS | clientDefs::CLIENT_LIVEACCOUNT;
