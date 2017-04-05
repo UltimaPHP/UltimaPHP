@@ -29,4 +29,15 @@ abstract class clientDefs {
     const CLIENT_JUNGLE               = 0x00100000;
     const CLIENT_SHADOWGUARD          = 0x00200000;
     const CLIENT_TOL                  = 0x00400000;
+    const EXPANSION_NONE               = self::CLIENT_NONE;
+    const EXPANSION_T2A                = self::CLIENT_T2A;
+    const EXPANSION_UOR                = self::EXPANSION_T2A  | self::CLIENT_UOR;
+    const EXPANSION_UOTD               = self::EXPANSION_UOR  | self::CLIENT_UOTD;
+    const EXPANSION_LBR                = self::EXPANSION_UOTD | self::CLIENT_LBR;
+    const EXPANSION_AOS                = self::EXPANSION_LBR  | self::CLIENT_AOS | self::CLIENT_LIVEACCOUNT;
+    const EXPANSION_SE                 = self::EXPANSION_AOS  | self::CLIENT_SE;
+    const EXPANSION_ML                 = self::EXPANSION_SE   | self::CLIENT_ML  | self::CLIENT_NINTHAGE;
+    const EXPANSION_SA                 = self::EXPANSION_ML   | self::CLIENT_SA  | self::CLIENT_GOTHIC | self::CLIENT_RUSTIC;
+    const EXPANSION_HS                 = self::EXPANSION_SA   | self::CLIENT_HS;
+    const EXPANSION_TOL                = self::EXPANSION_HS   | self::CLIENT_TOL | self::CLIENT_JUNGLE | self::CLIENT_SHADOWGUARD;
 }
