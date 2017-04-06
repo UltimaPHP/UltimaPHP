@@ -381,9 +381,35 @@ class Player {
             Map::addObjectToMap($item, $this->position['x'], $this->position['y'], $this->position['z'], 0);
         }
 
-        if ($cmp == "sysmessage") {
+        if ($cmd == "sysmessage") {
             $this->sysmessage($args[0]);
         }
+        
+        if ($cmd == "tele"){						
+			$this->teleport($args[0],$args[1],$args[2],$args[3]);
+		}
+		
+		if ($cmd == "where"){				
+			$this->sysmessage("Your position is ".$this->position['x'].", ".$this->position['y'].", ".$this->position['z'].", ".$this->position['map']);
+		}
+    }
+    
+    public function teleport($x, $y, $z, $map) {
+    	$oldPosition = $this->position;    	
+        if ($x === null || $y === null || $z === null || $map === null) {
+            $this->sysmessage("Sorry, information is missing. The default is \"x y z map\"");
+            return false;
+        }else{
+			$this->position['x'] = $x;
+			$this->position['y'] = $y;
+			$this->position['z'] = $z;
+			$this->position['map'] = $map;
+			$newPosition = $this->position;
+			Map::updatePlayerLocation($this->client, $oldPosition, $newPosition);
+			$this->drawPlayer($this->client);
+		}
+        
+        return true;
     }
 
     public function sysmessage($message, $color = null) {
@@ -817,6 +843,6 @@ class Player {
         $packet = "A3" . str_pad($this->serial, 8, "0", STR_PAD_LEFT) . str_pad(dechex($this->maxstam), 2, "0", STR_PAD_LEFT) . str_pad(dechex($this->stam), 2, "0", STR_PAD_LEFT);
 
         Sockets::out($this->client, $packet, $runInLot);
-    }
+    }    
 
 }

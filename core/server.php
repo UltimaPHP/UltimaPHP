@@ -61,6 +61,12 @@ class UltimaPHP {
     static $commands = array(
         'i' => array(
             'minPlevel' => 4
+        ),
+        'tele' => array(
+            'minPlevel' => 4
+        ),
+        'where' => array(
+            'minPlevel' => 1
         )
     );
 
