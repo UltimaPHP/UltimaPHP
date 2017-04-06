@@ -412,6 +412,7 @@ class Player {
         return true;
     }
 
+
     public function sysmessage($message, $color = null) {
         if ($color === null) {
             $color = UltimaPHP::$conf['colors']['text'];
