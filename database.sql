@@ -130,15 +130,15 @@ CREATE TABLE `starting_locations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `starting_locations` (`id`, `name`, `area`, `position`, `clioc`) VALUES
-(1, 'Yew', 'The Sturdy Bow', '567,978,0,0', 1075072),
-(2, 'Minoc', 'The Barnacle Tavern', '2477,407,15,0', 1075073),
-(3, 'Britain', 'Sweet Dreams Inn', '1496,1629,10,0', 1075074),
-(4, 'Moonglow', 'The Scholars Inn', '4404,1169,0,0', 1075075),
-(5, 'Trinsic', 'The Traveller\'s Inn', '1844,2745,0,0', 1075076),
-(6, 'New Magincia', 'The Great Horns Tavern', '3738,2223,20,0', 1075077),
-(7, 'Jhelom', 'The Morning Star Inn', '1378,3817,0,0', 1075078),
-(8, 'Skara Brae', 'The Falconers Inn', '594,2227,0,0', 1075079),
-(9, 'Vesper', 'The Ironwood Inn', '2271,977,0,0', 1075080);
+(1, 'Yew', 'The Empath Abbey', '633,858,0,0', 1075072),
+(2, 'Minoc', 'The Barnacle Tavern', '2476,413,15,0', 1075073),
+(3, 'Britain', 'The Wayfarer\'s Inn', '1602,1591,20,0', 1075074),
+(4, 'Moonglow', 'The Scholars Inn', '4408,1168,0,0', 1075075),
+(5, 'Trinsic', 'The Traveller\'s Inn', '1845,2745,0,0', 1075076),
+(6, 'New Haven', 'New Haven Bank', '3667,2625,0,0', 1075077),
+(7, 'Jhelom', 'The Mercenary Inn', '1374,3826,0,0', 1075078),
+(8, 'Skara Brae', 'The Falconers Inn', '618,2234,0,0', 1075079),
+(9, 'Vesper', 'The Ironwood Inn', '2271,976,0,0', 1075080);
 
 ALTER TABLE `accounts`
   ADD PRIMARY KEY (`id`);
