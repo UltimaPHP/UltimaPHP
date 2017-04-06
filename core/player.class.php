@@ -164,7 +164,7 @@ class Player {
                         a.armslore,
                         a.parrying,
                         a.begging,
-                        a.blacksmithing,
+                        a.blacksmith,
                         a.bowcraft,
                         a.peacemaking,
                         a.camping,
