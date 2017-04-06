@@ -118,6 +118,19 @@ class UltimaPHP {
             self::setStatus(self::STATUS_FILE_LOADED);
         }
 
+        // Load Skills
+        foreach (glob(self::$basedir . "core/skills/*.skill.php") as $file) {
+            self::setStatus(self::STATUS_FILE_LOADING, array(
+                "core/skills/" . basename($file),
+            ));
+
+            if (!require_once ($file)) {
+                self::setStatus(self::STATUS_FILE_LOAD_FAIL);
+                self::stop();
+            }
+            self::setStatus(self::STATUS_FILE_LOADED);
+        }
+
         // Load items
         foreach (self::$conf['scripts']['load'] as $folder) {
             foreach (glob(self::$basedir . $folder . "*.php") as $file) {

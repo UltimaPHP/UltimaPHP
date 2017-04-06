@@ -4,7 +4,8 @@
  * Version: 0.1 - Pre Alpha
  */
 
-abstract class skillsDefs {
+abstract class SkillsDefs {
+    /* Skill Ids */
     const SKILL_ALCHEMY         = 0;
     const SKILL_ANATOMY         = 1;
     const SKILL_ANIMALLORE      = 2;
@@ -64,4 +65,18 @@ abstract class skillsDefs {
     const SKILL_IMBUING         = 56;
     const SKILL_THROWING        = 57;
     const SKILL_ALLSKILLS       = 58;
+
+    /* Skill Flags */
+    const SKILL_FLAG_DISABLED    = 0x000;
+    const SKILL_FLAG_FIGHT       = 0x001;
+    const SKILL_FLAG_MAGIC       = 0x002;
+    const SKILL_FLAG_CRAFT       = 0x004;
+    const SKILL_FLAG_IM_MOBILE   = 0x008;
+    const SKILL_FLAG_SELECTABLE  = 0x010;
+    const SKILL_FLAG_NO_MIN_DIST = 0x020;
+    const SKILL_FLAG_NO_ANIM     = 0x040;
+    const SKILL_FLAG_NO_SFX      = 0x080;
+    const SKILL_FLAG_RANGED      = 0x100;
+    const SKILL_FLAG_GATHER      = 0x200;
+    const SKILL_FLAG_SCRIPTED    = 0x300;
 }

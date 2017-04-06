@@ -33,6 +33,7 @@ class Player {
     public $statscap;
     public $pets;
     public $maxpets;
+    public $resist_physical;
     public $resist_fire;
     public $resist_cold;
     public $resist_poison;
@@ -45,22 +46,23 @@ class Player {
     public $fame;
     public $title;
     public $warmode;
+    public $skills = [];
 
     /* Temporary Variables */
     public $mapRange = array(
         'objects' => array(),
         'players' => array(),
-        'npcs' => array()
+        'npcs'    => array(),
     );
 
-    function __construct($client = null, $character_serial = null) {
+    public function __construct($client = null, $character_serial = null) {
         if (null === $client || null === $character_serial) {
             return false;
         }
 
-        $this->client = $client;
-        $this->serial = str_pad($character_serial, 8, "0", STR_PAD_LEFT);
-        $this->id = ($character_serial - 442500);
+        $this->client       = $client;
+        $this->serial       = str_pad($character_serial, 8, "0", STR_PAD_LEFT);
+        $this->id           = ($character_serial - 442500);
         $this->render_range = UltimaPHP::$conf['muls']['render_range'];
 
         $query = "SELECT
@@ -86,6 +88,7 @@ class Player {
                         a.statscap,
                         a.pets,
                         a.maxpets,
+                        a.resist_physical,
                         a.resist_fire,
                         a.resist_cold,
                         a.resist_poison,
@@ -110,45 +113,133 @@ class Player {
         if (isset($result[0])) {
             $position = explode(",", $result[0]['position']);
 
-            $this->name = $result[0]['name'];
-            $this->body = $result[0]['body'];
-            $this->color = $result[0]['color'];
-            $this->sex = $result[0]['sex'];
-            $this->race = $result[0]['race'];
+            $this->name     = $result[0]['name'];
+            $this->body     = $result[0]['body'];
+            $this->color    = $result[0]['color'];
+            $this->sex      = $result[0]['sex'];
+            $this->race     = $result[0]['race'];
             $this->position = array(
-                'x' => $position[0],
-                'y' => $position[1],
-                'z' => $position[2],
-                'map' => $position[3],
-                'facing' => 6,
-                'running' => 0
+                'x'       => $position[0],
+                'y'       => $position[1],
+                'z'       => $position[2],
+                'map'     => $position[3],
+                'facing'  => 6,
+                'running' => 0,
             );
-            $this->hits = $result[0]['hits'];
-            $this->maxhits = $result[0]['maxhits'];
-            $this->mana = $result[0]['mana'];
-            $this->maxmana = $result[0]['maxmana'];
-            $this->stam = $result[0]['stam'];
-            $this->maxstam = $result[0]['maxstam'];
-            $this->str = $result[0]['str'];
-            $this->maxstr = $result[0]['maxstr'];
-            $this->int = $result[0]['int'];
-            $this->maxint = $result[0]['maxint'];
-            $this->dex = $result[0]['dex'];
-            $this->maxdex = $result[0]['maxdex'];
-            $this->statscap = $result[0]['statscap'];
-            $this->pets = $result[0]['pets'];
-            $this->maxpets = $result[0]['maxpets'];
-            $this->resist_fire = $result[0]['resist_fire'];
-            $this->resist_cold = $result[0]['resist_cold'];
-            $this->resist_poison = $result[0]['resist_poison'];
-            $this->resist_energy = $result[0]['resist_energy'];
-            $this->luck = $result[0]['luck'];
-            $this->damage_min = $result[0]['damage_min'];
-            $this->damage_max = $result[0]['damage_max'];
-            $this->karma = $result[0]['karma'];
-            $this->fame = $result[0]['fame'];
-            $this->title = $result[0]['title'];
-            $this->warmode = false;
+            $this->hits            = $result[0]['hits'];
+            $this->maxhits         = $result[0]['maxhits'];
+            $this->mana            = $result[0]['mana'];
+            $this->maxmana         = $result[0]['maxmana'];
+            $this->stam            = $result[0]['stam'];
+            $this->maxstam         = $result[0]['maxstam'];
+            $this->str             = $result[0]['str'];
+            $this->maxstr          = $result[0]['maxstr'];
+            $this->int             = $result[0]['int'];
+            $this->maxint          = $result[0]['maxint'];
+            $this->dex             = $result[0]['dex'];
+            $this->maxdex          = $result[0]['maxdex'];
+            $this->statscap        = $result[0]['statscap'];
+            $this->pets            = $result[0]['pets'];
+            $this->maxpets         = $result[0]['maxpets'];
+            $this->resist_physical = $result[0]['resist_physical'];
+            $this->resist_fire     = $result[0]['resist_fire'];
+            $this->resist_cold     = $result[0]['resist_cold'];
+            $this->resist_poison   = $result[0]['resist_poison'];
+            $this->resist_energy   = $result[0]['resist_energy'];
+            $this->luck            = $result[0]['luck'];
+            $this->damage_min      = $result[0]['damage_min'];
+            $this->damage_max      = $result[0]['damage_max'];
+            $this->karma           = $result[0]['karma'];
+            $this->fame            = $result[0]['fame'];
+            $this->title           = $result[0]['title'];
+            $this->warmode         = false;
+
+            $query = "SELECT
+                        a.id,
+                        a.player,
+                        a.alchemy,
+                        a.anatomy,
+                        a.animallore,
+                        a.itemid,
+                        a.armslore,
+                        a.parrying,
+                        a.begging,
+                        a.blacksmithing,
+                        a.bowcraft,
+                        a.peacemaking,
+                        a.camping,
+                        a.carpentry,
+                        a.cartography,
+                        a.cooking,
+                        a.detectinghidden,
+                        a.discordance,
+                        a.evaluatingintel,
+                        a.healing,
+                        a.fishing,
+                        a.forensics,
+                        a.herding,
+                        a.hiding,
+                        a.provocation,
+                        a.inscription,
+                        a.lockpicking,
+                        a.magery,
+                        a.magicresistance,
+                        a.tactics,
+                        a.snooping,
+                        a.musicianship,
+                        a.poisoning,
+                        a.archery,
+                        a.spiritspeak,
+                        a.stealing,
+                        a.tailoring,
+                        a.taming,
+                        a.tasteid,
+                        a.tinkering,
+                        a.tracking,
+                        a.veterinary,
+                        a.swordsmanship,
+                        a.macefighting,
+                        a.fencing,
+                        a.wrestling,
+                        a.lumberjacking,
+                        a.mining,
+                        a.meditation,
+                        a.stealth,
+                        a.removetraps,
+                        a.necromancy,
+                        a.focus,
+                        a.chivalry,
+                        a.bushido,
+                        a.ninjitsu,
+                        a.spellweaving,
+                        a.mysticism,
+                        a.imbuing,
+                        a.throwing
+                    FROM
+                        players_skills a
+                    WHERE
+                        a.player = :player_id";
+
+            $sth = UltimaPHP::$db->prepare($query);
+            $sth->execute(array(
+                ":player_id" => $this->id,
+            ));
+            $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+            if (isset($result[0])) {
+                foreach ($result[0] as $skill => $value) {
+                    if (in_array($skill, ['id', 'player'])) {
+                        continue;
+                    }
+
+                    $skillclass = "Skill".ucfirst($skill);
+
+                    if (class_exists($skillclass)) {
+                        $skilldef = "SkillsDefs::SKILL_" . strtoupper($skill);
+                        $this->skills[constant($skilldef)] = new $skillclass($value);
+                    }
+                }
+            }
         } else {
             UltimaPHP::$socketClients[$this->client]['account']->disconnect();
         }
@@ -211,26 +302,26 @@ class Player {
 
     public function speech($type, $color, $font, $language, $text) {
         switch (substr($text, 0, 1)) {
-            case '.':
-                if (strstr($text, ",")) {
-                    $tmp = explode(",", $text);
-                    $command = explode(" ", substr($tmp[0], 1));
-                    $args = $tmp;
-                    unset($args[0]);
-                    array_merge([], $args);
-                } else {
-                    $command = explode(" ", substr($text, 1));
-                    $args = [];
-                }
+        case '.':
+            if (strstr($text, ",")) {
+                $tmp     = explode(",", $text);
+                $command = explode(" ", substr($tmp[0], 1));
+                $args    = $tmp;
+                unset($args[0]);
+                array_merge([], $args);
+            } else {
+                $command = explode(" ", substr($text, 1));
+                $args    = [];
+            }
 
-                $this->runCommand($command, $args);
-                return true;
-                break;
+            $this->runCommand($command, $args);
+            return true;
+            break;
         }
 
         if (dechex($type) == 0x06) {
             $tmpPacket = Functions::strToHex($text);
-            $packet = "1C";
+            $packet    = "1C";
             $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 45), 4, "0", STR_PAD_LEFT);
             $packet .= str_pad((dechex($type) == 0x06 ? "FFFFFFFF" : $this->serial), 2, "0", STR_PAD_LEFT);
             $packet .= str_pad((dechex($type) == 0x06 ? "FFFF" : $this->body), 2, "0", STR_PAD_LEFT);
@@ -242,7 +333,7 @@ class Player {
             $packet .= "00";
         } else {
             $tmpPacket = Functions::strToHex($text, true);
-            $packet = "AE";
+            $packet    = "AE";
             $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 50), 4, "0", STR_PAD_LEFT);
             $packet .= $this->serial;
             $packet .= str_pad(dechex($this->body), 4, "0", STR_PAD_LEFT);
@@ -275,7 +366,7 @@ class Player {
             return false;
         }
 
-        $cmd = $command[0];
+        $cmd  = $command[0];
         $args = array_slice($command, 1);
 
         if ($cmd == "i") {
@@ -309,10 +400,10 @@ class Player {
      */
     public function sendClientLocaleBody($runInLot = false) {
         $body_type = $this->body;
-        $pos = array(
-            'x' => $this->position['x'],
-            'y' => $this->position['y'],
-            'z' => $this->position['z'],
+        $pos       = array(
+            'x'      => $this->position['x'],
+            'y'      => $this->position['y'],
+            'z'      => $this->position['z'],
             'facing' => $this->position['facing'],
         );
         $map_size = array(
@@ -344,7 +435,7 @@ class Player {
      * Send the skills information to the client
      */
     public function sendFullSkillList($runInLot = false) {
-        $skills = 58;
+        $skills    = 58;
         $tmpPacket = "02";
         for ($i = 1; $i <= 58; $i++) {
             $tmpPacket .= str_pad(dechex($i), 4, "0", STR_PAD_LEFT);
@@ -410,8 +501,8 @@ class Player {
      *
      */
     public function setWeather($runInLot = false, $args = array()) {
-        $weather = (isset($args[0]) ? $args[0] : null);
-        $effect = (isset($args[1]) ? $args[1] : 0);
+        $weather     = (isset($args[0]) ? $args[0] : null);
+        $effect      = (isset($args[1]) ? $args[1] : 0);
         $temperature = (isset($args[2]) ? $args[2] : 16);
 
         if (null === $weather) {
@@ -434,7 +525,7 @@ class Player {
      *
      */
     public function setSeasonal($runInLot = false, $args = array()) {
-        $season = (isset($args[0]) ? $args[0] : 0);
+        $season    = (isset($args[0]) ? $args[0] : 0);
         $playSound = (isset($args[1]) ? $args[1] : false);
 
         $packet = "BC" . str_pad(dechex($season), 2, "0", STR_PAD_LEFT) . str_pad(dechex((int) $playSound), 2, "0", STR_PAD_LEFT);
@@ -508,7 +599,7 @@ class Player {
 
     /**
      * Packet sent to confirm player movement request
-     * 
+     *
      */
     public function movePlayer($runInLot = false, $direction = false, $sequence = false, $running = false, $fastwalk_prevention = 0) {
         /**
@@ -529,34 +620,34 @@ class Player {
             $this->position['facing'] = (int) $tmpDirection;
         } else {
             switch (hexdec($tmpDirection)) {
-                case 0: /* North */
-                    $this->position['y'] --;
-                    break;
-                case 1: /* Northeast */
-                    $this->position['x'] ++;
-                    $this->position['y'] --;
-                    break;
-                case 2: /* East */
-                    $this->position['x'] ++;
-                    break;
-                case 3: /* Southeast */
-                    $this->position['x'] ++;
-                    $this->position['y'] ++;
-                    break;
-                case 4: /* South */
-                    $this->position['y'] ++;
-                    break;
-                case 5: /* Southwest */
-                    $this->position['x'] --;
-                    $this->position['y'] ++;
-                    break;
-                case 6: /* West */
-                    $this->position['x'] --;
-                    break;
-                case 7: /* Northwest */
-                    $this->position['x'] --;
-                    $this->position['y'] --;
-                    break;
+            case 0: /* North */
+                $this->position['y']--;
+                break;
+            case 1: /* Northeast */
+                $this->position['x']++;
+                $this->position['y']--;
+                break;
+            case 2: /* East */
+                $this->position['x']++;
+                break;
+            case 3: /* Southeast */
+                $this->position['x']++;
+                $this->position['y']++;
+                break;
+            case 4: /* South */
+                $this->position['y']++;
+                break;
+            case 5: /* Southwest */
+                $this->position['x']--;
+                $this->position['y']++;
+                break;
+            case 6: /* West */
+                $this->position['x']--;
+                break;
+            case 7: /* Northwest */
+                $this->position['x']--;
+                $this->position['y']--;
+                break;
             }
         }
 
@@ -571,7 +662,7 @@ class Player {
      * Send the update information of some player
      */
     public function updatePlayer($client_id) {
-        $player = UltimaPHP::$socketClients[$client_id]['account']->player;
+        $player    = UltimaPHP::$socketClients[$client_id]['account']->player;
         $direction = str_pad(($player->position['running'] === true ? 80 + $player->position['facing'] : $player->position['facing']), 2, "0", STR_PAD_LEFT);
 
         $packet = "77";
@@ -727,6 +818,5 @@ class Player {
 
         Sockets::out($this->client, $packet, $runInLot);
     }
-        
 
 }

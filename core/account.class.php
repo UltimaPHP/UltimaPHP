@@ -180,8 +180,6 @@ class Account {
         }
         $tmpPacket .= str_pad(dechex(count($startingLocations)), 2, "0", STR_PAD_LEFT);
 
-        print_r(Functions::getClientVersion($this->client));
-
         foreach ($startingLocations as $key => $location) {
             // If Client version is bigger then 7.0.13.0
             $tmpPacket .= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
@@ -368,9 +366,21 @@ class Account {
         $position = $info['start']['position']['x'] . "," . $info['start']['position']['y'] . "," . $info['start']['position']['z'] . "," . $info['start']['position']['map'];
         $maxPets  = 5;
 
+        // Register the new char on the database
         UltimaPHP::$db->query("INSERT INTO players (account, name, body, color, sex, race, position, hits, maxhits, mana, maxmana, stam, maxstam, str, maxstr, `int`, maxint, dex, maxdex, statscap, maxpets, title) VALUES (".$this->serial.",'".$info['name']."','".$info['body']."','".$info['color']['skin']."',".$info['sex'].",".$info['race'].",'".$position."',".$info['stats']['str'].",".$info['stats']['str'].",".$info['stats']['int'].",".$info['stats']['int'].",".$info['stats']['dex'].",".$info['stats']['dex'].",".$info['stats']['str'].",".$info['stats']['str'].",".$info['stats']['int'].",".$info['stats']['int'].",".$info['stats']['dex'].",".$info['stats']['dex'].",".UltimaPHP::$conf['accounts']['statscap'].",".$maxPets.",'".$info['title']."')");
-        UltimaPHP::log("New character ".$info['name']." (#" . $this->serial . ") created for account: " . $this->account);
+        $newPlayerId = UltimaPHP::$db->lastInsertId();
 
+        // Build the starting skills query from the player
+        $query = "INSERT INTO players_skills (player, alchemy, anatomy, animallore, itemid, armslore, parrying, begging, blacksmithing, bowcraft, peacemaking, camping, carpentry, cartography, cooking, detectinghidden, discordance, evaluatingintel, healing, fishing, forensics, herding, hiding, provocation, inscription, lockpicking, magery, magicresistance, tactics, snooping, musicianship, poisoning, archery, spiritspeak, stealing, tailoring, taming, tasteid, tinkering, tracking, veterinary, swordsmanship, macefighting, fencing, wrestling, lumberjacking, mining, meditation, stealth, removetraps, necromancy, focus, chivalry, bushido, ninjitsu, spellweaving, mysticism, imbuing, throwing) VALUES (".$newPlayerId.",";
+        for ($i=0; $i <= 57; $i++) {
+            $query .= (float) UltimaPHP::$conf['accounts']['starting_skills'] . ($i != 57 ? "," : "");
+        }
+        $query .= ")";
+        // Register the new char skills on the database
+        UltimaPHP::$db->query($query);
+
+        UltimaPHP::log("New character ".$info['name']." (#" . $newPlayerId . ") created for account: " . $this->account);
+        
         // Update account instace characters
         $this->characters    = $this->getCharacterList(true);
         // Send login request for new char
