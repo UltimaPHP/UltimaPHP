@@ -4,9 +4,9 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-class SkillAppraise {
+class SkillItemid {
     public $id    = 3;
-    public $name  = "appraise";
+    public $name  = "item identification";
     public $title = "Merchant";
     public $flags = SkillsDefs::SKILL_FLAG_SELECTABLE;
     public $value = 0;

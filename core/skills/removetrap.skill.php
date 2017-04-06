@@ -6,7 +6,7 @@
  */
 class SkillRemovetrap {
     public $id    = 48;
-    public $name  = "removetrap";
+    public $name  = "remove trap";
     public $title = "Trap";
     public $flags = SkillsDefs::SKILL_FLAG_SELECTABLE;
     public $value = 0;

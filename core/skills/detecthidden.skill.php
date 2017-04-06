@@ -4,7 +4,7 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-class SkillDetectHidden {
+class SkillDetecthidden {
     public $id    = 14;
     public $name  = "detecthidden";
     public $title = "Scout";

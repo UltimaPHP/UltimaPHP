@@ -371,7 +371,7 @@ class Account {
         $newPlayerId = UltimaPHP::$db->lastInsertId();
 
         // Build the starting skills query from the player
-        $query = "INSERT INTO players_skills (player, alchemy, anatomy, animallore, itemid, armslore, parrying, begging, blacksmithing, bowcraft, peacemaking, camping, carpentry, cartography, cooking, detectinghidden, discordance, evaluatingintel, healing, fishing, forensics, herding, hiding, provocation, inscription, lockpicking, magery, magicresistance, tactics, snooping, musicianship, poisoning, archery, spiritspeak, stealing, tailoring, taming, tasteid, tinkering, tracking, veterinary, swordsmanship, macefighting, fencing, wrestling, lumberjacking, mining, meditation, stealth, removetraps, necromancy, focus, chivalry, bushido, ninjitsu, spellweaving, mysticism, imbuing, throwing) VALUES (".$newPlayerId.",";
+        $query = "INSERT INTO players_skills (player, alchemy,anatomy,animallore,itemid,armslore,parrying,begging,blacksmith,bowcraft,peacemaking,camping,carpentry,cartography,cooking,detecthidden,enticement,evalint,healing,fishing,forensics,herding,hiding,provocation,inscription,lockpick,magery,magicresist,tactics,snooping,musicianship,poisoning,archery,spiritspeak,stealing,tailoring,taming,tasteid,tinkering,tracking,vet,swordsmanship,macefighting,fencing,wrestling,lumberjack,mining,meditation,stealth,removetrap,necromancy,focus,chivalry,bushido,ninjitsu,spellweaving,mysticism,imbuing,throwing) VALUES (".$newPlayerId.",";
         for ($i=0; $i <= 57; $i++) {
             $query .= (float) UltimaPHP::$conf['accounts']['starting_skills'] . ($i != 57 ? "," : "");
         }

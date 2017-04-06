@@ -164,16 +164,16 @@ class Player {
                         a.armslore,
                         a.parrying,
                         a.begging,
-                        a.blacksmithing,
+                        a.blacksmith,
                         a.bowcraft,
                         a.peacemaking,
                         a.camping,
                         a.carpentry,
                         a.cartography,
                         a.cooking,
-                        a.detectinghidden,
-                        a.discordance,
-                        a.evaluatingintel,
+                        a.detecthidden,
+                        a.enticement,
+                        a.evalint,
                         a.healing,
                         a.fishing,
                         a.forensics,
@@ -181,9 +181,9 @@ class Player {
                         a.hiding,
                         a.provocation,
                         a.inscription,
-                        a.lockpicking,
+                        a.lockpick,
                         a.magery,
-                        a.magicresistance,
+                        a.magicresist,
                         a.tactics,
                         a.snooping,
                         a.musicianship,
@@ -196,16 +196,16 @@ class Player {
                         a.tasteid,
                         a.tinkering,
                         a.tracking,
-                        a.veterinary,
+                        a.vet,
                         a.swordsmanship,
                         a.macefighting,
                         a.fencing,
                         a.wrestling,
-                        a.lumberjacking,
+                        a.lumberjack,
                         a.mining,
                         a.meditation,
                         a.stealth,
-                        a.removetraps,
+                        a.removetrap,
                         a.necromancy,
                         a.focus,
                         a.chivalry,
@@ -233,10 +233,10 @@ class Player {
                     }
 
                     $skillclass = "Skill".ucfirst($skill);
+                    $skilldef = "SkillsDefs::SKILL_" . strtoupper($skill);
 
                     if (class_exists($skillclass)) {
-                        $skilldef = "SkillsDefs::SKILL_" . strtoupper($skill);
-                        $this->skills[constant($skilldef)] = new $skillclass($value);
+                        $this->skills[constant($skilldef)] = new $skillclass((float)$value);
                     }
                 }
             }
@@ -461,14 +461,15 @@ class Player {
      * Send the skills information to the client
      */
     public function sendFullSkillList($runInLot = false) {
-        $skills    = 58;
+        // print_r($this->skills);
         $tmpPacket = "02";
-        for ($i = 1; $i <= 58; $i++) {
-            $tmpPacket .= str_pad(dechex($i), 4, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(dechex(1000), 4, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(dechex(1000), 4, "0", STR_PAD_LEFT);
+        
+        foreach ($this->skills as $skill_id => $skillInfo) {
+            $tmpPacket .= str_pad(dechex($skill_id+1), 4, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(dechex($skillInfo->value*10), 4, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(dechex($skillInfo->value*10), 4, "0", STR_PAD_LEFT);
             $tmpPacket .= "00";
-            $tmpPacket .= str_pad(dechex(1000), 4, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(dechex(((float)UltimaPHP::$conf['accounts']['skillcap']) * 10), 4, "0", STR_PAD_LEFT);
         }
         $tmpPacket .= "0000";
 

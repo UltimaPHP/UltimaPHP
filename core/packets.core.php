@@ -303,7 +303,7 @@ class Packets {
                 $professionTitle = "Warrior";
                 break;
             case 2:
-                $skillid1    = skillsDefs::SKILL_EVALUATINGINTEL;
+                $skillid1    = skillsDefs::SKILL_EVALINT;
                 $skillvalue1 = 30;
                 $skillid2    = skillsDefs::SKILL_WRESTLING;
                 $skillvalue2 = 30;
@@ -318,7 +318,7 @@ class Packets {
                 $skillvalue1 = 30;
                 $skillid2    = skillsDefs::SKILL_ARMSLORE;
                 $skillvalue2 = 30;
-                $skillid3    = skillsDefs::SKILL_BLACKSMITHING;
+                $skillid3    = skillsDefs::SKILL_BLACKSMITH;
                 $skillvalue3 = 50;
                 $skillid4    = skillsDefs::SKILL_TINKERING;
                 $skillvalue4 = 50;

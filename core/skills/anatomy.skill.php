@@ -4,7 +4,7 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-class SkillAnotomy {
+class SkillAnatomy {
     public $id    = 0;
     public $name  = "anotomy";
     public $title = "biologist";
