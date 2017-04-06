@@ -135,7 +135,7 @@ INSERT INTO `starting_locations` (`id`, `name`, `area`, `position`, `clioc`) VAL
 (3, 'Britain', 'The Wayfarer\'s Inn', '1602,1591,20,0', 1075074),
 (4, 'Moonglow', 'The Scholars Inn', '4408,1168,0,0', 1075075),
 (5, 'Trinsic', 'The Traveller\'s Inn', '1845,2745,0,0', 1075076),
-(6, 'New Haven', 'New Haven Bank', '3667,2625,0,0', 1075077),
+(6, 'New Haven', 'New Haven Bank', '3667,2625,0,0', 1150168),
 (7, 'Jhelom', 'The Mercenary Inn', '1374,3826,0,0', 1075078),
 (8, 'Skara Brae', 'The Falconers Inn', '618,2234,0,0', 1075079),
 (9, 'Vesper', 'The Ironwood Inn', '2271,976,0,0', 1075080);
