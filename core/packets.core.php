@@ -197,7 +197,7 @@ class Packets {
             UltimaPHP::log("Account $account connected from " . UltimaPHP::$socketClients[$client]['ip']);
 
             // Send to the client an client version request
-            UltimaPHP::$socketClients[$client]['account']->sendClientVersionRequest();
+            //UltimaPHP::$socketClients[$client]['account']->sendClientVersionRequest();
 
             // Send to the client the server list
             UltimaPHP::$socketClients[$client]['account']->sendServerList();
@@ -214,17 +214,18 @@ class Packets {
         $keyUsed  = hexdec($data[1]) . hexdec($data[2]) . hexdec($data[3]) . hexdec($data[4]);
         $account  = Functions::hexToChr($data, 5, 34, true);
         $password = Functions::hexToChr($data, 35, 64, true);
-
+		
         $login = false;
 
         UltimaPHP::$socketClients[$client]['account'] = new Account($account, md5($password), $client);
 
         if (true === UltimaPHP::$socketClients[$client]['account']->isValid) {
+        	
             UltimaPHP::log("Account $account logged from IP " . UltimaPHP::$socketClients[$client]['ip']);
 
             // Set the flag on the connection to send next packets compressed
             UltimaPHP::$socketClients[$client]['compressed'] = true;
-
+			
             UltimaPHP::$socketClients[$client]['account']->enableLockedFeatures();
             UltimaPHP::$socketClients[$client]['account']->sendCharacterList();
         } else {

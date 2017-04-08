@@ -557,6 +557,7 @@ class Player {
         $playSound = (isset($args[1]) ? $args[1] : false);
 
         $packet = "BC" . str_pad(dechex($season), 2, "0", STR_PAD_LEFT) . str_pad(dechex((int) $playSound), 2, "0", STR_PAD_LEFT);
+        
         Sockets::out($this->client, $packet, $runInLot);
     }
 

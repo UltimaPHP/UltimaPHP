@@ -89,16 +89,21 @@ class Sockets {
                 }
 
                 $input = @socket_read($socket['socket'], 8192);
-
+				
+				// Remove 4 bytes before 0x91 client enhanced packet. Gambiarra by Mauricio
+				if(substr(Functions::strToHex($socket['tempPacket']), 8, 2) == '91' && (substr(Functions::strToHex($socket['tempPacket']), 0, 2) == substr(Functions::strToHex($socket['tempPacket']), 10, 2)))
+				{
+					$socket['tempPacket'] = substr($socket['tempPacket'], 4);
+				}
+				
                 // Fix to wait the entire packet before proccess <3
                 if ($socket['tempPacket'] !== null) {
                     $input = $socket['tempPacket'] . $input;
-                    UltimaPHP::$socketClients[$client]['tempPacket'] = null;
+                    UltimaPHP::$socketClients[$client]['tempPacket'] = null;		                                    
                 }
 
                 // Only procces or try to, if the $input is not empty
                 if (strlen($input) > 0) {
-
                     UltimaPHP::$socketClients[$client]['LastInput'] = $microtime;
                     
                     if (!isset($socket[$client]['version']) && ord($input[0]) == UltimaPHP::$conf['server']['client']['major'] && ord($input[1]) == UltimaPHP::$conf['server']['client']['minor'] && ord($input[2]) == UltimaPHP::$conf['server']['client']['revision'] && ord($input[3]) == UltimaPHP::$conf['server']['client']['prototype']) {
@@ -107,7 +112,7 @@ class Sockets {
                         UltimaPHP::$socketClients[$client]['tempPacket'] = $input;
                     } else {
                         $validation = self::validatePacket(str_split(Functions::strToHex($input), 2));
-                        if (false !== $validation) {
+                        if (false !== $validation) {                        	
                             foreach ($validation as $packetArray) {
                                 self::in(implode("", $packetArray), $client);
                             }

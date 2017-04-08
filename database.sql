@@ -138,7 +138,7 @@ INSERT INTO `starting_locations` (`id`, `name`, `area`, `position`, `clioc`) VAL
 (6, 'New Haven', 'New Haven Bank', '3667,2625,0,0', 1150168),
 (7, 'Jhelom', 'The Mercenary Inn', '1374,3826,0,0', 1075078),
 (8, 'Skara Brae', 'The Falconers Inn', '618,2234,0,0', 1075079),
-(9, 'Vesper', 'The Ironwood Inn', '2271,976,0,0', 1075080);
+(9, 'Vesper', 'The Ironwood Inn', '2771,976,0,0', 1075080);
 
 ALTER TABLE `accounts`
   ADD PRIMARY KEY (`id`);

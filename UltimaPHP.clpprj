@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="C:\UltimaPHP\UltimaPHP.clpprj">
+	<settings><PM_URL><![CDATA[http://localhost/UltimaPHP/]]></PM_URL><PM_HOME_URL><![CDATA[http://localhost/UltimaPHP/]]></PM_HOME_URL><PM_LIBS><![CDATA[]]></PM_LIBS><PM_FTP_CONNECTION><![CDATA[]]></PM_FTP_CONNECTION><PM_FTP_DIR><![CDATA[]]></PM_FTP_DIR><PM_FTP_UPLOAD_ON_SAVE><![CDATA[INT:0]]></PM_FTP_UPLOAD_ON_SAVE></settings><removed value=";"/><added value=""/><lastopfiles>
+		<file name="C:\UltimaPHP\core\player.class.php"/>
+		<file name="C:\UltimaPHP\core\server.php"/>
+		<file name="C:\UltimaPHP\core\map.core.php"/>
+		<file name="C:\UltimaPHP\core\packets.core.php"/>
+		<file name="C:\UltimaPHP\ultimaphp.ini"/>
+		<file name="C:\UltimaPHP\database.sql"/>
+		<file name="C:\UltimaPHP\core\sockets.core.php"/>
+		<file name="C:\UltimaPHP\core\account.class.php"/>
+	</lastopfiles>
+	<errors version="5.11">
+		<errfile name="C:\UltimaPHP\core\skills\alchemy.skill.php">
+			<error val="48;10;50;10;101;1;"/>
+		</errfile>
+	</errors>
+	<cakedata>
+	</cakedata>
+	<dplmenupath>
+	</dplmenupath><laravael>
+	</laravael><smartyassings>
+	</smartyassings><twigtemplate>
+	</twigtemplate><yiidata>
+	</yiidata>
+	<todoblock>
+	</todoblock>
+	<filescache>
+		<file name="C:\UltimaPHP\scripts\items\weapons\sword_viking.php" crc="1491441568"/>
+		<file name="C:\UltimaPHP\scripts\items\misc\backpack.php" crc="1491441568"/>
+		<file name="C:\UltimaPHP\core\skills\wrestling.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\vet.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\tracking.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\tinkering.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\throwing.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\tasteid.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\taming.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\tailoring.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\tactics.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\swordsmanship.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\stealth.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\stealing.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\spiritspeak.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\spellweaving.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\snooping.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\removetrap.skill.php" crc="1491495727"/>
+		<file name="C:\UltimaPHP\core\skills\provocation.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\poisoning.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\peacemaking.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\parrying.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\ninjitsu.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\necromancy.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\mysticism.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\musicianship.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\mining.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\meditation.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\magicresist.skill.php" crc="1491495727"/>
+		<file name="C:\UltimaPHP\core\skills\magery.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\macefighting.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\lumberjack.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\lockpick.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\inscription.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\imbuing.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\hiding.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\herding.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\healing.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\forensics.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\focus.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\fishing.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\fencing.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\evalint.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\enticement.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\detecthidden.skill.php" crc="1491495727"/>
+		<file name="C:\UltimaPHP\core\skills\cooking.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\chivalry.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\cartography.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\carpentry.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\camping.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\bushido.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\bowcraft.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\blacksmith.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\begging.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\armslore.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\archery.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\animallore.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\skills\anatomy.skill.php" crc="1491495727"/>
+		<file name="C:\UltimaPHP\core\skills\alchemy.skill.php" crc="1491441698"/>
+		<file name="C:\UltimaPHP\core\defs\skills.def.php" crc="1491495727"/>
+		<file name="C:\UltimaPHP\core\defs\clients.def.php" crc="1491441568"/>
+		<file name="C:\UltimaPHP\core\sockets.core.php" crc="1491582508"/>
+		<file name="C:\UltimaPHP\core\server.php" crc="1491495090"/>
+		<file name="C:\UltimaPHP\core\player.class.php" crc="1491501881"/>
+		<file name="C:\UltimaPHP\core\packets.core.php" crc="1491581951"/>
+		<file name="C:\UltimaPHP\core\object.class.php" crc="1491441568"/>
+		<file name="C:\UltimaPHP\core\map.core.php" crc="1491441568"/>
+		<file name="C:\UltimaPHP\core\functions.core.php" crc="1491441568"/>
+		<file name="C:\UltimaPHP\core\encrypt.class.php" crc="1491441568"/>
+		<file name="C:\UltimaPHP\core\compression.class.php" crc="1491441568"/>
+		<file name="C:\UltimaPHP\core\account.class.php" crc="1491572930"/>
+		<file name="C:\UltimaPHP\ultimaphp.ini" crc="1491502906"/>
+		<file name="C:\UltimaPHP\startsever.php" crc="1491441568"/>
+		<file name="C:\UltimaPHP\database.sql" crc="1491500313"/>
+	</filescache>
+</project>
