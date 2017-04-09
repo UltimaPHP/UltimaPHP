@@ -247,10 +247,35 @@ class Packets {
      * Receive the CharCreator 0x00 -  Old Clients < 7.0.16
      */
     public static function packet_0x00($data, $client) {
+    	$command = $data[0];        
+        $size    = hexdec(Functions::implodeByte($data, 1, 2));
+        $type    = $data[3];
+		$serial  = hexdec(Functions::implodeByte($data, 4, 7));
+		$unknown = hexdec(Functions::implodeByte($data, 8, 9));
+		$textLength = hexdec(Functions::implodeByte($data, 10, 11));
+		$text = Functions::hexToChr($data, 12, ($textLength*2));
+
+		echo $size."\n".$type."\n".$serial."\n".$unknown."\n".$textLength."\n".$text;
+    }
+    
+    /**
+     * Receive Profile Request
+     */
+    public static function packet_0xB8($data, $client) {
+        if (true === UltimaPHP::$conf['logs']['debug']) {
+            echo "A implementar!";
+        }
+    }
+    
+    /**
+     * Sending New Map Details Packet < 7.0.16
+     */
+    public static function packet_0xF5($data, $client) {
         if (true === UltimaPHP::$conf['logs']['debug']) {
             echo "OLHA AQUIIIII";
         }
     }
+
 
     /**
      * Receive the CharCreator 0xF8 -  New Clients >= 7.0.16

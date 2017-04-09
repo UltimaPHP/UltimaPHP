@@ -65,6 +65,9 @@ class UltimaPHP {
         'tele' => array(
             'minPlevel' => 4
         ),
+        'invis' => array(
+            'minPlevel' => 4
+        ),
         'where' => array(
             'minPlevel' => 1
         )

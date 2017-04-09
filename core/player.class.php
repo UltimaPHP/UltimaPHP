@@ -16,6 +16,17 @@ class Player {
     public $body;
     public $color;
     public $sex;
+    // Flags -- init
+    public $frozen;
+    public $female;
+    public $flying;
+    public $yellowHealthBar;
+    public $ignoreMobiles;
+    public $warmode;
+    public $hidden;
+    public $paralyzed;
+    public $blessed;
+    // Flags -- end
     public $race;
     public $position;
     public $hits;
@@ -45,7 +56,6 @@ class Player {
     public $karma;
     public $fame;
     public $title;
-    public $warmode;
     public $skills = [];
 
     /* Temporary Variables */
@@ -286,6 +296,7 @@ class Player {
 
         $packet = "88";
         $packet .= $serial;
+        echo strlen($this->name)." | ".$this->title;
         $packet .= str_pad($this->name . " " . $this->title, 120, "0", STR_PAD_RIGHT);
 
         $flags = 0x00;
@@ -295,7 +306,7 @@ class Player {
             $flags = $flags | 0x02;
         }
 
-        $packet .= str_pad(dechex($flags), 2, "0", STR_PAD_LEFT);
+        $packet .= str_pad(hexdec($flags), 2, "0", STR_PAD_LEFT);
 
         Sockets::out($this->client, $packet, false);
     }
@@ -392,6 +403,18 @@ class Player {
 		if ($cmd == "where"){				
 			$this->sysmessage("Your position is ".$this->position['x'].", ".$this->position['y'].", ".$this->position['z'].", ".$this->position['map']);
 		}
+		
+		if ($cmd == "invis"){	
+			if ($this->hidden == false || $this->hidden == null)
+			{
+				$this->hidden = TRUE;	
+			}			
+			else
+			{
+				$this->hidden = FALSE;
+			}
+			$this->drawPlayer($this->client);
+		}
     }
     
     public function teleport($x, $y, $z, $map) {
@@ -406,7 +429,7 @@ class Player {
 			$this->position['map'] = $map;
 			$newPosition = $this->position;
 			Map::updatePlayerLocation($this->client, $oldPosition, $newPosition);
-			$this->drawPlayer($this->client);
+			$this->drawPlayer($this->client);			
 		}
         
         return true;
@@ -616,15 +639,46 @@ class Player {
         $packet .= str_pad(dechex($this->body), 4, "0", STR_PAD_LEFT);
         $packet .= "00";
         $packet .= str_pad(dechex($this->color), 4, "0", STR_PAD_LEFT);
-        $packet .= "18";
+        $packet .= str_pad(dechex($this->GetPacketFlags()), 2, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($this->position['x']), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($this->position['y']), 4, "0", STR_PAD_LEFT);
         $packet .= "0000";
         $packet .= str_pad(dechex($this->position['facing']), 2, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($this->position['z']), 2, "0", STR_PAD_LEFT);
-
+		
+		echo str_pad($this->GetPacketFlags(), 2, "0", STR_PAD_LEFT)."\n\n";
         Sockets::out($this->client, $packet, $runInLot);
     }
+    
+    /**
+	* Return packet flags for > SA client
+	* 
+	* @return
+	*/
+    public function GetPacketFlags()
+	{
+		$flags = 0x00;
+
+		if( $this->paralyzed || $this->frozen )
+			$flags |= 0x01;
+
+		if( $this->female )
+			$flags |= 0x02;
+
+		if( $this->flying )
+			$flags |= 0x04;
+
+		if( $this->blessed || $this->yellowHealthBar )
+			$flags |= 0x08;
+
+		if( $this->warmode )
+			$flags |= 0x40;
+
+		if( $this->hidden )
+			$flags |= 0x80;
+
+		return $flags;
+	}
 
     /**
      * Packet sent to confirm player movement request

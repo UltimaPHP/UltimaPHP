@@ -93,7 +93,7 @@ class Sockets {
 				// Remove 4 bytes before 0x91 client enhanced packet. Gambiarra by Mauricio
 				if(substr(Functions::strToHex($socket['tempPacket']), 8, 2) == '91' && (substr(Functions::strToHex($socket['tempPacket']), 0, 2) == substr(Functions::strToHex($socket['tempPacket']), 10, 2)))
 				{
-					$socket['tempPacket'] = substr($socket['tempPacket'], 4);
+					$socket['tempPacket'] = substr($socket['tempPacket'], 4);					
 				}
 				
                 // Fix to wait the entire packet before proccess <3
