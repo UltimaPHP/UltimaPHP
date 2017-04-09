@@ -273,7 +273,7 @@ class Player {
         // Check if the character dclick itself
 
         if (($this->serial | "80000000") || Functions::isChar($serial)) {
-            $this->openPaperdoll($serial);
+            $this->openPaperdoll($serial, false);
         } else {
             echo "Clicked something else\n";
         }
@@ -289,21 +289,26 @@ class Player {
         Sockets::out($this->client, $packet, false);
     }
 
-    public function openPaperdoll($serial) {
+    public function openPaperdoll($serial, $canLift) {
         if ($serial | 0x80000000) {
             $serial = "0" . substr($serial, 1);
         }
 
         $packet = "88";
         $packet .= $serial;
-        echo strlen($this->name)." | ".$this->title;
-        $packet .= str_pad($this->name . " " . $this->title, 120, "0", STR_PAD_RIGHT);
+        $packet .= str_pad(Functions::strToHex($this->name), 60, "0", STR_PAD_RIGHT);
+        $packet .= str_pad(Functions::strToHex($this->title), 60, "0", STR_PAD_RIGHT);
 
         $flags = 0x00;
 
+		if($this->warmode)
+		{
+			$flags |= 0x01;
+		}
+
         // Can alter paperdoll
-        if ($serial == $this->serial) {
-            $flags = $flags | 0x02;
+        if ($canLift) {
+            $flags |= 0x02;
         }
 
         $packet .= str_pad(hexdec($flags), 2, "0", STR_PAD_LEFT);
@@ -646,7 +651,6 @@ class Player {
         $packet .= str_pad(dechex($this->position['facing']), 2, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($this->position['z']), 2, "0", STR_PAD_LEFT);
 		
-		echo str_pad($this->GetPacketFlags(), 2, "0", STR_PAD_LEFT)."\n\n";
         Sockets::out($this->client, $packet, $runInLot);
     }
     
