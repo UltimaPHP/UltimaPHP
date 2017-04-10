@@ -296,8 +296,7 @@ class Player {
 
         $packet = "88";
         $packet .= $serial;
-        $packet .= str_pad(Functions::strToHex($this->name), 60, "0", STR_PAD_RIGHT);
-        $packet .= str_pad(Functions::strToHex($this->title), 60, "0", STR_PAD_RIGHT);
+        $packet .= str_pad(Functions::strToHex(trim($this->name) . ", " . trim($this->title)), 120, "0", STR_PAD_RIGHT);
 
         $flags = 0x00;
 
