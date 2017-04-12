@@ -311,27 +311,13 @@ class Player {
         }
 
         $packet .= str_pad(hexdec($flags), 2, "0", STR_PAD_LEFT);
-
         Sockets::out($this->client, $packet, false);
     }
 
     public function speech($type, $color, $font, $language, $text) {
-        switch (substr($text, 0, 1)) {
-        case '.':
-            if (strstr($text, ",")) {
-                $tmp     = explode(",", $text);
-                $command = explode(" ", substr($tmp[0], 1));
-                $args    = $tmp;
-                unset($args[0]);
-                array_merge([], $args);
-            } else {
-                $command = explode(" ", substr($text, 1));
-                $args    = [];
-            }
-
-            $this->runCommand($command, $args);
+        if (substr($text, 0, 1) == UltimaPHP::$conf['server']['commandPrefix']) {
+            Command::threatCommand($this->client, $text);
             return true;
-            break;
         }
 
         if (dechex($type) == 0x06) {
@@ -364,91 +350,7 @@ class Player {
         }
         Sockets::out($this->client, $packet, false);
     }
-
-    public function runCommand($command = [], $args = []) {
-        if (UltimaPHP::$socketClients[$this->client]['account']->plevel > 1 && !isset($command[0])) {
-            $this->sysmessage("Sorry, but no command was received from client.");
-            return false;
-        }
-
-        if (!isset(UltimaPHP::$commands[$command[0]])) {
-            $this->sysmessage("Sorry, the command you are trying to run was not been found.");
-            return false;
-        }
-
-        if (UltimaPHP::$commands[$command[0]]['minPlevel'] > UltimaPHP::$socketClients[$this->client]['account']->plevel) {
-            $this->sysmessage("Sorry, but you can't run this command, your account have no rights to do that.");
-            return false;
-        }
-
-        $cmd  = $command[0];
-        $args = array_slice($command, 1);
-
-        if ($cmd == "i") {
-
-            $itemDef = str_replace(" ", "_", $args[0]);
-            if (!class_exists($itemDef)) {
-                $this->sysmessage("Sorry, but the item you are trying to create (" . $args[0] . ") has not been found.");
-                return false;
-            }
-
-            $item = new $itemDef();
-            Map::addObjectToMap($item, $this->position['x'], $this->position['y'], $this->position['z'], 0);
-        }
-
-        if ($cmd == "sysmessage") {
-            $this->sysmessage($args[0]);
-        }
-        
-        if ($cmd == "tele"){						
-			$this->teleport($args[0],$args[1],$args[2],$args[3]);
-		}
-		
-		if ($cmd == "where"){				
-			$this->sysmessage("Your position is ".$this->position['x'].", ".$this->position['y'].", ".$this->position['z'].", ".$this->position['map']);
-		}
-		
-		if ($cmd == "invis"){	
-			if ($this->hidden == false || $this->hidden == null)
-			{
-				$this->hidden = TRUE;	
-			}			
-			else
-			{
-				$this->hidden = FALSE;
-			}
-			$this->drawPlayer($this->client);
-		}
-    }
     
-    public function teleport($x, $y, $z, $map) {
-    	$oldPosition = $this->position;    	
-        if ($x === null || $y === null || $z === null || $map === null) {
-            $this->sysmessage("Sorry, information is missing. The default is \"x y z map\"");
-            return false;
-        }else{
-			$this->position['x'] = $x;
-			$this->position['y'] = $y;
-			$this->position['z'] = $z;
-			$this->position['map'] = $map;
-			$newPosition = $this->position;
-			Map::updatePlayerLocation($this->client, $oldPosition, $newPosition);
-			$this->drawPlayer($this->client);			
-		}
-        
-        return true;
-    }
-
-
-    public function sysmessage($message, $color = null) {
-        if ($color === null) {
-            $color = UltimaPHP::$conf['colors']['text'];
-        }
-
-        $this->speech("06", $color, 3, "PTB ", $message);
-        return true;
-    }
-
     /**
      * Send to the client the locale and body information
      */

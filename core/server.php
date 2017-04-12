@@ -58,20 +58,6 @@ class UltimaPHP {
     static $clients = 0;
     static $items = 0;
     static $npcs = 0;
-    static $commands = array(
-        'i' => array(
-            'minPlevel' => 4
-        ),
-        'tele' => array(
-            'minPlevel' => 4
-        ),
-        'invis' => array(
-            'minPlevel' => 4
-        ),
-        'where' => array(
-            'minPlevel' => 1
-        )
-    );
 
     function __construct($dir) {
         self::$basedir = $dir . "/";

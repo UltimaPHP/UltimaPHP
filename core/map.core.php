@@ -338,6 +338,8 @@ class Map {
                 }
             }
         }
+
+        return true;
     }
 
     /**
