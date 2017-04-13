@@ -360,11 +360,15 @@ class Player {
             'x'      => $this->position['x'],
             'y'      => $this->position['y'],
             'z'      => $this->position['z'],
+            'map'      => $this->position['map'],
             'facing' => $this->position['facing'],
         );
+
+        $mapInfo = explode(",", UltimaPHP::$conf['muls']["map".$this->position['map']]);
+
         $map_size = array(
-            'x' => 6144,
-            'y' => 4096,
+            'x' => ($this->position['map'] > 0 ? $mapInfo[0] : 6144),
+            'y' => ($this->position['map'] > 0 ? $mapInfo[1] : 4096),
         );
 
         $packet = "1B";
@@ -373,16 +377,14 @@ class Player {
         $packet .= str_pad(dechex($body_type), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($pos['x']), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($pos['y']), 4, "0", STR_PAD_LEFT);
-        $packet .= "00";
-        $packet .= str_pad(dechex($pos['z']), 2, "0", STR_PAD_LEFT);
+        $packet .= str_pad(dechex($pos['z']), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($pos['facing']), 2, "0", STR_PAD_LEFT);
-        $packet .= "00FFFFFF";
-        $packet .= "FF000000";
         $packet .= "00";
-        $packet .= str_pad(dechex($map_size['x']), 2, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($map_size['y']), 2, "0", STR_PAD_LEFT);
-        $packet .= "0000";
+        $packet .= "FFFFFFFF";
         $packet .= "00000000";
+        $packet .= str_pad(dechex($map_size['x']), 4, "0", STR_PAD_LEFT);
+        $packet .= str_pad(dechex($map_size['y']), 4, "0", STR_PAD_LEFT);
+        $packet .= "000000000000";
 
         Sockets::out($this->client, $packet, $runInLot);
     }
@@ -391,7 +393,6 @@ class Player {
      * Send the skills information to the client
      */
     public function sendFullSkillList($runInLot = false) {
-        // print_r($this->skills);
         $tmpPacket = "02";
         
         foreach ($this->skills as $skill_id => $skillInfo) {
@@ -411,11 +412,11 @@ class Player {
     }
 
     /**
-     * Update the cursor color of the client
+     * Update the cursor color of the client / Send map change info ???
      *
      * 0 = default
      * 1 = golden
-     * 2 = ILSHENAR color?
+     * 2 = ILSHENAR color? seems to be the map id...
      *
      */
     public function updateCursorColor($runInLot = false, $color = 0) {
@@ -428,8 +429,17 @@ class Player {
      * Send the information to client enable map diffs
      */
     public function enableMapDiffs($runInLot = false) {
-        $packet = "BF003100180000000500000000000000000000000000000000000000000000000000000000000000000000000000000000";
+        $maps = count(Map::$maps);
 
+        $packet = "0018";
+        $packet .= str_pad(dechex($maps), 4, "0", STR_PAD_LEFT);
+
+        for ($i=0; $i <= ($maps-1); $i++) { 
+            $packet .= "00000000";
+            $packet .= "00000000";
+        }
+
+        $packet = "BF" . str_pad(dechex((strlen($packet) /2) + 3), 4, "0", STR_PAD_LEFT) . $packet;
         Sockets::out($this->client, $packet, $runInLot);
     }
 

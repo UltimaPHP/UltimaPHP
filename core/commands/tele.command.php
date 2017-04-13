@@ -14,7 +14,7 @@ class TeleCommand extends Command {
 
         $x = $args[0];
         $y = $args[1];
-        $z = (isset($args[2]) ? $args[2] : 0);
+        $z = 215; //(isset($args[2]) ? $args[2] : 0);
         $map = (isset($args[3]) ? $args[3] : UltimaPHP::$socketClients[$client]['account']->player->position['map']);
 
     	if ($x === null || $y === null || $z === null || $map === null) {
@@ -26,10 +26,9 @@ class TeleCommand extends Command {
 		UltimaPHP::$socketClients[$client]['account']->player->position['y'] = $y;
 		UltimaPHP::$socketClients[$client]['account']->player->position['z'] = $z;
 		UltimaPHP::$socketClients[$client]['account']->player->position['map'] = $map;
-		
-		Map::updatePlayerLocation($client);
-		UltimaPHP::$socketClients[$client]['account']->player->drawPlayer();
-
+		UltimaPHP::$socketClients[$client]['account']->player->updateCursorColor(false, $map);
+        UltimaPHP::$socketClients[$client]['account']->player->drawChar();
+        UltimaPHP::$socketClients[$client]['account']->player->drawPlayer();
         return true;
     }
 }   

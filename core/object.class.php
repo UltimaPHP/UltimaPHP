@@ -32,6 +32,7 @@ class Object {
     public $pos_x;
     public $pos_y;
     public $pos_z;
+    public $pos_map;
     public $hits;
     public $maxHits;
     public $direction;
