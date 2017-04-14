@@ -9,8 +9,8 @@ class Map {
     /**
      * Map loading variables
      */
-    private static $maps = [];
-    private static $mapSizes = [];
+    public static $maps = [];
+    public static $mapSizes = [];
     private static $chunks = [];
     private static $chunkSize = 256; // Number in square
     private static $tileMatrix = [];
@@ -36,11 +36,13 @@ class Map {
             $chunks_x = ceil($mapSize[0] / self::$chunkSize);
             $chunks_y = ceil($mapSize[1] / self::$chunkSize);
 
+            echo "Map $actualMap: $chunks_x - $chunks_y\n";
+
             // Build the array that will store map chunks
             for ($xChunk = 0; $xChunk < $chunks_x; $xChunk++) {
-                self::$chunks[$xChunk] = array();
+                self::$chunks[$actualMap][$xChunk] = array();
                 for ($yChunk = 0; $yChunk < $chunks_y; $yChunk++) {
-                    self::$chunks[$xChunk][$yChunk] = array(
+                    self::$chunks[$actualMap][$xChunk][$yChunk] = array(
                         'objects' => array(),
                         'players' => array(),
                         'npcs' => array(),
@@ -258,6 +260,7 @@ class Map {
         return array(
             'x' => (int) ceil($pos_x / self::$chunkSize),
             'y' => (int) ceil($pos_y / self::$chunkSize),
+            'map' => (int) $pos_map,
         );
     }
 
@@ -266,7 +269,7 @@ class Map {
      */
     public static function addPlayerToMap(Player $player) {
         $chunk = self::getChunk($player->position['x'], $player->position['y'], $player->position['map']);
-        self::$chunks[$chunk['x']][$chunk['y']]['players'][$player->client] = true;
+        self::$chunks[$player->position['map']][$chunk['x']][$chunk['y']]['players'][$player->client] = true;
         self::updateChunk($chunk);
         return true;
     }
@@ -278,10 +281,11 @@ class Map {
         $object->pos_x = $pos_x;
         $object->pos_y = $pos_y;
         $object->pos_z = $pos_z;
+        $object->pos_map = $pos_map;
         $object->location = "map";
 
         $chunk = self::getChunk($pos_x, $pos_y, $pos_m);
-        self::$chunks[$chunk['x']][$chunk['y']]['objects'][] = $object;
+        self::$chunks[$pos_m][$chunk['x']][$chunk['y']]['objects'][] = $object;
         self::updateChunk($chunk);
         return true;
     }
@@ -301,12 +305,13 @@ class Map {
 
         /* Update the chunk of player, if changed */
         if ($oldChunk['x'] != $newChunk['x'] || $oldChunk['y'] != $newChunk['y']) {
-            unset(self::$chunks[$oldChunk['x']][$oldChunk['y']]['players'][$client]);
-            self::$chunks[$newChunk['x']][$newChunk['y']]['players'][$client] = true;
+            unset(self::$chunks[$oldPosition['map']][$oldChunk['x']][$oldChunk['y']]['players'][$client]);
+            self::$chunks[$newPosition['map']][$newChunk['x']][$newChunk['y']]['players'][$client] = true;
         }
 
         /* Send update packet information for players around player */
-        $chunk = self::$chunks[$newChunk['x']][$newChunk['y']];
+        // print_r(self::$chunks[$newPosition['map']]);
+        $chunk = self::$chunks[$newPosition['map']][$newChunk['x']][$newChunk['y']];
         $updateRange = array(
             'from' => array('x' => ($newPosition['x'] - 10), 'y' => ($newPosition['y'] - 10)),
             'to' => array('x' => ($newPosition['x'] + 10), 'y' => ($newPosition['y'] + 10)),
@@ -353,7 +358,7 @@ class Map {
         $actual_player = UltimaPHP::$socketClients[$client]['account']->player;
 
         $chunkInfo = self::getChunk($actual_player->position['x'], $actual_player->position['y'], $actual_player->position['map']);
-        $chunk = self::$chunks[$chunkInfo['x']][$chunkInfo['y']];
+        $chunk = self::$chunks[$actual_player->position['map']][$chunkInfo['x']][$chunkInfo['y']];
 
         $updateRange = array(
             'from' => array('x' => ($actual_player->position['x'] - 10), 'y' => ($actual_player->position['y'] - 10)),
@@ -373,7 +378,7 @@ class Map {
      * Update players with objects from desired chunk
      */
     public static function updateChunk($chunk) {
-        $chunk = self::$chunks[$chunk['x']][$chunk['y']];
+        $chunk = self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']];
 
         /* Update items on map */
         foreach ($chunk['objects'] as $object) {

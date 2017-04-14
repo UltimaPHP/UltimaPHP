@@ -26,10 +26,9 @@ class TeleCommand extends Command {
 		UltimaPHP::$socketClients[$client]['account']->player->position['y'] = $y;
 		UltimaPHP::$socketClients[$client]['account']->player->position['z'] = $z;
 		UltimaPHP::$socketClients[$client]['account']->player->position['map'] = $map;
-		
-		Map::updatePlayerLocation($client);
-		UltimaPHP::$socketClients[$client]['account']->player->drawPlayer();
-
+		UltimaPHP::$socketClients[$client]['account']->player->updateCursorColor(false, $map);
+        UltimaPHP::$socketClients[$client]['account']->player->drawChar();
+        UltimaPHP::$socketClients[$client]['account']->player->drawPlayer();
         return true;
     }
 }   

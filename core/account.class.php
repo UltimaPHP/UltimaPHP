@@ -231,15 +231,8 @@ class Account {
             $this->player = new Player($this->client, $this->characters[$slot]['serial']);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
-                "method" => "sendClientLocaleBody",
-            ), 0.0, true);
-            Sockets::addEvent($this->client, array(
-                "option" => "player",
-                "method" => "drawPlayer",
-            ), 0.0, true);
-            Sockets::addEvent($this->client, array(
-                "option" => "player",
-                "method" => "updateStatusBar",
+                "method" => "updateCursorColor",
+                "args"   => 0,
             ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
@@ -247,8 +240,15 @@ class Account {
             ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
-                "method" => "updateCursorColor",
-                "args"   => 0,
+                "method" => "sendClientLocaleBody",
+            ), 0.0, true);
+            Sockets::addEvent($this->client, array(
+                "option" => "player",
+                "method" => "drawChar",
+            ), 0.0, true);
+            Sockets::addEvent($this->client, array(
+                "option" => "player",
+                "method" => "updateStatusBar",
             ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
