@@ -14,4 +14,3 @@ error_reporting(E_ALL);
 require_once 'core/server.php';
 $server = new UltimaPHP(dirname(__FILE__));
 $server->start();
-?>

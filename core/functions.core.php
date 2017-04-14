@@ -83,18 +83,33 @@ class Functions {
         }
 
         switch ($length) {
-            case 4:$val = unpack('l', $val);
-                break;
-            case 2:$val = unpack('s', $val);
-                break;
-            case 1:$val = unpack('c', $val);
-                break;
-            default:$val = unpack('l*', $val);
-                return $val;
+        case 4:$val = unpack('l', $val);
+            break;
+        case 2:$val = unpack('s', $val);
+            break;
+        case 1:$val = unpack('c', $val);
+            break;
+        default:$val = unpack('l*', $val);
+            return $val;
         }
         return ($val[1]);
     }
 
-}
+    public static function fromChar8($hex = null) {
+        $num = hexdec($hex);
+        if ($num > 0xFF) {return false;}
+        if ($num >= 0x80) {
+            return -(($num ^ 0xFF) + 1);
+        } else {
+            return $num;
+        }
+    }
 
-?>
+    public static function toChar8($int = 0) {
+        if ($int < -127 || $int > 127) {
+            return false;
+        }
+        return strtoupper(str_pad(dechex(ord(pack("c", $int))), 2, "0", STR_PAD_LEFT));
+    }
+
+}
