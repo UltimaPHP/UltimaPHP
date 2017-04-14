@@ -13,11 +13,13 @@ class InvisCommand {
         $force = (isset($args[0]) ? (in_array($args[0], [0,1]) ? true : false) : false);
 
 
-        $player = UltimaPHP::$socketClients[$client]['account']->player;
-	    UltimaPHP::$socketClients[$client]['account']->player->hidden = ($force ? $args[0] : ($player->hidden == false || $player->hidden == null ? true : false));
-	    unset($player);
+        $hidden = UltimaPHP::$socketClients[$client]['account']->player->hidden;
+	    UltimaPHP::$socketClients[$client]['account']->player->hidden = ($force ? $args[0] : ($hidden == false || $hidden == null ? true : false));
 	    
-		UltimaPHP::$socketClients[$client]['account']->player->drawPlayer();
+        // UltimaPHP::$socketClients[$client]['account']->player->drawChar();
+        UltimaPHP::$socketClients[$client]['account']->player->drawPlayer();
+        // Map::updatePlayerLocation($client);
+        Map::updateChunk(null, $client);
         return true;
     }
 }

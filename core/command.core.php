@@ -31,6 +31,7 @@ class Command {
     );
 
 	static $commandAlias = [
+        'add' => 'i',
 		'go' => 'tele',
 		'sysm' => 'sysmessage',
 		'hide' => 'invis',

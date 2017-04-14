@@ -388,8 +388,6 @@ class Player {
         $packet .= str_pad(dechex($map_size['y']), 4, "0", STR_PAD_LEFT);
         $packet .= "000000000000";
 
-        echo "\n\n$packet\n\n";
-
         Sockets::out($this->client, $packet, $runInLot);
     }
 
@@ -653,11 +651,11 @@ class Player {
             }
         }
 
-        $newPosition = $this->position;
-        Map::updatePlayerLocation($this->client, $oldPosition, $newPosition);
-
         $packet = "22" . str_pad($sequence, 2, "0", STR_PAD_LEFT) . "01";
         Sockets::out($this->client, $packet, false);
+
+        /* Tell server to update player location */
+        Map::updateChunk(null, $this->client);
     }
 
     /**
@@ -679,6 +677,17 @@ class Player {
         $packet .= "01";
 
         Sockets::out($this->client, $packet, false);
+    }
+
+    public function removeObjectFromView($object_id = null) {
+        if ($object_id === null) {
+            return false;
+        }
+
+        $packet = "1D";
+        $packet .= str_pad($object_id, 8, "0", STR_PAD_LEFT);
+
+        Sockets::out($this->client, $packet, false);   
     }
 
     /**
@@ -787,8 +796,8 @@ class Player {
      * Send the login complete confirmation to the client
      */
     public function confirmLogin($runInLot = false) {
-        Map::addPlayerToMap($this);
         Sockets::out($this->client, "55", $runInLot);
+        Map::addPlayerToMap($this);
     }
 
     /**

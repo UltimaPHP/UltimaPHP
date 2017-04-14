@@ -29,6 +29,7 @@ class TeleCommand extends Command {
 		UltimaPHP::$socketClients[$client]['account']->player->updateCursorColor(false, $map);
         UltimaPHP::$socketClients[$client]['account']->player->drawChar();
         UltimaPHP::$socketClients[$client]['account']->player->drawPlayer();
+        Map::updateChunk(null, $client);
         return true;
     }
 }   
