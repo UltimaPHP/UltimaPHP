@@ -390,7 +390,7 @@ class Map {
             $packet .= str_pad(dechex($object->amount), 4, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex($object->pos_x), 4, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex($object->pos_y), 4, "0", STR_PAD_LEFT);
-            $packet .= str_pad("00", 2, "0", STR_PAD_LEFT);
+            $packet .= Functions::toChar8($object->pos_z);
             $packet .= str_pad(dechex($object->layer), 2, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex($object->color), 4, "0", STR_PAD_LEFT);
             $packet .= "20";

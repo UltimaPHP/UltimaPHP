@@ -107,8 +107,9 @@ class Functions {
 
     public static function toChar8($int = 0) {
         if ($int < -127 || $int > 127) {
-            return false;
+            return "00";
         }
+        
         return strtoupper(str_pad(dechex(ord(pack("c", $int))), 2, "0", STR_PAD_LEFT));
     }
 

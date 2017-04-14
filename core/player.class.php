@@ -377,14 +377,18 @@ class Player {
         $packet .= str_pad(dechex($body_type), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($pos['x']), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($pos['y']), 4, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($pos['z']), 4, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($pos['facing']), 2, "0", STR_PAD_LEFT);
         $packet .= "00";
-        $packet .= "FFFFFFFF";
+        $packet .= Functions::toChar8($pos['z']);
+        $packet .= str_pad(dechex($pos['facing']), 2, "0", STR_PAD_LEFT);
+        // $packet .= "FFFFFFFF";
         $packet .= "00000000";
+        $packet .= "00000000";
+        $packet .= "00";
         $packet .= str_pad(dechex($map_size['x']), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($map_size['y']), 4, "0", STR_PAD_LEFT);
         $packet .= "000000000000";
+
+        echo "\n\n$packet\n\n";
 
         Sockets::out($this->client, $packet, $runInLot);
     }
@@ -536,7 +540,7 @@ class Player {
         $packet .= str_pad(dechex($player->body), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($player->position['x']), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($player->position['y']), 4, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($player->position['z']), 2, "0", STR_PAD_LEFT);
+        $packet .= Functions::toChar8($player->position['z']);
         $packet .= str_pad(dechex($player->position['facing']), 2, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($player->color), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex(0), 2, "0", STR_PAD_LEFT);
@@ -560,7 +564,7 @@ class Player {
         $packet .= str_pad(dechex($this->position['y']), 4, "0", STR_PAD_LEFT);
         $packet .= "0000";
         $packet .= str_pad(dechex($this->position['facing']), 2, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($this->position['z']), 2, "0", STR_PAD_LEFT);
+        $packet .= Functions::toChar8($this->position['z']);
 		
         Sockets::out($this->client, $packet, $runInLot);
     }
@@ -668,7 +672,7 @@ class Player {
         $packet .= str_pad(dechex($player->body), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($player->position['x']), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($player->position['y']), 4, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($player->position['z']), 2, "0", STR_PAD_LEFT);
+        $packet .= Functions::toChar8($player->position['z']);
         $packet .= str_pad($direction, 2, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($player->color), 4, "0", STR_PAD_LEFT);
         $packet .= "00";

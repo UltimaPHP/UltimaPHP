@@ -231,11 +231,6 @@ class Account {
             $this->player = new Player($this->client, $this->characters[$slot]['serial']);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
-                "method" => "updateCursorColor",
-                "args"   => 0,
-            ), 0.0, true);
-            Sockets::addEvent($this->client, array(
-                "option" => "player",
                 "method" => "enableMapDiffs",
             ), 0.0, true);
             Sockets::addEvent($this->client, array(
@@ -244,7 +239,16 @@ class Account {
             ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
+                "method" => "updateCursorColor",
+                "args"   => $this->player->position['map'],
+            ), 0.0, true);
+            Sockets::addEvent($this->client, array(
+                "option" => "player",
                 "method" => "drawChar",
+            ), 0.0, true);
+            Sockets::addEvent($this->client, array(
+                "option" => "player",
+                "method" => "drawPlayer",
             ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
