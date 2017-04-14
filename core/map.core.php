@@ -36,8 +36,6 @@ class Map {
             $chunks_x = ceil($mapSize[0] / self::$chunkSize);
             $chunks_y = ceil($mapSize[1] / self::$chunkSize);
 
-            echo "Map $actualMap: $chunks_x - $chunks_y\n";
-
             // Build the array that will store map chunks
             for ($xChunk = 0; $xChunk < $chunks_x; $xChunk++) {
                 self::$chunks[$actualMap][$xChunk] = array();
