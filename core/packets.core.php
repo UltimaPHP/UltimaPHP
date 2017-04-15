@@ -90,6 +90,19 @@ class Packets {
 
         UltimaPHP::$socketClients[$client]['account']->player->click($object);
     }
+    
+    /*
+     * Packet received Equip request
+     */
+    public static function packet_0x13($data, $client) {
+    	$command = $data[0];
+    	$serial = hexdec(Functions::implodeByte($data, 1, 4));
+    	$layer = $data[5];
+    	$container = hexdec(Functions::implodeByte($data, 6, 9));
+    	
+    	UltimaPHP::$socketClients[$client]['account']->player->equipRequest($serial, $layer, $container);
+    }
+
 
     /*
      * Packet received from GOD client to fix map Z
