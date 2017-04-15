@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class static extends Object {
+class staticItem extends Object {
 	public function build() {
-		$this->name = "static";
+		$this->name = "static item";
 		$this->graphic = 0x80;
 		$this->type = "";
 		$this->flags = 0x00;
