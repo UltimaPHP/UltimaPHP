@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TwoPigTails extends Object {
+class twopigtails extends Object {
 	public function build() {
-		$this->name = "TwoPigTails";
+		$this->name = "two pig tails";
 		$this->graphic = 0x2049;
 		$this->type = "";
 		$this->flags = 0x00;

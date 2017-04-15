@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeatherGorget extends Object {
+class leathergorget extends Object {
 	public function build() {
-		$this->name = "LeatherGorget";
+		$this->name = "leather gorget";
 		$this->graphic = 0x13C7;
 		$this->type = "";
 		$this->flags = 0x00;

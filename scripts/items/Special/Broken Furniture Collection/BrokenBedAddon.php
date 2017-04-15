@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrokenBedAddon extends Object {
+class brokenbedaddon extends Object {
 	public function build() {
-		$this->name = "BrokenBedAddon";
+		$this->name = "broken bed addon";
 		$this->graphic = 0xC12;
 		$this->type = "";
 		$this->flags = 0x00;

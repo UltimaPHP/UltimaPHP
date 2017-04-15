@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Kilt extends Object {
+class kilt extends Object {
 	public function build() {
-		$this->name = "Kilt";
+		$this->name = "kilt";
 		$this->graphic = 0x1537;
 		$this->type = "";
 		$this->flags = 0x00;

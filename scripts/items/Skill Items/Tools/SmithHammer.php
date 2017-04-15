@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SmithHammer extends Object {
+class smithhammer extends Object {
 	public function build() {
-		$this->name = "SmithHammer";
+		$this->name = "smith hammer";
 		$this->graphic = 0x13E3;
 		$this->type = "";
 		$this->flags = 0x00;

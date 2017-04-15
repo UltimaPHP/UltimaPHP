@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PortcullisEW extends Object {
+class portcullisew extends Object {
 	public function build() {
-		$this->name = "PortcullisEW";
+		$this->name = "portcullis";
 		$this->graphic = 0x6F6;
 		$this->type = "";
 		$this->flags = 0x00;

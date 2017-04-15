@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoWyrmsHeart extends Object {
+class decowyrmsheart extends Object {
 	public function build() {
-		$this->name = "DecoWyrmsHeart";
+		$this->name = "deco wyrms heart";
 		$this->graphic = 0xF91;
 		$this->type = "";
 		$this->flags = 0x00;

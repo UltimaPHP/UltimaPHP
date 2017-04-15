@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MapItem extends Object {
+class mapitem extends Object {
 	public function build() {
-		$this->name = "MapItem";
+		$this->name = "map item";
 		$this->graphic = 0x14EC;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EthicalHedonism extends Object {
+class ethicalhedonism extends Object {
 	public function build() {
-		$this->name = "EthicalHedonism";
+		$this->name = "ethical hedonism";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SmallUrn extends Object {
+class smallurn extends Object {
 	public function build() {
-		$this->name = "SmallUrn";
+		$this->name = "small urn";
 		$this->graphic = 0x241C;
 		$this->type = "";
 		$this->flags = 0x00;

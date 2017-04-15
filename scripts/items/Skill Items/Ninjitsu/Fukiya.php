@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Fukiya extends Object {
+class fukiya extends Object {
 	public function build() {
-		$this->name = "Fukiya";
+		$this->name = "fukiya";
 		$this->graphic = 0x27AA;
 		$this->type = "";
 		$this->flags = 0x00;

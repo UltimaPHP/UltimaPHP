@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FemaleStuddedChest extends Object {
+class femalestuddedchest extends Object {
 	public function build() {
-		$this->name = "FemaleStuddedChest";
+		$this->name = "female studded chest";
 		$this->graphic = 0x1C02;
 		$this->type = "";
 		$this->flags = 0x00;

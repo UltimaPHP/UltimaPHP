@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BlackPearl extends Object {
+class blackpearl extends Object {
 	public function build() {
-		$this->name = "BlackPearl";
+		$this->name = "black pearl";
 		$this->graphic = 0xF7A;
 		$this->type = "";
 		$this->flags = 0x00;

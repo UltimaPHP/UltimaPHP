@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ScarecrowAddon extends Object {
+class scarecrowaddon extends Object {
 	public function build() {
-		$this->name = "ScarecrowAddon";
+		$this->name = "scarecrow addon";
 		$this->graphic = 0x1E34;
 		$this->type = "";
 		$this->flags = 0x00;

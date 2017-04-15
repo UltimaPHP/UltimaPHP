@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FireColumnAddon extends Object {
+class firecolumnaddon extends Object {
 	public function build() {
-		$this->name = "FireColumnAddon";
+		$this->name = "fire column addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

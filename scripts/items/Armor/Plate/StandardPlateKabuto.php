@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StandardPlateKabuto extends Object {
+class standardplatekabuto extends Object {
 	public function build() {
-		$this->name = "StandardPlateKabuto";
+		$this->name = "standard plate kabuto";
 		$this->graphic = 0x2789;
 		$this->type = "";
 		$this->flags = 0x00;

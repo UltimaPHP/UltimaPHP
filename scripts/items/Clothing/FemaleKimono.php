@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FemaleKimono extends Object {
+class femalekimono extends Object {
 	public function build() {
-		$this->name = "FemaleKimono";
+		$this->name = "female kimono";
 		$this->graphic = 0x2783;
 		$this->type = "";
 		$this->flags = 0x00;

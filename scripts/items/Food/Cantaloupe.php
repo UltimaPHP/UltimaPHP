@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Cantaloupe extends Object {
+class cantaloupe extends Object {
 	public function build() {
-		$this->name = "Cantaloupe";
+		$this->name = "cantaloupe";
 		$this->graphic = 0xc79;
 		$this->type = "";
 		$this->flags = 0x00;

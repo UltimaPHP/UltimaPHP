@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SHTeleComponent extends Object {
+class shtelecomponent extends Object {
 	public function build() {
-		$this->name = "SHTeleComponent";
+		$this->name = "sh tele component";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

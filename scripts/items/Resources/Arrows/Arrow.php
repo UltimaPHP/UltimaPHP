@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Arrow extends Object {
+class arrow extends Object {
 	public function build() {
-		$this->name = "Arrow";
+		$this->name = "arrow";
 		$this->graphic = 0xF3F;
 		$this->type = "";
 		$this->flags = 0x00;

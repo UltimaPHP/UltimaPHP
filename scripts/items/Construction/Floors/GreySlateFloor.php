@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GreySlateFloor extends Object {
+class greyslatefloor extends Object {
 	public function build() {
-		$this->name = "GreySlateFloor";
+		$this->name = "grey slate floor";
 		$this->graphic = 0x49C;
 		$this->type = "";
 		$this->flags = 0x00;

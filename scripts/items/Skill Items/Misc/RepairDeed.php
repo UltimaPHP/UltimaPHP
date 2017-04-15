@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RepairDeed extends Object {
+class repairdeed extends Object {
 	public function build() {
-		$this->name = "RepairDeed";
+		$this->name = "repair deed";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

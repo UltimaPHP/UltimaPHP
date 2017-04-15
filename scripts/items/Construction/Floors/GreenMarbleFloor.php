@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GreenMarbleFloor extends Object {
+class greenmarblefloor extends Object {
 	public function build() {
-		$this->name = "GreenMarbleFloor";
+		$this->name = "green marble floor";
 		$this->graphic = 0x50F;
 		$this->type = "";
 		$this->flags = 0x00;

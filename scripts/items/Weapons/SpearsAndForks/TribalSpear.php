@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TribalSpear extends Object {
+class tribalspear extends Object {
 	public function build() {
-		$this->name = "TribalSpear";
+		$this->name = "tribal spear";
 		$this->graphic = 0xF62;
 		$this->type = "";
 		$this->flags = 0x00;

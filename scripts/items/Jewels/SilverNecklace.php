@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SilverNecklace extends Object {
+class silvernecklace extends Object {
 	public function build() {
-		$this->name = "SilverNecklace";
+		$this->name = "silver necklace";
 		$this->graphic = 0x1F08;
 		$this->type = "";
 		$this->flags = 0x00;

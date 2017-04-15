@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ShrineOfWisdomComponent extends Object {
+class shrineofwisdomcomponent extends Object {
 	public function build() {
-		$this->name = "ShrineOfWisdomComponent";
+		$this->name = "shrine of wisdom component";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

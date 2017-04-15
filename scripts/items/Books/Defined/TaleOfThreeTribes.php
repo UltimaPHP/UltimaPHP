@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TaleOfThreeTribes extends Object {
+class taleofthreetribes extends Object {
 	public function build() {
-		$this->name = "TaleOfThreeTribes";
+		$this->name = "tale of three tribes";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

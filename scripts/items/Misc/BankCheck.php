@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BankCheck extends Object {
+class bankcheck extends Object {
 	public function build() {
-		$this->name = "BankCheck";
+		$this->name = "bank check";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

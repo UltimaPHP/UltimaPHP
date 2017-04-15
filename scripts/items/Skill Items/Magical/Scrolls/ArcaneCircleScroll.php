@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ArcaneCircleScroll extends Object {
+class arcanecirclescroll extends Object {
 	public function build() {
-		$this->name = "ArcaneCircleScroll";
+		$this->name = "arcane circle scroll";
 		$this->graphic = 0x2D51;
 		$this->type = "";
 		$this->flags = 0x00;

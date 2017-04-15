@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ChainLightningScroll extends Object {
+class chainlightningscroll extends Object {
 	public function build() {
-		$this->name = "ChainLightningScroll";
+		$this->name = "chain lightning scroll";
 		$this->graphic = 0x1F5D;
 		$this->type = "";
 		$this->flags = 0x00;

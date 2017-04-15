@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LightSource extends Object {
+class lightsource extends Object {
 	public function build() {
-		$this->name = "LightSource";
+		$this->name = "light source";
 		$this->graphic = 0x1647;
 		$this->type = "";
 		$this->flags = 0x00;

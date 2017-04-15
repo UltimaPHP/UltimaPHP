@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Scales extends Object {
+class scales extends Object {
 	public function build() {
-		$this->name = "Scales";
+		$this->name = "scales";
 		$this->graphic = 0x1852;
 		$this->type = "";
 		$this->flags = 0x00;

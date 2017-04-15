@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DriedHerbs extends Object {
+class driedherbs extends Object {
 	public function build() {
-		$this->name = "DriedHerbs";
+		$this->name = "dried herbs";
 		$this->graphic = 0xC42;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GuardianAxe extends Object {
+class guardianaxe extends Object {
 	public function build() {
-		$this->name = "GuardianAxe";
+		$this->name = "guardian axe";
 		$this->graphic = 0xF45;
 		$this->type = "";
 		$this->flags = 0x00;

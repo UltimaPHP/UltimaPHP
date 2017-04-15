@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SeerRobe extends Object {
+class seerrobe extends Object {
 	public function build() {
-		$this->name = "SeerRobe";
+		$this->name = "seer robe";
 		$this->graphic = 0x1D3;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CallToAnarchy extends Object {
+class calltoanarchy extends Object {
 	public function build() {
-		$this->name = "CallToAnarchy";
+		$this->name = "call to anarchy";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Fork extends Object {
+class fork extends Object {
 	public function build() {
-		$this->name = "Fork";
+		$this->name = "fork";
 		$this->graphic = 0x9F4;
 		$this->type = "";
 		$this->flags = 0x00;

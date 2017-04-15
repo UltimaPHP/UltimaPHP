@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RunicDovetailSaw extends Object {
+class runicdovetailsaw extends Object {
 	public function build() {
-		$this->name = "RunicDovetailSaw";
+		$this->name = "runic dovetail saw";
 		$this->graphic = 0x1028;
 		$this->type = "";
 		$this->flags = 0x00;

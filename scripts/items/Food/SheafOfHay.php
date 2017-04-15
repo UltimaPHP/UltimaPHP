@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SheafOfHay extends Object {
+class sheafofhay extends Object {
 	public function build() {
-		$this->name = "SheafOfHay";
+		$this->name = "sheaf of hay";
 		$this->graphic = 0xF36;
 		$this->type = "";
 		$this->flags = 0x00;

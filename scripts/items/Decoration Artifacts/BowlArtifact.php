@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BowlArtifact extends Object {
+class bowlartifact extends Object {
 	public function build() {
-		$this->name = "BowlArtifact";
+		$this->name = "bowl artifact";
 		$this->graphic = 0x24DE;
 		$this->type = "";
 		$this->flags = 0x00;

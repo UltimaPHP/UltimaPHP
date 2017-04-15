@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ChildrenTalesVol2 extends Object {
+class childrentalesvol2 extends Object {
 	public function build() {
-		$this->name = "ChildrenTalesVol2";
+		$this->name = "children tales vol";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

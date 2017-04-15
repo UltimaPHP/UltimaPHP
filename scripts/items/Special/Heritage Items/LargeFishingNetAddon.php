@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LargeFishingNetAddon extends Object {
+class largefishingnetaddon extends Object {
 	public function build() {
-		$this->name = "LargeFishingNetAddon";
+		$this->name = "large fishing net addon";
 		$this->graphic = 0x3D8E;
 		$this->type = "";
 		$this->flags = 0x00;

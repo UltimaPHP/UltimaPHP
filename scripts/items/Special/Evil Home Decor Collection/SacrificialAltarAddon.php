@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SacrificialAltarAddon extends Object {
+class sacrificialaltaraddon extends Object {
 	public function build() {
-		$this->name = "SacrificialAltarAddon";
+		$this->name = "sacrificial altar addon";
 		$this->graphic = 0x2A9B;
 		$this->type = "";
 		$this->flags = 0x00;

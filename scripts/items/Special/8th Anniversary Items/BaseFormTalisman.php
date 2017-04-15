@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BaseFormTalisman extends Object {
+class baseformtalisman extends Object {
 	public function build() {
-		$this->name = "BaseFormTalisman";
+		$this->name = "base form talisman";
 		$this->graphic = 0x2F59;
 		$this->type = "";
 		$this->flags = 0x00;

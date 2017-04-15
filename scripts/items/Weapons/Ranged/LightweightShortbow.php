@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LightweightShortbow extends Object {
+class lightweightshortbow extends Object {
 	public function build() {
-		$this->name = "LightweightShortbow";
+		$this->name = "lightweight shortbow";
 		$this->graphic = 0x13FD;
 		$this->type = "";
 		$this->flags = 0x00;

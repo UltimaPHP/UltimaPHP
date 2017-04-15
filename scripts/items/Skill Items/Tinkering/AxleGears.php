@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AxleGears extends Object {
+class axlegears extends Object {
 	public function build() {
-		$this->name = "AxleGears";
+		$this->name = "axle gears";
 		$this->graphic = 0x1051;
 		$this->type = "";
 		$this->flags = 0x00;

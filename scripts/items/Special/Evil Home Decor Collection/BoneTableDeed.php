@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BoneTableDeed extends Object {
+class bonetabledeed extends Object {
 	public function build() {
-		$this->name = "BoneTableDeed";
+		$this->name = "bone table deed";
 		$this->graphic = 0x2A5D;
 		$this->type = "";
 		$this->flags = 0x00;

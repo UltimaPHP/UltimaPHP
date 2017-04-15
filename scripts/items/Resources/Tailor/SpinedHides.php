@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SpinedHides extends Object {
+class spinedhides extends Object {
 	public function build() {
-		$this->name = "SpinedHides";
+		$this->name = "spined hides";
 		$this->graphic = 0x1079;
 		$this->type = "";
 		$this->flags = 0x00;

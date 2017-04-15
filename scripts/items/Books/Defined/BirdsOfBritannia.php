@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BirdsOfBritannia extends Object {
+class birdsofbritannia extends Object {
 	public function build() {
-		$this->name = "BirdsOfBritannia";
+		$this->name = "birds of britannia";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

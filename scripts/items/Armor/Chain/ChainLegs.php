@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ChainLegs extends Object {
+class chainlegs extends Object {
 	public function build() {
-		$this->name = "ChainLegs";
+		$this->name = "chain legs";
 		$this->graphic = 0x13BE;
 		$this->type = "";
 		$this->flags = 0x00;

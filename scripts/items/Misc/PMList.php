@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PMList extends Object {
+class pmlist extends Object {
 	public function build() {
-		$this->name = "PMList";
+		$this->name = "pm list";
 		$this->graphic = 0xF6C;
 		$this->type = "";
 		$this->flags = 0x00;

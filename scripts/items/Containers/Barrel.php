@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Barrel extends Object {
+class barrel extends Object {
 	public function build() {
-		$this->name = "Barrel";
+		$this->name = "barrel";
 		$this->graphic = 0xE77;
 		$this->type = "";
 		$this->flags = 0x00;

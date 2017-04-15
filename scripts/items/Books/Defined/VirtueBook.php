@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class VirtueBook extends Object {
+class virtuebook extends Object {
 	public function build() {
-		$this->name = "VirtueBook";
+		$this->name = "virtue book";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

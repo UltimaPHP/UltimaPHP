@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DolphinLeftArtifact extends Object {
+class dolphinleftartifact extends Object {
 	public function build() {
-		$this->name = "DolphinLeftArtifact";
+		$this->name = "dolphin left artifact";
 		$this->graphic = 0x2846;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BowlsHorizontalArtifact extends Object {
+class bowlshorizontalartifact extends Object {
 	public function build() {
-		$this->name = "BowlsHorizontalArtifact";
+		$this->name = "bowls horizontal artifact";
 		$this->graphic = 0x24E0;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PottedCactusDeed extends Object {
+class pottedcactusdeed extends Object {
 	public function build() {
-		$this->name = "PottedCactusDeed";
+		$this->name = "potted cactus deed";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

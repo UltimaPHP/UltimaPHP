@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class IslandStatue extends Object {
+class islandstatue extends Object {
 	public function build() {
-		$this->name = "IslandStatue";
+		$this->name = "island statue";
 		$this->graphic = 0x3B0F;
 		$this->type = "";
 		$this->flags = 0x00;

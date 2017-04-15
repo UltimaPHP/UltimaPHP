@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class KeyRing extends Object {
+class keyring extends Object {
 	public function build() {
-		$this->name = "KeyRing";
+		$this->name = "key ring";
 		$this->graphic = 0x1011;
 		$this->type = "";
 		$this->flags = 0x00;

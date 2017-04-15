@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoDragonsBlood extends Object {
+class decodragonsblood extends Object {
 	public function build() {
-		$this->name = "DecoDragonsBlood";
+		$this->name = "deco dragons blood";
 		$this->graphic = 0x4077;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Doublet extends Object {
+class doublet extends Object {
 	public function build() {
-		$this->name = "Doublet";
+		$this->name = "doublet";
 		$this->graphic = 0x1F7B;
 		$this->type = "";
 		$this->flags = 0x00;

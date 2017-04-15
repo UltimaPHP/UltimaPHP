@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ValoriteIngot extends Object {
+class valoriteingot extends Object {
 	public function build() {
-		$this->name = "ValoriteIngot";
+		$this->name = "valorite ingot";
 		$this->graphic = 0x1BF2;
 		$this->type = "";
 		$this->flags = 0x00;

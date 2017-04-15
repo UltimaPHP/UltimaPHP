@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BoneTableAddon extends Object {
+class bonetableaddon extends Object {
 	public function build() {
-		$this->name = "BoneTableAddon";
+		$this->name = "bone table addon";
 		$this->graphic = 0x2A5D;
 		$this->type = "";
 		$this->flags = 0x00;

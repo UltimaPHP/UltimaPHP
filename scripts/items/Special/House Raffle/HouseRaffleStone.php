@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HouseRaffleStone extends Object {
+class houserafflestone extends Object {
 	public function build() {
-		$this->name = "HouseRaffleStone";
+		$this->name = "house raffle stone";
 		$this->graphic = 0xEDD;
 		$this->type = "";
 		$this->flags = 0x00;

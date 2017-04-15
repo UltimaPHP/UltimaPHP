@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BloodyPentagramAddon extends Object {
+class bloodypentagramaddon extends Object {
 	public function build() {
-		$this->name = "BloodyPentagramAddon";
+		$this->name = "bloody pentagram addon";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

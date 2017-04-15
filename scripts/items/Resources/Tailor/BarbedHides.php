@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BarbedHides extends Object {
+class barbedhides extends Object {
 	public function build() {
-		$this->name = "BarbedHides";
+		$this->name = "barbed hides";
 		$this->graphic = 0x1081;
 		$this->type = "";
 		$this->flags = 0x00;

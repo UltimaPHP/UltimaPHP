@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SledgeHammer extends Object {
+class sledgehammer extends Object {
 	public function build() {
-		$this->name = "SledgeHammer";
+		$this->name = "sledge hammer";
 		$this->graphic = 0xFB5;
 		$this->type = "";
 		$this->flags = 0x00;

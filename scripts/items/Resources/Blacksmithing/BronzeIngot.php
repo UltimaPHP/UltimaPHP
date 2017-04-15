@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BronzeIngot extends Object {
+class bronzeingot extends Object {
 	public function build() {
-		$this->name = "BronzeIngot";
+		$this->name = "bronze ingot";
 		$this->graphic = 0x1BF2;
 		$this->type = "";
 		$this->flags = 0x00;

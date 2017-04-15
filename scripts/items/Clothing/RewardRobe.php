@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RewardRobe extends Object {
+class rewardrobe extends Object {
 	public function build() {
-		$this->name = "RewardRobe";
+		$this->name = "reward robe";
 		$this->graphic = 0x1F03;
 		$this->type = "";
 		$this->flags = 0x00;

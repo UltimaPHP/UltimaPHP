@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RedPlainRugAddon extends Object {
+class redplainrugaddon extends Object {
 	public function build() {
-		$this->name = "RedPlainRugAddon";
+		$this->name = "red plain rug addon";
 		$this->graphic = 0x3D8E;
 		$this->type = "";
 		$this->flags = 0x00;

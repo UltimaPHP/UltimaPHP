@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SpikeTrap extends Object {
+class spiketrap extends Object {
 	public function build() {
-		$this->name = "SpikeTrap";
+		$this->name = "spike trap";
 		$this->graphic = 0x1125;
 		$this->type = "";
 		$this->flags = 0x00;

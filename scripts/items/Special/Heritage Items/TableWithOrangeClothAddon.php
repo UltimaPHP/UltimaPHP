@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TableWithOrangeClothAddon extends Object {
+class tablewithorangeclothaddon extends Object {
 	public function build() {
-		$this->name = "TableWithOrangeClothAddon";
+		$this->name = "table with orange cloth addon";
 		$this->graphic = 0x3D86;
 		$this->type = "";
 		$this->flags = 0x00;

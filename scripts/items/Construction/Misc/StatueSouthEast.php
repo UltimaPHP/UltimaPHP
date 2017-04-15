@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StatueSouthEast extends Object {
+class statuesoutheast extends Object {
 	public function build() {
-		$this->name = "StatueSouthEast";
+		$this->name = "statue south east";
 		$this->graphic = 0x122A;
 		$this->type = "";
 		$this->flags = 0x00;

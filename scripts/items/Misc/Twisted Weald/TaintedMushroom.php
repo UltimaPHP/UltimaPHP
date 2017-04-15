@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TaintedMushroom extends Object {
+class taintedmushroom extends Object {
 	public function build() {
-		$this->name = "TaintedMushroom";
+		$this->name = "tainted mushroom";
 		$this->graphic = 0x222E;
 		$this->type = "";
 		$this->flags = 0x00;

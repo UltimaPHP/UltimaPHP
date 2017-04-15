@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FancyElvenTableSouthAddon extends Object {
+class fancyelventablesouthaddon extends Object {
 	public function build() {
-		$this->name = "FancyElvenTableSouthAddon";
+		$this->name = "fancy elven table south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

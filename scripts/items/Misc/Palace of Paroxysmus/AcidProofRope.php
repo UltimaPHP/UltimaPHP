@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AcidProofRope extends Object {
+class acidproofrope extends Object {
 	public function build() {
-		$this->name = "AcidProofRope";
+		$this->name = "acid proof rope";
 		$this->graphic = 0x20D;
 		$this->type = "";
 		$this->flags = 0x00;

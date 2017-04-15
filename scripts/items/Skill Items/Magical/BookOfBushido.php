@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BookOfBushido extends Object {
+class bookofbushido extends Object {
 	public function build() {
-		$this->name = "BookOfBushido";
+		$this->name = "book of bushido";
 		$this->graphic = 0x238C;
 		$this->type = "";
 		$this->flags = 0x00;

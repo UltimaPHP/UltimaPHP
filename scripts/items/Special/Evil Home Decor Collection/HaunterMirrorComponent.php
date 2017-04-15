@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HaunterMirrorComponent extends Object {
+class hauntermirrorcomponent extends Object {
 	public function build() {
-		$this->name = "HaunterMirrorComponent";
+		$this->name = "haunter mirror component";
 		$this->graphic = 0x2A7B;
 		$this->type = "";
 		$this->flags = 0x00;

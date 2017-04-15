@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ChaosShield extends Object {
+class chaosshield extends Object {
 	public function build() {
-		$this->name = "ChaosShield";
+		$this->name = "chaos shield";
 		$this->graphic = 0x1BC3;
 		$this->type = "";
 		$this->flags = 0x00;

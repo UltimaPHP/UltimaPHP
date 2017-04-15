@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ResolvesBridle extends Object {
+class resolvesbridle extends Object {
 	public function build() {
-		$this->name = "ResolvesBridle";
+		$this->name = "resolves bridle";
 		$this->graphic = 0x1374;
 		$this->type = "";
 		$this->flags = 0x00;

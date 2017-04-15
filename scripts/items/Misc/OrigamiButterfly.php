@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OrigamiButterfly extends Object {
+class origamibutterfly extends Object {
 	public function build() {
-		$this->name = "OrigamiButterfly";
+		$this->name = "origami butterfly";
 		$this->graphic = 0x2838;
 		$this->type = "";
 		$this->flags = 0x00;

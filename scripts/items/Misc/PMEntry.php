@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PMEntry extends Object {
+class pmentry extends Object {
 	public function build() {
-		$this->name = "PMEntry";
+		$this->name = "pm entry";
 		$this->graphic = 0xF6C;
 		$this->type = "";
 		$this->flags = 0x00;

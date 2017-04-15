@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DarkWoodGate extends Object {
+class darkwoodgate extends Object {
 	public function build() {
-		$this->name = "DarkWoodGate";
+		$this->name = "dark wood gate";
 		$this->graphic = 0x866;
 		$this->type = "";
 		$this->flags = 0x00;

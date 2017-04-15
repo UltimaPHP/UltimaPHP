@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AquariumGump extends Object {
+class aquariumgump extends Object {
 	public function build() {
-		$this->name = "AquariumGump";
+		$this->name = "aquarium gump";
 		$this->graphic = 0xEFC;
 		$this->type = "";
 		$this->flags = 0x00;

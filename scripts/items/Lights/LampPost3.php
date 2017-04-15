@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LampPost3 extends Object {
+class lamppost3 extends Object {
 	public function build() {
-		$this->name = "LampPost3";
+		$this->name = "lamp post";
 		$this->graphic = 0xb25;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeatherArms extends Object {
+class leatherarms extends Object {
 	public function build() {
-		$this->name = "LeatherArms";
+		$this->name = "leather arms";
 		$this->graphic = 0x13CD;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class UncutCloth extends Object {
+class uncutcloth extends Object {
 	public function build() {
-		$this->name = "UncutCloth";
+		$this->name = "uncut cloth";
 		$this->graphic = 0x1767;
 		$this->type = "";
 		$this->flags = 0x00;

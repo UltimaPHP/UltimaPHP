@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Sculpture1Artifact extends Object {
+class sculpture1artifact extends Object {
 	public function build() {
-		$this->name = "Sculpture1Artifact";
+		$this->name = "sculpture 1 artifact";
 		$this->graphic = 0x2419;
 		$this->type = "";
 		$this->flags = 0x00;

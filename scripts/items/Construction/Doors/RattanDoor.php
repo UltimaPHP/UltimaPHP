@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RattanDoor extends Object {
+class rattandoor extends Object {
 	public function build() {
-		$this->name = "RattanDoor";
+		$this->name = "rattan door";
 		$this->graphic = 0x695;
 		$this->type = "";
 		$this->flags = 0x00;

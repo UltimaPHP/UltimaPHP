@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PaintsAndBrush extends Object {
+class paintsandbrush extends Object {
 	public function build() {
-		$this->name = "PaintsAndBrush";
+		$this->name = "paints and brush";
 		$this->graphic = 0xFC1;
 		$this->type = "";
 		$this->flags = 0x00;

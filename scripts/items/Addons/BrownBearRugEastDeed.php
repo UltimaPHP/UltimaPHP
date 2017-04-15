@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrownBearRugEastDeed extends Object {
+class brownbearrugeastdeed extends Object {
 	public function build() {
-		$this->name = "BrownBearRugEastDeed";
+		$this->name = "brown bear rug east deed";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AlbinoCourtesanFish extends Object {
+class albinocourtesanfish extends Object {
 	public function build() {
-		$this->name = "AlbinoCourtesanFish";
+		$this->name = "albino courtesan fish";
 		$this->graphic = 0x3B04;
 		$this->type = "";
 		$this->flags = 0x00;

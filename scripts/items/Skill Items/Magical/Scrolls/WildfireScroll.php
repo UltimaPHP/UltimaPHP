@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WildfireScroll extends Object {
+class wildfirescroll extends Object {
 	public function build() {
-		$this->name = "WildfireScroll";
+		$this->name = "wildfire scroll";
 		$this->graphic = 0x2D5A;
 		$this->type = "";
 		$this->flags = 0x00;

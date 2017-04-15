@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SalivasFeather extends Object {
+class salivasfeather extends Object {
 	public function build() {
-		$this->name = "SalivasFeather";
+		$this->name = "salivas feather";
 		$this->graphic = 0x1020;
 		$this->type = "";
 		$this->flags = 0x00;

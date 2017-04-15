@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ElvenGlasses extends Object {
+class elvenglasses extends Object {
 	public function build() {
-		$this->name = "ElvenGlasses";
+		$this->name = "elven glasses";
 		$this->graphic = 0x2FB8;
 		$this->type = "";
 		$this->flags = 0x00;

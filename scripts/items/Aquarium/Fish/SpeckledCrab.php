@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SpeckledCrab extends Object {
+class speckledcrab extends Object {
 	public function build() {
-		$this->name = "SpeckledCrab";
+		$this->name = "speckled crab";
 		$this->graphic = 0x3AFC;
 		$this->type = "";
 		$this->flags = 0x00;

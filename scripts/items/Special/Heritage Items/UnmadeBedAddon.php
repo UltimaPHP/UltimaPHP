@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class UnmadeBedAddon extends Object {
+class unmadebedaddon extends Object {
 	public function build() {
-		$this->name = "UnmadeBedAddon";
+		$this->name = "unmade bed addon";
 		$this->graphic = 0x3D86;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GhostShipAnchor extends Object {
+class ghostshipanchor extends Object {
 	public function build() {
-		$this->name = "GhostShipAnchor";
+		$this->name = "ghost ship anchor";
 		$this->graphic = 0x14F7;
 		$this->type = "";
 		$this->flags = 0x00;

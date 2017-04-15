@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Beeswax extends Object {
+class beeswax extends Object {
 	public function build() {
-		$this->name = "Beeswax";
+		$this->name = "beeswax";
 		$this->graphic = 0x1422;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SapphireMace extends Object {
+class sapphiremace extends Object {
 	public function build() {
-		$this->name = "SapphireMace";
+		$this->name = "sapphire mace";
 		$this->graphic = 0x143B;
 		$this->type = "";
 		$this->flags = 0x00;

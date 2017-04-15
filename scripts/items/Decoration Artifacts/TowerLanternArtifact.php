@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TowerLanternArtifact extends Object {
+class towerlanternartifact extends Object {
 	public function build() {
-		$this->name = "TowerLanternArtifact";
+		$this->name = "tower lantern artifact";
 		$this->graphic = 0x24C0;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class QuestOfVirtues extends Object {
+class questofvirtues extends Object {
 	public function build() {
-		$this->name = "QuestOfVirtues";
+		$this->name = "quest of virtues";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

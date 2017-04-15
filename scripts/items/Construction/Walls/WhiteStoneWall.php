@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WhiteStoneWall extends Object {
+class whitestonewall extends Object {
 	public function build() {
-		$this->name = "WhiteStoneWall";
+		$this->name = "white stone wall";
 		$this->graphic = 0x0057;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Lockpick extends Object {
+class lockpick extends Object {
 	public function build() {
-		$this->name = "Lockpick";
+		$this->name = "lockpick";
 		$this->graphic = 0x14FC;
 		$this->type = "";
 		$this->flags = 0x00;

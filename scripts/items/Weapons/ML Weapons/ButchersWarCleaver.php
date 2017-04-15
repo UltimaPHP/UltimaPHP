@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ButchersWarCleaver extends Object {
+class butcherswarcleaver extends Object {
 	public function build() {
-		$this->name = "ButchersWarCleaver";
+		$this->name = "butchers war cleaver";
 		$this->graphic = 0x2D21;
 		$this->type = "";
 		$this->flags = 0x00;

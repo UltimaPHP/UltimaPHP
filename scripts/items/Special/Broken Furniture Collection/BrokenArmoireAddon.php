@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrokenArmoireAddon extends Object {
+class brokenarmoireaddon extends Object {
 	public function build() {
-		$this->name = "BrokenArmoireAddon";
+		$this->name = "broken armoire addon";
 		$this->graphic = 0xC12;
 		$this->type = "";
 		$this->flags = 0x00;

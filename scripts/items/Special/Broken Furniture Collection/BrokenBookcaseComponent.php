@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrokenBookcaseComponent extends Object {
+class brokenbookcasecomponent extends Object {
 	public function build() {
-		$this->name = "BrokenBookcaseComponent";
+		$this->name = "broken bookcase component";
 		$this->graphic = 0xC14;
 		$this->type = "";
 		$this->flags = 0x00;

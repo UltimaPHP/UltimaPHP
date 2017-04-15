@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TravestysSushiPreparations extends Object {
+class travestyssushipreparations extends Object {
 	public function build() {
-		$this->name = "TravestysSushiPreparations";
+		$this->name = "travestys sushi preparations";
 		$this->graphic = 0x1E15;
 		$this->type = "";
 		$this->flags = 0x00;

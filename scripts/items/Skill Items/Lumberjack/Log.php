@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Log extends Object {
+class log extends Object {
 	public function build() {
-		$this->name = "Log";
+		$this->name = "log";
 		$this->graphic = 0x1BDD;
 		$this->type = "";
 		$this->flags = 0x00;

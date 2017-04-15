@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Lantern extends Object {
+class lantern extends Object {
 	public function build() {
-		$this->name = "Lantern";
+		$this->name = "lantern";
 		$this->graphic = 0xA25;
 		$this->type = "";
 		$this->flags = 0x00;

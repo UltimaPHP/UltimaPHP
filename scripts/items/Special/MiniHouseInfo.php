@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MiniHouseInfo extends Object {
+class minihouseinfo extends Object {
 	public function build() {
-		$this->name = "MiniHouseInfo";
+		$this->name = "mini house info";
 		$this->graphic = 0x367A;
 		$this->type = "";
 		$this->flags = 0x00;

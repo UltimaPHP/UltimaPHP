@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CocoaLiquor extends Object {
+class cocoaliquor extends Object {
 	public function build() {
-		$this->name = "CocoaLiquor";
+		$this->name = "cocoa liquor";
 		$this->graphic = 0x103F;
 		$this->type = "";
 		$this->flags = 0x00;

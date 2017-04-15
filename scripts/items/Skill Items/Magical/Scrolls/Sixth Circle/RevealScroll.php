@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RevealScroll extends Object {
+class revealscroll extends Object {
 	public function build() {
-		$this->name = "RevealScroll";
+		$this->name = "reveal scroll";
 		$this->graphic = 0x1F5C;
 		$this->type = "";
 		$this->flags = 0x00;

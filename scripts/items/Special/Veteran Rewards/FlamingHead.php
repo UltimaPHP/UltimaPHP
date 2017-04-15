@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FlamingHead extends Object {
+class flaminghead extends Object {
 	public function build() {
-		$this->name = "FlamingHead";
+		$this->name = "flaming head";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

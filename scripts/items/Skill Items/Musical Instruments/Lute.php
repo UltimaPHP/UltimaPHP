@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Lute extends Object {
+class lute extends Object {
 	public function build() {
-		$this->name = "Lute";
+		$this->name = "lute";
 		$this->graphic = 0xEB3;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SushiRolls extends Object {
+class sushirolls extends Object {
 	public function build() {
-		$this->name = "SushiRolls";
+		$this->name = "sushi rolls";
 		$this->graphic = 0x283E;
 		$this->type = "";
 		$this->flags = 0x00;

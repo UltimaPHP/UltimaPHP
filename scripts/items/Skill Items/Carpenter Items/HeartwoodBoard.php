@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HeartwoodBoard extends Object {
+class heartwoodboard extends Object {
 	public function build() {
-		$this->name = "HeartwoodBoard";
+		$this->name = "heartwood board";
 		$this->graphic = 0x1BD7;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Checkers2 extends Object {
+class checkers2 extends Object {
 	public function build() {
-		$this->name = "Checkers2";
+		$this->name = "checkers";
 		$this->graphic = 0xE1B;
 		$this->type = "";
 		$this->flags = 0x00;

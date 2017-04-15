@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CopperIngot extends Object {
+class copperingot extends Object {
 	public function build() {
-		$this->name = "CopperIngot";
+		$this->name = "copper ingot";
 		$this->graphic = 0x1BF2;
 		$this->type = "";
 		$this->flags = 0x00;

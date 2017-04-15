@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Tapestry3N extends Object {
+class tapestry3n extends Object {
 	public function build() {
-		$this->name = "Tapestry3N";
+		$this->name = "tapestry";
 		$this->graphic = 0xFD5;
 		$this->type = "";
 		$this->flags = 0x00;

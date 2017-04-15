@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CandelabraOfSouls extends Object {
+class candelabraofsouls extends Object {
 	public function build() {
-		$this->name = "CandelabraOfSouls";
+		$this->name = "candelabra of souls";
 		$this->graphic = 0xB26;
 		$this->type = "";
 		$this->flags = 0x00;

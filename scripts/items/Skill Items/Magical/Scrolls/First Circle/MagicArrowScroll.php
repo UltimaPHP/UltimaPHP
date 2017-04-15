@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MagicArrowScroll extends Object {
+class magicarrowscroll extends Object {
 	public function build() {
-		$this->name = "MagicArrowScroll";
+		$this->name = "magic arrow scroll";
 		$this->graphic = 0x1F32;
 		$this->type = "";
 		$this->flags = 0x00;

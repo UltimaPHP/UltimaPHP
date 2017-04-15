@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class IcyPatch extends Object {
+class icypatch extends Object {
 	public function build() {
-		$this->name = "IcyPatch";
+		$this->name = "icy patch";
 		$this->graphic = 0x1086;
 		$this->type = "";
 		$this->flags = 0x00;

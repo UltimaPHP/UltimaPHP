@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OilCloth extends Object {
+class oilcloth extends Object {
 	public function build() {
-		$this->name = "OilCloth";
+		$this->name = "oil cloth";
 		$this->graphic = 0x175D;
 		$this->type = "";
 		$this->flags = 0x00;

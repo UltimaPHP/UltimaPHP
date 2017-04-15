@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BooksFaceDownArtifact extends Object {
+class booksfacedownartifact extends Object {
 	public function build() {
-		$this->name = "BooksFaceDownArtifact";
+		$this->name = "books face down artifact";
 		$this->graphic = 0x1E21;
 		$this->type = "";
 		$this->flags = 0x00;

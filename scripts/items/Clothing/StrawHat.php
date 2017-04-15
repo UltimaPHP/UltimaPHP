@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StrawHat extends Object {
+class strawhat extends Object {
 	public function build() {
-		$this->name = "StrawHat";
+		$this->name = "straw hat";
 		$this->graphic = 0x1717;
 		$this->type = "";
 		$this->flags = 0x00;

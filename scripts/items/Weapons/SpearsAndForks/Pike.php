@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Pike extends Object {
+class pike extends Object {
 	public function build() {
-		$this->name = "Pike";
+		$this->name = "pike";
 		$this->graphic = 0x26BE;
 		$this->type = "";
 		$this->flags = 0x00;

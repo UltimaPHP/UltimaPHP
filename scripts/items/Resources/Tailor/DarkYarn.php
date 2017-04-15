@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DarkYarn extends Object {
+class darkyarn extends Object {
 	public function build() {
-		$this->name = "DarkYarn";
+		$this->name = "dark yarn";
 		$this->graphic = 0xE1D;
 		$this->type = "";
 		$this->flags = 0x00;

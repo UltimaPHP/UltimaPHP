@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CandleShort extends Object {
+class candleshort extends Object {
 	public function build() {
-		$this->name = "CandleShort";
+		$this->name = "candle short";
 		$this->graphic = 0x142F;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EnchantedTitanLegBone extends Object {
+class enchantedtitanlegbone extends Object {
 	public function build() {
-		$this->name = "EnchantedTitanLegBone";
+		$this->name = "enchanted titan leg bone";
 		$this->graphic = 0xB26;
 		$this->type = "";
 		$this->flags = 0x00;

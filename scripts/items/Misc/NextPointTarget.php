@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class NextPointTarget extends Object {
+class nextpointtarget extends Object {
 	public function build() {
-		$this->name = "NextPointTarget";
+		$this->name = "next point target";
 		$this->graphic = 0x1f14;
 		$this->type = "";
 		$this->flags = 0x00;

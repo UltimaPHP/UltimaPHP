@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FillableContent extends Object {
+class fillablecontent extends Object {
 	public function build() {
-		$this->name = "FillableContent";
+		$this->name = "fillable content";
 		$this->graphic = 0xE43;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RawBird extends Object {
+class rawbird extends Object {
 	public function build() {
-		$this->name = "RawBird";
+		$this->name = "raw bird";
 		$this->graphic = 0x9B9;
 		$this->type = "";
 		$this->flags = 0x00;

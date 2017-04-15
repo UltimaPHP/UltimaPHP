@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GreaterAgilityPotion extends Object {
+class greateragilitypotion extends Object {
 	public function build() {
-		$this->name = "GreaterAgilityPotion";
+		$this->name = "greater agility potion";
 		$this->graphic = 0xF08;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MaceShieldGlasses extends Object {
+class maceshieldglasses extends Object {
 	public function build() {
-		$this->name = "MaceShieldGlasses";
+		$this->name = "mace shield glasses";
 		$this->graphic = 0x2FB8;
 		$this->type = "";
 		$this->flags = 0x00;

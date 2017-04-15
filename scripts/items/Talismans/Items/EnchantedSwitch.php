@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EnchantedSwitch extends Object {
+class enchantedswitch extends Object {
 	public function build() {
-		$this->name = "EnchantedSwitch";
+		$this->name = "enchanted switch";
 		$this->graphic = 0x2F5C;
 		$this->type = "";
 		$this->flags = 0x00;

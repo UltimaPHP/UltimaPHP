@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HealersTouch extends Object {
+class healerstouch extends Object {
 	public function build() {
-		$this->name = "HealersTouch";
+		$this->name = "healers touch";
 		$this->graphic = 0x3FFFFFFFF;
 		$this->type = "";
 		$this->flags = 0x00;

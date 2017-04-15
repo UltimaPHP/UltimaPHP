@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MinotaurHedge extends Object {
+class minotaurhedge extends Object {
 	public function build() {
-		$this->name = "MinotaurHedge";
+		$this->name = "minotaur hedge";
 		$this->graphic = 0x2617;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class UnholyBone extends Object {
+class unholybone extends Object {
 	public function build() {
-		$this->name = "UnholyBone";
+		$this->name = "unholy bone";
 		$this->graphic = 0xF7E;
 		$this->type = "";
 		$this->flags = 0x00;

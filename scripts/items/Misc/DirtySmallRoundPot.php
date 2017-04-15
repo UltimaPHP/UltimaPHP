@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DirtySmallRoundPot extends Object {
+class dirtysmallroundpot extends Object {
 	public function build() {
-		$this->name = "DirtySmallRoundPot";
+		$this->name = "dirty small round pot";
 		$this->graphic = 0x9E7;
 		$this->type = "";
 		$this->flags = 0x00;

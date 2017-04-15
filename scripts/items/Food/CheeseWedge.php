@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CheeseWedge extends Object {
+class cheesewedge extends Object {
 	public function build() {
-		$this->name = "CheeseWedge";
+		$this->name = "cheese wedge";
 		$this->graphic = 0x97D;
 		$this->type = "";
 		$this->flags = 0x00;

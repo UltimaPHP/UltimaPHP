@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WizardsGlasses extends Object {
+class wizardsglasses extends Object {
 	public function build() {
-		$this->name = "WizardsGlasses";
+		$this->name = "wizards glasses";
 		$this->graphic = 0x2FB8;
 		$this->type = "";
 		$this->flags = 0x00;

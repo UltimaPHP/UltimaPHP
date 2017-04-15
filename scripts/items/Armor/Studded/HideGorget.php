@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HideGorget extends Object {
+class hidegorget extends Object {
 	public function build() {
-		$this->name = "HideGorget";
+		$this->name = "hide gorget";
 		$this->graphic = 0x2B76;
 		$this->type = "";
 		$this->flags = 0x00;

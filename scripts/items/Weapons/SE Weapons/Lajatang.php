@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Lajatang extends Object {
+class lajatang extends Object {
 	public function build() {
-		$this->name = "Lajatang";
+		$this->name = "lajatang";
 		$this->graphic = 0x27A7;
 		$this->type = "";
 		$this->flags = 0x00;

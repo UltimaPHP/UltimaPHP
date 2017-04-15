@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AniRedRibbedFlask extends Object {
+class aniredribbedflask extends Object {
 	public function build() {
-		$this->name = "AniRedRibbedFlask";
+		$this->name = "ani red ribbed flask";
 		$this->graphic = 0x183E;
 		$this->type = "";
 		$this->flags = 0x00;

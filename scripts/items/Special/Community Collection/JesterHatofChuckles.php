@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class JesterHatofChuckles extends Object {
+class jesterhatofchuckles extends Object {
 	public function build() {
-		$this->name = "JesterHatofChuckles";
+		$this->name = "jester hatof chuckles";
 		$this->graphic = 0x171C;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HammerOfHephaestus extends Object {
+class hammerofhephaestus extends Object {
 	public function build() {
-		$this->name = "HammerOfHephaestus";
+		$this->name = "hammer of hephaestus";
 		$this->graphic = 0x3FFFFFFFF;
 		$this->type = "";
 		$this->flags = 0x00;

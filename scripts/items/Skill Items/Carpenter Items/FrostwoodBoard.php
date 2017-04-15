@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FrostwoodBoard extends Object {
+class frostwoodboard extends Object {
 	public function build() {
-		$this->name = "FrostwoodBoard";
+		$this->name = "frostwood board";
 		$this->graphic = 0x1BD7;
 		$this->type = "";
 		$this->flags = 0x00;

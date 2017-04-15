@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EnergyBoltScroll extends Object {
+class energyboltscroll extends Object {
 	public function build() {
-		$this->name = "EnergyBoltScroll";
+		$this->name = "energy bolt scroll";
 		$this->graphic = 0x1F56;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TrueSpellblade extends Object {
+class truespellblade extends Object {
 	public function build() {
-		$this->name = "TrueSpellblade";
+		$this->name = "true spellblade";
 		$this->graphic = 0x13B8;
 		$this->type = "";
 		$this->flags = 0x00;

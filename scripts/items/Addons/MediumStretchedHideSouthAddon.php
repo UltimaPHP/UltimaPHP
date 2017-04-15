@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MediumStretchedHideSouthAddon extends Object {
+class mediumstretchedhidesouthaddon extends Object {
 	public function build() {
-		$this->name = "MediumStretchedHideSouthAddon";
+		$this->name = "medium stretched hide south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

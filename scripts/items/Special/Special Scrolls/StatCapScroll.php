@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StatCapScroll extends Object {
+class statcapscroll extends Object {
 	public function build() {
-		$this->name = "StatCapScroll";
+		$this->name = "stat cap scroll";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

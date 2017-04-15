@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FlipCommandHandlers extends Object {
+class flipcommandhandlers extends Object {
 	public function build() {
-		$this->name = "FlipCommandHandlers";
+		$this->name = "flip command handlers";
 		$this->graphic = 0x376A;
 		$this->type = "";
 		$this->flags = 0x00;

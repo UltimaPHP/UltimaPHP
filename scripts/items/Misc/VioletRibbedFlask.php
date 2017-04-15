@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class VioletRibbedFlask extends Object {
+class violetribbedflask extends Object {
 	public function build() {
-		$this->name = "VioletRibbedFlask";
+		$this->name = "violet ribbed flask";
 		$this->graphic = 0x1839;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EnergyFieldScroll extends Object {
+class energyfieldscroll extends Object {
 	public function build() {
-		$this->name = "EnergyFieldScroll";
+		$this->name = "energy field scroll";
 		$this->graphic = 0x1F5E;
 		$this->type = "";
 		$this->flags = 0x00;

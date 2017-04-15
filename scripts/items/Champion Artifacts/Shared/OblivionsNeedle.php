@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OblivionsNeedle extends Object {
+class oblivionsneedle extends Object {
 	public function build() {
-		$this->name = "OblivionsNeedle";
+		$this->name = "oblivions needle";
 		$this->graphic = 0x2684;
 		$this->type = "";
 		$this->flags = 0x00;

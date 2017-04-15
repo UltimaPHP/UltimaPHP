@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BaseBook extends Object {
+class basebook extends Object {
 	public function build() {
-		$this->name = "BaseBook";
+		$this->name = "base book";
 		$this->graphic = 0x66;
 		$this->type = "";
 		$this->flags = 0x00;

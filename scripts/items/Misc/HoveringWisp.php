@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HoveringWisp extends Object {
+class hoveringwisp extends Object {
 	public function build() {
-		$this->name = "HoveringWisp";
+		$this->name = "hovering wisp";
 		$this->graphic = 0x2100;
 		$this->type = "";
 		$this->flags = 0x00;

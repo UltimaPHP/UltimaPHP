@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BulletinBoard extends Object {
+class bulletinboard extends Object {
 	public function build() {
-		$this->name = "BulletinBoard";
+		$this->name = "bulletin board";
 		$this->graphic = 0x1E5E;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WildGirlOfTheForest extends Object {
+class wildgirloftheforest extends Object {
 	public function build() {
-		$this->name = "WildGirlOfTheForest";
+		$this->name = "wild girl of the forest";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

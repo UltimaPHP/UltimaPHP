@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FancyDrawer extends Object {
+class fancydrawer extends Object {
 	public function build() {
-		$this->name = "FancyDrawer";
+		$this->name = "fancy drawer";
 		$this->graphic = 0xA30;
 		$this->type = "";
 		$this->flags = 0x00;

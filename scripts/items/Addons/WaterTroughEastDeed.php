@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WaterTroughEastDeed extends Object {
+class watertrougheastdeed extends Object {
 	public function build() {
-		$this->name = "WaterTroughEastDeed";
+		$this->name = "water trough east deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

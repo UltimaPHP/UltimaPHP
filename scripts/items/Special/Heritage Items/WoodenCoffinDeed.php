@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WoodenCoffinDeed extends Object {
+class woodencoffindeed extends Object {
 	public function build() {
-		$this->name = "WoodenCoffinDeed";
+		$this->name = "wooden coffin deed";
 		$this->graphic = 0x3D98;
 		$this->type = "";
 		$this->flags = 0x00;

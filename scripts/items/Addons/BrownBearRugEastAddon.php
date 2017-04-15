@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrownBearRugEastAddon extends Object {
+class brownbearrugeastaddon extends Object {
 	public function build() {
-		$this->name = "BrownBearRugEastAddon";
+		$this->name = "brown bear rug east addon";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

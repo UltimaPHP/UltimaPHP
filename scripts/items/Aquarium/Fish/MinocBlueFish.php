@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MinocBlueFish extends Object {
+class minocbluefish extends Object {
 	public function build() {
-		$this->name = "MinocBlueFish";
+		$this->name = "minoc blue fish";
 		$this->graphic = 0x3AFE;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MagicWand extends Object {
+class magicwand extends Object {
 	public function build() {
-		$this->name = "MagicWand";
+		$this->name = "magic wand";
 		$this->graphic = 0xDF2;
 		$this->type = "";
 		$this->flags = 0x00;

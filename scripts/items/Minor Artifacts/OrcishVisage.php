@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OrcishVisage extends Object {
+class orcishvisage extends Object {
 	public function build() {
-		$this->name = "OrcishVisage";
+		$this->name = "orcish visage";
 		$this->graphic = 0x1BEB;
 		$this->type = "";
 		$this->flags = 0x00;

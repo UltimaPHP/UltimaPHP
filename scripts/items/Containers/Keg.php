@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Keg extends Object {
+class keg extends Object {
 	public function build() {
-		$this->name = "Keg";
+		$this->name = "keg";
 		$this->graphic = 0xE7F;
 		$this->type = "";
 		$this->flags = 0x00;

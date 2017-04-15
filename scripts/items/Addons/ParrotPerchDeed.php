@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ParrotPerchDeed extends Object {
+class parrotperchdeed extends Object {
 	public function build() {
-		$this->name = "ParrotPerchDeed";
+		$this->name = "parrot perch deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

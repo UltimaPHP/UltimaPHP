@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WideBrimHat extends Object {
+class widebrimhat extends Object {
 	public function build() {
-		$this->name = "WideBrimHat";
+		$this->name = "wide brim hat";
 		$this->graphic = 0x1714;
 		$this->type = "";
 		$this->flags = 0x00;

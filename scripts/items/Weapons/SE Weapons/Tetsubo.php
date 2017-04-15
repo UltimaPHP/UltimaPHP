@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Tetsubo extends Object {
+class tetsubo extends Object {
 	public function build() {
-		$this->name = "Tetsubo";
+		$this->name = "tetsubo";
 		$this->graphic = 0x27A6;
 		$this->type = "";
 		$this->flags = 0x00;

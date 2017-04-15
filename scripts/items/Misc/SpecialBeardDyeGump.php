@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SpecialBeardDyeGump extends Object {
+class specialbearddyegump extends Object {
 	public function build() {
-		$this->name = "SpecialBeardDyeGump";
+		$this->name = "special beard dye gump";
 		$this->graphic = 0xE26;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MouldingPlane extends Object {
+class mouldingplane extends Object {
 	public function build() {
-		$this->name = "MouldingPlane";
+		$this->name = "moulding plane";
 		$this->graphic = 0x102C;
 		$this->type = "";
 		$this->flags = 0x00;

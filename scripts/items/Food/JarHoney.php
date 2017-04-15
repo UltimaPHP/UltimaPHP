@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class JarHoney extends Object {
+class jarhoney extends Object {
 	public function build() {
-		$this->name = "JarHoney";
+		$this->name = "jar honey";
 		$this->graphic = 0x9ec;
 		$this->type = "";
 		$this->flags = 0x00;

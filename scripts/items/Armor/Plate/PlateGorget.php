@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlateGorget extends Object {
+class plategorget extends Object {
 	public function build() {
-		$this->name = "PlateGorget";
+		$this->name = "plate gorget";
 		$this->graphic = 0x1413;
 		$this->type = "";
 		$this->flags = 0x00;

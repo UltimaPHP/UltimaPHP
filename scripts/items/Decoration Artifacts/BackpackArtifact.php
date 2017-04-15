@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BackpackArtifact extends Object {
+class backpackartifact extends Object {
 	public function build() {
-		$this->name = "BackpackArtifact";
+		$this->name = "backpack artifact";
 		$this->graphic = 0x9B2;
 		$this->type = "";
 		$this->flags = 0x00;

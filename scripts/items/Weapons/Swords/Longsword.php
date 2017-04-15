@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Longsword extends Object {
+class longsword extends Object {
 	public function build() {
-		$this->name = "Longsword";
+		$this->name = "longsword";
 		$this->graphic = 0xF61;
 		$this->type = "";
 		$this->flags = 0x00;

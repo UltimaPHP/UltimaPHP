@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HornedHides extends Object {
+class hornedhides extends Object {
 	public function build() {
-		$this->name = "HornedHides";
+		$this->name = "horned hides";
 		$this->graphic = 0x1079;
 		$this->type = "";
 		$this->flags = 0x00;

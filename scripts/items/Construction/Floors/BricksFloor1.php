@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BricksFloor1 extends Object {
+class bricksfloor1 extends Object {
 	public function build() {
-		$this->name = "BricksFloor1";
+		$this->name = "bricks floor";
 		$this->graphic = 0x4E2;
 		$this->type = "";
 		$this->flags = 0x00;

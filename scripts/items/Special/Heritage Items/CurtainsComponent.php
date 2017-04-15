@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CurtainsComponent extends Object {
+class curtainscomponent extends Object {
 	public function build() {
-		$this->name = "CurtainsComponent";
+		$this->name = "curtains component";
 		$this->graphic = 0x2068;
 		$this->type = "";
 		$this->flags = 0x00;

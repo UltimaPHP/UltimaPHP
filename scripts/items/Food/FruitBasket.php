@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FruitBasket extends Object {
+class fruitbasket extends Object {
 	public function build() {
-		$this->name = "FruitBasket";
+		$this->name = "fruit basket";
 		$this->graphic = 0x993;
 		$this->type = "";
 		$this->flags = 0x00;

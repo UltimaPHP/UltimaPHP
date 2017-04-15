@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RedMisoSoup extends Object {
+class redmisosoup extends Object {
 	public function build() {
-		$this->name = "RedMisoSoup";
+		$this->name = "red miso soup";
 		$this->graphic = 0x284F;
 		$this->type = "";
 		$this->flags = 0x00;

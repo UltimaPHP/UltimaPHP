@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AquariumState extends Object {
+class aquariumstate extends Object {
 	public function build() {
-		$this->name = "AquariumState";
+		$this->name = "aquarium state";
 		$this->graphic = 0xEFC;
 		$this->type = "";
 		$this->flags = 0x00;

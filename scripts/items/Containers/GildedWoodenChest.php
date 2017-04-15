@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GildedWoodenChest extends Object {
+class gildedwoodenchest extends Object {
 	public function build() {
-		$this->name = "GildedWoodenChest";
+		$this->name = "gilded wooden chest";
 		$this->graphic = 0x280F;
 		$this->type = "";
 		$this->flags = 0x00;

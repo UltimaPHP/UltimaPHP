@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FloppyHat extends Object {
+class floppyhat extends Object {
 	public function build() {
-		$this->name = "FloppyHat";
+		$this->name = "floppy hat";
 		$this->graphic = 0x1713;
 		$this->type = "";
 		$this->flags = 0x00;

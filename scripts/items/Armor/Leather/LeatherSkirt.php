@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeatherSkirt extends Object {
+class leatherskirt extends Object {
 	public function build() {
-		$this->name = "LeatherSkirt";
+		$this->name = "leather skirt";
 		$this->graphic = 0x1C08;
 		$this->type = "";
 		$this->flags = 0x00;

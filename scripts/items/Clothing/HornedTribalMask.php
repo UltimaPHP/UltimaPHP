@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HornedTribalMask extends Object {
+class hornedtribalmask extends Object {
 	public function build() {
-		$this->name = "HornedTribalMask";
+		$this->name = "horned tribal mask";
 		$this->graphic = 0x1549;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Bonesmasher extends Object {
+class bonesmasher extends Object {
 	public function build() {
-		$this->name = "Bonesmasher";
+		$this->name = "bonesmasher";
 		$this->graphic = 0x2F5A;
 		$this->type = "";
 		$this->flags = 0x00;

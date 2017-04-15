@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GrizzledMareStatuette extends Object {
+class grizzledmarestatuette extends Object {
 	public function build() {
-		$this->name = "GrizzledMareStatuette";
+		$this->name = "grizzled mare statuette";
 		$this->graphic = 0x2617;
 		$this->type = "";
 		$this->flags = 0x00;

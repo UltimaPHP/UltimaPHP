@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FlourSifter extends Object {
+class floursifter extends Object {
 	public function build() {
-		$this->name = "FlourSifter";
+		$this->name = "flour sifter";
 		$this->graphic = 0x103E;
 		$this->type = "";
 		$this->flags = 0x00;

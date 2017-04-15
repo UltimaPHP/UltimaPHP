@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WoodenChairCushion extends Object {
+class woodenchaircushion extends Object {
 	public function build() {
-		$this->name = "WoodenChairCushion";
+		$this->name = "wooden chair cushion";
 		$this->graphic = 0xB2D;
 		$this->type = "";
 		$this->flags = 0x00;

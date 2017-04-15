@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PonyTail extends Object {
+class ponytail extends Object {
 	public function build() {
-		$this->name = "PonyTail";
+		$this->name = "pony tail";
 		$this->graphic = 0x203D;
 		$this->type = "";
 		$this->flags = 0x00;

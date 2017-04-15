@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DartBoardSouthDeed extends Object {
+class dartboardsouthdeed extends Object {
 	public function build() {
-		$this->name = "DartBoardSouthDeed";
+		$this->name = "dart board south deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

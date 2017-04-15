@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RedSoulstone extends Object {
+class redsoulstone extends Object {
 	public function build() {
-		$this->name = "RedSoulstone";
+		$this->name = "red soulstone";
 		$this->graphic = 0x32F3;
 		$this->type = "";
 		$this->flags = 0x00;

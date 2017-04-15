@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SpottedBuccaneer extends Object {
+class spottedbuccaneer extends Object {
 	public function build() {
-		$this->name = "SpottedBuccaneer";
+		$this->name = "spotted buccaneer";
 		$this->graphic = 0x3B09;
 		$this->type = "";
 		$this->flags = 0x00;

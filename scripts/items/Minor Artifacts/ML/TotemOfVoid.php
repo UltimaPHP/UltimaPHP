@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TotemOfVoid extends Object {
+class totemofvoid extends Object {
 	public function build() {
-		$this->name = "TotemOfVoid";
+		$this->name = "totem of void";
 		$this->graphic = 0x2F5B;
 		$this->type = "";
 		$this->flags = 0x00;

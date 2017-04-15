@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BoneThroneComponent extends Object {
+class bonethronecomponent extends Object {
 	public function build() {
-		$this->name = "BoneThroneComponent";
+		$this->name = "bone throne component";
 		$this->graphic = 0x2A58;
 		$this->type = "";
 		$this->flags = 0x00;

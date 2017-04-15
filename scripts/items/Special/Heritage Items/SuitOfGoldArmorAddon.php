@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SuitOfGoldArmorAddon extends Object {
+class suitofgoldarmoraddon extends Object {
 	public function build() {
-		$this->name = "SuitOfGoldArmorAddon";
+		$this->name = "suit of gold armor addon";
 		$this->graphic = 0x3DAA;
 		$this->type = "";
 		$this->flags = 0x00;

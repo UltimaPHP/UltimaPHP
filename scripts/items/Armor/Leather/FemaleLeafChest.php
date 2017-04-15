@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FemaleLeafChest extends Object {
+class femaleleafchest extends Object {
 	public function build() {
-		$this->name = "FemaleLeafChest";
+		$this->name = "female leaf chest";
 		$this->graphic = 0x2FCB;
 		$this->type = "";
 		$this->flags = 0x00;

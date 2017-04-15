@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AcidSlime extends Object {
+class acidslime extends Object {
 	public function build() {
-		$this->name = "AcidSlime";
+		$this->name = "acid slime";
 		$this->graphic = 0x122A;
 		$this->type = "";
 		$this->flags = 0x00;

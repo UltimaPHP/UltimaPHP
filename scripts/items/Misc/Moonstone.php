@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Moonstone extends Object {
+class moonstone extends Object {
 	public function build() {
-		$this->name = "Moonstone";
+		$this->name = "moonstone";
 		$this->graphic = 0xF8B;
 		$this->type = "";
 		$this->flags = 0x00;

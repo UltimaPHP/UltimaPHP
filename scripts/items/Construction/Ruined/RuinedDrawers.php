@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RuinedDrawers extends Object {
+class ruineddrawers extends Object {
 	public function build() {
-		$this->name = "RuinedDrawers";
+		$this->name = "ruined drawers";
 		$this->graphic = 0xC24;
 		$this->type = "";
 		$this->flags = 0x00;

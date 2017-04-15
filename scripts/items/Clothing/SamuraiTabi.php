@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SamuraiTabi extends Object {
+class samuraitabi extends Object {
 	public function build() {
-		$this->name = "SamuraiTabi";
+		$this->name = "samurai tabi";
 		$this->graphic = 0x2796;
 		$this->type = "";
 		$this->flags = 0x00;

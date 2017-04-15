@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Web extends Object {
+class web extends Object {
 	public function build() {
-		$this->name = "Web";
+		$this->name = "web";
 		$this->graphic = 0x346E;
 		$this->type = "";
 		$this->flags = 0x00;

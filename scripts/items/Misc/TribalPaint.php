@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TribalPaint extends Object {
+class tribalpaint extends Object {
 	public function build() {
-		$this->name = "TribalPaint";
+		$this->name = "tribal paint";
 		$this->graphic = 0x9EC;
 		$this->type = "";
 		$this->flags = 0x00;

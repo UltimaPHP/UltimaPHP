@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LargeBedEastDeed extends Object {
+class largebedeastdeed extends Object {
 	public function build() {
-		$this->name = "LargeBedEastDeed";
+		$this->name = "large bed east deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

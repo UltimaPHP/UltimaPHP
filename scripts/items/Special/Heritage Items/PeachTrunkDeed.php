@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PeachTrunkDeed extends Object {
+class peachtrunkdeed extends Object {
 	public function build() {
-		$this->name = "PeachTrunkDeed";
+		$this->name = "peach trunk deed";
 		$this->graphic = 0x3D8E;
 		$this->type = "";
 		$this->flags = 0x00;

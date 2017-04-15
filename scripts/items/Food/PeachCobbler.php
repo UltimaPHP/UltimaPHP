@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PeachCobbler extends Object {
+class peachcobbler extends Object {
 	public function build() {
-		$this->name = "PeachCobbler";
+		$this->name = "peach cobbler";
 		$this->graphic = 0x1041;
 		$this->type = "";
 		$this->flags = 0x00;

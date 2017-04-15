@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SoulSeeker extends Object {
+class soulseeker extends Object {
 	public function build() {
-		$this->name = "SoulSeeker";
+		$this->name = "soul seeker";
 		$this->graphic = 0x1F04;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ContractOfEmployment extends Object {
+class contractofemployment extends Object {
 	public function build() {
-		$this->name = "ContractOfEmployment";
+		$this->name = "contract of employment";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FireColumnTrap extends Object {
+class firecolumntrap extends Object {
 	public function build() {
-		$this->name = "FireColumnTrap";
+		$this->name = "fire column trap";
 		$this->graphic = 0x1B71;
 		$this->type = "";
 		$this->flags = 0x00;

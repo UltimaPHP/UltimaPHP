@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ThrashersTail extends Object {
+class thrasherstail extends Object {
 	public function build() {
-		$this->name = "ThrashersTail";
+		$this->name = "thrashers tail";
 		$this->graphic = 0x1A9D;
 		$this->type = "";
 		$this->flags = 0x00;

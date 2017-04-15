@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MagekillerAssassinSpike extends Object {
+class magekillerassassinspike extends Object {
 	public function build() {
-		$this->name = "MagekillerAssassinSpike";
+		$this->name = "magekiller assassin spike";
 		$this->graphic = 0xF61;
 		$this->type = "";
 		$this->flags = 0x00;

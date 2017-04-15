@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GingerBreadHouseDeed extends Object {
+class gingerbreadhousedeed extends Object {
 	public function build() {
-		$this->name = "GingerBreadHouseDeed";
+		$this->name = "ginger bread house deed";
 		$this->graphic = 0x232A;
 		$this->type = "";
 		$this->flags = 0x00;

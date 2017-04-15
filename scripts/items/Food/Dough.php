@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Dough extends Object {
+class dough extends Object {
 	public function build() {
-		$this->name = "Dough";
+		$this->name = "dough";
 		$this->graphic = 0x103d;
 		$this->type = "";
 		$this->flags = 0x00;

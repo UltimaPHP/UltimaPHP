@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MarkContainer extends Object {
+class markcontainer extends Object {
 	public function build() {
-		$this->name = "MarkContainer";
+		$this->name = "mark container";
 		$this->graphic = 0xECA;
 		$this->type = "";
 		$this->flags = 0x00;

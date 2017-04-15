@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Buckler extends Object {
+class buckler extends Object {
 	public function build() {
-		$this->name = "Buckler";
+		$this->name = "buckler";
 		$this->graphic = 0x1B73;
 		$this->type = "";
 		$this->flags = 0x00;

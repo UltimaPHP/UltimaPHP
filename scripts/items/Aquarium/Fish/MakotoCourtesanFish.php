@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MakotoCourtesanFish extends Object {
+class makotocourtesanfish extends Object {
 	public function build() {
-		$this->name = "MakotoCourtesanFish";
+		$this->name = "makoto courtesan fish";
 		$this->graphic = 0x3AFD;
 		$this->type = "";
 		$this->flags = 0x00;

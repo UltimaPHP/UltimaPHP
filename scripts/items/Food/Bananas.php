@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Bananas extends Object {
+class bananas extends Object {
 	public function build() {
-		$this->name = "Bananas";
+		$this->name = "bananas";
 		$this->graphic = 0x1721;
 		$this->type = "";
 		$this->flags = 0x00;

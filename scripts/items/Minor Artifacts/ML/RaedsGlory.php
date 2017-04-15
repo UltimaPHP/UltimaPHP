@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RaedsGlory extends Object {
+class raedsglory extends Object {
 	public function build() {
-		$this->name = "RaedsGlory";
+		$this->name = "raeds glory";
 		$this->graphic = 0x47E;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StoneStatueDeed extends Object {
+class stonestatuedeed extends Object {
 	public function build() {
-		$this->name = "StoneStatueDeed";
+		$this->name = "stone statue deed";
 		$this->graphic = 0x1EA3;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WoodenBox extends Object {
+class woodenbox extends Object {
 	public function build() {
-		$this->name = "WoodenBox";
+		$this->name = "wooden box";
 		$this->graphic = 0x9AA;
 		$this->type = "";
 		$this->flags = 0x00;

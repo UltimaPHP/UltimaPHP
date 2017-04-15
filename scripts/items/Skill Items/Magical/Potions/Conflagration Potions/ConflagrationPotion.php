@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ConflagrationPotion extends Object {
+class conflagrationpotion extends Object {
 	public function build() {
-		$this->name = "ConflagrationPotion";
+		$this->name = "conflagration potion";
 		$this->graphic = 0x398C;
 		$this->type = "";
 		$this->flags = 0x00;

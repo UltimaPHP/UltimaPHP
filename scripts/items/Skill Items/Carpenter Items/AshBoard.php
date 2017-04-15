@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AshBoard extends Object {
+class ashboard extends Object {
 	public function build() {
-		$this->name = "AshBoard";
+		$this->name = "ash board";
 		$this->graphic = 0x1BD7;
 		$this->type = "";
 		$this->flags = 0x00;

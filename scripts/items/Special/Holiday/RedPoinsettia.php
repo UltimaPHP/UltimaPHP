@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RedPoinsettia extends Object {
+class redpoinsettia extends Object {
 	public function build() {
-		$this->name = "RedPoinsettia";
+		$this->name = "red poinsettia";
 		$this->graphic = 0x2330;
 		$this->type = "";
 		$this->flags = 0x00;

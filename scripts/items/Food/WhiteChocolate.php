@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WhiteChocolate extends Object {
+class whitechocolate extends Object {
 	public function build() {
-		$this->name = "WhiteChocolate";
+		$this->name = "white chocolate";
 		$this->graphic = 0xF11;
 		$this->type = "";
 		$this->flags = 0x00;

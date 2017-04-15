@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CheckerBoard extends Object {
+class checkerboard extends Object {
 	public function build() {
-		$this->name = "CheckerBoard";
+		$this->name = "checker board";
 		$this->graphic = 0xFA6;
 		$this->type = "";
 		$this->flags = 0x00;

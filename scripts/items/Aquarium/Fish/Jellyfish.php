@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Jellyfish extends Object {
+class jellyfish extends Object {
 	public function build() {
-		$this->name = "Jellyfish";
+		$this->name = "jellyfish";
 		$this->graphic = 0x3B0E;
 		$this->type = "";
 		$this->flags = 0x00;

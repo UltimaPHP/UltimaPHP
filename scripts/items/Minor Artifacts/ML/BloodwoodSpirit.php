@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BloodwoodSpirit extends Object {
+class bloodwoodspirit extends Object {
 	public function build() {
-		$this->name = "BloodwoodSpirit";
+		$this->name = "bloodwood spirit";
 		$this->graphic = 0x2F5A;
 		$this->type = "";
 		$this->flags = 0x00;

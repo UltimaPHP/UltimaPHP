@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class KillerFrog extends Object {
+class killerfrog extends Object {
 	public function build() {
-		$this->name = "KillerFrog";
+		$this->name = "killer frog";
 		$this->graphic = 0x3B0D;
 		$this->type = "";
 		$this->flags = 0x00;

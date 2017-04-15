@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WhiteDriedFlowers extends Object {
+class whitedriedflowers extends Object {
 	public function build() {
-		$this->name = "WhiteDriedFlowers";
+		$this->name = "white dried flowers";
 		$this->graphic = 0xC3C;
 		$this->type = "";
 		$this->flags = 0x00;

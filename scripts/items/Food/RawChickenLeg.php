@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RawChickenLeg extends Object {
+class rawchickenleg extends Object {
 	public function build() {
-		$this->name = "RawChickenLeg";
+		$this->name = "raw chicken leg";
 		$this->graphic = 0x1607;
 		$this->type = "";
 		$this->flags = 0x00;

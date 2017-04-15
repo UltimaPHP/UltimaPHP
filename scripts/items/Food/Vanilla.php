@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Vanilla extends Object {
+class vanilla extends Object {
 	public function build() {
-		$this->name = "Vanilla";
+		$this->name = "vanilla";
 		$this->graphic = 0xE2A;
 		$this->type = "";
 		$this->flags = 0x00;

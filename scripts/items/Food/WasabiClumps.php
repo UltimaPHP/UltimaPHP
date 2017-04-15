@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WasabiClumps extends Object {
+class wasabiclumps extends Object {
 	public function build() {
-		$this->name = "WasabiClumps";
+		$this->name = "wasabi clumps";
 		$this->graphic = 0x24EB;
 		$this->type = "";
 		$this->flags = 0x00;

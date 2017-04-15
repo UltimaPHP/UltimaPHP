@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DupreSuit extends Object {
+class dupresuit extends Object {
 	public function build() {
-		$this->name = "DupreSuit";
+		$this->name = "dupre suit";
 		$this->graphic = 0x0;
 		$this->type = "";
 		$this->flags = 0x00;

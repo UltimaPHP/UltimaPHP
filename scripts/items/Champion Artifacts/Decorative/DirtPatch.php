@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DirtPatch extends Object {
+class dirtpatch extends Object {
 	public function build() {
-		$this->name = "DirtPatch";
+		$this->name = "dirt patch";
 		$this->graphic = 0x224e;
 		$this->type = "";
 		$this->flags = 0x00;

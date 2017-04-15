@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WorldMap extends Object {
+class worldmap extends Object {
 	public function build() {
-		$this->name = "WorldMap";
+		$this->name = "world map";
 		$this->graphic = 0x912;
 		$this->type = "";
 		$this->flags = 0x00;

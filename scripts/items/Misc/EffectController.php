@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EffectController extends Object {
+class effectcontroller extends Object {
 	public function build() {
-		$this->name = "EffectController";
+		$this->name = "effect controller";
 		$this->graphic = 0x1B72;
 		$this->type = "";
 		$this->flags = 0x00;

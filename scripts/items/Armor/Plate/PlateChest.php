@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlateChest extends Object {
+class platechest extends Object {
 	public function build() {
-		$this->name = "PlateChest";
+		$this->name = "plate chest";
 		$this->graphic = 0x1415;
 		$this->type = "";
 		$this->flags = 0x00;

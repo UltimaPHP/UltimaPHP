@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Rope extends Object {
+class rope extends Object {
 	public function build() {
-		$this->name = "Rope";
+		$this->name = "rope";
 		$this->graphic = 0x14F8;
 		$this->type = "";
 		$this->flags = 0x00;

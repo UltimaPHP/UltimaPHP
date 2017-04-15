@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RubyMace extends Object {
+class rubymace extends Object {
 	public function build() {
-		$this->name = "RubyMace";
+		$this->name = "ruby mace";
 		$this->graphic = 0x143B;
 		$this->type = "";
 		$this->flags = 0x00;

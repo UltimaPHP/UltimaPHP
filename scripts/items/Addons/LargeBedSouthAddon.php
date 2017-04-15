@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LargeBedSouthAddon extends Object {
+class largebedsouthaddon extends Object {
 	public function build() {
-		$this->name = "LargeBedSouthAddon";
+		$this->name = "large bed south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

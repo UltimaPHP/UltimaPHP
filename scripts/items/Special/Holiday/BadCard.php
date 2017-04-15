@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BadCard extends Object {
+class badcard extends Object {
 	public function build() {
-		$this->name = "BadCard";
+		$this->name = "bad card";
 		$this->graphic = 0x14ef;
 		$this->type = "";
 		$this->flags = 0x00;

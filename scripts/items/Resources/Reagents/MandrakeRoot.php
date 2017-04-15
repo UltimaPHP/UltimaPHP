@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MandrakeRoot extends Object {
+class mandrakeroot extends Object {
 	public function build() {
-		$this->name = "MandrakeRoot";
+		$this->name = "mandrake root";
 		$this->graphic = 0xF86;
 		$this->type = "";
 		$this->flags = 0x00;

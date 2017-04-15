@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RankingsOfTrades extends Object {
+class rankingsoftrades extends Object {
 	public function build() {
-		$this->name = "RankingsOfTrades";
+		$this->name = "rankings of trades";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

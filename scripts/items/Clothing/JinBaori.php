@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class JinBaori extends Object {
+class jinbaori extends Object {
 	public function build() {
-		$this->name = "JinBaori";
+		$this->name = "jin baori";
 		$this->graphic = 0x27A1;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StoneOvenEastAddon extends Object {
+class stoneoveneastaddon extends Object {
 	public function build() {
-		$this->name = "StoneOvenEastAddon";
+		$this->name = "stone oven east addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

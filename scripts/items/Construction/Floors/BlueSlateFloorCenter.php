@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BlueSlateFloorCenter extends Object {
+class blueslatefloorcenter extends Object {
 	public function build() {
-		$this->name = "BlueSlateFloorCenter";
+		$this->name = "blue slate floor center";
 		$this->graphic = 0x49B;
 		$this->type = "";
 		$this->flags = 0x00;

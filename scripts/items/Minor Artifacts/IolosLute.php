@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class IolosLute extends Object {
+class ioloslute extends Object {
 	public function build() {
-		$this->name = "IolosLute";
+		$this->name = "iolos lute";
 		$this->graphic = 0x1BEB;
 		$this->type = "";
 		$this->flags = 0x00;

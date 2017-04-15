@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BritainCrownFish extends Object {
+class britaincrownfish extends Object {
 	public function build() {
-		$this->name = "BritainCrownFish";
+		$this->name = "britain crown fish";
 		$this->graphic = 0x3AFF;
 		$this->type = "";
 		$this->flags = 0x00;

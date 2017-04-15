@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AbscessTail extends Object {
+class abscesstail extends Object {
 	public function build() {
-		$this->name = "AbscessTail";
+		$this->name = "abscess tail";
 		$this->graphic = 0x1A9D;
 		$this->type = "";
 		$this->flags = 0x00;

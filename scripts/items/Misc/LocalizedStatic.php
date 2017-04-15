@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LocalizedStatic extends Object {
+class localizedstatic extends Object {
 	public function build() {
-		$this->name = "LocalizedStatic";
+		$this->name = "localized static";
 		$this->graphic = 0x80;
 		$this->type = "";
 		$this->flags = 0x00;

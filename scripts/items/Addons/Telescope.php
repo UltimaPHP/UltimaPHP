@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Telescope extends Object {
+class telescope extends Object {
 	public function build() {
-		$this->name = "Telescope";
+		$this->name = "telescope";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SwarmOfFlies extends Object {
+class swarmofflies extends Object {
 	public function build() {
-		$this->name = "SwarmOfFlies";
+		$this->name = "swarm of flies";
 		$this->graphic = 0x91B;
 		$this->type = "";
 		$this->flags = 0x00;

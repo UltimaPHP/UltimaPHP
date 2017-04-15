@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CookieMix extends Object {
+class cookiemix extends Object {
 	public function build() {
-		$this->name = "CookieMix";
+		$this->name = "cookie mix";
 		$this->graphic = 0x103F;
 		$this->type = "";
 		$this->flags = 0x00;

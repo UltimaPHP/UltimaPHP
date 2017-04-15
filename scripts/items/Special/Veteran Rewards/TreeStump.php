@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TreeStump extends Object {
+class treestump extends Object {
 	public function build() {
-		$this->name = "TreeStump";
+		$this->name = "tree stump";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

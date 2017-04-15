@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AdminRobe extends Object {
+class adminrobe extends Object {
 	public function build() {
-		$this->name = "AdminRobe";
+		$this->name = "admin robe";
 		$this->graphic = 0x0;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MountedPixieGreenAddon extends Object {
+class mountedpixiegreenaddon extends Object {
 	public function build() {
-		$this->name = "MountedPixieGreenAddon";
+		$this->name = "mounted pixie green addon";
 		$this->graphic = 0x2A71;
 		$this->type = "";
 		$this->flags = 0x00;

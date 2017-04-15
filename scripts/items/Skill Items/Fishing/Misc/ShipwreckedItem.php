@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ShipwreckedItem extends Object {
+class shipwreckeditem extends Object {
 	public function build() {
-		$this->name = "ShipwreckedItem";
+		$this->name = "shipwrecked item";
 		$this->graphic = 0x1058;
 		$this->type = "";
 		$this->flags = 0x00;

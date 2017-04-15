@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SeahorseStatuette extends Object {
+class seahorsestatuette extends Object {
 	public function build() {
-		$this->name = "SeahorseStatuette";
+		$this->name = "seahorse statuette";
 		$this->graphic = 0x1BEB;
 		$this->type = "";
 		$this->flags = 0x00;

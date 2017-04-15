@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StatuetteDyeTub extends Object {
+class statuettedyetub extends Object {
 	public function build() {
-		$this->name = "StatuetteDyeTub";
+		$this->name = "statuette dye tub";
 		$this->graphic = 0xFAB;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SweatOfParoxysmus extends Object {
+class sweatofparoxysmus extends Object {
 	public function build() {
-		$this->name = "SweatOfParoxysmus";
+		$this->name = "sweat of paroxysmus";
 		$this->graphic = 0xF01;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class VeriteOre extends Object {
+class veriteore extends Object {
 	public function build() {
-		$this->name = "VeriteOre";
+		$this->name = "verite ore";
 		$this->graphic = 0x1BF2;
 		$this->type = "";
 		$this->flags = 0x00;

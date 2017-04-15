@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HaunterMirrorAddon extends Object {
+class hauntermirroraddon extends Object {
 	public function build() {
-		$this->name = "HaunterMirrorAddon";
+		$this->name = "haunter mirror addon";
 		$this->graphic = 0x2A7B;
 		$this->type = "";
 		$this->flags = 0x00;

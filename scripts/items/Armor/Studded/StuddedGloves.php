@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StuddedGloves extends Object {
+class studdedgloves extends Object {
 	public function build() {
-		$this->name = "StuddedGloves";
+		$this->name = "studded gloves";
 		$this->graphic = 0x13D5;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MetalShield extends Object {
+class metalshield extends Object {
 	public function build() {
-		$this->name = "MetalShield";
+		$this->name = "metal shield";
 		$this->graphic = 0x1B7B;
 		$this->type = "";
 		$this->flags = 0x00;

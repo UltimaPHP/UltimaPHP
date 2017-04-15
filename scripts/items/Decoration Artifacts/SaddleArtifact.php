@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SaddleArtifact extends Object {
+class saddleartifact extends Object {
 	public function build() {
-		$this->name = "SaddleArtifact";
+		$this->name = "saddle artifact";
 		$this->graphic = 0xF38;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Hammer extends Object {
+class hammer extends Object {
 	public function build() {
-		$this->name = "Hammer";
+		$this->name = "hammer";
 		$this->graphic = 0x102A;
 		$this->type = "";
 		$this->flags = 0x00;

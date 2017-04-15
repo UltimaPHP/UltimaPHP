@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FriedEggs extends Object {
+class friedeggs extends Object {
 	public function build() {
-		$this->name = "FriedEggs";
+		$this->name = "fried eggs";
 		$this->graphic = 0x9B6;
 		$this->type = "";
 		$this->flags = 0x00;

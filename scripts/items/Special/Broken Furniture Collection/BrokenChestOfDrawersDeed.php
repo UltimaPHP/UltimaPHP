@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrokenChestOfDrawersDeed extends Object {
+class brokenchestofdrawersdeed extends Object {
 	public function build() {
-		$this->name = "BrokenChestOfDrawersDeed";
+		$this->name = "broken chest of drawers deed";
 		$this->graphic = 0xC24;
 		$this->type = "";
 		$this->flags = 0x00;

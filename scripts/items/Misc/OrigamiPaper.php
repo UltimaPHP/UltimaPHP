@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OrigamiPaper extends Object {
+class origamipaper extends Object {
 	public function build() {
-		$this->name = "OrigamiPaper";
+		$this->name = "origami paper";
 		$this->graphic = 0x2830;
 		$this->type = "";
 		$this->flags = 0x00;

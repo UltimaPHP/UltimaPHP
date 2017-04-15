@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BurningOfTrinsic extends Object {
+class burningoftrinsic extends Object {
 	public function build() {
-		$this->name = "BurningOfTrinsic";
+		$this->name = "burning of trinsic";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

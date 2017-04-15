@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SnowGlobe extends Object {
+class snowglobe extends Object {
 	public function build() {
-		$this->name = "SnowGlobe";
+		$this->name = "snow globe";
 		$this->graphic = 0xE2F;
 		$this->type = "";
 		$this->flags = 0x00;

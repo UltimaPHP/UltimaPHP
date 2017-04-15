@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ImmolatingWeaponScroll extends Object {
+class immolatingweaponscroll extends Object {
 	public function build() {
-		$this->name = "ImmolatingWeaponScroll";
+		$this->name = "immolating weapon scroll";
 		$this->graphic = 0x2D53;
 		$this->type = "";
 		$this->flags = 0x00;

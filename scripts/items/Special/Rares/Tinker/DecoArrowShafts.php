@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoArrowShafts extends Object {
+class decoarrowshafts extends Object {
 	public function build() {
-		$this->name = "DecoArrowShafts";
+		$this->name = "deco arrow shafts";
 		$this->graphic = 0x1024;
 		$this->type = "";
 		$this->flags = 0x00;

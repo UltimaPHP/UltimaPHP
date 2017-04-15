@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class NewAquariumBook extends Object {
+class newaquariumbook extends Object {
 	public function build() {
-		$this->name = "NewAquariumBook";
+		$this->name = "new aquarium book";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

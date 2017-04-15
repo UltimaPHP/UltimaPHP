@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SlayerLongbow extends Object {
+class slayerlongbow extends Object {
 	public function build() {
-		$this->name = "SlayerLongbow";
+		$this->name = "slayer longbow";
 		$this->graphic = 0x26C3;
 		$this->type = "";
 		$this->flags = 0x00;

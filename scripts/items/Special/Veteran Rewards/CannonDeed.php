@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CannonDeed extends Object {
+class cannondeed extends Object {
 	public function build() {
-		$this->name = "CannonDeed";
+		$this->name = "cannon deed";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

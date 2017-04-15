@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Harp extends Object {
+class harp extends Object {
 	public function build() {
-		$this->name = "Harp";
+		$this->name = "harp";
 		$this->graphic = 0xEB1;
 		$this->type = "";
 		$this->flags = 0x00;

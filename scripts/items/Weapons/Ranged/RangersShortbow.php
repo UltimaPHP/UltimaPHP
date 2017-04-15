@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RangersShortbow extends Object {
+class rangersshortbow extends Object {
 	public function build() {
-		$this->name = "RangersShortbow";
+		$this->name = "rangers shortbow";
 		$this->graphic = 0x13FD;
 		$this->type = "";
 		$this->flags = 0x00;

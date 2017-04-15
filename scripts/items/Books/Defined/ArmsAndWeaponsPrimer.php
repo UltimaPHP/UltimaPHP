@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ArmsAndWeaponsPrimer extends Object {
+class armsandweaponsprimer extends Object {
 	public function build() {
-		$this->name = "ArmsAndWeaponsPrimer";
+		$this->name = "arms and weapons primer";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

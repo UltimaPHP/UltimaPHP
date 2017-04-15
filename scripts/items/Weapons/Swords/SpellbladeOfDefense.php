@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SpellbladeOfDefense extends Object {
+class spellbladeofdefense extends Object {
 	public function build() {
-		$this->name = "SpellbladeOfDefense";
+		$this->name = "spellblade of defense";
 		$this->graphic = 0x13B6;
 		$this->type = "";
 		$this->flags = 0x00;

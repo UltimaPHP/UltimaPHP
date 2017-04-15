@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WoodenCoffinComponent extends Object {
+class woodencoffincomponent extends Object {
 	public function build() {
-		$this->name = "WoodenCoffinComponent";
+		$this->name = "wooden coffin component";
 		$this->graphic = 0x3D98;
 		$this->type = "";
 		$this->flags = 0x00;

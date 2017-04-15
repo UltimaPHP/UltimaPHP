@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Daisho extends Object {
+class daisho extends Object {
 	public function build() {
-		$this->name = "Daisho";
+		$this->name = "daisho";
 		$this->graphic = 0x27A9;
 		$this->type = "";
 		$this->flags = 0x00;

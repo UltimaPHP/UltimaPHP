@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PieceBlackChecker extends Object {
+class pieceblackchecker extends Object {
 	public function build() {
-		$this->name = "PieceBlackChecker";
+		$this->name = "piece black checker";
 		$this->graphic = 0x358B;
 		$this->type = "";
 		$this->flags = 0x00;

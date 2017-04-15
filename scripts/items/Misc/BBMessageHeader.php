@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BBMessageHeader extends Object {
+class bbmessageheader extends Object {
 	public function build() {
-		$this->name = "BBMessageHeader";
+		$this->name = "bb message header";
 		$this->graphic = 0x71;
 		$this->type = "";
 		$this->flags = 0x00;

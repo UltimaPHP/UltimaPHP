@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TallElvenBedSouthAddon extends Object {
+class tallelvenbedsouthaddon extends Object {
 	public function build() {
-		$this->name = "TallElvenBedSouthAddon";
+		$this->name = "tall elven bed south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

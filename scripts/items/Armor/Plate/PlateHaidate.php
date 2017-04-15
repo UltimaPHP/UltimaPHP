@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlateHaidate extends Object {
+class platehaidate extends Object {
 	public function build() {
-		$this->name = "PlateHaidate";
+		$this->name = "plate haidate";
 		$this->graphic = 0x278D;
 		$this->type = "";
 		$this->flags = 0x00;

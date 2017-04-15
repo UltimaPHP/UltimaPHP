@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PickpocketDipEastDeed extends Object {
+class pickpocketdipeastdeed extends Object {
 	public function build() {
-		$this->name = "PickpocketDipEastDeed";
+		$this->name = "pickpocket dip east deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

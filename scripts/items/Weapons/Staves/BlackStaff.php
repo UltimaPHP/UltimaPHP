@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BlackStaff extends Object {
+class blackstaff extends Object {
 	public function build() {
-		$this->name = "BlackStaff";
+		$this->name = "black staff";
 		$this->graphic = 0xDF0;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrokenChestOfDrawersAddon extends Object {
+class brokenchestofdrawersaddon extends Object {
 	public function build() {
-		$this->name = "BrokenChestOfDrawersAddon";
+		$this->name = "broken chest of drawers addon";
 		$this->graphic = 0xC24;
 		$this->type = "";
 		$this->flags = 0x00;

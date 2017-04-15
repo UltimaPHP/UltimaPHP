@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MasonryBook extends Object {
+class masonrybook extends Object {
 	public function build() {
-		$this->name = "MasonryBook";
+		$this->name = "masonry book";
 		$this->graphic = 0xFBE;
 		$this->type = "";
 		$this->flags = 0x00;

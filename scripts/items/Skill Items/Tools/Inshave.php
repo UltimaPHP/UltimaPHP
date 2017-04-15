@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Inshave extends Object {
+class inshave extends Object {
 	public function build() {
-		$this->name = "Inshave";
+		$this->name = "inshave";
 		$this->graphic = 0x10E6;
 		$this->type = "";
 		$this->flags = 0x00;

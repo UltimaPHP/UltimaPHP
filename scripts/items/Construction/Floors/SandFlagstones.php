@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SandFlagstones extends Object {
+class sandflagstones extends Object {
 	public function build() {
-		$this->name = "SandFlagstones";
+		$this->name = "sand flagstones";
 		$this->graphic = 0x500;
 		$this->type = "";
 		$this->flags = 0x00;

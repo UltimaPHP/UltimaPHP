@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GruesomeStandardArtifact extends Object {
+class gruesomestandardartifact extends Object {
 	public function build() {
-		$this->name = "GruesomeStandardArtifact";
+		$this->name = "gruesome standard artifact";
 		$this->graphic = 0x428;
 		$this->type = "";
 		$this->flags = 0x00;

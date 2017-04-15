@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DragonLegs extends Object {
+class dragonlegs extends Object {
 	public function build() {
-		$this->name = "DragonLegs";
+		$this->name = "dragon legs";
 		$this->graphic = 0x2647;
 		$this->type = "";
 		$this->flags = 0x00;

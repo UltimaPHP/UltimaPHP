@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrocadeGozaMatEastDeed extends Object {
+class brocadegozamateastdeed extends Object {
 	public function build() {
-		$this->name = "BrocadeGozaMatEastDeed";
+		$this->name = "brocade goza mat east deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

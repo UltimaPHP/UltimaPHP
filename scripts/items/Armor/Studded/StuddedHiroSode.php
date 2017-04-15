@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StuddedHiroSode extends Object {
+class studdedhirosode extends Object {
 	public function build() {
-		$this->name = "StuddedHiroSode";
+		$this->name = "studded hiro sode";
 		$this->graphic = 0x277F;
 		$this->type = "";
 		$this->flags = 0x00;

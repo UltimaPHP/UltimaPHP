@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LargeCrate extends Object {
+class largecrate extends Object {
 	public function build() {
-		$this->name = "LargeCrate";
+		$this->name = "large crate";
 		$this->graphic = 0xE3D;
 		$this->type = "";
 		$this->flags = 0x00;

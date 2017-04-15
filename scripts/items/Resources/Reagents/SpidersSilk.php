@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SpidersSilk extends Object {
+class spiderssilk extends Object {
 	public function build() {
-		$this->name = "SpidersSilk";
+		$this->name = "spiders silk";
 		$this->graphic = 0xF8D;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Ribs extends Object {
+class ribs extends Object {
 	public function build() {
-		$this->name = "Ribs";
+		$this->name = "ribs";
 		$this->graphic = 0x9F2;
 		$this->type = "";
 		$this->flags = 0x00;

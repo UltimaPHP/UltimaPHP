@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LOSBlocker extends Object {
+class losblocker extends Object {
 	public function build() {
-		$this->name = "LOSBlocker";
+		$this->name = "los blocker";
 		$this->graphic = 0x1A;
 		$this->type = "";
 		$this->flags = 0x00;

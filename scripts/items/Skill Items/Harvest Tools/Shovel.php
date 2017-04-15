@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Shovel extends Object {
+class shovel extends Object {
 	public function build() {
-		$this->name = "Shovel";
+		$this->name = "shovel";
 		$this->graphic = 0xF39;
 		$this->type = "";
 		$this->flags = 0x00;

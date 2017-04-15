@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GiftBoxCylinder extends Object {
+class giftboxcylinder extends Object {
 	public function build() {
-		$this->name = "GiftBoxCylinder";
+		$this->name = "gift box cylinder";
 		$this->graphic = 0x2be1;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ParalyzeFieldScroll extends Object {
+class paralyzefieldscroll extends Object {
 	public function build() {
-		$this->name = "ParalyzeFieldScroll";
+		$this->name = "paralyze field scroll";
 		$this->graphic = 0x1F5B;
 		$this->type = "";
 		$this->flags = 0x00;

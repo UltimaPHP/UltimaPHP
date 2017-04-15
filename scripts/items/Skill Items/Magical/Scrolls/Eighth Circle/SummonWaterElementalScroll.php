@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SummonWaterElementalScroll extends Object {
+class summonwaterelementalscroll extends Object {
 	public function build() {
-		$this->name = "SummonWaterElementalScroll";
+		$this->name = "summon water elemental scroll";
 		$this->graphic = 0x1F6C;
 		$this->type = "";
 		$this->flags = 0x00;

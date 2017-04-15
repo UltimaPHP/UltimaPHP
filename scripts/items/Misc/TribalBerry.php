@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TribalBerry extends Object {
+class tribalberry extends Object {
 	public function build() {
-		$this->name = "TribalBerry";
+		$this->name = "tribal berry";
 		$this->graphic = 0x9D0;
 		$this->type = "";
 		$this->flags = 0x00;

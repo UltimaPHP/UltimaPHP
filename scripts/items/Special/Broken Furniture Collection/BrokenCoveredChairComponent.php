@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrokenCoveredChairComponent extends Object {
+class brokencoveredchaircomponent extends Object {
 	public function build() {
-		$this->name = "BrokenCoveredChairComponent";
+		$this->name = "broken covered chair component";
 		$this->graphic = 0xC17;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FeyLeggings extends Object {
+class feyleggings extends Object {
 	public function build() {
-		$this->name = "FeyLeggings";
+		$this->name = "fey leggings";
 		$this->graphic = 0x2F5A;
 		$this->type = "";
 		$this->flags = 0x00;

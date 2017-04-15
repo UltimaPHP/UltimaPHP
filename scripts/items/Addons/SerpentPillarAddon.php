@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SerpentPillarAddon extends Object {
+class serpentpillaraddon extends Object {
 	public function build() {
-		$this->name = "SerpentPillarAddon";
+		$this->name = "serpent pillar addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

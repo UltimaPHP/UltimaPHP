@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BoldStranger extends Object {
+class boldstranger extends Object {
 	public function build() {
-		$this->name = "BoldStranger";
+		$this->name = "bold stranger";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

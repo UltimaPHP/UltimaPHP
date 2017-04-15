@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BlueSnowflake extends Object {
+class bluesnowflake extends Object {
 	public function build() {
-		$this->name = "BlueSnowflake";
+		$this->name = "blue snowflake";
 		$this->graphic = 0x232E;
 		$this->type = "";
 		$this->flags = 0x00;

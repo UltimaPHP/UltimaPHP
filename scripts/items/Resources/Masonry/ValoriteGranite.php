@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ValoriteGranite extends Object {
+class valoritegranite extends Object {
 	public function build() {
-		$this->name = "ValoriteGranite";
+		$this->name = "valorite granite";
 		$this->graphic = 0x1779;
 		$this->type = "";
 		$this->flags = 0x00;

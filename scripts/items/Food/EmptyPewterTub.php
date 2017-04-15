@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EmptyPewterTub extends Object {
+class emptypewtertub extends Object {
 	public function build() {
-		$this->name = "EmptyPewterTub";
+		$this->name = "empty pewter tub";
 		$this->graphic = 0x1603;
 		$this->type = "";
 		$this->flags = 0x00;

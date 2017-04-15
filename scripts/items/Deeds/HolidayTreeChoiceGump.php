@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HolidayTreeChoiceGump extends Object {
+class holidaytreechoicegump extends Object {
 	public function build() {
-		$this->name = "HolidayTreeChoiceGump";
+		$this->name = "holiday tree choice gump";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

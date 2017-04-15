@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LambLeg extends Object {
+class lambleg extends Object {
 	public function build() {
-		$this->name = "LambLeg";
+		$this->name = "lamb leg";
 		$this->graphic = 0x160a;
 		$this->type = "";
 		$this->flags = 0x00;

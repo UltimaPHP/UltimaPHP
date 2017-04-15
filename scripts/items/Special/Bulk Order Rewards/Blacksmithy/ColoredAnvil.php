@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ColoredAnvil extends Object {
+class coloredanvil extends Object {
 	public function build() {
-		$this->name = "ColoredAnvil";
+		$this->name = "colored anvil";
 		$this->graphic = 0xFAF;
 		$this->type = "";
 		$this->flags = 0x00;

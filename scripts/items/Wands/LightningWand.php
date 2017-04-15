@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LightningWand extends Object {
+class lightningwand extends Object {
 	public function build() {
-		$this->name = "LightningWand";
+		$this->name = "lightning wand";
 		$this->graphic = 0xDF2;
 		$this->type = "";
 		$this->flags = 0x00;

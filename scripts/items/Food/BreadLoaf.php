@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BreadLoaf extends Object {
+class breadloaf extends Object {
 	public function build() {
-		$this->name = "BreadLoaf";
+		$this->name = "bread loaf";
 		$this->graphic = 0x103B;
 		$this->type = "";
 		$this->flags = 0x00;

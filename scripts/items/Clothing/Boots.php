@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Boots extends Object {
+class boots extends Object {
 	public function build() {
-		$this->name = "Boots";
+		$this->name = "boots";
 		$this->graphic = 0x170B;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Spellbook extends Object {
+class spellbook extends Object {
 	public function build() {
-		$this->name = "Spellbook";
+		$this->name = "spellbook";
 		$this->graphic = 0x22C5;
 		$this->type = "";
 		$this->flags = 0x00;

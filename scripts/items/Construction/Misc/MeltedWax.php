@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MeltedWax extends Object {
+class meltedwax extends Object {
 	public function build() {
-		$this->name = "MeltedWax";
+		$this->name = "melted wax";
 		$this->graphic = 0x122A;
 		$this->type = "";
 		$this->flags = 0x00;

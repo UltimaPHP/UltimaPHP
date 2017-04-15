@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BarkFragment extends Object {
+class barkfragment extends Object {
 	public function build() {
-		$this->name = "BarkFragment";
+		$this->name = "bark fragment";
 		$this->graphic = 0x318F;
 		$this->type = "";
 		$this->flags = 0x00;

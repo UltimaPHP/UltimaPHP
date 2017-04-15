@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RunebookDyeTub extends Object {
+class runebookdyetub extends Object {
 	public function build() {
-		$this->name = "RunebookDyeTub";
+		$this->name = "runebook dye tub";
 		$this->graphic = 0xFAB;
 		$this->type = "";
 		$this->flags = 0x00;

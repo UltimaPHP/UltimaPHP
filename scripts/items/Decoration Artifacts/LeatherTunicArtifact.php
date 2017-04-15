@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeatherTunicArtifact extends Object {
+class leathertunicartifact extends Object {
 	public function build() {
-		$this->name = "LeatherTunicArtifact";
+		$this->name = "leather tunic artifact";
 		$this->graphic = 0x13CA;
 		$this->type = "";
 		$this->flags = 0x00;

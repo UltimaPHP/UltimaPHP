@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MushroomTrap extends Object {
+class mushroomtrap extends Object {
 	public function build() {
-		$this->name = "MushroomTrap";
+		$this->name = "mushroom trap";
 		$this->graphic = 0x1125;
 		$this->type = "";
 		$this->flags = 0x00;

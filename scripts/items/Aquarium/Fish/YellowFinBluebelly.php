@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class YellowFinBluebelly extends Object {
+class yellowfinbluebelly extends Object {
 	public function build() {
-		$this->name = "YellowFinBluebelly";
+		$this->name = "yellow fin bluebelly";
 		$this->graphic = 0x3B07;
 		$this->type = "";
 		$this->flags = 0x00;

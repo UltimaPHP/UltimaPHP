@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Nightshade extends Object {
+class nightshade extends Object {
 	public function build() {
-		$this->name = "Nightshade";
+		$this->name = "nightshade";
 		$this->graphic = 0xF88;
 		$this->type = "";
 		$this->flags = 0x00;

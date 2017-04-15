@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Goblet extends Object {
+class goblet extends Object {
 	public function build() {
-		$this->name = "Goblet";
+		$this->name = "goblet";
 		$this->graphic = 0x2850;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RingmailGlovesOfMining extends Object {
+class ringmailglovesofmining extends Object {
 	public function build() {
-		$this->name = "RingmailGlovesOfMining";
+		$this->name = "ringmail gloves of mining";
 		$this->graphic = 0x13EB;
 		$this->type = "";
 		$this->flags = 0x00;

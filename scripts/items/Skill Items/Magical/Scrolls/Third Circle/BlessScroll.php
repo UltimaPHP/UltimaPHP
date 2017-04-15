@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BlessScroll extends Object {
+class blessscroll extends Object {
 	public function build() {
-		$this->name = "BlessScroll";
+		$this->name = "bless scroll";
 		$this->graphic = 0x1F3D;
 		$this->type = "";
 		$this->flags = 0x00;

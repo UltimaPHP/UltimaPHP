@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GildedDress extends Object {
+class gildeddress extends Object {
 	public function build() {
-		$this->name = "GildedDress";
+		$this->name = "gilded dress";
 		$this->graphic = 0x230E;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TallMusicStand extends Object {
+class tallmusicstand extends Object {
 	public function build() {
-		$this->name = "TallMusicStand";
+		$this->name = "tall music stand";
 		$this->graphic = 0x122A;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class UnbakedQuiche extends Object {
+class unbakedquiche extends Object {
 	public function build() {
-		$this->name = "UnbakedQuiche";
+		$this->name = "unbaked quiche";
 		$this->graphic = 0x1042;
 		$this->type = "";
 		$this->flags = 0x00;

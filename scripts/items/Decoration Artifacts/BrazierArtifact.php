@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrazierArtifact extends Object {
+class brazierartifact extends Object {
 	public function build() {
-		$this->name = "BrazierArtifact";
+		$this->name = "brazier artifact";
 		$this->graphic = 0xE31;
 		$this->type = "";
 		$this->flags = 0x00;

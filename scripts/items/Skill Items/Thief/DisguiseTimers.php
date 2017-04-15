@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DisguiseTimers extends Object {
+class disguisetimers extends Object {
 	public function build() {
-		$this->name = "DisguiseTimers";
+		$this->name = "disguise timers";
 		$this->graphic = 0xE05;
 		$this->type = "";
 		$this->flags = 0x00;

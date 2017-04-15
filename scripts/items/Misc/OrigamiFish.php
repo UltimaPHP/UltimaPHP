@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OrigamiFish extends Object {
+class origamifish extends Object {
 	public function build() {
-		$this->name = "OrigamiFish";
+		$this->name = "origami fish";
 		$this->graphic = 0x283D;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EcruCitrine extends Object {
+class ecrucitrine extends Object {
 	public function build() {
-		$this->name = "EcruCitrine";
+		$this->name = "ecru citrine";
 		$this->graphic = 0x3195;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GlassMug extends Object {
+class glassmug extends Object {
 	public function build() {
-		$this->name = "GlassMug";
+		$this->name = "glass mug";
 		$this->graphic = 0x2850;
 		$this->type = "";
 		$this->flags = 0x00;

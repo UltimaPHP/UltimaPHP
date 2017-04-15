@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Scorp extends Object {
+class scorp extends Object {
 	public function build() {
-		$this->name = "Scorp";
+		$this->name = "scorp";
 		$this->graphic = 0x10E7;
 		$this->type = "";
 		$this->flags = 0x00;

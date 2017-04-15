@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StandingBrokenChairAddon extends Object {
+class standingbrokenchairaddon extends Object {
 	public function build() {
-		$this->name = "StandingBrokenChairAddon";
+		$this->name = "standing broken chair addon";
 		$this->graphic = 0xC1B;
 		$this->type = "";
 		$this->flags = 0x00;

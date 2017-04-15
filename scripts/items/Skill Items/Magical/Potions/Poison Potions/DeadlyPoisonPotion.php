@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DeadlyPoisonPotion extends Object {
+class deadlypoisonpotion extends Object {
 	public function build() {
-		$this->name = "DeadlyPoisonPotion";
+		$this->name = "deadly poison potion";
 		$this->graphic = 0xF0A;
 		$this->type = "";
 		$this->flags = 0x00;

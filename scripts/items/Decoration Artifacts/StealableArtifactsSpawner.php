@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StealableArtifactsSpawner extends Object {
+class stealableartifactsspawner extends Object {
 	public function build() {
-		$this->name = "StealableArtifactsSpawner";
+		$this->name = "stealable artifacts spawner";
 		$this->graphic = 0x24E5;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Afro extends Object {
+class afro extends Object {
 	public function build() {
-		$this->name = "Afro";
+		$this->name = "afro";
 		$this->graphic = 0x2047;
 		$this->type = "";
 		$this->flags = 0x00;

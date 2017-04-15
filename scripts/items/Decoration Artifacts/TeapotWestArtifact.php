@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TeapotWestArtifact extends Object {
+class teapotwestartifact extends Object {
 	public function build() {
-		$this->name = "TeapotWestArtifact";
+		$this->name = "teapot west artifact";
 		$this->graphic = 0x24E7;
 		$this->type = "";
 		$this->flags = 0x00;

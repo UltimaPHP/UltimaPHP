@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MahjongTileTypeGenerator extends Object {
+class mahjongtiletypegenerator extends Object {
 	public function build() {
-		$this->name = "MahjongTileTypeGenerator";
+		$this->name = "mahjong tile type generator";
 		$this->graphic = 0xFAA;
 		$this->type = "";
 		$this->flags = 0x00;

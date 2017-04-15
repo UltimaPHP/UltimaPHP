@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RightLeg extends Object {
+class rightleg extends Object {
 	public function build() {
-		$this->name = "RightLeg";
+		$this->name = "right leg";
 		$this->graphic = 0x1DA4;
 		$this->type = "";
 		$this->flags = 0x00;

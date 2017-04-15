@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TalesOfVesperVol1 extends Object {
+class talesofvespervol1 extends Object {
 	public function build() {
-		$this->name = "TalesOfVesperVol1";
+		$this->name = "tales of vesper vol";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

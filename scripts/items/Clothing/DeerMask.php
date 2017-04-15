@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DeerMask extends Object {
+class deermask extends Object {
 	public function build() {
-		$this->name = "DeerMask";
+		$this->name = "deer mask";
 		$this->graphic = 0x1547;
 		$this->type = "";
 		$this->flags = 0x00;

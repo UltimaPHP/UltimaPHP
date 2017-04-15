@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BattleAxe extends Object {
+class battleaxe extends Object {
 	public function build() {
-		$this->name = "BattleAxe";
+		$this->name = "battle axe";
 		$this->graphic = 0xF47;
 		$this->type = "";
 		$this->flags = 0x00;

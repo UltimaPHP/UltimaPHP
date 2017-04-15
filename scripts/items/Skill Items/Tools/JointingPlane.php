@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class JointingPlane extends Object {
+class jointingplane extends Object {
 	public function build() {
-		$this->name = "JointingPlane";
+		$this->name = "jointing plane";
 		$this->graphic = 0x1030;
 		$this->type = "";
 		$this->flags = 0x00;

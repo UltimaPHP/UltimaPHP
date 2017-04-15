@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Bardiche extends Object {
+class bardiche extends Object {
 	public function build() {
-		$this->name = "Bardiche";
+		$this->name = "bardiche";
 		$this->graphic = 0xF4D;
 		$this->type = "";
 		$this->flags = 0x00;

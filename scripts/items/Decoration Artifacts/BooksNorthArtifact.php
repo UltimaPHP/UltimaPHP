@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BooksNorthArtifact extends Object {
+class booksnorthartifact extends Object {
 	public function build() {
-		$this->name = "BooksNorthArtifact";
+		$this->name = "books north artifact";
 		$this->graphic = 0x1E24;
 		$this->type = "";
 		$this->flags = 0x00;

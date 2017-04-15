@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class NameChangeDeedGump extends Object {
+class namechangedeedgump extends Object {
 	public function build() {
-		$this->name = "NameChangeDeedGump";
+		$this->name = "name change deed gump";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

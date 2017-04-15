@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RingOfTheSavant extends Object {
+class ringofthesavant extends Object {
 	public function build() {
-		$this->name = "RingOfTheSavant";
+		$this->name = "ring of the savant";
 		$this->graphic = 0x3FFFFFFFF;
 		$this->type = "";
 		$this->flags = 0x00;

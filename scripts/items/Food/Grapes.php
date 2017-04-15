@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Grapes extends Object {
+class grapes extends Object {
 	public function build() {
-		$this->name = "Grapes";
+		$this->name = "grapes";
 		$this->graphic = 0x9D1;
 		$this->type = "";
 		$this->flags = 0x00;

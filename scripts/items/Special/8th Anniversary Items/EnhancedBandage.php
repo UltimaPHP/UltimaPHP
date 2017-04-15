@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EnhancedBandage extends Object {
+class enhancedbandage extends Object {
 	public function build() {
-		$this->name = "EnhancedBandage";
+		$this->name = "enhanced bandage";
 		$this->graphic = 0x2B01;
 		$this->type = "";
 		$this->flags = 0x00;

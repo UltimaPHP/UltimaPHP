@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GiftBoxOctogon extends Object {
+class giftboxoctogon extends Object {
 	public function build() {
-		$this->name = "GiftBoxOctogon";
+		$this->name = "gift box octogon";
 		$this->graphic = 0x2be1;
 		$this->type = "";
 		$this->flags = 0x00;

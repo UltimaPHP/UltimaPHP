@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EvilIdolSkull extends Object {
+class evilidolskull extends Object {
 	public function build() {
-		$this->name = "EvilIdolSkull";
+		$this->name = "evil idol skull";
 		$this->graphic = 0x1F18;
 		$this->type = "";
 		$this->flags = 0x00;

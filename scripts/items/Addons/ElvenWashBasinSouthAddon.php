@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ElvenWashBasinSouthAddon extends Object {
+class elvenwashbasinsouthaddon extends Object {
 	public function build() {
-		$this->name = "ElvenWashBasinSouthAddon";
+		$this->name = "elven wash basin south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

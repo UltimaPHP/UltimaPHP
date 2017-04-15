@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EggCaseArtifact extends Object {
+class eggcaseartifact extends Object {
 	public function build() {
-		$this->name = "EggCaseArtifact";
+		$this->name = "egg case artifact";
 		$this->graphic = 0x10D9;
 		$this->type = "";
 		$this->flags = 0x00;

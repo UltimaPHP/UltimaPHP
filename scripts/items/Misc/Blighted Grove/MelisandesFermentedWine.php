@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MelisandesFermentedWine extends Object {
+class melisandesfermentedwine extends Object {
 	public function build() {
-		$this->name = "MelisandesFermentedWine";
+		$this->name = "melisandes fermented wine";
 		$this->graphic = 0x26B4;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WarHammer extends Object {
+class warhammer extends Object {
 	public function build() {
-		$this->name = "WarHammer";
+		$this->name = "war hammer";
 		$this->graphic = 0x1439;
 		$this->type = "";
 		$this->flags = 0x00;

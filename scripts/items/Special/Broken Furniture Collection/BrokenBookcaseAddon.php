@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrokenBookcaseAddon extends Object {
+class brokenbookcaseaddon extends Object {
 	public function build() {
-		$this->name = "BrokenBookcaseAddon";
+		$this->name = "broken bookcase addon";
 		$this->graphic = 0xC14;
 		$this->type = "";
 		$this->flags = 0x00;

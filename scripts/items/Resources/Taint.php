@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Taint extends Object {
+class taint extends Object {
 	public function build() {
-		$this->name = "Taint";
+		$this->name = "taint";
 		$this->graphic = 0x3187;
 		$this->type = "";
 		$this->flags = 0x00;

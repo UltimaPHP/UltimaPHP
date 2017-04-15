@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CopperWire extends Object {
+class copperwire extends Object {
 	public function build() {
-		$this->name = "CopperWire";
+		$this->name = "copper wire";
 		$this->graphic = 0x1879;
 		$this->type = "";
 		$this->flags = 0x00;

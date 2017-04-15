@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SandstoneFireplaceEastDeed extends Object {
+class sandstonefireplaceeastdeed extends Object {
 	public function build() {
-		$this->name = "SandstoneFireplaceEastDeed";
+		$this->name = "sandstone fireplace east deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

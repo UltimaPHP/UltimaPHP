@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ParagonChest extends Object {
+class paragonchest extends Object {
 	public function build() {
-		$this->name = "ParagonChest";
+		$this->name = "paragon chest";
 		$this->graphic = 0xECA;
 		$this->type = "";
 		$this->flags = 0x00;

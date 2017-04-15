@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MoongateGump extends Object {
+class moongategump extends Object {
 	public function build() {
-		$this->name = "MoongateGump";
+		$this->name = "moongate gump";
 		$this->graphic = 0xF6C;
 		$this->type = "";
 		$this->flags = 0x00;

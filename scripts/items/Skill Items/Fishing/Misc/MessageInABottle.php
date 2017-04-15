@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MessageInABottle extends Object {
+class messageinabottle extends Object {
 	public function build() {
-		$this->name = "MessageInABottle";
+		$this->name = "message in a bottle";
 		$this->graphic = 0x099F;
 		$this->type = "";
 		$this->flags = 0x00;

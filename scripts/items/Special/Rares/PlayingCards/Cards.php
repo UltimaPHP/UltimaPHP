@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Cards extends Object {
+class cards extends Object {
 	public function build() {
-		$this->name = "Cards";
+		$this->name = "cards";
 		$this->graphic = 0xE19;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ArcaneGem extends Object {
+class arcanegem extends Object {
 	public function build() {
-		$this->name = "ArcaneGem";
+		$this->name = "arcane gem";
 		$this->graphic = 0x1EA7;
 		$this->type = "";
 		$this->flags = 0x00;

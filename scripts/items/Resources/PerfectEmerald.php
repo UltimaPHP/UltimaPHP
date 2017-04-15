@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PerfectEmerald extends Object {
+class perfectemerald extends Object {
 	public function build() {
-		$this->name = "PerfectEmerald";
+		$this->name = "perfect emerald";
 		$this->graphic = 0x3194;
 		$this->type = "";
 		$this->flags = 0x00;

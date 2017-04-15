@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class UncookedSausagePizza extends Object {
+class uncookedsausagepizza extends Object {
 	public function build() {
-		$this->name = "UncookedSausagePizza";
+		$this->name = "uncooked sausage pizza";
 		$this->graphic = 0x1083;
 		$this->type = "";
 		$this->flags = 0x00;

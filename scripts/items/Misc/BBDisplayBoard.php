@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BBDisplayBoard extends Object {
+class bbdisplayboard extends Object {
 	public function build() {
-		$this->name = "BBDisplayBoard";
+		$this->name = "bb display board";
 		$this->graphic = 0x71;
 		$this->type = "";
 		$this->flags = 0x00;

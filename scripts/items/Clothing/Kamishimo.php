@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Kamishimo extends Object {
+class kamishimo extends Object {
 	public function build() {
-		$this->name = "Kamishimo";
+		$this->name = "kamishimo";
 		$this->graphic = 0x2799;
 		$this->type = "";
 		$this->flags = 0x00;

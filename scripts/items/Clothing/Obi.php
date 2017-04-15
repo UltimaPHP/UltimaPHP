@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Obi extends Object {
+class obi extends Object {
 	public function build() {
-		$this->name = "Obi";
+		$this->name = "obi";
 		$this->graphic = 0x27A0;
 		$this->type = "";
 		$this->flags = 0x00;

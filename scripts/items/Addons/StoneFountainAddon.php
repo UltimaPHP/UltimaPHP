@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StoneFountainAddon extends Object {
+class stonefountainaddon extends Object {
 	public function build() {
-		$this->name = "StoneFountainAddon";
+		$this->name = "stone fountain addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

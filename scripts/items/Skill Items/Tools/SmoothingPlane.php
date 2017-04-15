@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SmoothingPlane extends Object {
+class smoothingplane extends Object {
 	public function build() {
-		$this->name = "SmoothingPlane";
+		$this->name = "smoothing plane";
 		$this->graphic = 0x1032;
 		$this->type = "";
 		$this->flags = 0x00;

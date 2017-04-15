@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FancyWindChimes extends Object {
+class fancywindchimes extends Object {
 	public function build() {
-		$this->name = "FancyWindChimes";
+		$this->name = "fancy wind chimes";
 		$this->graphic = 0x2833;
 		$this->type = "";
 		$this->flags = 0x00;

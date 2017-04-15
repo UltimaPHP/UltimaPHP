@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RobeOfTheEclipse extends Object {
+class robeoftheeclipse extends Object {
 	public function build() {
-		$this->name = "RobeOfTheEclipse";
+		$this->name = "robe of the eclipse";
 		$this->graphic = 0x1F03;
 		$this->type = "";
 		$this->flags = 0x00;

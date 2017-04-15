@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrokenChestOfDrawersComponent extends Object {
+class brokenchestofdrawerscomponent extends Object {
 	public function build() {
-		$this->name = "BrokenChestOfDrawersComponent";
+		$this->name = "broken chest of drawers component";
 		$this->graphic = 0xC24;
 		$this->type = "";
 		$this->flags = 0x00;

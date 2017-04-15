@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BedOfNailsDeed extends Object {
+class bedofnailsdeed extends Object {
 	public function build() {
-		$this->name = "BedOfNailsDeed";
+		$this->name = "bed of nails deed";
 		$this->graphic = 0x2A5D;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DreadHornMane extends Object {
+class dreadhornmane extends Object {
 	public function build() {
-		$this->name = "DreadHornMane";
+		$this->name = "dread horn mane";
 		$this->graphic = 0x318A;
 		$this->type = "";
 		$this->flags = 0x00;

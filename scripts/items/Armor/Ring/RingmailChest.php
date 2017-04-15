@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RingmailChest extends Object {
+class ringmailchest extends Object {
 	public function build() {
-		$this->name = "RingmailChest";
+		$this->name = "ringmail chest";
 		$this->graphic = 0x13EC;
 		$this->type = "";
 		$this->flags = 0x00;

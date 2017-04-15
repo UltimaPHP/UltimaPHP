@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CaveFloorNorth extends Object {
+class cavefloornorth extends Object {
 	public function build() {
-		$this->name = "CaveFloorNorth";
+		$this->name = "cave floor north";
 		$this->graphic = 0x54D;
 		$this->type = "";
 		$this->flags = 0x00;

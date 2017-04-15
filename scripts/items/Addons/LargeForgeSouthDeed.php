@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LargeForgeSouthDeed extends Object {
+class largeforgesouthdeed extends Object {
 	public function build() {
-		$this->name = "LargeForgeSouthDeed";
+		$this->name = "large forge south deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

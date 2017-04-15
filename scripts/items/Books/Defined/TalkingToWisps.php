@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TalkingToWisps extends Object {
+class talkingtowisps extends Object {
 	public function build() {
-		$this->name = "TalkingToWisps";
+		$this->name = "talking to wisps";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OpenCoconut extends Object {
+class opencoconut extends Object {
 	public function build() {
-		$this->name = "OpenCoconut";
+		$this->name = "open coconut";
 		$this->graphic = 0x1723;
 		$this->type = "";
 		$this->flags = 0x00;

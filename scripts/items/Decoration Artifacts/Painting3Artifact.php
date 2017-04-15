@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Painting3Artifact extends Object {
+class painting3artifact extends Object {
 	public function build() {
-		$this->name = "Painting3Artifact";
+		$this->name = "painting 3 artifact";
 		$this->graphic = 0x2411;
 		$this->type = "";
 		$this->flags = 0x00;

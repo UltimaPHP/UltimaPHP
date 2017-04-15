@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DynamicFurniture extends Object {
+class dynamicfurniture extends Object {
 	public function build() {
-		$this->name = "DynamicFurniture";
+		$this->name = "dynamic furniture";
 		$this->graphic = 0xA4D;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StuddedMempo extends Object {
+class studdedmempo extends Object {
 	public function build() {
-		$this->name = "StuddedMempo";
+		$this->name = "studded mempo";
 		$this->graphic = 0x279D;
 		$this->type = "";
 		$this->flags = 0x00;

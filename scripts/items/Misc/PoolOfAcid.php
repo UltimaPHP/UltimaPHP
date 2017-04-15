@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PoolOfAcid extends Object {
+class poolofacid extends Object {
 	public function build() {
-		$this->name = "PoolOfAcid";
+		$this->name = "pool of acid";
 		$this->graphic = 0x122A;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Pear extends Object {
+class pear extends Object {
 	public function build() {
-		$this->name = "Pear";
+		$this->name = "pear";
 		$this->graphic = 0x994;
 		$this->type = "";
 		$this->flags = 0x00;

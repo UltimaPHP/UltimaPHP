@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ControlPanel extends Object {
+class controlpanel extends Object {
 	public function build() {
-		$this->name = "ControlPanel";
+		$this->name = "control panel";
 		$this->graphic = 0x2AAA;
 		$this->type = "";
 		$this->flags = 0x00;

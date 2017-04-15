@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ElvenDresserSouthDeed extends Object {
+class elvendressersouthdeed extends Object {
 	public function build() {
-		$this->name = "ElvenDresserSouthDeed";
+		$this->name = "elven dresser south deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

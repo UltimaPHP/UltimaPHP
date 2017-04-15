@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Pickaxe extends Object {
+class pickaxe extends Object {
 	public function build() {
-		$this->name = "Pickaxe";
+		$this->name = "pickaxe";
 		$this->graphic = 0xE86;
 		$this->type = "";
 		$this->flags = 0x00;

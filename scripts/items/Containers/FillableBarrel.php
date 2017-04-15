@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FillableBarrel extends Object {
+class fillablebarrel extends Object {
 	public function build() {
-		$this->name = "FillableBarrel";
+		$this->name = "fillable barrel";
 		$this->graphic = 0xE77;
 		$this->type = "";
 		$this->flags = 0x00;

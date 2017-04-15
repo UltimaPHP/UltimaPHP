@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BronzeOre extends Object {
+class bronzeore extends Object {
 	public function build() {
-		$this->name = "BronzeOre";
+		$this->name = "bronze ore";
 		$this->graphic = 0x1BF2;
 		$this->type = "";
 		$this->flags = 0x00;

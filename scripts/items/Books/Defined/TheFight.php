@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TheFight extends Object {
+class thefight extends Object {
 	public function build() {
-		$this->name = "TheFight";
+		$this->name = "the fight";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

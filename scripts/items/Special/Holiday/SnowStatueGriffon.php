@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SnowStatueGriffon extends Object {
+class snowstatuegriffon extends Object {
 	public function build() {
-		$this->name = "SnowStatueGriffon";
+		$this->name = "snow statue griffon";
 		$this->graphic = 0x457C;
 		$this->type = "";
 		$this->flags = 0x00;

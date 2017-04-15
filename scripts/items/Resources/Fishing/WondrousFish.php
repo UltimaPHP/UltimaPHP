@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WondrousFish extends Object {
+class wondrousfish extends Object {
 	public function build() {
-		$this->name = "WondrousFish";
+		$this->name = "wondrous fish";
 		$this->graphic = 0xDD6;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MapleArmoire extends Object {
+class maplearmoire extends Object {
 	public function build() {
-		$this->name = "MapleArmoire";
+		$this->name = "maple armoire";
 		$this->graphic = 0x285B;
 		$this->type = "";
 		$this->flags = 0x00;

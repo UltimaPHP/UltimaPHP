@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Dates extends Object {
+class dates extends Object {
 	public function build() {
-		$this->name = "Dates";
+		$this->name = "dates";
 		$this->graphic = 0x1727;
 		$this->type = "";
 		$this->flags = 0x00;

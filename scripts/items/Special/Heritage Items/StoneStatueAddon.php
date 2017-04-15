@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StoneStatueAddon extends Object {
+class stonestatueaddon extends Object {
 	public function build() {
-		$this->name = "StoneStatueAddon";
+		$this->name = "stone statue addon";
 		$this->graphic = 0x1EA3;
 		$this->type = "";
 		$this->flags = 0x00;

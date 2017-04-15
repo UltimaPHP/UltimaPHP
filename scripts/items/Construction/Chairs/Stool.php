@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Stool extends Object {
+class stool extends Object {
 	public function build() {
-		$this->name = "Stool";
+		$this->name = "stool";
 		$this->graphic = 0xA2A;
 		$this->type = "";
 		$this->flags = 0x00;

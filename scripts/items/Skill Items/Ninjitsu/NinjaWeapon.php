@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class NinjaWeapon extends Object {
+class ninjaweapon extends Object {
 	public function build() {
-		$this->name = "NinjaWeapon";
+		$this->name = "ninja weapon";
 		$this->graphic = 0x2790;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WeaponEngravingTool extends Object {
+class weaponengravingtool extends Object {
 	public function build() {
-		$this->name = "WeaponEngravingTool";
+		$this->name = "weapon engraving tool";
 		$this->graphic = 0x32F8;
 		$this->type = "";
 		$this->flags = 0x00;

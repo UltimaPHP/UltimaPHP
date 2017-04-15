@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GreenTeaBasket extends Object {
+class greenteabasket extends Object {
 	public function build() {
-		$this->name = "GreenTeaBasket";
+		$this->name = "green tea basket";
 		$this->graphic = 0x284B;
 		$this->type = "";
 		$this->flags = 0x00;

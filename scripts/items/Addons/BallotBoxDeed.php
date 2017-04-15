@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BallotBoxDeed extends Object {
+class ballotboxdeed extends Object {
 	public function build() {
-		$this->name = "BallotBoxDeed";
+		$this->name = "ballot box deed";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

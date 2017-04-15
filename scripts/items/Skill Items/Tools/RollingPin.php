@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RollingPin extends Object {
+class rollingpin extends Object {
 	public function build() {
-		$this->name = "RollingPin";
+		$this->name = "rolling pin";
 		$this->graphic = 0x1043;
 		$this->type = "";
 		$this->flags = 0x00;

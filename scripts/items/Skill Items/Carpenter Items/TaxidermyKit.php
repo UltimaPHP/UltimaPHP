@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TaxidermyKit extends Object {
+class taxidermykit extends Object {
 	public function build() {
-		$this->name = "TaxidermyKit";
+		$this->name = "taxidermy kit";
 		$this->graphic = 0x1EBA;
 		$this->type = "";
 		$this->flags = 0x00;

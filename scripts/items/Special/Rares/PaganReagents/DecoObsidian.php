@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoObsidian extends Object {
+class decoobsidian extends Object {
 	public function build() {
-		$this->name = "DecoObsidian";
+		$this->name = "deco obsidian";
 		$this->graphic = 0xF89;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CannonAddon extends Object {
+class cannonaddon extends Object {
 	public function build() {
-		$this->name = "CannonAddon";
+		$this->name = "cannon addon";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BoneChest extends Object {
+class bonechest extends Object {
 	public function build() {
-		$this->name = "BoneChest";
+		$this->name = "bone chest";
 		$this->graphic = 0x144F;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LibraryBookcase extends Object {
+class librarybookcase extends Object {
 	public function build() {
-		$this->name = "LibraryBookcase";
+		$this->name = "library bookcase";
 		$this->graphic = 0xA97;
 		$this->type = "";
 		$this->flags = 0x00;

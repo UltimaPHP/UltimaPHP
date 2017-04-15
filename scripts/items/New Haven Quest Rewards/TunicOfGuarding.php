@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TunicOfGuarding extends Object {
+class tunicofguarding extends Object {
 	public function build() {
-		$this->name = "TunicOfGuarding";
+		$this->name = "tunic of guarding";
 		$this->graphic = 0x3FFFFFFFF;
 		$this->type = "";
 		$this->flags = 0x00;

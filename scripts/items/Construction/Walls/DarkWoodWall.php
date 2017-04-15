@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DarkWoodWall extends Object {
+class darkwoodwall extends Object {
 	public function build() {
-		$this->name = "DarkWoodWall";
+		$this->name = "dark wood wall";
 		$this->graphic = 0x0006;
 		$this->type = "";
 		$this->flags = 0x00;

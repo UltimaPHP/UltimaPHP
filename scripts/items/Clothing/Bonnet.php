@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Bonnet extends Object {
+class bonnet extends Object {
 	public function build() {
-		$this->name = "Bonnet";
+		$this->name = "bonnet";
 		$this->graphic = 0x1719;
 		$this->type = "";
 		$this->flags = 0x00;

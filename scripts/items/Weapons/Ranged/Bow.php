@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Bow extends Object {
+class bow extends Object {
 	public function build() {
-		$this->name = "Bow";
+		$this->name = "bow";
 		$this->graphic = 0x13B2;
 		$this->type = "";
 		$this->flags = 0x00;

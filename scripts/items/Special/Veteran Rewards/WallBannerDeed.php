@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WallBannerDeed extends Object {
+class wallbannerdeed extends Object {
 	public function build() {
-		$this->name = "WallBannerDeed";
+		$this->name = "wall banner deed";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

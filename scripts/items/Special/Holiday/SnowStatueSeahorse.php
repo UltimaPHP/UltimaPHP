@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SnowStatueSeahorse extends Object {
+class snowstatueseahorse extends Object {
 	public function build() {
-		$this->name = "SnowStatueSeahorse";
+		$this->name = "snow statue seahorse";
 		$this->graphic = 0x4578;
 		$this->type = "";
 		$this->flags = 0x00;

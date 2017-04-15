@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CreepyPortraitComponent extends Object {
+class creepyportraitcomponent extends Object {
 	public function build() {
-		$this->name = "CreepyPortraitComponent";
+		$this->name = "creepy portrait component";
 		$this->graphic = 0x2A69;
 		$this->type = "";
 		$this->flags = 0x00;

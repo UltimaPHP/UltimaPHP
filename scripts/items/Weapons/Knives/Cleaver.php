@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Cleaver extends Object {
+class cleaver extends Object {
 	public function build() {
-		$this->name = "Cleaver";
+		$this->name = "cleaver";
 		$this->graphic = 0xEC3;
 		$this->type = "";
 		$this->flags = 0x00;

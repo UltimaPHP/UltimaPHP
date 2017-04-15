@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LardOfParoxysmus extends Object {
+class lardofparoxysmus extends Object {
 	public function build() {
-		$this->name = "LardOfParoxysmus";
+		$this->name = "lard of paroxysmus";
 		$this->graphic = 0x3189;
 		$this->type = "";
 		$this->flags = 0x00;

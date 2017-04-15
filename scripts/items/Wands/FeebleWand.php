@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FeebleWand extends Object {
+class feeblewand extends Object {
 	public function build() {
-		$this->name = "FeebleWand";
+		$this->name = "feeble wand";
 		$this->graphic = 0xDF2;
 		$this->type = "";
 		$this->flags = 0x00;

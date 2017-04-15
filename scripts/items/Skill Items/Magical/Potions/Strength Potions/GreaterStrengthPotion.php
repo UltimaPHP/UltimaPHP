@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GreaterStrengthPotion extends Object {
+class greaterstrengthpotion extends Object {
 	public function build() {
-		$this->name = "GreaterStrengthPotion";
+		$this->name = "greater strength potion";
 		$this->graphic = 0xF09;
 		$this->type = "";
 		$this->flags = 0x00;

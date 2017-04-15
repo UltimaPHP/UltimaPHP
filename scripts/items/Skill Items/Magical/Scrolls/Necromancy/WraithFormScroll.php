@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WraithFormScroll extends Object {
+class wraithformscroll extends Object {
 	public function build() {
-		$this->name = "WraithFormScroll";
+		$this->name = "wraith form scroll";
 		$this->graphic = 0x226F;
 		$this->type = "";
 		$this->flags = 0x00;

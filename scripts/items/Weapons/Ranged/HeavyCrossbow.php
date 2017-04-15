@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HeavyCrossbow extends Object {
+class heavycrossbow extends Object {
 	public function build() {
-		$this->name = "HeavyCrossbow";
+		$this->name = "heavy crossbow";
 		$this->graphic = 0x13FD;
 		$this->type = "";
 		$this->flags = 0x00;

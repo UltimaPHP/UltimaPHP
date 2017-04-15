@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MoonstoneGate extends Object {
+class moonstonegate extends Object {
 	public function build() {
-		$this->name = "MoonstoneGate";
+		$this->name = "moonstone gate";
 		$this->graphic = 0xF8B;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FlowersArtifact extends Object {
+class flowersartifact extends Object {
 	public function build() {
-		$this->name = "FlowersArtifact";
+		$this->name = "flowers artifact";
 		$this->graphic = 0x284A;
 		$this->type = "";
 		$this->flags = 0x00;

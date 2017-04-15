@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GuillotineAddon extends Object {
+class guillotineaddon extends Object {
 	public function build() {
-		$this->name = "GuillotineAddon";
+		$this->name = "guillotine addon";
 		$this->graphic = 0x125E;
 		$this->type = "";
 		$this->flags = 0x00;

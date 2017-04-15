@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HouseLadderAddon extends Object {
+class houseladderaddon extends Object {
 	public function build() {
-		$this->name = "HouseLadderAddon";
+		$this->name = "house ladder addon";
 		$this->graphic = 0x125E;
 		$this->type = "";
 		$this->flags = 0x00;

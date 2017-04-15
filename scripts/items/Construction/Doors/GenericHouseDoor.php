@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GenericHouseDoor extends Object {
+class generichousedoor extends Object {
 	public function build() {
-		$this->name = "GenericHouseDoor";
+		$this->name = "generic house door";
 		$this->graphic = 0x6A5;
 		$this->type = "";
 		$this->flags = 0x00;

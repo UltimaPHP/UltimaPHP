@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Runesabre extends Object {
+class runesabre extends Object {
 	public function build() {
-		$this->name = "Runesabre";
+		$this->name = "runesabre";
 		$this->graphic = 0xF61;
 		$this->type = "";
 		$this->flags = 0x00;

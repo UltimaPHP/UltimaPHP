@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SpinningHourglass extends Object {
+class spinninghourglass extends Object {
 	public function build() {
-		$this->name = "SpinningHourglass";
+		$this->name = "spinning hourglass";
 		$this->graphic = 0x1810;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Ham extends Object {
+class ham extends Object {
 	public function build() {
-		$this->name = "Ham";
+		$this->name = "ham";
 		$this->graphic = 0x9C9;
 		$this->type = "";
 		$this->flags = 0x00;

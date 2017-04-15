@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ElvenMachete extends Object {
+class elvenmachete extends Object {
 	public function build() {
-		$this->name = "ElvenMachete";
+		$this->name = "elven machete";
 		$this->graphic = 0x2D35;
 		$this->type = "";
 		$this->flags = 0x00;

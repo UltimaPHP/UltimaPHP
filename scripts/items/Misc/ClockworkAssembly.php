@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ClockworkAssembly extends Object {
+class clockworkassembly extends Object {
 	public function build() {
-		$this->name = "ClockworkAssembly";
+		$this->name = "clockwork assembly";
 		$this->graphic = 0x1EA8;
 		$this->type = "";
 		$this->flags = 0x00;

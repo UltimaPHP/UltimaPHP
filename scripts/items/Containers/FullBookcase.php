@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FullBookcase extends Object {
+class fullbookcase extends Object {
 	public function build() {
-		$this->name = "FullBookcase";
+		$this->name = "full bookcase";
 		$this->graphic = 0xA97;
 		$this->type = "";
 		$this->flags = 0x00;

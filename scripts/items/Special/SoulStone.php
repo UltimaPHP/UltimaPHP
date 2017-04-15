@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SoulStone extends Object {
+class soulstone extends Object {
 	public function build() {
-		$this->name = "SoulStone";
+		$this->name = "soul stone";
 		$this->graphic = 0x9e9;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PowerGenerator extends Object {
+class powergenerator extends Object {
 	public function build() {
-		$this->name = "PowerGenerator";
+		$this->name = "power generator";
 		$this->graphic = 0x1F1C;
 		$this->type = "";
 		$this->flags = 0x00;

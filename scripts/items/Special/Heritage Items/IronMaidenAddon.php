@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class IronMaidenAddon extends Object {
+class ironmaidenaddon extends Object {
 	public function build() {
-		$this->name = "IronMaidenAddon";
+		$this->name = "iron maiden addon";
 		$this->graphic = 0x125E;
 		$this->type = "";
 		$this->flags = 0x00;

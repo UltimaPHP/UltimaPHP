@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DarkSource extends Object {
+class darksource extends Object {
 	public function build() {
-		$this->name = "DarkSource";
+		$this->name = "dark source";
 		$this->graphic = 0x1646;
 		$this->type = "";
 		$this->flags = 0x00;

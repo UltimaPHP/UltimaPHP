@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WallTorchAddon extends Object {
+class walltorchaddon extends Object {
 	public function build() {
-		$this->name = "WallTorchAddon";
+		$this->name = "wall torch addon";
 		$this->graphic = 0x3D98;
 		$this->type = "";
 		$this->flags = 0x00;

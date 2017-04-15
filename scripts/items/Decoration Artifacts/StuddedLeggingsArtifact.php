@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StuddedLeggingsArtifact extends Object {
+class studdedleggingsartifact extends Object {
 	public function build() {
-		$this->name = "StuddedLeggingsArtifact";
+		$this->name = "studded leggings artifact";
 		$this->graphic = 0x13D8;
 		$this->type = "";
 		$this->flags = 0x00;

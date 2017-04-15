@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlateBattleKabuto extends Object {
+class platebattlekabuto extends Object {
 	public function build() {
-		$this->name = "PlateBattleKabuto";
+		$this->name = "plate battle kabuto";
 		$this->graphic = 0x2785;
 		$this->type = "";
 		$this->flags = 0x00;

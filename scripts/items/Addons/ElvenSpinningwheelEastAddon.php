@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ElvenSpinningwheelEastAddon extends Object {
+class elvenspinningwheeleastaddon extends Object {
 	public function build() {
-		$this->name = "ElvenSpinningwheelEastAddon";
+		$this->name = "elven spinningwheel east addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PowderOfTranslocation extends Object {
+class powderoftranslocation extends Object {
 	public function build() {
-		$this->name = "PowderOfTranslocation";
+		$this->name = "powder of translocation";
 		$this->graphic = 0x26B8;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DriedOnions extends Object {
+class driedonions extends Object {
 	public function build() {
-		$this->name = "DriedOnions";
+		$this->name = "dried onions";
 		$this->graphic = 0xC40;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Torch extends Object {
+class torch extends Object {
 	public function build() {
-		$this->name = "Torch";
+		$this->name = "torch";
 		$this->graphic = 0xF6B;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RoyalCirclet extends Object {
+class royalcirclet extends Object {
 	public function build() {
-		$this->name = "RoyalCirclet";
+		$this->name = "royal circlet";
 		$this->graphic = 0x2B6F;
 		$this->type = "";
 		$this->flags = 0x00;

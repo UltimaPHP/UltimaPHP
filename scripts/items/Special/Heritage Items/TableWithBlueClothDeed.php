@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TableWithBlueClothDeed extends Object {
+class tablewithblueclothdeed extends Object {
 	public function build() {
-		$this->name = "TableWithBlueClothDeed";
+		$this->name = "table with blue cloth deed";
 		$this->graphic = 0x3D86;
 		$this->type = "";
 		$this->flags = 0x00;

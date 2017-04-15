@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LargeBattleAxe extends Object {
+class largebattleaxe extends Object {
 	public function build() {
-		$this->name = "LargeBattleAxe";
+		$this->name = "large battle axe";
 		$this->graphic = 0x13FB;
 		$this->type = "";
 		$this->flags = 0x00;

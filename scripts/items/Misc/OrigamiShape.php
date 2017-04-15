@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OrigamiShape extends Object {
+class origamishape extends Object {
 	public function build() {
-		$this->name = "OrigamiShape";
+		$this->name = "origami shape";
 		$this->graphic = 0x283B;
 		$this->type = "";
 		$this->flags = 0x00;

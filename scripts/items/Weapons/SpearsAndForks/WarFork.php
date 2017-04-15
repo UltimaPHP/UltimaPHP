@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WarFork extends Object {
+class warfork extends Object {
 	public function build() {
-		$this->name = "WarFork";
+		$this->name = "war fork";
 		$this->graphic = 0x1405;
 		$this->type = "";
 		$this->flags = 0x00;

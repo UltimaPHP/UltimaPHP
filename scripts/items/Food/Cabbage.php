@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Cabbage extends Object {
+class cabbage extends Object {
 	public function build() {
-		$this->name = "Cabbage";
+		$this->name = "cabbage";
 		$this->graphic = 0xc7b;
 		$this->type = "";
 		$this->flags = 0x00;

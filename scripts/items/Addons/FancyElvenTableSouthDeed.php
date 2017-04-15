@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FancyElvenTableSouthDeed extends Object {
+class fancyelventablesouthdeed extends Object {
 	public function build() {
-		$this->name = "FancyElvenTableSouthDeed";
+		$this->name = "fancy elven table south deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

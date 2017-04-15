@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TwoHandedAxe extends Object {
+class twohandedaxe extends Object {
 	public function build() {
-		$this->name = "TwoHandedAxe";
+		$this->name = "two handed axe";
 		$this->graphic = 0x1443;
 		$this->type = "";
 		$this->flags = 0x00;

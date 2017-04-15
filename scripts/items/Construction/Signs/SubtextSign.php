@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SubtextSign extends Object {
+class subtextsign extends Object {
 	public function build() {
-		$this->name = "SubtextSign";
+		$this->name = "subtext sign";
 		$this->graphic = 0xB95;
 		$this->type = "";
 		$this->flags = 0x00;

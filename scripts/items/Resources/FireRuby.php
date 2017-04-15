@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FireRuby extends Object {
+class fireruby extends Object {
 	public function build() {
-		$this->name = "FireRuby";
+		$this->name = "fire ruby";
 		$this->graphic = 0x3197;
 		$this->type = "";
 		$this->flags = 0x00;

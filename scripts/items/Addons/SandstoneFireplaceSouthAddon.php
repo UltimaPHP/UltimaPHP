@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SandstoneFireplaceSouthAddon extends Object {
+class sandstonefireplacesouthaddon extends Object {
 	public function build() {
-		$this->name = "SandstoneFireplaceSouthAddon";
+		$this->name = "sandstone fireplace south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

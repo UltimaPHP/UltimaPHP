@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LightFlowerTapestrySouthDeed extends Object {
+class lightflowertapestrysouthdeed extends Object {
 	public function build() {
-		$this->name = "LightFlowerTapestrySouthDeed";
+		$this->name = "light flower tapestry south deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

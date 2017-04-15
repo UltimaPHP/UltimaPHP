@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DamagedBooksArtifact extends Object {
+class damagedbooksartifact extends Object {
 	public function build() {
-		$this->name = "DamagedBooksArtifact";
+		$this->name = "damaged books artifact";
 		$this->graphic = 0xC16;
 		$this->type = "";
 		$this->flags = 0x00;

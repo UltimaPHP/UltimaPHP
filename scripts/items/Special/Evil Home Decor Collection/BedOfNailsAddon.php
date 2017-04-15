@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BedOfNailsAddon extends Object {
+class bedofnailsaddon extends Object {
 	public function build() {
-		$this->name = "BedOfNailsAddon";
+		$this->name = "bed of nails addon";
 		$this->graphic = 0x2A5D;
 		$this->type = "";
 		$this->flags = 0x00;

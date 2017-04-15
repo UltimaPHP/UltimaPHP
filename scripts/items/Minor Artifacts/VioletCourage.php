@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class VioletCourage extends Object {
+class violetcourage extends Object {
 	public function build() {
-		$this->name = "VioletCourage";
+		$this->name = "violet courage";
 		$this->graphic = 0x14F3;
 		$this->type = "";
 		$this->flags = 0x00;

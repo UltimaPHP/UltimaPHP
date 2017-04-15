@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SmallForgeDeed extends Object {
+class smallforgedeed extends Object {
 	public function build() {
-		$this->name = "SmallForgeDeed";
+		$this->name = "small forge deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

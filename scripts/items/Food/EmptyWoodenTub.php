@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EmptyWoodenTub extends Object {
+class emptywoodentub extends Object {
 	public function build() {
-		$this->name = "EmptyWoodenTub";
+		$this->name = "empty wooden tub";
 		$this->graphic = 0x1605;
 		$this->type = "";
 		$this->flags = 0x00;

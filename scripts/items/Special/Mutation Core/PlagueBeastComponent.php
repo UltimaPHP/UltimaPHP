@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlagueBeastComponent extends Object {
+class plaguebeastcomponent extends Object {
 	public function build() {
-		$this->name = "PlagueBeastComponent";
+		$this->name = "plague beast component";
 		$this->graphic = 0x1363;
 		$this->type = "";
 		$this->flags = 0x00;

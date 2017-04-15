@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SpinedScratcherFish extends Object {
+class spinedscratcherfish extends Object {
 	public function build() {
-		$this->name = "SpinedScratcherFish";
+		$this->name = "spined scratcher fish";
 		$this->graphic = 0x3B05;
 		$this->type = "";
 		$this->flags = 0x00;

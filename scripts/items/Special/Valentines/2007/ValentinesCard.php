@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ValentinesCard extends Object {
+class valentinescard extends Object {
 	public function build() {
-		$this->name = "ValentinesCard";
+		$this->name = "valentines card";
 		$this->graphic = 0x0EB0;
 		$this->type = "";
 		$this->flags = 0x00;

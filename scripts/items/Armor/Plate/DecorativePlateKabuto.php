@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecorativePlateKabuto extends Object {
+class decorativeplatekabuto extends Object {
 	public function build() {
-		$this->name = "DecorativePlateKabuto";
+		$this->name = "decorative plate kabuto";
 		$this->graphic = 0x2778;
 		$this->type = "";
 		$this->flags = 0x00;

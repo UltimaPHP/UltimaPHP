@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WoodenShield extends Object {
+class woodenshield extends Object {
 	public function build() {
-		$this->name = "WoodenShield";
+		$this->name = "wooden shield";
 		$this->graphic = 0x1B7A;
 		$this->type = "";
 		$this->flags = 0x00;

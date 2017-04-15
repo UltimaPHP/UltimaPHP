@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeafbladeOfEase extends Object {
+class leafbladeofease extends Object {
 	public function build() {
-		$this->name = "LeafbladeOfEase";
+		$this->name = "leafblade of ease";
 		$this->graphic = 0x26C0;
 		$this->type = "";
 		$this->flags = 0x00;

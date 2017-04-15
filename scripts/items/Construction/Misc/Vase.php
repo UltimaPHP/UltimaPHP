@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Vase extends Object {
+class vase extends Object {
 	public function build() {
-		$this->name = "Vase";
+		$this->name = "vase";
 		$this->graphic = 0xB46;
 		$this->type = "";
 		$this->flags = 0x00;

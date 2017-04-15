@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class VultureHelm extends Object {
+class vulturehelm extends Object {
 	public function build() {
-		$this->name = "VultureHelm";
+		$this->name = "vulture helm";
 		$this->graphic = 0x2B72;
 		$this->type = "";
 		$this->flags = 0x00;

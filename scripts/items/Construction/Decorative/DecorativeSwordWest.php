@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecorativeSwordWest extends Object {
+class decorativeswordwest extends Object {
 	public function build() {
-		$this->name = "DecorativeSwordWest";
+		$this->name = "decorative sword west";
 		$this->graphic = 0x1567;
 		$this->type = "";
 		$this->flags = 0x00;

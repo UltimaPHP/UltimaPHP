@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TinyRedBottle extends Object {
+class tinyredbottle extends Object {
 	public function build() {
-		$this->name = "TinyRedBottle";
+		$this->name = "tiny red bottle";
 		$this->graphic = 0x0F04;
 		$this->type = "";
 		$this->flags = 0x00;

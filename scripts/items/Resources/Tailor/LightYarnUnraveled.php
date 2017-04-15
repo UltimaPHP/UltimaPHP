@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LightYarnUnraveled extends Object {
+class lightyarnunraveled extends Object {
 	public function build() {
-		$this->name = "LightYarnUnraveled";
+		$this->name = "light yarn unraveled";
 		$this->graphic = 0xE1F;
 		$this->type = "";
 		$this->flags = 0x00;

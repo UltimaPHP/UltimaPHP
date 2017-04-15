@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WaitTeleporter extends Object {
+class waitteleporter extends Object {
 	public function build() {
-		$this->name = "WaitTeleporter";
+		$this->name = "wait teleporter";
 		$this->graphic = 0x91B;
 		$this->type = "";
 		$this->flags = 0x00;

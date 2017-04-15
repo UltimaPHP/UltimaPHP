@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SawTrap extends Object {
+class sawtrap extends Object {
 	public function build() {
-		$this->name = "SawTrap";
+		$this->name = "saw trap";
 		$this->graphic = 0x1125;
 		$this->type = "";
 		$this->flags = 0x00;

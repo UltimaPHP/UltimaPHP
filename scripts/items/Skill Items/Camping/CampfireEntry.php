@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CampfireEntry extends Object {
+class campfireentry extends Object {
 	public function build() {
-		$this->name = "CampfireEntry";
+		$this->name = "campfire entry";
 		$this->graphic = 0xDE3;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class UnmadeBedDeed extends Object {
+class unmadebeddeed extends Object {
 	public function build() {
-		$this->name = "UnmadeBedDeed";
+		$this->name = "unmade bed deed";
 		$this->graphic = 0x3D86;
 		$this->type = "";
 		$this->flags = 0x00;

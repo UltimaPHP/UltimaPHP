@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Painting5NorthArtifact extends Object {
+class painting5northartifact extends Object {
 	public function build() {
-		$this->name = "Painting5NorthArtifact";
+		$this->name = "painting 5 north artifact";
 		$this->graphic = 0x2415;
 		$this->type = "";
 		$this->flags = 0x00;

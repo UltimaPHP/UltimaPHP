@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Mustache extends Object {
+class mustache extends Object {
 	public function build() {
-		$this->name = "Mustache";
+		$this->name = "mustache";
 		$this->graphic = 0x2041;
 		$this->type = "";
 		$this->flags = 0x00;

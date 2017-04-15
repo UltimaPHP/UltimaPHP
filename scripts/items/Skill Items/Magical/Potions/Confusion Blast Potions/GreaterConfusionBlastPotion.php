@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GreaterConfusionBlastPotion extends Object {
+class greaterconfusionblastpotion extends Object {
 	public function build() {
-		$this->name = "GreaterConfusionBlastPotion";
+		$this->name = "greater confusion blast potion";
 		$this->graphic = 0xF06;
 		$this->type = "";
 		$this->flags = 0x00;

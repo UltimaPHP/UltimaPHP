@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RecipeScroll extends Object {
+class recipescroll extends Object {
 	public function build() {
-		$this->name = "RecipeScroll";
+		$this->name = "recipe scroll";
 		$this->graphic = 0x2831;
 		$this->type = "";
 		$this->flags = 0x00;

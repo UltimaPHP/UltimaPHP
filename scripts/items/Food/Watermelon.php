@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Watermelon extends Object {
+class watermelon extends Object {
 	public function build() {
-		$this->name = "Watermelon";
+		$this->name = "watermelon";
 		$this->graphic = 0xC5C;
 		$this->type = "";
 		$this->flags = 0x00;

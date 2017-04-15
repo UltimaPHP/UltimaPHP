@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class UnsettlingPortraitAddon extends Object {
+class unsettlingportraitaddon extends Object {
 	public function build() {
-		$this->name = "UnsettlingPortraitAddon";
+		$this->name = "unsettling portrait addon";
 		$this->graphic = 0x2A65;
 		$this->type = "";
 		$this->flags = 0x00;

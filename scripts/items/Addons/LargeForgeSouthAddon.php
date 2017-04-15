@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LargeForgeSouthAddon extends Object {
+class largeforgesouthaddon extends Object {
 	public function build() {
-		$this->name = "LargeForgeSouthAddon";
+		$this->name = "large forge south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

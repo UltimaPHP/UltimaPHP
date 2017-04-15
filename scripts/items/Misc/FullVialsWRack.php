@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FullVialsWRack extends Object {
+class fullvialswrack extends Object {
 	public function build() {
-		$this->name = "FullVialsWRack";
+		$this->name = "full vials w rack";
 		$this->graphic = 0x185D;
 		$this->type = "";
 		$this->flags = 0x00;

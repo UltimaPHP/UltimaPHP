@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CommodityDeed extends Object {
+class commoditydeed extends Object {
 	public function build() {
-		$this->name = "CommodityDeed";
+		$this->name = "commodity deed";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

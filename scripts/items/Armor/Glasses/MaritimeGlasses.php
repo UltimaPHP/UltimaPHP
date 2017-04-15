@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MaritimeGlasses extends Object {
+class maritimeglasses extends Object {
 	public function build() {
-		$this->name = "MaritimeGlasses";
+		$this->name = "maritime glasses";
 		$this->graphic = 0x2FB8;
 		$this->type = "";
 		$this->flags = 0x00;

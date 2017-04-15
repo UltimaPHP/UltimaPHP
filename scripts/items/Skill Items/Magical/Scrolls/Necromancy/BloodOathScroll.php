@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BloodOathScroll extends Object {
+class bloodoathscroll extends Object {
 	public function build() {
-		$this->name = "BloodOathScroll";
+		$this->name = "blood oath scroll";
 		$this->graphic = 0x2261;
 		$this->type = "";
 		$this->flags = 0x00;

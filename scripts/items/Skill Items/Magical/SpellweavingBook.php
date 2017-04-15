@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SpellweavingBook extends Object {
+class spellweavingbook extends Object {
 	public function build() {
-		$this->name = "SpellweavingBook";
+		$this->name = "spellweaving book";
 		$this->graphic = 0x2D50;
 		$this->type = "";
 		$this->flags = 0x00;

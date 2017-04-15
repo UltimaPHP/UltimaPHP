@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WinterGiftPackage2003 extends Object {
+class wintergiftpackage2003 extends Object {
 	public function build() {
-		$this->name = "WinterGiftPackage2003";
+		$this->name = "winter gift package";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

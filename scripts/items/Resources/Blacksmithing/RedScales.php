@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RedScales extends Object {
+class redscales extends Object {
 	public function build() {
-		$this->name = "RedScales";
+		$this->name = "red scales";
 		$this->graphic = 0x26B4;
 		$this->type = "";
 		$this->flags = 0x00;

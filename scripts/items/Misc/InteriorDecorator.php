@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class InteriorDecorator extends Object {
+class interiordecorator extends Object {
 	public function build() {
-		$this->name = "InteriorDecorator";
+		$this->name = "interior decorator";
 		$this->graphic = 0xFC1;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PieceBlackKing extends Object {
+class pieceblackking extends Object {
 	public function build() {
-		$this->name = "PieceBlackKing";
+		$this->name = "piece black king";
 		$this->graphic = 0x358E;
 		$this->type = "";
 		$this->flags = 0x00;

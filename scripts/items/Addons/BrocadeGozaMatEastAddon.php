@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrocadeGozaMatEastAddon extends Object {
+class brocadegozamateastaddon extends Object {
 	public function build() {
-		$this->name = "BrocadeGozaMatEastAddon";
+		$this->name = "brocade goza mat east addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

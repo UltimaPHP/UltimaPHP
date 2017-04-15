@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrilliantAmber extends Object {
+class brilliantamber extends Object {
 	public function build() {
-		$this->name = "BrilliantAmber";
+		$this->name = "brilliant amber";
 		$this->graphic = 0x3199;
 		$this->type = "";
 		$this->flags = 0x00;

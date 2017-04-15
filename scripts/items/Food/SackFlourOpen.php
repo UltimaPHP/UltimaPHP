@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SackFlourOpen extends Object {
+class sackflouropen extends Object {
 	public function build() {
-		$this->name = "SackFlourOpen";
+		$this->name = "sack flour open";
 		$this->graphic = 0x1039;
 		$this->type = "";
 		$this->flags = 0x00;

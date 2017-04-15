@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FlourMillSouthDeed extends Object {
+class flourmillsouthdeed extends Object {
 	public function build() {
-		$this->name = "FlourMillSouthDeed";
+		$this->name = "flour mill south deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

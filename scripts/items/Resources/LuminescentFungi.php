@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LuminescentFungi extends Object {
+class luminescentfungi extends Object {
 	public function build() {
-		$this->name = "LuminescentFungi";
+		$this->name = "luminescent fungi";
 		$this->graphic = 0x3191;
 		$this->type = "";
 		$this->flags = 0x00;

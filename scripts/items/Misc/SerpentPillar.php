@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SerpentPillar extends Object {
+class serpentpillar extends Object {
 	public function build() {
-		$this->name = "SerpentPillar";
+		$this->name = "serpent pillar";
 		$this->graphic = 0x233F;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MyStory extends Object {
+class mystory extends Object {
 	public function build() {
-		$this->name = "MyStory";
+		$this->name = "my story";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

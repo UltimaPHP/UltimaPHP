@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PentagramDeed extends Object {
+class pentagramdeed extends Object {
 	public function build() {
-		$this->name = "PentagramDeed";
+		$this->name = "pentagram deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

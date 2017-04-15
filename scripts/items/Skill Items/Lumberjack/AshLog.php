@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AshLog extends Object {
+class ashlog extends Object {
 	public function build() {
-		$this->name = "AshLog";
+		$this->name = "ash log";
 		$this->graphic = 0x1BDD;
 		$this->type = "";
 		$this->flags = 0x00;

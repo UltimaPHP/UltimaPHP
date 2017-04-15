@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Muculent extends Object {
+class muculent extends Object {
 	public function build() {
-		$this->name = "Muculent";
+		$this->name = "muculent";
 		$this->graphic = 0x3188;
 		$this->type = "";
 		$this->flags = 0x00;

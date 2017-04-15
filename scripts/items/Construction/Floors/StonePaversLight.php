@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StonePaversLight extends Object {
+class stonepaverslight extends Object {
 	public function build() {
-		$this->name = "StonePaversLight";
+		$this->name = "stone pavers light";
 		$this->graphic = 0x519;
 		$this->type = "";
 		$this->flags = 0x00;

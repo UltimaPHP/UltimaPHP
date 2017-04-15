@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MediumStretchedHideEastDeed extends Object {
+class mediumstretchedhideeastdeed extends Object {
 	public function build() {
-		$this->name = "MediumStretchedHideEastDeed";
+		$this->name = "medium stretched hide east deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

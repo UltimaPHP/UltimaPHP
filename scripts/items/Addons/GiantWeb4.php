@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GiantWeb4 extends Object {
+class giantweb4 extends Object {
 	public function build() {
-		$this->name = "GiantWeb4";
+		$this->name = "giant web";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

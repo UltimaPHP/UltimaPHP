@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Tekagi extends Object {
+class tekagi extends Object {
 	public function build() {
-		$this->name = "Tekagi";
+		$this->name = "tekagi";
 		$this->graphic = 0x27AB;
 		$this->type = "";
 		$this->flags = 0x00;

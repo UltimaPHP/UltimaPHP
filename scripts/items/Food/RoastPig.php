@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RoastPig extends Object {
+class roastpig extends Object {
 	public function build() {
-		$this->name = "RoastPig";
+		$this->name = "roast pig";
 		$this->graphic = 0x9BB;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Putrefication extends Object {
+class putrefication extends Object {
 	public function build() {
-		$this->name = "Putrefication";
+		$this->name = "putrefication";
 		$this->graphic = 0x3186;
 		$this->type = "";
 		$this->flags = 0x00;

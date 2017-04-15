@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EffectItem extends Object {
+class effectitem extends Object {
 	public function build() {
-		$this->name = "EffectItem";
+		$this->name = "effect item";
 		$this->graphic = 0x1B72;
 		$this->type = "";
 		$this->flags = 0x00;

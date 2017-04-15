@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WoodenFootLocker extends Object {
+class woodenfootlocker extends Object {
 	public function build() {
-		$this->name = "WoodenFootLocker";
+		$this->name = "wooden foot locker";
 		$this->graphic = 0x2811;
 		$this->type = "";
 		$this->flags = 0x00;

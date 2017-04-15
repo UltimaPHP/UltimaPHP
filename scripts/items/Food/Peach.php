@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Peach extends Object {
+class peach extends Object {
 	public function build() {
-		$this->name = "Peach";
+		$this->name = "peach";
 		$this->graphic = 0x9D2;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BolaTarget extends Object {
+class bolatarget extends Object {
 	public function build() {
-		$this->name = "BolaTarget";
+		$this->name = "bola target";
 		$this->graphic = 0x26AC;
 		$this->type = "";
 		$this->flags = 0x00;

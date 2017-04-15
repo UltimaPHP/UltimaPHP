@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Coal extends Object {
+class coal extends Object {
 	public function build() {
-		$this->name = "Coal";
+		$this->name = "coal";
 		$this->graphic = 0x19b9;
 		$this->type = "";
 		$this->flags = 0x00;

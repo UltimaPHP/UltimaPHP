@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MalletAndChisel extends Object {
+class malletandchisel extends Object {
 	public function build() {
-		$this->name = "MalletAndChisel";
+		$this->name = "mallet and chisel";
 		$this->graphic = 0x12B3;
 		$this->type = "";
 		$this->flags = 0x00;

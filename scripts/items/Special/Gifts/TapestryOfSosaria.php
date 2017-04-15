@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TapestryOfSosaria extends Object {
+class tapestryofsosaria extends Object {
 	public function build() {
-		$this->name = "TapestryOfSosaria";
+		$this->name = "tapestry of sosaria";
 		$this->graphic = 0x234E;
 		$this->type = "";
 		$this->flags = 0x00;

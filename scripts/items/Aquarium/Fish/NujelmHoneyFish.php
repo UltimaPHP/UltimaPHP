@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class NujelmHoneyFish extends Object {
+class nujelmhoneyfish extends Object {
 	public function build() {
-		$this->name = "NujelmHoneyFish";
+		$this->name = "nujelm honey fish";
 		$this->graphic = 0x3B06;
 		$this->type = "";
 		$this->flags = 0x00;

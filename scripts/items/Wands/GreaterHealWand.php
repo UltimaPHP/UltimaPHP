@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GreaterHealWand extends Object {
+class greaterhealwand extends Object {
 	public function build() {
-		$this->name = "GreaterHealWand";
+		$this->name = "greater heal wand";
 		$this->graphic = 0xDF2;
 		$this->type = "";
 		$this->flags = 0x00;

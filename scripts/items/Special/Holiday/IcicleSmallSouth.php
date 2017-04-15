@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class IcicleSmallSouth extends Object {
+class iciclesmallsouth extends Object {
 	public function build() {
-		$this->name = "IcicleSmallSouth";
+		$this->name = "icicle small south";
 		$this->graphic = 0x1086;
 		$this->type = "";
 		$this->flags = 0x00;

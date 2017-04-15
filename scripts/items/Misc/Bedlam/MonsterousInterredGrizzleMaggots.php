@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MonsterousInterredGrizzleMaggots extends Object {
+class monsterousinterredgrizzlemaggots extends Object {
 	public function build() {
-		$this->name = "MonsterousInterredGrizzleMaggots";
+		$this->name = "monsterous interred grizzle maggots";
 		$this->graphic = 0x2633;
 		$this->type = "";
 		$this->flags = 0x00;

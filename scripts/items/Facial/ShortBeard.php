@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ShortBeard extends Object {
+class shortbeard extends Object {
 	public function build() {
-		$this->name = "ShortBeard";
+		$this->name = "short beard";
 		$this->graphic = 0x203f;
 		$this->type = "";
 		$this->flags = 0x00;

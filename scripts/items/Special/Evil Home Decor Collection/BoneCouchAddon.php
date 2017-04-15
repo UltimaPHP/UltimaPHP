@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BoneCouchAddon extends Object {
+class bonecouchaddon extends Object {
 	public function build() {
-		$this->name = "BoneCouchAddon";
+		$this->name = "bone couch addon";
 		$this->graphic = 0x2A5D;
 		$this->type = "";
 		$this->flags = 0x00;

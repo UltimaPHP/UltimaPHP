@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HakamaShita extends Object {
+class hakamashita extends Object {
 	public function build() {
-		$this->name = "HakamaShita";
+		$this->name = "hakama shita";
 		$this->graphic = 0x279C;
 		$this->type = "";
 		$this->flags = 0x00;

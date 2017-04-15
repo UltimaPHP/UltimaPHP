@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RoseOfTrinsicPetal extends Object {
+class roseoftrinsicpetal extends Object {
 	public function build() {
-		$this->name = "RoseOfTrinsicPetal";
+		$this->name = "rose of trinsic petal";
 		$this->graphic = 0x1021;
 		$this->type = "";
 		$this->flags = 0x00;

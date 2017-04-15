@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TeleportScroll extends Object {
+class teleportscroll extends Object {
 	public function build() {
-		$this->name = "TeleportScroll";
+		$this->name = "teleport scroll";
 		$this->graphic = 0x1F42;
 		$this->type = "";
 		$this->flags = 0x00;

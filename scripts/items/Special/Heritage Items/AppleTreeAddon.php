@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AppleTreeAddon extends Object {
+class appletreeaddon extends Object {
 	public function build() {
-		$this->name = "AppleTreeAddon";
+		$this->name = "apple tree addon";
 		$this->graphic = 0x2068;
 		$this->type = "";
 		$this->flags = 0x00;

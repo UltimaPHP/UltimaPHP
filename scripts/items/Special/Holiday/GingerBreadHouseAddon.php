@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GingerBreadHouseAddon extends Object {
+class gingerbreadhouseaddon extends Object {
 	public function build() {
-		$this->name = "GingerBreadHouseAddon";
+		$this->name = "ginger bread house addon";
 		$this->graphic = 0x232A;
 		$this->type = "";
 		$this->flags = 0x00;

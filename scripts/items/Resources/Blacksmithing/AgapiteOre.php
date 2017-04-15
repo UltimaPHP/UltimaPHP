@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AgapiteOre extends Object {
+class agapiteore extends Object {
 	public function build() {
-		$this->name = "AgapiteOre";
+		$this->name = "agapite ore";
 		$this->graphic = 0x1BF2;
 		$this->type = "";
 		$this->flags = 0x00;

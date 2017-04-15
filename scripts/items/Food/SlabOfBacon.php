@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SlabOfBacon extends Object {
+class slabofbacon extends Object {
 	public function build() {
-		$this->name = "SlabOfBacon";
+		$this->name = "slab of bacon";
 		$this->graphic = 0x976;
 		$this->type = "";
 		$this->flags = 0x00;

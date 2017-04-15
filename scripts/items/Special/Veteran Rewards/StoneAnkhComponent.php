@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StoneAnkhComponent extends Object {
+class stoneankhcomponent extends Object {
 	public function build() {
-		$this->name = "StoneAnkhComponent";
+		$this->name = "stone ankh component";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

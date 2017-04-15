@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class IcyScimitar extends Object {
+class icyscimitar extends Object {
 	public function build() {
-		$this->name = "IcyScimitar";
+		$this->name = "icy scimitar";
 		$this->graphic = 0x1441;
 		$this->type = "";
 		$this->flags = 0x00;

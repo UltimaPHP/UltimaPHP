@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Skirt extends Object {
+class skirt extends Object {
 	public function build() {
-		$this->name = "Skirt";
+		$this->name = "skirt";
 		$this->graphic = 0x1516;
 		$this->type = "";
 		$this->flags = 0x00;

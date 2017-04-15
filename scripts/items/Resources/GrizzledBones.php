@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GrizzledBones extends Object {
+class grizzledbones extends Object {
 	public function build() {
-		$this->name = "GrizzledBones";
+		$this->name = "grizzled bones";
 		$this->graphic = 0x318C;
 		$this->type = "";
 		$this->flags = 0x00;

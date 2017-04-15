@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PenAndInk extends Object {
+class penandink extends Object {
 	public function build() {
-		$this->name = "PenAndInk";
+		$this->name = "pen and ink";
 		$this->graphic = 0xFBF;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LoadEntry extends Object {
+class loadentry extends Object {
 	public function build() {
-		$this->name = "LoadEntry";
+		$this->name = "load entry";
 		$this->graphic = 0x2790;
 		$this->type = "";
 		$this->flags = 0x00;

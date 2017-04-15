@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ColdBlood extends Object {
+class coldblood extends Object {
 	public function build() {
-		$this->name = "ColdBlood";
+		$this->name = "cold blood";
 		$this->graphic = 0xB26;
 		$this->type = "";
 		$this->flags = 0x00;

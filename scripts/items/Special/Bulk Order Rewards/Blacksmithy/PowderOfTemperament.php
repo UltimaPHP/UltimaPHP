@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PowderOfTemperament extends Object {
+class powderoftemperament extends Object {
 	public function build() {
-		$this->name = "PowderOfTemperament";
+		$this->name = "powder of temperament";
 		$this->graphic = 0x13EB;
 		$this->type = "";
 		$this->flags = 0x00;

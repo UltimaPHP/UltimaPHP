@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SummonFeyScroll extends Object {
+class summonfeyscroll extends Object {
 	public function build() {
-		$this->name = "SummonFeyScroll";
+		$this->name = "summon fey scroll";
 		$this->graphic = 0x2D57;
 		$this->type = "";
 		$this->flags = 0x00;

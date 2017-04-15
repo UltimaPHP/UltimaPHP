@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PowerCrystal extends Object {
+class powercrystal extends Object {
 	public function build() {
-		$this->name = "PowerCrystal";
+		$this->name = "power crystal";
 		$this->graphic = 0x1F1C;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class KnifeLeft extends Object {
+class knifeleft extends Object {
 	public function build() {
-		$this->name = "KnifeLeft";
+		$this->name = "knife left";
 		$this->graphic = 0x9F6;
 		$this->type = "";
 		$this->flags = 0x00;

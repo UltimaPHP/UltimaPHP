@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SmallFishingNetComponent extends Object {
+class smallfishingnetcomponent extends Object {
 	public function build() {
-		$this->name = "SmallFishingNetComponent";
+		$this->name = "small fishing net component";
 		$this->graphic = 0x1EA3;
 		$this->type = "";
 		$this->flags = 0x00;

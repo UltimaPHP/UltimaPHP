@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SamuraiHelm extends Object {
+class samuraihelm extends Object {
 	public function build() {
-		$this->name = "SamuraiHelm";
+		$this->name = "samurai helm";
 		$this->graphic = 0x236C;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlagueBeastRockOrgan extends Object {
+class plaguebeastrockorgan extends Object {
 	public function build() {
-		$this->name = "PlagueBeastRockOrgan";
+		$this->name = "plague beast rock organ";
 		$this->graphic = 0x177A;
 		$this->type = "";
 		$this->flags = 0x00;

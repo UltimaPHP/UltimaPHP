@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Spam extends Object {
+class spam extends Object {
 	public function build() {
-		$this->name = "Spam";
+		$this->name = "spam";
 		$this->graphic = 0x1044;
 		$this->type = "";
 		$this->flags = 0x00;

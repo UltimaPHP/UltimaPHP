@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WaterVatEast extends Object {
+class watervateast extends Object {
 	public function build() {
-		$this->name = "WaterVatEast";
+		$this->name = "water vat east";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

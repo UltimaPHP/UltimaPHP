@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GiftBoxNeon extends Object {
+class giftboxneon extends Object {
 	public function build() {
-		$this->name = "GiftBoxNeon";
+		$this->name = "gift box neon";
 		$this->graphic = 0x2be1;
 		$this->type = "";
 		$this->flags = 0x00;

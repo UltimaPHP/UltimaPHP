@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LampPostArtifact extends Object {
+class lamppostartifact extends Object {
 	public function build() {
-		$this->name = "LampPostArtifact";
+		$this->name = "lamp post artifact";
 		$this->graphic = 0xB24;
 		$this->type = "";
 		$this->flags = 0x00;

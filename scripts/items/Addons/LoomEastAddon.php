@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LoomEastAddon extends Object {
+class loomeastaddon extends Object {
 	public function build() {
-		$this->name = "LoomEastAddon";
+		$this->name = "loom east addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

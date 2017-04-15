@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Squash extends Object {
+class squash extends Object {
 	public function build() {
-		$this->name = "Squash";
+		$this->name = "squash";
 		$this->graphic = 0xc72;
 		$this->type = "";
 		$this->flags = 0x00;

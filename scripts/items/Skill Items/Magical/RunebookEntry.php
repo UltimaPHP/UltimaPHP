@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RunebookEntry extends Object {
+class runebookentry extends Object {
 	public function build() {
-		$this->name = "RunebookEntry";
+		$this->name = "runebook entry";
 		$this->graphic = 0x22C5;
 		$this->type = "";
 		$this->flags = 0x00;

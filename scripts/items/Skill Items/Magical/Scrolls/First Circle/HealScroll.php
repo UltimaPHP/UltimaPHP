@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HealScroll extends Object {
+class healscroll extends Object {
 	public function build() {
-		$this->name = "HealScroll";
+		$this->name = "heal scroll";
 		$this->graphic = 0x1F31;
 		$this->type = "";
 		$this->flags = 0x00;

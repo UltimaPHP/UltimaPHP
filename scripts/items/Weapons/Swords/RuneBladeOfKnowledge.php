@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RuneBladeOfKnowledge extends Object {
+class runebladeofknowledge extends Object {
 	public function build() {
-		$this->name = "RuneBladeOfKnowledge";
+		$this->name = "rune blade of knowledge";
 		$this->graphic = 0xF61;
 		$this->type = "";
 		$this->flags = 0x00;

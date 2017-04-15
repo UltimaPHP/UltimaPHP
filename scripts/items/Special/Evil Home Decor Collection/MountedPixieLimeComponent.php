@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MountedPixieLimeComponent extends Object {
+class mountedpixielimecomponent extends Object {
 	public function build() {
-		$this->name = "MountedPixieLimeComponent";
+		$this->name = "mounted pixie lime component";
 		$this->graphic = 0x2A77;
 		$this->type = "";
 		$this->flags = 0x00;

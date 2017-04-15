@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TranslatedGargoyleJournal extends Object {
+class translatedgargoylejournal extends Object {
 	public function build() {
-		$this->name = "TranslatedGargoyleJournal";
+		$this->name = "translated gargoyle journal";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

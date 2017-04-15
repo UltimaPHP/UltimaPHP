@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HintItem extends Object {
+class hintitem extends Object {
 	public function build() {
-		$this->name = "HintItem";
+		$this->name = "hint item";
 		$this->graphic = 0xF7E;
 		$this->type = "";
 		$this->flags = 0x00;

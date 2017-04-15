@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TripleFanWestArtifact extends Object {
+class triplefanwestartifact extends Object {
 	public function build() {
-		$this->name = "TripleFanWestArtifact";
+		$this->name = "triple fan west artifact";
 		$this->graphic = 0x240C;
 		$this->type = "";
 		$this->flags = 0x00;

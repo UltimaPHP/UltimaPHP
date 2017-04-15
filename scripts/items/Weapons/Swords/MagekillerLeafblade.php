@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MagekillerLeafblade extends Object {
+class magekillerleafblade extends Object {
 	public function build() {
-		$this->name = "MagekillerLeafblade";
+		$this->name = "magekiller leafblade";
 		$this->graphic = 0xF61;
 		$this->type = "";
 		$this->flags = 0x00;

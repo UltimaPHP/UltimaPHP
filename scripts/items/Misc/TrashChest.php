@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TrashChest extends Object {
+class trashchest extends Object {
 	public function build() {
-		$this->name = "TrashChest";
+		$this->name = "trash chest";
 		$this->graphic = 0xE41;
 		$this->type = "";
 		$this->flags = 0x00;

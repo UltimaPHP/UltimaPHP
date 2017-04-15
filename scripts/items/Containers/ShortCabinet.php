@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ShortCabinet extends Object {
+class shortcabinet extends Object {
 	public function build() {
-		$this->name = "ShortCabinet";
+		$this->name = "short cabinet";
 		$this->graphic = 0x2817;
 		$this->type = "";
 		$this->flags = 0x00;

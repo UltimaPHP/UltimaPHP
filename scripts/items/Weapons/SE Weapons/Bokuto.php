@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Bokuto extends Object {
+class bokuto extends Object {
 	public function build() {
-		$this->name = "Bokuto";
+		$this->name = "bokuto";
 		$this->graphic = 0x27A8;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Club extends Object {
+class club extends Object {
 	public function build() {
-		$this->name = "Club";
+		$this->name = "club";
 		$this->graphic = 0x13B4;
 		$this->type = "";
 		$this->flags = 0x00;

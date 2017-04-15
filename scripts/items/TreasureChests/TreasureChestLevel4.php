@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TreasureChestLevel4 extends Object {
+class treasurechestlevel4 extends Object {
 	public function build() {
-		$this->name = "TreasureChestLevel4";
+		$this->name = "treasure chest level";
 		$this->graphic = 0xE41;
 		$this->type = "";
 		$this->flags = 0x00;

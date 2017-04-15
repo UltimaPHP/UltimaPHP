@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WarriorStatueSouthAddon extends Object {
+class warriorstatuesouthaddon extends Object {
 	public function build() {
-		$this->name = "WarriorStatueSouthAddon";
+		$this->name = "warrior statue south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

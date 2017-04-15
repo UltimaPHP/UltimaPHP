@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PoisonScroll extends Object {
+class poisonscroll extends Object {
 	public function build() {
-		$this->name = "PoisonScroll";
+		$this->name = "poison scroll";
 		$this->graphic = 0x1F40;
 		$this->type = "";
 		$this->flags = 0x00;

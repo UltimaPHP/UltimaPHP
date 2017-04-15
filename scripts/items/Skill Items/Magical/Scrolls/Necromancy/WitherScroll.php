@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WitherScroll extends Object {
+class witherscroll extends Object {
 	public function build() {
-		$this->name = "WitherScroll";
+		$this->name = "wither scroll";
 		$this->graphic = 0x226E;
 		$this->type = "";
 		$this->flags = 0x00;

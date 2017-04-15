@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StringOfPartsOfParoxysmusVictims extends Object {
+class stringofpartsofparoxysmusvictims extends Object {
 	public function build() {
-		$this->name = "StringOfPartsOfParoxysmusVictims";
+		$this->name = "string of parts of paroxysmus victims";
 		$this->graphic = 0xFD2;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WrathOfTheDryad extends Object {
+class wrathofthedryad extends Object {
 	public function build() {
-		$this->name = "WrathOfTheDryad";
+		$this->name = "wrath of the dryad";
 		$this->graphic = 0x14F3;
 		$this->type = "";
 		$this->flags = 0x00;

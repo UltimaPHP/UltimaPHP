@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SamplesOfCorruptedWater extends Object {
+class samplesofcorruptedwater extends Object {
 	public function build() {
-		$this->name = "SamplesOfCorruptedWater";
+		$this->name = "samples of corrupted water";
 		$this->graphic = 0xEFE;
 		$this->type = "";
 		$this->flags = 0x00;

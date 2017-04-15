@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PeachTrunkAddon extends Object {
+class peachtrunkaddon extends Object {
 	public function build() {
-		$this->name = "PeachTrunkAddon";
+		$this->name = "peach trunk addon";
 		$this->graphic = 0x3D8E;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PieceBlackBishop extends Object {
+class pieceblackbishop extends Object {
 	public function build() {
-		$this->name = "PieceBlackBishop";
+		$this->name = "piece black bishop";
 		$this->graphic = 0x358C;
 		$this->type = "";
 		$this->flags = 0x00;

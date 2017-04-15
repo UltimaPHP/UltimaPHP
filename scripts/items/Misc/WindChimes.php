@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WindChimes extends Object {
+class windchimes extends Object {
 	public function build() {
-		$this->name = "WindChimes";
+		$this->name = "wind chimes";
 		$this->graphic = 0x2832;
 		$this->type = "";
 		$this->flags = 0x00;

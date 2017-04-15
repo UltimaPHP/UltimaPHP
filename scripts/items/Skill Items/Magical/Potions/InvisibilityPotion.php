@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class InvisibilityPotion extends Object {
+class invisibilitypotion extends Object {
 	public function build() {
-		$this->name = "InvisibilityPotion";
+		$this->name = "invisibility potion";
 		$this->graphic = 0xF0A;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WaterTroughSouthAddon extends Object {
+class watertroughsouthaddon extends Object {
 	public function build() {
-		$this->name = "WaterTroughSouthAddon";
+		$this->name = "water trough south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

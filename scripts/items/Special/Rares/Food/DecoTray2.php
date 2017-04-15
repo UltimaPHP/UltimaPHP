@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoTray2 extends Object {
+class decotray2 extends Object {
 	public function build() {
-		$this->name = "DecoTray2";
+		$this->name = "deco tray";
 		$this->graphic = 0x991;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BoneHelm extends Object {
+class bonehelm extends Object {
 	public function build() {
-		$this->name = "BoneHelm";
+		$this->name = "bone helm";
 		$this->graphic = 0x1451;
 		$this->type = "";
 		$this->flags = 0x00;

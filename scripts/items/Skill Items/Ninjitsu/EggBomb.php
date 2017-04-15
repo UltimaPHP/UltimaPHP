@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EggBomb extends Object {
+class eggbomb extends Object {
 	public function build() {
-		$this->name = "EggBomb";
+		$this->name = "egg bomb";
 		$this->graphic = 0x2808;
 		$this->type = "";
 		$this->flags = 0x00;

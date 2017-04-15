@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WaterTile extends Object {
+class watertile extends Object {
 	public function build() {
-		$this->name = "WaterTile";
+		$this->name = "water tile";
 		$this->graphic = 0x346E;
 		$this->type = "";
 		$this->flags = 0x00;

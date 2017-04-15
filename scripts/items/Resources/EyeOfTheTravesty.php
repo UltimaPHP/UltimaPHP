@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EyeOfTheTravesty extends Object {
+class eyeofthetravesty extends Object {
 	public function build() {
-		$this->name = "EyeOfTheTravesty";
+		$this->name = "eye of the travesty";
 		$this->graphic = 0x318D;
 		$this->type = "";
 		$this->flags = 0x00;

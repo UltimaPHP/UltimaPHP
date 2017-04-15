@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StoneChair extends Object {
+class stonechair extends Object {
 	public function build() {
-		$this->name = "StoneChair";
+		$this->name = "stone chair";
 		$this->graphic = 0xB2D;
 		$this->type = "";
 		$this->flags = 0x00;

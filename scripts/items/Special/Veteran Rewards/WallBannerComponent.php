@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WallBannerComponent extends Object {
+class wallbannercomponent extends Object {
 	public function build() {
-		$this->name = "WallBannerComponent";
+		$this->name = "wall banner component";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

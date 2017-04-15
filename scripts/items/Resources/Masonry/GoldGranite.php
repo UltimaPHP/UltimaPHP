@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GoldGranite extends Object {
+class goldgranite extends Object {
 	public function build() {
-		$this->name = "GoldGranite";
+		$this->name = "gold granite";
 		$this->graphic = 0x1779;
 		$this->type = "";
 		$this->flags = 0x00;

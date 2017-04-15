@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CoilsFang extends Object {
+class coilsfang extends Object {
 	public function build() {
-		$this->name = "CoilsFang";
+		$this->name = "coils fang";
 		$this->graphic = 0x10E8;
 		$this->type = "";
 		$this->flags = 0x00;

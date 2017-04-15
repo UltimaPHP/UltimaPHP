@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Blocker extends Object {
+class blocker extends Object {
 	public function build() {
-		$this->name = "Blocker";
+		$this->name = "blocker";
 		$this->graphic = 0x1A;
 		$this->type = "";
 		$this->flags = 0x00;

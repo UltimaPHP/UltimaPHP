@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HidePauldrons extends Object {
+class hidepauldrons extends Object {
 	public function build() {
-		$this->name = "HidePauldrons";
+		$this->name = "hide pauldrons";
 		$this->graphic = 0x2B77;
 		$this->type = "";
 		$this->flags = 0x00;

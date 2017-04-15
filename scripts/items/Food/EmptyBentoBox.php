@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EmptyBentoBox extends Object {
+class emptybentobox extends Object {
 	public function build() {
-		$this->name = "EmptyBentoBox";
+		$this->name = "empty bento box";
 		$this->graphic = 0x2834;
 		$this->type = "";
 		$this->flags = 0x00;

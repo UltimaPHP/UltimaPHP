@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LavaTile extends Object {
+class lavatile extends Object {
 	public function build() {
-		$this->name = "LavaTile";
+		$this->name = "lava tile";
 		$this->graphic = 0x12EE;
 		$this->type = "";
 		$this->flags = 0x00;

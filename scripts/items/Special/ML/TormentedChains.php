@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TormentedChains extends Object {
+class tormentedchains extends Object {
 	public function build() {
-		$this->name = "TormentedChains";
+		$this->name = "tormented chains";
 		$this->graphic = 0x2617;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoFlower2 extends Object {
+class decoflower2 extends Object {
 	public function build() {
-		$this->name = "DecoFlower2";
+		$this->name = "deco flower";
 		$this->graphic = 0x18D9;
 		$this->type = "";
 		$this->flags = 0x00;

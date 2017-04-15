@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ProtectionScroll extends Object {
+class protectionscroll extends Object {
 	public function build() {
-		$this->name = "ProtectionScroll";
+		$this->name = "protection scroll";
 		$this->graphic = 0x1F3B;
 		$this->type = "";
 		$this->flags = 0x00;

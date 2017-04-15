@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoTarot2 extends Object {
+class decotarot2 extends Object {
 	public function build() {
-		$this->name = "DecoTarot2";
+		$this->name = "deco tarot";
 		$this->graphic = 0x12A6;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeatherJingasa extends Object {
+class leatherjingasa extends Object {
 	public function build() {
-		$this->name = "LeatherJingasa";
+		$this->name = "leather jingasa";
 		$this->graphic = 0x2776;
 		$this->type = "";
 		$this->flags = 0x00;

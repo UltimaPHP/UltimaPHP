@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Apple extends Object {
+class apple extends Object {
 	public function build() {
-		$this->name = "Apple";
+		$this->name = "apple";
 		$this->graphic = 0x9D0;
 		$this->type = "";
 		$this->flags = 0x00;

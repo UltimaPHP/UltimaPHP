@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GozaMatSouthAddon extends Object {
+class gozamatsouthaddon extends Object {
 	public function build() {
-		$this->name = "GozaMatSouthAddon";
+		$this->name = "goza mat south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

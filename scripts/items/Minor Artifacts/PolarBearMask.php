@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PolarBearMask extends Object {
+class polarbearmask extends Object {
 	public function build() {
-		$this->name = "PolarBearMask";
+		$this->name = "polar bear mask";
 		$this->graphic = 0x1BEB;
 		$this->type = "";
 		$this->flags = 0x00;

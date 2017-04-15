@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CupsArtifact extends Object {
+class cupsartifact extends Object {
 	public function build() {
-		$this->name = "CupsArtifact";
+		$this->name = "cups artifact";
 		$this->graphic = 0x24E1;
 		$this->type = "";
 		$this->flags = 0x00;

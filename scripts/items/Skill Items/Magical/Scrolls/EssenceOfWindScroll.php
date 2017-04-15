@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EssenceOfWindScroll extends Object {
+class essenceofwindscroll extends Object {
 	public function build() {
-		$this->name = "EssenceOfWindScroll";
+		$this->name = "essence of wind scroll";
 		$this->graphic = 0x2D5B;
 		$this->type = "";
 		$this->flags = 0x00;

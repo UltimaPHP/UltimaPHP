@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WristWatch extends Object {
+class wristwatch extends Object {
 	public function build() {
-		$this->name = "WristWatch";
+		$this->name = "wrist watch";
 		$this->graphic = 0x1086;
 		$this->type = "";
 		$this->flags = 0x00;

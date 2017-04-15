@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TrueRadiantScimitar extends Object {
+class trueradiantscimitar extends Object {
 	public function build() {
-		$this->name = "TrueRadiantScimitar";
+		$this->name = "true radiant scimitar";
 		$this->graphic = 0x13B8;
 		$this->type = "";
 		$this->flags = 0x00;

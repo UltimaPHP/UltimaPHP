@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CreateFoodScroll extends Object {
+class createfoodscroll extends Object {
 	public function build() {
-		$this->name = "CreateFoodScroll";
+		$this->name = "create food scroll";
 		$this->graphic = 0x1F2F;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SnowStatueMermaid extends Object {
+class snowstatuemermaid extends Object {
 	public function build() {
-		$this->name = "SnowStatueMermaid";
+		$this->name = "snow statue mermaid";
 		$this->graphic = 0x457A;
 		$this->type = "";
 		$this->flags = 0x00;
