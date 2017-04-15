@@ -210,7 +210,8 @@ class Account {
         }*/
         }
 
-        $tmpPacket .= str_pad("11E8", 8, "0", STR_PAD_LEFT);
+        // $tmpPacket = str_pad(dechex(clientDefs::EXPANSION_TOL), 8, "0", STR_PAD_LEFT);
+        $tmpPacket .= "007FC2D9";
         $tmpPacket .= "FFFF";
 
         $packet = "A9";
