@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BookOfNinjitsu extends Object {
+class bookofninjitsu extends Object {
 	public function build() {
-		$this->name = "BookOfNinjitsu";
+		$this->name = "book of ninjitsu";
 		$this->graphic = 0x23A0;
 		$this->type = "";
 		$this->flags = 0x00;

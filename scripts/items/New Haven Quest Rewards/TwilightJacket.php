@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TwilightJacket extends Object {
+class twilightjacket extends Object {
 	public function build() {
-		$this->name = "TwilightJacket";
+		$this->name = "twilight jacket";
 		$this->graphic = 0x3FFFFFFFF;
 		$this->type = "";
 		$this->flags = 0x00;

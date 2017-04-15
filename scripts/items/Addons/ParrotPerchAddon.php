@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ParrotPerchAddon extends Object {
+class parrotperchaddon extends Object {
 	public function build() {
-		$this->name = "ParrotPerchAddon";
+		$this->name = "parrot perch addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

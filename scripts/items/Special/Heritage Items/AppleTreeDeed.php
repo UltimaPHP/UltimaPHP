@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AppleTreeDeed extends Object {
+class appletreedeed extends Object {
 	public function build() {
-		$this->name = "AppleTreeDeed";
+		$this->name = "apple tree deed";
 		$this->graphic = 0x2068;
 		$this->type = "";
 		$this->flags = 0x00;

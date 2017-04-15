@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Dices extends Object {
+class dices extends Object {
 	public function build() {
-		$this->name = "Dices";
+		$this->name = "dices";
 		$this->graphic = 0xFA7;
 		$this->type = "";
 		$this->flags = 0x00;

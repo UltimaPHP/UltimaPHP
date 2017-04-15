@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ManStatuetteEastArtifact extends Object {
+class manstatuetteeastartifact extends Object {
 	public function build() {
-		$this->name = "ManStatuetteEastArtifact";
+		$this->name = "man statuette east artifact";
 		$this->graphic = 0x2849;
 		$this->type = "";
 		$this->flags = 0x00;

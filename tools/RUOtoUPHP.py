@@ -113,12 +113,27 @@ def ReadFiles(path, filesList):
                 elif re.search(r'Hue =', readLine, re.IGNORECASE):
                     m = re.search(r'0x[0-9a-fA-F]+', readLine, re.IGNORECASE)
                     if m != None:
-                        propriedades['hue'] = m.group()
+                        propriedades['hue'] = m.group(0)
                 if propriedades['name'] != "" and propriedades['baseid'] != 0x00:
                     convertData(path, propriedades)
                     propriedades = proprieadesStart
     except ValueError as er:
         print(er)
+
+def criaEspaco(string):
+    m = re.split(r'([A-Z][a-z]+)', string)
+
+    word = ""
+    count_words = 0
+    for sil in m[:-1]:
+        count_words += 1
+        if sil != "" and count_words < len(m[:-1]):
+            word += sil + " "
+        elif sil != "" and count_words == len(m[:-1]):
+            word += sil
+
+    return word
+    #print(m.group(0).replace(m.group(0),m.group(0)+" "))
 
 '''
     Recebe o dicionario preenchido e a raiz do arquivo de origem, assim ele cria o arquivo .php
@@ -131,9 +146,9 @@ def convertData(path, readLine):
     '* Ultima PHP - OpenSource Ultima Online Server written in PHP\n'\
     '* Version: 0.1 - Pre Alpha\n'\
     '*/\n\n'\
-    'class '+readLine['name']+' extends Object {\n'\
+    'class '+readLine['name'].lower()+' extends Object {\n'\
     '	public function build() {\n'\
-    '		$this->name = \"'+readLine['name']+'\";\n'\
+    '		$this->name = \"'+criaEspaco(readLine['name']).lower()+'\";\n'\
     '		$this->graphic = '+str(readLine['baseid'])+';\n'\
     '		$this->type = "";\n'\
     '		$this->flags = 0x00;\n'\
@@ -156,6 +171,7 @@ def convertData(path, readLine):
     '}}\n?>\n'
     
     fileCreated = open(path+'\\'+readLine['name']+'.php','w')
+    print(path+'\\'+readLine['name']+'.php')
     fileCreated.write(item_php_template)
     fileCreated.close()
 

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OrderShield extends Object {
+class ordershield extends Object {
 	public function build() {
-		$this->name = "OrderShield";
+		$this->name = "order shield";
 		$this->graphic = 0x1BC4;
 		$this->type = "";
 		$this->flags = 0x00;

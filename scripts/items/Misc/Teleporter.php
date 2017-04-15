@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Teleporter extends Object {
+class teleporter extends Object {
 	public function build() {
-		$this->name = "Teleporter";
+		$this->name = "teleporter";
 		$this->graphic = 0x91B;
 		$this->type = "";
 		$this->flags = 0x00;

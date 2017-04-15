@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HeartwoodLog extends Object {
+class heartwoodlog extends Object {
 	public function build() {
-		$this->name = "HeartwoodLog";
+		$this->name = "heartwood log";
 		$this->graphic = 0x1BDD;
 		$this->type = "";
 		$this->flags = 0x00;

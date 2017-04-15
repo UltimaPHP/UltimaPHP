@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ElvenStoveSouthAddon extends Object {
+class elvenstovesouthaddon extends Object {
 	public function build() {
-		$this->name = "ElvenStoveSouthAddon";
+		$this->name = "elven stove south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

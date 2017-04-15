@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BloodwoodLog extends Object {
+class bloodwoodlog extends Object {
 	public function build() {
-		$this->name = "BloodwoodLog";
+		$this->name = "bloodwood log";
 		$this->graphic = 0x1BDD;
 		$this->type = "";
 		$this->flags = 0x00;

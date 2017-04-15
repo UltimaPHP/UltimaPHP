@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OakBoard extends Object {
+class oakboard extends Object {
 	public function build() {
-		$this->name = "OakBoard";
+		$this->name = "oak board";
 		$this->graphic = 0x1BD7;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SandstoneFloorN extends Object {
+class sandstonefloorn extends Object {
 	public function build() {
-		$this->name = "SandstoneFloorN";
+		$this->name = "sandstone floor";
 		$this->graphic = 0x525;
 		$this->type = "";
 		$this->flags = 0x00;

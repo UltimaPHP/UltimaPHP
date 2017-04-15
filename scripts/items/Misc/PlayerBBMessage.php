@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlayerBBMessage extends Object {
+class playerbbmessage extends Object {
 	public function build() {
-		$this->name = "PlayerBBMessage";
+		$this->name = "player bb message";
 		$this->graphic = 0x2312;
 		$this->type = "";
 		$this->flags = 0x00;

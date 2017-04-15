@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FillableBvrge extends Object {
+class fillablebvrge extends Object {
 	public function build() {
-		$this->name = "FillableBvrge";
+		$this->name = "fillable bvrge";
 		$this->graphic = 0xE43;
 		$this->type = "";
 		$this->flags = 0x00;

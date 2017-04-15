@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ClothingBlessDeed extends Object {
+class clothingblessdeed extends Object {
 	public function build() {
-		$this->name = "ClothingBlessDeed";
+		$this->name = "clothing bless deed";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

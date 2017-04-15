@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FlowerGarland extends Object {
+class flowergarland extends Object {
 	public function build() {
-		$this->name = "FlowerGarland";
+		$this->name = "flower garland";
 		$this->graphic = 0x2306;
 		$this->type = "";
 		$this->flags = 0x00;

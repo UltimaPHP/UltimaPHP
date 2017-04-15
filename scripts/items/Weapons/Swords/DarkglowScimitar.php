@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DarkglowScimitar extends Object {
+class darkglowscimitar extends Object {
 	public function build() {
-		$this->name = "DarkglowScimitar";
+		$this->name = "darkglow scimitar";
 		$this->graphic = 0x1441;
 		$this->type = "";
 		$this->flags = 0x00;

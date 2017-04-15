@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Mohawk extends Object {
+class mohawk extends Object {
 	public function build() {
-		$this->name = "Mohawk";
+		$this->name = "mohawk";
 		$this->graphic = 0x2044;
 		$this->type = "";
 		$this->flags = 0x00;

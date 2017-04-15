@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PristineDreadHorn extends Object {
+class pristinedreadhorn extends Object {
 	public function build() {
-		$this->name = "PristineDreadHorn";
+		$this->name = "pristine dread horn";
 		$this->graphic = 0x315A;
 		$this->type = "";
 		$this->flags = 0x00;

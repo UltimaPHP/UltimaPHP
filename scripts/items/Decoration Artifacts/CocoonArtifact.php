@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CocoonArtifact extends Object {
+class cocoonartifact extends Object {
 	public function build() {
-		$this->name = "CocoonArtifact";
+		$this->name = "cocoon artifact";
 		$this->graphic = 0x10DA;
 		$this->type = "";
 		$this->flags = 0x00;

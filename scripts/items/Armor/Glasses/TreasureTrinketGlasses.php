@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TreasureTrinketGlasses extends Object {
+class treasuretrinketglasses extends Object {
 	public function build() {
-		$this->name = "TreasureTrinketGlasses";
+		$this->name = "treasure trinket glasses";
 		$this->graphic = 0x2FB8;
 		$this->type = "";
 		$this->flags = 0x00;

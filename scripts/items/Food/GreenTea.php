@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GreenTea extends Object {
+class greentea extends Object {
 	public function build() {
-		$this->name = "GreenTea";
+		$this->name = "green tea";
 		$this->graphic = 0x284C;
 		$this->type = "";
 		$this->flags = 0x00;

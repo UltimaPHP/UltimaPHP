@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SwordDisplay2WestArtifact extends Object {
+class sworddisplay2westartifact extends Object {
 	public function build() {
-		$this->name = "SwordDisplay2WestArtifact";
+		$this->name = "sword display 2 west artifact";
 		$this->graphic = 0x2844;
 		$this->type = "";
 		$this->flags = 0x00;

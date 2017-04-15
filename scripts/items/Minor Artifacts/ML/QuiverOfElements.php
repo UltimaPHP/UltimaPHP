@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class QuiverOfElements extends Object {
+class quiverofelements extends Object {
 	public function build() {
-		$this->name = "QuiverOfElements";
+		$this->name = "quiver of elements";
 		$this->graphic = 0x47E;
 		$this->type = "";
 		$this->flags = 0x00;

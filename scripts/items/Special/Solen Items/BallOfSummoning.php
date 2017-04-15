@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BallOfSummoning extends Object {
+class ballofsummoning extends Object {
 	public function build() {
-		$this->name = "BallOfSummoning";
+		$this->name = "ball of summoning";
 		$this->graphic = 0xE2E;
 		$this->type = "";
 		$this->flags = 0x00;

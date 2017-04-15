@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class NightsKiss extends Object {
+class nightskiss extends Object {
 	public function build() {
-		$this->name = "NightsKiss";
+		$this->name = "nights kiss";
 		$this->graphic = 0x1BEB;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LightWoodGate extends Object {
+class lightwoodgate extends Object {
 	public function build() {
-		$this->name = "LightWoodGate";
+		$this->name = "light wood gate";
 		$this->graphic = 0x839;
 		$this->type = "";
 		$this->flags = 0x00;

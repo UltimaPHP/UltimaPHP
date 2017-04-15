@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PageboyHair extends Object {
+class pageboyhair extends Object {
 	public function build() {
-		$this->name = "PageboyHair";
+		$this->name = "pageboy hair";
 		$this->graphic = 0x2045;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WhiteScales extends Object {
+class whitescales extends Object {
 	public function build() {
-		$this->name = "WhiteScales";
+		$this->name = "white scales";
 		$this->graphic = 0x26B4;
 		$this->type = "";
 		$this->flags = 0x00;

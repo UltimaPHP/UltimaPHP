@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Vandyke extends Object {
+class vandyke extends Object {
 	public function build() {
-		$this->name = "Vandyke";
+		$this->name = "vandyke";
 		$this->graphic = 0x204D;
 		$this->type = "";
 		$this->flags = 0x00;

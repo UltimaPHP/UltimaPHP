@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HeaterShield extends Object {
+class heatershield extends Object {
 	public function build() {
-		$this->name = "HeaterShield";
+		$this->name = "heater shield";
 		$this->graphic = 0x1B76;
 		$this->type = "";
 		$this->flags = 0x00;

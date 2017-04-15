@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class NameChangeDeed extends Object {
+class namechangedeed extends Object {
 	public function build() {
-		$this->name = "NameChangeDeed";
+		$this->name = "name change deed";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

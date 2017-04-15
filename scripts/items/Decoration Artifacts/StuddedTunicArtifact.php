@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StuddedTunicArtifact extends Object {
+class studdedtunicartifact extends Object {
 	public function build() {
-		$this->name = "StuddedTunicArtifact";
+		$this->name = "studded tunic artifact";
 		$this->graphic = 0x13D9;
 		$this->type = "";
 		$this->flags = 0x00;

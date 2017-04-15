@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WeaknessWand extends Object {
+class weaknesswand extends Object {
 	public function build() {
-		$this->name = "WeaknessWand";
+		$this->name = "weakness wand";
 		$this->graphic = 0xDF2;
 		$this->type = "";
 		$this->flags = 0x00;

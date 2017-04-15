@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class IronIngot extends Object {
+class ironingot extends Object {
 	public function build() {
-		$this->name = "IronIngot";
+		$this->name = "iron ingot";
 		$this->graphic = 0x1BF2;
 		$this->type = "";
 		$this->flags = 0x00;

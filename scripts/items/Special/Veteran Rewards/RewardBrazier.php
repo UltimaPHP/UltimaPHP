@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RewardBrazier extends Object {
+class rewardbrazier extends Object {
 	public function build() {
-		$this->name = "RewardBrazier";
+		$this->name = "reward brazier";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

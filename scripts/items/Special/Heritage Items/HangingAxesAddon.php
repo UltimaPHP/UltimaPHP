@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HangingAxesAddon extends Object {
+class hangingaxesaddon extends Object {
 	public function build() {
-		$this->name = "HangingAxesAddon";
+		$this->name = "hanging axes addon";
 		$this->graphic = 0x125E;
 		$this->type = "";
 		$this->flags = 0x00;

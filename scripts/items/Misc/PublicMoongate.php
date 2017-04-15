@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PublicMoongate extends Object {
+class publicmoongate extends Object {
 	public function build() {
-		$this->name = "PublicMoongate";
+		$this->name = "public moongate";
 		$this->graphic = 0xF6C;
 		$this->type = "";
 		$this->flags = 0x00;

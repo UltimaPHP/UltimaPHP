@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RewardBrazierDeed extends Object {
+class rewardbrazierdeed extends Object {
 	public function build() {
-		$this->name = "RewardBrazierDeed";
+		$this->name = "reward brazier deed";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StuddedGorget extends Object {
+class studdedgorget extends Object {
 	public function build() {
-		$this->name = "StuddedGorget";
+		$this->name = "studded gorget";
 		$this->graphic = 0x13D6;
 		$this->type = "";
 		$this->flags = 0x00;

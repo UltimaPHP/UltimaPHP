@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DeathShroud extends Object {
+class deathshroud extends Object {
 	public function build() {
-		$this->name = "DeathShroud";
+		$this->name = "death shroud";
 		$this->graphic = 0x0;
 		$this->type = "";
 		$this->flags = 0x00;

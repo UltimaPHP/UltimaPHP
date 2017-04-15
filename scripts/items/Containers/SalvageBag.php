@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SalvageBag extends Object {
+class salvagebag extends Object {
 	public function build() {
-		$this->name = "SalvageBag";
+		$this->name = "salvage bag";
 		$this->graphic = 0xECA;
 		$this->type = "";
 		$this->flags = 0x00;

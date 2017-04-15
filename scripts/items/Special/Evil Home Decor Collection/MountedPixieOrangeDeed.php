@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MountedPixieOrangeDeed extends Object {
+class mountedpixieorangedeed extends Object {
 	public function build() {
-		$this->name = "MountedPixieOrangeDeed";
+		$this->name = "mounted pixie orange deed";
 		$this->graphic = 0x2A73;
 		$this->type = "";
 		$this->flags = 0x00;

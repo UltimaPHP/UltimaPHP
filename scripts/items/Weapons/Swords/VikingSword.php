@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class VikingSword extends Object {
+class vikingsword extends Object {
 	public function build() {
-		$this->name = "VikingSword";
+		$this->name = "viking sword";
 		$this->graphic = 0x13B9;
 		$this->type = "";
 		$this->flags = 0x00;

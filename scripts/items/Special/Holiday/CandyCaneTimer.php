@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CandyCaneTimer extends Object {
+class candycanetimer extends Object {
 	public function build() {
-		$this->name = "CandyCaneTimer";
+		$this->name = "candy cane timer";
 		$this->graphic = 0x232A;
 		$this->type = "";
 		$this->flags = 0x00;

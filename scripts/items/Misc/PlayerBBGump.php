@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlayerBBGump extends Object {
+class playerbbgump extends Object {
 	public function build() {
-		$this->name = "PlayerBBGump";
+		$this->name = "player bb gump";
 		$this->graphic = 0x2312;
 		$this->type = "";
 		$this->flags = 0x00;

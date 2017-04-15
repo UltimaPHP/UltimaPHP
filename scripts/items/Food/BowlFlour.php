@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BowlFlour extends Object {
+class bowlflour extends Object {
 	public function build() {
-		$this->name = "BowlFlour";
+		$this->name = "bowl flour";
 		$this->graphic = 0xa1e;
 		$this->type = "";
 		$this->flags = 0x00;

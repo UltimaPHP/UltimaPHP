@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SongOfSamlethe extends Object {
+class songofsamlethe extends Object {
 	public function build() {
-		$this->name = "SongOfSamlethe";
+		$this->name = "song of samlethe";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

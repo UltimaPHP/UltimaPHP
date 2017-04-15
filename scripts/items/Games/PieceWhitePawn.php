@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PieceWhitePawn extends Object {
+class piecewhitepawn extends Object {
 	public function build() {
-		$this->name = "PieceWhitePawn";
+		$this->name = "piece white pawn";
 		$this->graphic = 0x3589;
 		$this->type = "";
 		$this->flags = 0x00;

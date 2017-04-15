@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SandstoneFountainAddon extends Object {
+class sandstonefountainaddon extends Object {
 	public function build() {
-		$this->name = "SandstoneFountainAddon";
+		$this->name = "sandstone fountain addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

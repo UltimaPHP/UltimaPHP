@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SkullCap extends Object {
+class skullcap extends Object {
 	public function build() {
-		$this->name = "SkullCap";
+		$this->name = "skull cap";
 		$this->graphic = 0x1544;
 		$this->type = "";
 		$this->flags = 0x00;

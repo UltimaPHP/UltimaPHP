@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TrophyInfo extends Object {
+class trophyinfo extends Object {
 	public function build() {
-		$this->name = "TrophyInfo";
+		$this->name = "trophy info";
 		$this->graphic = 0x1EBA;
 		$this->type = "";
 		$this->flags = 0x00;

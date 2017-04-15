@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class VanityAddon extends Object {
+class vanityaddon extends Object {
 	public function build() {
-		$this->name = "VanityAddon";
+		$this->name = "vanity addon";
 		$this->graphic = 0xA44;
 		$this->type = "";
 		$this->flags = 0x00;

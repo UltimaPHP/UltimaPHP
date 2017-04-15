@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ChainChest extends Object {
+class chainchest extends Object {
 	public function build() {
-		$this->name = "ChainChest";
+		$this->name = "chain chest";
 		$this->graphic = 0x13BF;
 		$this->type = "";
 		$this->flags = 0x00;

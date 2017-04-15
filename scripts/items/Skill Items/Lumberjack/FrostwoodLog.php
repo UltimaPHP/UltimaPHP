@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FrostwoodLog extends Object {
+class frostwoodlog extends Object {
 	public function build() {
-		$this->name = "FrostwoodLog";
+		$this->name = "frostwood log";
 		$this->graphic = 0x1BDD;
 		$this->type = "";
 		$this->flags = 0x00;

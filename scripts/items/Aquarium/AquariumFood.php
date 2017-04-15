@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AquariumFood extends Object {
+class aquariumfood extends Object {
 	public function build() {
-		$this->name = "AquariumFood";
+		$this->name = "aquarium food";
 		$this->graphic = 0xEFC;
 		$this->type = "";
 		$this->flags = 0x00;

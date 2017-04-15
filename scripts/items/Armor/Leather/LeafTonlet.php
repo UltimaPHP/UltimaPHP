@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeafTonlet extends Object {
+class leaftonlet extends Object {
 	public function build() {
-		$this->name = "LeafTonlet";
+		$this->name = "leaf tonlet";
 		$this->graphic = 0x2FCA;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ShrineOfWisdomAddon extends Object {
+class shrineofwisdomaddon extends Object {
 	public function build() {
-		$this->name = "ShrineOfWisdomAddon";
+		$this->name = "shrine of wisdom addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

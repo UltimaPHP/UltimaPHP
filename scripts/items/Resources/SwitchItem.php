@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SwitchItem extends Object {
+class switchitem extends Object {
 	public function build() {
-		$this->name = "SwitchItem";
+		$this->name = "switch item";
 		$this->graphic = 0x2F5F;
 		$this->type = "";
 		$this->flags = 0x00;

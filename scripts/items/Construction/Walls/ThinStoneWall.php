@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ThinStoneWall extends Object {
+class thinstonewall extends Object {
 	public function build() {
-		$this->name = "ThinStoneWall";
+		$this->name = "thin stone wall";
 		$this->graphic = 0x001A;
 		$this->type = "";
 		$this->flags = 0x00;

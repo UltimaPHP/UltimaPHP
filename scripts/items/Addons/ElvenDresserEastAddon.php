@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ElvenDresserEastAddon extends Object {
+class elvendressereastaddon extends Object {
 	public function build() {
-		$this->name = "ElvenDresserEastAddon";
+		$this->name = "elven dresser east addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

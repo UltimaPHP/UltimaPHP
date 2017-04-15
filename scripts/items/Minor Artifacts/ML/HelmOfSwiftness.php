@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HelmOfSwiftness extends Object {
+class helmofswiftness extends Object {
 	public function build() {
-		$this->name = "HelmOfSwiftness";
+		$this->name = "helm of swiftness";
 		$this->graphic = 0x2F5A;
 		$this->type = "";
 		$this->flags = 0x00;

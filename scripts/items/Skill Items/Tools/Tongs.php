@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Tongs extends Object {
+class tongs extends Object {
 	public function build() {
-		$this->name = "Tongs";
+		$this->name = "tongs";
 		$this->graphic = 0xFBB;
 		$this->type = "";
 		$this->flags = 0x00;

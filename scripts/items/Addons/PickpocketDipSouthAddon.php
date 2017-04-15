@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PickpocketDipSouthAddon extends Object {
+class pickpocketdipsouthaddon extends Object {
 	public function build() {
-		$this->name = "PickpocketDipSouthAddon";
+		$this->name = "pickpocket dip south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

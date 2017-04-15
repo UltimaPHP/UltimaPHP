@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GiftBoxHues extends Object {
+class giftboxhues extends Object {
 	public function build() {
-		$this->name = "GiftBoxHues";
+		$this->name = "gift box hues";
 		$this->graphic = 0x2be1;
 		$this->type = "";
 		$this->flags = 0x00;

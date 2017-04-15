@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SmallForgeAddon extends Object {
+class smallforgeaddon extends Object {
 	public function build() {
-		$this->name = "SmallForgeAddon";
+		$this->name = "small forge addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EmeraldMace extends Object {
+class emeraldmace extends Object {
 	public function build() {
-		$this->name = "EmeraldMace";
+		$this->name = "emerald mace";
 		$this->graphic = 0x13B4;
 		$this->type = "";
 		$this->flags = 0x00;

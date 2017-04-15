@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LtBlueCurvedFlask extends Object {
+class ltbluecurvedflask extends Object {
 	public function build() {
-		$this->name = "LtBlueCurvedFlask";
+		$this->name = "lt blue curved flask";
 		$this->graphic = 0x1834;
 		$this->type = "";
 		$this->flags = 0x00;

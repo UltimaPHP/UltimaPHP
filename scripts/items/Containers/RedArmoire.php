@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RedArmoire extends Object {
+class redarmoire extends Object {
 	public function build() {
-		$this->name = "RedArmoire";
+		$this->name = "red armoire";
 		$this->graphic = 0x2857;
 		$this->type = "";
 		$this->flags = 0x00;

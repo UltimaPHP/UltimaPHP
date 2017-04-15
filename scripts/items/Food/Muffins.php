@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Muffins extends Object {
+class muffins extends Object {
 	public function build() {
-		$this->name = "Muffins";
+		$this->name = "muffins";
 		$this->graphic = 0x9eb;
 		$this->type = "";
 		$this->flags = 0x00;

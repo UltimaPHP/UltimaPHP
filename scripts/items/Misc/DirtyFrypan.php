@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DirtyFrypan extends Object {
+class dirtyfrypan extends Object {
 	public function build() {
-		$this->name = "DirtyFrypan";
+		$this->name = "dirty frypan";
 		$this->graphic = 0x9DE;
 		$this->type = "";
 		$this->flags = 0x00;

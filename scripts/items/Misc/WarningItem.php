@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WarningItem extends Object {
+class warningitem extends Object {
 	public function build() {
-		$this->name = "WarningItem";
+		$this->name = "warning item";
 		$this->graphic = 0xF7E;
 		$this->type = "";
 		$this->flags = 0x00;

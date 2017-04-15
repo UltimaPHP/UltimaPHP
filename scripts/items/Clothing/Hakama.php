@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Hakama extends Object {
+class hakama extends Object {
 	public function build() {
-		$this->name = "Hakama";
+		$this->name = "hakama";
 		$this->graphic = 0x279A;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoBridle2 extends Object {
+class decobridle2 extends Object {
 	public function build() {
-		$this->name = "DecoBridle2";
+		$this->name = "deco bridle";
 		$this->graphic = 0x1375;
 		$this->type = "";
 		$this->flags = 0x00;

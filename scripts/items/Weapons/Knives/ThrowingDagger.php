@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ThrowingDagger extends Object {
+class throwingdagger extends Object {
 	public function build() {
-		$this->name = "ThrowingDagger";
+		$this->name = "throwing dagger";
 		$this->graphic = 0xF52;
 		$this->type = "";
 		$this->flags = 0x00;

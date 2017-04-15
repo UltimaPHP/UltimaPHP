@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Sapphire extends Object {
+class sapphire extends Object {
 	public function build() {
-		$this->name = "Sapphire";
+		$this->name = "sapphire";
 		$this->graphic = 0xF19;
 		$this->type = "";
 		$this->flags = 0x00;

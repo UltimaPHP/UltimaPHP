@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GreyFlagstones extends Object {
+class greyflagstones extends Object {
 	public function build() {
-		$this->name = "GreyFlagstones";
+		$this->name = "grey flagstones";
 		$this->graphic = 0x4FC;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MiniHouseAddon extends Object {
+class minihouseaddon extends Object {
 	public function build() {
-		$this->name = "MiniHouseAddon";
+		$this->name = "mini house addon";
 		$this->graphic = 0x367A;
 		$this->type = "";
 		$this->flags = 0x00;

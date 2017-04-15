@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoHay2 extends Object {
+class decohay2 extends Object {
 	public function build() {
-		$this->name = "DecoHay2";
+		$this->name = "deco hay";
 		$this->graphic = 0xF34;
 		$this->type = "";
 		$this->flags = 0x00;

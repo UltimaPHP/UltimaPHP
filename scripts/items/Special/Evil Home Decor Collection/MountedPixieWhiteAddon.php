@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MountedPixieWhiteAddon extends Object {
+class mountedpixiewhiteaddon extends Object {
 	public function build() {
-		$this->name = "MountedPixieWhiteAddon";
+		$this->name = "mounted pixie white addon";
 		$this->graphic = 0x2A79;
 		$this->type = "";
 		$this->flags = 0x00;

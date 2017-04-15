@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TombstoneOfTheDamned extends Object {
+class tombstoneofthedamned extends Object {
 	public function build() {
-		$this->name = "TombstoneOfTheDamned";
+		$this->name = "tombstone of the damned";
 		$this->graphic = 0xED7;
 		$this->type = "";
 		$this->flags = 0x00;

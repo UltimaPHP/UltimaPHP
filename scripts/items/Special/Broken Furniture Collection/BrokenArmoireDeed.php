@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrokenArmoireDeed extends Object {
+class brokenarmoiredeed extends Object {
 	public function build() {
-		$this->name = "BrokenArmoireDeed";
+		$this->name = "broken armoire deed";
 		$this->graphic = 0xC12;
 		$this->type = "";
 		$this->flags = 0x00;

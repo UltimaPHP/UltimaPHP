@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Tessen extends Object {
+class tessen extends Object {
 	public function build() {
-		$this->name = "Tessen";
+		$this->name = "tessen";
 		$this->graphic = 0x27A3;
 		$this->type = "";
 		$this->flags = 0x00;

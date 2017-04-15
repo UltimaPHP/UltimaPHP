@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlagueBeastBackpack extends Object {
+class plaguebeastbackpack extends Object {
 	public function build() {
-		$this->name = "PlagueBeastBackpack";
+		$this->name = "plague beast backpack";
 		$this->graphic = 0x261B;
 		$this->type = "";
 		$this->flags = 0x00;

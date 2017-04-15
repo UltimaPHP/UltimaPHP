@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RuinedClock extends Object {
+class ruinedclock extends Object {
 	public function build() {
-		$this->name = "RuinedClock";
+		$this->name = "ruined clock";
 		$this->graphic = 0xC1F;
 		$this->type = "";
 		$this->flags = 0x00;

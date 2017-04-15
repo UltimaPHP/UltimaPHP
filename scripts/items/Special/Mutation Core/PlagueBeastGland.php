@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlagueBeastGland extends Object {
+class plaguebeastgland extends Object {
 	public function build() {
-		$this->name = "PlagueBeastGland";
+		$this->name = "plague beast gland";
 		$this->graphic = 0x1CEF;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BallotBoxAddon extends Object {
+class ballotboxaddon extends Object {
 	public function build() {
-		$this->name = "BallotBoxAddon";
+		$this->name = "ballot box addon";
 		$this->graphic = 0x9A8;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DiseasedMachete extends Object {
+class diseasedmachete extends Object {
 	public function build() {
-		$this->name = "DiseasedMachete";
+		$this->name = "diseased machete";
 		$this->graphic = 0x1441;
 		$this->type = "";
 		$this->flags = 0x00;

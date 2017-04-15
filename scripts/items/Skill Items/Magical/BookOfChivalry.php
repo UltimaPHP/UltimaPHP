@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BookOfChivalry extends Object {
+class bookofchivalry extends Object {
 	public function build() {
-		$this->name = "BookOfChivalry";
+		$this->name = "book of chivalry";
 		$this->graphic = 0x2252;
 		$this->type = "";
 		$this->flags = 0x00;

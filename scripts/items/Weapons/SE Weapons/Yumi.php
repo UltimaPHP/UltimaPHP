@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Yumi extends Object {
+class yumi extends Object {
 	public function build() {
-		$this->name = "Yumi";
+		$this->name = "yumi";
 		$this->graphic = 0x27A5;
 		$this->type = "";
 		$this->flags = 0x00;

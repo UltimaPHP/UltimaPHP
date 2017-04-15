@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Jug extends Object {
+class jug extends Object {
 	public function build() {
-		$this->name = "Jug";
+		$this->name = "jug";
 		$this->graphic = 0x2850;
 		$this->type = "";
 		$this->flags = 0x00;

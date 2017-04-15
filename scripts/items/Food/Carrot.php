@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Carrot extends Object {
+class carrot extends Object {
 	public function build() {
-		$this->name = "Carrot";
+		$this->name = "carrot";
 		$this->graphic = 0xc78;
 		$this->type = "";
 		$this->flags = 0x00;

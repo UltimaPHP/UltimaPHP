@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoEyeOfNewt extends Object {
+class decoeyeofnewt extends Object {
 	public function build() {
-		$this->name = "DecoEyeOfNewt";
+		$this->name = "deco eye of newt";
 		$this->graphic = 0xF87;
 		$this->type = "";
 		$this->flags = 0x00;

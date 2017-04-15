@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoBrimstone extends Object {
+class decobrimstone extends Object {
 	public function build() {
-		$this->name = "DecoBrimstone";
+		$this->name = "deco brimstone";
 		$this->graphic = 0xF7F;
 		$this->type = "";
 		$this->flags = 0x00;

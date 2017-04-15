@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TreasureMapChest extends Object {
+class treasuremapchest extends Object {
 	public function build() {
-		$this->name = "TreasureMapChest";
+		$this->name = "treasure map chest";
 		$this->graphic = 0xE40;
 		$this->type = "";
 		$this->flags = 0x00;

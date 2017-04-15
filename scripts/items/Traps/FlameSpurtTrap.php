@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FlameSpurtTrap extends Object {
+class flamespurttrap extends Object {
 	public function build() {
-		$this->name = "FlameSpurtTrap";
+		$this->name = "flame spurt trap";
 		$this->graphic = 0x1B71;
 		$this->type = "";
 		$this->flags = 0x00;

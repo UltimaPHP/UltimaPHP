@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TallCabinet extends Object {
+class tallcabinet extends Object {
 	public function build() {
-		$this->name = "TallCabinet";
+		$this->name = "tall cabinet";
 		$this->graphic = 0x2815;
 		$this->type = "";
 		$this->flags = 0x00;

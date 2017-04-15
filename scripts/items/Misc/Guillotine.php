@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Guillotine extends Object {
+class guillotine extends Object {
 	public function build() {
-		$this->name = "Guillotine";
+		$this->name = "guillotine";
 		$this->graphic = 0xEED;
 		$this->type = "";
 		$this->flags = 0x00;

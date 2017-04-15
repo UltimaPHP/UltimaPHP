@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HangingSwordsAddon extends Object {
+class hangingswordsaddon extends Object {
 	public function build() {
-		$this->name = "HangingSwordsAddon";
+		$this->name = "hanging swords addon";
 		$this->graphic = 0x125E;
 		$this->type = "";
 		$this->flags = 0x00;

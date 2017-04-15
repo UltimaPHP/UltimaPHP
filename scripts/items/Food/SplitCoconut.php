@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SplitCoconut extends Object {
+class splitcoconut extends Object {
 	public function build() {
-		$this->name = "SplitCoconut";
+		$this->name = "split coconut";
 		$this->graphic = 0x1725;
 		$this->type = "";
 		$this->flags = 0x00;

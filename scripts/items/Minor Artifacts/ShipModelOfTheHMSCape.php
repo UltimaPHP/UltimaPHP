@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ShipModelOfTheHMSCape extends Object {
+class shipmodelofthehmscape extends Object {
 	public function build() {
-		$this->name = "ShipModelOfTheHMSCape";
+		$this->name = "ship model of the hms cape";
 		$this->graphic = 0x14F3;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PadsOfTheCuSidhe extends Object {
+class padsofthecusidhe extends Object {
 	public function build() {
-		$this->name = "PadsOfTheCuSidhe";
+		$this->name = "pads of the cu sidhe";
 		$this->graphic = 0x47E;
 		$this->type = "";
 		$this->flags = 0x00;

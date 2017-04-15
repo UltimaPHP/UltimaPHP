@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GoldWire extends Object {
+class goldwire extends Object {
 	public function build() {
-		$this->name = "GoldWire";
+		$this->name = "gold wire";
 		$this->graphic = 0x1878;
 		$this->type = "";
 		$this->flags = 0x00;

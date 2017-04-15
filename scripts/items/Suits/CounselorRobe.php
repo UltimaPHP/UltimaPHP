@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CounselorRobe extends Object {
+class counselorrobe extends Object {
 	public function build() {
-		$this->name = "CounselorRobe";
+		$this->name = "counselor robe";
 		$this->graphic = 0x3;
 		$this->type = "";
 		$this->flags = 0x00;

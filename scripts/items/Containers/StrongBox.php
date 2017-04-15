@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StrongBox extends Object {
+class strongbox extends Object {
 	public function build() {
-		$this->name = "StrongBox";
+		$this->name = "strong box";
 		$this->graphic = 0xE80;
 		$this->type = "";
 		$this->flags = 0x00;

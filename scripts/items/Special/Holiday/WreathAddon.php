@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WreathAddon extends Object {
+class wreathaddon extends Object {
 	public function build() {
-		$this->name = "WreathAddon";
+		$this->name = "wreath addon";
 		$this->graphic = 0x232C;
 		$this->type = "";
 		$this->flags = 0x00;

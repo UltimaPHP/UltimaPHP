@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FormalShirt extends Object {
+class formalshirt extends Object {
 	public function build() {
-		$this->name = "FormalShirt";
+		$this->name = "formal shirt";
 		$this->graphic = 0x2310;
 		$this->type = "";
 		$this->flags = 0x00;

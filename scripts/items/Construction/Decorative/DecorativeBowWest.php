@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecorativeBowWest extends Object {
+class decorativebowwest extends Object {
 	public function build() {
-		$this->name = "DecorativeBowWest";
+		$this->name = "decorative bow west";
 		$this->graphic = 0x155E;
 		$this->type = "";
 		$this->flags = 0x00;

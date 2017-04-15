@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MinotaurStatue extends Object {
+class minotaurstatue extends Object {
 	public function build() {
-		$this->name = "MinotaurStatue";
+		$this->name = "minotaur statue";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

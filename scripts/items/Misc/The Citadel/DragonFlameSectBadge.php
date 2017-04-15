@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DragonFlameSectBadge extends Object {
+class dragonflamesectbadge extends Object {
 	public function build() {
-		$this->name = "DragonFlameSectBadge";
+		$this->name = "dragon flame sect badge";
 		$this->graphic = 0x23E;
 		$this->type = "";
 		$this->flags = 0x00;

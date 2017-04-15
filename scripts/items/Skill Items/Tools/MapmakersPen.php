@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MapmakersPen extends Object {
+class mapmakerspen extends Object {
 	public function build() {
-		$this->name = "MapmakersPen";
+		$this->name = "mapmakers pen";
 		$this->graphic = 0x0FBF;
 		$this->type = "";
 		$this->flags = 0x00;

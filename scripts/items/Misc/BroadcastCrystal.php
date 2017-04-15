@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BroadcastCrystal extends Object {
+class broadcastcrystal extends Object {
 	public function build() {
-		$this->name = "BroadcastCrystal";
+		$this->name = "broadcast crystal";
 		$this->graphic = 0x1ED0;
 		$this->type = "";
 		$this->flags = 0x00;

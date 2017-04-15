@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SmallFishingNetAddon extends Object {
+class smallfishingnetaddon extends Object {
 	public function build() {
-		$this->name = "SmallFishingNetAddon";
+		$this->name = "small fishing net addon";
 		$this->graphic = 0x1EA3;
 		$this->type = "";
 		$this->flags = 0x00;

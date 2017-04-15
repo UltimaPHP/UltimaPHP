@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BambooFlute extends Object {
+class bambooflute extends Object {
 	public function build() {
-		$this->name = "BambooFlute";
+		$this->name = "bamboo flute";
 		$this->graphic = 0x2805;
 		$this->type = "";
 		$this->flags = 0x00;

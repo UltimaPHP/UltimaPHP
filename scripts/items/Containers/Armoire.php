@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Armoire extends Object {
+class armoire extends Object {
 	public function build() {
-		$this->name = "Armoire";
+		$this->name = "armoire";
 		$this->graphic = 0xA4F;
 		$this->type = "";
 		$this->flags = 0x00;

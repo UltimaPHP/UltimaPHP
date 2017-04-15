@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DirtyPan extends Object {
+class dirtypan extends Object {
 	public function build() {
-		$this->name = "DirtyPan";
+		$this->name = "dirty pan";
 		$this->graphic = 0x9E8;
 		$this->type = "";
 		$this->flags = 0x00;

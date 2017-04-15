@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TableWithBlueClothAddon extends Object {
+class tablewithblueclothaddon extends Object {
 	public function build() {
-		$this->name = "TableWithBlueClothAddon";
+		$this->name = "table with blue cloth addon";
 		$this->graphic = 0x3D86;
 		$this->type = "";
 		$this->flags = 0x00;

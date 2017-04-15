@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ElvenSpellblade extends Object {
+class elvenspellblade extends Object {
 	public function build() {
-		$this->name = "ElvenSpellblade";
+		$this->name = "elven spellblade";
 		$this->graphic = 0x2D20;
 		$this->type = "";
 		$this->flags = 0x00;

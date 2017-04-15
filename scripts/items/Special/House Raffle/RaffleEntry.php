@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RaffleEntry extends Object {
+class raffleentry extends Object {
 	public function build() {
-		$this->name = "RaffleEntry";
+		$this->name = "raffle entry";
 		$this->graphic = 0x2830;
 		$this->type = "";
 		$this->flags = 0x00;

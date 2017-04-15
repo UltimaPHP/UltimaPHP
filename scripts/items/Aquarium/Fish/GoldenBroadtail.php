@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GoldenBroadtail extends Object {
+class goldenbroadtail extends Object {
 	public function build() {
-		$this->name = "GoldenBroadtail";
+		$this->name = "golden broadtail";
 		$this->graphic = 0x3B03;
 		$this->type = "";
 		$this->flags = 0x00;

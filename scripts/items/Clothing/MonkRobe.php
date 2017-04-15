@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MonkRobe extends Object {
+class monkrobe extends Object {
 	public function build() {
-		$this->name = "MonkRobe";
+		$this->name = "monk robe";
 		$this->graphic = 0x2687;
 		$this->type = "";
 		$this->flags = 0x00;

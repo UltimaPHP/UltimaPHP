@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Pumpkin extends Object {
+class pumpkin extends Object {
 	public function build() {
-		$this->name = "Pumpkin";
+		$this->name = "pumpkin";
 		$this->graphic = 0xC6A;
 		$this->type = "";
 		$this->flags = 0x00;

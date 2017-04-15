@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EasterEggs extends Object {
+class eastereggs extends Object {
 	public function build() {
-		$this->name = "EasterEggs";
+		$this->name = "easter eggs";
 		$this->graphic = 0x9B5;
 		$this->type = "";
 		$this->flags = 0x00;

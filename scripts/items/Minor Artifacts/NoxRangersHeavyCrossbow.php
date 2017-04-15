@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class NoxRangersHeavyCrossbow extends Object {
+class noxrangersheavycrossbow extends Object {
 	public function build() {
-		$this->name = "NoxRangersHeavyCrossbow";
+		$this->name = "nox rangers heavy crossbow";
 		$this->graphic = 0x1BEB;
 		$this->type = "";
 		$this->flags = 0x00;

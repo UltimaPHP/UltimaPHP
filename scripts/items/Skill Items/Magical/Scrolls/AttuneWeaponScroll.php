@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AttuneWeaponScroll extends Object {
+class attuneweaponscroll extends Object {
 	public function build() {
-		$this->name = "AttuneWeaponScroll";
+		$this->name = "attune weapon scroll";
 		$this->graphic = 0x2D54;
 		$this->type = "";
 		$this->flags = 0x00;

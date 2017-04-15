@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoSpittoon extends Object {
+class decospittoon extends Object {
 	public function build() {
-		$this->name = "DecoSpittoon";
+		$this->name = "deco spittoon";
 		$this->graphic = 0x1003;
 		$this->type = "";
 		$this->flags = 0x00;

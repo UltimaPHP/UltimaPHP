@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HarmWand extends Object {
+class harmwand extends Object {
 	public function build() {
-		$this->name = "HarmWand";
+		$this->name = "harm wand";
 		$this->graphic = 0xDF2;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StonePaversMedium extends Object {
+class stonepaversmedium extends Object {
 	public function build() {
-		$this->name = "StonePaversMedium";
+		$this->name = "stone pavers medium";
 		$this->graphic = 0x51D;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SnowPileDeco extends Object {
+class snowpiledeco extends Object {
 	public function build() {
-		$this->name = "SnowPileDeco";
+		$this->name = "snow pile deco";
 		$this->graphic = 0x2328;
 		$this->type = "";
 		$this->flags = 0x00;

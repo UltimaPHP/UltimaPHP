@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RedDartFish extends Object {
+class reddartfish extends Object {
 	public function build() {
-		$this->name = "RedDartFish";
+		$this->name = "red dart fish";
 		$this->graphic = 0x3B00;
 		$this->type = "";
 		$this->flags = 0x00;

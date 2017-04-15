@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Waraji extends Object {
+class waraji extends Object {
 	public function build() {
-		$this->name = "Waraji";
+		$this->name = "waraji";
 		$this->graphic = 0x2796;
 		$this->type = "";
 		$this->flags = 0x00;

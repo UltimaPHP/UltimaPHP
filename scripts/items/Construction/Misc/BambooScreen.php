@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BambooScreen extends Object {
+class bambooscreen extends Object {
 	public function build() {
-		$this->name = "BambooScreen";
+		$this->name = "bamboo screen";
 		$this->graphic = 0x122A;
 		$this->type = "";
 		$this->flags = 0x00;

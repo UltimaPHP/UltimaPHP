@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PickpocketDip extends Object {
+class pickpocketdip extends Object {
 	public function build() {
-		$this->name = "PickpocketDip";
+		$this->name = "pickpocket dip";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

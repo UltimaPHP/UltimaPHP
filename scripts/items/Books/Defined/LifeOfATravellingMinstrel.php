@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LifeOfATravellingMinstrel extends Object {
+class lifeofatravellingminstrel extends Object {
 	public function build() {
-		$this->name = "LifeOfATravellingMinstrel";
+		$this->name = "life of a travelling minstrel";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

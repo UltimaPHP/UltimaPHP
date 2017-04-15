@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GuideToGuilds extends Object {
+class guidetoguilds extends Object {
 	public function build() {
-		$this->name = "GuideToGuilds";
+		$this->name = "guide to guilds";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Lime extends Object {
+class lime extends Object {
 	public function build() {
-		$this->name = "Lime";
+		$this->name = "lime";
 		$this->graphic = 0x172a;
 		$this->type = "";
 		$this->flags = 0x00;

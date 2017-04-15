@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WarMace extends Object {
+class warmace extends Object {
 	public function build() {
-		$this->name = "WarMace";
+		$this->name = "war mace";
 		$this->graphic = 0x1407;
 		$this->type = "";
 		$this->flags = 0x00;

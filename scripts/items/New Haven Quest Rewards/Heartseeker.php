@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Heartseeker extends Object {
+class heartseeker extends Object {
 	public function build() {
-		$this->name = "Heartseeker";
+		$this->name = "heartseeker";
 		$this->graphic = 0x3FFFFFFFF;
 		$this->type = "";
 		$this->flags = 0x00;

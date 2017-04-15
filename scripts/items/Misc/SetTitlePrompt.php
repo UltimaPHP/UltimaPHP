@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SetTitlePrompt extends Object {
+class settitleprompt extends Object {
 	public function build() {
-		$this->name = "SetTitlePrompt";
+		$this->name = "set title prompt";
 		$this->graphic = 0x2312;
 		$this->type = "";
 		$this->flags = 0x00;

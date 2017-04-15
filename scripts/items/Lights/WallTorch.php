@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WallTorch extends Object {
+class walltorch extends Object {
 	public function build() {
-		$this->name = "WallTorch";
+		$this->name = "wall torch";
 		$this->graphic = 0xA05;
 		$this->type = "";
 		$this->flags = 0x00;

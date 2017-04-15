@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WoodenBench extends Object {
+class woodenbench extends Object {
 	public function build() {
-		$this->name = "WoodenBench";
+		$this->name = "wooden bench";
 		$this->graphic = 0xB2D;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OrnateElvenTableEastDeed extends Object {
+class ornateelventableeastdeed extends Object {
 	public function build() {
-		$this->name = "OrnateElvenTableEastDeed";
+		$this->name = "ornate elven table east deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

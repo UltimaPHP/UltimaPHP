@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Basket2Artifact extends Object {
+class basket2artifact extends Object {
 	public function build() {
-		$this->name = "Basket2Artifact";
+		$this->name = "basket 2 artifact";
 		$this->graphic = 0x24D7;
 		$this->type = "";
 		$this->flags = 0x00;

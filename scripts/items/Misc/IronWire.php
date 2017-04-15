@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class IronWire extends Object {
+class ironwire extends Object {
 	public function build() {
-		$this->name = "IronWire";
+		$this->name = "iron wire";
 		$this->graphic = 0x1876;
 		$this->type = "";
 		$this->flags = 0x00;

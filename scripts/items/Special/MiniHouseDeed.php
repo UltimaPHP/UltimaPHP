@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MiniHouseDeed extends Object {
+class minihousedeed extends Object {
 	public function build() {
-		$this->name = "MiniHouseDeed";
+		$this->name = "mini house deed";
 		$this->graphic = 0x367A;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Beads extends Object {
+class beads extends Object {
 	public function build() {
-		$this->name = "Beads";
+		$this->name = "beads";
 		$this->graphic = 0x108B;
 		$this->type = "";
 		$this->flags = 0x00;

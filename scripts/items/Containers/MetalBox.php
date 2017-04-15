@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MetalBox extends Object {
+class metalbox extends Object {
 	public function build() {
-		$this->name = "MetalBox";
+		$this->name = "metal box";
 		$this->graphic = 0x9A8;
 		$this->type = "";
 		$this->flags = 0x00;

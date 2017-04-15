@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DisguisePersistance extends Object {
+class disguisepersistance extends Object {
 	public function build() {
-		$this->name = "DisguisePersistance";
+		$this->name = "disguise persistance";
 		$this->graphic = 0xE05;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoSilverIngots5 extends Object {
+class decosilveringots5 extends Object {
 	public function build() {
-		$this->name = "DecoSilverIngots5";
+		$this->name = "deco silver ingots";
 		$this->graphic = 0x1BFA;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TimeoutTeleporter extends Object {
+class timeoutteleporter extends Object {
 	public function build() {
-		$this->name = "TimeoutTeleporter";
+		$this->name = "timeout teleporter";
 		$this->graphic = 0x91B;
 		$this->type = "";
 		$this->flags = 0x00;

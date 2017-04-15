@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ElvenReadingChair extends Object {
+class elvenreadingchair extends Object {
 	public function build() {
-		$this->name = "ElvenReadingChair";
+		$this->name = "elven reading chair";
 		$this->graphic = 0x2DF5;
 		$this->type = "";
 		$this->flags = 0x00;

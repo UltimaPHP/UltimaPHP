@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class KnightsWarCleaver extends Object {
+class knightswarcleaver extends Object {
 	public function build() {
-		$this->name = "KnightsWarCleaver";
+		$this->name = "knights war cleaver";
 		$this->graphic = 0x13FF;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MeatPie extends Object {
+class meatpie extends Object {
 	public function build() {
-		$this->name = "MeatPie";
+		$this->name = "meat pie";
 		$this->graphic = 0x1041;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ForgedMetal extends Object {
+class forgedmetal extends Object {
 	public function build() {
-		$this->name = "ForgedMetal";
+		$this->name = "forged metal";
 		$this->graphic = 0xFB8;
 		$this->type = "";
 		$this->flags = 0x00;

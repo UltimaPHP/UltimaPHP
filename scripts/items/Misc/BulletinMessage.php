@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BulletinMessage extends Object {
+class bulletinmessage extends Object {
 	public function build() {
-		$this->name = "BulletinMessage";
+		$this->name = "bulletin message";
 		$this->graphic = 0xEB0;
 		$this->type = "";
 		$this->flags = 0x00;

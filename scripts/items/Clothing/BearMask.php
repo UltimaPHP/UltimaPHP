@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BearMask extends Object {
+class bearmask extends Object {
 	public function build() {
-		$this->name = "BearMask";
+		$this->name = "bear mask";
 		$this->graphic = 0x1545;
 		$this->type = "";
 		$this->flags = 0x00;

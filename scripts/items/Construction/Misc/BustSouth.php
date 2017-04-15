@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BustSouth extends Object {
+class bustsouth extends Object {
 	public function build() {
-		$this->name = "BustSouth";
+		$this->name = "bust south";
 		$this->graphic = 0x122A;
 		$this->type = "";
 		$this->flags = 0x00;

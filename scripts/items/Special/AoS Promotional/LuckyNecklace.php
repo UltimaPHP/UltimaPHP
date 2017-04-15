@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LuckyNecklace extends Object {
+class luckynecklace extends Object {
 	public function build() {
-		$this->name = "LuckyNecklace";
+		$this->name = "lucky necklace";
 		$this->graphic = 0x1088;
 		$this->type = "";
 		$this->flags = 0x00;

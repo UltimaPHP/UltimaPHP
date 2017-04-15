@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EarOfCorn extends Object {
+class earofcorn extends Object {
 	public function build() {
-		$this->name = "EarOfCorn";
+		$this->name = "ear of corn";
 		$this->graphic = 0xC81;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ResurrectionScroll extends Object {
+class resurrectionscroll extends Object {
 	public function build() {
-		$this->name = "ResurrectionScroll";
+		$this->name = "resurrection scroll";
 		$this->graphic = 0x1F67;
 		$this->type = "";
 		$this->flags = 0x00;

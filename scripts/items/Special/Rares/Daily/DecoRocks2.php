@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoRocks2 extends Object {
+class decorocks2 extends Object {
 	public function build() {
-		$this->name = "DecoRocks2";
+		$this->name = "deco rocks";
 		$this->graphic = 0x136D;
 		$this->type = "";
 		$this->flags = 0x00;

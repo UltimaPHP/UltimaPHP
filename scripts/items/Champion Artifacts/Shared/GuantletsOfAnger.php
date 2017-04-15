@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GuantletsOfAnger extends Object {
+class guantletsofanger extends Object {
 	public function build() {
-		$this->name = "GuantletsOfAnger";
+		$this->name = "guantlets of anger";
 		$this->graphic = 0x2684;
 		$this->type = "";
 		$this->flags = 0x00;

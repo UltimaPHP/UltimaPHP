@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Cookies extends Object {
+class cookies extends Object {
 	public function build() {
-		$this->name = "Cookies";
+		$this->name = "cookies";
 		$this->graphic = 0x160b;
 		$this->type = "";
 		$this->flags = 0x00;

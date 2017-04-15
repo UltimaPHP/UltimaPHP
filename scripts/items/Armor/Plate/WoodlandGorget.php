@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WoodlandGorget extends Object {
+class woodlandgorget extends Object {
 	public function build() {
-		$this->name = "WoodlandGorget";
+		$this->name = "woodland gorget";
 		$this->graphic = 0x2B69;
 		$this->type = "";
 		$this->flags = 0x00;

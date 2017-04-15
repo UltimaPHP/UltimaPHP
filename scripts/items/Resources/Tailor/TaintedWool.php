@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TaintedWool extends Object {
+class taintedwool extends Object {
 	public function build() {
-		$this->name = "TaintedWool";
+		$this->name = "tainted wool";
 		$this->graphic = 0x101F;
 		$this->type = "";
 		$this->flags = 0x00;

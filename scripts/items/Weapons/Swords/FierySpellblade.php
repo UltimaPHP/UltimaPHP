@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FierySpellblade extends Object {
+class fieryspellblade extends Object {
 	public function build() {
-		$this->name = "FierySpellblade";
+		$this->name = "fiery spellblade";
 		$this->graphic = 0x1441;
 		$this->type = "";
 		$this->flags = 0x00;

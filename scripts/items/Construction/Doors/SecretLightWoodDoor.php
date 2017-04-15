@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SecretLightWoodDoor extends Object {
+class secretlightwooddoor extends Object {
 	public function build() {
-		$this->name = "SecretLightWoodDoor";
+		$this->name = "secret light wood door";
 		$this->graphic = 0x344;
 		$this->type = "";
 		$this->flags = 0x00;

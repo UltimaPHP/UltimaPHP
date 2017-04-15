@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SkullCandleArtifact extends Object {
+class skullcandleartifact extends Object {
 	public function build() {
-		$this->name = "SkullCandleArtifact";
+		$this->name = "skull candle artifact";
 		$this->graphic = 0x1858;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SuitOfGoldArmorComponent extends Object {
+class suitofgoldarmorcomponent extends Object {
 	public function build() {
-		$this->name = "SuitOfGoldArmorComponent";
+		$this->name = "suit of gold armor component";
 		$this->graphic = 0x3DAA;
 		$this->type = "";
 		$this->flags = 0x00;

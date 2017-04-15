@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RuinedPaintingArtifact extends Object {
+class ruinedpaintingartifact extends Object {
 	public function build() {
-		$this->name = "RuinedPaintingArtifact";
+		$this->name = "ruined painting artifact";
 		$this->graphic = 0xC2C;
 		$this->type = "";
 		$this->flags = 0x00;

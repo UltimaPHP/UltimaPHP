@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ChiselsNorth extends Object {
+class chiselsnorth extends Object {
 	public function build() {
-		$this->name = "ChiselsNorth";
+		$this->name = "chisels north";
 		$this->graphic = 0x1026;
 		$this->type = "";
 		$this->flags = 0x00;

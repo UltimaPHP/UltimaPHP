@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeafGorget extends Object {
+class leafgorget extends Object {
 	public function build() {
-		$this->name = "LeafGorget";
+		$this->name = "leaf gorget";
 		$this->graphic = 0x2FC7;
 		$this->type = "";
 		$this->flags = 0x00;

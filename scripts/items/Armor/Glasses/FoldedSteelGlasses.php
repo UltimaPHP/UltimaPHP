@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FoldedSteelGlasses extends Object {
+class foldedsteelglasses extends Object {
 	public function build() {
-		$this->name = "FoldedSteelGlasses";
+		$this->name = "folded steel glasses";
 		$this->graphic = 0x2FB8;
 		$this->type = "";
 		$this->flags = 0x00;

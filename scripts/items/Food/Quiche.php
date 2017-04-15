@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Quiche extends Object {
+class quiche extends Object {
 	public function build() {
-		$this->name = "Quiche";
+		$this->name = "quiche";
 		$this->graphic = 0x1041;
 		$this->type = "";
 		$this->flags = 0x00;

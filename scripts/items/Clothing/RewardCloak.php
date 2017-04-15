@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RewardCloak extends Object {
+class rewardcloak extends Object {
 	public function build() {
-		$this->name = "RewardCloak";
+		$this->name = "reward cloak";
 		$this->graphic = 0x1515;
 		$this->type = "";
 		$this->flags = 0x00;

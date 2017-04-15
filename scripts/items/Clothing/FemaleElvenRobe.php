@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FemaleElvenRobe extends Object {
+class femaleelvenrobe extends Object {
 	public function build() {
-		$this->name = "FemaleElvenRobe";
+		$this->name = "female elven robe";
 		$this->graphic = 0x2FBA;
 		$this->type = "";
 		$this->flags = 0x00;

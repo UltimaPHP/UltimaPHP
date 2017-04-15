@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoPumice extends Object {
+class decopumice extends Object {
 	public function build() {
-		$this->name = "DecoPumice";
+		$this->name = "deco pumice";
 		$this->graphic = 0xF8B;
 		$this->type = "";
 		$this->flags = 0x00;

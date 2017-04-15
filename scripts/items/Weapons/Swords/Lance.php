@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Lance extends Object {
+class lance extends Object {
 	public function build() {
-		$this->name = "Lance";
+		$this->name = "lance";
 		$this->graphic = 0x26C0;
 		$this->type = "";
 		$this->flags = 0x00;

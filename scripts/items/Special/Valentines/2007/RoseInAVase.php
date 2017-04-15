@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RoseInAVase extends Object {
+class roseinavase extends Object {
 	public function build() {
-		$this->name = "RoseInAVase";
+		$this->name = "rose in a vase";
 		$this->graphic = 0x0EB0;
 		$this->type = "";
 		$this->flags = 0x00;

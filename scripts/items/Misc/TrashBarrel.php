@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TrashBarrel extends Object {
+class trashbarrel extends Object {
 	public function build() {
-		$this->name = "TrashBarrel";
+		$this->name = "trash barrel";
 		$this->graphic = 0xE77;
 		$this->type = "";
 		$this->flags = 0x00;

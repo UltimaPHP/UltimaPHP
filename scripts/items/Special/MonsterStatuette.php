@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MonsterStatuette extends Object {
+class monsterstatuette extends Object {
 	public function build() {
-		$this->name = "MonsterStatuette";
+		$this->name = "monster statuette";
 		$this->graphic = 0x367A;
 		$this->type = "";
 		$this->flags = 0x00;

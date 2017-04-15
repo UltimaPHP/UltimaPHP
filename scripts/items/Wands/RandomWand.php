@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RandomWand extends Object {
+class randomwand extends Object {
 	public function build() {
-		$this->name = "RandomWand";
+		$this->name = "random wand";
 		$this->graphic = 0xDF2;
 		$this->type = "";
 		$this->flags = 0x00;

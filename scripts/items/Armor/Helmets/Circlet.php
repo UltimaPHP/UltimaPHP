@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Circlet extends Object {
+class circlet extends Object {
 	public function build() {
-		$this->name = "Circlet";
+		$this->name = "circlet";
 		$this->graphic = 0x2B6E;
 		$this->type = "";
 		$this->flags = 0x00;

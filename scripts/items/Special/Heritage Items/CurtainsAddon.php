@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CurtainsAddon extends Object {
+class curtainsaddon extends Object {
 	public function build() {
-		$this->name = "CurtainsAddon";
+		$this->name = "curtains addon";
 		$this->graphic = 0x2068;
 		$this->type = "";
 		$this->flags = 0x00;

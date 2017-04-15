@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RefreshPotion extends Object {
+class refreshpotion extends Object {
 	public function build() {
-		$this->name = "RefreshPotion";
+		$this->name = "refresh potion";
 		$this->graphic = 0xF0B;
 		$this->type = "";
 		$this->flags = 0x00;

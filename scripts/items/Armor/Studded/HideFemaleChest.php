@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HideFemaleChest extends Object {
+class hidefemalechest extends Object {
 	public function build() {
-		$this->name = "HideFemaleChest";
+		$this->name = "hide female chest";
 		$this->graphic = 0x2B79;
 		$this->type = "";
 		$this->flags = 0x00;

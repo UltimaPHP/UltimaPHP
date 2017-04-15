@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ElvenWashBasinEastAddon extends Object {
+class elvenwashbasineastaddon extends Object {
 	public function build() {
-		$this->name = "ElvenWashBasinEastAddon";
+		$this->name = "elven wash basin east addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

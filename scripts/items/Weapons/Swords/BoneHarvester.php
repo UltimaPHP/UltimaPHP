@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BoneHarvester extends Object {
+class boneharvester extends Object {
 	public function build() {
-		$this->name = "BoneHarvester";
+		$this->name = "bone harvester";
 		$this->graphic = 0x26BB;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StoneFireplaceSouthAddon extends Object {
+class stonefireplacesouthaddon extends Object {
 	public function build() {
-		$this->name = "StoneFireplaceSouthAddon";
+		$this->name = "stone fireplace south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

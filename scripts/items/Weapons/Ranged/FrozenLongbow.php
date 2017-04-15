@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FrozenLongbow extends Object {
+class frozenlongbow extends Object {
 	public function build() {
-		$this->name = "FrozenLongbow";
+		$this->name = "frozen longbow";
 		$this->graphic = 0xF50;
 		$this->type = "";
 		$this->flags = 0x00;

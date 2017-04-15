@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DisturbingPortraitComponent extends Object {
+class disturbingportraitcomponent extends Object {
 	public function build() {
-		$this->name = "DisturbingPortraitComponent";
+		$this->name = "disturbing portrait component";
 		$this->graphic = 0x2A5D;
 		$this->type = "";
 		$this->flags = 0x00;

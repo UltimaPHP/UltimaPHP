@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrokenArmoireComponent extends Object {
+class brokenarmoirecomponent extends Object {
 	public function build() {
-		$this->name = "BrokenArmoireComponent";
+		$this->name = "broken armoire component";
 		$this->graphic = 0xC12;
 		$this->type = "";
 		$this->flags = 0x00;

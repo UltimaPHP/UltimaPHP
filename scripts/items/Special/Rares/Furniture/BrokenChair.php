@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrokenChair extends Object {
+class brokenchair extends Object {
 	public function build() {
-		$this->name = "BrokenChair";
+		$this->name = "broken chair";
 		$this->graphic = 0xC19;
 		$this->type = "";
 		$this->flags = 0x00;

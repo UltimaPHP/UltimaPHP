@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HeavyOrnateAxe extends Object {
+class heavyornateaxe extends Object {
 	public function build() {
-		$this->name = "HeavyOrnateAxe";
+		$this->name = "heavy ornate axe";
 		$this->graphic = 0xF43;
 		$this->type = "";
 		$this->flags = 0x00;

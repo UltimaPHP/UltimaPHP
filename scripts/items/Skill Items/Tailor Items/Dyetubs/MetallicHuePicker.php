@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MetallicHuePicker extends Object {
+class metallichuepicker extends Object {
 	public function build() {
-		$this->name = "MetallicHuePicker";
+		$this->name = "metallic hue picker";
 		$this->graphic = 0xFAB;
 		$this->type = "";
 		$this->flags = 0x00;

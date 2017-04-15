@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Spear extends Object {
+class spear extends Object {
 	public function build() {
-		$this->name = "Spear";
+		$this->name = "spear";
 		$this->graphic = 0xF62;
 		$this->type = "";
 		$this->flags = 0x00;

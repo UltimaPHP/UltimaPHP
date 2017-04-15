@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HorseShoes extends Object {
+class horseshoes extends Object {
 	public function build() {
-		$this->name = "HorseShoes";
+		$this->name = "horse shoes";
 		$this->graphic = 0xFB6;
 		$this->type = "";
 		$this->flags = 0x00;

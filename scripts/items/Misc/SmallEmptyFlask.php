@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SmallEmptyFlask extends Object {
+class smallemptyflask extends Object {
 	public function build() {
-		$this->name = "SmallEmptyFlask";
+		$this->name = "small empty flask";
 		$this->graphic = 0x182D;
 		$this->type = "";
 		$this->flags = 0x00;

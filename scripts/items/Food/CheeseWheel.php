@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CheeseWheel extends Object {
+class cheesewheel extends Object {
 	public function build() {
-		$this->name = "CheeseWheel";
+		$this->name = "cheese wheel";
 		$this->graphic = 0x97E;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BloodPentagram extends Object {
+class bloodpentagram extends Object {
 	public function build() {
-		$this->name = "BloodPentagram";
+		$this->name = "blood pentagram";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

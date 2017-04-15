@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FurnitureTimer extends Object {
+class furnituretimer extends Object {
 	public function build() {
-		$this->name = "FurnitureTimer";
+		$this->name = "furniture timer";
 		$this->graphic = 0xA4D;
 		$this->type = "";
 		$this->flags = 0x00;

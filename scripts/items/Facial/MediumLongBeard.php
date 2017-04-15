@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MediumLongBeard extends Object {
+class mediumlongbeard extends Object {
 	public function build() {
-		$this->name = "MediumLongBeard";
+		$this->name = "medium long beard";
 		$this->graphic = 0x204C;
 		$this->type = "";
 		$this->flags = 0x00;

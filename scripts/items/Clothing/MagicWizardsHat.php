@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MagicWizardsHat extends Object {
+class magicwizardshat extends Object {
 	public function build() {
-		$this->name = "MagicWizardsHat";
+		$this->name = "magic wizards hat";
 		$this->graphic = 0x1718;
 		$this->type = "";
 		$this->flags = 0x00;

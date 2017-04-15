@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Head extends Object {
+class head extends Object {
 	public function build() {
-		$this->name = "Head";
+		$this->name = "head";
 		$this->graphic = 0x1DA0;
 		$this->type = "";
 		$this->flags = 0x00;

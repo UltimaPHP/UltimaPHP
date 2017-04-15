@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecorativeAxeWest extends Object {
+class decorativeaxewest extends Object {
 	public function build() {
-		$this->name = "DecorativeAxeWest";
+		$this->name = "decorative axe west";
 		$this->graphic = 0x1562;
 		$this->type = "";
 		$this->flags = 0x00;

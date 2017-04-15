@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BallotBox extends Object {
+class ballotbox extends Object {
 	public function build() {
-		$this->name = "BallotBox";
+		$this->name = "ballot box";
 		$this->graphic = 0x9A8;
 		$this->type = "";
 		$this->flags = 0x00;

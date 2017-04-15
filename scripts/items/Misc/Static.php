@@ -7,7 +7,7 @@
 
 class staticItem extends Object {
 	public function build() {
-		$this->name = "Static";
+		$this->name = "static item";
 		$this->graphic = 0x80;
 		$this->type = "";
 		$this->flags = 0x00;

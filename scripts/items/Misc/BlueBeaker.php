@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BlueBeaker extends Object {
+class bluebeaker extends Object {
 	public function build() {
-		$this->name = "BlueBeaker";
+		$this->name = "blue beaker";
 		$this->graphic = 0x1830;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LunaLance extends Object {
+class lunalance extends Object {
 	public function build() {
-		$this->name = "LunaLance";
+		$this->name = "luna lance";
 		$this->graphic = 0x1BEB;
 		$this->type = "";
 		$this->flags = 0x00;

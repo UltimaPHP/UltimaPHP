@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoMagicalCrystal extends Object {
+class decomagicalcrystal extends Object {
 	public function build() {
-		$this->name = "DecoMagicalCrystal";
+		$this->name = "deco magical crystal";
 		$this->graphic = 0x1F19;
 		$this->type = "";
 		$this->flags = 0x00;

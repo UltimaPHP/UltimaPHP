@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GnarledStaff extends Object {
+class gnarledstaff extends Object {
 	public function build() {
-		$this->name = "GnarledStaff";
+		$this->name = "gnarled staff";
 		$this->graphic = 0x13F8;
 		$this->type = "";
 		$this->flags = 0x00;

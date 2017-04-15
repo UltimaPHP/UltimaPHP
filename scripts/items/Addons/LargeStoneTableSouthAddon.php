@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LargeStoneTableSouthAddon extends Object {
+class largestonetablesouthaddon extends Object {
 	public function build() {
-		$this->name = "LargeStoneTableSouthAddon";
+		$this->name = "large stone table south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

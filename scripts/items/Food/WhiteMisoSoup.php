@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WhiteMisoSoup extends Object {
+class whitemisosoup extends Object {
 	public function build() {
-		$this->name = "WhiteMisoSoup";
+		$this->name = "white miso soup";
 		$this->graphic = 0x284E;
 		$this->type = "";
 		$this->flags = 0x00;

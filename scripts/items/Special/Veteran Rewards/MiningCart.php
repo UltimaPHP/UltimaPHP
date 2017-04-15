@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MiningCart extends Object {
+class miningcart extends Object {
 	public function build() {
-		$this->name = "MiningCart";
+		$this->name = "mining cart";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

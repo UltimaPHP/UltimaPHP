@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SewingKit extends Object {
+class sewingkit extends Object {
 	public function build() {
-		$this->name = "SewingKit";
+		$this->name = "sewing kit";
 		$this->graphic = 0xF9D;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PeachTreeDeed extends Object {
+class peachtreedeed extends Object {
 	public function build() {
-		$this->name = "PeachTreeDeed";
+		$this->name = "peach tree deed";
 		$this->graphic = 0x2068;
 		$this->type = "";
 		$this->flags = 0x00;

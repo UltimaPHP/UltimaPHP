@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class YellowGourd extends Object {
+class yellowgourd extends Object {
 	public function build() {
-		$this->name = "YellowGourd";
+		$this->name = "yellow gourd";
 		$this->graphic = 0xC64;
 		$this->type = "";
 		$this->flags = 0x00;

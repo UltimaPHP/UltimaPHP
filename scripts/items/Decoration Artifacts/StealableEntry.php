@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StealableEntry extends Object {
+class stealableentry extends Object {
 	public function build() {
-		$this->name = "StealableEntry";
+		$this->name = "stealable entry";
 		$this->graphic = 0x24E5;
 		$this->type = "";
 		$this->flags = 0x00;

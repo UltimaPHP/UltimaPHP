@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ReaperFormScroll extends Object {
+class reaperformscroll extends Object {
 	public function build() {
-		$this->name = "ReaperFormScroll";
+		$this->name = "reaper form scroll";
 		$this->graphic = 0x2D59;
 		$this->type = "";
 		$this->flags = 0x00;

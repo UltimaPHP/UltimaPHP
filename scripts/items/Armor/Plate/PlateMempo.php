@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlateMempo extends Object {
+class platemempo extends Object {
 	public function build() {
-		$this->name = "PlateMempo";
+		$this->name = "plate mempo";
 		$this->graphic = 0x2779;
 		$this->type = "";
 		$this->flags = 0x00;

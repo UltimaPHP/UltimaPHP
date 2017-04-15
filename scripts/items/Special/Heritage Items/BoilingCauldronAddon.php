@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BoilingCauldronAddon extends Object {
+class boilingcauldronaddon extends Object {
 	public function build() {
-		$this->name = "BoilingCauldronAddon";
+		$this->name = "boiling cauldron addon";
 		$this->graphic = 0x2068;
 		$this->type = "";
 		$this->flags = 0x00;

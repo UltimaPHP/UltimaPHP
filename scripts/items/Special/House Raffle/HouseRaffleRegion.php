@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HouseRaffleRegion extends Object {
+class houseraffleregion extends Object {
 	public function build() {
-		$this->name = "HouseRaffleRegion";
+		$this->name = "house raffle region";
 		$this->graphic = 0x2830;
 		$this->type = "";
 		$this->flags = 0x00;

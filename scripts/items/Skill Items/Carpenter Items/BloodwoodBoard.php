@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BloodwoodBoard extends Object {
+class bloodwoodboard extends Object {
 	public function build() {
-		$this->name = "BloodwoodBoard";
+		$this->name = "bloodwood board";
 		$this->graphic = 0x1BD7;
 		$this->type = "";
 		$this->flags = 0x00;

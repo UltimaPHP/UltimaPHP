@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SpoolOfThread extends Object {
+class spoolofthread extends Object {
 	public function build() {
-		$this->name = "SpoolOfThread";
+		$this->name = "spool of thread";
 		$this->graphic = 0xFA0;
 		$this->type = "";
 		$this->flags = 0x00;

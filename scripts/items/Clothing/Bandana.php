@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Bandana extends Object {
+class bandana extends Object {
 	public function build() {
-		$this->name = "Bandana";
+		$this->name = "bandana";
 		$this->graphic = 0x1540;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SolenAntHoleComponent extends Object {
+class solenantholecomponent extends Object {
 	public function build() {
-		$this->name = "SolenAntHoleComponent";
+		$this->name = "solen ant hole component";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

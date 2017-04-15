@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DartBoardEastAddon extends Object {
+class dartboardeastaddon extends Object {
 	public function build() {
-		$this->name = "DartBoardEastAddon";
+		$this->name = "dart board east addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MajorTradeAssociation extends Object {
+class majortradeassociation extends Object {
 	public function build() {
-		$this->name = "MajorTradeAssociation";
+		$this->name = "major trade association";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BoilingCauldronDeed extends Object {
+class boilingcauldrondeed extends Object {
 	public function build() {
-		$this->name = "BoilingCauldronDeed";
+		$this->name = "boiling cauldron deed";
 		$this->graphic = 0x2068;
 		$this->type = "";
 		$this->flags = 0x00;

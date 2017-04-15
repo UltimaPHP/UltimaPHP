@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MetalTreasureChest extends Object {
+class metaltreasurechest extends Object {
 	public function build() {
-		$this->name = "MetalTreasureChest";
+		$this->name = "metal treasure chest";
 		$this->graphic = 0x9AB;
 		$this->type = "";
 		$this->flags = 0x00;

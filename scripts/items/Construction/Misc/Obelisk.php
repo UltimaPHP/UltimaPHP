@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Obelisk extends Object {
+class obelisk extends Object {
 	public function build() {
-		$this->name = "Obelisk";
+		$this->name = "obelisk";
 		$this->graphic = 0x122A;
 		$this->type = "";
 		$this->flags = 0x00;

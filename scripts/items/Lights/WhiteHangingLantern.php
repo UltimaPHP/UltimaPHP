@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WhiteHangingLantern extends Object {
+class whitehanginglantern extends Object {
 	public function build() {
-		$this->name = "WhiteHangingLantern";
+		$this->name = "white hanging lantern";
 		$this->graphic = 0x24C6;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ScarecrowComponent extends Object {
+class scarecrowcomponent extends Object {
 	public function build() {
-		$this->name = "ScarecrowComponent";
+		$this->name = "scarecrow component";
 		$this->graphic = 0x1E34;
 		$this->type = "";
 		$this->flags = 0x00;

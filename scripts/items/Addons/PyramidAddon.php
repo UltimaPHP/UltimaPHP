@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PyramidAddon extends Object {
+class pyramidaddon extends Object {
 	public function build() {
-		$this->name = "PyramidAddon";
+		$this->name = "pyramid addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

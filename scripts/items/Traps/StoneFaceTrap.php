@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StoneFaceTrap extends Object {
+class stonefacetrap extends Object {
 	public function build() {
-		$this->name = "StoneFaceTrap";
+		$this->name = "stone face trap";
 		$this->graphic = 0x10FC;
 		$this->type = "";
 		$this->flags = 0x00;

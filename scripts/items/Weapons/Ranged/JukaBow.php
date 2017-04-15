@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class JukaBow extends Object {
+class jukabow extends Object {
 	public function build() {
-		$this->name = "JukaBow";
+		$this->name = "juka bow";
 		$this->graphic = 0x13FD;
 		$this->type = "";
 		$this->flags = 0x00;

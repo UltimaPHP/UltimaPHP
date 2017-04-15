@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TrainingDummy extends Object {
+class trainingdummy extends Object {
 	public function build() {
-		$this->name = "TrainingDummy";
+		$this->name = "training dummy";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

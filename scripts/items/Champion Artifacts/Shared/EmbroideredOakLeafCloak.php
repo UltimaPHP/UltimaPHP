@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EmbroideredOakLeafCloak extends Object {
+class embroideredoakleafcloak extends Object {
 	public function build() {
-		$this->name = "EmbroideredOakLeafCloak";
+		$this->name = "embroidered oak leaf cloak";
 		$this->graphic = 0x2684;
 		$this->type = "";
 		$this->flags = 0x00;

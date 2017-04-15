@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoGarlicBulb extends Object {
+class decogarlicbulb extends Object {
 	public function build() {
-		$this->name = "DecoGarlicBulb";
+		$this->name = "deco garlic bulb";
 		$this->graphic = 0x18E3;
 		$this->type = "";
 		$this->flags = 0x00;

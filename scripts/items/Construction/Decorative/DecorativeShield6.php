@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecorativeShield6 extends Object {
+class decorativeshield6 extends Object {
 	public function build() {
-		$this->name = "DecorativeShield6";
+		$this->name = "decorative shield";
 		$this->graphic = 0x1576;
 		$this->type = "";
 		$this->flags = 0x00;

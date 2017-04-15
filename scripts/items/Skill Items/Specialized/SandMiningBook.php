@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SandMiningBook extends Object {
+class sandminingbook extends Object {
 	public function build() {
-		$this->name = "SandMiningBook";
+		$this->name = "sand mining book";
 		$this->graphic = 0xFF4;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StonePaversDark extends Object {
+class stonepaversdark extends Object {
 	public function build() {
-		$this->name = "StonePaversDark";
+		$this->name = "stone pavers dark";
 		$this->graphic = 0x521;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LordBritishSuit extends Object {
+class lordbritishsuit extends Object {
 	public function build() {
-		$this->name = "LordBritishSuit";
+		$this->name = "lord british suit";
 		$this->graphic = 0x0;
 		$this->type = "";
 		$this->flags = 0x00;

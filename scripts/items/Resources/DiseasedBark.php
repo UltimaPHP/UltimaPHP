@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DiseasedBark extends Object {
+class diseasedbark extends Object {
 	public function build() {
-		$this->name = "DiseasedBark";
+		$this->name = "diseased bark";
 		$this->graphic = 0x318B;
 		$this->type = "";
 		$this->flags = 0x00;

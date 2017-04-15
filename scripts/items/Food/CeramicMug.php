@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CeramicMug extends Object {
+class ceramicmug extends Object {
 	public function build() {
-		$this->name = "CeramicMug";
+		$this->name = "ceramic mug";
 		$this->graphic = 0x2850;
 		$this->type = "";
 		$this->flags = 0x00;

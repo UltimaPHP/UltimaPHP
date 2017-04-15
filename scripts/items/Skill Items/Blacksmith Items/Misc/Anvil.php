@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Anvil extends Object {
+class anvil extends Object {
 	public function build() {
-		$this->name = "Anvil";
+		$this->name = "anvil";
 		$this->graphic = 0xFAF;
 		$this->type = "";
 		$this->flags = 0x00;

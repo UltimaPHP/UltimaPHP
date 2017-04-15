@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MediumFlask extends Object {
+class mediumflask extends Object {
 	public function build() {
-		$this->name = "MediumFlask";
+		$this->name = "medium flask";
 		$this->graphic = 0x182A;
 		$this->type = "";
 		$this->flags = 0x00;

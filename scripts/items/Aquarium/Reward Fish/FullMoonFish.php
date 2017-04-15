@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FullMoonFish extends Object {
+class fullmoonfish extends Object {
 	public function build() {
-		$this->name = "FullMoonFish";
+		$this->name = "full moon fish";
 		$this->graphic = 0x3B15;
 		$this->type = "";
 		$this->flags = 0x00;

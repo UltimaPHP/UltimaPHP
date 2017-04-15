@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GwennosHarp extends Object {
+class gwennosharp extends Object {
 	public function build() {
-		$this->name = "GwennosHarp";
+		$this->name = "gwennos harp";
 		$this->graphic = 0x1BEB;
 		$this->type = "";
 		$this->flags = 0x00;

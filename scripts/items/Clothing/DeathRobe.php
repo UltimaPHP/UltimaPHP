@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DeathRobe extends Object {
+class deathrobe extends Object {
 	public function build() {
-		$this->name = "DeathRobe";
+		$this->name = "death robe";
 		$this->graphic = 0x1F00;
 		$this->type = "";
 		$this->flags = 0x00;

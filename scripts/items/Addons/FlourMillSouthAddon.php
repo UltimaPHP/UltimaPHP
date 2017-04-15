@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FlourMillSouthAddon extends Object {
+class flourmillsouthaddon extends Object {
 	public function build() {
-		$this->name = "FlourMillSouthAddon";
+		$this->name = "flour mill south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

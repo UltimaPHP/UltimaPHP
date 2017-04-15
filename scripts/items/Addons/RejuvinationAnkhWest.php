@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RejuvinationAnkhWest extends Object {
+class rejuvinationankhwest extends Object {
 	public function build() {
-		$this->name = "RejuvinationAnkhWest";
+		$this->name = "rejuvination ankh west";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

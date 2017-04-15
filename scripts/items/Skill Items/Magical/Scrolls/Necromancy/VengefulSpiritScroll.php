@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class VengefulSpiritScroll extends Object {
+class vengefulspiritscroll extends Object {
 	public function build() {
-		$this->name = "VengefulSpiritScroll";
+		$this->name = "vengeful spirit scroll";
 		$this->graphic = 0x226D;
 		$this->type = "";
 		$this->flags = 0x00;

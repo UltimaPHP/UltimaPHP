@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PaperLantern extends Object {
+class paperlantern extends Object {
 	public function build() {
-		$this->name = "PaperLantern";
+		$this->name = "paper lantern";
 		$this->graphic = 0x24BE;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HangingSwordsDeed extends Object {
+class hangingswordsdeed extends Object {
 	public function build() {
-		$this->name = "HangingSwordsDeed";
+		$this->name = "hanging swords deed";
 		$this->graphic = 0x125E;
 		$this->type = "";
 		$this->flags = 0x00;

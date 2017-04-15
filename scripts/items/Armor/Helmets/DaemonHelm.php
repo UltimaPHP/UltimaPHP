@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DaemonHelm extends Object {
+class daemonhelm extends Object {
 	public function build() {
-		$this->name = "DaemonHelm";
+		$this->name = "daemon helm";
 		$this->graphic = 0x1451;
 		$this->type = "";
 		$this->flags = 0x00;

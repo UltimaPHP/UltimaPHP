@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ElvenShirt extends Object {
+class elvenshirt extends Object {
 	public function build() {
-		$this->name = "ElvenShirt";
+		$this->name = "elven shirt";
 		$this->graphic = 0x3175;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DarkFlowerTapestrySouthAddon extends Object {
+class darkflowertapestrysouthaddon extends Object {
 	public function build() {
-		$this->name = "DarkFlowerTapestrySouthAddon";
+		$this->name = "dark flower tapestry south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

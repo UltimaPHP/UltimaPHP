@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Mace extends Object {
+class mace extends Object {
 	public function build() {
-		$this->name = "Mace";
+		$this->name = "mace";
 		$this->graphic = 0xF5C;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrightlyColoredEggs extends Object {
+class brightlycoloredeggs extends Object {
 	public function build() {
-		$this->name = "BrightlyColoredEggs";
+		$this->name = "brightly colored eggs";
 		$this->graphic = 0x9B5;
 		$this->type = "";
 		$this->flags = 0x00;

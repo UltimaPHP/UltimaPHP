@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FurSarong extends Object {
+class fursarong extends Object {
 	public function build() {
-		$this->name = "FurSarong";
+		$this->name = "fur sarong";
 		$this->graphic = 0x230C;
 		$this->type = "";
 		$this->flags = 0x00;

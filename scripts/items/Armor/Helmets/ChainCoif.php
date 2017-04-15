@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ChainCoif extends Object {
+class chaincoif extends Object {
 	public function build() {
-		$this->name = "ChainCoif";
+		$this->name = "chain coif";
 		$this->graphic = 0x13BB;
 		$this->type = "";
 		$this->flags = 0x00;

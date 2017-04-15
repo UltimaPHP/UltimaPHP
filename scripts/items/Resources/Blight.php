@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Blight extends Object {
+class blight extends Object {
 	public function build() {
-		$this->name = "Blight";
+		$this->name = "blight";
 		$this->graphic = 0x3183;
 		$this->type = "";
 		$this->flags = 0x00;

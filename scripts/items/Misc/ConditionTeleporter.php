@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ConditionTeleporter extends Object {
+class conditionteleporter extends Object {
 	public function build() {
-		$this->name = "ConditionTeleporter";
+		$this->name = "condition teleporter";
 		$this->graphic = 0x91B;
 		$this->type = "";
 		$this->flags = 0x00;

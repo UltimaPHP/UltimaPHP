@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlagueBeastVein extends Object {
+class plaguebeastvein extends Object {
 	public function build() {
-		$this->name = "PlagueBeastVein";
+		$this->name = "plague beast vein";
 		$this->graphic = 0x1362;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BaseFish extends Object {
+class basefish extends Object {
 	public function build() {
-		$this->name = "BaseFish";
+		$this->name = "base fish";
 		$this->graphic = 0xEFC;
 		$this->type = "";
 		$this->flags = 0x00;

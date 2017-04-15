@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ParasiticPotion extends Object {
+class parasiticpotion extends Object {
 	public function build() {
-		$this->name = "ParasiticPotion";
+		$this->name = "parasitic potion";
 		$this->graphic = 0xF06;
 		$this->type = "";
 		$this->flags = 0x00;

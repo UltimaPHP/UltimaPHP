@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MahjongTile extends Object {
+class mahjongtile extends Object {
 	public function build() {
-		$this->name = "MahjongTile";
+		$this->name = "mahjong tile";
 		$this->graphic = 0xFAA;
 		$this->type = "";
 		$this->flags = 0x00;

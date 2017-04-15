@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class NecromanticGlasses extends Object {
+class necromanticglasses extends Object {
 	public function build() {
-		$this->name = "NecromanticGlasses";
+		$this->name = "necromantic glasses";
 		$this->graphic = 0x2FB8;
 		$this->type = "";
 		$this->flags = 0x00;

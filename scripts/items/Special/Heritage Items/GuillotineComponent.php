@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GuillotineComponent extends Object {
+class guillotinecomponent extends Object {
 	public function build() {
-		$this->name = "GuillotineComponent";
+		$this->name = "guillotine component";
 		$this->graphic = 0x125E;
 		$this->type = "";
 		$this->flags = 0x00;

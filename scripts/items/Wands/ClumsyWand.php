@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ClumsyWand extends Object {
+class clumsywand extends Object {
 	public function build() {
-		$this->name = "ClumsyWand";
+		$this->name = "clumsy wand";
 		$this->graphic = 0xDF2;
 		$this->type = "";
 		$this->flags = 0x00;

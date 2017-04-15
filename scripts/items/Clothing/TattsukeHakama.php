@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TattsukeHakama extends Object {
+class tattsukehakama extends Object {
 	public function build() {
-		$this->name = "TattsukeHakama";
+		$this->name = "tattsuke hakama";
 		$this->graphic = 0x279B;
 		$this->type = "";
 		$this->flags = 0x00;

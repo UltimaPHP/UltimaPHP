@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CookedBird extends Object {
+class cookedbird extends Object {
 	public function build() {
-		$this->name = "CookedBird";
+		$this->name = "cooked bird";
 		$this->graphic = 0x9B7;
 		$this->type = "";
 		$this->flags = 0x00;

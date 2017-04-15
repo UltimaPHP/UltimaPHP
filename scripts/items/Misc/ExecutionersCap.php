@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ExecutionersCap extends Object {
+class executionerscap extends Object {
 	public function build() {
-		$this->name = "ExecutionersCap";
+		$this->name = "executioners cap";
 		$this->graphic = 0x1B72;
 		$this->type = "";
 		$this->flags = 0x00;

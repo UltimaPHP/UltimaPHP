@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Goatee extends Object {
+class goatee extends Object {
 	public function build() {
-		$this->name = "Goatee";
+		$this->name = "goatee";
 		$this->graphic = 0x2040;
 		$this->type = "";
 		$this->flags = 0x00;

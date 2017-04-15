@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LargeForgeWest extends Object {
+class largeforgewest extends Object {
 	public function build() {
-		$this->name = "LargeForgeWest";
+		$this->name = "large forge west";
 		$this->graphic = 0x1992;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OrcHelm extends Object {
+class orchelm extends Object {
 	public function build() {
-		$this->name = "OrcHelm";
+		$this->name = "orc helm";
 		$this->graphic = 0x1F0B;
 		$this->type = "";
 		$this->flags = 0x00;

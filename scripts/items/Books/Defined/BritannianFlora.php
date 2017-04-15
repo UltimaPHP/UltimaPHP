@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BritannianFlora extends Object {
+class britannianflora extends Object {
 	public function build() {
-		$this->name = "BritannianFlora";
+		$this->name = "britannian flora";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

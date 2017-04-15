@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MountedPixieLimeAddon extends Object {
+class mountedpixielimeaddon extends Object {
 	public function build() {
-		$this->name = "MountedPixieLimeAddon";
+		$this->name = "mounted pixie lime addon";
 		$this->graphic = 0x2A77;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LesserCurePotion extends Object {
+class lessercurepotion extends Object {
 	public function build() {
-		$this->name = "LesserCurePotion";
+		$this->name = "lesser cure potion";
 		$this->graphic = 0xF07;
 		$this->type = "";
 		$this->flags = 0x00;

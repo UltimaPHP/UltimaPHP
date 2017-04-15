@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MessageHelper extends Object {
+class messagehelper extends Object {
 	public function build() {
-		$this->name = "MessageHelper";
+		$this->name = "message helper";
 		$this->graphic = 0x1086;
 		$this->type = "";
 		$this->flags = 0x00;

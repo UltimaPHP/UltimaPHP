@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BloodyPentagramDeed extends Object {
+class bloodypentagramdeed extends Object {
 	public function build() {
-		$this->name = "BloodyPentagramDeed";
+		$this->name = "bloody pentagram deed";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

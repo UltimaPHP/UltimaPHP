@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoNightshade3 extends Object {
+class deconightshade3 extends Object {
 	public function build() {
-		$this->name = "DecoNightshade3";
+		$this->name = "deco nightshade";
 		$this->graphic = 0x18E6;
 		$this->type = "";
 		$this->flags = 0x00;

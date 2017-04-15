@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ChickenLeg extends Object {
+class chickenleg extends Object {
 	public function build() {
-		$this->name = "ChickenLeg";
+		$this->name = "chicken leg";
 		$this->graphic = 0x1608;
 		$this->type = "";
 		$this->flags = 0x00;

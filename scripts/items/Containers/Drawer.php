@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Drawer extends Object {
+class drawer extends Object {
 	public function build() {
-		$this->name = "Drawer";
+		$this->name = "drawer";
 		$this->graphic = 0xA2C;
 		$this->type = "";
 		$this->flags = 0x00;

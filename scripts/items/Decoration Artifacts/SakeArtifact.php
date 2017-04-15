@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SakeArtifact extends Object {
+class sakeartifact extends Object {
 	public function build() {
-		$this->name = "SakeArtifact";
+		$this->name = "sake artifact";
 		$this->graphic = 0x24E2;
 		$this->type = "";
 		$this->flags = 0x00;

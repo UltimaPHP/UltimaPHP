@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TrophyAddon extends Object {
+class trophyaddon extends Object {
 	public function build() {
-		$this->name = "TrophyAddon";
+		$this->name = "trophy addon";
 		$this->graphic = 0x1EBA;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MediumStoneTableSouthDeed extends Object {
+class mediumstonetablesouthdeed extends Object {
 	public function build() {
-		$this->name = "MediumStoneTableSouthDeed";
+		$this->name = "medium stone table south deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

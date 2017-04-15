@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GrayBrickFireplaceSouthAddon extends Object {
+class graybrickfireplacesouthaddon extends Object {
 	public function build() {
-		$this->name = "GrayBrickFireplaceSouthAddon";
+		$this->name = "gray brick fireplace south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

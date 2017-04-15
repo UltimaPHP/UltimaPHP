@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Onion extends Object {
+class onion extends Object {
 	public function build() {
-		$this->name = "Onion";
+		$this->name = "onion";
 		$this->graphic = 0xc6d;
 		$this->type = "";
 		$this->flags = 0x00;

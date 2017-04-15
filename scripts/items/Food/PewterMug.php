@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PewterMug extends Object {
+class pewtermug extends Object {
 	public function build() {
-		$this->name = "PewterMug";
+		$this->name = "pewter mug";
 		$this->graphic = 0x2850;
 		$this->type = "";
 		$this->flags = 0x00;

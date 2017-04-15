@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RibCage extends Object {
+class ribcage extends Object {
 	public function build() {
-		$this->name = "RibCage";
+		$this->name = "rib cage";
 		$this->graphic = 0x1B17;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ForkRight extends Object {
+class forkright extends Object {
 	public function build() {
-		$this->name = "ForkRight";
+		$this->name = "fork right";
 		$this->graphic = 0x9F5;
 		$this->type = "";
 		$this->flags = 0x00;

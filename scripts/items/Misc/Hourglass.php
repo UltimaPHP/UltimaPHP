@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Hourglass extends Object {
+class hourglass extends Object {
 	public function build() {
-		$this->name = "Hourglass";
+		$this->name = "hourglass";
 		$this->graphic = 0x1810;
 		$this->type = "";
 		$this->flags = 0x00;

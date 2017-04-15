@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CandyCane extends Object {
+class candycane extends Object {
 	public function build() {
-		$this->name = "CandyCane";
+		$this->name = "candy cane";
 		$this->graphic = 0x232A;
 		$this->type = "";
 		$this->flags = 0x00;

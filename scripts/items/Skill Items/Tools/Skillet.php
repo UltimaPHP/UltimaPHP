@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Skillet extends Object {
+class skillet extends Object {
 	public function build() {
-		$this->name = "Skillet";
+		$this->name = "skillet";
 		$this->graphic = 0x97F;
 		$this->type = "";
 		$this->flags = 0x00;

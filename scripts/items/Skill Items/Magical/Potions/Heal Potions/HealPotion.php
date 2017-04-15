@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HealPotion extends Object {
+class healpotion extends Object {
 	public function build() {
-		$this->name = "HealPotion";
+		$this->name = "heal potion";
 		$this->graphic = 0xF0C;
 		$this->type = "";
 		$this->flags = 0x00;

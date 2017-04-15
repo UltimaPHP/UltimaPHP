@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RoyalGuardSurvivalKnife extends Object {
+class royalguardsurvivalknife extends Object {
 	public function build() {
-		$this->name = "RoyalGuardSurvivalKnife";
+		$this->name = "royal guard survival knife";
 		$this->graphic = 0x2684;
 		$this->type = "";
 		$this->flags = 0x00;

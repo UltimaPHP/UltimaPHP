@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MahjongWallBreakIndicator extends Object {
+class mahjongwallbreakindicator extends Object {
 	public function build() {
-		$this->name = "MahjongWallBreakIndicator";
+		$this->name = "mahjong wall break indicator";
 		$this->graphic = 0xDA;
 		$this->type = "";
 		$this->flags = 0x00;

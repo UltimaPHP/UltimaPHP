@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ShimmeringCrystals extends Object {
+class shimmeringcrystals extends Object {
 	public function build() {
-		$this->name = "ShimmeringCrystals";
+		$this->name = "shimmering crystals";
 		$this->graphic = 0x23F;
 		$this->type = "";
 		$this->flags = 0x00;

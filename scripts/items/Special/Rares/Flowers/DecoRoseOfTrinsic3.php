@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoRoseOfTrinsic3 extends Object {
+class decoroseoftrinsic3 extends Object {
 	public function build() {
-		$this->name = "DecoRoseOfTrinsic3";
+		$this->name = "deco rose of trinsic";
 		$this->graphic = 0x234B;
 		$this->type = "";
 		$this->flags = 0x00;

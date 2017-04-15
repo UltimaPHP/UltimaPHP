@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DyeTub extends Object {
+class dyetub extends Object {
 	public function build() {
-		$this->name = "DyeTub";
+		$this->name = "dye tub";
 		$this->graphic = 0xFAB;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FillableEntry extends Object {
+class fillableentry extends Object {
 	public function build() {
-		$this->name = "FillableEntry";
+		$this->name = "fillable entry";
 		$this->graphic = 0xE43;
 		$this->type = "";
 		$this->flags = 0x00;

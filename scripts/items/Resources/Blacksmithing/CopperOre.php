@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CopperOre extends Object {
+class copperore extends Object {
 	public function build() {
-		$this->name = "CopperOre";
+		$this->name = "copper ore";
 		$this->graphic = 0x1BF2;
 		$this->type = "";
 		$this->flags = 0x00;

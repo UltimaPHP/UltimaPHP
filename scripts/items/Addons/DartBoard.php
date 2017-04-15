@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DartBoard extends Object {
+class dartboard extends Object {
 	public function build() {
-		$this->name = "DartBoard";
+		$this->name = "dart board";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

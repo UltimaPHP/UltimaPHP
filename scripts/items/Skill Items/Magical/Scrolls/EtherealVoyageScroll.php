@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EtherealVoyageScroll extends Object {
+class etherealvoyagescroll extends Object {
 	public function build() {
-		$this->name = "EtherealVoyageScroll";
+		$this->name = "ethereal voyage scroll";
 		$this->graphic = 0x2D5D;
 		$this->type = "";
 		$this->flags = 0x00;

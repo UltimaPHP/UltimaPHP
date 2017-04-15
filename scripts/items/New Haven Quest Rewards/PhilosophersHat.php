@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PhilosophersHat extends Object {
+class philosophershat extends Object {
 	public function build() {
-		$this->name = "PhilosophersHat";
+		$this->name = "philosophers hat";
 		$this->graphic = 0x3FFFFFFFF;
 		$this->type = "";
 		$this->flags = 0x00;

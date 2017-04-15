@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ChargedAssassinSpike extends Object {
+class chargedassassinspike extends Object {
 	public function build() {
-		$this->name = "ChargedAssassinSpike";
+		$this->name = "charged assassin spike";
 		$this->graphic = 0xF5E;
 		$this->type = "";
 		$this->flags = 0x00;

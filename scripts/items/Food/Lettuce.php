@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Lettuce extends Object {
+class lettuce extends Object {
 	public function build() {
-		$this->name = "Lettuce";
+		$this->name = "lettuce";
 		$this->graphic = 0xc70;
 		$this->type = "";
 		$this->flags = 0x00;

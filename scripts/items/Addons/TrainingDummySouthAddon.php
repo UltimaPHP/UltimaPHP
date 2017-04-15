@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TrainingDummySouthAddon extends Object {
+class trainingdummysouthaddon extends Object {
 	public function build() {
-		$this->name = "TrainingDummySouthAddon";
+		$this->name = "training dummy south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

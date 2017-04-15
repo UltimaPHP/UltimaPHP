@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BoneCouchComponent extends Object {
+class bonecouchcomponent extends Object {
 	public function build() {
-		$this->name = "BoneCouchComponent";
+		$this->name = "bone couch component";
 		$this->graphic = 0x2A5D;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RighteousAnger extends Object {
+class righteousanger extends Object {
 	public function build() {
-		$this->name = "RighteousAnger";
+		$this->name = "righteous anger";
 		$this->graphic = 0x47E;
 		$this->type = "";
 		$this->flags = 0x00;

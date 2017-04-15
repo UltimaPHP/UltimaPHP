@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Wool extends Object {
+class wool extends Object {
 	public function build() {
-		$this->name = "Wool";
+		$this->name = "wool";
 		$this->graphic = 0xDF8;
 		$this->type = "";
 		$this->flags = 0x00;

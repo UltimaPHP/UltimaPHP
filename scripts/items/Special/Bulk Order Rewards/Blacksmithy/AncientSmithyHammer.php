@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AncientSmithyHammer extends Object {
+class ancientsmithyhammer extends Object {
 	public function build() {
-		$this->name = "AncientSmithyHammer";
+		$this->name = "ancient smithy hammer";
 		$this->graphic = 0x13E4;
 		$this->type = "";
 		$this->flags = 0x00;

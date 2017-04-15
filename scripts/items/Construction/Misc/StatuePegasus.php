@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StatuePegasus extends Object {
+class statuepegasus extends Object {
 	public function build() {
-		$this->name = "StatuePegasus";
+		$this->name = "statue pegasus";
 		$this->graphic = 0x122A;
 		$this->type = "";
 		$this->flags = 0x00;

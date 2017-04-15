@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SeaChart extends Object {
+class seachart extends Object {
 	public function build() {
-		$this->name = "SeaChart";
+		$this->name = "sea chart";
 		$this->graphic = 0x14EC;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SHTeleporterCreator extends Object {
+class shteleportercreator extends Object {
 	public function build() {
-		$this->name = "SHTeleporterCreator";
+		$this->name = "sh teleporter creator";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

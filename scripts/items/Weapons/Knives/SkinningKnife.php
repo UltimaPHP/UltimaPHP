@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SkinningKnife extends Object {
+class skinningknife extends Object {
 	public function build() {
-		$this->name = "SkinningKnife";
+		$this->name = "skinning knife";
 		$this->graphic = 0xEC4;
 		$this->type = "";
 		$this->flags = 0x00;

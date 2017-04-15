@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class InternalItem extends Object {
+class internalitem extends Object {
 	public function build() {
-		$this->name = "InternalItem";
+		$this->name = "internal item";
 		$this->graphic = 0x398C;
 		$this->type = "";
 		$this->flags = 0x00;

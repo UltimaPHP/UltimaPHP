@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Coconut extends Object {
+class coconut extends Object {
 	public function build() {
-		$this->name = "Coconut";
+		$this->name = "coconut";
 		$this->graphic = 0x1726;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AwaseMisoSoup extends Object {
+class awasemisosoup extends Object {
 	public function build() {
-		$this->name = "AwaseMisoSoup";
+		$this->name = "awase miso soup";
 		$this->graphic = 0x2850;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DemonSkull extends Object {
+class demonskull extends Object {
 	public function build() {
-		$this->name = "DemonSkull";
+		$this->name = "demon skull";
 		$this->graphic = 0x224e;
 		$this->type = "";
 		$this->flags = 0x00;

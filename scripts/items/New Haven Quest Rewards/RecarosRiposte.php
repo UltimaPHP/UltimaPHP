@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RecarosRiposte extends Object {
+class recarosriposte extends Object {
 	public function build() {
-		$this->name = "RecarosRiposte";
+		$this->name = "recaros riposte";
 		$this->graphic = 0x3FFFFFFFF;
 		$this->type = "";
 		$this->flags = 0x00;

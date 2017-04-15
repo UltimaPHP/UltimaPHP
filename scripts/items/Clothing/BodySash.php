@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BodySash extends Object {
+class bodysash extends Object {
 	public function build() {
-		$this->name = "BodySash";
+		$this->name = "body sash";
 		$this->graphic = 0x1541;
 		$this->type = "";
 		$this->flags = 0x00;

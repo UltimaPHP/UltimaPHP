@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MiningCartDeed extends Object {
+class miningcartdeed extends Object {
 	public function build() {
-		$this->name = "MiningCartDeed";
+		$this->name = "mining cart deed";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

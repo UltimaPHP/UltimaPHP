@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PotionKeg extends Object {
+class potionkeg extends Object {
 	public function build() {
-		$this->name = "PotionKeg";
+		$this->name = "potion keg";
 		$this->graphic = 0x1940;
 		$this->type = "";
 		$this->flags = 0x00;

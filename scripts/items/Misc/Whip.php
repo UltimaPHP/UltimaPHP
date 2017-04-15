@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Whip extends Object {
+class whip extends Object {
 	public function build() {
-		$this->name = "Whip";
+		$this->name = "whip";
 		$this->graphic = 0x166E;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class UnlockScroll extends Object {
+class unlockscroll extends Object {
 	public function build() {
-		$this->name = "UnlockScroll";
+		$this->name = "unlock scroll";
 		$this->graphic = 0x1F43;
 		$this->type = "";
 		$this->flags = 0x00;

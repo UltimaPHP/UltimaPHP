@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ClothNinjaHood extends Object {
+class clothninjahood extends Object {
 	public function build() {
-		$this->name = "ClothNinjaHood";
+		$this->name = "cloth ninja hood";
 		$this->graphic = 0x278F;
 		$this->type = "";
 		$this->flags = 0x00;

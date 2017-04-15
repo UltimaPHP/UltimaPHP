@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class InternalGump extends Object {
+class internalgump extends Object {
 	public function build() {
-		$this->name = "InternalGump";
+		$this->name = "internal gump";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

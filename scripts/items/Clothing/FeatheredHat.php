@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FeatheredHat extends Object {
+class featheredhat extends Object {
 	public function build() {
-		$this->name = "FeatheredHat";
+		$this->name = "feathered hat";
 		$this->graphic = 0x171A;
 		$this->type = "";
 		$this->flags = 0x00;

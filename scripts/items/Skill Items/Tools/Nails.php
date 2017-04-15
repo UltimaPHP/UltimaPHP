@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Nails extends Object {
+class nails extends Object {
 	public function build() {
-		$this->name = "Nails";
+		$this->name = "nails";
 		$this->graphic = 0x102C;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Turquoise extends Object {
+class turquoise extends Object {
 	public function build() {
-		$this->name = "Turquoise";
+		$this->name = "turquoise";
 		$this->graphic = 0x3193;
 		$this->type = "";
 		$this->flags = 0x00;

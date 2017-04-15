@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ThighBoots extends Object {
+class thighboots extends Object {
 	public function build() {
-		$this->name = "ThighBoots";
+		$this->name = "thigh boots";
 		$this->graphic = 0x1711;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TinkersTools extends Object {
+class tinkerstools extends Object {
 	public function build() {
-		$this->name = "TinkersTools";
+		$this->name = "tinkers tools";
 		$this->graphic = 0x1EB8;
 		$this->type = "";
 		$this->flags = 0x00;

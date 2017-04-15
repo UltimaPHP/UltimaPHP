@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Brazier extends Object {
+class brazier extends Object {
 	public function build() {
-		$this->name = "Brazier";
+		$this->name = "brazier";
 		$this->graphic = 0xE31;
 		$this->type = "";
 		$this->flags = 0x00;

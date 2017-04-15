@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Urn1Artifact extends Object {
+class urn1artifact extends Object {
 	public function build() {
-		$this->name = "Urn1Artifact";
+		$this->name = "urn 1 artifact";
 		$this->graphic = 0x241D;
 		$this->type = "";
 		$this->flags = 0x00;

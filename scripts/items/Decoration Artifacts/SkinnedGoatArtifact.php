@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SkinnedGoatArtifact extends Object {
+class skinnedgoatartifact extends Object {
 	public function build() {
-		$this->name = "SkinnedGoatArtifact";
+		$this->name = "skinned goat artifact";
 		$this->graphic = 0x1E88;
 		$this->type = "";
 		$this->flags = 0x00;

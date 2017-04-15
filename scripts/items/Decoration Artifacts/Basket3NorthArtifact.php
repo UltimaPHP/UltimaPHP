@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Basket3NorthArtifact extends Object {
+class basket3northartifact extends Object {
 	public function build() {
-		$this->name = "Basket3NorthArtifact";
+		$this->name = "basket 3 north artifact";
 		$this->graphic = 0x24DA;
 		$this->type = "";
 		$this->flags = 0x00;

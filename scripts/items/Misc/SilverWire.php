@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SilverWire extends Object {
+class silverwire extends Object {
 	public function build() {
-		$this->name = "SilverWire";
+		$this->name = "silver wire";
 		$this->graphic = 0x1877;
 		$this->type = "";
 		$this->flags = 0x00;

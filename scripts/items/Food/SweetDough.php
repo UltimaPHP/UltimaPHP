@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SweetDough extends Object {
+class sweetdough extends Object {
 	public function build() {
-		$this->name = "SweetDough";
+		$this->name = "sweet dough";
 		$this->graphic = 0x103d;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HeartOfTheLion extends Object {
+class heartofthelion extends Object {
 	public function build() {
-		$this->name = "HeartOfTheLion";
+		$this->name = "heart of the lion";
 		$this->graphic = 0x1BEB;
 		$this->type = "";
 		$this->flags = 0x00;

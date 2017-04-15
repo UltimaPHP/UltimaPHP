@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OssianGrimoire extends Object {
+class ossiangrimoire extends Object {
 	public function build() {
-		$this->name = "OssianGrimoire";
+		$this->name = "ossian grimoire";
 		$this->graphic = 0x2AC0;
 		$this->type = "";
 		$this->flags = 0x00;

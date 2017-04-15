@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StoneAnkhDeed extends Object {
+class stoneankhdeed extends Object {
 	public function build() {
-		$this->name = "StoneAnkhDeed";
+		$this->name = "stone ankh deed";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

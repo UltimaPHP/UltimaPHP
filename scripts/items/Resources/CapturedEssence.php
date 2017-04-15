@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CapturedEssence extends Object {
+class capturedessence extends Object {
 	public function build() {
-		$this->name = "CapturedEssence";
+		$this->name = "captured essence";
 		$this->graphic = 0x318E;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WoodenCoffinAddon extends Object {
+class woodencoffinaddon extends Object {
 	public function build() {
-		$this->name = "WoodenCoffinAddon";
+		$this->name = "wooden coffin addon";
 		$this->graphic = 0x3D98;
 		$this->type = "";
 		$this->flags = 0x00;

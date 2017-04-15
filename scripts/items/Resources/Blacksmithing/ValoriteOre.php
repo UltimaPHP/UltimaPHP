@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ValoriteOre extends Object {
+class valoriteore extends Object {
 	public function build() {
-		$this->name = "ValoriteOre";
+		$this->name = "valorite ore";
 		$this->graphic = 0x26B4;
 		$this->type = "";
 		$this->flags = 0x00;

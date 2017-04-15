@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Chessboard extends Object {
+class chessboard extends Object {
 	public function build() {
-		$this->name = "Chessboard";
+		$this->name = "chessboard";
 		$this->graphic = 0xFA6;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrokenVanityDeed extends Object {
+class brokenvanitydeed extends Object {
 	public function build() {
-		$this->name = "BrokenVanityDeed";
+		$this->name = "broken vanity deed";
 		$this->graphic = 0xC19;
 		$this->type = "";
 		$this->flags = 0x00;

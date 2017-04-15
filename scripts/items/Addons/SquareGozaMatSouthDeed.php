@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SquareGozaMatSouthDeed extends Object {
+class squaregozamatsouthdeed extends Object {
 	public function build() {
-		$this->name = "SquareGozaMatSouthDeed";
+		$this->name = "square goza mat south deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

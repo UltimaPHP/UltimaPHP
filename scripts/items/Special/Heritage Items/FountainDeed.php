@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FountainDeed extends Object {
+class fountaindeed extends Object {
 	public function build() {
-		$this->name = "FountainDeed";
+		$this->name = "fountain deed";
 		$this->graphic = 0x2068;
 		$this->type = "";
 		$this->flags = 0x00;

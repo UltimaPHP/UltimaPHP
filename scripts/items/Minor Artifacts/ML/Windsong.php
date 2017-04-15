@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Windsong extends Object {
+class windsong extends Object {
 	public function build() {
-		$this->name = "Windsong";
+		$this->name = "windsong";
 		$this->graphic = 0x2F5B;
 		$this->type = "";
 		$this->flags = 0x00;

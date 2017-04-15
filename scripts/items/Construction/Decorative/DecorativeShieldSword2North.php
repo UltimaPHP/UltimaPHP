@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecorativeShieldSword2North extends Object {
+class decorativeshieldsword2north extends Object {
 	public function build() {
-		$this->name = "DecorativeShieldSword2North";
+		$this->name = "decorative shield sword 2 north";
 		$this->graphic = 0x1584;
 		$this->type = "";
 		$this->flags = 0x00;

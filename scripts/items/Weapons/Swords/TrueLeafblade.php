@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TrueLeafblade extends Object {
+class trueleafblade extends Object {
 	public function build() {
-		$this->name = "TrueLeafblade";
+		$this->name = "true leafblade";
 		$this->graphic = 0x13B8;
 		$this->type = "";
 		$this->flags = 0x00;

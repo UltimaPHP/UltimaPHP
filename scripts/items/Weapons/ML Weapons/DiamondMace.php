@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DiamondMace extends Object {
+class diamondmace extends Object {
 	public function build() {
-		$this->name = "DiamondMace";
+		$this->name = "diamond mace";
 		$this->graphic = 0x2D24;
 		$this->type = "";
 		$this->flags = 0x00;

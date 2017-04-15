@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Cutlass extends Object {
+class cutlass extends Object {
 	public function build() {
-		$this->name = "Cutlass";
+		$this->name = "cutlass";
 		$this->graphic = 0x1441;
 		$this->type = "";
 		$this->flags = 0x00;

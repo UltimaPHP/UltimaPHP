@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DryadAllureScroll extends Object {
+class dryadallurescroll extends Object {
 	public function build() {
-		$this->name = "DryadAllureScroll";
+		$this->name = "dryad allure scroll";
 		$this->graphic = 0x2D5C;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TradeGlasses extends Object {
+class tradeglasses extends Object {
 	public function build() {
-		$this->name = "TradeGlasses";
+		$this->name = "trade glasses";
 		$this->graphic = 0x2FB8;
 		$this->type = "";
 		$this->flags = 0x00;

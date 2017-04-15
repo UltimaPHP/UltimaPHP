@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Sand extends Object {
+class sand extends Object {
 	public function build() {
-		$this->name = "Sand";
+		$this->name = "sand";
 		$this->graphic = 0x11EA;
 		$this->type = "";
 		$this->flags = 0x00;

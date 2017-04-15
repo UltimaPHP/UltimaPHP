@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Pier extends Object {
+class pier extends Object {
 	public function build() {
-		$this->name = "Pier";
+		$this->name = "pier";
 		$this->graphic = 0x12EE;
 		$this->type = "";
 		$this->flags = 0x00;

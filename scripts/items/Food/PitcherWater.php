@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PitcherWater extends Object {
+class pitcherwater extends Object {
 	public function build() {
-		$this->name = "PitcherWater";
+		$this->name = "pitcher water";
 		$this->graphic = 0x15f8;
 		$this->type = "";
 		$this->flags = 0x00;

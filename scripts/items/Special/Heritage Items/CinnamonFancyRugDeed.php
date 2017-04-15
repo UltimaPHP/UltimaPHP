@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CinnamonFancyRugDeed extends Object {
+class cinnamonfancyrugdeed extends Object {
 	public function build() {
-		$this->name = "CinnamonFancyRugDeed";
+		$this->name = "cinnamon fancy rug deed";
 		$this->graphic = 0x2068;
 		$this->type = "";
 		$this->flags = 0x00;

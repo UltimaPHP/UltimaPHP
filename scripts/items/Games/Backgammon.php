@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Backgammon extends Object {
+class backgammon extends Object {
 	public function build() {
-		$this->name = "Backgammon";
+		$this->name = "backgammon";
 		$this->graphic = 0xE1C;
 		$this->type = "";
 		$this->flags = 0x00;

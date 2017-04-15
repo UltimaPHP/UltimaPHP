@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Pouch extends Object {
+class pouch extends Object {
 	public function build() {
-		$this->name = "Pouch";
+		$this->name = "pouch";
 		$this->graphic = 0xE79;
 		$this->type = "";
 		$this->flags = 0x00;

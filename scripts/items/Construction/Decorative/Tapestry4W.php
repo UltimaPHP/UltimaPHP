@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Tapestry4W extends Object {
+class tapestry4w extends Object {
 	public function build() {
-		$this->name = "Tapestry4W";
+		$this->name = "tapestry";
 		$this->graphic = 0xFDC;
 		$this->type = "";
 		$this->flags = 0x00;

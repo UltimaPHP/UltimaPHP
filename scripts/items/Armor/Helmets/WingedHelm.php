@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WingedHelm extends Object {
+class wingedhelm extends Object {
 	public function build() {
-		$this->name = "WingedHelm";
+		$this->name = "winged helm";
 		$this->graphic = 0x2B73;
 		$this->type = "";
 		$this->flags = 0x00;

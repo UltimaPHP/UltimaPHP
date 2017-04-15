@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ThinBrickWall extends Object {
+class thinbrickwall extends Object {
 	public function build() {
-		$this->name = "ThinBrickWall";
+		$this->name = "thin brick wall";
 		$this->graphic = 0x0033;
 		$this->type = "";
 		$this->flags = 0x00;

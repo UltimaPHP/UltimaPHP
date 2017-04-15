@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AgapiteGranite extends Object {
+class agapitegranite extends Object {
 	public function build() {
-		$this->name = "AgapiteGranite";
+		$this->name = "agapite granite";
 		$this->graphic = 0x1779;
 		$this->type = "";
 		$this->flags = 0x00;

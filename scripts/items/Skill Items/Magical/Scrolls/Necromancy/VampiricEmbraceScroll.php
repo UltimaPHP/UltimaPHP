@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class VampiricEmbraceScroll extends Object {
+class vampiricembracescroll extends Object {
 	public function build() {
-		$this->name = "VampiricEmbraceScroll";
+		$this->name = "vampiric embrace scroll";
 		$this->graphic = 0x226C;
 		$this->type = "";
 		$this->flags = 0x00;

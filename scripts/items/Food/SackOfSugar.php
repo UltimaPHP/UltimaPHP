@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SackOfSugar extends Object {
+class sackofsugar extends Object {
 	public function build() {
-		$this->name = "SackOfSugar";
+		$this->name = "sack of sugar";
 		$this->graphic = 0x1039;
 		$this->type = "";
 		$this->flags = 0x00;

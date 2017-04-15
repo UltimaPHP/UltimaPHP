@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LyricalGlasses extends Object {
+class lyricalglasses extends Object {
 	public function build() {
-		$this->name = "LyricalGlasses";
+		$this->name = "lyrical glasses";
 		$this->graphic = 0x2FB8;
 		$this->type = "";
 		$this->flags = 0x00;

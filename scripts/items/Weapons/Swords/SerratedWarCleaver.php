@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SerratedWarCleaver extends Object {
+class serratedwarcleaver extends Object {
 	public function build() {
-		$this->name = "SerratedWarCleaver";
+		$this->name = "serrated war cleaver";
 		$this->graphic = 0x13B6;
 		$this->type = "";
 		$this->flags = 0x00;

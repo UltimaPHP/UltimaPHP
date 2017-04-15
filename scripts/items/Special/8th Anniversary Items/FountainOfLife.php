@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FountainOfLife extends Object {
+class fountainoflife extends Object {
 	public function build() {
-		$this->name = "FountainOfLife";
+		$this->name = "fountain of life";
 		$this->graphic = 0x2AC0;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SamaritanRobe extends Object {
+class samaritanrobe extends Object {
 	public function build() {
-		$this->name = "SamaritanRobe";
+		$this->name = "samaritan robe";
 		$this->graphic = 0x2684;
 		$this->type = "";
 		$this->flags = 0x00;

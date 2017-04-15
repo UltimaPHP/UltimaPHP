@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FrenchBread extends Object {
+class frenchbread extends Object {
 	public function build() {
-		$this->name = "FrenchBread";
+		$this->name = "french bread";
 		$this->graphic = 0x98C;
 		$this->type = "";
 		$this->flags = 0x00;

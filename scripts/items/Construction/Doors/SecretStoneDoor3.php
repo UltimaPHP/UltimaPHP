@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SecretStoneDoor3 extends Object {
+class secretstonedoor3 extends Object {
 	public function build() {
-		$this->name = "SecretStoneDoor3";
+		$this->name = "secret stone door";
 		$this->graphic = 0x354;
 		$this->type = "";
 		$this->flags = 0x00;

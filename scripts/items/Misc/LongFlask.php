@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LongFlask extends Object {
+class longflask extends Object {
 	public function build() {
-		$this->name = "LongFlask";
+		$this->name = "long flask";
 		$this->graphic = 0x1838;
 		$this->type = "";
 		$this->flags = 0x00;

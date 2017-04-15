@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WindSpirit extends Object {
+class windspirit extends Object {
 	public function build() {
-		$this->name = "WindSpirit";
+		$this->name = "wind spirit";
 		$this->graphic = 0x1F1F;
 		$this->type = "";
 		$this->flags = 0x00;

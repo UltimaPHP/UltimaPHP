@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FillableMetalBox extends Object {
+class fillablemetalbox extends Object {
 	public function build() {
-		$this->name = "FillableMetalBox";
+		$this->name = "fillable metal box";
 		$this->graphic = 0x9A8;
 		$this->type = "";
 		$this->flags = 0x00;

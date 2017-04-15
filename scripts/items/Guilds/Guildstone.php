@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Guildstone extends Object {
+class guildstone extends Object {
 	public function build() {
-		$this->name = "Guildstone";
+		$this->name = "guildstone";
 		$this->graphic = 0xED6;
 		$this->type = "";
 		$this->flags = 0x00;

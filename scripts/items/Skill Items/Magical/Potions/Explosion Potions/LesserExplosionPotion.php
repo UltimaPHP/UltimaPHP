@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LesserExplosionPotion extends Object {
+class lesserexplosionpotion extends Object {
 	public function build() {
-		$this->name = "LesserExplosionPotion";
+		$this->name = "lesser explosion potion";
 		$this->graphic = 0xF0D;
 		$this->type = "";
 		$this->flags = 0x00;

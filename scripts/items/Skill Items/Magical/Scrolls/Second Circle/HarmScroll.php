@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HarmScroll extends Object {
+class harmscroll extends Object {
 	public function build() {
-		$this->name = "HarmScroll";
+		$this->name = "harm scroll";
 		$this->graphic = 0x1F38;
 		$this->type = "";
 		$this->flags = 0x00;

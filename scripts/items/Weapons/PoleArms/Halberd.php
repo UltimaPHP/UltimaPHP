@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Halberd extends Object {
+class halberd extends Object {
 	public function build() {
-		$this->name = "Halberd";
+		$this->name = "halberd";
 		$this->graphic = 0x143E;
 		$this->type = "";
 		$this->flags = 0x00;

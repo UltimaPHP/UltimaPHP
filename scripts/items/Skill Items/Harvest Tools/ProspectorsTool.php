@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ProspectorsTool extends Object {
+class prospectorstool extends Object {
 	public function build() {
-		$this->name = "ProspectorsTool";
+		$this->name = "prospectors tool";
 		$this->graphic = 0xFB4;
 		$this->type = "";
 		$this->flags = 0x00;

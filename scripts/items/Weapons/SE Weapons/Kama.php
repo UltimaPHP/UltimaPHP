@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Kama extends Object {
+class kama extends Object {
 	public function build() {
-		$this->name = "Kama";
+		$this->name = "kama";
 		$this->graphic = 0x27AD;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Flax extends Object {
+class flax extends Object {
 	public function build() {
-		$this->name = "Flax";
+		$this->name = "flax";
 		$this->graphic = 0x1079;
 		$this->type = "";
 		$this->flags = 0x00;

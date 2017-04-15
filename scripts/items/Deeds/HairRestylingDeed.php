@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HairRestylingDeed extends Object {
+class hairrestylingdeed extends Object {
 	public function build() {
-		$this->name = "HairRestylingDeed";
+		$this->name = "hair restyling deed";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

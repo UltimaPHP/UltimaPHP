@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FancyDress extends Object {
+class fancydress extends Object {
 	public function build() {
-		$this->name = "FancyDress";
+		$this->name = "fancy dress";
 		$this->graphic = 0x1F00;
 		$this->type = "";
 		$this->flags = 0x00;

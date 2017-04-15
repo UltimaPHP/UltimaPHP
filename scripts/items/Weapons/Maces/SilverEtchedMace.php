@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SilverEtchedMace extends Object {
+class silveretchedmace extends Object {
 	public function build() {
-		$this->name = "SilverEtchedMace";
+		$this->name = "silver etched mace";
 		$this->graphic = 0x26BC;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlateSuneate extends Object {
+class platesuneate extends Object {
 	public function build() {
-		$this->name = "PlateSuneate";
+		$this->name = "plate suneate";
 		$this->graphic = 0x2788;
 		$this->type = "";
 		$this->flags = 0x00;

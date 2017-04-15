@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GiftOfLifeScroll extends Object {
+class giftoflifescroll extends Object {
 	public function build() {
-		$this->name = "GiftOfLifeScroll";
+		$this->name = "gift of life scroll";
 		$this->graphic = 0x2D5F;
 		$this->type = "";
 		$this->flags = 0x00;

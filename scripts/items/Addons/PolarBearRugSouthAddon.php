@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PolarBearRugSouthAddon extends Object {
+class polarbearrugsouthaddon extends Object {
 	public function build() {
-		$this->name = "PolarBearRugSouthAddon";
+		$this->name = "polar bear rug south addon";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

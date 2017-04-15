@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FirebombField extends Object {
+class firebombfield extends Object {
 	public function build() {
-		$this->name = "FirebombField";
+		$this->name = "firebomb field";
 		$this->graphic = 0x376A;
 		$this->type = "";
 		$this->flags = 0x00;

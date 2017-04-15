@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CorruptedRuneBlade extends Object {
+class corruptedruneblade extends Object {
 	public function build() {
-		$this->name = "CorruptedRuneBlade";
+		$this->name = "corrupted rune blade";
 		$this->graphic = 0xF5E;
 		$this->type = "";
 		$this->flags = 0x00;

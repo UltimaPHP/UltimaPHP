@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OrcishKinMask extends Object {
+class orcishkinmask extends Object {
 	public function build() {
-		$this->name = "OrcishKinMask";
+		$this->name = "orcish kin mask";
 		$this->graphic = 0x141B;
 		$this->type = "";
 		$this->flags = 0x00;

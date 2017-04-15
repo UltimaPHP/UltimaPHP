@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EmptyCurvedFlaskW extends Object {
+class emptycurvedflaskw extends Object {
 	public function build() {
-		$this->name = "EmptyCurvedFlaskW";
+		$this->name = "empty curved flask";
 		$this->graphic = 0x1832;
 		$this->type = "";
 		$this->flags = 0x00;

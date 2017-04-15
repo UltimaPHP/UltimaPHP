@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GlacialStaff extends Object {
+class glacialstaff extends Object {
 	public function build() {
-		$this->name = "GlacialStaff";
+		$this->name = "glacial staff";
 		$this->graphic = 0xDF0;
 		$this->type = "";
 		$this->flags = 0x00;

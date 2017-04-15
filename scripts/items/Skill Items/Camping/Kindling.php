@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Kindling extends Object {
+class kindling extends Object {
 	public function build() {
-		$this->name = "Kindling";
+		$this->name = "kindling";
 		$this->graphic = 0xDE1;
 		$this->type = "";
 		$this->flags = 0x00;

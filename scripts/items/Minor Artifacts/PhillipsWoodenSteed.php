@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PhillipsWoodenSteed extends Object {
+class phillipswoodensteed extends Object {
 	public function build() {
-		$this->name = "PhillipsWoodenSteed";
+		$this->name = "phillips wooden steed";
 		$this->graphic = 0x1BEB;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CrescentBlade extends Object {
+class crescentblade extends Object {
 	public function build() {
-		$this->name = "CrescentBlade";
+		$this->name = "crescent blade";
 		$this->graphic = 0x26C1;
 		$this->type = "";
 		$this->flags = 0x00;

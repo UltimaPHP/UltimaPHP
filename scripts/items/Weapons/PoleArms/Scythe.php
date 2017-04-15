@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Scythe extends Object {
+class scythe extends Object {
 	public function build() {
-		$this->name = "Scythe";
+		$this->name = "scythe";
 		$this->graphic = 0x26BA;
 		$this->type = "";
 		$this->flags = 0x00;

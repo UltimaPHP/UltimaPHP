@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SturdyShovel extends Object {
+class sturdyshovel extends Object {
 	public function build() {
-		$this->name = "SturdyShovel";
+		$this->name = "sturdy shovel";
 		$this->graphic = 0xF39;
 		$this->type = "";
 		$this->flags = 0x00;

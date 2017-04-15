@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MisoSoup extends Object {
+class misosoup extends Object {
 	public function build() {
-		$this->name = "MisoSoup";
+		$this->name = "miso soup";
 		$this->graphic = 0x284D;
 		$this->type = "";
 		$this->flags = 0x00;

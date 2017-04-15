@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HaunterMirrorDeed extends Object {
+class hauntermirrordeed extends Object {
 	public function build() {
-		$this->name = "HaunterMirrorDeed";
+		$this->name = "haunter mirror deed";
 		$this->graphic = 0x2A7B;
 		$this->type = "";
 		$this->flags = 0x00;

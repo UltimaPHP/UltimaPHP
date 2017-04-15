@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GenericHair extends Object {
+class generichair extends Object {
 	public function build() {
-		$this->name = "GenericHair";
+		$this->name = "generic hair";
 		$this->graphic = 0x204D;
 		$this->type = "";
 		$this->flags = 0x00;

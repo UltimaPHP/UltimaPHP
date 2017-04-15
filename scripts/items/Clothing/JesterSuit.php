@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class JesterSuit extends Object {
+class jestersuit extends Object {
 	public function build() {
-		$this->name = "JesterSuit";
+		$this->name = "jester suit";
 		$this->graphic = 0x1F9F;
 		$this->type = "";
 		$this->flags = 0x00;

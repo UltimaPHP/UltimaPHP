@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BarkeepContract extends Object {
+class barkeepcontract extends Object {
 	public function build() {
-		$this->name = "BarkeepContract";
+		$this->name = "barkeep contract";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

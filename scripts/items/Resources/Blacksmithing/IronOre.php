@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class IronOre extends Object {
+class ironore extends Object {
 	public function build() {
-		$this->name = "IronOre";
+		$this->name = "iron ore";
 		$this->graphic = 0x1BF2;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ScarecrowDeed extends Object {
+class scarecrowdeed extends Object {
 	public function build() {
-		$this->name = "ScarecrowDeed";
+		$this->name = "scarecrow deed";
 		$this->graphic = 0x1E34;
 		$this->type = "";
 		$this->flags = 0x00;

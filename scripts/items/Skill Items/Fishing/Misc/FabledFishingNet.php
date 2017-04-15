@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FabledFishingNet extends Object {
+class fabledfishingnet extends Object {
 	public function build() {
-		$this->name = "FabledFishingNet";
+		$this->name = "fabled fishing net";
 		$this->graphic = 0x0DCA;
 		$this->type = "";
 		$this->flags = 0x00;

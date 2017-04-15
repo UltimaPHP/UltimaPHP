@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CopperGranite extends Object {
+class coppergranite extends Object {
 	public function build() {
-		$this->name = "CopperGranite";
+		$this->name = "copper granite";
 		$this->graphic = 0x1779;
 		$this->type = "";
 		$this->flags = 0x00;

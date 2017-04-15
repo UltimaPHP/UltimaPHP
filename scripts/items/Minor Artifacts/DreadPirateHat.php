@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DreadPirateHat extends Object {
+class dreadpiratehat extends Object {
 	public function build() {
-		$this->name = "DreadPirateHat";
+		$this->name = "dread pirate hat";
 		$this->graphic = 0xB26;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RegardingLlamas extends Object {
+class regardingllamas extends Object {
 	public function build() {
-		$this->name = "RegardingLlamas";
+		$this->name = "regarding llamas";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

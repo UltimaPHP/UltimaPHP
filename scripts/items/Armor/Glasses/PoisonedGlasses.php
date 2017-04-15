@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PoisonedGlasses extends Object {
+class poisonedglasses extends Object {
 	public function build() {
-		$this->name = "PoisonedGlasses";
+		$this->name = "poisoned glasses";
 		$this->graphic = 0x2FB8;
 		$this->type = "";
 		$this->flags = 0x00;

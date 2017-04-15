@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoBottlesOfLiquor extends Object {
+class decobottlesofliquor extends Object {
 	public function build() {
-		$this->name = "DecoBottlesOfLiquor";
+		$this->name = "deco bottles of liquor";
 		$this->graphic = 0x99E;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GingerBreadCookie extends Object {
+class gingerbreadcookie extends Object {
 	public function build() {
-		$this->name = "GingerBreadCookie";
+		$this->name = "ginger bread cookie";
 		$this->graphic = 0x2be1;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HolidayTimepiece extends Object {
+class holidaytimepiece extends Object {
 	public function build() {
-		$this->name = "HolidayTimepiece";
+		$this->name = "holiday timepiece";
 		$this->graphic = 0x1086;
 		$this->type = "";
 		$this->flags = 0x00;

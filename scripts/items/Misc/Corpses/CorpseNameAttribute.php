@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CorpseNameAttribute extends Object {
+class corpsenameattribute extends Object {
 	public function build() {
-		$this->name = "CorpseNameAttribute";
+		$this->name = "corpse name attribute";
 		$this->graphic = 0x2006;
 		$this->type = "";
 		$this->flags = 0x00;

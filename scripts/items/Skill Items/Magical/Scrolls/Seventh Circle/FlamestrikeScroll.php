@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FlamestrikeScroll extends Object {
+class flamestrikescroll extends Object {
 	public function build() {
-		$this->name = "FlamestrikeScroll";
+		$this->name = "flamestrike scroll";
 		$this->graphic = 0x1F5F;
 		$this->type = "";
 		$this->flags = 0x00;

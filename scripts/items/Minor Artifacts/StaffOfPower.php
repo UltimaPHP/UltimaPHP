@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StaffOfPower extends Object {
+class staffofpower extends Object {
 	public function build() {
-		$this->name = "StaffOfPower";
+		$this->name = "staff of power";
 		$this->graphic = 0x14F3;
 		$this->type = "";
 		$this->flags = 0x00;

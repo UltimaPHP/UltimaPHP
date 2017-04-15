@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BunsHair extends Object {
+class bunshair extends Object {
 	public function build() {
-		$this->name = "BunsHair";
+		$this->name = "buns hair";
 		$this->graphic = 0x2046;
 		$this->type = "";
 		$this->flags = 0x00;

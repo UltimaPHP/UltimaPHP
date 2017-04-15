@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CandleSkull extends Object {
+class candleskull extends Object {
 	public function build() {
-		$this->name = "CandleSkull";
+		$this->name = "candle skull";
 		$this->graphic = 0x1853;
 		$this->type = "";
 		$this->flags = 0x00;

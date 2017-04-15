@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Luckblade extends Object {
+class luckblade extends Object {
 	public function build() {
-		$this->name = "Luckblade";
+		$this->name = "luckblade";
 		$this->graphic = 0xF61;
 		$this->type = "";
 		$this->flags = 0x00;

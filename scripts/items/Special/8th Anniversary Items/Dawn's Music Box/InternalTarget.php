@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DawnsMusicInfo extends Object {
+class internaltarget extends Object {
 	public function build() {
-		$this->name = "DawnsMusicInfo";
+		$this->name = "internal target";
 		$this->graphic = 0x1053;
 		$this->type = "";
 		$this->flags = 0x00;

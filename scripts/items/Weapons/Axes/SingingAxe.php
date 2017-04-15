@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SingingAxe extends Object {
+class singingaxe extends Object {
 	public function build() {
-		$this->name = "SingingAxe";
+		$this->name = "singing axe";
 		$this->graphic = 0xE86;
 		$this->type = "";
 		$this->flags = 0x00;

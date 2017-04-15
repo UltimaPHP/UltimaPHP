@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Cake extends Object {
+class cake extends Object {
 	public function build() {
-		$this->name = "Cake";
+		$this->name = "cake";
 		$this->graphic = 0x9E9;
 		$this->type = "";
 		$this->flags = 0x00;

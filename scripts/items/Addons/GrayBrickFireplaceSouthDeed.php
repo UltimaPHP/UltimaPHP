@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GrayBrickFireplaceSouthDeed extends Object {
+class graybrickfireplacesouthdeed extends Object {
 	public function build() {
-		$this->name = "GrayBrickFireplaceSouthDeed";
+		$this->name = "gray brick fireplace south deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

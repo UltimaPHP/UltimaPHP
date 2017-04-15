@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WalkersLeggings extends Object {
+class walkersleggings extends Object {
 	public function build() {
-		$this->name = "WalkersLeggings";
+		$this->name = "walkers leggings";
 		$this->graphic = 0x3FFFFFFFF;
 		$this->type = "";
 		$this->flags = 0x00;

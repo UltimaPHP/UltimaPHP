@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WallBlood extends Object {
+class wallblood extends Object {
 	public function build() {
-		$this->name = "WallBlood";
+		$this->name = "wall blood";
 		$this->graphic = 0xE21;
 		$this->type = "";
 		$this->flags = 0x00;

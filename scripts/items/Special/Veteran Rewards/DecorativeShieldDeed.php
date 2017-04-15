@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecorativeShieldDeed extends Object {
+class decorativeshielddeed extends Object {
 	public function build() {
-		$this->name = "DecorativeShieldDeed";
+		$this->name = "decorative shield deed";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MorphItem extends Object {
+class morphitem extends Object {
 	public function build() {
-		$this->name = "MorphItem";
+		$this->name = "morph item";
 		$this->graphic = 0xF8B;
 		$this->type = "";
 		$this->flags = 0x00;

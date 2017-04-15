@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Scepter extends Object {
+class scepter extends Object {
 	public function build() {
-		$this->name = "Scepter";
+		$this->name = "scepter";
 		$this->graphic = 0x26BC;
 		$this->type = "";
 		$this->flags = 0x00;

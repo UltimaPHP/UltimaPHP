@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Shell extends Object {
+class shell extends Object {
 	public function build() {
-		$this->name = "Shell";
+		$this->name = "shell";
 		$this->graphic = 0x3B12;
 		$this->type = "";
 		$this->flags = 0x00;

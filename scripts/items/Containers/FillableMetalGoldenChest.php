@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FillableMetalGoldenChest extends Object {
+class fillablemetalgoldenchest extends Object {
 	public function build() {
-		$this->name = "FillableMetalGoldenChest";
+		$this->name = "fillable metal golden chest";
 		$this->graphic = 0xE41;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GlassblowingBook extends Object {
+class glassblowingbook extends Object {
 	public function build() {
-		$this->name = "GlassblowingBook";
+		$this->name = "glassblowing book";
 		$this->graphic = 0xFF4;
 		$this->type = "";
 		$this->flags = 0x00;

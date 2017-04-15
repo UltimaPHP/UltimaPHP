@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HealWand extends Object {
+class healwand extends Object {
 	public function build() {
-		$this->name = "HealWand";
+		$this->name = "heal wand";
 		$this->graphic = 0xDF2;
 		$this->type = "";
 		$this->flags = 0x00;

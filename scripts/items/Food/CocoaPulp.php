@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CocoaPulp extends Object {
+class cocoapulp extends Object {
 	public function build() {
-		$this->name = "CocoaPulp";
+		$this->name = "cocoa pulp";
 		$this->graphic = 0xF7C;
 		$this->type = "";
 		$this->flags = 0x00;

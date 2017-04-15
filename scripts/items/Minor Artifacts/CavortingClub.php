@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CavortingClub extends Object {
+class cavortingclub extends Object {
 	public function build() {
-		$this->name = "CavortingClub";
+		$this->name = "cavorting club";
 		$this->graphic = 0xB26;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BoneThroneAddon extends Object {
+class bonethroneaddon extends Object {
 	public function build() {
-		$this->name = "BoneThroneAddon";
+		$this->name = "bone throne addon";
 		$this->graphic = 0x2A58;
 		$this->type = "";
 		$this->flags = 0x00;

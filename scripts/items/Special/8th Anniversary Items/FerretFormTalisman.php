@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FerretFormTalisman extends Object {
+class ferretformtalisman extends Object {
 	public function build() {
-		$this->name = "FerretFormTalisman";
+		$this->name = "ferret form talisman";
 		$this->graphic = 0x2F59;
 		$this->type = "";
 		$this->flags = 0x00;

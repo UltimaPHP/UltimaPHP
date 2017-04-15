@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BloodyPentagramComponent extends Object {
+class bloodypentagramcomponent extends Object {
 	public function build() {
-		$this->name = "BloodyPentagramComponent";
+		$this->name = "bloody pentagram component";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

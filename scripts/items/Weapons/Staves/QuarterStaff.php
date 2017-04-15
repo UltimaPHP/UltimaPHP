@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class QuarterStaff extends Object {
+class quarterstaff extends Object {
 	public function build() {
-		$this->name = "QuarterStaff";
+		$this->name = "quarter staff";
 		$this->graphic = 0xE89;
 		$this->type = "";
 		$this->flags = 0x00;

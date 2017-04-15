@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TreatiseOnAlchemy extends Object {
+class treatiseonalchemy extends Object {
 	public function build() {
-		$this->name = "TreatiseOnAlchemy";
+		$this->name = "treatise on alchemy";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

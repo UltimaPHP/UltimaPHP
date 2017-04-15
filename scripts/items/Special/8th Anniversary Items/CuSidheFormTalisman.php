@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CuSidheFormTalisman extends Object {
+class cusidheformtalisman extends Object {
 	public function build() {
-		$this->name = "CuSidheFormTalisman";
+		$this->name = "cu sidhe form talisman";
 		$this->graphic = 0x2F59;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Vines extends Object {
+class vines extends Object {
 	public function build() {
-		$this->name = "Vines";
+		$this->name = "vines";
 		$this->graphic = 0xCEB;
 		$this->type = "";
 		$this->flags = 0x00;

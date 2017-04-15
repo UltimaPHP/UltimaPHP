@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TheDragonsTail extends Object {
+class thedragonstail extends Object {
 	public function build() {
-		$this->name = "TheDragonsTail";
+		$this->name = "the dragons tail";
 		$this->graphic = 0x3FFFFFFFF;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ContestMiniHouse extends Object {
+class contestminihouse extends Object {
 	public function build() {
-		$this->name = "ContestMiniHouse";
+		$this->name = "contest mini house";
 		$this->graphic = 0x9AA;
 		$this->type = "";
 		$this->flags = 0x00;

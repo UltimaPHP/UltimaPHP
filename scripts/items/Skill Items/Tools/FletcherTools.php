@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FletcherTools extends Object {
+class fletchertools extends Object {
 	public function build() {
-		$this->name = "FletcherTools";
+		$this->name = "fletcher tools";
 		$this->graphic = 0x1022;
 		$this->type = "";
 		$this->flags = 0x00;

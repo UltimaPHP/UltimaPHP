@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Lemons extends Object {
+class lemons extends Object {
 	public function build() {
-		$this->name = "Lemons";
+		$this->name = "lemons";
 		$this->graphic = 0x1729;
 		$this->type = "";
 		$this->flags = 0x00;

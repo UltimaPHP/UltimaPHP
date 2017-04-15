@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PrimitiveFetish extends Object {
+class primitivefetish extends Object {
 	public function build() {
-		$this->name = "PrimitiveFetish";
+		$this->name = "primitive fetish";
 		$this->graphic = 0x23F;
 		$this->type = "";
 		$this->flags = 0x00;

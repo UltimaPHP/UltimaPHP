@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DisguiseGump extends Object {
+class disguisegump extends Object {
 	public function build() {
-		$this->name = "DisguiseGump";
+		$this->name = "disguise gump";
 		$this->graphic = 0xE05;
 		$this->type = "";
 		$this->flags = 0x00;

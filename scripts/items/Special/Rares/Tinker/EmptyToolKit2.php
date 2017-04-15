@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EmptyToolKit2 extends Object {
+class emptytoolkit2 extends Object {
 	public function build() {
-		$this->name = "EmptyToolKit2";
+		$this->name = "empty tool kit";
 		$this->graphic = 0x1EB7;
 		$this->type = "";
 		$this->flags = 0x00;

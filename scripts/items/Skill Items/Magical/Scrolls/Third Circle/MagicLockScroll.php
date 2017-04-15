@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MagicLockScroll extends Object {
+class magiclockscroll extends Object {
 	public function build() {
-		$this->name = "MagicLockScroll";
+		$this->name = "magic lock scroll";
 		$this->graphic = 0x1F3F;
 		$this->type = "";
 		$this->flags = 0x00;

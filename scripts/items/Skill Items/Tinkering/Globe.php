@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Globe extends Object {
+class globe extends Object {
 	public function build() {
-		$this->name = "Globe";
+		$this->name = "globe";
 		$this->graphic = 0x1047;
 		$this->type = "";
 		$this->flags = 0x00;

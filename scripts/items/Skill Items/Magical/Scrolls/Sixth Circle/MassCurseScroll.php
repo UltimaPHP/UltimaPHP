@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MassCurseScroll extends Object {
+class masscursescroll extends Object {
 	public function build() {
-		$this->name = "MassCurseScroll";
+		$this->name = "mass curse scroll";
 		$this->graphic = 0x1F5A;
 		$this->type = "";
 		$this->flags = 0x00;

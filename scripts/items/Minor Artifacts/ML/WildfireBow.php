@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WildfireBow extends Object {
+class wildfirebow extends Object {
 	public function build() {
-		$this->name = "WildfireBow";
+		$this->name = "wildfire bow";
 		$this->graphic = 0x2F5B;
 		$this->type = "";
 		$this->flags = 0x00;

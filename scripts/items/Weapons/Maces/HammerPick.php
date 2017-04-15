@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HammerPick extends Object {
+class hammerpick extends Object {
 	public function build() {
-		$this->name = "HammerPick";
+		$this->name = "hammer pick";
 		$this->graphic = 0x143D;
 		$this->type = "";
 		$this->flags = 0x00;

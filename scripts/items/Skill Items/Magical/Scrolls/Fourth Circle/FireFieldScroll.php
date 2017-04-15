@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FireFieldScroll extends Object {
+class firefieldscroll extends Object {
 	public function build() {
-		$this->name = "FireFieldScroll";
+		$this->name = "fire field scroll";
 		$this->graphic = 0x1F48;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OrnateElvenTableEastAddon extends Object {
+class ornateelventableeastaddon extends Object {
 	public function build() {
-		$this->name = "OrnateElvenTableEastAddon";
+		$this->name = "ornate elven table east addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

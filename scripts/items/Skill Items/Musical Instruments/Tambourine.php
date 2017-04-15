@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Tambourine extends Object {
+class tambourine extends Object {
 	public function build() {
-		$this->name = "Tambourine";
+		$this->name = "tambourine";
 		$this->graphic = 0xE9D;
 		$this->type = "";
 		$this->flags = 0x00;

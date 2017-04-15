@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MediumCrate extends Object {
+class mediumcrate extends Object {
 	public function build() {
-		$this->name = "MediumCrate";
+		$this->name = "medium crate";
 		$this->graphic = 0xE3F;
 		$this->type = "";
 		$this->flags = 0x00;

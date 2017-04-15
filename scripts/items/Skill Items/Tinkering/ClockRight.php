@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ClockRight extends Object {
+class clockright extends Object {
 	public function build() {
-		$this->name = "ClockRight";
+		$this->name = "clock right";
 		$this->graphic = 0x104B;
 		$this->type = "";
 		$this->flags = 0x00;

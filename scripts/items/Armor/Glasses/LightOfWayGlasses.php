@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LightOfWayGlasses extends Object {
+class lightofwayglasses extends Object {
 	public function build() {
-		$this->name = "LightOfWayGlasses";
+		$this->name = "light of way glasses";
 		$this->graphic = 0x2FB8;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class NorseHelm extends Object {
+class norsehelm extends Object {
 	public function build() {
-		$this->name = "NorseHelm";
+		$this->name = "norse helm";
 		$this->graphic = 0x140E;
 		$this->type = "";
 		$this->flags = 0x00;

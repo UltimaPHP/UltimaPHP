@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WhiteLeatherDyeTub extends Object {
+class whiteleatherdyetub extends Object {
 	public function build() {
-		$this->name = "WhiteLeatherDyeTub";
+		$this->name = "white leather dye tub";
 		$this->graphic = 0xFAB;
 		$this->type = "";
 		$this->flags = 0x00;

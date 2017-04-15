@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DovetailSaw extends Object {
+class dovetailsaw extends Object {
 	public function build() {
-		$this->name = "DovetailSaw";
+		$this->name = "dovetail saw";
 		$this->graphic = 0x1028;
 		$this->type = "";
 		$this->flags = 0x00;

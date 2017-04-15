@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoIronIngots6 extends Object {
+class decoironingots6 extends Object {
 	public function build() {
-		$this->name = "DecoIronIngots6";
+		$this->name = "deco iron ingots";
 		$this->graphic = 0x1BF4;
 		$this->type = "";
 		$this->flags = 0x00;

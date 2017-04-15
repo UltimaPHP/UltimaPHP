@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MetalGoldenChest extends Object {
+class metalgoldenchest extends Object {
 	public function build() {
-		$this->name = "MetalGoldenChest";
+		$this->name = "metal golden chest";
 		$this->graphic = 0xE41;
 		$this->type = "";
 		$this->flags = 0x00;

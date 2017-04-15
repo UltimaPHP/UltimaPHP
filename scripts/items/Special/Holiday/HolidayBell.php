@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HolidayBell extends Object {
+class holidaybell extends Object {
 	public function build() {
-		$this->name = "HolidayBell";
+		$this->name = "holiday bell";
 		$this->graphic = 0x232A;
 		$this->type = "";
 		$this->flags = 0x00;

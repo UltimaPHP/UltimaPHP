@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Wakizashi extends Object {
+class wakizashi extends Object {
 	public function build() {
-		$this->name = "Wakizashi";
+		$this->name = "wakizashi";
 		$this->graphic = 0x27A4;
 		$this->type = "";
 		$this->flags = 0x00;

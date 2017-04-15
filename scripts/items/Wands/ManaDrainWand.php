@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ManaDrainWand extends Object {
+class manadrainwand extends Object {
 	public function build() {
-		$this->name = "ManaDrainWand";
+		$this->name = "mana drain wand";
 		$this->graphic = 0xDF2;
 		$this->type = "";
 		$this->flags = 0x00;

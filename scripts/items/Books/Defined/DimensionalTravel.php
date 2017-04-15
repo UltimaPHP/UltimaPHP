@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DimensionalTravel extends Object {
+class dimensionaltravel extends Object {
 	public function build() {
-		$this->name = "DimensionalTravel";
+		$this->name = "dimensional travel";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

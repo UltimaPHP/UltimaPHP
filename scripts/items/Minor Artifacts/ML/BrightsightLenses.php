@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrightsightLenses extends Object {
+class brightsightlenses extends Object {
 	public function build() {
-		$this->name = "BrightsightLenses";
+		$this->name = "brightsight lenses";
 		$this->graphic = 0x2F5A;
 		$this->type = "";
 		$this->flags = 0x00;

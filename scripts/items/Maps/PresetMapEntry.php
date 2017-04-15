@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PresetMapEntry extends Object {
+class presetmapentry extends Object {
 	public function build() {
-		$this->name = "PresetMapEntry";
+		$this->name = "preset map entry";
 		$this->graphic = 0x14EC;
 		$this->type = "";
 		$this->flags = 0x00;

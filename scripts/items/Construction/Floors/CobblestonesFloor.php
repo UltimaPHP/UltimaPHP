@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CobblestonesFloor extends Object {
+class cobblestonesfloor extends Object {
 	public function build() {
-		$this->name = "CobblestonesFloor";
+		$this->name = "cobblestones floor";
 		$this->graphic = 0x515;
 		$this->type = "";
 		$this->flags = 0x00;

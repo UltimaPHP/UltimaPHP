@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class NewPlayerTicket extends Object {
+class newplayerticket extends Object {
 	public function build() {
-		$this->name = "NewPlayerTicket";
+		$this->name = "new player ticket";
 		$this->graphic = 0x14EF;
 		$this->type = "";
 		$this->flags = 0x00;

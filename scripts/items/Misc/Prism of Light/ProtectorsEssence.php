@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ProtectorsEssence extends Object {
+class protectorsessence extends Object {
 	public function build() {
-		$this->name = "ProtectorsEssence";
+		$this->name = "protectors essence";
 		$this->graphic = 0x23F;
 		$this->type = "";
 		$this->flags = 0x00;

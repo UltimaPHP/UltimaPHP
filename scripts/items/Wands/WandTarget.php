@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WandTarget extends Object {
+class wandtarget extends Object {
 	public function build() {
-		$this->name = "WandTarget";
+		$this->name = "wand target";
 		$this->graphic = 0xDF2;
 		$this->type = "";
 		$this->flags = 0x00;

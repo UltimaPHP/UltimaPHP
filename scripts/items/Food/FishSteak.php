@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FishSteak extends Object {
+class fishsteak extends Object {
 	public function build() {
-		$this->name = "FishSteak";
+		$this->name = "fish steak";
 		$this->graphic = 0x97B;
 		$this->type = "";
 		$this->flags = 0x00;

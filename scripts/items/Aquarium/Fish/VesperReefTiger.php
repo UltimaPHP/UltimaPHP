@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class VesperReefTiger extends Object {
+class vesperreeftiger extends Object {
 	public function build() {
-		$this->name = "VesperReefTiger";
+		$this->name = "vesper reef tiger";
 		$this->graphic = 0x3B08;
 		$this->type = "";
 		$this->flags = 0x00;

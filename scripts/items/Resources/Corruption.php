@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Corruption extends Object {
+class corruption extends Object {
 	public function build() {
-		$this->name = "Corruption";
+		$this->name = "corruption";
 		$this->graphic = 0x3184;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ApplePie extends Object {
+class applepie extends Object {
 	public function build() {
-		$this->name = "ApplePie";
+		$this->name = "apple pie";
 		$this->graphic = 0x1041;
 		$this->type = "";
 		$this->flags = 0x00;

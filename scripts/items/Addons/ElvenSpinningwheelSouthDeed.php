@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ElvenSpinningwheelSouthDeed extends Object {
+class elvenspinningwheelsouthdeed extends Object {
 	public function build() {
-		$this->name = "ElvenSpinningwheelSouthDeed";
+		$this->name = "elven spinningwheel south deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PresetMap extends Object {
+class presetmap extends Object {
 	public function build() {
-		$this->name = "PresetMap";
+		$this->name = "preset map";
 		$this->graphic = 0x14EC;
 		$this->type = "";
 		$this->flags = 0x00;

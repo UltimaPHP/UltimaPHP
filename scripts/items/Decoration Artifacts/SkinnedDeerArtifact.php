@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SkinnedDeerArtifact extends Object {
+class skinneddeerartifact extends Object {
 	public function build() {
-		$this->name = "SkinnedDeerArtifact";
+		$this->name = "skinned deer artifact";
 		$this->graphic = 0x1E91;
 		$this->type = "";
 		$this->flags = 0x00;

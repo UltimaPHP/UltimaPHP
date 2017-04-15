@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrokenFallenChairDeed extends Object {
+class brokenfallenchairdeed extends Object {
 	public function build() {
-		$this->name = "BrokenFallenChairDeed";
+		$this->name = "broken fallen chair deed";
 		$this->graphic = 0xC19;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LargeStoneTableSouthDeed extends Object {
+class largestonetablesouthdeed extends Object {
 	public function build() {
-		$this->name = "LargeStoneTableSouthDeed";
+		$this->name = "large stone table south deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

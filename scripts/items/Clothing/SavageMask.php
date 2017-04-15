@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SavageMask extends Object {
+class savagemask extends Object {
 	public function build() {
-		$this->name = "SavageMask";
+		$this->name = "savage mask";
 		$this->graphic = 0x154B;
 		$this->type = "";
 		$this->flags = 0x00;

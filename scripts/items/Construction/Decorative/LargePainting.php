@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LargePainting extends Object {
+class largepainting extends Object {
 	public function build() {
-		$this->name = "LargePainting";
+		$this->name = "large painting";
 		$this->graphic = 0x0EA0;
 		$this->type = "";
 		$this->flags = 0x00;

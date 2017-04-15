@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PostPrompt extends Object {
+class postprompt extends Object {
 	public function build() {
-		$this->name = "PostPrompt";
+		$this->name = "post prompt";
 		$this->graphic = 0x2312;
 		$this->type = "";
 		$this->flags = 0x00;

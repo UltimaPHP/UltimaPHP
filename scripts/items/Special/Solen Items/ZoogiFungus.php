@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ZoogiFungus extends Object {
+class zoogifungus extends Object {
 	public function build() {
-		$this->name = "ZoogiFungus";
+		$this->name = "zoogi fungus";
 		$this->graphic = 0x26B7;
 		$this->type = "";
 		$this->flags = 0x00;

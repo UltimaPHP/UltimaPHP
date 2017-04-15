@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TanBook extends Object {
+class tanbook extends Object {
 	public function build() {
-		$this->name = "TanBook";
+		$this->name = "tan book";
 		$this->graphic = 0xFF0;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PainSpikeScroll extends Object {
+class painspikescroll extends Object {
 	public function build() {
-		$this->name = "PainSpikeScroll";
+		$this->name = "pain spike scroll";
 		$this->graphic = 0x2268;
 		$this->type = "";
 		$this->flags = 0x00;

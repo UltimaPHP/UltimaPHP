@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LoomSouthDeed extends Object {
+class loomsouthdeed extends Object {
 	public function build() {
-		$this->name = "LoomSouthDeed";
+		$this->name = "loom south deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

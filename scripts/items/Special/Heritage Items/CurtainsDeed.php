@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CurtainsDeed extends Object {
+class curtainsdeed extends Object {
 	public function build() {
-		$this->name = "CurtainsDeed";
+		$this->name = "curtains deed";
 		$this->graphic = 0x2068;
 		$this->type = "";
 		$this->flags = 0x00;

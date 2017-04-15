@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LieutenantOfTheBritannianRoyalGuard extends Object {
+class lieutenantofthebritannianroyalguard extends Object {
 	public function build() {
-		$this->name = "LieutenantOfTheBritannianRoyalGuard";
+		$this->name = "lieutenant of the britannian royal guard";
 		$this->graphic = 0x2684;
 		$this->type = "";
 		$this->flags = 0x00;

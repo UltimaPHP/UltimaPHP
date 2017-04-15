@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ParasiticPlant extends Object {
+class parasiticplant extends Object {
 	public function build() {
-		$this->name = "ParasiticPlant";
+		$this->name = "parasitic plant";
 		$this->graphic = 0x3190;
 		$this->type = "";
 		$this->flags = 0x00;

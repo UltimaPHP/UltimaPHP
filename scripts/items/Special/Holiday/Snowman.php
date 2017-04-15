@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Snowman extends Object {
+class snowman extends Object {
 	public function build() {
-		$this->name = "Snowman";
+		$this->name = "snowman";
 		$this->graphic = 0x2328;
 		$this->type = "";
 		$this->flags = 0x00;

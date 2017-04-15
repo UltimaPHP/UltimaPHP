@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TheMostKnowledgePerson extends Object {
+class themostknowledgeperson extends Object {
 	public function build() {
-		$this->name = "TheMostKnowledgePerson";
+		$this->name = "the most knowledge person";
 		$this->graphic = 0x2684;
 		$this->type = "";
 		$this->flags = 0x00;

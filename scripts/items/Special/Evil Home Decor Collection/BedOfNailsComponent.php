@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BedOfNailsComponent extends Object {
+class bedofnailscomponent extends Object {
 	public function build() {
-		$this->name = "BedOfNailsComponent";
+		$this->name = "bed of nails component";
 		$this->graphic = 0x2A5D;
 		$this->type = "";
 		$this->flags = 0x00;

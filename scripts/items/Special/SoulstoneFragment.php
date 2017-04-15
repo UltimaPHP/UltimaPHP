@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SoulstoneFragment extends Object {
+class soulstonefragment extends Object {
 	public function build() {
-		$this->name = "SoulstoneFragment";
+		$this->name = "soulstone fragment";
 		$this->graphic = 0x2AA1;
 		$this->type = "";
 		$this->flags = 0x00;

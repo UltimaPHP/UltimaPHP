@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AwesomeDisturbingPortraitAddon extends Object {
+class awesomedisturbingportraitaddon extends Object {
 	public function build() {
-		$this->name = "AwesomeDisturbingPortraitAddon";
+		$this->name = "awesome disturbing portrait addon";
 		$this->graphic = 0x2A5D;
 		$this->type = "";
 		$this->flags = 0x00;

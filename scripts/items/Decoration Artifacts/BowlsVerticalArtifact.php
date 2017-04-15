@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BowlsVerticalArtifact extends Object {
+class bowlsverticalartifact extends Object {
 	public function build() {
-		$this->name = "BowlsVerticalArtifact";
+		$this->name = "bowls vertical artifact";
 		$this->graphic = 0x24DF;
 		$this->type = "";
 		$this->flags = 0x00;

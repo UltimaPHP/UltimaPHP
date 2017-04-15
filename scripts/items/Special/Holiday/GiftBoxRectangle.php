@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GiftBoxRectangle extends Object {
+class giftboxrectangle extends Object {
 	public function build() {
-		$this->name = "GiftBoxRectangle";
+		$this->name = "gift box rectangle";
 		$this->graphic = 0x2be1;
 		$this->type = "";
 		$this->flags = 0x00;

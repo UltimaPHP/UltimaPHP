@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RunicHammer extends Object {
+class runichammer extends Object {
 	public function build() {
-		$this->name = "RunicHammer";
+		$this->name = "runic hammer";
 		$this->graphic = 0x13E3;
 		$this->type = "";
 		$this->flags = 0x00;

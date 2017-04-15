@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Surcoat extends Object {
+class surcoat extends Object {
 	public function build() {
-		$this->name = "Surcoat";
+		$this->name = "surcoat";
 		$this->graphic = 0x1FFD;
 		$this->type = "";
 		$this->flags = 0x00;

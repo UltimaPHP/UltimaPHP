@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ShaminoCrossbow extends Object {
+class shaminocrossbow extends Object {
 	public function build() {
-		$this->name = "ShaminoCrossbow";
+		$this->name = "shamino crossbow";
 		$this->graphic = 0x236C;
 		$this->type = "";
 		$this->flags = 0x00;

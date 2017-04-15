@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Throne extends Object {
+class throne extends Object {
 	public function build() {
-		$this->name = "Throne";
+		$this->name = "throne";
 		$this->graphic = 0xB5E;
 		$this->type = "";
 		$this->flags = 0x00;

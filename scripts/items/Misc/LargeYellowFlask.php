@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LargeYellowFlask extends Object {
+class largeyellowflask extends Object {
 	public function build() {
-		$this->name = "LargeYellowFlask";
+		$this->name = "large yellow flask";
 		$this->graphic = 0x183B;
 		$this->type = "";
 		$this->flags = 0x00;

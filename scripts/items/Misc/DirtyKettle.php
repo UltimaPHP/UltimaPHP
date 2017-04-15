@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DirtyKettle extends Object {
+class dirtykettle extends Object {
 	public function build() {
-		$this->name = "DirtyKettle";
+		$this->name = "dirty kettle";
 		$this->graphic = 0x9DC;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Shrimp extends Object {
+class shrimp extends Object {
 	public function build() {
-		$this->name = "Shrimp";
+		$this->name = "shrimp";
 		$this->graphic = 0x3B14;
 		$this->type = "";
 		$this->flags = 0x00;

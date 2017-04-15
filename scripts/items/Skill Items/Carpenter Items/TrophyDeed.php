@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TrophyDeed extends Object {
+class trophydeed extends Object {
 	public function build() {
-		$this->name = "TrophyDeed";
+		$this->name = "trophy deed";
 		$this->graphic = 0x1EBA;
 		$this->type = "";
 		$this->flags = 0x00;

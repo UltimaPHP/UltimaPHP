@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Tunic extends Object {
+class tunic extends Object {
 	public function build() {
-		$this->name = "Tunic";
+		$this->name = "tunic";
 		$this->graphic = 0x1FA1;
 		$this->type = "";
 		$this->flags = 0x00;

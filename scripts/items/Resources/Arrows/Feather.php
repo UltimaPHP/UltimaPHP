@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Feather extends Object {
+class feather extends Object {
 	public function build() {
-		$this->name = "Feather";
+		$this->name = "feather";
 		$this->graphic = 0x1BD1;
 		$this->type = "";
 		$this->flags = 0x00;

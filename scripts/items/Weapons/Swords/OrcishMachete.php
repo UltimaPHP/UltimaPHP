@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OrcishMachete extends Object {
+class orcishmachete extends Object {
 	public function build() {
-		$this->name = "OrcishMachete";
+		$this->name = "orcish machete";
 		$this->graphic = 0xF61;
 		$this->type = "";
 		$this->flags = 0x00;

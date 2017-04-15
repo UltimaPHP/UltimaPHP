@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WayPoint extends Object {
+class waypoint extends Object {
 	public function build() {
-		$this->name = "WayPoint";
+		$this->name = "way point";
 		$this->graphic = 0x1f14;
 		$this->type = "";
 		$this->flags = 0x00;

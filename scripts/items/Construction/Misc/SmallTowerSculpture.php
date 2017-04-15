@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SmallTowerSculpture extends Object {
+class smalltowersculpture extends Object {
 	public function build() {
-		$this->name = "SmallTowerSculpture";
+		$this->name = "small tower sculpture";
 		$this->graphic = 0x122A;
 		$this->type = "";
 		$this->flags = 0x00;

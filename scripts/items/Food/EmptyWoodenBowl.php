@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EmptyWoodenBowl extends Object {
+class emptywoodenbowl extends Object {
 	public function build() {
-		$this->name = "EmptyWoodenBowl";
+		$this->name = "empty wooden bowl";
 		$this->graphic = 0x15F8;
 		$this->type = "";
 		$this->flags = 0x00;

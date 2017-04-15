@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PewterBowlOfPotatos extends Object {
+class pewterbowlofpotatos extends Object {
 	public function build() {
-		$this->name = "PewterBowlOfPotatos";
+		$this->name = "pewter bowl of potatos";
 		$this->graphic = 0x1602;
 		$this->type = "";
 		$this->flags = 0x00;

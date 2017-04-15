@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WarriorStatueEastDeed extends Object {
+class warriorstatueeastdeed extends Object {
 	public function build() {
-		$this->name = "WarriorStatueEastDeed";
+		$this->name = "warrior statue east deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

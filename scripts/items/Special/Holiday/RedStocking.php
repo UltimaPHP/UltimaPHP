@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RedStocking extends Object {
+class redstocking extends Object {
 	public function build() {
-		$this->name = "RedStocking";
+		$this->name = "red stocking";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class IcyHeart extends Object {
+class icyheart extends Object {
 	public function build() {
-		$this->name = "IcyHeart";
+		$this->name = "icy heart";
 		$this->graphic = 0x24B;
 		$this->type = "";
 		$this->flags = 0x00;

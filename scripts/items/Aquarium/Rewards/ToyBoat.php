@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ToyBoat extends Object {
+class toyboat extends Object {
 	public function build() {
-		$this->name = "ToyBoat";
+		$this->name = "toy boat";
 		$this->graphic = 0x14F4;
 		$this->type = "";
 		$this->flags = 0x00;

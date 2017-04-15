@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GiftBoxAngel extends Object {
+class giftboxangel extends Object {
 	public function build() {
-		$this->name = "GiftBoxAngel";
+		$this->name = "gift box angel";
 		$this->graphic = 0x2be1;
 		$this->type = "";
 		$this->flags = 0x00;

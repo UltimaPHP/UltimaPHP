@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeatherCap extends Object {
+class leathercap extends Object {
 	public function build() {
-		$this->name = "LeatherCap";
+		$this->name = "leather cap";
 		$this->graphic = 0x1DB9;
 		$this->type = "";
 		$this->flags = 0x00;

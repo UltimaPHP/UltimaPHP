@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ScribesPen extends Object {
+class scribespen extends Object {
 	public function build() {
-		$this->name = "ScribesPen";
+		$this->name = "scribes pen";
 		$this->graphic = 0x0FBF;
 		$this->type = "";
 		$this->flags = 0x00;

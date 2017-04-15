@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Bascinet extends Object {
+class bascinet extends Object {
 	public function build() {
-		$this->name = "Bascinet";
+		$this->name = "bascinet";
 		$this->graphic = 0x140C;
 		$this->type = "";
 		$this->flags = 0x00;

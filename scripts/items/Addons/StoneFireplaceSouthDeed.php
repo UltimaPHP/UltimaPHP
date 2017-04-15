@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StoneFireplaceSouthDeed extends Object {
+class stonefireplacesouthdeed extends Object {
 	public function build() {
-		$this->name = "StoneFireplaceSouthDeed";
+		$this->name = "stone fireplace south deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

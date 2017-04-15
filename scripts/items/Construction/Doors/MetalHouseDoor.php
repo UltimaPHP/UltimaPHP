@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MetalHouseDoor extends Object {
+class metalhousedoor extends Object {
 	public function build() {
-		$this->name = "MetalHouseDoor";
+		$this->name = "metal house door";
 		$this->graphic = 0x675;
 		$this->type = "";
 		$this->flags = 0x00;

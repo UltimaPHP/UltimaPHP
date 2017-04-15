@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CocoaButter extends Object {
+class cocoabutter extends Object {
 	public function build() {
-		$this->name = "CocoaButter";
+		$this->name = "cocoa butter";
 		$this->graphic = 0x1044;
 		$this->type = "";
 		$this->flags = 0x00;

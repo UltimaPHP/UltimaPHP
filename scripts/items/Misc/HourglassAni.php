@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HourglassAni extends Object {
+class hourglassani extends Object {
 	public function build() {
-		$this->name = "HourglassAni";
+		$this->name = "hourglass ani";
 		$this->graphic = 0x1811;
 		$this->type = "";
 		$this->flags = 0x00;

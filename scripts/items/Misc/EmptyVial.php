@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EmptyVial extends Object {
+class emptyvial extends Object {
 	public function build() {
-		$this->name = "EmptyVial";
+		$this->name = "empty vial";
 		$this->graphic = 0x0E24;
 		$this->type = "";
 		$this->flags = 0x00;

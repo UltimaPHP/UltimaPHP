@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BBMessageContent extends Object {
+class bbmessagecontent extends Object {
 	public function build() {
-		$this->name = "BBMessageContent";
+		$this->name = "bb message content";
 		$this->graphic = 0x71;
 		$this->type = "";
 		$this->flags = 0x00;

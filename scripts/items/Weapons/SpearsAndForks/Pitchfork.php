@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Pitchfork extends Object {
+class pitchfork extends Object {
 	public function build() {
-		$this->name = "Pitchfork";
+		$this->name = "pitchfork";
 		$this->graphic = 0xE87;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,10 +5,10 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DawnsMusicGear extends Object {
+class dawnsmusicbox extends Object {
 	public function build() {
-		$this->name = "DawnsMusicGear";
-		$this->graphic = 0x1053;
+		$this->name = "dawns music box";
+		$this->graphic = 0x2AF9;
 		$this->type = "";
 		$this->flags = 0x00;
 		$this->value = 0;

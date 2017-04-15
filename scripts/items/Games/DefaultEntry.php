@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DefaultEntry extends Object {
+class defaultentry extends Object {
 	public function build() {
-		$this->name = "DefaultEntry";
+		$this->name = "default entry";
 		$this->graphic = 0xE1C;
 		$this->type = "";
 		$this->flags = 0x00;

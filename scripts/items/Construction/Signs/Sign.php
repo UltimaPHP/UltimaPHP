@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Sign extends Object {
+class sign extends Object {
 	public function build() {
-		$this->name = "Sign";
+		$this->name = "sign";
 		$this->graphic = 0xB95;
 		$this->type = "";
 		$this->flags = 0x00;

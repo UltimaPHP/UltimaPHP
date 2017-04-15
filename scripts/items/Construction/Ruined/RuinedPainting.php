@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RuinedPainting extends Object {
+class ruinedpainting extends Object {
 	public function build() {
-		$this->name = "RuinedPainting";
+		$this->name = "ruined painting";
 		$this->graphic = 0xC2C;
 		$this->type = "";
 		$this->flags = 0x00;

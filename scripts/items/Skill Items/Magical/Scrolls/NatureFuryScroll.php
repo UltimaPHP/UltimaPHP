@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class NatureFuryScroll extends Object {
+class naturefuryscroll extends Object {
 	public function build() {
-		$this->name = "NatureFuryScroll";
+		$this->name = "nature fury scroll";
 		$this->graphic = 0x2D56;
 		$this->type = "";
 		$this->flags = 0x00;

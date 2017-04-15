@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StarSapphire extends Object {
+class starsapphire extends Object {
 	public function build() {
-		$this->name = "StarSapphire";
+		$this->name = "star sapphire";
 		$this->graphic = 0xF21;
 		$this->type = "";
 		$this->flags = 0x00;

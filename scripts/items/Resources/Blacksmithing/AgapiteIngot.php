@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AgapiteIngot extends Object {
+class agapiteingot extends Object {
 	public function build() {
-		$this->name = "AgapiteIngot";
+		$this->name = "agapite ingot";
 		$this->graphic = 0x1BF2;
 		$this->type = "";
 		$this->flags = 0x00;

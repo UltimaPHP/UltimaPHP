@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrokenCoveredChairAddon extends Object {
+class brokencoveredchairaddon extends Object {
 	public function build() {
-		$this->name = "BrokenCoveredChairAddon";
+		$this->name = "broken covered chair addon";
 		$this->graphic = 0xC17;
 		$this->type = "";
 		$this->flags = 0x00;

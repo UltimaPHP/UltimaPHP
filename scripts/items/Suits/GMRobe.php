@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GMRobe extends Object {
+class gmrobe extends Object {
 	public function build() {
-		$this->name = "GMRobe";
+		$this->name = "gm robe";
 		$this->graphic = 0x26;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SquirrelStatueSouthAddon extends Object {
+class squirrelstatuesouthaddon extends Object {
 	public function build() {
-		$this->name = "SquirrelStatueSouthAddon";
+		$this->name = "squirrel statue south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

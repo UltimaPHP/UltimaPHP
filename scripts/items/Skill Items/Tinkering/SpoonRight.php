@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SpoonRight extends Object {
+class spoonright extends Object {
 	public function build() {
-		$this->name = "SpoonRight";
+		$this->name = "spoon right";
 		$this->graphic = 0x9F9;
 		$this->type = "";
 		$this->flags = 0x00;

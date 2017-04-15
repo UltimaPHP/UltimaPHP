@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class UnbakedFruitPie extends Object {
+class unbakedfruitpie extends Object {
 	public function build() {
-		$this->name = "UnbakedFruitPie";
+		$this->name = "unbaked fruit pie";
 		$this->graphic = 0x1042;
 		$this->type = "";
 		$this->flags = 0x00;

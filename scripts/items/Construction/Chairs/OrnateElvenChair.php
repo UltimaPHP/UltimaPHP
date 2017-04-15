@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OrnateElvenChair extends Object {
+class ornateelvenchair extends Object {
 	public function build() {
-		$this->name = "OrnateElvenChair";
+		$this->name = "ornate elven chair";
 		$this->graphic = 0x2DE3;
 		$this->type = "";
 		$this->flags = 0x00;

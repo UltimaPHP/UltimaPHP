@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ExecutionersAxe extends Object {
+class executionersaxe extends Object {
 	public function build() {
-		$this->name = "ExecutionersAxe";
+		$this->name = "executioners axe";
 		$this->graphic = 0xF45;
 		$this->type = "";
 		$this->flags = 0x00;

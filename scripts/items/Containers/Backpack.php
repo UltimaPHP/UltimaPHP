@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Backpack extends Object {
+class backpack extends Object {
 	public function build() {
-		$this->name = "Backpack";
+		$this->name = "backpack";
 		$this->graphic = 0xE75;
 		$this->type = "";
 		$this->flags = 0x00;

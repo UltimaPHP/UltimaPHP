@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GreenCurvedFlask extends Object {
+class greencurvedflask extends Object {
 	public function build() {
-		$this->name = "GreenCurvedFlask";
+		$this->name = "green curved flask";
 		$this->graphic = 0x1837;
 		$this->type = "";
 		$this->flags = 0x00;

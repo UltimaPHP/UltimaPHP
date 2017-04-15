@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HoodedShroudOfShadows extends Object {
+class hoodedshroudofshadows extends Object {
 	public function build() {
-		$this->name = "HoodedShroudOfShadows";
+		$this->name = "hooded shroud of shadows";
 		$this->graphic = 0x2684;
 		$this->type = "";
 		$this->flags = 0x00;

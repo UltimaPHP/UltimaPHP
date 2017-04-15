@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BasePiece extends Object {
+class basepiece extends Object {
 	public function build() {
-		$this->name = "BasePiece";
+		$this->name = "base piece";
 		$this->graphic = 0xE1C;
 		$this->type = "";
 		$this->flags = 0x00;

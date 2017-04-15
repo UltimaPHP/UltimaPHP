@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DaemonBone extends Object {
+class daemonbone extends Object {
 	public function build() {
-		$this->name = "DaemonBone";
+		$this->name = "daemon bone";
 		$this->graphic = 0xF80;
 		$this->type = "";
 		$this->flags = 0x00;

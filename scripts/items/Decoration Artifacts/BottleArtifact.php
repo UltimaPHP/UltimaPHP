@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BottleArtifact extends Object {
+class bottleartifact extends Object {
 	public function build() {
-		$this->name = "BottleArtifact";
+		$this->name = "bottle artifact";
 		$this->graphic = 0xE28;
 		$this->type = "";
 		$this->flags = 0x00;

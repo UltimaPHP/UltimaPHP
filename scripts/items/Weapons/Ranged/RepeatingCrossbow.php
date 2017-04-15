@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RepeatingCrossbow extends Object {
+class repeatingcrossbow extends Object {
 	public function build() {
-		$this->name = "RepeatingCrossbow";
+		$this->name = "repeating crossbow";
 		$this->graphic = 0x26C3;
 		$this->type = "";
 		$this->flags = 0x00;

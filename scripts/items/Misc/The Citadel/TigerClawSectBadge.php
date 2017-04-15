@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TigerClawSectBadge extends Object {
+class tigerclawsectbadge extends Object {
 	public function build() {
-		$this->name = "TigerClawSectBadge";
+		$this->name = "tiger claw sect badge";
 		$this->graphic = 0x23D;
 		$this->type = "";
 		$this->flags = 0x00;

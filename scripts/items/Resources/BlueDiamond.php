@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BlueDiamond extends Object {
+class bluediamond extends Object {
 	public function build() {
-		$this->name = "BlueDiamond";
+		$this->name = "blue diamond";
 		$this->graphic = 0x3198;
 		$this->type = "";
 		$this->flags = 0x00;

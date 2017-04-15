@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class UnloadEntry extends Object {
+class unloadentry extends Object {
 	public function build() {
-		$this->name = "UnloadEntry";
+		$this->name = "unload entry";
 		$this->graphic = 0x2790;
 		$this->type = "";
 		$this->flags = 0x00;

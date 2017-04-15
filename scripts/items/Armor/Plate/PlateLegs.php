@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlateLegs extends Object {
+class platelegs extends Object {
 	public function build() {
-		$this->name = "PlateLegs";
+		$this->name = "plate legs";
 		$this->graphic = 0x1411;
 		$this->type = "";
 		$this->flags = 0x00;

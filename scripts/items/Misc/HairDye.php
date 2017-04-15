@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HairDye extends Object {
+class hairdye extends Object {
 	public function build() {
-		$this->name = "HairDye";
+		$this->name = "hair dye";
 		$this->graphic = 0xEFF;
 		$this->type = "";
 		$this->flags = 0x00;

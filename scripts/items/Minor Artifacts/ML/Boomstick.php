@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Boomstick extends Object {
+class boomstick extends Object {
 	public function build() {
-		$this->name = "Boomstick";
+		$this->name = "boomstick";
 		$this->graphic = 0x2F5A;
 		$this->type = "";
 		$this->flags = 0x00;

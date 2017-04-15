@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Saw extends Object {
+class saw extends Object {
 	public function build() {
-		$this->name = "Saw";
+		$this->name = "saw";
 		$this->graphic = 0x1034;
 		$this->type = "";
 		$this->flags = 0x00;

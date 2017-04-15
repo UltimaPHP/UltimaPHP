@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CreepyPortraitAddon extends Object {
+class creepyportraitaddon extends Object {
 	public function build() {
-		$this->name = "CreepyPortraitAddon";
+		$this->name = "creepy portrait addon";
 		$this->graphic = 0x2A69;
 		$this->type = "";
 		$this->flags = 0x00;

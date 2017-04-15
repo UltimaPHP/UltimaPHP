@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SmallBagBall extends Object {
+class smallbagball extends Object {
 	public function build() {
-		$this->name = "SmallBagBall";
+		$this->name = "small bag ball";
 		$this->graphic = 0x2256;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ElvenForgeAddon extends Object {
+class elvenforgeaddon extends Object {
 	public function build() {
-		$this->name = "ElvenForgeAddon";
+		$this->name = "elven forge addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

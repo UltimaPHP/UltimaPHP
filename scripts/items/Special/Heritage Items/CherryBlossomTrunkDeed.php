@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CherryBlossomTrunkDeed extends Object {
+class cherryblossomtrunkdeed extends Object {
 	public function build() {
-		$this->name = "CherryBlossomTrunkDeed";
+		$this->name = "cherry blossom trunk deed";
 		$this->graphic = 0x2068;
 		$this->type = "";
 		$this->flags = 0x00;

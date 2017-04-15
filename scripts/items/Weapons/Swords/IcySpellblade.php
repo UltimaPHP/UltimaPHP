@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class IcySpellblade extends Object {
+class icyspellblade extends Object {
 	public function build() {
-		$this->name = "IcySpellblade";
+		$this->name = "icy spellblade";
 		$this->graphic = 0x1441;
 		$this->type = "";
 		$this->flags = 0x00;

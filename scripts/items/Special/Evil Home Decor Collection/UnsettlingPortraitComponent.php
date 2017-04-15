@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class UnsettlingPortraitComponent extends Object {
+class unsettlingportraitcomponent extends Object {
 	public function build() {
-		$this->name = "UnsettlingPortraitComponent";
+		$this->name = "unsettling portrait component";
 		$this->graphic = 0x2A65;
 		$this->type = "";
 		$this->flags = 0x00;

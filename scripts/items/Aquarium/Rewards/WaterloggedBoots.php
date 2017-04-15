@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WaterloggedBoots extends Object {
+class waterloggedboots extends Object {
 	public function build() {
-		$this->name = "WaterloggedBoots";
+		$this->name = "waterlogged boots";
 		$this->graphic = 0x1711;
 		$this->type = "";
 		$this->flags = 0x00;

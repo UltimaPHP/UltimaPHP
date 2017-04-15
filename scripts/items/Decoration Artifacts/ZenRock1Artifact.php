@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ZenRock1Artifact extends Object {
+class zenrock1artifact extends Object {
 	public function build() {
-		$this->name = "ZenRock1Artifact";
+		$this->name = "zen rock 1 artifact";
 		$this->graphic = 0x24E4;
 		$this->type = "";
 		$this->flags = 0x00;

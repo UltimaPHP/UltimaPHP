@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RockArtifact extends Object {
+class rockartifact extends Object {
 	public function build() {
-		$this->name = "RockArtifact";
+		$this->name = "rock artifact";
 		$this->graphic = 0x1363;
 		$this->type = "";
 		$this->flags = 0x00;

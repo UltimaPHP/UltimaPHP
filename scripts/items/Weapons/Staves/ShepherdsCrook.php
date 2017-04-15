@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ShepherdsCrook extends Object {
+class shepherdscrook extends Object {
 	public function build() {
-		$this->name = "ShepherdsCrook";
+		$this->name = "shepherds crook";
 		$this->graphic = 0xE81;
 		$this->type = "";
 		$this->flags = 0x00;

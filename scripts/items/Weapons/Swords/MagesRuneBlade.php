@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MagesRuneBlade extends Object {
+class magesruneblade extends Object {
 	public function build() {
-		$this->name = "MagesRuneBlade";
+		$this->name = "mages rune blade";
 		$this->graphic = 0xF61;
 		$this->type = "";
 		$this->flags = 0x00;

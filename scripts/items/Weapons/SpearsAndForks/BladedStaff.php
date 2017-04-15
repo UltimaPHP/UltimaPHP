@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BladedStaff extends Object {
+class bladedstaff extends Object {
 	public function build() {
-		$this->name = "BladedStaff";
+		$this->name = "bladed staff";
 		$this->graphic = 0x26BD;
 		$this->type = "";
 		$this->flags = 0x00;

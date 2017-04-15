@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FullApron extends Object {
+class fullapron extends Object {
 	public function build() {
-		$this->name = "FullApron";
+		$this->name = "full apron";
 		$this->graphic = 0x153d;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrownBook extends Object {
+class brownbook extends Object {
 	public function build() {
-		$this->name = "BrownBook";
+		$this->name = "brown book";
 		$this->graphic = 0xFEF;
 		$this->type = "";
 		$this->flags = 0x00;

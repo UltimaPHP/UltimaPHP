@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RuinedArmoire extends Object {
+class ruinedarmoire extends Object {
 	public function build() {
-		$this->name = "RuinedArmoire";
+		$this->name = "ruined armoire";
 		$this->graphic = 0xC13;
 		$this->type = "";
 		$this->flags = 0x00;

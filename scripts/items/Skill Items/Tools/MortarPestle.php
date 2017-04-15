@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MortarPestle extends Object {
+class mortarpestle extends Object {
 	public function build() {
-		$this->name = "MortarPestle";
+		$this->name = "mortar pestle";
 		$this->graphic = 0xE9B;
 		$this->type = "";
 		$this->flags = 0x00;

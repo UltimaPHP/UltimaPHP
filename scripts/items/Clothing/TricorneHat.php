@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TricorneHat extends Object {
+class tricornehat extends Object {
 	public function build() {
-		$this->name = "TricorneHat";
+		$this->name = "tricorne hat";
 		$this->graphic = 0x171B;
 		$this->type = "";
 		$this->flags = 0x00;

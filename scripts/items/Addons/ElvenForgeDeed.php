@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ElvenForgeDeed extends Object {
+class elvenforgedeed extends Object {
 	public function build() {
-		$this->name = "ElvenForgeDeed";
+		$this->name = "elven forge deed";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

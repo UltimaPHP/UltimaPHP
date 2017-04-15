@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class UtilityItem extends Object {
+class utilityitem extends Object {
 	public function build() {
-		$this->name = "UtilityItem";
+		$this->name = "utility item";
 		$this->graphic = 0x097A;
 		$this->type = "";
 		$this->flags = 0x00;

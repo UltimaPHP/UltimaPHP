@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AniLargeVioletFlask extends Object {
+class anilargevioletflask extends Object {
 	public function build() {
-		$this->name = "AniLargeVioletFlask";
+		$this->name = "ani large violet flask";
 		$this->graphic = 0x1841;
 		$this->type = "";
 		$this->flags = 0x00;

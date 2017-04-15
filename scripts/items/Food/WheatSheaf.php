@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WheatSheaf extends Object {
+class wheatsheaf extends Object {
 	public function build() {
-		$this->name = "WheatSheaf";
+		$this->name = "wheat sheaf";
 		$this->graphic = 0x9b4;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ThunderstormScroll extends Object {
+class thunderstormscroll extends Object {
 	public function build() {
-		$this->name = "ThunderstormScroll";
+		$this->name = "thunderstorm scroll";
 		$this->graphic = 0x2D55;
 		$this->type = "";
 		$this->flags = 0x00;

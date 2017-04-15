@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WildStaff extends Object {
+class wildstaff extends Object {
 	public function build() {
-		$this->name = "WildStaff";
+		$this->name = "wild staff";
 		$this->graphic = 0x2D25;
 		$this->type = "";
 		$this->flags = 0x00;

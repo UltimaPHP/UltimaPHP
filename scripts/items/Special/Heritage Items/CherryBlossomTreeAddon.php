@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CherryBlossomTreeAddon extends Object {
+class cherryblossomtreeaddon extends Object {
 	public function build() {
-		$this->name = "CherryBlossomTreeAddon";
+		$this->name = "cherry blossom tree addon";
 		$this->graphic = 0x2068;
 		$this->type = "";
 		$this->flags = 0x00;

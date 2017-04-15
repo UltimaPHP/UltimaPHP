@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MarblePavers extends Object {
+class marblepavers extends Object {
 	public function build() {
-		$this->name = "MarblePavers";
+		$this->name = "marble pavers";
 		$this->graphic = 0x495;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GiantSpikeTrap extends Object {
+class giantspiketrap extends Object {
 	public function build() {
-		$this->name = "GiantSpikeTrap";
+		$this->name = "giant spike trap";
 		$this->graphic = 0x1B71;
 		$this->type = "";
 		$this->flags = 0x00;

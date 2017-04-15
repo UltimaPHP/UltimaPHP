@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Helmet extends Object {
+class helmet extends Object {
 	public function build() {
-		$this->name = "Helmet";
+		$this->name = "helmet";
 		$this->graphic = 0x140A;
 		$this->type = "";
 		$this->flags = 0x00;

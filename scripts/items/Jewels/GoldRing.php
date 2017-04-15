@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GoldRing extends Object {
+class goldring extends Object {
 	public function build() {
-		$this->name = "GoldRing";
+		$this->name = "gold ring";
 		$this->graphic = 0x108a;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HoneydewMelon extends Object {
+class honeydewmelon extends Object {
 	public function build() {
-		$this->name = "HoneydewMelon";
+		$this->name = "honeydew melon";
 		$this->graphic = 0xC74;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ConfirmationMoongate extends Object {
+class confirmationmoongate extends Object {
 	public function build() {
-		$this->name = "ConfirmationMoongate";
+		$this->name = "confirmation moongate";
 		$this->graphic = 0xF6C;
 		$this->type = "";
 		$this->flags = 0x00;

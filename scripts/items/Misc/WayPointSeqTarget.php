@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WayPointSeqTarget extends Object {
+class waypointseqtarget extends Object {
 	public function build() {
-		$this->name = "WayPointSeqTarget";
+		$this->name = "way point seq target";
 		$this->graphic = 0x1f14;
 		$this->type = "";
 		$this->flags = 0x00;

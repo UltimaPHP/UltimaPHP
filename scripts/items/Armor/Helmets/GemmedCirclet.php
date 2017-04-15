@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GemmedCirclet extends Object {
+class gemmedcirclet extends Object {
 	public function build() {
-		$this->name = "GemmedCirclet";
+		$this->name = "gemmed circlet";
 		$this->graphic = 0x2B70;
 		$this->type = "";
 		$this->flags = 0x00;

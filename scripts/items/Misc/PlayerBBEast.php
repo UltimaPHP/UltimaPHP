@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlayerBBEast extends Object {
+class playerbbeast extends Object {
 	public function build() {
-		$this->name = "PlayerBBEast";
+		$this->name = "player bb east";
 		$this->graphic = 0x2312;
 		$this->type = "";
 		$this->flags = 0x00;

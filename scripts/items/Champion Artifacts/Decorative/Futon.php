@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Futon extends Object {
+class futon extends Object {
 	public function build() {
-		$this->name = "Futon";
+		$this->name = "futon";
 		$this->graphic = 0x295C;
 		$this->type = "";
 		$this->flags = 0x00;

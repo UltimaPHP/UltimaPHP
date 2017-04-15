@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ShadowIronGranite extends Object {
+class shadowirongranite extends Object {
 	public function build() {
-		$this->name = "ShadowIronGranite";
+		$this->name = "shadow iron granite";
 		$this->graphic = 0x1779;
 		$this->type = "";
 		$this->flags = 0x00;

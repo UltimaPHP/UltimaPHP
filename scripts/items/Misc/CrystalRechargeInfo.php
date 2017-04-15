@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CrystalRechargeInfo extends Object {
+class crystalrechargeinfo extends Object {
 	public function build() {
-		$this->name = "CrystalRechargeInfo";
+		$this->name = "crystal recharge info";
 		$this->graphic = 0x1EA8;
 		$this->type = "";
 		$this->flags = 0x00;

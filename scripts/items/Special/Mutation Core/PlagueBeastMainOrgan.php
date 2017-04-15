@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlagueBeastMainOrgan extends Object {
+class plaguebeastmainorgan extends Object {
 	public function build() {
-		$this->name = "PlagueBeastMainOrgan";
+		$this->name = "plague beast main organ";
 		$this->graphic = 0x1362;
 		$this->type = "";
 		$this->flags = 0x00;

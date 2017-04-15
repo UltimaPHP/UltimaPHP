@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Katana extends Object {
+class katana extends Object {
 	public function build() {
-		$this->name = "Katana";
+		$this->name = "katana";
 		$this->graphic = 0x13FF;
 		$this->type = "";
 		$this->flags = 0x00;

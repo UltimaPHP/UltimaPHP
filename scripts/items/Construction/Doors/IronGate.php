@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class IronGate extends Object {
+class irongate extends Object {
 	public function build() {
-		$this->name = "IronGate";
+		$this->name = "iron gate";
 		$this->graphic = 0x824;
 		$this->type = "";
 		$this->flags = 0x00;

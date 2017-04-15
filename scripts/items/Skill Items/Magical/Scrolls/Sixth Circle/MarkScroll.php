@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MarkScroll extends Object {
+class markscroll extends Object {
 	public function build() {
-		$this->name = "MarkScroll";
+		$this->name = "mark scroll";
 		$this->graphic = 0x1F59;
 		$this->type = "";
 		$this->flags = 0x00;

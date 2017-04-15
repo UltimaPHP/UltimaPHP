@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WeakenScroll extends Object {
+class weakenscroll extends Object {
 	public function build() {
-		$this->name = "WeakenScroll";
+		$this->name = "weaken scroll";
 		$this->graphic = 0x1F34;
 		$this->type = "";
 		$this->flags = 0x00;

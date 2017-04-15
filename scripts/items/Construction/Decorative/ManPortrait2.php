@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ManPortrait2 extends Object {
+class manportrait2 extends Object {
 	public function build() {
-		$this->name = "ManPortrait2";
+		$this->name = "man portrait";
 		$this->graphic = 0x0EA3;
 		$this->type = "";
 		$this->flags = 0x00;

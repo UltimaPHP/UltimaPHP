@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class KeywordTeleporter extends Object {
+class keywordteleporter extends Object {
 	public function build() {
-		$this->name = "KeywordTeleporter";
+		$this->name = "keyword teleporter";
 		$this->graphic = 0x91B;
 		$this->type = "";
 		$this->flags = 0x00;

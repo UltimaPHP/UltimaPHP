@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PortcullisNS extends Object {
+class portcullisns extends Object {
 	public function build() {
-		$this->name = "PortcullisNS";
+		$this->name = "portcullis";
 		$this->graphic = 0x6F5;
 		$this->type = "";
 		$this->flags = 0x00;

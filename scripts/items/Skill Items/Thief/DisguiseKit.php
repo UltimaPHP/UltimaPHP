@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DisguiseKit extends Object {
+class disguisekit extends Object {
 	public function build() {
-		$this->name = "DisguiseKit";
+		$this->name = "disguise kit";
 		$this->graphic = 0xE05;
 		$this->type = "";
 		$this->flags = 0x00;

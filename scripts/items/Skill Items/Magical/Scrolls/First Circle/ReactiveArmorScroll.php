@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ReactiveArmorScroll extends Object {
+class reactivearmorscroll extends Object {
 	public function build() {
-		$this->name = "ReactiveArmorScroll";
+		$this->name = "reactive armor scroll";
 		$this->graphic = 0x1F2D;
 		$this->type = "";
 		$this->flags = 0x00;

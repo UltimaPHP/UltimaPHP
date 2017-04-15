@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MangledHeadOfDreadhorn extends Object {
+class mangledheadofdreadhorn extends Object {
 	public function build() {
-		$this->name = "MangledHeadOfDreadhorn";
+		$this->name = "mangled head of dreadhorn";
 		$this->graphic = 0x3156;
 		$this->type = "";
 		$this->flags = 0x00;

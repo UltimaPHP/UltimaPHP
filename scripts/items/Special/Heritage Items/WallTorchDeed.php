@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WallTorchDeed extends Object {
+class walltorchdeed extends Object {
 	public function build() {
-		$this->name = "WallTorchDeed";
+		$this->name = "wall torch deed";
 		$this->graphic = 0x3D98;
 		$this->type = "";
 		$this->flags = 0x00;

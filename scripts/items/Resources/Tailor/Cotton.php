@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Cotton extends Object {
+class cotton extends Object {
 	public function build() {
-		$this->name = "Cotton";
+		$this->name = "cotton";
 		$this->graphic = 0xDF9;
 		$this->type = "";
 		$this->flags = 0x00;

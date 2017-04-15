@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MediumStoneTableSouthAddon extends Object {
+class mediumstonetablesouthaddon extends Object {
 	public function build() {
-		$this->name = "MediumStoneTableSouthAddon";
+		$this->name = "medium stone table south addon";
 		$this->graphic = 0x1E2F;
 		$this->type = "";
 		$this->flags = 0x00;

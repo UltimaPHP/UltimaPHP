@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GasTrap extends Object {
+class gastrap extends Object {
 	public function build() {
-		$this->name = "GasTrap";
+		$this->name = "gas trap";
 		$this->graphic = 0x1B71;
 		$this->type = "";
 		$this->flags = 0x00;

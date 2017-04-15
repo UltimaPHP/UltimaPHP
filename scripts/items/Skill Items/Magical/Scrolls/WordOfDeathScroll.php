@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WordOfDeathScroll extends Object {
+class wordofdeathscroll extends Object {
 	public function build() {
-		$this->name = "WordOfDeathScroll";
+		$this->name = "word of death scroll";
 		$this->graphic = 0x2D5E;
 		$this->type = "";
 		$this->flags = 0x00;

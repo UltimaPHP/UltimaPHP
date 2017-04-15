@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TimeoutGoal extends Object {
+class timeoutgoal extends Object {
 	public function build() {
-		$this->name = "TimeoutGoal";
+		$this->name = "timeout goal";
 		$this->graphic = 0x91B;
 		$this->type = "";
 		$this->flags = 0x00;

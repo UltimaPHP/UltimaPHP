@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BonePile extends Object {
+class bonepile extends Object {
 	public function build() {
-		$this->name = "BonePile";
+		$this->name = "bone pile";
 		$this->graphic = 0x1B09;
 		$this->type = "";
 		$this->flags = 0x00;

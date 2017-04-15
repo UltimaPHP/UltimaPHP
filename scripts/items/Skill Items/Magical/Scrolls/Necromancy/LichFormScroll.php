@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LichFormScroll extends Object {
+class lichformscroll extends Object {
 	public function build() {
-		$this->name = "LichFormScroll";
+		$this->name = "lich form scroll";
 		$this->graphic = 0x2266;
 		$this->type = "";
 		$this->flags = 0x00;

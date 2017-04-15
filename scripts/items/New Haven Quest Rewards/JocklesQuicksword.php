@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class JocklesQuicksword extends Object {
+class jocklesquicksword extends Object {
 	public function build() {
-		$this->name = "JocklesQuicksword";
+		$this->name = "jockles quicksword";
 		$this->graphic = 0x3FFFFFFFF;
 		$this->type = "";
 		$this->flags = 0x00;

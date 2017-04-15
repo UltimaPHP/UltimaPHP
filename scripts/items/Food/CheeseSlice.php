@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CheeseSlice extends Object {
+class cheeseslice extends Object {
 	public function build() {
-		$this->name = "CheeseSlice";
+		$this->name = "cheese slice";
 		$this->graphic = 0x97C;
 		$this->type = "";
 		$this->flags = 0x00;

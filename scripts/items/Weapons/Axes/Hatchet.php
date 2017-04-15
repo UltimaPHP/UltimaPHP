@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Hatchet extends Object {
+class hatchet extends Object {
 	public function build() {
-		$this->name = "Hatchet";
+		$this->name = "hatchet";
 		$this->graphic = 0xF43;
 		$this->type = "";
 		$this->flags = 0x00;

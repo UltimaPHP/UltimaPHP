@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SnowStatueDeed extends Object {
+class snowstatuedeed extends Object {
 	public function build() {
-		$this->name = "SnowStatueDeed";
+		$this->name = "snow statue deed";
 		$this->graphic = 0x14F0;
 		$this->type = "";
 		$this->flags = 0x00;

@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class VacationWafer extends Object {
+class vacationwafer extends Object {
 	public function build() {
-		$this->name = "VacationWafer";
+		$this->name = "vacation wafer";
 		$this->graphic = 0x973;
 		$this->type = "";
 		$this->flags = 0x00;

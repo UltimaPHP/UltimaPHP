@@ -5,9 +5,9 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ShojiLantern extends Object {
+class shojilantern extends Object {
 	public function build() {
-		$this->name = "ShojiLantern";
+		$this->name = "shoji lantern";
 		$this->graphic = 0x24BC;
 		$this->type = "";
 		$this->flags = 0x00;
