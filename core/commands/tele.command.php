@@ -21,15 +21,25 @@ class TeleCommand extends Command {
             new SysmessageCommand($client, ["Sorry, information is missing. The default is \"x y z map\""]);
             return false;
         }
+        
+        $mapSize = explode(",", UltimaPHP::$conf["muls"]["map{$map}"]);
+        
+        if($x <= $mapSize[0] && $y <= $mapSize[1] && $z <= $mapSize[2] )
+        {
+			UltimaPHP::$socketClients[$client]['account']->player->position['x'] = $x;
+			UltimaPHP::$socketClients[$client]['account']->player->position['y'] = $y;
+			UltimaPHP::$socketClients[$client]['account']->player->position['z'] = $z;
+			UltimaPHP::$socketClients[$client]['account']->player->position['map'] = $map;
+			UltimaPHP::$socketClients[$client]['account']->player->updateCursorColor(false, $map);
+		    UltimaPHP::$socketClients[$client]['account']->player->drawChar();
+		    UltimaPHP::$socketClients[$client]['account']->player->drawPlayer();
+		    Map::updateChunk(null, $client);	
+		}else{
+			new SysmessageCommand($client, ["Sorry, you blew the map boundary, try another position.. "]);
+			return false;
+		}
 
-		UltimaPHP::$socketClients[$client]['account']->player->position['x'] = $x;
-		UltimaPHP::$socketClients[$client]['account']->player->position['y'] = $y;
-		UltimaPHP::$socketClients[$client]['account']->player->position['z'] = $z;
-		UltimaPHP::$socketClients[$client]['account']->player->position['map'] = $map;
-		UltimaPHP::$socketClients[$client]['account']->player->updateCursorColor(false, $map);
-        UltimaPHP::$socketClients[$client]['account']->player->drawChar();
-        UltimaPHP::$socketClients[$client]['account']->player->drawPlayer();
-        Map::updateChunk(null, $client);
+		
         return true;
     }
 }   
