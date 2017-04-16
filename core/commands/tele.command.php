@@ -21,7 +21,7 @@ class TeleCommand extends Command {
             new SysmessageCommand($client, ["Sorry, information is missing. The default is \"x y z map\"."]);
             return false;
         }
-
+        
         if ($map > (count(Map::$maps)-1)) {
             new SysmessageCommand($client, ["Sorry, but the map you'r trying to go doesn't exists."]);
             return false;
@@ -43,6 +43,7 @@ class TeleCommand extends Command {
         UltimaPHP::$socketClients[$client]['account']->player->drawChar();
         UltimaPHP::$socketClients[$client]['account']->player->drawPlayer();
         Map::updateChunk(null, $client);
+        
         return true;
     }
 }   
