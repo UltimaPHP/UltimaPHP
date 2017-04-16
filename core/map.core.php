@@ -278,7 +278,7 @@ class Map {
         $object->pos_x = $pos_x;
         $object->pos_y = $pos_y;
         $object->pos_z = $pos_z;
-        $object->pos_map = $pos_map;
+        $object->pos_map = $pos_m;
         $object->location = "map";
 
         $chunk = self::getChunk($pos_x, $pos_y, $pos_m);

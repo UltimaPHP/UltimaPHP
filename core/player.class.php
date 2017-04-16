@@ -382,8 +382,8 @@ class Player {
         );
         $mapInfo = explode(",", UltimaPHP::$conf['muls']["map".$this->position['map']]);
         $map_size = array(
-            'x' => ($this->position['map'] > 0 ? $mapInfo[0] : 6144),
-            'y' => ($this->position['map'] > 0 ? $mapInfo[1] : 4096),
+            'x' => $mapInfo[0] - 8,
+            'y' => $mapInfo[1],
         );
         $packet = "1B";
         $packet .= $this->serial;
