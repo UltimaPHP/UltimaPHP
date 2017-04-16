@@ -415,13 +415,14 @@ class Map {
             $packet .= "20";
             $packet .= "0000";
 
-            $updateRange = array(
-                'from' => array('x' => ($object->pos_x - 10), 'y' => ($object->pos_y - 10)),
-                'to' => array('x' => ($object->pos_x + 10), 'y' => ($object->pos_y + 10)),
-            );
-
             foreach ($chunk['players'] as $client => $alive) {
                 $player = UltimaPHP::$socketClients[$client]['account']->player;
+
+                $updateRange = array(
+                    'from' => array('x' => ($object->pos_x - $player->render_range), 'y' => ($object->pos_y - $player->render_range)),
+                    'to' => array('x' => ($object->pos_x + $player->render_range), 'y' => ($object->pos_y + $player->render_range)),
+                );
+
                 if ($player->position['x'] >= $updateRange['from']['x'] && $player->position['x'] <= $updateRange['to']['x'] && $player->position['y'] >= $updateRange['from']['y'] && $player->position['y'] <= $updateRange['to']['y']) {
                     Sockets::out($player->client, $packet, false);
                 }
