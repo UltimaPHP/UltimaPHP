@@ -345,7 +345,13 @@ class Account {
     public function sendClientVersionRequest($runInLot = false) {
         Sockets::out($this->client, "BD0003", $runInLot);
     }
-
+    
+	/**
+	* 
+	* Create New Char New clientes > 7.0.20
+	* 
+	* @return
+	*/
     public function createNewChar($info = []) {
         $statSum = $info['stats']['str'] + $info['stats']['dex'] + $info['stats']['int'];
 
@@ -378,4 +384,5 @@ class Account {
         // Send login request for new char
         $this->loginCharacter($info['slot']);
     }
+    
 }
