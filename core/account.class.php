@@ -148,11 +148,11 @@ class Account {
 
         $tmpPacket = "";
 
-        // if ($version['major'] <= 6 && $version['revision'] <= 14 && filter_var($version['prototype'], FILTER_SANITIZE_NUMBER_INT) <= 2) {
-        //     $tmpPacket = str_pad(dechex(clientDefs::EXPANSION_ML), 4, "0", STR_PAD_LEFT);
-        // } else {
-        $tmpPacket = str_pad(dechex(clientDefs::EXPANSION_TOL), 8, "0", STR_PAD_LEFT);
-        // }
+        /*if ($version['major'] <= 6 && $version['revision'] <= 14 && filter_var($version['prototype'], FILTER_SANITIZE_NUMBER_INT) <= 2) {
+             $tmpPacket = str_pad(dechex(clientDefs::EXPANSION_ML), 4, "0", STR_PAD_LEFT);
+        } else {*/
+        	 $tmpPacket = str_pad(dechex(clientDefs::EXPANSION_TOL), 8, "0", STR_PAD_LEFT);
+        //}
 
         $packet = "B9";
         $packet .= $tmpPacket;

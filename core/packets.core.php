@@ -836,7 +836,9 @@ class Packets {
         $minor     = hexdec(Functions::implodeByte($data, 9, 12));
         $revision  = hexdec(Functions::implodeByte($data, 13, 16));
         $prototype = hexdec(Functions::implodeByte($data, 17, 20));
-
+		
+		echo $seed ." || ". $major ." || ". $minor ." || ". $revision ." || ". $prototype;
+		
         UltimaPHP::$socketClients[$client]['version'] = array(
             'major'     => $major,
             'minor'     => $minor,

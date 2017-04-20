@@ -96,6 +96,13 @@ class Sockets {
 					$socket['tempPacket'] = substr($socket['tempPacket'], 4);					
 				}
 				
+				
+				// Remove 8 bytes before 0x80 old client. Gambiarra by Mauricio
+				if(substr(Functions::strToHex($socket['tempPacket']), 0, 2) == 'C0' && (substr(Functions::strToHex($socket['tempPacket']), 6, 2) == '01'))
+				{
+					$socket['tempPacket'] = substr($socket['tempPacket'], 8);
+				}
+				
                 // Fix to wait the entire packet before proccess <3
                 if ($socket['tempPacket'] !== null) {
                     $input = $socket['tempPacket'] . $input;
