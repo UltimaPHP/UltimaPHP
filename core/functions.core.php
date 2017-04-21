@@ -6,7 +6,7 @@
  */
 class Functions {
 
-    public static function getClientVersion($client = null) {
+    public static function getClientVersion($client = null) {    	
         if ($client === null) {
             return false;
         }
@@ -14,8 +14,17 @@ class Functions {
         if (!isset(UltimaPHP::$socketClients[$client]['version']) || !is_array(UltimaPHP::$socketClients[$client]['version'])) {
             return false;
         }
-
+		
         return UltimaPHP::$socketClients[$client]['version'];
+    }
+    
+    public static function RandomList($list) {
+        if ($list === null) {
+            return false;
+        }
+		$newList = array_rand($list,1);
+		
+        return $newList[0];
     }
 
     public static function strToHex($string, $addEmptyByte = false) {
