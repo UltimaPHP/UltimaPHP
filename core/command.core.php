@@ -10,6 +10,9 @@ class Command {
         'i' => array(
             'minPlevel' => 6
         ),
+        'm' => array(
+            'minPlevel' => 6
+        ),
         'tele' => array(
             'minPlevel' => 2
         ),

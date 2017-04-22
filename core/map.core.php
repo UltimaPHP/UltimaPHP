@@ -286,6 +286,25 @@ class Map {
         self::updateChunk($chunk, false);
         return true;
     }
+    
+        /**
+     * 	Add the desired object into the map and store information inside the right chunk
+     */
+    public static function addMobileToMap(Mobile $mobile, $pos_x, $pos_y, $pos_z, $pos_m) {
+        $mobile->position = array(
+        	'x' => $pos_x,
+        	'y'       => $pos_y,
+            'z'       => $pos_z,
+            'map'     => $pos_m,
+            'facing'  => random_int(0, 6),
+            'running' => 0,);
+        $mobile->location = "map";
+
+        $chunk = self::getChunk($pos_x, $pos_y, $pos_m);
+        self::$chunks[$pos_m][$chunk['x']][$chunk['y']]['mobiles'][] = $mobile;
+        self::updateChunk($chunk, false);
+        return true;
+    }
 
     /**
      * Update the player position and other players around

@@ -284,6 +284,7 @@ class Player {
         if ($object === null) {
             return false;
         }
+        echo "Serial: ".$serial."\nLayer: ".$layer."\nContainer: ".$container;
 
     }
     

@@ -8,7 +8,7 @@
 class bird extends Mobile {
 	public function summon() {
 		$this->name = "bird";
-		$this->body = 238;
+		$this->body = 0xEE;
 		$this->type = "";
 		$this->flags = 0x00;
 		$this->color = 0x00;
