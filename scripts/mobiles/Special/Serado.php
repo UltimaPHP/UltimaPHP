@@ -8,26 +8,26 @@
 class serado extends Mobile {
 	public function summon() {
 		$this->name = "serado";
-		$this->body = 0;
+		$this->body = 249;
 		$this->type = "";
 		$this->flags = 0x00;
 		$this->color = 0x00;
-		$this->basesoundid = 0x4B0;
-		$this->str = rand(502, 600);
-		$this->dex = rand(102, 200);
-		$this->int = rand(601, 750);
+		$this->basesoundid = 0;
+		$this->str = 0;
+		$this->dex = 0;
+		$this->int = 0;
 		$this->hits = 0;
 		$this->maxhits = 0;
 		$this->damage_min = 29;
 		$this->damage_max = 35;
-		$this->resist_physical = rand(20, 30);
-		$this->resist_fire = rand(50, 60);
-		$this->resist_cold = rand(20, 30);
-		$this->resist_poison = rand(20, 30);
-		$this->resist_energy = rand(10, 20);
+		$this->resist_physical = 0;
+		$this->resist_fire = 0;
+		$this->resist_cold = 0;
+		$this->resist_poison = 0;
+		$this->resist_energy = 0;
 		$this->karma = -22500;
 		$this->fame = 22500;
-		$this->virtualarmor = 20;
+		$this->virtualarmor = 0;
 
 }}
 ?>

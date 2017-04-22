@@ -8,26 +8,26 @@
 class pixie extends Mobile {
 	public function summon() {
 		$this->name = "pixie";
-		$this->body = 58;
+		$this->body = 128;
 		$this->type = "";
 		$this->flags = 0x00;
 		$this->color = 0x00;
 		$this->basesoundid = 0x467;
-		$this->str = rand(196, 225);
-		$this->dex = rand(196, 225);
-		$this->int = rand(196, 225);
+		$this->str = rand(21, 30);
+		$this->dex = rand(301, 400);
+		$this->int = rand(201, 250);
 		$this->hits = 0;
 		$this->maxhits = 0;
-		$this->damage_min = 17;
-		$this->damage_max = 18;
-		$this->resist_physical = rand(35, 45);
-		$this->resist_fire = rand(20, 40);
-		$this->resist_cold = rand(10, 30);
-		$this->resist_poison = rand(5, 10);
-		$this->resist_energy = rand(50, 70);
-		$this->karma = 0;
-		$this->fame = 4000;
-		$this->virtualarmor = 40;
+		$this->damage_min = 9;
+		$this->damage_max = 15;
+		$this->resist_physical = rand(80, 90);
+		$this->resist_fire = rand(40, 50);
+		$this->resist_cold = rand(40, 50);
+		$this->resist_poison = rand(40, 50);
+		$this->resist_energy = rand(40, 50);
+		$this->karma = 7000;
+		$this->fame = 7000;
+		$this->virtualarmor = 100;
 
 }}
 ?>

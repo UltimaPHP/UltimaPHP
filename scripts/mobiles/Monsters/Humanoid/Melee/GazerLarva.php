@@ -1,0 +1,33 @@
+<?php
+
+/**
+* Ultima PHP - OpenSource Ultima Online Server written in PHP
+* Version: 0.1 - Pre Alpha
+*/
+
+class gazerlarva extends Mobile {
+	public function summon() {
+		$this->name = "a gazer larva";
+		$this->body = 778;
+		$this->type = "";
+		$this->flags = 0x00;
+		$this->color = 0x00;
+		$this->basesoundid = 0;
+		$this->str = rand(76, 100);
+		$this->dex = rand(51, 75);
+		$this->int = rand(56, 80);
+		$this->hits = 0;
+		$this->maxhits = 0;
+		$this->damage_min = 2;
+		$this->damage_max = 9;
+		$this->resist_physical = rand(15, 25);
+		$this->resist_fire = 0;
+		$this->resist_cold = 0;
+		$this->resist_poison = 0;
+		$this->resist_energy = 0;
+		$this->karma = -900;
+		$this->fame = 900;
+		$this->virtualarmor = 25;
+
+}}
+?>

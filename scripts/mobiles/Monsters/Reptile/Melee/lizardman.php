@@ -8,26 +8,26 @@
 class lizardman extends Mobile {
 	public function summon() {
 		$this->name = "lizardman";
-		$this->body = 62;
+		$this->body = Functions::RandomList(array(35, 36));
 		$this->type = "";
 		$this->flags = 0x00;
 		$this->color = 0x00;
 		$this->basesoundid = 0;
-		$this->str = rand(202, 240);
-		$this->dex = rand(153, 172);
-		$this->int = rand(51, 90);
+		$this->str = rand(96, 120);
+		$this->dex = rand(86, 105);
+		$this->int = rand(36, 60);
 		$this->hits = 0;
 		$this->maxhits = 0;
-		$this->damage_min = 8;
-		$this->damage_max = 19;
-		$this->resist_physical = rand(35, 45);
-		$this->resist_fire = rand(30, 40);
-		$this->resist_cold = rand(20, 30);
-		$this->resist_poison = rand(90, 100);
-		$this->resist_energy = rand(30, 40);
-		$this->karma = -4000;
-		$this->fame = 4000;
-		$this->virtualarmor = 40;
+		$this->damage_min = 5;
+		$this->damage_max = 7;
+		$this->resist_physical = rand(25, 30);
+		$this->resist_fire = rand(5, 10);
+		$this->resist_cold = rand(5, 10);
+		$this->resist_poison = rand(10, 20);
+		$this->resist_energy = 0;
+		$this->karma = -1500;
+		$this->fame = 1500;
+		$this->virtualarmor = 28;
 
 }}
 ?>

@@ -12,7 +12,7 @@ class rikktor extends Mobile {
 		$this->type = "";
 		$this->flags = 0x00;
 		$this->color = 0x00;
-		$this->basesoundid = 0x183;
+		$this->basesoundid = 0;
 		$this->str = rand(701, 900);
 		$this->dex = rand(201, 350);
 		$this->int = rand(51, 100);

@@ -23,7 +23,7 @@ class mephitis extends Mobile {
 		$this->resist_physical = rand(75, 80);
 		$this->resist_fire = rand(60, 70);
 		$this->resist_cold = rand(60, 70);
-		$this->resist_poison = rand(80, 90);
+		$this->resist_poison = 0;
 		$this->resist_energy = rand(60, 70);
 		$this->karma = -22500;
 		$this->fame = 22500;

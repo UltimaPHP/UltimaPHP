@@ -8,26 +8,26 @@
 class orc extends Mobile {
 	public function summon() {
 		$this->name = "orc";
-		$this->body = 138;
+		$this->body = 17;
 		$this->type = "";
 		$this->flags = 0x00;
 		$this->color = 0x00;
 		$this->basesoundid = 0x45A;
-		$this->str = rand(147, 215);
-		$this->dex = rand(91, 115);
-		$this->int = rand(61, 85);
+		$this->str = rand(96, 120);
+		$this->dex = rand(81, 105);
+		$this->int = rand(36, 60);
 		$this->hits = 0;
 		$this->maxhits = 0;
-		$this->damage_min = 4;
-		$this->damage_max = 14;
-		$this->resist_physical = rand(25, 35);
-		$this->resist_fire = rand(30, 40);
-		$this->resist_cold = rand(20, 30);
-		$this->resist_poison = rand(30, 40);
-		$this->resist_energy = rand(30, 40);
-		$this->karma = -2500;
-		$this->fame = 2500;
-		$this->virtualarmor = 34;
+		$this->damage_min = 5;
+		$this->damage_max = 7;
+		$this->resist_physical = rand(25, 30);
+		$this->resist_fire = rand(20, 30);
+		$this->resist_cold = rand(10, 20);
+		$this->resist_poison = rand(10, 20);
+		$this->resist_energy = rand(20, 30);
+		$this->karma = -1500;
+		$this->fame = 1500;
+		$this->virtualarmor = 28;
 
 }}
 ?>

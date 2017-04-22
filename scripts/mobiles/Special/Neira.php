@@ -12,7 +12,7 @@ class neira extends Mobile {
 		$this->type = "";
 		$this->flags = 0x00;
 		$this->color = 0x00;
-		$this->basesoundid = 0x183;
+		$this->basesoundid = 0;
 		$this->str = rand(305, 425);
 		$this->dex = rand(72, 150);
 		$this->int = rand(505, 750);
@@ -25,8 +25,8 @@ class neira extends Mobile {
 		$this->resist_cold = rand(50, 60);
 		$this->resist_poison = rand(30, 40);
 		$this->resist_energy = rand(20, 30);
-		$this->karma = 32000;
-		$this->fame = 32000;
+		$this->karma = -22500;
+		$this->fame = 22500;
 		$this->virtualarmor = 30;
 
 }}

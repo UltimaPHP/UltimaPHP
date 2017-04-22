@@ -1,0 +1,33 @@
+<?php
+
+/**
+* Ultima PHP - OpenSource Ultima Online Server written in PHP
+* Version: 0.1 - Pre Alpha
+*/
+
+class jukalord extends Mobile {
+	public function summon() {
+		$this->name = "a juka lord";
+		$this->body = 766;
+		$this->type = "";
+		$this->flags = 0x00;
+		$this->color = 0x00;
+		$this->basesoundid = 0;
+		$this->str = rand(401, 500);
+		$this->dex = rand(81, 100);
+		$this->int = rand(151, 200);
+		$this->hits = 0;
+		$this->maxhits = 0;
+		$this->damage_min = 10;
+		$this->damage_max = 12;
+		$this->resist_physical = rand(40, 50);
+		$this->resist_fire = rand(45, 50);
+		$this->resist_cold = rand(40, 50);
+		$this->resist_poison = rand(20, 25);
+		$this->resist_energy = rand(40, 50);
+		$this->karma = -15000;
+		$this->fame = 15000;
+		$this->virtualarmor = 28;
+
+}}
+?>

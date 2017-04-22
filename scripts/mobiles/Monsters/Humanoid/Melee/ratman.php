@@ -8,26 +8,26 @@
 class ratman extends Mobile {
 	public function summon() {
 		$this->name = "ratman";
-		$this->body = 155;
+		$this->body = 42;
 		$this->type = "";
 		$this->flags = 0x00;
 		$this->color = 0x00;
-		$this->basesoundid = 0x45A;
-		$this->str = rand(301, 350);
-		$this->dex = rand(26, 40);
-		$this->int = rand(151, 200);
+		$this->basesoundid = 0;
+		$this->str = rand(96, 120);
+		$this->dex = rand(81, 100);
+		$this->int = rand(36, 60);
 		$this->hits = 0;
 		$this->maxhits = 0;
-		$this->damage_min = 8;
-		$this->damage_max = 10;
-		$this->resist_physical = rand(35, 45);
-		$this->resist_fire = rand(20, 30);
-		$this->resist_cold = rand(50, 70);
-		$this->resist_poison = rand(40, 50);
-		$this->resist_energy = rand(20, 30);
-		$this->karma = -6000;
-		$this->fame = 6000;
-		$this->virtualarmor = 40;
+		$this->damage_min = 4;
+		$this->damage_max = 5;
+		$this->resist_physical = rand(25, 30);
+		$this->resist_fire = rand(10, 20);
+		$this->resist_cold = rand(10, 20);
+		$this->resist_poison = rand(10, 20);
+		$this->resist_energy = rand(10, 20);
+		$this->karma = -1500;
+		$this->fame = 1500;
+		$this->virtualarmor = 28;
 
 }}
 ?>

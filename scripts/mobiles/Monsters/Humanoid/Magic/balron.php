@@ -8,26 +8,26 @@
 class balron extends Mobile {
 	public function summon() {
 		$this->name = "balron";
-		$this->body = 148;
+		$this->body = 40;
 		$this->type = "";
 		$this->flags = 0x00;
 		$this->color = 0x00;
-		$this->basesoundid = 0x482;
-		$this->str = rand(76, 100);
-		$this->dex = rand(56, 75);
-		$this->int = rand(186, 210);
+		$this->basesoundid = 0;
+		$this->str = rand(986, 1185);
+		$this->dex = rand(177, 255);
+		$this->int = rand(151, 250);
 		$this->hits = 0;
 		$this->maxhits = 0;
-		$this->damage_min = 3;
-		$this->damage_max = 7;
-		$this->resist_physical = rand(35, 40);
-		$this->resist_fire = rand(20, 30);
+		$this->damage_min = 22;
+		$this->damage_max = 29;
+		$this->resist_physical = rand(65, 80);
+		$this->resist_fire = rand(60, 80);
 		$this->resist_cold = rand(50, 60);
-		$this->resist_poison = rand(20, 30);
-		$this->resist_energy = rand(30, 40);
-		$this->karma = -3000;
-		$this->fame = 3000;
-		$this->virtualarmor = 38;
+		$this->resist_poison = 0;
+		$this->resist_energy = rand(40, 50);
+		$this->karma = -24000;
+		$this->fame = 24000;
+		$this->virtualarmor = 90;
 
 }}
 ?>
