@@ -3,13 +3,14 @@ import os, sys, re
 
 items = False
 
+
 '''
     Lista todos os arquivos e suas respectivas subpastas
 '''
 def ListFiles(subDir=None):
     global items
     extensions = ['cs']
-    root = runUOdir = 'C:\\runuo-master\\Scripts'
+    root = runUOdir = 'C:\\runuo-master2\\Scripts'
     
     listFilesPath = []
 
@@ -39,26 +40,29 @@ def ListFiles(subDir=None):
     ele envia para a proxima funcao
 '''
 def readMobilesFiles(path, filesList):
-    mobileProperty = propriedades = {'name': '', 'body': 0,
-                   'basesoundid': 0x00, 'str': 0,
-                   'dex': 0, 'int': 0,
-                   'hits': 0, 'maxhits': 0, 'damage_min': 0,
-                   'damage_max': 0, 'resist_physical': 0,
-                   'resist_fire': 0, 'resist_cold': 0,
-                   'resist_poison': 0, 'resist_energy': 0,
-                   'fame': 0, 'karma': 0, 'virtualarmor': 0}
-
     
     try:
         for file in filesList:
+            propriedades = {'className': '', 'name': '', 'body': 0,
+                'basesoundid': 0x00, 'str': 0,
+                'dex': 0, 'int': 0,
+                'hits': 0, 'maxhits': 0, 'damage_min': 0,
+                'damage_max': 0, 'resist_physical': 0,
+                'resist_fire': 0, 'resist_cold': 0,
+                'resist_poison': 0, 'resist_energy': 0,
+                'fame': 0, 'karma': 0, 'virtualarmor': 0}
             if file != path+"\PlayerMobile.cs" and file != path+"\BaseCreature.cs":                
                 arquivo = open(file,'r')
-                print(file)
                 for readLine in arquivo:
+                    if re.search(r'public class ', readLine, re.IGNORECASE):
+                        m = re.search(r'(\w+) :', readLine, re.IGNORECASE)
+                        if m != None:
+                            propriedades['className'] = m.group(1)
                     if re.search(r'Name = ', readLine, re.IGNORECASE):
-                        m = re.search(r'\"(\w+)\"', readLine, re.IGNORECASE)
-                        if m != None:                        
-                            propriedades['name'] = m.group(1)
+                        if re.search(r'\"[ a-zA-Z0-9_]+\"', readLine, re.IGNORECASE):
+                            m = re.search(r'\"[ a-zA-Z0-9_]+\"', readLine, re.IGNORECASE)
+                            if m != None:
+                                propriedades['name'] = m.group(0)
                     if re.search(r'Body', readLine, re.IGNORECASE):
                         if re.search(r'(\d+)\, (\d+)', readLine, re.IGNORECASE):
                             m = re.search(r'(\d+)\, (\d+)', readLine, re.IGNORECASE)
@@ -137,14 +141,14 @@ def readMobilesFiles(path, filesList):
                         m = re.search(r'(\d+)', readLine, re.IGNORECASE)
                         if m != None:
                             propriedades['virtualarmor'] = m.group(0)                            
-
-                if propriedades['name'] != "" and propriedades['name'] != "male" and propriedades['name'] != "female":                        
-                    convertData(path, propriedades)
-                    propriedades = mobileProperty
+                if propriedades['name'] != "" and propriedades['className'] != "" and propriedades['body'] != 0:                        
+                    convertData(path, propriedades)                                        
+                    propriedades = {}
+                else:
+                    propriedades = {}
 
     except ValueError as er:
         print(er)
-
 
 '''
     Recebe a raiz completa do RunUO e a lista de todos os arquivos, le cada um linha por linha e 
@@ -298,9 +302,9 @@ def convertData(path, readLine):
         '* Ultima PHP - OpenSource Ultima Online Server written in PHP\n'\
         '* Version: 0.1 - Pre Alpha\n'\
         '*/\n\n'\
-        'class '+readLine['name'].lower()+' extends Mobile {\n'\
+        'class '+readLine['className'].lower()+' extends Mobile {\n'\
         '	public function summon() {\n'\
-        '		$this->name = \"'+readLine['name'].lower()+'\";\n'\
+        '		$this->name = '+readLine['name'].lower()+';\n'\
         '		$this->body = '+str(readLine['body'])+';\n'\
         '		$this->type = "";\n'\
         '		$this->flags = 0x00;\n'\
@@ -324,8 +328,8 @@ def convertData(path, readLine):
         '}}\n?>\n'
 
     
-    fileCreated = open(path+'\\'+readLine['name']+'.php','w')    
-    print(path+'\\'+readLine['name']+'.php')
+    fileCreated = open(path+'\\'+readLine['className']+'.php','w')    
+    print(path+'\\'+readLine['className']+'.php')
     if items:
         fileCreated.write(item_php_template)
     else:
