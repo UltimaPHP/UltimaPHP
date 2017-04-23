@@ -5,44 +5,44 @@
  * Version: 0.1 - Pre Alpha
  */
 class Command {
-	/* Server variables */
-	static $list = array(
-        'i' => array(
-            'minPlevel' => 6
+    /* Server variables */
+    static $list = array(
+        'i'          => array(
+            'minPlevel' => 6,
         ),
-        'm' => array(
-            'minPlevel' => 6
+        'm'          => array(
+            'minPlevel' => 6,
         ),
-        'tele' => array(
-            'minPlevel' => 2
+        'tele'       => array(
+            'minPlevel' => 2,
         ),
-        'go' => array(
-            'minPlevel' => 2
+        'go'         => array(
+            'minPlevel' => 2,
         ),
-        'invis' => array(
-            'minPlevel' => 4
+        'invis'      => array(
+            'minPlevel' => 4,
         ),
-        'where' => array(
-            'minPlevel' => 1
+        'where'      => array(
+            'minPlevel' => 1,
         ),
         'sysmessage' => array(
-            'minPlevel' => 2
+            'minPlevel' => 2,
         ),
-        'sysm' => array(
-            'minPlevel' => 2
+        'sysm'       => array(
+            'minPlevel' => 2,
         ),
     );
 
-	static $commandAlias = [
-        'add' => 'i',
-        'addchar' => 'i',
-		'go' => 'tele',
-		'sysm' => 'sysmessage',
-		'hide' => 'invis',
-	];
+    static $commandAlias = [
+        'add'     => 'i',
+        'addchar' => 'm',
+        'go'      => 'tele',
+        'sysm'    => 'sysmessage',
+        'hide'    => 'invis',
+    ];
 
     public function __construct() {
-    	foreach (glob(UltimaPHP::$basedir . 'core/commands/*.command.php') as $file) {
+        foreach (glob(UltimaPHP::$basedir . 'core/commands/*.command.php') as $file) {
             UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_LOADING, array(
                 "core/" . basename($file),
             ));
@@ -56,27 +56,27 @@ class Command {
         }
     }
 
-	public static function threatCommand($client = null, $command = null) {
-		if ($client === null || $command === null) {
-			return false;
-		}
+    public static function threatCommand($client = null, $command = null) {
+        if ($client === null || $command === null) {
+            return false;
+        }
 
-		$tmp = explode(" ", $command);
-		$command = strtolower(substr($tmp[0],1));
+        $tmp     = explode(" ", $command);
+        $command = strtolower(substr($tmp[0], 1));
 
-		$tmp = array_slice($tmp, 1);
-		$args = (count($tmp) > 0 ? explode(",", implode(" ", $tmp)) : []);
+        $tmp  = array_slice($tmp, 1);
+        $args = (count($tmp) > 0 ? explode(",", implode(" ", $tmp)) : []);
 
         self::runCommand($client, $command, $args);
-	}
+    }
 
-	public static function runCommand($client = null, $command = null, $args = []) {
-		if ($client === null) {
-			return false;
-		}
+    public static function runCommand($client = null, $command = null, $args = []) {
+        if ($client === null) {
+            return false;
+        }
 
-		if (isset(self::$commandAlias[$command])) {
-        	$command = self::$commandAlias[$command];
+        if (isset(self::$commandAlias[$command])) {
+            $command = self::$commandAlias[$command];
         }
 
         if (UltimaPHP::$socketClients[$client]['account']->plevel > 1 && !isset($command)) {
@@ -94,15 +94,15 @@ class Command {
             return false;
         }
 
-        $cmd  = ucfirst($command)."Command";
+        $cmd = ucfirst($command) . "Command";
 
         if (!class_exists($cmd)) {
-        	new SysmessageCommand($client, ["Sorry, something strange happend... the command exists, but no class found for it."]);
-            return false;	 
+            new SysmessageCommand($client, ["Sorry, something strange happend... the command exists, but no class found for it."]);
+            return false;
         }
 
         new $cmd($client, $args);
-        
+
         return true;
     }
 }
