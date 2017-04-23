@@ -843,6 +843,40 @@ class Player {
         $packet = "A3" . str_pad($this->serial, 8, "0", STR_PAD_LEFT) . str_pad(dechex($this->maxstam), 2, "0", STR_PAD_LEFT) . str_pad(dechex($this->stam), 2, "0", STR_PAD_LEFT);
 
         Sockets::out($this->client, $packet, $runInLot);
-    }    
+    }
+
+    public function sendCharName($serial) {
+        $chunkInfo = Map::getChunk($this->position['x'], $this->position['y'], $this->position['map']);
+        $chunk = Map::$chunks[$chunkInfo['map']][$chunkInfo['x']][$chunkInfo['y']];
+
+        $name = null;
+        foreach ($chunk['players'] as $client_id => $alive) {
+            $player = UltimaPHP::$socketClients[$client_id]['account']->player;
+            
+            if ($player->serial == $serial) {
+                $name = $player->name;
+            }
+        }
+
+        foreach ($chunk['mobiles'] as $key => $mobile) {
+            if ($mobile->serial == $serial) {
+                $name = $mobile->name;
+            }
+        }
+
+        if ($name === null) {
+            return false;
+        }
+
+        $tmpPacket = str_pad($serial, 8, "0", STR_PAD_LEFT);
+        $tmpPacket .= str_pad(Functions::strToHex($name), 60, "0", STR_PAD_RIGHT);
+
+
+        $packet = "98";
+        $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 3), 4, "0", STR_PAD_LEFT);
+        $packet .= $tmpPacket;
+
+        Sockets::out($this->client, $packet);
+    }
 
 }

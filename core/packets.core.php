@@ -11,8 +11,8 @@ class Packets {
      * Note: Dynamic length packets are marked with -1 this way the server looks on the packet for the right length
      * Note: Packets with no "length" are marked as false, this way the server treat the entire received packet as one single packet.
      */
-    static $packets = [0x00 => 0x0068, 0x01 => 0x0005, 0x02 => 0x0007, 0x03 => false, 0x04 => 0x0002, 0x05 => 0x0005, 0x06 => 0x0005, 0x07 => 0x0007, 0x08 => 0x000E, 0x09 => 0x0005, 0x0A => 0x000B, 0x0B => 0x010A, 0x0C => false, 0x0D => 0x0003, 0x0E => false, 0x0F => 0x003D, 0x10 => 0x00D7, 0x11 => false, 0x12 => false, 0x13 => 0x000A, 0x14 => 0x0006, 0x15 => 0x0009, 0x16 => 0x0001, 0x17 => false, 0x18 => false, 0x19 => false, 0x1A => false, 0x1B => 0x0025, 0x1C => false, 0x1D => 0x0005, 0x1E => 0x0004, 0x1F => 0x0008, 0x20 => 0x0013, 0x21 => 0x0008, 0x22 => 0x0003, 0x23 => 0x001A, 0x24 => 0x0007, 0x25 => 0x0014, 0x26 => 0x0005, 0x27 => 0x0002, 0x28 => 0x0005, 0x29 => 0x0001, 0x2A => 0x0005, 0x2B => 0x0002, 0x2C => 0x0002, 0x2D => 0x0011, 0x2E => 0x000F, 0x2F => 0x000A, 0x30 => 0x0005, 0x31 => 0x0001, 0x32 => 0x0002, 0x33 => 0x0002, 0x34 => 0x000A, 0x35 => 0x028D, 0x36 => false, 0x37 => 0x0008, 0x38 => 0x0007, 0x39 => 0x0009, 0x3A => false, 0x3B => false, 0x3C => false, 0x3D => 0x0002, 0x3E => 0x0025, 0x3F => false, 0x40 => 0x00C9, 0x41 => false, 0x42 => false, 0x43 => 0x0229, 0x44 => 0x02C9, 0x45 => 0x0005, 0x46 => false, 0x47 => 0x000B, 0x48 => 0x0049, 0x49 => 0x005D, 0x4A => 0x0005, 0x4B => 0x0009, 0x4C => false, 0x4D => false, 0x4E => 0x0006, 0x4F => 0x0002, 0x50 => false, 0x51 => false, 0x52 => false, 0x53 => 0x0002, 0x54 => 0x000C, 0x55 => 0x0001, 0x56 => 0x000B, 0x57 => 0x006E, 0x58 => 0x006A, 0x59 => false, 0x5A => false, 0x5B => 0x0004, 0x5C => 0x0002, 0x5D => 0x0049, 0x5E => false, 0x5F => 0x0031, 0x60 => 0x0005, 0x61 => 0x0009, 0x62 => 0x000F, 0x63 => 0x000D, 0x64 => 0x0001, 0x65 => 0x0004, 0x66 => false, 0x67 => 0x0015, 0x68 => false, 0x69 => false, 0x6A => 0x0003, 0x6B => 0x0009, 0x6C => 0x0019, 0x6D => 0x0003, 0x6E => 0x000E, 0x6F => false, 0x70 => 0x001C, 0x71 => false, 0x72 => 0x0005, 0x73 => 0x0002, 0x74 => false, 0x75 => 0x0023, 0x76 => 0x0010, 0x77 => 0x0011, 0x78 => false, 0x79 => 0x0009, 0x7A => false, 0x7B => 0x0002, 0x7C => false, 0x7D => 0x000D, 0x7E => 0x0002, 0x7F => false, 0x80 => 0x003E, 0x81 => false, 0x82 => 0x0002, 0x83 => 0x0027, 0x84 => 0x0045, 0x85 => 0x0002, 0x86 => false, 0x87 => false, 0x88 => 0x0042, 0x89 => false, 0x8A => false, 0x8B => false, 0x8C => 0x000B, 0x8D => false, 0x8E => false, 0x8F => false, 0x90 => 0x0013, 0x91 => 0x0041, 0x92 => false, 0x93 => 0x0063, 0x94 => false, 0x95 => 0x0009, 0x96 => false, 0x97 => 0x0002, 0x98 => false, 0x99 => 0x001A, 0x9A => false, 0x9B => 0x0102, 0x9C => 0x0135, 0x9D => 0x0033, 0x9E => false, 0x9F => false, 0xA0 => 0x0003, 0xA1 => 0x0009, 0xA2 => 0x0009, 0xA3 => 0x0009, 0xA4 => 0x0095, 0xA5 => false, 0xA6 => false, 0xA7 => 0x0004, 0xA8 => false, 0xA9 => false, 0xAA => 0x0005, 0xAB => false, 0xAC => false, 0xAD => false, 0xAE => false, 0xAF => 0x000D, 0xB0 => false, 0xB1 => false, 0xB2 => false, 0xB3 => false, 0xB4 => false, 0xB5 => 0x0040, 0xB6 => 0x0009, 0xB7 => false, 0xB8 => false, 0xB9 => 0x0003, 0xBA => 0x0006, 0xBB => 0x0009, 0xBC => 0x0003, 0xBD => -1, 0xBE => false, 0xBF => -1, 0xC0 => 0x0024, 0xC1 => false, 0xC2 => false, 0xC3 => false, 0xC4 => 0x0006, 0xC5 => 0x00CB, 0xC6 => 0x0001, 0xC7 => 0x0031, 0xC8 => 0x0002, 0xC9 => 0x0006, 0xCA => 0x0006, 0xCB => 0x0007, 0xCC => false, 0xCD => 0x0001, 0xCE => false, 0xCF => 0x004E, 0xD0 => false, 0xD1 => 0x0002, 0xD2 => 0x0019, 0xD3 => false, 0xD4 => false, 0xD5 => false, 0xD6 => false, 0xD7 => false, 0xD8 => false, 0xD9 => 0x010C, 0xDA => false, 0xDB => false, 0xDC => 9, 0xDD => 1, 0xDE => 1, 0xDF => 1, 0xE0 => 1, 0xE1 => 9, 0xE2 => 10, 0xE3 => 77, 0xEC => 1, 0xED => 1, 0xEF => 21, 0xF0 => -1, 0xF1 => 1, 0xF3 => 24, 0xF5 => 21, 0xF8 => 106];
-    
+    static $packets = [0x00 => 0x0068, 0x01 => 0x0005, 0x02 => 0x0007, 0x03 => false, 0x04 => 0x0002, 0x05 => 0x0005, 0x06 => 0x0005, 0x07 => 0x0007, 0x08 => 0x000E, 0x09 => 0x0005, 0x0A => 0x000B, 0x0B => 0x010A, 0x0C => false, 0x0D => 0x0003, 0x0E => false, 0x0F => 0x003D, 0x10 => 0x00D7, 0x11 => false, 0x12 => false, 0x13 => 0x000A, 0x14 => 0x0006, 0x15 => 0x0009, 0x16 => 0x0001, 0x17 => false, 0x18 => false, 0x19 => false, 0x1A => false, 0x1B => 0x0025, 0x1C => false, 0x1D => 0x0005, 0x1E => 0x0004, 0x1F => 0x0008, 0x20 => 0x0013, 0x21 => 0x0008, 0x22 => 0x0003, 0x23 => 0x001A, 0x24 => 0x0007, 0x25 => 0x0014, 0x26 => 0x0005, 0x27 => 0x0002, 0x28 => 0x0005, 0x29 => 0x0001, 0x2A => 0x0005, 0x2B => 0x0002, 0x2C => 0x0002, 0x2D => 0x0011, 0x2E => 0x000F, 0x2F => 0x000A, 0x30 => 0x0005, 0x31 => 0x0001, 0x32 => 0x0002, 0x33 => 0x0002, 0x34 => 0x000A, 0x35 => 0x028D, 0x36 => false, 0x37 => 0x0008, 0x38 => 0x0007, 0x39 => 0x0009, 0x3A => false, 0x3B => false, 0x3C => false, 0x3D => 0x0002, 0x3E => 0x0025, 0x3F => false, 0x40 => 0x00C9, 0x41 => false, 0x42 => false, 0x43 => 0x0229, 0x44 => 0x02C9, 0x45 => 0x0005, 0x46 => false, 0x47 => 0x000B, 0x48 => 0x0049, 0x49 => 0x005D, 0x4A => 0x0005, 0x4B => 0x0009, 0x4C => false, 0x4D => false, 0x4E => 0x0006, 0x4F => 0x0002, 0x50 => false, 0x51 => false, 0x52 => false, 0x53 => 0x0002, 0x54 => 0x000C, 0x55 => 0x0001, 0x56 => 0x000B, 0x57 => 0x006E, 0x58 => 0x006A, 0x59 => false, 0x5A => false, 0x5B => 0x0004, 0x5C => 0x0002, 0x5D => 0x0049, 0x5E => false, 0x5F => 0x0031, 0x60 => 0x0005, 0x61 => 0x0009, 0x62 => 0x000F, 0x63 => 0x000D, 0x64 => 0x0001, 0x65 => 0x0004, 0x66 => false, 0x67 => 0x0015, 0x68 => false, 0x69 => false, 0x6A => 0x0003, 0x6B => 0x0009, 0x6C => 0x0019, 0x6D => 0x0003, 0x6E => 0x000E, 0x6F => false, 0x70 => 0x001C, 0x71 => false, 0x72 => 0x0005, 0x73 => 0x0002, 0x74 => false, 0x75 => 0x0023, 0x76 => 0x0010, 0x77 => 0x0011, 0x78 => false, 0x79 => 0x0009, 0x7A => false, 0x7B => 0x0002, 0x7C => false, 0x7D => 0x000D, 0x7E => 0x0002, 0x7F => false, 0x80 => 0x003E, 0x81 => false, 0x82 => 0x0002, 0x83 => 0x0027, 0x84 => 0x0045, 0x85 => 0x0002, 0x86 => false, 0x87 => false, 0x88 => 0x0042, 0x89 => false, 0x8A => false, 0x8B => false, 0x8C => 0x000B, 0x8D => false, 0x8E => false, 0x8F => false, 0x90 => 0x0013, 0x91 => 0x0041, 0x92 => false, 0x93 => 0x0063, 0x94 => false, 0x95 => 0x0009, 0x96 => false, 0x97 => 0x0002, 0x98 => -1, 0x99 => 0x001A, 0x9A => false, 0x9B => 0x0102, 0x9C => 0x0135, 0x9D => 0x0033, 0x9E => false, 0x9F => false, 0xA0 => 0x0003, 0xA1 => 0x0009, 0xA2 => 0x0009, 0xA3 => 0x0009, 0xA4 => 0x0095, 0xA5 => false, 0xA6 => false, 0xA7 => 0x0004, 0xA8 => false, 0xA9 => false, 0xAA => 0x0005, 0xAB => false, 0xAC => false, 0xAD => false, 0xAE => false, 0xAF => 0x000D, 0xB0 => false, 0xB1 => false, 0xB2 => false, 0xB3 => false, 0xB4 => false, 0xB5 => 0x0040, 0xB6 => 0x0009, 0xB7 => false, 0xB8 => false, 0xB9 => 0x0003, 0xBA => 0x0006, 0xBB => 0x0009, 0xBC => 0x0003, 0xBD => -1, 0xBE => false, 0xBF => -1, 0xC0 => 0x0024, 0xC1 => false, 0xC2 => false, 0xC3 => false, 0xC4 => 0x0006, 0xC5 => 0x00CB, 0xC6 => 0x0001, 0xC7 => 0x0031, 0xC8 => 0x0002, 0xC9 => 0x0006, 0xCA => 0x0006, 0xCB => 0x0007, 0xCC => false, 0xCD => 0x0001, 0xCE => false, 0xCF => 0x004E, 0xD0 => false, 0xD1 => 0x0002, 0xD2 => 0x0019, 0xD3 => false, 0xD4 => false, 0xD5 => false, 0xD6 => false, 0xD7 => false, 0xD8 => false, 0xD9 => 0x010C, 0xDA => false, 0xDB => false, 0xDC => 9, 0xDD => 1, 0xDE => 1, 0xDF => 1, 0xE0 => 1, 0xE1 => 9, 0xE2 => 10, 0xE3 => 77, 0xEC => 1, 0xED => 1, 0xEF => 21, 0xF0 => -1, 0xF1 => 1, 0xF3 => 24, 0xF5 => 21, 0xF8 => 106];
+
     /**
      * Receive the CharCreator 0x00 -  New Clients >= 7.0.16
      */
@@ -46,126 +46,126 @@ class Packets {
         $shardIndex  = hexdec($data[90]);
         $startCity   = hexdec($data[91]);
         $charSlot    = hexdec(Functions::implodeByte($data, 92, 95));
-        $clientIp     = hexdec($data[96]) . "." . hexdec($data[97]) . "." . hexdec($data[98]) . "." . hexdec($data[99]);
+        $clientIp    = hexdec($data[96]) . "." . hexdec($data[97]) . "." . hexdec($data[98]) . "." . hexdec($data[99]);
         $shirtColor  = hexdec(Functions::implodeByte($data, 100, 101));
         $pantsColor  = hexdec(Functions::implodeByte($data, 102, 103));
 
         switch ($profession) {
-            case 1: // Warrior
-                $skillid1    = skillsDefs::SKILL_SWORDSMANSHIP;
-                $skillvalue1 = 30;
-                $skillid2    = skillsDefs::SKILL_TACTICS;
-                $skillvalue2 = 50;
-                $skillid3    = skillsDefs::SKILL_HEALING;
-                $skillvalue3 = 45;
-                $professionTitle = "Warrior";
-                break;
-            case 2:
-                $skillid1    = skillsDefs::SKILL_EVALINT;
-                $skillvalue1 = 30;
-                $skillid2    = skillsDefs::SKILL_WRESTLING;
-                $skillvalue2 = 30;
-                $skillid3    = skillsDefs::SKILL_MAGERY;
-                $skillvalue3 = 50;
-                $professionTitle = "Mage";
-                break;
-            case 3:
-                $skillid1    = skillsDefs::SKILL_MINING;
-                $skillvalue1 = 30;
-                $skillid2    = skillsDefs::SKILL_ARMSLORE;
-                $skillvalue2 = 30;
-                $skillid3    = skillsDefs::SKILL_BLACKSMITH;
-                $skillvalue3 = 50;
-                $professionTitle = "Blacksmith";
-                break;
-            case 4:
-                $skillid1    = skillsDefs::SKILL_NECROMANCY;
-                $skillvalue1 = 50;
-                $skillid2    = skillsDefs::SKILL_FOCUS;
-                $skillvalue2 = 30;
-                $skillid3    = skillsDefs::SKILL_SPIRITSPEAK;
-                $skillvalue3 = 30;
-                $professionTitle = "Necromancer";
-                break;
-            case 5:
-                $skillid1    = skillsDefs::SKILL_CHIVALRY;
-                $skillvalue1 = 51;
-                $skillid2    = skillsDefs::SKILL_SWORDSMANSHIP;
-                $skillvalue2 = 49;
-                $skillid3    = skillsDefs::SKILL_FOCUS;
-                $skillvalue3 = 30;
-                $professionTitle = "Paladin";
-                break;
-            case 6:
-                $skillid1    = skillsDefs::SKILL_BUSHIDO;
-                $skillvalue1 = 50;
-                $skillid2    = skillsDefs::SKILL_SWORDSMANSHIP;
-                $skillvalue2 = 50;
-                $skillid3    = skillsDefs::SKILL_ANATOMY;
-                $skillvalue3 = 30;
-                $professionTitle = "Samurai";
-                break;
-            case 7: // Ninja
-                $skillid1    = skillsDefs::SKILL_NINJITSU;
-                $skillvalue1 = 50;
-                $skillid2    = skillsDefs::SKILL_HIDING;
-                $skillvalue2 = 50;
-                $skillid3    = skillsDefs::SKILL_FENCING;
-                $skillvalue3 = 30;
-                $professionTitle = "Ninja";
-                break;
-            default:
-                $professionTitle = "Adventurer";
-                break;
+        case 1: // Warrior
+            $skillid1        = skillsDefs::SKILL_SWORDSMANSHIP;
+            $skillvalue1     = 30;
+            $skillid2        = skillsDefs::SKILL_TACTICS;
+            $skillvalue2     = 50;
+            $skillid3        = skillsDefs::SKILL_HEALING;
+            $skillvalue3     = 45;
+            $professionTitle = "Warrior";
+            break;
+        case 2:
+            $skillid1        = skillsDefs::SKILL_EVALINT;
+            $skillvalue1     = 30;
+            $skillid2        = skillsDefs::SKILL_WRESTLING;
+            $skillvalue2     = 30;
+            $skillid3        = skillsDefs::SKILL_MAGERY;
+            $skillvalue3     = 50;
+            $professionTitle = "Mage";
+            break;
+        case 3:
+            $skillid1        = skillsDefs::SKILL_MINING;
+            $skillvalue1     = 30;
+            $skillid2        = skillsDefs::SKILL_ARMSLORE;
+            $skillvalue2     = 30;
+            $skillid3        = skillsDefs::SKILL_BLACKSMITH;
+            $skillvalue3     = 50;
+            $professionTitle = "Blacksmith";
+            break;
+        case 4:
+            $skillid1        = skillsDefs::SKILL_NECROMANCY;
+            $skillvalue1     = 50;
+            $skillid2        = skillsDefs::SKILL_FOCUS;
+            $skillvalue2     = 30;
+            $skillid3        = skillsDefs::SKILL_SPIRITSPEAK;
+            $skillvalue3     = 30;
+            $professionTitle = "Necromancer";
+            break;
+        case 5:
+            $skillid1        = skillsDefs::SKILL_CHIVALRY;
+            $skillvalue1     = 51;
+            $skillid2        = skillsDefs::SKILL_SWORDSMANSHIP;
+            $skillvalue2     = 49;
+            $skillid3        = skillsDefs::SKILL_FOCUS;
+            $skillvalue3     = 30;
+            $professionTitle = "Paladin";
+            break;
+        case 6:
+            $skillid1        = skillsDefs::SKILL_BUSHIDO;
+            $skillvalue1     = 50;
+            $skillid2        = skillsDefs::SKILL_SWORDSMANSHIP;
+            $skillvalue2     = 50;
+            $skillid3        = skillsDefs::SKILL_ANATOMY;
+            $skillvalue3     = 30;
+            $professionTitle = "Samurai";
+            break;
+        case 7: // Ninja
+            $skillid1        = skillsDefs::SKILL_NINJITSU;
+            $skillvalue1     = 50;
+            $skillid2        = skillsDefs::SKILL_HIDING;
+            $skillvalue2     = 50;
+            $skillid3        = skillsDefs::SKILL_FENCING;
+            $skillvalue3     = 30;
+            $professionTitle = "Ninja";
+            break;
+        default:
+            $professionTitle = "Adventurer";
+            break;
         }
 
         $gender = ($genderRace % 2); // 0 = male && 1 = female
-        $race = ($genderRace <= 3 ? 0 : ($genderRace > 3 && $genderRace < 6 ? 1 : 2));
-        $body = ($genderRace <= 3 ? ($gender ? 401 : 400) : ($genderRace > 3 && $genderRace < 6 ? ($gender ? 606 : 605) : ($gender ? 667 : 666)));
+        $race   = ($genderRace <= 3 ? 0 : ($genderRace > 3 && $genderRace < 6 ? 1 : 2));
+        $body   = ($genderRace <= 3 ? ($gender ? 401 : 400) : ($genderRace > 3 && $genderRace < 6 ? ($gender ? 606 : 605) : ($gender ? 667 : 666)));
 
         $newChar = [
-            'name' => $charName,
-            'flags' => $flags,
+            'name'       => $charName,
+            'flags'      => $flags,
             'profession' => $profession,
-            'title' => $professionTitle,
-            'sex' => $gender,
-            'race' => $race,
-            'body' => $body,
-            'color' => [
-                'skin' => $skinColor,
+            'title'      => $professionTitle,
+            'sex'        => $gender,
+            'race'       => $race,
+            'body'       => $body,
+            'color'      => [
+                'skin'  => $skinColor,
                 'pants' => $pantsColor,
-                'shirt' => $shirtColor
+                'shirt' => $shirtColor,
             ],
-            'hair' => [
+            'hair'       => [
                 'style' => $hairStyle,
                 'color' => $hairColor,
             ],
-            'beard' => [
+            'beard'      => [
                 'style' => $beardStyle,
                 'color' => $beardColor,
             ],
-            'stats' => [
+            'stats'      => [
                 'str' => $str,
                 'dex' => $dex,
                 'int' => $int,
             ],
-            'skills' => [
+            'skills'     => [
                 ['skill' => $skillid1, 'value' => $skillvalue1],
                 ['skill' => $skillid2, 'value' => $skillvalue2],
-                ['skill' => $skillid3, 'value' => $skillvalue3]
+                ['skill' => $skillid3, 'value' => $skillvalue3],
             ],
-            'shard' => $shardIndex,
-            'slot' => $charSlot,
-            'start' => UltimaPHP::$starting_locations[($startCity-1)],
-            'ip' => $clientIp
+            'shard'      => $shardIndex,
+            'slot'       => $charSlot,
+            'start'      => UltimaPHP::$starting_locations[($startCity - 1)],
+            'ip'         => $clientIp,
         ];
 
         UltimaPHP::$socketClients[$client]['account']->createNewChar($newChar, true);
     }
-    
+
     /**
      * Strange package received from client in the login proccess...
-	*/
+     */
     public static function packet_0x1($data, $client) {
         if (count($data) >= 68) {
             $major     = hexdec($data[0]);
@@ -205,7 +205,7 @@ class Packets {
 
         UltimaPHP::$socketClients[$client]['account']->player->movePlayer(false, $direction, $sequence_number, $fastwalk_prevention);
     }
-    
+
     /**
      * Packet received when the player Ascii Speech
      *
@@ -218,31 +218,31 @@ class Packets {
      *     0x08 - Whisper
      *     0x09 - Yell
      *     0x10 - Spell
-     * 	   0x13 - Guild
+     *        0x13 - Guild
      *     0x14 - Alliance
-     * 	   0x15 - GM
+     *        0x15 - GM
      *     0x20 - Special
-     * 	   0xC0 - encoded commands
+     *        0xC0 - encoded commands
      */
     public static function packet_0x03($data, $client) {
-        $command             = $data[0];
-        $size 				 = hexdec(Functions::implodeByte($data, 1, 2));
-        $mode                = $data[3];
-        $text_color          = hexdec(Functions::implodeByte($data, 4, 5));
-        $text                = Functions::hexToChr($data, 6, ($size-5));
+        $command    = $data[0];
+        $size       = hexdec(Functions::implodeByte($data, 1, 2));
+        $mode       = $data[3];
+        $text_color = hexdec(Functions::implodeByte($data, 4, 5));
+        $text       = Functions::hexToChr($data, 6, ($size - 5));
 
         // IMPLEMENTAR 0x03
     }
-    
+
     /**
      * Packet received Attack Request
      */
     public static function packet_0x05($data, $client) {
-        $command = $data[0];
+        $command          = $data[0];
         $combatant_serial = hexdec(Functions::implodeByte($data, 1, 4));
 
-		//IMPLEMENTAR 0x05
-		//If Last Attack and combatant is null, send owner's serial.
+        //IMPLEMENTAR 0x05
+        //If Last Attack and combatant is null, send owner's serial.
     }
 
     /**
@@ -269,20 +269,20 @@ class Packets {
         // $player = UltimaPHP::$socketClients[$client]['account']->player;
         // $player->pickUp($item_serial, $amount);
     }
-    
+
     /**
      *     Packet received when player Drop a item - Drop Request
      */
     public static function packet_0x08($data, $client) {
-        $command     = $data[0];
-        $item_serial = hexdec(Functions::implodeByte($data, 1, 4));
-        $x           = hexdec(Functions::implodeByte($data, 5, 6));
-        $y	         = hexdec(Functions::implodeByte($data, 7, 8));
-        $z           = hexdec(Functions::fromChar8($data[9]));
-        $grid_location = $data[10];
+        $command          = $data[0];
+        $item_serial      = hexdec(Functions::implodeByte($data, 1, 4));
+        $x                = hexdec(Functions::implodeByte($data, 5, 6));
+        $y                = hexdec(Functions::implodeByte($data, 7, 8));
+        $z                = hexdec(Functions::fromChar8($data[9]));
+        $grid_location    = $data[10];
         $conatiner_serial = hexdec(Functions::implodeByte($data, 11, 14));
 
-		// IMPLEMENTAR 0X08
+        // IMPLEMENTAR 0X08
     }
 
     /**
@@ -294,117 +294,113 @@ class Packets {
 
         UltimaPHP::$socketClients[$client]['account']->player->click($object);
     }
-    
+
     /**
      * Packet received TextCommand
      */
     public static function packet_0x12($data, $client) {
         $command = $data[0];
-        $size  = hexdec(Functions::implodeByte($data, 1, 2));
-        $type = $data[3];
-        $args = Functions::hexToChr($data, 4, ($size-1));
+        $size    = hexdec(Functions::implodeByte($data, 1, 2));
+        $type    = $data[3];
+        $args    = Functions::hexToChr($data, 4, ($size - 1));
         $unknown = 0x00;
-        
-		switch ( $type )
-		{
-			case 0x00: // Go
-			{
-				break;
-			}
-			case 0xC7: // Animate
-			{
-				break;
-			}
-			case 0x24: // Use skill
-			{
-				break;
-			}
-			case 0x43: // Open spellbook
-			{
-				break;
-			}
-			case 0x27: // Cast spell from book
-			{
-				break;
-			}
-			case 0x58: // Open door
-			{
-				break;
-			}
-			case 0x56: // Cast spell from macro
-			{
-				break;
-			}
-			case 0xF4: // Invoke virtues from macro
-			{
-				break;
-			}
-			case 0x2F: // Old scroll double click
-			{
-				/*
-				 * This command is still sent for items 0xEF3 - 0xEF9
-				 *
-				 * Command is one of three, depending on the item ID of the scroll:
-				 * - [scroll serial]
-				 * - [scroll serial] [target serial]
-				 * - [scroll serial] [x] [y] [z]
-				 */
-				break;
-			}
-			default:
-			{
-				echo "Unknown text-command type";
-				break;
-			}
-		}
+
+        switch ($type) {
+            case 0x00: // Go
+                {
+                    break;
+                }
+            case 0xC7: // Animate
+                {
+                    break;
+                }
+            case 0x24: // Use skill
+                {
+                    break;
+                }
+            case 0x43: // Open spellbook
+                {
+                    break;
+                }
+            case 0x27: // Cast spell from book
+                {
+                    break;
+                }
+            case 0x58: // Open door
+                {
+                    break;
+                }
+            case 0x56: // Cast spell from macro
+                {
+                    break;
+                }
+            case 0xF4: // Invoke virtues from macro
+                {
+                    break;
+                }
+            case 0x2F: // Old scroll double click
+                {
+                    /*
+                     * This command is still sent for items 0xEF3 - 0xEF9
+                     *
+                     * Command is one of three, depending on the item ID of the scroll:
+                     * - [scroll serial]
+                     * - [scroll serial] [target serial]
+                     * - [scroll serial] [x] [y] [z]
+                     */
+                    break;
+                }
+            default:
+                {
+                    echo "Unknown text-command type";
+                    break;
+                }
+        }
     }
-    
+
     /*
      * Packet received Equip request
      */
     public static function packet_0x13($data, $client) {
-    	$command = $data[0];
-    	$serial = hexdec(Functions::implodeByte($data, 1, 4));
-    	$layer = $data[5];
-    	$container = hexdec(Functions::implodeByte($data, 6, 9));
-    	
-    	UltimaPHP::$socketClients[$client]['account']->player->equipRequest($serial, $layer, $container);
-    }
+        $command   = $data[0];
+        $serial    = hexdec(Functions::implodeByte($data, 1, 4));
+        $layer     = $data[5];
+        $container = hexdec(Functions::implodeByte($data, 6, 9));
 
+        UltimaPHP::$socketClients[$client]['account']->player->equipRequest($serial, $layer, $container);
+    }
 
     /*
      * Packet received from GOD client to fix map Z
      */
     public static function packet_0x14($data, $client) {}
-    
-    
+
     /*
      * Packet received from client to TargetResponse
-     	Implementando ainda
+    Implementando ainda
      */
     public static function packet_0x6C($data, $client) {
-    	$type = $data[0];
-		$targetID = hexdec(Functions::implodeByte($data, 1, 4));
-		$flags = $data[5];
-		$serial = hexdec(Functions::implodeByte($data, 6, 4));
-		$x = hexdec(Functions::implodeByte($data, 10, 2)); 
-		$y = hexdec(Functions::implodeByte($data, 12, 2)); 
-		$z = hexdec(Functions::implodeByte($data, 14, 2));
-		$graphic = hexdec(Functions::implodeByte($data, 16, 2));
+        $type     = $data[0];
+        $targetID = hexdec(Functions::implodeByte($data, 1, 4));
+        $flags    = $data[5];
+        $serial   = hexdec(Functions::implodeByte($data, 6, 4));
+        $x        = hexdec(Functions::implodeByte($data, 10, 2));
+        $y        = hexdec(Functions::implodeByte($data, 12, 2));
+        $z        = hexdec(Functions::implodeByte($data, 14, 2));
+        $graphic  = hexdec(Functions::implodeByte($data, 16, 2));
 
-		
     }
-    
+
     /*
      * Packet received from client to Skills Update
-     	Implementando ainda
+    Implementando ainda
      */
     public static function packet_0x3A($data, $client) {
-    	$command = $data[0];
-		$size = hexdec(Functions::implodeByte($data, 1, 2));
-		$skillId = hexdec(Functions::implodeByte($data, 3, 4));
-		$lockStatus = $data[5];
-		
+        $command    = $data[0];
+        $size       = hexdec(Functions::implodeByte($data, 1, 2));
+        $skillId    = hexdec(Functions::implodeByte($data, 3, 4));
+        $lockStatus = $data[5];
+
     }
 
     /**
@@ -420,33 +416,33 @@ class Packets {
         $command = $data[0];
         $unknow  = $data[1] . $data[2] . $data[3] . $data[4];
         $type    = $data[5];
-        $serial  = array(
-            $data[6],
-            $data[7],
-            $data[8],
-            $data[9],
-        );
+        $serial  = Functions::implodeByte($data, 6, 9);
 
         switch ($type) {
-        case 0x00:
+            case 0x00:
+                // God client ???
+                break;
 
-            // God client ???
-            break;
+            case 0x04:
+                // Client asking to server send the status information to the client
+                if ($serial == UltimaPHP::$socketClients[$client]['account']->player->serial) {
+                    UltimaPHP::$socketClients[$client]['account']->player->statusBarInfo(false);
+                } else {
+                    $mobile = Map::getBySerial($serial, $client);
+                    if ($mobile && method_exists($mobile, "statusBarInfo")) {
+                        $mobile->statusBarInfo($client);
+                    }
+                }
+                break;
 
-        case 0x04:
-            // Client asking to server send the status information to the client
-            UltimaPHP::$socketClients[$client]['account']->player->statusBarInfo(false);
-            break;
+            case 0x05:
+                UltimaPHP::$socketClients[$client]['account']->player->sendFullSkillList(false);
+                // Client asking to server send the skills information to the client
+                break;
 
-        case 0x05:
-            UltimaPHP::$socketClients[$client]['account']->player->sendFullSkillList(false);
-            // Client asking to server send the skills information to the client
-            break;
-
-        default:
-
-            // Unknow status type received
-            break;
+            default:
+                // Unknow status type received
+                break;
         }
     }
 
@@ -463,26 +459,24 @@ class Packets {
 
         UltimaPHP::$socketClients[$client]['account']->loginCharacter($slotchoosen);
     }
-    
+
     /**
      * Packet received book page
      */
     public static function packet_0x66($data, $client) {
-        $command      = $data[0];
-        $size     = hexdec(Functions::implodeByte($data, 1, 2));
-        $serial   = hexdec(Functions::implodeByte($data, 3, 6));
+        $command   = $data[0];
+        $size      = hexdec(Functions::implodeByte($data, 1, 2));
+        $serial    = hexdec(Functions::implodeByte($data, 3, 6));
         $pageCount = hexdec(Functions::implodeByte($data, 7, 8));
-        
-        for($i = 0; $i <= $pageCount; $i++)
-        {
-			$pageIndex = hexdec(Functions::implodeByte($data, $i+9, $i+10));
-			$linesCount = hexdec(Functions::implodeByte($data, $i+11, $i+12));
-			for($j=0; $j<=$linesCount; $j++)
-			{
-				//IMPLEMENTAR
-			}
-		}
-		
+
+        for ($i = 0; $i <= $pageCount; $i++) {
+            $pageIndex  = hexdec(Functions::implodeByte($data, $i + 9, $i + 10));
+            $linesCount = hexdec(Functions::implodeByte($data, $i + 11, $i + 12));
+            for ($j = 0; $j <= $linesCount; $j++) {
+                //IMPLEMENTAR
+            }
+        }
+
     }
 
     /**
@@ -507,15 +501,15 @@ class Packets {
             unset(UltimaPHP::$socketClients[$client]);
         }
     }
-    
+
     /**
      * Rename Request
      */
     public static function packet_0x75($data, $client) {
         $command = $data[0];
-        $serial = hexdec(Functions::implodeByte(1,4));
-        $name  = Functions::hexToChr($data, 5, 30, true);
-        
+        $serial  = hexdec(Functions::implodeByte(1, 4));
+        $name    = Functions::hexToChr($data, 5, 30, true);
+
         //IMPLEMENTAR
     }
 
@@ -548,16 +542,16 @@ class Packets {
             UltimaPHP::$socketClients[$client]['account']->disconnect(3);
         }
     }
-    
+
     /**
      * Receive delete character from client
      */
     public static function packet_0x83($data, $client) {
-        $command  = $data[0];
+        $command   = $data[0];
         $password  = Functions::hexToChr($data, 1, 30, true);
-        $charIndex = hexdec(Functions::implodeByte($data, 31,34));
-        $clientIP = hexdec(Functions::implodeByte($data, 35,38));
-        
+        $charIndex = hexdec(Functions::implodeByte($data, 31, 34));
+        $clientIP  = hexdec(Functions::implodeByte($data, 35, 38));
+
         //IMPLEMENTAR
     }
 
@@ -569,68 +563,80 @@ class Packets {
         $keyUsed  = hexdec($data[1]) . hexdec($data[2]) . hexdec($data[3]) . hexdec($data[4]);
         $account  = Functions::hexToChr($data, 5, 34, true);
         $password = Functions::hexToChr($data, 35, 64, true);
-		
+
         $login = false;
 
         UltimaPHP::$socketClients[$client]['account'] = new Account($account, md5($password), $client);
 
         if (true === UltimaPHP::$socketClients[$client]['account']->isValid) {
-        	
+
             UltimaPHP::log("Account $account logged from IP " . UltimaPHP::$socketClients[$client]['ip']);
 
             // Set the flag on the connection to send next packets compressed
             UltimaPHP::$socketClients[$client]['compressed'] = true;
-			
+
             UltimaPHP::$socketClients[$client]['account']->enableLockedFeatures();
             UltimaPHP::$socketClients[$client]['account']->sendCharacterList();
         } else {
             UltimaPHP::$socketClients[$client]['account']->disconnect(3);
         }
     }
-    
+
+    /**
+     * Send to the client names around
+     */
+    public static function packet_0x98($data, $client) {
+        $command  = $data[0];
+        $size     = hexdec(Functions::implodeByte($data, 1, 2));
+        $serial   = Functions::implodeByte($data, 3, 6);
+
+        if (Functions::isChar($serial)) {
+            UltimaPHP::$socketClients[$client]['account']->player->sendCharName($serial);
+        }
+    }
+
     /**
      * Ascii Prompt Response
      */
     public static function packet_0x9A($data, $client) {
-		$command = $data[0];
-		$size = hexdec(Functions::implodeByte($data, 1, 2));
-		$serial = hexdec(Functions::implodeByte($data, 3, 6));
-		$promptId = hexdec(Functions::implodeByte($data, 7, 10));
-		$type = hexdec(Functions::implodeByte($data, 11, 14));
-		$text = "";
-		
-		//IMPLEMENTAR
+        $command  = $data[0];
+        $size     = hexdec(Functions::implodeByte($data, 1, 2));
+        $serial   = hexdec(Functions::implodeByte($data, 3, 6));
+        $promptId = hexdec(Functions::implodeByte($data, 7, 10));
+        $type     = hexdec(Functions::implodeByte($data, 11, 14));
+        $text     = "";
+
+        //IMPLEMENTAR
     }
-    
+
     /**
      * Help Gump Request
      */
     public static function packet_0x9B($data, $client) {
-		$command = $data[0];
-		$size = hexdec(Functions::implodeByte($data, 1, 257));
-				
-		//IMPLEMENTAR
+        $command = $data[0];
+        $size    = hexdec(Functions::implodeByte($data, 1, 257));
+
+        //IMPLEMENTAR
     }
-    
+
     /**
      * Shop Offer
      */
     public static function packet_0x9F($data, $client) {
-		$command = $data[0];
-		$size = hexdec(Functions::implodeByte($data, 1, 2));
-		$vendorSerial = hexdec(Functions::implodeByte($data, 3, 6));
-		$itemsCount = hexdec(Functions::implodeByte($data, 7, 8));
-		
-		$items = array();
-		/*
-		for($i= 0; $i <= $itemsCount; $i++)
-		{
-			$itemSerial
-			$itemAmount
-		}*/
-		
-				
-		//IMPLEMENTAR
+        $command      = $data[0];
+        $size         = hexdec(Functions::implodeByte($data, 1, 2));
+        $vendorSerial = hexdec(Functions::implodeByte($data, 3, 6));
+        $itemsCount   = hexdec(Functions::implodeByte($data, 7, 8));
+
+        $items = array();
+        /*
+        for($i= 0; $i <= $itemsCount; $i++)
+        {
+        $itemSerial
+        $itemAmount
+        }*/
+
+        //IMPLEMENTAR
     }
 
     /**
@@ -642,17 +648,17 @@ class Packets {
         UltimaPHP::log("Account " . UltimaPHP::$socketClients[$client]['account']->account . " connecting on server " . UltimaPHP::$servers[UltimaPHP::$socketClients[$client]['connected_server']]['name']);
         UltimaPHP::$socketClients[$client]['account']->sendConnectionConfirmation();
     }
-    
+
     /**
      * Request SCroll Message
      */
     public static function packet_0xA7($data, $client) {
-        $command = $data[0];
+        $command       = $data[0];
         $lastTipNumber = hexdex(Functions::implodeByte($data, 1, 2));
-        $font = $data[3];
-        
+        $font          = $data[3];
+
     }
-    
+
     /**
      * Unicode/Ascii speech request
      */
@@ -738,8 +744,7 @@ class Packets {
         $command  = $data[0];
         $chatname = hexdec(Functions::implodeByte($data, 1, 63));
     }
-    
-    
+
     /**
      * Receive Profile Request
      */
@@ -818,8 +823,6 @@ class Packets {
     public static function packet_0xD9($data, $client) {
 
     }
-    
-    
 
     /**
      * Receive client version information from client version 6.0.5.0+
@@ -836,16 +839,16 @@ class Packets {
         $minor     = hexdec(Functions::implodeByte($data, 9, 12));
         $revision  = hexdec(Functions::implodeByte($data, 13, 16));
         $prototype = hexdec(Functions::implodeByte($data, 17, 20));
-		
+
         UltimaPHP::$socketClients[$client]['version'] = array(
             'major'     => $major,
             'minor'     => $minor,
             'revision'  => $revision,
             'prototype' => $prototype,
         );
-       
+
     }
-    
+
     /**
      * Receive client version information from client version 6.0.5.0+
      */
@@ -855,7 +858,7 @@ class Packets {
             return;
         }
     }
-    
+
     /**
      * Sending New Map Details Packet < 7.0.16
      */
@@ -864,7 +867,6 @@ class Packets {
             echo "OLHA AQUIIIII";
         }
     }
-
 
     /**
      * Receive the CharCreator 0xF8 -  New Clients >= 7.0.16
@@ -901,139 +903,137 @@ class Packets {
         $shardIndex  = hexdec($data[92]);
         $startCity   = hexdec($data[93]);
         $charSlot    = hexdec(Functions::implodeByte($data, 94, 97));
-        $clientIp     = hexdec($data[98]) . "." . hexdec($data[99]) . "." . hexdec($data[100]) . "." . hexdec($data[101]);
+        $clientIp    = hexdec($data[98]) . "." . hexdec($data[99]) . "." . hexdec($data[100]) . "." . hexdec($data[101]);
         $shirtColor  = hexdec(Functions::implodeByte($data, 102, 103));
         $pantsColor  = hexdec(Functions::implodeByte($data, 104, 105));
 
         switch ($profession) {
-            case 1: // Warrior
-                $skillid1    = skillsDefs::SKILL_SWORDSMANSHIP;
-                $skillvalue1 = 30;
-                $skillid2    = skillsDefs::SKILL_TACTICS;
-                $skillvalue2 = 50;
-                $skillid3    = skillsDefs::SKILL_HEALING;
-                $skillvalue3 = 45;
-                $skillid4    = skillsDefs::SKILL_ANATOMY;
-                $skillvalue4 = 30;
-                $professionTitle = "Warrior";
-                break;
-            case 2:
-                $skillid1    = skillsDefs::SKILL_EVALINT;
-                $skillvalue1 = 30;
-                $skillid2    = skillsDefs::SKILL_WRESTLING;
-                $skillvalue2 = 30;
-                $skillid3    = skillsDefs::SKILL_MAGERY;
-                $skillvalue3 = 50;
-                $skillid4    = skillsDefs::SKILL_MEDITATION;
-                $skillvalue4 = 50;
-                $professionTitle = "Mage";
-                break;
-            case 3:
-                $skillid1    = skillsDefs::SKILL_MINING;
-                $skillvalue1 = 30;
-                $skillid2    = skillsDefs::SKILL_ARMSLORE;
-                $skillvalue2 = 30;
-                $skillid3    = skillsDefs::SKILL_BLACKSMITH;
-                $skillvalue3 = 50;
-                $skillid4    = skillsDefs::SKILL_TINKERING;
-                $skillvalue4 = 50;
-                $professionTitle = "Blacksmith";
-                break;
-            case 4:
-                $skillid1    = skillsDefs::SKILL_NECROMANCY;
-                $skillvalue1 = 50;
-                $skillid2    = skillsDefs::SKILL_FOCUS;
-                $skillvalue2 = 30;
-                $skillid3    = skillsDefs::SKILL_SPIRITSPEAK;
-                $skillvalue3 = 30;
-                $skillid4    = skillsDefs::SKILL_SWORDSMANSHIP;
-                $skillvalue4 = 30;
-                $professionTitle = "Necromancer";
-                break;
-            case 5:
-                $skillid1    = skillsDefs::SKILL_CHIVALRY;
-                $skillvalue1 = 51;
-                $skillid2    = skillsDefs::SKILL_SWORDSMANSHIP;
-                $skillvalue2 = 49;
-                $skillid3    = skillsDefs::SKILL_FOCUS;
-                $skillvalue3 = 30;
-                $skillid4    = skillsDefs::SKILL_TACTICS;
-                $skillvalue4 = 30;
-                $professionTitle = "Paladin";
-                break;
-            case 6:
-                $skillid1    = skillsDefs::SKILL_BUSHIDO;
-                $skillvalue1 = 50;
-                $skillid2    = skillsDefs::SKILL_SWORDSMANSHIP;
-                $skillvalue2 = 50;
-                $skillid3    = skillsDefs::SKILL_ANATOMY;
-                $skillvalue3 = 30;
-                $skillid4    = skillsDefs::SKILL_HEALING;
-                $skillvalue4 = 30;
-                $professionTitle = "Samurai";
-                break;
-            case 7: // Ninja
-                $skillid1    = skillsDefs::SKILL_NINJITSU;
-                $skillvalue1 = 50;
-                $skillid2    = skillsDefs::SKILL_HIDING;
-                $skillvalue2 = 50;
-                $skillid3    = skillsDefs::SKILL_FENCING;
-                $skillvalue3 = 30;
-                $skillid4    = skillsDefs::SKILL_STEALTH;
-                $skillvalue4 = 30;
-                $professionTitle = "Ninja";
-                break;
-            default:
-                $professionTitle = "Adventurer";
-                break;
+        case 1: // Warrior
+            $skillid1        = skillsDefs::SKILL_SWORDSMANSHIP;
+            $skillvalue1     = 30;
+            $skillid2        = skillsDefs::SKILL_TACTICS;
+            $skillvalue2     = 50;
+            $skillid3        = skillsDefs::SKILL_HEALING;
+            $skillvalue3     = 45;
+            $skillid4        = skillsDefs::SKILL_ANATOMY;
+            $skillvalue4     = 30;
+            $professionTitle = "Warrior";
+            break;
+        case 2:
+            $skillid1        = skillsDefs::SKILL_EVALINT;
+            $skillvalue1     = 30;
+            $skillid2        = skillsDefs::SKILL_WRESTLING;
+            $skillvalue2     = 30;
+            $skillid3        = skillsDefs::SKILL_MAGERY;
+            $skillvalue3     = 50;
+            $skillid4        = skillsDefs::SKILL_MEDITATION;
+            $skillvalue4     = 50;
+            $professionTitle = "Mage";
+            break;
+        case 3:
+            $skillid1        = skillsDefs::SKILL_MINING;
+            $skillvalue1     = 30;
+            $skillid2        = skillsDefs::SKILL_ARMSLORE;
+            $skillvalue2     = 30;
+            $skillid3        = skillsDefs::SKILL_BLACKSMITH;
+            $skillvalue3     = 50;
+            $skillid4        = skillsDefs::SKILL_TINKERING;
+            $skillvalue4     = 50;
+            $professionTitle = "Blacksmith";
+            break;
+        case 4:
+            $skillid1        = skillsDefs::SKILL_NECROMANCY;
+            $skillvalue1     = 50;
+            $skillid2        = skillsDefs::SKILL_FOCUS;
+            $skillvalue2     = 30;
+            $skillid3        = skillsDefs::SKILL_SPIRITSPEAK;
+            $skillvalue3     = 30;
+            $skillid4        = skillsDefs::SKILL_SWORDSMANSHIP;
+            $skillvalue4     = 30;
+            $professionTitle = "Necromancer";
+            break;
+        case 5:
+            $skillid1        = skillsDefs::SKILL_CHIVALRY;
+            $skillvalue1     = 51;
+            $skillid2        = skillsDefs::SKILL_SWORDSMANSHIP;
+            $skillvalue2     = 49;
+            $skillid3        = skillsDefs::SKILL_FOCUS;
+            $skillvalue3     = 30;
+            $skillid4        = skillsDefs::SKILL_TACTICS;
+            $skillvalue4     = 30;
+            $professionTitle = "Paladin";
+            break;
+        case 6:
+            $skillid1        = skillsDefs::SKILL_BUSHIDO;
+            $skillvalue1     = 50;
+            $skillid2        = skillsDefs::SKILL_SWORDSMANSHIP;
+            $skillvalue2     = 50;
+            $skillid3        = skillsDefs::SKILL_ANATOMY;
+            $skillvalue3     = 30;
+            $skillid4        = skillsDefs::SKILL_HEALING;
+            $skillvalue4     = 30;
+            $professionTitle = "Samurai";
+            break;
+        case 7: // Ninja
+            $skillid1        = skillsDefs::SKILL_NINJITSU;
+            $skillvalue1     = 50;
+            $skillid2        = skillsDefs::SKILL_HIDING;
+            $skillvalue2     = 50;
+            $skillid3        = skillsDefs::SKILL_FENCING;
+            $skillvalue3     = 30;
+            $skillid4        = skillsDefs::SKILL_STEALTH;
+            $skillvalue4     = 30;
+            $professionTitle = "Ninja";
+            break;
+        default:
+            $professionTitle = "Adventurer";
+            break;
         }
 
         $gender = ($genderRace % 2); // 0 = male && 1 = female
-        $race = ($genderRace <= 3 ? 0 : ($genderRace > 3 && $genderRace < 6 ? 1 : 2));
-        $body = ($genderRace <= 3 ? ($gender ? 401 : 400) : ($genderRace > 3 && $genderRace < 6 ? ($gender ? 606 : 605) : ($gender ? 667 : 666)));
+        $race   = ($genderRace <= 3 ? 0 : ($genderRace > 3 && $genderRace < 6 ? 1 : 2));
+        $body   = ($genderRace <= 3 ? ($gender ? 401 : 400) : ($genderRace > 3 && $genderRace < 6 ? ($gender ? 606 : 605) : ($gender ? 667 : 666)));
 
         $newChar = [
-            'name' => $charName,
-            'flags' => $flags,
+            'name'       => $charName,
+            'flags'      => $flags,
             'profession' => $profession,
-            'title' => $professionTitle,
-            'sex' => $gender,
-            'race' => $race,
-            'body' => $body,
-            'color' => [
-                'skin' => $skinColor,
+            'title'      => $professionTitle,
+            'sex'        => $gender,
+            'race'       => $race,
+            'body'       => $body,
+            'color'      => [
+                'skin'  => $skinColor,
                 'pants' => $pantsColor,
-                'shirt' => $shirtColor
+                'shirt' => $shirtColor,
             ],
-            'hair' => [
+            'hair'       => [
                 'style' => $hairStyle,
                 'color' => $hairColor,
             ],
-            'beard' => [
+            'beard'      => [
                 'style' => $beardStyle,
                 'color' => $beardColor,
             ],
-            'stats' => [
+            'stats'      => [
                 'str' => $str,
                 'dex' => $dex,
                 'int' => $int,
             ],
-            'skills' => [
+            'skills'     => [
                 ['skill' => $skillid1, 'value' => $skillvalue1],
                 ['skill' => $skillid2, 'value' => $skillvalue2],
                 ['skill' => $skillid3, 'value' => $skillvalue3],
-                ['skill' => $skillid4, 'value' => $skillvalue4]
+                ['skill' => $skillid4, 'value' => $skillvalue4],
             ],
-            'shard' => $shardIndex,
-            'slot' => $charSlot,
-            'start' => UltimaPHP::$starting_locations[($startCity-1)],
-            'ip' => $clientIp
+            'shard'      => $shardIndex,
+            'slot'       => $charSlot,
+            'start'      => UltimaPHP::$starting_locations[($startCity - 1)],
+            'ip'         => $clientIp,
         ];
 
         UltimaPHP::$socketClients[$client]['account']->createNewChar($newChar, true);
     }
-
-    
 
 }
 

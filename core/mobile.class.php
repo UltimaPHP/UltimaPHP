@@ -75,18 +75,7 @@ class Mobile {
     }
 
     /**
-     * Object create/destroy methods
-     */
-    public function create() {
-        
-    }
-
-    public function destroy() {
-        
-    }
-
-    /**
-     * Draw character on client
+     * Draw mobile for client
      */
     public function drawChar($client) {
         $packet = "78";
@@ -101,7 +90,11 @@ class Mobile {
         $packet .= str_pad(dechex(0x40), 2, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex(0x06), 2, "0", STR_PAD_LEFT);
         $packet .= "00000000";
-        
+
         Sockets::out($client, $packet);
+    }
+
+    public function statusBarInfo($client) {
+        echo "Status bar from  mobile ".$this->name." (UID: ".$this->serial.")\n";
     }
 }

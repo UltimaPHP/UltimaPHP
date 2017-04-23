@@ -11,9 +11,9 @@ class Map {
      */
     public static $maps        = [];
     public static $mapSizes    = [];
-    private static $chunks     = [];
-    private static $chunkSize  = 256; // Number in square
-    private static $tileMatrix = [];
+    public static $chunks     = [];
+    public static $chunkSize  = 256; // Number in square
+    public static $tileMatrix = [];
 
     public function __construct() {
         $actualMap = 0;
@@ -304,6 +304,36 @@ class Map {
         self::$chunks[$pos_m][$chunk['x']][$chunk['y']]['mobiles'][] = $mobile;
         self::updateChunk($chunk, false);
         return true;
+    }
+
+    public static function getBySerial($serial = false, $client = false) {
+        if ($serial === false || $client === false) {
+            return false;
+        }
+
+        $player = UltimaPHP::$socketClients[$client]['account']->player;
+        $chunk = self::getChunk($player->position['x'], $player->position['y'], $player->position['map']);
+        $chunk = self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']];
+
+        foreach ($chunk['objects'] as $key => $object) {
+            if ($object->serial == $serial) {
+                return $object;
+            }
+        }
+
+        foreach ($chunk['players'] as $client_id => $active) {
+            $tmpPlayer = UltimaPHP::$socketClients[$client_id]['account']->player;
+            if ($tmpPlayer->serial == $serial) {
+                return ;
+            }
+        }
+
+        foreach ($chunk['mobiles'] as $key => $mobile) {
+            if ($mobile->serial == $serial) {
+                return $mobile;
+            }
+        }
+
     }
 
     /**
