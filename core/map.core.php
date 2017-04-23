@@ -9,10 +9,10 @@ class Map {
     /**
      * Map loading variables
      */
-    public static $maps = [];
-    public static $mapSizes = [];
-    private static $chunks = [];
-    private static $chunkSize = 256; // Number in square
+    public static $maps        = [];
+    public static $mapSizes    = [];
+    private static $chunks     = [];
+    private static $chunkSize  = 256; // Number in square
     private static $tileMatrix = [];
 
     public function __construct() {
@@ -43,23 +43,23 @@ class Map {
                     self::$chunks[$actualMap][$xChunk][$yChunk] = array(
                         'objects' => array(),
                         'players' => array(),
-                        'npcs' => array(),
+                        'mobiles'    => array(),
                     );
                 }
             }
 
             // Store information about the map muls and size
             self::$maps[$actualMap] = array(
-                'mul' => null,
+                'mul'  => null,
                 'size' => array(
                     'x' => null,
                     'y' => null,
                 ),
             );
 
-            self::$mapSizes[$actualMap]['x'] = $mapSize[0];
-            self::$mapSizes[$actualMap]['y'] = $mapSize[1];
-            self::$maps[$actualMap]['mul'] = fopen($mapFile, "rb");
+            self::$mapSizes[$actualMap]['x']     = $mapSize[0];
+            self::$mapSizes[$actualMap]['y']     = $mapSize[1];
+            self::$maps[$actualMap]['mul']       = fopen($mapFile, "rb");
             self::$maps[$actualMap]['size']['x'] = (int) $mapSize[0] >> 3;
             self::$maps[$actualMap]['size']['y'] = (int) $mapSize[1] >> 3;
 
@@ -70,7 +70,6 @@ class Map {
 
             //         fseek(self::$maps[$actualMap]['mul'], ((($x * self::$maps[$actualMap]['size']['y']) + $y) * 196), SEEK_SET);
             //         $header = hexdec(bin2hex(fread(self::$maps[$actualMap]['mul'], 4)));
-
 
             //         for ($i = 0; $i < 64; ++$i) {
             //             $tile = bin2hex(fread(self::$maps[$actualMap]['mul'], 2));
@@ -126,7 +125,7 @@ class Map {
 
         $staticIdx = fopen(UltimaPHP::$conf['muls']['location'] . "statics{$actualMap}.mul", 'rb');
         $staticMul = fopen(UltimaPHP::$conf['muls']['location'] . "staidx{$actualMap}.mul", 'rb');
-        $mapSize = explode(",", UltimaPHP::$conf["muls"]["map{$actualMap}"]);
+        $mapSize   = explode(",", UltimaPHP::$conf["muls"]["map{$actualMap}"]);
 
         $block_x = (int) $mapSize[0] >> 3;
         $block_y = (int) $mapSize[1] >> 3;
@@ -149,7 +148,7 @@ class Map {
                 // $extra = hexdec(fread($staticIdx, 4));
 
                 if ($lookup < 0 || $length <= 0) {
-                    
+
                 } else {
                     if (($lookup >= 0) && ($length > 0)) {
                         fseek($staticMul, $lookup, SEEK_SET);
@@ -161,10 +160,10 @@ class Map {
 
                     for ($i = 0; $i < $count; ++$i) {
                         $static_graphic = hexdec(fread($staticMul, 2)); // ReadUInt16();
-                        $static_x = hexdec(fread($staticMul, 1)); // ReadByte();
-                        $static_y = hexdec(fread($staticMul, 1)); // ReadByte();
-                        $static_z = hexdec(fread($staticMul, 1)); // ReadSByte();
-                        $static_hue = hexdec(fread($staticMul, 2)); // ReadInt16();
+                        $static_x       = hexdec(fread($staticMul, 1)); // ReadByte();
+                        $static_y       = hexdec(fread($staticMul, 1)); // ReadByte();
+                        $static_z       = hexdec(fread($staticMul, 1)); // ReadSByte();
+                        $static_hue     = hexdec(fread($staticMul, 2)); // ReadInt16();
                         // echo "$static_graphic|$static_x|$static_y|$static_z|$static_hue\n";
                         // continue;
                         if ($static_graphic >= 0) {
@@ -205,7 +204,7 @@ class Map {
 
         $updateRange = array(
             'from' => array('x' => ($pos_x - 10), 'y' => ($pos_y - 10)),
-            'to' => array('x' => ($pos_x + 10), 'y' => ($pos_y + 10)),
+            'to'   => array('x' => ($pos_x + 10), 'y' => ($pos_y + 10)),
         );
 
         // for ($x = $updateRange['from']['x']; $x < $updateRange['to']['x']; $x++) {
@@ -223,19 +222,19 @@ class Map {
 
         //             fseek($staticMul, $lookup, SEEK_SET);
         //             for ($i=0; $i < ($length/7); $i++) {
-        //             	$tileId = Functions::read_byte($staticMul, 2);
-        //             	$x = Functions::read_byte($staticMul, 1);
-        //             	$y = Functions::read_byte($staticMul, 1);
-        //             	$z = Functions::read_byte($staticMul, 1);
-        //             	$hue = Functions::read_byte($staticMul, 2);
-        //             	if ($tileId >= 0) {
-        //             		if ($hue < 0) {
-        //             			$hue = 0;
-        //             		}
-        //             		if ($tileId > 0) {
-        //             			// echo "$tileId|$x|$y|$z|$hue\n";
-        //             		}
-        //             	}
+        //                 $tileId = Functions::read_byte($staticMul, 2);
+        //                 $x = Functions::read_byte($staticMul, 1);
+        //                 $y = Functions::read_byte($staticMul, 1);
+        //                 $z = Functions::read_byte($staticMul, 1);
+        //                 $hue = Functions::read_byte($staticMul, 2);
+        //                 if ($tileId >= 0) {
+        //                     if ($hue < 0) {
+        //                         $hue = 0;
+        //                     }
+        //                     if ($tileId > 0) {
+        //                         // echo "$tileId|$x|$y|$z|$hue\n";
+        //                     }
+        //                 }
         //             }
         //         }
         //     }
@@ -256,8 +255,8 @@ class Map {
         }
 
         return array(
-            'x' => (int) ceil($pos_x / self::$chunkSize),
-            'y' => (int) ceil($pos_y / self::$chunkSize),
+            'x'   => (int) ceil($pos_x / self::$chunkSize),
+            'y'   => (int) ceil($pos_y / self::$chunkSize),
             'map' => (int) $pos_map,
         );
     }
@@ -266,38 +265,39 @@ class Map {
      * Add the player to into the map and store information inside the right chunk
      */
     public static function addPlayerToMap(Player $player) {
-        $chunk = self::getChunk($player->position['x'], $player->position['y'], $player->position['map']);
+        $chunk                                                                                        = self::getChunk($player->position['x'], $player->position['y'], $player->position['map']);
         self::$chunks[$player->position['map']][$chunk['x']][$chunk['y']]['players'][$player->client] = true;
         return true;
     }
 
     /**
-     * 	Add the desired object into the map and store information inside the right chunk
+     *     Add the desired object into the map and store information inside the right chunk
      */
     public static function addObjectToMap(Object $object, $pos_x, $pos_y, $pos_z, $pos_m) {
-        $object->pos_x = $pos_x;
-        $object->pos_y = $pos_y;
-        $object->pos_z = $pos_z;
-        $object->pos_map = $pos_m;
+        $object->pos_x    = $pos_x;
+        $object->pos_y    = $pos_y;
+        $object->pos_z    = $pos_z;
+        $object->pos_map  = $pos_m;
         $object->location = "map";
 
-        $chunk = self::getChunk($pos_x, $pos_y, $pos_m);
+        $chunk                                                       = self::getChunk($pos_x, $pos_y, $pos_m);
         self::$chunks[$pos_m][$chunk['x']][$chunk['y']]['objects'][] = $object;
         self::updateChunk($chunk, false);
         return true;
     }
-    
-        /**
-     * 	Add the desired object into the map and store information inside the right chunk
+
+    /**
+     *     Add the desired object into the map and store information inside the right chunk
      */
     public static function addMobileToMap(Mobile $mobile, $pos_x, $pos_y, $pos_z, $pos_m) {
         $mobile->position = array(
-        	'x' => $pos_x,
-        	'y'       => $pos_y,
+            'x'       => $pos_x,
+            'y'       => $pos_y,
             'z'       => $pos_z,
             'map'     => $pos_m,
             'facing'  => random_int(0, 6),
-            'running' => 0,);
+            'running' => 0
+        );
         $mobile->location = "map";
 
         $chunk = self::getChunk($pos_x, $pos_y, $pos_m);
@@ -333,11 +333,11 @@ class Map {
         $actual_player = UltimaPHP::$socketClients[$client]['account']->player;
 
         $chunkInfo = self::getChunk($actual_player->position['x'], $actual_player->position['y'], $actual_player->position['map']);
-        $chunk = self::$chunks[$actual_player->position['map']][$chunkInfo['x']][$chunkInfo['y']];
+        $chunk     = self::$chunks[$actual_player->position['map']][$chunkInfo['x']][$chunkInfo['y']];
 
         $updateRange = array(
             'from' => array('x' => ($actual_player->position['x'] - 10), 'y' => ($actual_player->position['y'] - 10)),
-            'to' => array('x' => ($actual_player->position['x'] + 10), 'y' => ($actual_player->position['y'] + 10)),
+            'to'   => array('x' => ($actual_player->position['x'] + 10), 'y' => ($actual_player->position['y'] + 10)),
         );
 
         foreach ($chunk['players'] as $client_id => $alive) {
@@ -365,12 +365,12 @@ class Map {
         $chunk = self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']];
 
         if ($client !== false) {
-            $actual_player = UltimaPHP::$socketClients[$client]['account']->player;
+            $actual_player        = UltimaPHP::$socketClients[$client]['account']->player;
             $actual_player_plevel = UltimaPHP::$socketClients[$client]['account']->plevel;
 
             /* Update chars on map */
             foreach ($chunk['players'] as $client_id => $alive) {
-                $player = UltimaPHP::$socketClients[$client_id]['account']->player;
+                $player        = UltimaPHP::$socketClients[$client_id]['account']->player;
                 $player_plevel = UltimaPHP::$socketClients[$client_id]['account']->plevel;
 
                 $position = $player->position;
@@ -378,7 +378,7 @@ class Map {
                 /* Defines boundries of player viewrange */
                 $updateRange = array(
                     'from' => array('x' => ($position['x'] - $player->render_range), 'y' => ($position['y'] - $player->render_range)),
-                    'to' => array('x' => ($position['x'] + $player->render_range), 'y' => ($position['y'] + $player->render_range)),
+                    'to'   => array('x' => ($position['x'] + $player->render_range), 'y' => ($position['y'] + $player->render_range)),
                 );
 
                 if ($actual_player->serial != $player->serial && $player->position['x'] >= $updateRange['from']['x'] && $player->position['x'] <= $updateRange['to']['x'] && $player->position['y'] >= $updateRange['from']['y'] && $player->position['y'] <= $updateRange['to']['y']) {
@@ -416,6 +416,22 @@ class Map {
             }
         }
 
+        /* Update mobiles on map */
+        foreach ($chunk['mobiles'] as $mobile) {
+            foreach ($chunk['players'] as $client => $alive) {
+                $player = UltimaPHP::$socketClients[$client]['account']->player;
+
+                $updateRange = array(
+                    'from' => array('x' => ($mobile->position['x'] - $player->render_range), 'y' => ($mobile->position['y'] - $player->render_range)),
+                    'to'   => array('x' => ($mobile->position['x'] + $player->render_range), 'y' => ($mobile->position['y'] + $player->render_range)),
+                );
+
+                if ($player->position['x'] >= $updateRange['from']['x'] && $player->position['x'] <= $updateRange['to']['x'] && $player->position['y'] >= $updateRange['from']['y'] && $player->position['y'] <= $updateRange['to']['y']) {
+                    $mobile->drawChar($player->client);
+                }
+            }
+        }
+
         /* Update items on map */
         foreach ($chunk['objects'] as $object) {
             $packet = "F3";
@@ -439,7 +455,7 @@ class Map {
 
                 $updateRange = array(
                     'from' => array('x' => ($object->pos_x - $player->render_range), 'y' => ($object->pos_y - $player->render_range)),
-                    'to' => array('x' => ($object->pos_x + $player->render_range), 'y' => ($object->pos_y + $player->render_range)),
+                    'to'   => array('x' => ($object->pos_x + $player->render_range), 'y' => ($object->pos_y + $player->render_range)),
                 );
 
                 if ($player->position['x'] >= $updateRange['from']['x'] && $player->position['x'] <= $updateRange['to']['x'] && $player->position['y'] >= $updateRange['from']['y'] && $player->position['y'] <= $updateRange['to']['y']) {

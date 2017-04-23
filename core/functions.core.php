@@ -6,7 +6,7 @@
  */
 class Functions {
 
-    public static function getClientVersion($client = null) {    	
+    public static function getClientVersion($client = null) {
         if ($client === null) {
             return false;
         }
@@ -14,16 +14,16 @@ class Functions {
         if (!isset(UltimaPHP::$socketClients[$client]['version']) || !is_array(UltimaPHP::$socketClients[$client]['version'])) {
             return false;
         }
-		
+
         return UltimaPHP::$socketClients[$client]['version'];
     }
-    
+
     public static function RandomList($list) {
         if ($list === null) {
             return false;
         }
-		$newList = array_rand($list,1);
-		
+        $newList = array_rand($list, 1);
+
         return $newList[0];
     }
 
@@ -118,8 +118,16 @@ class Functions {
         if ($int < -127 || $int > 127) {
             return "00";
         }
-        
+
         return strtoupper(str_pad(dechex(ord(pack("c", $int))), 2, "0", STR_PAD_LEFT));
+    }
+
+    public static function rglob($pattern, $flags = 0) {
+        $files = glob($pattern, $flags);
+        foreach (glob(dirname($pattern) . '/*', GLOB_ONLYDIR | GLOB_NOSORT) as $dir) {
+            $files = array_merge($files, self::rglob($dir . '/' . basename($pattern), $flags));
+        }
+        return $files;
     }
 
 }

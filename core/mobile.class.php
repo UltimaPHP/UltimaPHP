@@ -67,10 +67,11 @@ class Mobile {
     );
 
     function __construct($serial = null) {
-        $this->summon();
         if ($serial === null) {
-            $this->serial = dechex(UltimaPHP::BITMASK_ITEM | dechex(rand(111111, 900000)));
+            $this->id = rand(100000, 999999);
+            $this->serial = $this->id;
         }
+        $this->summon();
     }
 
     /**
@@ -83,5 +84,24 @@ class Mobile {
     public function destroy() {
         
     }
+
+    /**
+     * Draw character on client
+     */
+    public function drawChar($client) {
+        $packet = "78";
+        $packet .= str_pad(dechex(23), 4, "0", STR_PAD_LEFT);
+        $packet .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);
+        $packet .= str_pad(dechex($this->body), 4, "0", STR_PAD_LEFT);
+        $packet .= str_pad(dechex($this->position['x']), 4, "0", STR_PAD_LEFT);
+        $packet .= str_pad(dechex($this->position['y']), 4, "0", STR_PAD_LEFT);
+        $packet .= Functions::toChar8($this->position['z']);
+        $packet .= str_pad(dechex($this->position['facing']), 2, "0", STR_PAD_LEFT);
+        $packet .= str_pad(dechex($this->color), 4, "0", STR_PAD_LEFT);
+        $packet .= str_pad(dechex(0x40), 2, "0", STR_PAD_LEFT);
+        $packet .= str_pad(dechex(0x06), 2, "0", STR_PAD_LEFT);
+        $packet .= "00000000";
+        
+        Sockets::out($client, $packet);
+    }
 }
-?>    

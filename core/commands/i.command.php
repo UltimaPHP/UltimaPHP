@@ -17,6 +17,12 @@ class ICommand {
             return false;
         }
 
+        if (!isset(class_parents($itemDef)['Object'])) {
+            new SysmessageCommand($client, ["Sorry, but you are trying to add a mobile as an item, use .m ".$args[0]." to add this mobile."]);
+            return false;
+        }
+
+
         $item = new $itemDef();
         $player = UltimaPHP::$socketClients[$client]['account']->player;
 	    Map::addObjectToMap($item, $player->position['x'], $player->position['y'], $player->position['z'], $player->position['map']);

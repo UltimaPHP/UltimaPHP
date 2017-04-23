@@ -7,38 +7,38 @@
 class UltimaPHP {
     /* Server Status */
 
-    const STATUS_START = 1;
-    const STATUS_STOP = 2;
-    const STATUS_FATAL = 4;
-    const STATUS_FILE_LOADING = 8;
-    const STATUS_FILE_LOAD_FAIL = 16;
-    const STATUS_FILE_LOADED = 32;
-    const STATUS_DATABASE_CONNECTING = 64;
-    const STATUS_DATABASE_CONNECTED = 128;
-    const STATUS_DATABASE_CONNECTION_FAILED = 256;
-    const STATUS_UNHANDLED = 512;
-    const STATUS_UNKNOWN = 1024;
-    const STATUS_LISTENING = 2048;
-    const STATUS_RUNNING = 4096;
+    const STATUS_START                      = 0x00000;
+    const STATUS_STOP                       = 0x00001;
+    const STATUS_FATAL                      = 0x00002;
+    const STATUS_FILE_LOADING               = 0x00004;
+    const STATUS_FILE_LOAD_FAIL             = 0x00008;
+    const STATUS_FILE_LOADED                = 0x00010;
+    const STATUS_FILE_LOAD_IGNORE           = 0x00020;
+    const STATUS_DATABASE_CONNECTING        = 0x00040;
+    const STATUS_DATABASE_CONNECTED         = 0x00080;
+    const STATUS_DATABASE_CONNECTION_FAILED = 0x00100;
+    const STATUS_UNHANDLED                  = 0x00200;
+    const STATUS_UNKNOWN                    = 0x00400;
+    const STATUS_LISTENING                  = 0x00800;
+    const STATUS_RUNNING                    = 0x01000;
 
     /* Server Log Types */
-    const LOG_NORMAL = "NORMAL";
+    const LOG_NORMAL  = "NORMAL";
     const LOG_WARNING = "WARNING";
-    const LOG_DANGER = "DANGER";
-    const LOG_ERROR = "ERROR";
+    const LOG_DANGER  = "DANGER";
+    const LOG_ERROR   = "ERROR";
 
     /* Server bitwise masks */
-    const BITMASK_UNUSED = 0xFFFFFFFF;
-    const BITMASK_RESOURCE = 0x80000000;
-    const BITMASK_ITEM = 0x40000000;
-    const BITMASK_EQUIPPED = 0x20000000;
-    const BITMASK_CONTAINED = 0x10000000;
+    const BITMASK_UNUSED     = 0xFFFFFFFF;
+    const BITMASK_RESOURCE   = 0x80000000;
+    const BITMASK_ITEM       = 0x40000000;
+    const BITMASK_EQUIPPED   = 0x20000000;
+    const BITMASK_CONTAINED  = 0x10000000;
     const BITMASK_DISCONNECT = 0x30000000;
     const BITMASK_INDEX_MASK = 0x0FFFFFFF;
     const BITMASK_INDEX_FREE = 0x01000000;
 
     /* Server Variables */
-
     static $status = self::STATUS_UNKNOWN;
     static $start_time;
     static $basedir;
@@ -48,18 +48,18 @@ class UltimaPHP {
     /* Server Clients Sockets Variables */
     static $socketServer;
     static $socketClients = array();
-    static $socketEvents = array();
+    static $socketEvents  = array();
 
     /* Server Database Connection Variables */
     static $db;
 
     /* Shard Variables */
     static $starting_locations = array();
-    static $clients = 0;
-    static $items = 0;
-    static $npcs = 0;
+    static $clients            = 0;
+    static $items              = 0;
+    static $npcs               = 0;
 
-    function __construct($dir) {
+    public function __construct($dir) {
         self::$basedir = $dir . "/";
     }
 
@@ -80,9 +80,9 @@ class UltimaPHP {
                 self::stop();
             }
 
-            $name = basename($file, ".core.php");
+            $name      = basename($file, ".core.php");
             $className = ucfirst($name);
-            $$name = new $className();
+            $$name     = new $className();
 
             self::setStatus(self::STATUS_FILE_LOADED);
         }
@@ -126,17 +126,20 @@ class UltimaPHP {
             self::setStatus(self::STATUS_FILE_LOADED);
         }
 
-        // Load items
-        foreach (self::$conf['scripts']['load'] as $folder) {
-            foreach (glob(self::$basedir . $folder . "*.php") as $file) {
-                self::setStatus(self::STATUS_FILE_LOADING, array(
-                    $folder . basename($file),
-                ));
+        // Load scripts
+        foreach (Functions::rglob(self::$conf['scripts']['load'] . "*.php") as $file) {
+            self::setStatus(self::STATUS_FILE_LOADING, array(
+                $file,
+            ));
 
+            if (class_exists(pathinfo($file, PATHINFO_FILENAME))) {
+                self::setStatus(self::STATUS_FILE_LOAD_IGNORE);
+            } else {
                 if (!require_once ($file)) {
                     self::setStatus(self::STATUS_FILE_LOAD_FAIL);
                     self::stop();
                 }
+
                 self::setStatus(self::STATUS_FILE_LOADED);
             }
         }
@@ -144,7 +147,7 @@ class UltimaPHP {
         self::setStatus(self::STATUS_DATABASE_CONNECTING);
         try {
             $dnsString = self::$conf['database']['type'] . ":host=" . self::$conf['database']['host'] . ";dbname=" . self::$conf['database']['schema'] . ";charset=utf8";
-            self::$db = new PDO($dnsString, self::$conf['database']['user'], self::$conf['database']['password']);
+            self::$db  = new PDO($dnsString, self::$conf['database']['user'], self::$conf['database']['password']);
             self::setStatus(self::STATUS_DATABASE_CONNECTED);
             self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
@@ -202,7 +205,7 @@ class UltimaPHP {
             $iniMessage = "Server port not defined";
         } elseif (!isset(self::$conf['server']['timezone'])) {
             $iniMessage = "Server timezone not defined";
-            $iniNote = "More information at: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones";
+            $iniNote    = "More information at: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones";
         } elseif (!isset(self::$conf['server']['lang'])) {
             $iniMessage = "Server language not defined";
         } elseif (!isset(self::$conf['server']['save_time'])) {
@@ -261,11 +264,11 @@ class UltimaPHP {
         }
 
         // Update the variable as array
-        $clientVersion = explode(".", self::$conf['server']['client']);
+        $clientVersion                  = explode(".", self::$conf['server']['client']);
         self::$conf['server']['client'] = array(
-            'major' => $clientVersion[0],
-            'minor' => $clientVersion[1],
-            'revision' => $clientVersion[2],
+            'major'     => $clientVersion[0],
+            'minor'     => $clientVersion[1],
+            'revision'  => $clientVersion[2],
             'prototype' => $clientVersion[3],
         );
 
@@ -281,10 +284,10 @@ class UltimaPHP {
         }
 
         self::$servers[] = array(
-            'name' => UltimaPHP::$conf['server']['name'],
-            'ip' => UltimaPHP::$conf['server']['ip'],
-            'port' => UltimaPHP::$conf['server']['port'],
-            'full' => (0 == UltimaPHP::$conf['server']['max_players'] ? 0 : ceil((UltimaPHP::$clients / UltimaPHP::$conf['server']['max_players']) * 100)),
+            'name'     => UltimaPHP::$conf['server']['name'],
+            'ip'       => UltimaPHP::$conf['server']['ip'],
+            'port'     => UltimaPHP::$conf['server']['port'],
+            'full'     => (0 == UltimaPHP::$conf['server']['max_players'] ? 0 : ceil((UltimaPHP::$clients / UltimaPHP::$conf['server']['max_players']) * 100)),
             'timezone' => UltimaPHP::$conf['server']['timezone'],
         );
 
@@ -293,77 +296,82 @@ class UltimaPHP {
 
     public static function setStatus($status, $args = array()) {
         switch ($status) {
-            case self::STATUS_START:
-                $message = "Starting server";
-                $type = self::LOG_NORMAL;
-                break;
+        case self::STATUS_START:
+            $message = "Starting server";
+            $type    = self::LOG_NORMAL;
+            break;
 
-            case self::STATUS_STOP:
-                $message = "Stoping server";
-                $type = self::LOG_NORMAL;
-                $shutdown = true;
-                break;
+        case self::STATUS_STOP:
+            $message  = "Stoping server";
+            $type     = self::LOG_NORMAL;
+            $shutdown = true;
+            break;
 
-            case self::STATUS_FATAL:
-                $message = "Server crashed suddenly";
-                $type = self::LOG_DANGER;
-                $shutdown = true;
-                break;
+        case self::STATUS_FATAL:
+            $message  = "Server crashed suddenly";
+            $type     = self::LOG_DANGER;
+            $shutdown = true;
+            break;
 
-            case self::STATUS_FILE_LOADING:
-                $message = "Loading file: " . $args[0];
-                $type = self::LOG_NORMAL;
-                break;
+        case self::STATUS_FILE_LOADING:
+            $message = "Loading file: " . $args[0];
+            $type    = self::LOG_NORMAL;
+            break;
 
-            case self::STATUS_FILE_LOAD_FAIL:
-                $message = "Loading file failed";
-                $type = self::LOG_DANGER;
-                break;
+        case self::STATUS_FILE_LOAD_FAIL:
+            $message = "Loading file failed";
+            $type    = self::LOG_DANGER;
+            break;
 
-            case self::STATUS_FILE_LOADED:
-                $message = null;
-                $type = self::LOG_NORMAL;
-                break;
+        case self::STATUS_FILE_LOADED:
+            $message = null;
+            $type    = self::LOG_NORMAL;
+            break;
 
-            case self::STATUS_DATABASE_CONNECTING:
-                $message = "Trying to connect to the database";
-                $type = SELF::LOG_NORMAL;
-                break;
+        case self::STATUS_FILE_LOAD_IGNORE:
+            $message = "Can't load file, the class name is already taken";
+            $type    = self::LOG_WARNING;
+            break;
 
-            case self::STATUS_DATABASE_CONNECTED:
-                $message = "Database connected successfully";
-                $type = SELF::LOG_NORMAL;
-                break;
+        case self::STATUS_DATABASE_CONNECTING:
+            $message = "Trying to connect to the database";
+            $type    = SELF::LOG_NORMAL;
+            break;
 
-            case self::STATUS_DATABASE_CONNECTION_FAILED:
-                $message = "Server could not connect to the database with error: " . $args[0];
-                $type = SELF::LOG_DANGER;
-                $shutdown = true;
-                break;
+        case self::STATUS_DATABASE_CONNECTED:
+            $message = "Database connected successfully";
+            $type    = SELF::LOG_NORMAL;
+            break;
 
-            case self::STATUS_UNKNOWN:
-                $message = "Unknown status set";
-                $type = self::LOG_WARNING;
-                break;
+        case self::STATUS_DATABASE_CONNECTION_FAILED:
+            $message  = "Server could not connect to the database with error: " . $args[0];
+            $type     = SELF::LOG_DANGER;
+            $shutdown = true;
+            break;
 
-            case self::STATUS_LISTENING:
-                $type = self::LOG_NORMAL;
-                break;
+        case self::STATUS_UNKNOWN:
+            $message = "Unknown status set";
+            $type    = self::LOG_WARNING;
+            break;
 
-            case self::STATUS_RUNNING:
-                $message = "Server is running on " . $args[0] . " at port " . $args[1];
-                $type = self::LOG_NORMAL;
-                break;
+        case self::STATUS_LISTENING:
+            $type = self::LOG_NORMAL;
+            break;
 
-            default:
-                $message = "Wrong status set. restoring last status.";
-                $type = self::LOG_DANGER;
-                $status = self::$status;
-                break;
+        case self::STATUS_RUNNING:
+            $message = "Server is running on " . $args[0] . " at port " . $args[1];
+            $type    = self::LOG_NORMAL;
+            break;
+
+        default:
+            $message = "Wrong status set. restoring last status.";
+            $type    = self::LOG_DANGER;
+            $status  = self::$status;
+            break;
         }
 
         self::$status = $status;
-        
+
         if (isset($message)) {
             self::log($message, $type);
         }
@@ -393,17 +401,17 @@ class UltimaPHP {
         $result = $sth->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($result as $key => $location) {
-            $position = explode(",", $location['position']);
+            $position                   = explode(",", $location['position']);
             self::$starting_locations[] = array(
-                'name' => $location['name'],
-                'area' => $location['area'],
+                'name'     => $location['name'],
+                'area'     => $location['area'],
                 'position' => array(
-                    "x" => $position[0],
-                    "y" => $position[1],
-                    "z" => $position[2],
+                    "x"   => $position[0],
+                    "y"   => $position[1],
+                    "z"   => $position[2],
                     'map' => $position[3],
                 ),
-                'clioc' => $location['clioc'],
+                'clioc'    => $location['clioc'],
             );
         }
 
