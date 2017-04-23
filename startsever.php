@@ -12,5 +12,6 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require_once 'core/server.php';
+require_once 'core/functions.php';
 $server = new UltimaPHP(dirname(__FILE__));
 $server->start();

@@ -43,16 +43,10 @@ class Command {
 
     public function __construct() {
         foreach (glob(UltimaPHP::$basedir . 'core/commands/*.command.php') as $file) {
-            UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_LOADING, array(
-                "core/" . basename($file),
-            ));
-
             if (!require_once ($file)) {
                 UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_LOAD_FAIL);
                 UltimaPHP::stop();
             }
-
-            UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_LOADED);
         }
     }
 

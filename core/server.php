@@ -70,10 +70,11 @@ class UltimaPHP {
         self::loadIni();
 
         // Load the core files
-        foreach (glob(self::$basedir . "core/*.core.php") as $file) {
-            self::setStatus(self::STATUS_FILE_LOADING, array(
-                "core/" . basename($file),
-            ));
+        $coreFiles = glob(self::$basedir . "core/*.core.php");
+        $totalFiles = count($coreFiles);
+
+        foreach ($coreFiles as $fileCount => $file) {
+            Functions::progressBar($fileCount+1, $totalFiles, "Loading core");
 
             if (!require_once ($file)) {
                 self::setStatus(self::STATUS_FILE_LOAD_FAIL);
@@ -83,66 +84,60 @@ class UltimaPHP {
             $name      = basename($file, ".core.php");
             $className = ucfirst($name);
             $$name     = new $className();
-
-            self::setStatus(self::STATUS_FILE_LOADED);
         }
+        echo "\n";
 
         // Load included classes
-        foreach (glob(self::$basedir . "core/*.class.php") as $file) {
-            self::setStatus(self::STATUS_FILE_LOADING, array(
-                "class/" . basename($file),
-            ));
-
+        $classFiles = glob(self::$basedir . "core/*.class.php");
+        $totalFiles = count($classFiles);
+        foreach ($classFiles as $fileCount => $file) {
+            Functions::progressBar($fileCount+1, $totalFiles, "Loading classes");            
             if (!require_once ($file)) {
                 self::setStatus(self::STATUS_FILE_LOAD_FAIL);
                 self::stop();
             }
-            self::setStatus(self::STATUS_FILE_LOADED);
         }
+        echo "\n";
 
         // Load definitions
-        foreach (glob(self::$basedir . "core/defs/*.def.php") as $file) {
-            self::setStatus(self::STATUS_FILE_LOADING, array(
-                "core/defs/" . basename($file),
-            ));
-
+        $defFiles = glob(self::$basedir . "core/defs/*.def.php");
+        $totalFiles = count($defFiles);
+        foreach ($defFiles as $fileCount => $file) {
+            Functions::progressBar($fileCount+1, $totalFiles, "Loading definitions");
             if (!require_once ($file)) {
                 self::setStatus(self::STATUS_FILE_LOAD_FAIL);
                 self::stop();
             }
-            self::setStatus(self::STATUS_FILE_LOADED);
         }
+        echo "\n";
 
         // Load Skills
-        foreach (glob(self::$basedir . "core/skills/*.skill.php") as $file) {
-            self::setStatus(self::STATUS_FILE_LOADING, array(
-                "core/skills/" . basename($file),
-            ));
-
+        $skillFiles = glob(self::$basedir . "core/skills/*.skill.php");
+        $totalFiles = count($skillFiles);
+        foreach ($skillFiles as $fileCount => $file) {
+            Functions::progressBar($fileCount+1, $totalFiles, "Loading skills");
             if (!require_once ($file)) {
                 self::setStatus(self::STATUS_FILE_LOAD_FAIL);
                 self::stop();
             }
-            self::setStatus(self::STATUS_FILE_LOADED);
         }
 
         // Load scripts
-        foreach (Functions::rglob(self::$conf['scripts']['load'] . "*.php") as $file) {
-            self::setStatus(self::STATUS_FILE_LOADING, array(
-                $file,
-            ));
+        $scripts = Functions::rglob(self::$conf['scripts']['load'] . "*.php");
+        $scriptsTotal = count($scripts);
+        foreach ($scripts as $scriptKey => $file) {            
+            Functions::progressBar($scriptKey+1, $scriptsTotal, "Loading scripts");
 
             if (class_exists(pathinfo($file, PATHINFO_FILENAME))) {
-                self::setStatus(self::STATUS_FILE_LOAD_IGNORE);
+                self::setStatus(self::STATUS_FILE_LOAD_IGNORE, [$file]);
             } else {
                 if (!require_once ($file)) {
                     self::setStatus(self::STATUS_FILE_LOAD_FAIL);
                     self::stop();
                 }
-
-                self::setStatus(self::STATUS_FILE_LOADED);
             }
         }
+        echo "\n";
 
         self::setStatus(self::STATUS_DATABASE_CONNECTING);
         try {
@@ -178,9 +173,6 @@ class UltimaPHP {
     }
 
     private static function loadIni() {
-        self::setStatus(self::STATUS_FILE_LOADING, array(
-            "ultimaphp.ini",
-        ));
         if (!is_file(self::$basedir . "ultimaphp.ini")) {
             self::setStatus(self::STATUS_FILE_LOAD_FAIL);
             self::stop();
@@ -290,8 +282,6 @@ class UltimaPHP {
             'full'     => (0 == UltimaPHP::$conf['server']['max_players'] ? 0 : ceil((UltimaPHP::$clients / UltimaPHP::$conf['server']['max_players']) * 100)),
             'timezone' => UltimaPHP::$conf['server']['timezone'],
         );
-
-        self::setStatus(self::STATUS_FILE_LOADED);
     }
 
     public static function setStatus($status, $args = array()) {
@@ -329,7 +319,7 @@ class UltimaPHP {
             break;
 
         case self::STATUS_FILE_LOAD_IGNORE:
-            $message = "Can't load file, the class name is already taken";
+            $message = "Can't load file, the class name is already taken" . (isset($args[0]) ? " (".$args[0].")" : "");
             $type    = self::LOG_WARNING;
             break;
 

@@ -143,4 +143,9 @@ class Functions {
         return ($position['x'] >= $updateRange['from']['x'] && $position['x'] <= $updateRange['to']['x'] && $position['y'] >= $updateRange['from']['y'] && $position['y'] <= $updateRange['to']['y'] ? true : false);
     }
 
+    public static  function progressBar($done, $total, $msg = null) {
+        $perc = floor(($done / $total) * 100);
+        echo date("H:i:s") . ": {$msg}: {$perc}%\r";
+    }
+
 }

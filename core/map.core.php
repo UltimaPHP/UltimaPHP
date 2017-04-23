@@ -25,11 +25,10 @@ class Map {
         /**
          * Render the maps inside chunk arrays
          */
+       	
         while (isset(UltimaPHP::$conf["muls"]["map{$actualMap}"])) {
             $mapFile = UltimaPHP::$conf['muls']['location'] . "map{$actualMap}.mul";
             $mapSize = explode(",", UltimaPHP::$conf["muls"]["map{$actualMap}"]);
-
-            UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_LOADING, [$mapFile]);
 
             if (!is_file($mapFile)) {
                 UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_LOAD_FAIL);
@@ -93,8 +92,6 @@ class Map {
             /* Send the server proccess and map the statics from actual map */
             // self::readStaticsFromPosition(0, 1429, 1695);
             // self::readStatics($actualMap);
-
-            UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_LOADED);
             $actualMap++;
         }
 
@@ -281,6 +278,7 @@ class Map {
         ];
 
         self::$serialData[(int)$player->serial] = ['map' => $player->position['map'], 'x' => $chunk['x'], 'y' => $chunk['y']];
+        self::updateChunk(false, $player->client);
 
         return true;
     }
