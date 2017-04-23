@@ -37,7 +37,8 @@ class Object {
     public function __construct($serial = null) {
         $this->build();
         if ($serial === null) {
-            $this->serial = (int)dechex(UltimaPHP::BITMASK_ITEM | dechex(rand(111111, 900000)));
+            $this->id = Map::newSerial("object");
+            $this->serial = dechex(UltimaPHP::BITMASK_ITEM | $this->id);
         }
     }
 

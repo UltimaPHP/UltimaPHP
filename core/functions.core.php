@@ -57,8 +57,17 @@ class Functions {
 
     public static function implodeByte($byteArray = array(), $from, $to) {
         $ret = "";
+        $err = false;
         for ($i = $from; $i <= $to; $i++) {
+            if (!isset($byteArray[$i])) {
+                $err = true;
+            }
             $ret .= $byteArray[$i];
+        }
+
+        if ($err) {
+            echo "Erro dealing with this byte array:\n";
+            print_r($byteArray);
         }
         return $ret;
     }

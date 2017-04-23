@@ -64,7 +64,7 @@ class Mobile {
 
     function __construct($serial = null) {
         if ($serial === null) {
-            $this->id = rand(100000, 999999);
+            $this->id = Map::newSerial('mobile');
             $this->serial = $this->id;
         }
         $this->summon();

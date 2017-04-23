@@ -688,15 +688,15 @@ class Player {
         Sockets::out($this->client, $packet, false);
     }
 
-    public function removeObjectFromView($object_id = null) {
-        if ($object_id === null) {
+    public function removeObjectFromView($serial = null) {
+        if ($serial === null) {
             return false;
         }
         $packet = "1D";
-        $packet .= str_pad($object_id, 8, "0", STR_PAD_LEFT);
+        $packet .= str_pad($serial, 8, "0", STR_PAD_LEFT);
 
         /* Remove the object from player view range*/
-        unset($this->mapRange[$object_id]);
+        unset($this->mapRange[$serial]);
 
         Sockets::out($this->client, $packet, false);   
     }

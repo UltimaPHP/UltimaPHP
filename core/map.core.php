@@ -15,6 +15,10 @@ class Map {
     public static $chunkSize   = 256; // Number in square
     public static $tileMatrix  = [];
     private static $serialData = [];
+    private static $lastSerial = [
+        'mobile' => 0,
+        'object' => 0,
+    ];
 
     public function __construct() {
         $actualMap = 0;
@@ -108,6 +112,15 @@ class Map {
         //         );
         //     }
         // }
+    }
+
+    public static function newSerial($type = null) {
+        if ($type === null) {
+            return false;
+        }
+
+        self::$lastSerial[$type]++;
+        return (isset(self::$serialData[self::$lastSerial[$type]]) ? self::newSerial($type) : self::$lastSerial[$type]);
     }
 
     /**
@@ -287,13 +300,13 @@ class Map {
 
         $chunk = self::getChunk($pos_x, $pos_y);
 
-        self::$chunks[$pos_m][$chunk['x']][$chunk['y']][(int)$object->serial] = [
+        self::$chunks[$pos_m][$chunk['x']][$chunk['y']][$object->serial] = [
             'type'     => 'object',
             'client'   => null,
             'instance' => $object,
         ];
 
-        self::$serialData[(int)$object->serial] = ['map' => $pos_m, 'x' => $chunk['x'], 'y' => $chunk['y']];
+        self::$serialData[$object->serial] = ['map' => $pos_m, 'x' => $chunk['x'], 'y' => $chunk['y']];
 
         self::updateChunk($chunk, false, $pos_m);
 
@@ -316,13 +329,13 @@ class Map {
 
         $chunk = self::getChunk($pos_x, $pos_y);
 
-        self::$chunks[$pos_m][$chunk['x']][$chunk['y']][(int)$mobile->serial] = [
+        self::$chunks[$pos_m][$chunk['x']][$chunk['y']][$mobile->serial] = [
             'type'     => "mobile",
             'client'   => null,
             'instance' => $mobile,
         ];
 
-        self::$serialData[(int)$mobile->serial] = ['map' => $pos_m, 'x' => $chunk['x'], 'y' => $chunk['y']];
+        self::$serialData[$mobile->serial] = ['map' => $pos_m, 'x' => $chunk['x'], 'y' => $chunk['y']];
 
         self::updateChunk($chunk, false, $pos_m);
 
@@ -336,6 +349,8 @@ class Map {
 
         $serial = (int)$serial;
 
+        echo "Testing serial: $serial\n";
+
         if (!isset(self::$serialData[$serial])) {
             return false;
         }
@@ -344,16 +359,16 @@ class Map {
         $info  = self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']][$serial];
 
         switch ($info['type']) {
-        case 'player':
-            return UltimaPHP::$socketClients[$info['client']]['account']->player;
-            break;
-        case 'mobile':
-        case 'object':
-            return $info['instance'];
-            break;
-        default:
-            return false;
-            break;
+            case 'player':
+                return UltimaPHP::$socketClients[$info['client']]['account']->player;
+                break;
+            case 'mobile':
+            case 'object':
+                return $info['instance'];
+                break;
+            default:
+                return false;
+                break;
         }
     }
 
@@ -424,12 +439,16 @@ class Map {
                 'to'   => ['x' => ($actual_player->position['x'] + $actual_player->render_range), 'y' => ($actual_player->position['y'] + $actual_player->render_range)],
             ];
 
+            /* Remove objects that was removed from player view */
+            foreach ($actual_player->mapRange as $serialTest => $active) {
+                $actual_player->removeObjectFromView($serialTest);
+            }
+
             /* Loop trought every items and mobiles to update on player view */
             foreach ($chunkData as $serialTest => $dataTest) {
-
                 if ($dataTest['type'] != "player") {
                     /* Do not send draw packets again if object is allready in player view */
-                    if ($serialTest == $serial){
+                    if ($serialTest == $serial) {
                         continue;
                     }
 

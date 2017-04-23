@@ -29,14 +29,14 @@ class UltimaPHP {
     const LOG_ERROR   = "ERROR";
 
     /* Server bitwise masks */
-    const BITMASK_UNUSED     = 0xFFFFFFFF;
-    const BITMASK_RESOURCE   = 0x80000000;
-    const BITMASK_ITEM       = 0x40000000;
-    const BITMASK_EQUIPPED   = 0x20000000;
-    const BITMASK_CONTAINED  = 0x10000000;
-    const BITMASK_DISCONNECT = 0x30000000;
     const BITMASK_INDEX_MASK = 0x0FFFFFFF;
     const BITMASK_INDEX_FREE = 0x01000000;
+    const BITMASK_UNUSED     = 0xFFFFFFFF;
+    const BITMASK_CONTAINED  = 0x10000000;
+    const BITMASK_EQUIPPED   = 0x20000000;
+    const BITMASK_DISCONNECT = 0x30000000;
+    const BITMASK_ITEM       = 0x40000000;
+    const BITMASK_RESOURCE   = 0x0000000;
 
     /* Server Variables */
     static $status = self::STATUS_UNKNOWN;
