@@ -278,7 +278,6 @@ class Map {
         ];
 
         self::$serialData[(int)$player->serial] = ['map' => $player->position['map'], 'x' => $chunk['x'], 'y' => $chunk['y']];
-        self::updateChunk(false, $player->client);
 
         return true;
     }
