@@ -60,11 +60,7 @@ class Mobile {
     public $virtualarmor;
 
     /* Temporary Variables */
-    public $mapRange = array(
-        'objects' => array(),
-        'players' => array(),
-        'npcs'    => array(),
-    );
+    public $mapRange = [];
 
     function __construct($serial = null) {
         if ($serial === null) {
@@ -77,7 +73,7 @@ class Mobile {
     /**
      * Draw mobile for client
      */
-    public function drawChar($client) {
+    public function draw($client) {
         $packet = "78";
         $packet .= str_pad(dechex(23), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);

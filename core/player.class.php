@@ -59,11 +59,7 @@ class Player {
     public $skills = [];
 
     /* Temporary Variables */
-    public $mapRange = array(
-        'objects' => array(),
-        'players' => array(),
-        'npcs'    => array(),
-    );
+    public $mapRange = [];
 
     public function __construct($client = null, $character_serial = null) {
         if (null === $client || null === $character_serial) {
@@ -280,10 +276,11 @@ class Player {
     }
 
 	// A ser implementado    
-    public function equipRequest($serial, $layer, $container) {
-        if ($object === null) {
+    public function equipRequest($serial = null, $layer = null, $container = null) {
+        if ($serial === null || $layer === null) {
             return false;
         }
+        
         echo "Serial: ".$serial."\nLayer: ".$layer."\nContainer: ".$container;
 
     }
@@ -622,8 +619,6 @@ class Player {
         $tmpDirection = hexdec($direction);
         $tmpDirection &= ~0x80;
 
-        $oldPosition = $this->position;
-
         if ((int) $direction >= 80) {
             $this->position['running'] = true;
         } else {
@@ -665,9 +660,6 @@ class Player {
             }
         }
 
-        $newPosition = $this->position;
-        Map::updatePlayerLocation($this->client, $oldPosition, $newPosition);
-
         $packet = "22" . str_pad($sequence, 2, "0", STR_PAD_LEFT) . "01";
         Sockets::out($this->client, $packet, false);
 
@@ -702,6 +694,10 @@ class Player {
         }
         $packet = "1D";
         $packet .= str_pad($object_id, 8, "0", STR_PAD_LEFT);
+
+        /* Remove the object from player view range*/
+        unset($this->mapRange[$object_id]);
+
         Sockets::out($this->client, $packet, false);   
     }
 
@@ -846,30 +842,14 @@ class Player {
     }
 
     public function sendCharName($serial) {
-        $chunkInfo = Map::getChunk($this->position['x'], $this->position['y'], $this->position['map']);
-        $chunk = Map::$chunks[$chunkInfo['map']][$chunkInfo['x']][$chunkInfo['y']];
+        $instance = Map::getBySerial($serial);
 
-        $name = null;
-        foreach ($chunk['players'] as $client_id => $alive) {
-            $player = UltimaPHP::$socketClients[$client_id]['account']->player;
-            
-            if ($player->serial == $serial) {
-                $name = $player->name;
-            }
-        }
-
-        foreach ($chunk['mobiles'] as $key => $mobile) {
-            if ($mobile->serial == $serial) {
-                $name = $mobile->name;
-            }
-        }
-
-        if ($name === null) {
+        if ($instance === false) {
             return false;
         }
 
         $tmpPacket = str_pad($serial, 8, "0", STR_PAD_LEFT);
-        $tmpPacket .= str_pad(Functions::strToHex($name), 60, "0", STR_PAD_RIGHT);
+        $tmpPacket .= str_pad(Functions::strToHex($instance->name), 60, "0", STR_PAD_RIGHT);
 
 
         $packet = "98";

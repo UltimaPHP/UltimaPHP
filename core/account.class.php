@@ -288,11 +288,6 @@ class Account {
                 "method" => "playMusic",
                 "args"   => 29,
             ), 0.0, true, true);
-            Sockets::addEvent($this->client, array(
-                "option" => "map",
-                "method" => "updatePlayerLocation",
-                "args"   => $this->client,
-            ), 0.2, false);
         } else {
             $this->disconnect(4);
         }

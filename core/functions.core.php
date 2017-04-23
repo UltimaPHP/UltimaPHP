@@ -130,4 +130,8 @@ class Functions {
         return $files;
     }
 
+    public static function inRangeView($position, $updateRange) {
+        return ($position['x'] >= $updateRange['from']['x'] && $position['x'] <= $updateRange['to']['x'] && $position['y'] >= $updateRange['from']['y'] && $position['y'] <= $updateRange['to']['y'] ? true : false);
+    }
+
 }

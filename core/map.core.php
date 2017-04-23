@@ -11,9 +11,10 @@ class Map {
      */
     public static $maps        = [];
     public static $mapSizes    = [];
-    public static $chunks     = [];
-    public static $chunkSize  = 256; // Number in square
-    public static $tileMatrix = [];
+    public static $chunks      = [];
+    public static $chunkSize   = 256; // Number in square
+    public static $tileMatrix  = [];
+    private static $serialData = [];
 
     public function __construct() {
         $actualMap = 0;
@@ -24,9 +25,7 @@ class Map {
             $mapFile = UltimaPHP::$conf['muls']['location'] . "map{$actualMap}.mul";
             $mapSize = explode(",", UltimaPHP::$conf["muls"]["map{$actualMap}"]);
 
-            UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_LOADING, array(
-                $mapFile,
-            ));
+            UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_LOADING, [$mapFile]);
 
             if (!is_file($mapFile)) {
                 UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_LOAD_FAIL);
@@ -38,24 +37,20 @@ class Map {
 
             // Build the array that will store map chunks
             for ($xChunk = 0; $xChunk < $chunks_x; $xChunk++) {
-                self::$chunks[$actualMap][$xChunk] = array();
+                self::$chunks[$actualMap][$xChunk] = [];
                 for ($yChunk = 0; $yChunk < $chunks_y; $yChunk++) {
-                    self::$chunks[$actualMap][$xChunk][$yChunk] = array(
-                        'objects' => array(),
-                        'players' => array(),
-                        'mobiles'    => array(),
-                    );
+                    self::$chunks[$actualMap][$xChunk][$yChunk] = [];
                 }
             }
 
             // Store information about the map muls and size
-            self::$maps[$actualMap] = array(
+            self::$maps[$actualMap] = [
                 'mul'  => null,
-                'size' => array(
+                'size' => [
                     'x' => null,
                     'y' => null,
-                ),
-            );
+                ],
+            ];
 
             self::$mapSizes[$actualMap]['x']     = $mapSize[0];
             self::$mapSizes[$actualMap]['y']     = $mapSize[1];
@@ -64,9 +59,9 @@ class Map {
             self::$maps[$actualMap]['size']['y'] = (int) $mapSize[1] >> 3;
 
             // for ($x = 0; $x < self::$maps[$actualMap]['size']['x']; ++$x) {
-            //     self::$maps[$actualMap][$x] = array();
+            //     self::$maps[$actualMap][$x] = [];
             //     for ($y = 0; $y < self::$maps[$actualMap]['size']['y']; ++$y) {
-            //         self::$maps[$actualMap][$x][$y] = array();
+            //         self::$maps[$actualMap][$x][$y] = [];
 
             //         fseek(self::$maps[$actualMap]['mul'], ((($x * self::$maps[$actualMap]['size']['y']) + $y) * 196), SEEK_SET);
             //         $header = hexdec(bin2hex(fread(self::$maps[$actualMap]['mul'], 4)));
@@ -104,12 +99,12 @@ class Map {
 
         // // Build the array that will store map chunks
         // for ($x = 0; $x < $chunks_x; $x++) {
-        //     self::$chunks[$x] = array();
+        //     self::$chunks[$x] = [];
         //     for ($y = 0; $y < $chunks_y; $y++) {
         //         self::$chunks[$x][$y] = array(
-        //             'objects' => array(),
-        //             'players' => array(),
-        //             'npcs' => array(),
+        //             'objects' => [],
+        //             'players' => [],
+        //             'npcs' => [],
         //         );
         //     }
         // }
@@ -202,10 +197,10 @@ class Map {
         $staticIdx = fopen(UltimaPHP::$conf['muls']['location'] . "statics{$map}.mul", 'rb');
         $staticMul = fopen(UltimaPHP::$conf['muls']['location'] . "staidx{$map}.mul", 'rb');
 
-        $updateRange = array(
-            'from' => array('x' => ($pos_x - 10), 'y' => ($pos_y - 10)),
-            'to'   => array('x' => ($pos_x + 10), 'y' => ($pos_y + 10)),
-        );
+        $updateRange = [
+            'from' => ['x' => ($pos_x - 10), 'y' => ($pos_y - 10)],
+            'to'   => ['x' => ($pos_x + 10), 'y' => ($pos_y + 10)],
+        ];
 
         // for ($x = $updateRange['from']['x']; $x < $updateRange['to']['x']; $x++) {
         //     for ($y = $updateRange['from']['y']; $y < $updateRange['to']['y']; $y++) {
@@ -249,24 +244,31 @@ class Map {
     /**
      * Return the chunk number of desired map position
      */
-    public static function getChunk($pos_x = null, $pos_y = null, $pos_map = null) {
-        if ($pos_x === null || $pos_y === null || $pos_map === null || $pos_x <= 0 || $pos_y <= 0) {
+    public static function getChunk($pos_x = null, $pos_y = null) {
+        if ($pos_x === null || $pos_y === null || $pos_x <= 0 || $pos_y <= 0) {
             return false;
         }
 
-        return array(
-            'x'   => (int) ceil($pos_x / self::$chunkSize),
-            'y'   => (int) ceil($pos_y / self::$chunkSize),
-            'map' => (int) $pos_map,
-        );
+        return [
+            'x' => (int) ceil($pos_x / self::$chunkSize),
+            'y' => (int) ceil($pos_y / self::$chunkSize),
+        ];
     }
 
     /**
      * Add the player to into the map and store information inside the right chunk
      */
     public static function addPlayerToMap(Player $player) {
-        $chunk                                                                                        = self::getChunk($player->position['x'], $player->position['y'], $player->position['map']);
-        self::$chunks[$player->position['map']][$chunk['x']][$chunk['y']]['players'][$player->client] = true;
+        $chunk = self::getChunk($player->position['x'], $player->position['y']);
+
+        self::$chunks[$player->position['map']][$chunk['x']][$chunk['y']][(int)$player->serial] = [
+            'type'     => "player",
+            'client'   => $player->client,
+            'instance' => null,
+        ];
+
+        self::$serialData[(int)$player->serial] = ['map' => $player->position['map'], 'x' => $chunk['x'], 'y' => $chunk['y']];
+
         return true;
     }
 
@@ -274,15 +276,27 @@ class Map {
      *     Add the desired object into the map and store information inside the right chunk
      */
     public static function addObjectToMap(Object $object, $pos_x, $pos_y, $pos_z, $pos_m) {
-        $object->pos_x    = $pos_x;
-        $object->pos_y    = $pos_y;
-        $object->pos_z    = $pos_z;
-        $object->pos_map  = $pos_m;
-        $object->location = "map";
+        $object->position = [
+            'x'       => $pos_x,
+            'y'       => $pos_y,
+            'z'       => $pos_z,
+            'map'     => $pos_m,
+            'facing'  => 0,
+            'running' => 0,
+        ];
 
-        $chunk                                                       = self::getChunk($pos_x, $pos_y, $pos_m);
-        self::$chunks[$pos_m][$chunk['x']][$chunk['y']]['objects'][] = $object;
-        self::updateChunk($chunk, false);
+        $chunk = self::getChunk($pos_x, $pos_y);
+
+        self::$chunks[$pos_m][$chunk['x']][$chunk['y']][(int)$object->serial] = [
+            'type'     => 'object',
+            'client'   => null,
+            'instance' => $object,
+        ];
+
+        self::$serialData[(int)$object->serial] = ['map' => $pos_m, 'x' => $chunk['x'], 'y' => $chunk['y']];
+
+        self::updateChunk($chunk, false, $pos_m);
+
         return true;
     }
 
@@ -290,66 +304,57 @@ class Map {
      *     Add the desired object into the map and store information inside the right chunk
      */
     public static function addMobileToMap(Mobile $mobile, $pos_x, $pos_y, $pos_z, $pos_m) {
-        $mobile->position = array(
+        $mobile->position = [
             'x'       => $pos_x,
             'y'       => $pos_y,
             'z'       => $pos_z,
             'map'     => $pos_m,
             'facing'  => random_int(0, 6),
-            'running' => 0
-        );
+            'running' => 0,
+        ];
         $mobile->location = "map";
 
-        $chunk = self::getChunk($pos_x, $pos_y, $pos_m);
-        self::$chunks[$pos_m][$chunk['x']][$chunk['y']]['mobiles'][] = $mobile;
-        self::updateChunk($chunk, false);
+        $chunk = self::getChunk($pos_x, $pos_y);
+
+        self::$chunks[$pos_m][$chunk['x']][$chunk['y']][(int)$mobile->serial] = [
+            'type'     => "mobile",
+            'client'   => null,
+            'instance' => $mobile,
+        ];
+
+        self::$serialData[(int)$mobile->serial] = ['map' => $pos_m, 'x' => $chunk['x'], 'y' => $chunk['y']];
+
+        self::updateChunk($chunk, false, $pos_m);
+
         return true;
     }
 
-    public static function getBySerial($serial = false, $client = false) {
-        if ($serial === false || $client === false) {
+    public static function getBySerial($serial = false) {
+        if ($serial === false) {
             return false;
         }
 
-        $player = UltimaPHP::$socketClients[$client]['account']->player;
-        $chunk = self::getChunk($player->position['x'], $player->position['y'], $player->position['map']);
-        $chunk = self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']];
+        $serial = (int)$serial;
 
-        foreach ($chunk['objects'] as $key => $object) {
-            if ($object->serial == $serial) {
-                return $object;
-            }
+        if (!isset(self::$serialData[$serial])) {
+            return false;
         }
 
-        foreach ($chunk['players'] as $client_id => $active) {
-            $tmpPlayer = UltimaPHP::$socketClients[$client_id]['account']->player;
-            if ($tmpPlayer->serial == $serial) {
-                return ;
-            }
+        $chunk = self::$serialData[$serial];
+        $info  = self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']][$serial];
+
+        switch ($info['type']) {
+        case 'player':
+            return UltimaPHP::$socketClients[$info['client']]['account']->player;
+            break;
+        case 'mobile':
+        case 'object':
+            return $info['instance'];
+            break;
+        default:
+            return false;
+            break;
         }
-
-        foreach ($chunk['mobiles'] as $key => $mobile) {
-            if ($mobile->serial == $serial) {
-                return $mobile;
-            }
-        }
-
-    }
-
-    /**
-     * Update the player position and other players around
-     */
-    public static function updatePlayerLocation($client) {
-        $player = UltimaPHP::$socketClients[$client]['account']->player;
-
-        $chunk = self::getChunk($player->position['x'], $player->position['y'], $player->position['map']);
-
-        /* Update the chunk that player is insite, if needed */
-        self::$chunks[$player->position['map']][$chunk['x']][$chunk['y']]['players'][$client] = true;
-
-        /* Send update packet information for players around player */
-        self::updateChunk($chunk, $client);
-        return true;
     }
 
     /**
@@ -362,137 +367,105 @@ class Map {
 
         $actual_player = UltimaPHP::$socketClients[$client]['account']->player;
 
-        $chunkInfo = self::getChunk($actual_player->position['x'], $actual_player->position['y'], $actual_player->position['map']);
+        $chunkInfo = self::getChunk($actual_player->position['x'], $actual_player->position['y']);
         $chunk     = self::$chunks[$actual_player->position['map']][$chunkInfo['x']][$chunkInfo['y']];
 
-        $updateRange = array(
-            'from' => array('x' => ($actual_player->position['x'] - 10), 'y' => ($actual_player->position['y'] - 10)),
-            'to'   => array('x' => ($actual_player->position['x'] + 10), 'y' => ($actual_player->position['y'] + 10)),
-        );
+        $updateRange = [
+            'from' => ['x' => ($actual_player->position['x'] - 10), 'y' => ($actual_player->position['y'] - 10)],
+            'to'   => ['x' => ($actual_player->position['x'] + 10), 'y' => ($actual_player->position['y'] + 10)],
+        ];
 
-        foreach ($chunk['players'] as $client_id => $alive) {
-            $player = UltimaPHP::$socketClients[$client_id]['account']->player;
+        foreach ($chunk as $serial => $data) {
+            if ($data['type'] != "player") {
+                continue;
+            }
+
+            $player = UltimaPHP::$socketClients[$data['client']]['account']->player;
 
             if ($actual_player->serial != $player->serial && $player->position['x'] >= $updateRange['from']['x'] && $player->position['x'] <= $updateRange['to']['x'] && $player->position['y'] >= $updateRange['from']['y'] && $player->position['y'] <= $updateRange['to']['y']) {
-                Sockets::out($client_id, $packet, false);
+                Sockets::out($player->client, $packet, false);
             }
         }
     }
 
     /**
      * Update players with objects from desired chunk
+     * $map is only used in case of the request come from a mobile or items
      */
-    public static function updateChunk($chunk = null, $client = false) {
+    public static function updateChunk($chunk = null, $client = false, $map = null) {
         if ($chunk === null && $client !== false) {
-            $chunk = self::getChunk(UltimaPHP::$socketClients[$client]['account']->player->position['x'], UltimaPHP::$socketClients[$client]['account']->player->position['y'], UltimaPHP::$socketClients[$client]['account']->player->position['map']);
+            $chunk = self::getChunk(UltimaPHP::$socketClients[$client]['account']->player->position['x'], UltimaPHP::$socketClients[$client]['account']->player->position['y']);
+            $map   = UltimaPHP::$socketClients[$client]['account']->player->position['map'];
         }
 
         if ($chunk === null) {
-            self::log("Server tryied to update an invalid chunk", self::LOG_WARNING);
+            UltimaPHP::log("Server tryied to update an invalid chunk", UltimaPHP::LOG_WARNING);
             return false;
         }
 
-        $chunk = self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']];
+        if ($map === null) {
+            UltimaPHP::log("Server tryied to update an chunk form invalid map", UltimaPHP::LOG_WARNING);
+            return false;
+        }
 
-        if ($client !== false) {
-            $actual_player        = UltimaPHP::$socketClients[$client]['account']->player;
-            $actual_player_plevel = UltimaPHP::$socketClients[$client]['account']->plevel;
+        $chunkData = self::$chunks[$map][$chunk['x']][$chunk['y']];
 
-            /* Update chars on map */
-            foreach ($chunk['players'] as $client_id => $alive) {
-                $player        = UltimaPHP::$socketClients[$client_id]['account']->player;
-                $player_plevel = UltimaPHP::$socketClients[$client_id]['account']->plevel;
+        /* Loop trought every player and updates everything in view range */
+        foreach ($chunkData as $serial => $data) {
+            if ($data['type'] != "player") {
+                continue;
+            }
 
-                $position = $player->position;
+            $actual_player        = UltimaPHP::$socketClients[$data['client']]['account']->player;
+            $actual_player_plevel = UltimaPHP::$socketClients[$data['client']]['account']->plevel;
 
-                /* Defines boundries of player viewrange */
-                $updateRange = array(
-                    'from' => array('x' => ($position['x'] - $player->render_range), 'y' => ($position['y'] - $player->render_range)),
-                    'to'   => array('x' => ($position['x'] + $player->render_range), 'y' => ($position['y'] + $player->render_range)),
-                );
+            $updateRange = [
+                'from' => ['x' => ($actual_player->position['x'] - $actual_player->render_range), 'y' => ($actual_player->position['y'] - $actual_player->render_range)],
+                'to'   => ['x' => ($actual_player->position['x'] + $actual_player->render_range), 'y' => ($actual_player->position['y'] + $actual_player->render_range)],
+            ];
 
-                if ($actual_player->serial != $player->serial && $player->position['x'] >= $updateRange['from']['x'] && $player->position['x'] <= $updateRange['to']['x'] && $player->position['y'] >= $updateRange['from']['y'] && $player->position['y'] <= $updateRange['to']['y']) {
-                    /* If actual player is invisible and tested player have no right plevel to see, don't need to proccess anything */
-                    if ($actual_player->hidden && $player_plevel < $actual_player_plevel) {
-                        $player->removeObjectFromView($actual_player->serial);
+            /* Loop trought every items and mobiles to update on player view */
+            foreach ($chunkData as $serialTest => $dataTest) {
+
+                if ($dataTest['type'] != "player") {
+                    /* Do not send draw packets again if object is allready in player view */
+                    if ($serialTest == $serial){
                         continue;
                     }
 
-                    if (!array_key_exists($client_id, $actual_player->mapRange['players'])) {
-                        $actual_player->mapRange['players'][$client_id] = true;
-                        $actual_player->drawChar(false, $client_id);
+                    /* If mobile/item leaves player map view range, removes */
+                    if (isset($actual_player->mapRange[$serialTest]) && !Functions::inRangeView($dataTest['instance']->position, $updateRange)) {
+                        $actual_player->removeObjectFromView($serialTest);
+                        continue;
                     }
-                    $actual_player->updatePlayer($client_id);
 
-                    if (!array_key_exists($actual_player->client, $player->mapRange['players'])) {
-                        $player->mapRange['players'][$actual_player->client] = true;
-                        $player->drawChar(false, $actual_player->client);
+                    if (!isset($actual_player->mapRange[$serialTest]) && Functions::inRangeView($dataTest['instance']->position, $updateRange)) {
+                        $dataTest['instance']->draw($actual_player->client);
                     }
-                    $player->updatePlayer($client);
                 } else {
-                    if ($actual_player->serial != $player->serial) {
+                    $player        = UltimaPHP::$socketClients[$dataTest['client']]['account']->player;
+                    $player_plevel = UltimaPHP::$socketClients[$dataTest['client']]['account']->plevel;
+
+                    if ($player->hidden && $actual_player_plevel < $player_plevel) {
+                        if (isset($actual_player->mapRange[$player->serial])) {
+                            $actual_player->removeObjectFromView($player->serial);
+                        }
                         continue;
                     }
 
-                    if (isset($actual_player->mapRange['players'][$player->client])) {
-                        unset($actual_player->mapRange['players'][$player->client]);
-                        $actual_player->removeObjectFromView($player->serial);
+                    if ($actual_player->serial != $player->serial) {
+                        if (!isset($actual_player->mapRange[$player->serial])) {
+                            $actual_player->mapRange[$player->serial] = true;
+                            $actual_player->drawChar(false, $player->client);
+                        } else {
+                            $actual_player->updatePlayer($player->client);
+                        }
                     }
-                    if (isset($player->mapRange['players'][$actual_player->client])) {
-                        unset($player->mapRange['players'][$actual_player->client]);
-                        $player->removeObjectFromView($actual_player->serial);
-                    }
                 }
             }
         }
 
-        /* Update mobiles on map */
-        foreach ($chunk['mobiles'] as $mobile) {
-            foreach ($chunk['players'] as $client => $alive) {
-                $player = UltimaPHP::$socketClients[$client]['account']->player;
-
-                $updateRange = array(
-                    'from' => array('x' => ($mobile->position['x'] - $player->render_range), 'y' => ($mobile->position['y'] - $player->render_range)),
-                    'to'   => array('x' => ($mobile->position['x'] + $player->render_range), 'y' => ($mobile->position['y'] + $player->render_range)),
-                );
-
-                if ($player->position['x'] >= $updateRange['from']['x'] && $player->position['x'] <= $updateRange['to']['x'] && $player->position['y'] >= $updateRange['from']['y'] && $player->position['y'] <= $updateRange['to']['y']) {
-                    $mobile->drawChar($player->client);
-                }
-            }
-        }
-
-        /* Update items on map */
-        foreach ($chunk['objects'] as $object) {
-            $packet = "F3";
-            $packet .= "0001";
-            $packet .= "00";
-            $packet .= $object->serial;
-            $packet .= str_pad(dechex($object->graphic), 4, "0", STR_PAD_LEFT);
-            $packet .= "00";
-            $packet .= str_pad(dechex($object->amount), 4, "0", STR_PAD_LEFT);
-            $packet .= str_pad(dechex($object->amount), 4, "0", STR_PAD_LEFT);
-            $packet .= str_pad(dechex($object->pos_x), 4, "0", STR_PAD_LEFT);
-            $packet .= str_pad(dechex($object->pos_y), 4, "0", STR_PAD_LEFT);
-            $packet .= Functions::toChar8($object->pos_z);
-            $packet .= str_pad(dechex($object->layer), 2, "0", STR_PAD_LEFT);
-            $packet .= str_pad(dechex($object->color), 4, "0", STR_PAD_LEFT);
-            $packet .= "20";
-            $packet .= "0000";
-
-            foreach ($chunk['players'] as $client => $alive) {
-                $player = UltimaPHP::$socketClients[$client]['account']->player;
-
-                $updateRange = array(
-                    'from' => array('x' => ($object->pos_x - $player->render_range), 'y' => ($object->pos_y - $player->render_range)),
-                    'to'   => array('x' => ($object->pos_x + $player->render_range), 'y' => ($object->pos_y + $player->render_range)),
-                );
-
-                if ($player->position['x'] >= $updateRange['from']['x'] && $player->position['x'] <= $updateRange['to']['x'] && $player->position['y'] >= $updateRange['from']['y'] && $player->position['y'] <= $updateRange['to']['y']) {
-                    Sockets::out($player->client, $packet, false);
-                }
-            }
-        }
+        return true;
     }
 
 }
