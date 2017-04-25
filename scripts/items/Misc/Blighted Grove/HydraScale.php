@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class hydrascale extends Object {
+class HydraScale extends Object {
 	public function build() {
 		$this->name = "hydra scale";
 		$this->graphic = 0x26B4;

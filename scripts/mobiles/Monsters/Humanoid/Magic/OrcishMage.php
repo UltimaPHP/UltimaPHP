@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class orcishmage extends Mobile {
+class OrcishMage extends Mobile {
 	public function summon() {
 		$this->name = "an orcish mage";
 		$this->body = 140;
@@ -16,10 +16,8 @@ class orcishmage extends Mobile {
 		$this->str = rand(116, 150);
 		$this->dex = rand(91, 115);
 		$this->int = rand(161, 185);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 4;
-		$this->damage_max = 14;
+		$this->hits = 4;
+		$this->maxhits = 14;
 		$this->resist_physical = rand(25, 35);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(20, 30);

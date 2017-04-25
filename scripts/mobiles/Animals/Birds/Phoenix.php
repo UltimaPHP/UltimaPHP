@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class phoenix extends Mobile {
+class Phoenix extends Mobile {
 	public function summon() {
 		$this->name = "a phoenix";
 		$this->body = 5;
@@ -18,8 +18,6 @@ class phoenix extends Mobile {
 		$this->int = rand(504, 700);
 		$this->hits = 0;
 		$this->maxhits = 0;
-		$this->damage_min = 0;
-		$this->damage_max = 0;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(60, 70);
 		$this->resist_cold = 0;

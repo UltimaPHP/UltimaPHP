@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class fishingpole extends Object {
+class FishingPole extends Object {
 	public function build() {
 		$this->name = "fishing pole";
 		$this->graphic = 0x0DC0;

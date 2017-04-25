@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class executionersaxe extends Object {
+class ExecutionersAxe extends Object {
 	public function build() {
 		$this->name = "executioners axe";
 		$this->graphic = 0xF45;
@@ -22,8 +22,8 @@ class executionersaxe extends Object {
 		$this->oldstrengthreq = 35;
 		$this->oldmindamage = 6;
 		$this->oldspeed = 37;
-		$this->defhitsound = 0x232;
-		$this->defmisssound = 0x23A;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 70;
 		$this->weight = 8.0;

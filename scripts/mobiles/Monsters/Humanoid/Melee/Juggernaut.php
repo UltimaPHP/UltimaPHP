@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class juggernaut extends Mobile {
+class Juggernaut extends Mobile {
 	public function summon() {
 		$this->name = "a blackthorn juggernaut";
 		$this->body = 768;
@@ -16,10 +16,8 @@ class juggernaut extends Mobile {
 		$this->str = rand(301, 400);
 		$this->dex = rand(51, 70);
 		$this->int = rand(51, 100);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 12;
-		$this->damage_max = 19;
+		$this->hits = 12;
+		$this->maxhits = 19;
 		$this->resist_physical = rand(65, 75);
 		$this->resist_fire = rand(35, 45);
 		$this->resist_cold = rand(35, 45);

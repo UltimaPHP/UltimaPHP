@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class skeletaldragon extends Mobile {
+class SkeletalDragon extends Mobile {
 	public function summon() {
 		$this->name = "a skeletal dragon";
 		$this->body = 104;
@@ -16,10 +16,8 @@ class skeletaldragon extends Mobile {
 		$this->str = rand(898, 1030);
 		$this->dex = rand(68, 200);
 		$this->int = rand(488, 620);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 29;
-		$this->damage_max = 35;
+		$this->hits = 29;
+		$this->maxhits = 35;
 		$this->resist_physical = rand(75, 80);
 		$this->resist_fire = rand(40, 60);
 		$this->resist_cold = rand(40, 60);

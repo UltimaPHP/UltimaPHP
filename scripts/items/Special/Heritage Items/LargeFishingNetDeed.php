@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class largefishingnetdeed extends Object {
+class LargeFishingNetDeed extends Object {
 	public function build() {
 		$this->name = "large fishing net deed";
 		$this->graphic = 0x3D8E;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class wooddebris extends Object {
+class WoodDebris extends Object {
 	public function build() {
 		$this->name = "wood debris";
 		$this->graphic = 0xC2D;

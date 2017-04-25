@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class scythe extends Object {
+class Scythe extends Object {
 	public function build() {
 		$this->name = "scythe";
 		$this->graphic = 0x26BA;
@@ -22,8 +22,8 @@ class scythe extends Object {
 		$this->oldstrengthreq = 45;
 		$this->oldmindamage = 15;
 		$this->oldspeed = 32;
-		$this->defhitsound = 0x237;
-		$this->defmisssound = 0x238;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 100;
 		$this->weight = 5.0;

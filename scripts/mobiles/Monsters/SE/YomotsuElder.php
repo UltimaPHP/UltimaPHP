@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class yomotsuelder extends Mobile {
+class YomotsuElder extends Mobile {
 	public function summon() {
 		$this->name = "a yomotsu elder";
 		$this->body = 255;
@@ -16,10 +16,8 @@ class yomotsuelder extends Mobile {
 		$this->str = rand(686, 830);
 		$this->dex = rand(251, 365);
 		$this->int = rand(17, 31);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 19;
-		$this->damage_max = 27;
+		$this->hits = 19;
+		$this->maxhits = 27;
 		$this->resist_physical = rand(65, 85);
 		$this->resist_fire = rand(30, 50);
 		$this->resist_cold = rand(45, 65);

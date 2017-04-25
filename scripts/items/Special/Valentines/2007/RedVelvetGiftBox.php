@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class redvelvetgiftbox extends Object {
+class RedVelvetGiftBox extends Object {
 	public function build() {
 		$this->name = "red velvet gift box";
 		$this->graphic = 0xE7A;

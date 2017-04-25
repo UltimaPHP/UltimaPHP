@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bagofsending extends Object {
+class BagOfSending extends Object {
 	public function build() {
 		$this->name = "bag of sending";
 		$this->graphic = 0xE76;

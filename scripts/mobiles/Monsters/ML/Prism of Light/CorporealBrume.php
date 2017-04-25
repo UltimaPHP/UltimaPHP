@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class corporealbrume extends Mobile {
+class CorporealBrume extends Mobile {
 	public function summon() {
 		$this->name = "a corporeal brume";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class corporealbrume extends Mobile {
 		$this->str = rand(400, 450);
 		$this->dex = rand(100, 150);
 		$this->int = rand(50, 60);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 21;
-		$this->damage_max = 25;
+		$this->hits = 21;
+		$this->maxhits = 25;
 		$this->resist_physical = 0;
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(40, 50);

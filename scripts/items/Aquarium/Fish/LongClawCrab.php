@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class longclawcrab extends Object {
+class LongClawCrab extends Object {
 	public function build() {
 		$this->name = "long claw crab";
 		$this->graphic = 0x3AFC;

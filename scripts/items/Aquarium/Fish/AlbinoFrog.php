@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class albinofrog extends Object {
+class AlbinoFrog extends Object {
 	public function build() {
 		$this->name = "albino frog";
 		$this->graphic = 0x3B0D;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class skullpole extends Object {
+class SkullPole extends Object {
 	public function build() {
 		$this->name = "skull pole";
 		$this->graphic = 0x2204;

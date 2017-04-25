@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class localizedsign extends Object {
+class LocalizedSign extends Object {
 	public function build() {
 		$this->name = "localized sign";
 		$this->graphic = 0xB95;

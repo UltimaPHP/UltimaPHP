@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class betrayer extends Mobile {
+class Betrayer extends Mobile {
 	public function summon() {
 		$this->name = "a betrayer";
 		$this->body = 767;
@@ -16,10 +16,8 @@ class betrayer extends Mobile {
 		$this->str = rand(401, 500);
 		$this->dex = rand(81, 100);
 		$this->int = rand(151, 200);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 16;
-		$this->damage_max = 22;
+		$this->hits = 16;
+		$this->maxhits = 22;
 		$this->resist_physical = rand(60, 70);
 		$this->resist_fire = rand(60, 70);
 		$this->resist_cold = rand(60, 70);

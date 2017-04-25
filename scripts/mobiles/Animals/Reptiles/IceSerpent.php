@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class iceserpent extends Mobile {
+class IceSerpent extends Mobile {
 	public function summon() {
 		$this->name = "a giant ice serpent";
 		$this->body = 89;
@@ -16,10 +16,8 @@ class iceserpent extends Mobile {
 		$this->str = rand(216, 245);
 		$this->dex = rand(26, 50);
 		$this->int = rand(66, 85);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 7;
-		$this->damage_max = 17;
+		$this->hits = 7;
+		$this->maxhits = 17;
 		$this->resist_physical = rand(30, 35);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(80, 90);

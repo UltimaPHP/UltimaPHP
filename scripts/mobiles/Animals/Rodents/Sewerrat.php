@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class sewerrat extends Mobile {
+class Sewerrat extends Mobile {
 	public function summon() {
 		$this->name = "a sewer rat";
 		$this->body = 238;
@@ -16,10 +16,8 @@ class sewerrat extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = rand(6, 10);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 1;
-		$this->damage_max = 2;
+		$this->hits = 1;
+		$this->maxhits = 2;
 		$this->resist_physical = rand(5, 10);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class rikktor extends Mobile {
+class Rikktor extends Mobile {
 	public function summon() {
 		$this->name = "rikktor";
 		$this->body = 172;
@@ -16,10 +16,8 @@ class rikktor extends Mobile {
 		$this->str = rand(701, 900);
 		$this->dex = rand(201, 350);
 		$this->int = rand(51, 100);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 28;
-		$this->damage_max = 55;
+		$this->hits = 28;
+		$this->maxhits = 55;
 		$this->resist_physical = rand(80, 90);
 		$this->resist_fire = rand(80, 90);
 		$this->resist_cold = rand(30, 40);

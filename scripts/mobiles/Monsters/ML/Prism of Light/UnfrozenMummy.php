@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class unfrozenmummy extends Mobile {
+class UnfrozenMummy extends Mobile {
 	public function summon() {
 		$this->name = "an unfrozen mummy";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class unfrozenmummy extends Mobile {
 		$this->str = rand(450, 500);
 		$this->dex = rand(200, 250);
 		$this->int = rand(800, 850);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 16;
-		$this->damage_max = 20;
+		$this->hits = 16;
+		$this->maxhits = 20;
 		$this->resist_physical = rand(35, 40);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(60, 80);

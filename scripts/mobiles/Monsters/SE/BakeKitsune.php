@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bakekitsune extends Mobile {
+class BakeKitsune extends Mobile {
 	public function summon() {
 		$this->name = "a bake kitsune";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class bakekitsune extends Mobile {
 		$this->str = rand(171, 220);
 		$this->dex = rand(126, 145);
 		$this->int = rand(376, 425);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 15;
-		$this->damage_max = 22;
+		$this->hits = 15;
+		$this->maxhits = 22;
 		$this->resist_physical = rand(40, 60);
 		$this->resist_fire = rand(70, 90);
 		$this->resist_cold = rand(40, 60);

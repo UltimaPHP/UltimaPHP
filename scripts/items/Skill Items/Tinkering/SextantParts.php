@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class sextantparts extends Object {
+class SextantParts extends Object {
 	public function build() {
 		$this->name = "sextant parts";
 		$this->graphic = 0x1059;

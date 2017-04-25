@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class artifactlargevase extends Object {
+class ArtifactLargeVase extends Object {
 	public function build() {
 		$this->name = "artifact large vase";
 		$this->graphic = 0x0B47;

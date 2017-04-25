@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class greathart extends Mobile {
+class GreatHart extends Mobile {
 	public function summon() {
 		$this->name = "a great hart";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class greathart extends Mobile {
 		$this->str = rand(41, 71);
 		$this->dex = rand(47, 77);
 		$this->int = rand(27, 57);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 5;
-		$this->damage_max = 9;
+		$this->hits = 5;
+		$this->maxhits = 9;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(5, 10);

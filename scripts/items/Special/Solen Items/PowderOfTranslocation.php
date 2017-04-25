@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class powderoftranslocation extends Object {
+class PowderOfTranslocation extends Object {
 	public function build() {
 		$this->name = "powder of translocation";
 		$this->graphic = 0x26B8;
@@ -13,7 +13,7 @@ class powderoftranslocation extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x489;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

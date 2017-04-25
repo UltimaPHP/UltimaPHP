@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class shadowfiend extends Mobile {
+class ShadowFiend extends Mobile {
 	public function summon() {
 		$this->name = "a shadow fiend";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class shadowfiend extends Mobile {
 		$this->str = rand(46, 55);
 		$this->dex = rand(121, 130);
 		$this->int = rand(46, 55);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 10;
-		$this->damage_max = 22;
+		$this->hits = 10;
+		$this->maxhits = 22;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = rand(20, 25);
 		$this->resist_cold = rand(40, 45);

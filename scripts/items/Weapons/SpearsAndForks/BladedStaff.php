@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bladedstaff extends Object {
+class BladedStaff extends Object {
 	public function build() {
 		$this->name = "bladed staff";
 		$this->graphic = 0x26BD;
@@ -22,8 +22,8 @@ class bladedstaff extends Object {
 		$this->oldstrengthreq = 40;
 		$this->oldmindamage = 14;
 		$this->oldspeed = 37;
-		$this->defhitsound = 0x23C;
-		$this->defmisssound = 0x238;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 21;
 		$this->maxHits = 110;
 		$this->weight = 4.0;

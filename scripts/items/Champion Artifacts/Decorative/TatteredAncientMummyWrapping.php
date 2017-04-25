@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class tatteredancientmummywrapping extends Object {
+class TatteredAncientMummyWrapping extends Object {
 	public function build() {
 		$this->name = "tattered ancient mummy wrapping";
 		$this->graphic = 0xE21;

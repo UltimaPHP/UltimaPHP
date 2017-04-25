@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class candleskull extends Object {
+class CandleSkull extends Object {
 	public function build() {
 		$this->name = "candle skull";
 		$this->graphic = 0x1853;

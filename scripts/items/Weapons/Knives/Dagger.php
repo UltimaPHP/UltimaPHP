@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class dagger extends Object {
+class Dagger extends Object {
 	public function build() {
 		$this->name = "dagger";
 		$this->graphic = 0xF52;
@@ -22,8 +22,8 @@ class dagger extends Object {
 		$this->oldstrengthreq = 1;
 		$this->oldmindamage = 3;
 		$this->oldspeed = 55;
-		$this->defhitsound = 0x23B;
-		$this->defmisssound = 0x238;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 40;
 		$this->weight = 1.0;

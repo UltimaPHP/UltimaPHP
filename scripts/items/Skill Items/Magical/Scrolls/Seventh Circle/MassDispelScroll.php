@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class massdispelscroll extends Object {
+class MassDispelScroll extends Object {
 	public function build() {
 		$this->name = "mass dispel scroll";
 		$this->graphic = 0x1F62;

@@ -5,10 +5,10 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class decayedcorpse extends Object {
+class DecayedCorpse extends Object {
 	public function build() {
 		$this->name = "decayed corpse";
-		$this->graphic = 0x3C;
+		$this->graphic = 0xECA;
 		$this->type = "";
 		$this->flags = 0x00;
 		$this->value = 0;

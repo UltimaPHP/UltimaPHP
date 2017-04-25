@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class sturdypickaxe extends Object {
+class SturdyPickaxe extends Object {
 	public function build() {
 		$this->name = "sturdy pickaxe";
 		$this->graphic = 0xE86;
@@ -24,8 +24,8 @@ class sturdypickaxe extends Object {
 		$this->oldspeed = 35;
 		$this->defhitsound = 0;
 		$this->defmisssound = 0;
-		$this->hits = 31;
-		$this->maxHits = 60;
+		$this->hits = 0;
+		$this->maxHits = 0;
 		$this->weight = 11.0;
 
 }}

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class leafchest extends Object {
+class LeafChest extends Object {
 	public function build() {
 		$this->name = "leaf chest";
 		$this->graphic = 0x2FC5;

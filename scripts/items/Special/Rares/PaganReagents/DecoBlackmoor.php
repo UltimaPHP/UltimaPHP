@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class decoblackmoor extends Object {
+class DecoBlackmoor extends Object {
 	public function build() {
 		$this->name = "deco blackmoor";
 		$this->graphic = 0xF79;

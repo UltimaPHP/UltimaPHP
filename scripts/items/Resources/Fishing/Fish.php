@@ -5,15 +5,15 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class fish extends Object {
+class Fish extends Object {
 	public function build() {
 		$this->name = "fish";
-		$this->graphic = 0xDD6;
+		$this->graphic = 0x09CC;
 		$this->type = "";
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x847;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

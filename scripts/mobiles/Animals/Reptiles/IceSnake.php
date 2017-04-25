@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class icesnake extends Mobile {
+class IceSnake extends Mobile {
 	public function summon() {
 		$this->name = "an ice snake";
 		$this->body = 52;
@@ -16,10 +16,8 @@ class icesnake extends Mobile {
 		$this->str = rand(42, 54);
 		$this->dex = rand(36, 45);
 		$this->int = rand(26, 30);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 4;
-		$this->damage_max = 12;
+		$this->hits = 4;
+		$this->maxhits = 12;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(80, 90);

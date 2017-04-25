@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class decocards5 extends Object {
+class DecoCards5 extends Object {
 	public function build() {
 		$this->name = "deco cards";
 		$this->graphic = 0xE18;

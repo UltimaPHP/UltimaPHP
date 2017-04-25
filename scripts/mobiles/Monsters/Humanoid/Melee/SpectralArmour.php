@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class spectralarmour extends Mobile {
+class SpectralArmour extends Mobile {
 	public function summon() {
 		$this->name = "spectral armour";
 		$this->body = 637;
@@ -16,10 +16,8 @@ class spectralarmour extends Mobile {
 		$this->str = rand(101, 110);
 		$this->dex = rand(101, 110);
 		$this->int = rand(101, 110);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 10;
-		$this->damage_max = 22;
+		$this->hits = 10;
+		$this->maxhits = 22;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(30, 40);

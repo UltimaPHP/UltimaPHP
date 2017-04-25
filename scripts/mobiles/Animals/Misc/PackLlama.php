@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class packllama extends Mobile {
+class PackLlama extends Mobile {
 	public function summon() {
 		$this->name = "a pack llama";
 		$this->body = 292;
@@ -16,10 +16,8 @@ class packllama extends Mobile {
 		$this->str = rand(52, 80);
 		$this->dex = rand(36, 55);
 		$this->int = rand(16, 30);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 2;
-		$this->damage_max = 6;
+		$this->hits = 2;
+		$this->maxhits = 6;
 		$this->resist_physical = rand(25, 35);
 		$this->resist_fire = rand(10, 15);
 		$this->resist_cold = rand(10, 15);

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ringmaillegs extends Object {
+class RingmailLegs extends Object {
 	public function build() {
 		$this->name = "ringmail legs";
 		$this->graphic = 0x13F0;

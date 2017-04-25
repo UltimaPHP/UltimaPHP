@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class scepter extends Object {
+class Scepter extends Object {
 	public function build() {
 		$this->name = "scepter";
 		$this->graphic = 0x26BC;
@@ -13,7 +13,7 @@ class scepter extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x47E;
+		$this->color = 0;
 		$this->aosstrengthreq = 40;
 		$this->aosmindamage = 14;
 		$this->aosmaxdamage = 17;
@@ -22,8 +22,8 @@ class scepter extends Object {
 		$this->oldstrengthreq = 40;
 		$this->oldmindamage = 14;
 		$this->oldspeed = 30;
-		$this->defhitsound = 0x233;
-		$this->defmisssound = 0x239;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 110;
 		$this->weight = 8.0;

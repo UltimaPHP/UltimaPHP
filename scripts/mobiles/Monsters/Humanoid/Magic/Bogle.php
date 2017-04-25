@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bogle extends Mobile {
+class Bogle extends Mobile {
 	public function summon() {
 		$this->name = "a bogle";
 		$this->body = 153;
@@ -16,10 +16,8 @@ class bogle extends Mobile {
 		$this->str = rand(76, 100);
 		$this->dex = rand(76, 95);
 		$this->int = rand(36, 60);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 7;
-		$this->damage_max = 11;
+		$this->hits = 7;
+		$this->maxhits = 11;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

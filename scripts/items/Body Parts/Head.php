@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class head extends Object {
+class Head extends Object {
 	public function build() {
 		$this->name = "head";
 		$this->graphic = 0x1DA0;
@@ -26,7 +26,7 @@ class head extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 10.0;
+		$this->weight = 0;
 
 }}
 ?>

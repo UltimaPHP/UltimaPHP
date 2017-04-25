@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bloodelemental extends Mobile {
+class BloodElemental extends Mobile {
 	public function summon() {
 		$this->name = "a blood elemental";
 		$this->body = 159;
@@ -16,10 +16,8 @@ class bloodelemental extends Mobile {
 		$this->str = rand(526, 615);
 		$this->dex = rand(66, 85);
 		$this->int = rand(226, 350);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 17;
-		$this->damage_max = 27;
+		$this->hits = 17;
+		$this->maxhits = 27;
 		$this->resist_physical = rand(55, 65);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(40, 50);

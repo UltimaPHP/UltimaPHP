@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class twohandedaxe extends Object {
+class TwoHandedAxe extends Object {
 	public function build() {
 		$this->name = "two handed axe";
 		$this->graphic = 0x1443;
@@ -22,8 +22,8 @@ class twohandedaxe extends Object {
 		$this->oldstrengthreq = 35;
 		$this->oldmindamage = 5;
 		$this->oldspeed = 30;
-		$this->defhitsound = 0x232;
-		$this->defmisssound = 0x23A;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 90;
 		$this->weight = 8.0;

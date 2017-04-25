@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class whitesnowflake extends Object {
+class WhiteSnowflake extends Object {
 	public function build() {
 		$this->name = "white snowflake";
 		$this->graphic = 0x232F;
@@ -13,7 +13,7 @@ class whitesnowflake extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x965;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class unholybone extends Object {
+class UnholyBone extends Object {
 	public function build() {
 		$this->name = "unholy bone";
 		$this->graphic = 0xF7E;
@@ -26,7 +26,7 @@ class unholybone extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 2.0;
+		$this->weight = 0;
 
 }}
 ?>

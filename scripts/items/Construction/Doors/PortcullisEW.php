@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class portcullisew extends Object {
+class PortcullisEW extends Object {
 	public function build() {
 		$this->name = "portcullis";
 		$this->graphic = 0x6F6;
@@ -13,7 +13,7 @@ class portcullisew extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x44E;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

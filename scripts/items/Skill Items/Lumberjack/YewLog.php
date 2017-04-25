@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class yewlog extends Object {
+class YewLog extends Object {
 	public function build() {
 		$this->name = "yew log";
 		$this->graphic = 0x1BDD;

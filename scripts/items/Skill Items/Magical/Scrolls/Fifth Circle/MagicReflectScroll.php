@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class magicreflectscroll extends Object {
+class MagicReflectScroll extends Object {
 	public function build() {
 		$this->name = "magic reflect scroll";
 		$this->graphic = 0x1F50;

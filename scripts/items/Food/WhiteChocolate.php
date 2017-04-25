@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class whitechocolate extends Object {
+class WhiteChocolate extends Object {
 	public function build() {
 		$this->name = "white chocolate";
 		$this->graphic = 0xF11;
@@ -26,7 +26,7 @@ class whitechocolate extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 2.0;
+		$this->weight = 0;
 
 }}
 ?>

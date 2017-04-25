@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class leftleg extends Object {
+class LeftLeg extends Object {
 	public function build() {
 		$this->name = "left leg";
 		$this->graphic = 0x1DA3;
@@ -26,7 +26,7 @@ class leftleg extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 10.0;
+		$this->weight = 0;
 
 }}
 ?>

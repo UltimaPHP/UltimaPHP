@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class woodenkiteshield extends Object {
+class WoodenKiteShield extends Object {
 	public function build() {
 		$this->name = "wooden kite shield";
 		$this->graphic = 0x1B79;

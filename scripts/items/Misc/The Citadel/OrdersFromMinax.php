@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ordersfromminax extends Object {
+class OrdersFromMinax extends Object {
 	public function build() {
 		$this->name = "orders from minax";
 		$this->graphic = 0x2279;

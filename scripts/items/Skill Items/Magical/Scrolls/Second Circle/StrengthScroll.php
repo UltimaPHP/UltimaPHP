@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class strengthscroll extends Object {
+class StrengthScroll extends Object {
 	public function build() {
 		$this->name = "strength scroll";
 		$this->graphic = 0x1F3C;

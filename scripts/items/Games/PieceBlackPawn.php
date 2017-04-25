@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class pieceblackpawn extends Object {
+class PieceBlackPawn extends Object {
 	public function build() {
 		$this->name = "piece black pawn";
 		$this->graphic = 0x3590;
@@ -26,7 +26,7 @@ class pieceblackpawn extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 5.0;
+		$this->weight = 0;
 
 }}
 ?>

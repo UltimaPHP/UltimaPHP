@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class furcape extends Object {
+class FurCape extends Object {
 	public function build() {
 		$this->name = "fur cape";
 		$this->graphic = 0x230A;

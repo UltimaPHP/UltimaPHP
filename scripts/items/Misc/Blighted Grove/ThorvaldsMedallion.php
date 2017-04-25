@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class thorvaldsmedallion extends Object {
+class ThorvaldsMedallion extends Object {
 	public function build() {
 		$this->name = "thorvalds medallion";
 		$this->graphic = 0x2AAA;

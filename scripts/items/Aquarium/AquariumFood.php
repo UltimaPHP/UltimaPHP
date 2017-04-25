@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class aquariumfood extends Object {
+class AquariumFood extends Object {
 	public function build() {
 		$this->name = "aquarium food";
 		$this->graphic = 0xEFC;
@@ -13,7 +13,7 @@ class aquariumfood extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x240;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

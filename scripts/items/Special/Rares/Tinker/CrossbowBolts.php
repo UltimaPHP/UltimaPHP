@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class crossbowbolts extends Object {
+class CrossbowBolts extends Object {
 	public function build() {
 		$this->name = "crossbow bolts";
 		$this->graphic = 0x1BFC;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class club extends Object {
+class Club extends Object {
 	public function build() {
 		$this->name = "club";
 		$this->graphic = 0x13B4;
@@ -22,8 +22,8 @@ class club extends Object {
 		$this->oldstrengthreq = 10;
 		$this->oldmindamage = 8;
 		$this->oldspeed = 40;
-		$this->defhitsound = 0x233;
-		$this->defmisssound = 0x239;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 40;
 		$this->weight = 9.0;

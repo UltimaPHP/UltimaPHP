@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class fandancer extends Mobile {
+class FanDancer extends Mobile {
 	public function summon() {
 		$this->name = "a fan dancer";
 		$this->body = 247;
@@ -16,10 +16,8 @@ class fandancer extends Mobile {
 		$this->str = rand(301, 375);
 		$this->dex = rand(201, 255);
 		$this->int = rand(21, 25);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 12;
-		$this->damage_max = 17;
+		$this->hits = 12;
+		$this->maxhits = 17;
 		$this->resist_physical = rand(40, 60);
 		$this->resist_fire = rand(50, 70);
 		$this->resist_cold = rand(50, 70);

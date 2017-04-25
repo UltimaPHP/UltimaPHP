@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class pieceblackchecker extends Object {
+class PieceBlackChecker extends Object {
 	public function build() {
 		$this->name = "piece black checker";
 		$this->graphic = 0x358B;
@@ -26,7 +26,7 @@ class pieceblackchecker extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 5.0;
+		$this->weight = 0;
 
 }}
 ?>

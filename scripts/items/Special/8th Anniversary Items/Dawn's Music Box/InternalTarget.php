@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class internaltarget extends Object {
+class InternalTarget extends Object {
 	public function build() {
 		$this->name = "internal target";
 		$this->graphic = 0x1053;

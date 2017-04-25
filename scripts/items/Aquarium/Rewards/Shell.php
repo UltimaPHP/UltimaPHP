@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class shell extends Object {
+class Shell extends Object {
 	public function build() {
 		$this->name = "shell";
 		$this->graphic = 0x3B12;
@@ -24,8 +24,8 @@ class shell extends Object {
 		$this->oldspeed = 0;
 		$this->defhitsound = 0;
 		$this->defmisssound = 0;
-		$this->hits = 20;
-		$this->maxHits = 30;
+		$this->hits = 0;
+		$this->maxHits = 0;
 		$this->weight = 0;
 
 }}

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class evilmage extends Mobile {
+class EvilMage extends Mobile {
 	public function summon() {
 		$this->name = "evil mage";
 		$this->body = 124;
@@ -16,10 +16,8 @@ class evilmage extends Mobile {
 		$this->str = rand(81, 105);
 		$this->dex = rand(91, 115);
 		$this->int = rand(96, 120);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 5;
-		$this->damage_max = 10;
+		$this->hits = 5;
+		$this->maxhits = 10;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = 0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class energyvortex extends Mobile {
+class EnergyVortex extends Mobile {
 	public function summon() {
 		$this->name = "an energy vortex";
 		$this->body = 164;
@@ -16,10 +16,8 @@ class energyvortex extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 14;
-		$this->damage_max = 17;
+		$this->hits = 14;
+		$this->maxhits = 17;
 		$this->resist_physical = rand(60, 70);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(40, 50);

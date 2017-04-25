@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class clockframe extends Object {
+class ClockFrame extends Object {
 	public function build() {
 		$this->name = "clock frame";
 		$this->graphic = 0x104D;

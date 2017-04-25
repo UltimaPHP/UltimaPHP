@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class mountaingoat extends Mobile {
+class MountainGoat extends Mobile {
 	public function summon() {
 		$this->name = "a mountain goat";
 		$this->body = 88;
@@ -16,10 +16,8 @@ class mountaingoat extends Mobile {
 		$this->str = rand(22, 64);
 		$this->dex = rand(56, 75);
 		$this->int = rand(16, 30);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 3;
-		$this->damage_max = 7;
+		$this->hits = 3;
+		$this->maxhits = 7;
 		$this->resist_physical = rand(10, 20);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = rand(10, 20);

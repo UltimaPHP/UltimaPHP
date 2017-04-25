@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class moundofmaggots extends Mobile {
+class MoundOfMaggots extends Mobile {
 	public function summon() {
 		$this->name = "a mound of maggots";
 		$this->body = 319;
@@ -16,10 +16,8 @@ class moundofmaggots extends Mobile {
 		$this->str = rand(61, 70);
 		$this->dex = rand(61, 70);
 		$this->int = 0;
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 3;
-		$this->damage_max = 9;
+		$this->hits = 3;
+		$this->maxhits = 9;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

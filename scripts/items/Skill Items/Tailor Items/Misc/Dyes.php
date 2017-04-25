@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class dyes extends Object {
+class Dyes extends Object {
 	public function build() {
 		$this->name = "dyes";
 		$this->graphic = 0xFA9;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class protector extends Mobile {
+class Protector extends Mobile {
 	public function summon() {
 		$this->name = "a protector";
 		$this->body = 401;
@@ -16,10 +16,8 @@ class protector extends Mobile {
 		$this->str = rand(700, 800);
 		$this->dex = rand(100, 150);
 		$this->int = rand(50, 75);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 6;
-		$this->damage_max = 12;
+		$this->hits = 6;
+		$this->maxhits = 12;
 		$this->resist_physical = rand(30, 40);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(35, 40);

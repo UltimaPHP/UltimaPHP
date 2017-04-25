@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class doppleganger extends Mobile {
+class Doppleganger extends Mobile {
 	public function summon() {
 		$this->name = "a doppleganger";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class doppleganger extends Mobile {
 		$this->str = rand(81, 110);
 		$this->dex = rand(56, 75);
 		$this->int = rand(81, 105);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 8;
-		$this->damage_max = 12;
+		$this->hits = 8;
+		$this->maxhits = 12;
 		$this->resist_physical = rand(50, 60);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(40, 50);

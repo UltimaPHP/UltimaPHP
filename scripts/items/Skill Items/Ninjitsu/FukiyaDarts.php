@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class fukiyadarts extends Object {
+class FukiyaDarts extends Object {
 	public function build() {
 		$this->name = "fukiya darts";
 		$this->graphic = 0x2806;

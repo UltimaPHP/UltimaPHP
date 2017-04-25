@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class summondaemonscroll extends Object {
+class SummonDaemonScroll extends Object {
 	public function build() {
 		$this->name = "summon daemon scroll";
 		$this->graphic = 0x1F69;

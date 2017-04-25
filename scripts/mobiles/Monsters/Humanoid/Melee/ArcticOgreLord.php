@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class arcticogrelord extends Mobile {
+class ArcticOgreLord extends Mobile {
 	public function summon() {
 		$this->name = "an arctic ogre lord";
 		$this->body = 135;
@@ -16,10 +16,8 @@ class arcticogrelord extends Mobile {
 		$this->str = rand(767, 945);
 		$this->dex = rand(66, 75);
 		$this->int = rand(46, 70);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 20;
-		$this->damage_max = 25;
+		$this->hits = 20;
+		$this->maxhits = 25;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(60, 70);

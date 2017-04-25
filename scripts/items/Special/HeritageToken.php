@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class heritagetoken extends Object {
+class HeritageToken extends Object {
 	public function build() {
 		$this->name = "heritage token";
 		$this->graphic = 0x367A;

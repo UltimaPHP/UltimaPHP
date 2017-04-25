@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class exorcismscroll extends Object {
+class ExorcismScroll extends Object {
 	public function build() {
 		$this->name = "exorcism scroll";
 		$this->graphic = 0x2270;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class minotaurartifact extends Object {
+class MinotaurArtifact extends Object {
 	public function build() {
 		$this->name = "minotaur artifact";
 		$this->graphic = 0xB46;

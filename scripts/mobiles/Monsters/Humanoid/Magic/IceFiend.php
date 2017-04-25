@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class icefiend extends Mobile {
+class IceFiend extends Mobile {
 	public function summon() {
 		$this->name = "an ice fiend";
 		$this->body = 43;
@@ -16,10 +16,8 @@ class icefiend extends Mobile {
 		$this->str = rand(376, 405);
 		$this->dex = rand(176, 195);
 		$this->int = rand(201, 225);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 8;
-		$this->damage_max = 19;
+		$this->hits = 8;
+		$this->maxhits = 19;
 		$this->resist_physical = rand(55, 65);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(60, 70);

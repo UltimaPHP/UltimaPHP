@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class amber extends Object {
+class Amber extends Object {
 	public function build() {
 		$this->name = "amber";
 		$this->graphic = 0xF25;

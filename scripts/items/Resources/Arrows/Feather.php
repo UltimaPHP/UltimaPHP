@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class feather extends Object {
+class Feather extends Object {
 	public function build() {
 		$this->name = "feather";
 		$this->graphic = 0x1BD1;

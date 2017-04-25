@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class taintedseeds extends Object {
+class TaintedSeeds extends Object {
 	public function build() {
 		$this->name = "tainted seeds";
 		$this->graphic = 0xDFA;

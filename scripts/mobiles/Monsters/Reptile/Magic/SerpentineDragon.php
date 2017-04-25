@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class serpentinedragon extends Mobile {
+class SerpentineDragon extends Mobile {
 	public function summon() {
 		$this->name = "a serpentine dragon";
 		$this->body = 103;
@@ -16,10 +16,8 @@ class serpentinedragon extends Mobile {
 		$this->str = rand(111, 140);
 		$this->dex = rand(201, 220);
 		$this->int = rand(1001, 1040);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 5;
-		$this->damage_max = 12;
+		$this->hits = 5;
+		$this->maxhits = 12;
 		$this->resist_physical = rand(35, 40);
 		$this->resist_fire = rand(25, 35);
 		$this->resist_cold = rand(25, 35);

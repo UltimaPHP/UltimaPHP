@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class studdedsuneate extends Object {
+class StuddedSuneate extends Object {
 	public function build() {
 		$this->name = "studded suneate";
 		$this->graphic = 0x27D2;

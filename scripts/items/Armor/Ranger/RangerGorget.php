@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class rangergorget extends Object {
+class RangerGorget extends Object {
 	public function build() {
 		$this->name = "ranger gorget";
 		$this->graphic = 0x13D6;

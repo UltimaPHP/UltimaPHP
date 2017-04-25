@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class rat extends Mobile {
+class Rat extends Mobile {
 	public function summon() {
 		$this->name = "a rat";
 		$this->body = 238;
@@ -16,10 +16,8 @@ class rat extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 1;
-		$this->damage_max = 2;
+		$this->hits = 1;
+		$this->maxhits = 2;
 		$this->resist_physical = rand(5, 10);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

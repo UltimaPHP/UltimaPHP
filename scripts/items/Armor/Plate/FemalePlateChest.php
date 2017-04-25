@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class femaleplatechest extends Object {
+class FemalePlateChest extends Object {
 	public function build() {
 		$this->name = "female plate chest";
 		$this->graphic = 0x1C04;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class hinge extends Object {
+class Hinge extends Object {
 	public function build() {
 		$this->name = "hinge";
 		$this->graphic = 0x1055;

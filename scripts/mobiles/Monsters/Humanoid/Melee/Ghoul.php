@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ghoul extends Mobile {
+class Ghoul extends Mobile {
 	public function summon() {
 		$this->name = "a ghoul";
 		$this->body = 153;
@@ -16,10 +16,8 @@ class ghoul extends Mobile {
 		$this->str = rand(76, 100);
 		$this->dex = rand(76, 95);
 		$this->int = rand(36, 60);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 7;
-		$this->damage_max = 9;
+		$this->hits = 7;
+		$this->maxhits = 9;
 		$this->resist_physical = rand(25, 30);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(20, 30);

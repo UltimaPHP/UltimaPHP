@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class vesperreeftiger extends Object {
+class VesperReefTiger extends Object {
 	public function build() {
 		$this->name = "vesper reef tiger";
 		$this->graphic = 0x3B08;
@@ -13,7 +13,7 @@ class vesperreeftiger extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x4FA;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

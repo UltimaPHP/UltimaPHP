@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class leatherninjapants extends Object {
+class LeatherNinjaPants extends Object {
 	public function build() {
 		$this->name = "leather ninja pants";
 		$this->graphic = 0x2791;

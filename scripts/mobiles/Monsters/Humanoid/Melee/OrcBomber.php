@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class orcbomber extends Mobile {
+class OrcBomber extends Mobile {
 	public function summon() {
 		$this->name = "an orc bomber";
 		$this->body = 182;
@@ -16,10 +16,8 @@ class orcbomber extends Mobile {
 		$this->str = rand(147, 215);
 		$this->dex = rand(91, 115);
 		$this->int = rand(61, 85);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 1;
-		$this->damage_max = 8;
+		$this->hits = 1;
+		$this->maxhits = 8;
 		$this->resist_physical = rand(25, 35);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(15, 25);

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class moongategump extends Object {
+class MoongateGump extends Object {
 	public function build() {
 		$this->name = "moongate gump";
 		$this->graphic = 0xF6C;
@@ -26,7 +26,7 @@ class moongategump extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 5.0;
+		$this->weight = 0;
 
 }}
 ?>

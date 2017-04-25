@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class abandonescortentry extends Mobile {
+class AbandonEscortEntry extends Mobile {
 	public function summon() {
 		$this->name = "male";
 		$this->body = 400;
@@ -18,8 +18,6 @@ class abandonescortentry extends Mobile {
 		$this->int = rand(15, 25);
 		$this->hits = 0;
 		$this->maxhits = 0;
-		$this->damage_min = 0;
-		$this->damage_max = 0;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

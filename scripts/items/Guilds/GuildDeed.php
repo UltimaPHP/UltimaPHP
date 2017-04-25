@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class guilddeed extends Object {
+class GuildDeed extends Object {
 	public function build() {
 		$this->name = "guild deed";
 		$this->graphic = 0x14F0;

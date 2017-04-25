@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class quagmire extends Mobile {
+class Quagmire extends Mobile {
 	public function summon() {
 		$this->name = "a quagmire";
 		$this->body = 789;
@@ -16,10 +16,8 @@ class quagmire extends Mobile {
 		$this->str = rand(101, 130);
 		$this->dex = rand(66, 85);
 		$this->int = rand(31, 55);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 10;
-		$this->damage_max = 14;
+		$this->hits = 10;
+		$this->maxhits = 14;
 		$this->resist_physical = rand(50, 60);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(10, 20);

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class minotaurscout extends Mobile {
+class MinotaurScout extends Mobile {
 	public function summon() {
 		$this->name = "a minotaur scout";
 		$this->body = 281;
@@ -16,10 +16,8 @@ class minotaurscout extends Mobile {
 		$this->str = rand(353, 375);
 		$this->dex = rand(111, 130);
 		$this->int = rand(34, 50);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 11;
-		$this->damage_max = 20;
+		$this->hits = 11;
+		$this->maxhits = 20;
 		$this->resist_physical = rand(55, 65);
 		$this->resist_fire = rand(25, 35);
 		$this->resist_cold = rand(30, 40);

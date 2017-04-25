@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bascinet extends Object {
+class Bascinet extends Object {
 	public function build() {
 		$this->name = "bascinet";
 		$this->graphic = 0x140C;

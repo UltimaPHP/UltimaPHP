@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class wisp extends Mobile {
+class Wisp extends Mobile {
 	public function summon() {
 		$this->name = "a wisp";
 		$this->body = 58;
@@ -16,10 +16,8 @@ class wisp extends Mobile {
 		$this->str = rand(196, 225);
 		$this->dex = rand(196, 225);
 		$this->int = rand(196, 225);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 17;
-		$this->damage_max = 18;
+		$this->hits = 17;
+		$this->maxhits = 18;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(20, 40);
 		$this->resist_cold = rand(10, 30);

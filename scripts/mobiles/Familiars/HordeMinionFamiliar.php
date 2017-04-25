@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class hordeminionfamiliar extends Mobile {
+class HordeMinionFamiliar extends Mobile {
 	public function summon() {
 		$this->name = "a horde minion";
 		$this->body = 776;
@@ -16,10 +16,8 @@ class hordeminionfamiliar extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 5;
-		$this->damage_max = 10;
+		$this->hits = 5;
+		$this->maxhits = 10;
 		$this->resist_physical = rand(50, 60);
 		$this->resist_fire = rand(50, 55);
 		$this->resist_cold = 0;

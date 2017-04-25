@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class leafarms extends Object {
+class LeafArms extends Object {
 	public function build() {
 		$this->name = "leaf arms";
 		$this->graphic = 0x2FC8;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class meltedwax extends Object {
+class MeltedWax extends Object {
 	public function build() {
 		$this->name = "melted wax";
 		$this->graphic = 0x122A;
@@ -26,7 +26,7 @@ class meltedwax extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 25.0;
+		$this->weight = 0;
 
 }}
 ?>

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class zenrock3artifact extends Object {
+class ZenRock3Artifact extends Object {
 	public function build() {
 		$this->name = "zen rock 3 artifact";
 		$this->graphic = 0x24E5;
@@ -26,7 +26,7 @@ class zenrock3artifact extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 10.0;
+		$this->weight = 0;
 
 }}
 ?>

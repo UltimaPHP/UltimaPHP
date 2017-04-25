@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class sai extends Object {
+class Sai extends Object {
 	public function build() {
 		$this->name = "sai";
 		$this->graphic = 0x27AF;

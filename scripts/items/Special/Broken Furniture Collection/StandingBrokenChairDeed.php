@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class standingbrokenchairdeed extends Object {
+class StandingBrokenChairDeed extends Object {
 	public function build() {
 		$this->name = "standing broken chair deed";
 		$this->graphic = 0xC1B;

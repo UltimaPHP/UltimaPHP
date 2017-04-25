@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class halberd extends Object {
+class Halberd extends Object {
 	public function build() {
 		$this->name = "halberd";
 		$this->graphic = 0x143E;
@@ -22,8 +22,8 @@ class halberd extends Object {
 		$this->oldstrengthreq = 45;
 		$this->oldmindamage = 5;
 		$this->oldspeed = 25;
-		$this->defhitsound = 0x237;
-		$this->defmisssound = 0x238;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 80;
 		$this->weight = 16.0;

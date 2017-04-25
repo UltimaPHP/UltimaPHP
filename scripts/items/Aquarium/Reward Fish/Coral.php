@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class coral extends Object {
+class Coral extends Object {
 	public function build() {
 		$this->name = "coral";
 		$this->graphic = 0x3AF9;

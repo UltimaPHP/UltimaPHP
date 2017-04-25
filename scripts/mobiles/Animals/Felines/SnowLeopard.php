@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class snowleopard extends Mobile {
+class SnowLeopard extends Mobile {
 	public function summon() {
 		$this->name = "a snow leopard";
 		$this->body = Functions::RandomList(array(64, 65));
@@ -16,10 +16,8 @@ class snowleopard extends Mobile {
 		$this->str = rand(56, 80);
 		$this->dex = rand(66, 85);
 		$this->int = rand(26, 50);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 3;
-		$this->damage_max = 9;
+		$this->hits = 3;
+		$this->maxhits = 9;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = rand(30, 40);

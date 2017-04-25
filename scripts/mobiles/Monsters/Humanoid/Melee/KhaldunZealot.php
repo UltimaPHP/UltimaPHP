@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class khaldunzealot extends Mobile {
+class KhaldunZealot extends Mobile {
 	public function summon() {
 		$this->name = "zealot of khaldun";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class khaldunzealot extends Mobile {
 		$this->str = rand(351, 400);
 		$this->dex = rand(151, 165);
 		$this->int = rand(76, 100);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 15;
-		$this->damage_max = 25;
+		$this->hits = 15;
+		$this->maxhits = 25;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(25, 30);
 		$this->resist_cold = rand(50, 60);

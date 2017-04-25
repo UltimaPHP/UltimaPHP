@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class thickgraystonewall extends Object {
+class ThickGrayStoneWall extends Object {
 	public function build() {
 		$this->name = "thick gray stone wall";
 		$this->graphic = 0x007A;

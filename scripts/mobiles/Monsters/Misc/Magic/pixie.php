@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class pixie extends Mobile {
+class Pixie extends Mobile {
 	public function summon() {
 		$this->name = "pixie";
 		$this->body = 128;
@@ -16,10 +16,8 @@ class pixie extends Mobile {
 		$this->str = rand(21, 30);
 		$this->dex = rand(301, 400);
 		$this->int = rand(201, 250);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 9;
-		$this->damage_max = 15;
+		$this->hits = 9;
+		$this->maxhits = 15;
 		$this->resist_physical = rand(80, 90);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(40, 50);

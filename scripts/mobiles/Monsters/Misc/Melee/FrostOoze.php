@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class frostooze extends Mobile {
+class FrostOoze extends Mobile {
 	public function summon() {
 		$this->name = "a frost ooze";
 		$this->body = 94;
@@ -16,10 +16,8 @@ class frostooze extends Mobile {
 		$this->str = rand(18, 30);
 		$this->dex = rand(16, 21);
 		$this->int = rand(16, 20);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 3;
-		$this->damage_max = 9;
+		$this->hits = 3;
+		$this->maxhits = 9;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(40, 50);

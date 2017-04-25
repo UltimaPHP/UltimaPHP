@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class braceletofbinding extends Object {
+class BraceletOfBinding extends Object {
 	public function build() {
 		$this->name = "bracelet of binding";
 		$this->graphic = 0x1086;

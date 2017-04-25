@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class platehaidate extends Object {
+class PlateHaidate extends Object {
 	public function build() {
 		$this->name = "plate haidate";
 		$this->graphic = 0x278D;

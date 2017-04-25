@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class barbedleather extends Object {
+class BarbedLeather extends Object {
 	public function build() {
 		$this->name = "barbed leather";
 		$this->graphic = 0x1081;

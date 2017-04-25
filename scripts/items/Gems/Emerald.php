@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class emerald extends Object {
+class Emerald extends Object {
 	public function build() {
 		$this->name = "emerald";
 		$this->graphic = 0xF10;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class lichlord extends Mobile {
+class LichLord extends Mobile {
 	public function summon() {
 		$this->name = "a lich lord";
 		$this->body = 79;
@@ -16,10 +16,8 @@ class lichlord extends Mobile {
 		$this->str = rand(416, 505);
 		$this->dex = rand(146, 165);
 		$this->int = rand(566, 655);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 11;
-		$this->damage_max = 13;
+		$this->hits = 11;
+		$this->maxhits = 13;
 		$this->resist_physical = rand(40, 50);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(50, 60);

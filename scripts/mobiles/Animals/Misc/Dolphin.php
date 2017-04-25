@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class dolphin extends Mobile {
+class Dolphin extends Mobile {
 	public function summon() {
 		$this->name = "a dolphin";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class dolphin extends Mobile {
 		$this->str = rand(21, 49);
 		$this->dex = rand(66, 85);
 		$this->int = rand(96, 110);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 3;
-		$this->damage_max = 6;
+		$this->hits = 3;
+		$this->maxhits = 6;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = rand(70, 80);
 		$this->resist_cold = rand(25, 30);

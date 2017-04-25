@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class daemonarms extends Object {
+class DaemonArms extends Object {
 	public function build() {
 		$this->name = "daemon arms";
 		$this->graphic = 0x144E;

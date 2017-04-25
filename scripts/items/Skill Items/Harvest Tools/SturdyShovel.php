@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class sturdyshovel extends Object {
+class SturdyShovel extends Object {
 	public function build() {
 		$this->name = "sturdy shovel";
 		$this->graphic = 0xF39;
@@ -14,18 +14,18 @@ class sturdyshovel extends Object {
 		$this->value = 0;
 		$this->amount = 1;
 		$this->color = 0x973;
-		$this->aosstrengthreq = 50;
-		$this->aosmindamage = 13;
-		$this->aosmaxdamage = 15;
-		$this->aosspeed = 35;
-		$this->mlspeed = 3;
-		$this->oldstrengthreq = 25;
-		$this->oldmindamage = 1;
-		$this->oldspeed = 35;
+		$this->aosstrengthreq = 0;
+		$this->aosmindamage = 0;
+		$this->aosmaxdamage = 0;
+		$this->aosspeed = 0;
+		$this->mlspeed = 0;
+		$this->oldstrengthreq = 0;
+		$this->oldmindamage = 0;
+		$this->oldspeed = 0;
 		$this->defhitsound = 0;
 		$this->defmisssound = 0;
-		$this->hits = 31;
-		$this->maxHits = 60;
+		$this->hits = 0;
+		$this->maxHits = 0;
 		$this->weight = 5.0;
 
 }}

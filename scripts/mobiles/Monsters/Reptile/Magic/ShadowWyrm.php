@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class shadowwyrm extends Mobile {
+class ShadowWyrm extends Mobile {
 	public function summon() {
 		$this->name = "a shadow wyrm";
 		$this->body = 106;
@@ -16,10 +16,8 @@ class shadowwyrm extends Mobile {
 		$this->str = rand(898, 1030);
 		$this->dex = rand(68, 200);
 		$this->int = rand(488, 620);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 29;
-		$this->damage_max = 35;
+		$this->hits = 29;
+		$this->maxhits = 35;
 		$this->resist_physical = rand(65, 75);
 		$this->resist_fire = rand(50, 60);
 		$this->resist_cold = rand(45, 55);

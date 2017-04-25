@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class hind extends Mobile {
+class Hind extends Mobile {
 	public function summon() {
 		$this->name = "a hind";
 		$this->body = 0;
@@ -18,8 +18,6 @@ class hind extends Mobile {
 		$this->int = rand(17, 47);
 		$this->hits = 0;
 		$this->maxhits = 0;
-		$this->damage_min = 0;
-		$this->damage_max = 0;
 		$this->resist_physical = rand(5, 15);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class grizzlybear extends Mobile {
+class GrizzlyBear extends Mobile {
 	public function summon() {
 		$this->name = "a grizzly bear";
 		$this->body = 212;
@@ -16,10 +16,8 @@ class grizzlybear extends Mobile {
 		$this->str = rand(126, 155);
 		$this->dex = rand(81, 105);
 		$this->int = rand(16, 40);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 8;
-		$this->damage_max = 13;
+		$this->hits = 8;
+		$this->maxhits = 13;
 		$this->resist_physical = rand(25, 35);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(15, 25);

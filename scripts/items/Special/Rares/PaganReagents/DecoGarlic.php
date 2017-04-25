@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class decogarlic extends Object {
+class DecoGarlic extends Object {
 	public function build() {
 		$this->name = "deco garlic";
 		$this->graphic = 0x18E1;

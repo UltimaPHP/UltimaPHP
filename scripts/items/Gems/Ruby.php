@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ruby extends Object {
+class Ruby extends Object {
 	public function build() {
 		$this->name = "ruby";
 		$this->graphic = 0xF13;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class cleaver extends Object {
+class Cleaver extends Object {
 	public function build() {
 		$this->name = "cleaver";
 		$this->graphic = 0xEC3;
@@ -22,8 +22,8 @@ class cleaver extends Object {
 		$this->oldstrengthreq = 10;
 		$this->oldmindamage = 2;
 		$this->oldspeed = 40;
-		$this->defhitsound = 0x23B;
-		$this->defmisssound = 0x238;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 50;
 		$this->weight = 2.0;

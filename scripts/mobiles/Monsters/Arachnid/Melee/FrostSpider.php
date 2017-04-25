@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class frostspider extends Mobile {
+class FrostSpider extends Mobile {
 	public function summon() {
 		$this->name = "a frost spider";
 		$this->body = 20;
@@ -16,10 +16,8 @@ class frostspider extends Mobile {
 		$this->str = rand(76, 100);
 		$this->dex = rand(126, 145);
 		$this->int = rand(36, 60);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 6;
-		$this->damage_max = 16;
+		$this->hits = 6;
+		$this->maxhits = 16;
 		$this->resist_physical = rand(25, 30);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = rand(40, 50);

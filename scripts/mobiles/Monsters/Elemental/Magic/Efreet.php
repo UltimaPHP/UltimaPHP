@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class efreet extends Mobile {
+class Efreet extends Mobile {
 	public function summon() {
 		$this->name = "an efreet";
 		$this->body = 131;
@@ -16,10 +16,8 @@ class efreet extends Mobile {
 		$this->str = rand(326, 355);
 		$this->dex = rand(266, 285);
 		$this->int = rand(171, 195);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 11;
-		$this->damage_max = 13;
+		$this->hits = 11;
+		$this->maxhits = 13;
 		$this->resist_physical = rand(50, 60);
 		$this->resist_fire = rand(60, 70);
 		$this->resist_cold = 0;

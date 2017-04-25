@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class scissors extends Object {
+class Scissors extends Object {
 	public function build() {
 		$this->name = "scissors";
 		$this->graphic = 0xF9F;

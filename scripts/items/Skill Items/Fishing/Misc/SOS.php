@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class sos extends Object {
+class SOS extends Object {
 	public function build() {
 		$this->name = "";
 		$this->graphic = 0x14EE;

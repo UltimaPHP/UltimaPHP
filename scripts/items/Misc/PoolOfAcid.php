@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class poolofacid extends Object {
+class PoolOfAcid extends Object {
 	public function build() {
 		$this->name = "pool of acid";
 		$this->graphic = 0x122A;
@@ -26,7 +26,7 @@ class poolofacid extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

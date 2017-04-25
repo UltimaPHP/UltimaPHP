@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class elvencompositelongbow extends Object {
+class ElvenCompositeLongbow extends Object {
 	public function build() {
 		$this->name = "elven composite longbow";
 		$this->graphic = 0x2D1E;
@@ -23,7 +23,7 @@ class elvencompositelongbow extends Object {
 		$this->oldmindamage = 12;
 		$this->oldspeed = 27;
 		$this->defhitsound = 0;
-		$this->defmisssound = 0x239;
+		$this->defmisssound = 0;
 		$this->hits = 41;
 		$this->maxHits = 90;
 		$this->weight = 8.0;

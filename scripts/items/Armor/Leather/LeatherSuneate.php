@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class leathersuneate extends Object {
+class LeatherSuneate extends Object {
 	public function build() {
 		$this->name = "leather suneate";
 		$this->graphic = 0x2786;

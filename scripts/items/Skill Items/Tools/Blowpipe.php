@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class blowpipe extends Object {
+class Blowpipe extends Object {
 	public function build() {
 		$this->name = "blowpipe";
 		$this->graphic = 0xE8A;

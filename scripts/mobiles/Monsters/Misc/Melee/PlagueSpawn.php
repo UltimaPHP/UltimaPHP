@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class plaguespawn extends Mobile {
+class PlagueSpawn extends Mobile {
 	public function summon() {
 		$this->name = "a plague spawn";
 		$this->body = 51;
@@ -16,10 +16,8 @@ class plaguespawn extends Mobile {
 		$this->str = rand(201, 300);
 		$this->dex = 0;
 		$this->int = rand(16, 20);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 11;
-		$this->damage_max = 17;
+		$this->hits = 11;
+		$this->maxhits = 17;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(25, 35);

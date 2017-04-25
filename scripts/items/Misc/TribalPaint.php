@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class tribalpaint extends Object {
+class TribalPaint extends Object {
 	public function build() {
 		$this->name = "tribal paint";
 		$this->graphic = 0x9EC;
@@ -13,7 +13,7 @@ class tribalpaint extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x3B2;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

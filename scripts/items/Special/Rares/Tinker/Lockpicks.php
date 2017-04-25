@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class lockpicks extends Object {
+class Lockpicks extends Object {
 	public function build() {
 		$this->name = "lockpicks";
 		$this->graphic = 0x14FD;

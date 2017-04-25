@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class firehorn extends Object {
+class FireHorn extends Object {
 	public function build() {
 		$this->name = "fire horn";
 		$this->graphic = 0xFC7;

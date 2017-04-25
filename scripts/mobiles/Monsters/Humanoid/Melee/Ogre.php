@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ogre extends Mobile {
+class Ogre extends Mobile {
 	public function summon() {
 		$this->name = "an ogre";
 		$this->body = 1;
@@ -16,10 +16,8 @@ class ogre extends Mobile {
 		$this->str = rand(166, 195);
 		$this->dex = rand(46, 65);
 		$this->int = rand(46, 70);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 9;
-		$this->damage_max = 11;
+		$this->hits = 9;
+		$this->maxhits = 11;
 		$this->resist_physical = rand(30, 35);
 		$this->resist_fire = rand(15, 25);
 		$this->resist_cold = rand(15, 25);

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class candelabrastand extends Object {
+class CandelabraStand extends Object {
 	public function build() {
 		$this->name = "candelabra stand";
 		$this->graphic = 0xA29;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class darksource extends Object {
+class DarkSource extends Object {
 	public function build() {
 		$this->name = "dark source";
 		$this->graphic = 0x1646;
@@ -26,7 +26,7 @@ class darksource extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 5.0;
+		$this->weight = 0;
 
 }}
 ?>

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class soulstonefragmenttoken extends Object {
+class SoulstoneFragmentToken extends Object {
 	public function build() {
 		$this->name = "soulstone fragment token";
 		$this->graphic = 0x2AAA;
@@ -13,7 +13,7 @@ class soulstonefragmenttoken extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x835;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

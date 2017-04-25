@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class norsehelm extends Object {
+class NorseHelm extends Object {
 	public function build() {
 		$this->name = "norse helm";
 		$this->graphic = 0x140E;
@@ -13,7 +13,7 @@ class norsehelm extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x648;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

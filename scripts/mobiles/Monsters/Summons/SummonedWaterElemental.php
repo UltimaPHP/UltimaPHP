@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class summonedwaterelemental extends Mobile {
+class SummonedWaterElemental extends Mobile {
 	public function summon() {
 		$this->name = "a water elemental";
 		$this->body = 16;
@@ -16,10 +16,8 @@ class summonedwaterelemental extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 12;
-		$this->damage_max = 16;
+		$this->hits = 12;
+		$this->maxhits = 16;
 		$this->resist_physical = rand(50, 60);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(70, 80);

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class wallofstonescroll extends Object {
+class WallOfStoneScroll extends Object {
 	public function build() {
 		$this->name = "wall of stone scroll";
 		$this->graphic = 0x1F44;

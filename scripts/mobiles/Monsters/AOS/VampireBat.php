@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class vampirebat extends Mobile {
+class VampireBat extends Mobile {
 	public function summon() {
 		$this->name = "a vampire bat";
 		$this->body = 317;
@@ -16,10 +16,8 @@ class vampirebat extends Mobile {
 		$this->str = rand(91, 110);
 		$this->dex = rand(91, 115);
 		$this->int = rand(26, 50);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 7;
-		$this->damage_max = 9;
+		$this->hits = 7;
+		$this->maxhits = 9;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(15, 25);
 		$this->resist_cold = rand(15, 25);

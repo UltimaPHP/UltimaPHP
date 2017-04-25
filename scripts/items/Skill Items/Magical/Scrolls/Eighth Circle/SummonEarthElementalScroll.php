@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class summonearthelementalscroll extends Object {
+class SummonEarthElementalScroll extends Object {
 	public function build() {
 		$this->name = "summon earth elemental scroll";
 		$this->graphic = 0x1F6A;

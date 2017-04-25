@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class fandancerfish extends Object {
+class FandancerFish extends Object {
 	public function build() {
 		$this->name = "fandancer fish";
 		$this->graphic = 0x3B02;
@@ -13,7 +13,7 @@ class fandancerfish extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x47E;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

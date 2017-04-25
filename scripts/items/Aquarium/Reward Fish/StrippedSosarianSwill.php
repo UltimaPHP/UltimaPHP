@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class strippedsosarianswill extends Object {
+class StrippedSosarianSwill extends Object {
 	public function build() {
 		$this->name = "stripped sosarian swill";
 		$this->graphic = 0x3B0A;

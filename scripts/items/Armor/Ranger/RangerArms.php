@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class rangerarms extends Object {
+class RangerArms extends Object {
 	public function build() {
 		$this->name = "ranger arms";
 		$this->graphic = 0x13DC;

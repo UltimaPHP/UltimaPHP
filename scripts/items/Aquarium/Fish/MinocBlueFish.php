@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class minocbluefish extends Object {
+class MinocBlueFish extends Object {
 	public function build() {
 		$this->name = "minoc blue fish";
 		$this->graphic = 0x3AFE;
@@ -13,7 +13,7 @@ class minocbluefish extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x527;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

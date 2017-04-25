@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class brownbear extends Mobile {
+class BrownBear extends Mobile {
 	public function summon() {
 		$this->name = "a brown bear";
 		$this->body = 167;
@@ -16,10 +16,8 @@ class brownbear extends Mobile {
 		$this->str = rand(76, 100);
 		$this->dex = rand(26, 45);
 		$this->int = rand(23, 47);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 6;
-		$this->damage_max = 12;
+		$this->hits = 6;
+		$this->maxhits = 12;
 		$this->resist_physical = rand(20, 30);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(15, 20);

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class cunningscroll extends Object {
+class CunningScroll extends Object {
 	public function build() {
 		$this->name = "cunning scroll";
 		$this->graphic = 0x1F36;

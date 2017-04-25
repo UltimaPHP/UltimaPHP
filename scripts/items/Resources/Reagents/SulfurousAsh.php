@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class sulfurousash extends Object {
+class SulfurousAsh extends Object {
 	public function build() {
 		$this->name = "sulfurous ash";
 		$this->graphic = 0xF8C;

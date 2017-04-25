@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class meraktus extends Mobile {
+class Meraktus extends Mobile {
 	public function summon() {
 		$this->name = "meraktus";
 		$this->body = 263;
@@ -16,10 +16,8 @@ class meraktus extends Mobile {
 		$this->str = rand(1419, 1438);
 		$this->dex = rand(309, 413);
 		$this->int = rand(129, 131);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 16;
-		$this->damage_max = 30;
+		$this->hits = 16;
+		$this->maxhits = 30;
 		$this->resist_physical = rand(65, 90);
 		$this->resist_fire = rand(65, 70);
 		$this->resist_cold = rand(50, 60);

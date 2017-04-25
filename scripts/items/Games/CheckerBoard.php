@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class checkerboard extends Object {
+class CheckerBoard extends Object {
 	public function build() {
 		$this->name = "checker board";
 		$this->graphic = 0xFA6;
@@ -26,7 +26,7 @@ class checkerboard extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 5.0;
+		$this->weight = 0;
 
 }}
 ?>

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class padsofthecusidhe extends Object {
+class PadsOfTheCuSidhe extends Object {
 	public function build() {
 		$this->name = "pads of the cu sidhe";
 		$this->graphic = 0x47E;
@@ -13,7 +13,7 @@ class padsofthecusidhe extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x494;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;
@@ -24,8 +24,8 @@ class padsofthecusidhe extends Object {
 		$this->oldspeed = 0;
 		$this->defhitsound = 0;
 		$this->defmisssound = 0;
-		$this->hits = 255;
-		$this->maxHits = 255;
+		$this->hits = 0;
+		$this->maxHits = 0;
 		$this->weight = 0;
 
 }}

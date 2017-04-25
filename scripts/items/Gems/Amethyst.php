@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class amethyst extends Object {
+class Amethyst extends Object {
 	public function build() {
 		$this->name = "amethyst";
 		$this->graphic = 0xF16;

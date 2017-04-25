@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class serado extends Mobile {
+class Serado extends Mobile {
 	public function summon() {
 		$this->name = "serado";
 		$this->body = 249;
@@ -16,10 +16,8 @@ class serado extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 29;
-		$this->damage_max = 35;
+		$this->hits = 29;
+		$this->maxhits = 35;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

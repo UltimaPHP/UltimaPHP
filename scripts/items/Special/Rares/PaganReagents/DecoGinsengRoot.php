@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class decoginsengroot extends Object {
+class DecoGinsengRoot extends Object {
 	public function build() {
 		$this->name = "deco ginseng root";
 		$this->graphic = 0x18EB;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class citrine extends Object {
+class Citrine extends Object {
 	public function build() {
 		$this->name = "citrine";
 		$this->graphic = 0xF15;

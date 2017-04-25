@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class kappa extends Mobile {
+class Kappa extends Mobile {
 	public function summon() {
 		$this->name = "a kappa";
 		$this->body = 240;
@@ -16,10 +16,8 @@ class kappa extends Mobile {
 		$this->str = rand(186, 230);
 		$this->dex = rand(51, 75);
 		$this->int = rand(41, 55);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 6;
-		$this->damage_max = 12;
+		$this->hits = 6;
+		$this->maxhits = 12;
 		$this->resist_physical = rand(35, 50);
 		$this->resist_fire = rand(35, 50);
 		$this->resist_cold = rand(25, 50);

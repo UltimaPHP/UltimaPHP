@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class animatedeadscroll extends Object {
+class AnimateDeadScroll extends Object {
 	public function build() {
 		$this->name = "animate dead scroll";
 		$this->graphic = 0x2260;

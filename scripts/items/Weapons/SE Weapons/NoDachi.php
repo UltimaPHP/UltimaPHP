@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class nodachi extends Object {
+class NoDachi extends Object {
 	public function build() {
 		$this->name = "no dachi";
 		$this->graphic = 0x27A2;

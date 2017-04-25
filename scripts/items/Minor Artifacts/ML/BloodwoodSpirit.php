@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bloodwoodspirit extends Object {
+class BloodwoodSpirit extends Object {
 	public function build() {
 		$this->name = "bloodwood spirit";
 		$this->graphic = 0x2F5A;
@@ -24,8 +24,8 @@ class bloodwoodspirit extends Object {
 		$this->oldspeed = 0;
 		$this->defhitsound = 0;
 		$this->defmisssound = 0;
-		$this->hits = 255;
-		$this->maxHits = 255;
+		$this->hits = 0;
+		$this->maxHits = 0;
 		$this->weight = 0;
 
 }}

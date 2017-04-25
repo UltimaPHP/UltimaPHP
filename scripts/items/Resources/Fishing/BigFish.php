@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bigfish extends Object {
+class BigFish extends Object {
 	public function build() {
 		$this->name = "big fish";
 		$this->graphic = 0x09CC;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class elvenspellblade extends Object {
+class ElvenSpellblade extends Object {
 	public function build() {
 		$this->name = "elven spellblade";
 		$this->graphic = 0x2D20;
@@ -22,7 +22,7 @@ class elvenspellblade extends Object {
 		$this->oldstrengthreq = 35;
 		$this->oldmindamage = 12;
 		$this->oldspeed = 44;
-		$this->defhitsound = 0x23B;
+		$this->defhitsound = 0;
 		$this->defmisssound = 0x239;
 		$this->hits = 30;
 		$this->maxHits = 60;

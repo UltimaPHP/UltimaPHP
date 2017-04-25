@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class redhanginglantern extends Object {
+class RedHangingLantern extends Object {
 	public function build() {
 		$this->name = "red hanging lantern";
 		$this->graphic = 0x24C2;
@@ -13,7 +13,7 @@ class redhanginglantern extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x482;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

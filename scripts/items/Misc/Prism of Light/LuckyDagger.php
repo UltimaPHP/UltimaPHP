@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class luckydagger extends Object {
+class LuckyDagger extends Object {
 	public function build() {
 		$this->name = "lucky dagger";
 		$this->graphic = 0xF52;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class uncutcloth extends Object {
+class UncutCloth extends Object {
 	public function build() {
 		$this->name = "uncut cloth";
 		$this->graphic = 0x1767;
@@ -26,7 +26,7 @@ class uncutcloth extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

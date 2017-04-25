@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class throwingdagger extends Object {
+class ThrowingDagger extends Object {
 	public function build() {
 		$this->name = "throwing dagger";
 		$this->graphic = 0xF52;
@@ -14,18 +14,18 @@ class throwingdagger extends Object {
 		$this->value = 0;
 		$this->amount = 1;
 		$this->color = 0;
-		$this->aosstrengthreq = 5;
-		$this->aosmindamage = 9;
-		$this->aosmaxdamage = 11;
-		$this->aosspeed = 49;
-		$this->mlspeed = 2;
-		$this->oldstrengthreq = 5;
-		$this->oldmindamage = 1;
-		$this->oldspeed = 40;
-		$this->defhitsound = 0x23B;
-		$this->defmisssound = 0x238;
-		$this->hits = 31;
-		$this->maxHits = 40;
+		$this->aosstrengthreq = 0;
+		$this->aosmindamage = 0;
+		$this->aosmaxdamage = 0;
+		$this->aosspeed = 0;
+		$this->mlspeed = 0;
+		$this->oldstrengthreq = 0;
+		$this->oldmindamage = 0;
+		$this->oldspeed = 0;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
+		$this->hits = 0;
+		$this->maxHits = 0;
 		$this->weight = 1.0;
 
 }}

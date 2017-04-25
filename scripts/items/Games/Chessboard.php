@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class chessboard extends Object {
+class Chessboard extends Object {
 	public function build() {
 		$this->name = "chessboard";
 		$this->graphic = 0xFA6;
@@ -26,7 +26,7 @@ class chessboard extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 5.0;
+		$this->weight = 0;
 
 }}
 ?>

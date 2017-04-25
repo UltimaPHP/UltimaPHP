@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class decobloodspawn extends Object {
+class DecoBloodspawn extends Object {
 	public function build() {
 		$this->name = "deco bloodspawn";
 		$this->graphic = 0xF7C;

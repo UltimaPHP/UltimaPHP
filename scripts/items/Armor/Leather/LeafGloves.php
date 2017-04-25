@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class leafgloves extends Object {
+class LeafGloves extends Object {
 	public function build() {
 		$this->name = "leaf gloves";
 		$this->graphic = 0x2FC6;

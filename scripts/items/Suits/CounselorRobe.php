@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class counselorrobe extends Object {
+class CounselorRobe extends Object {
 	public function build() {
 		$this->name = "counselor robe";
 		$this->graphic = 0x3;
@@ -26,7 +26,7 @@ class counselorrobe extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

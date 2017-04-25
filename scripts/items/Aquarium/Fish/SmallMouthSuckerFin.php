@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class smallmouthsuckerfin extends Object {
+class SmallMouthSuckerFin extends Object {
 	public function build() {
 		$this->name = "small mouth sucker fin";
 		$this->graphic = 0x3B01;
@@ -13,7 +13,7 @@ class smallmouthsuckerfin extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x4FA;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

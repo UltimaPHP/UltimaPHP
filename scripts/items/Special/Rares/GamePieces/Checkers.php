@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class checkers extends Object {
+class Checkers extends Object {
 	public function build() {
 		$this->name = "checkers";
 		$this->graphic = 0xE1A;

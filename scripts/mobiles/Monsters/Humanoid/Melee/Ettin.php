@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ettin extends Mobile {
+class Ettin extends Mobile {
 	public function summon() {
 		$this->name = "an ettin";
 		$this->body = 18;
@@ -16,10 +16,8 @@ class ettin extends Mobile {
 		$this->str = rand(136, 165);
 		$this->dex = rand(56, 75);
 		$this->int = rand(31, 55);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 7;
-		$this->damage_max = 17;
+		$this->hits = 7;
+		$this->maxhits = 17;
 		$this->resist_physical = rand(35, 40);
 		$this->resist_fire = rand(15, 25);
 		$this->resist_cold = rand(40, 50);

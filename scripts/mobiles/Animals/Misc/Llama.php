@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class llama extends Mobile {
+class Llama extends Mobile {
 	public function summon() {
 		$this->name = "a llama";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class llama extends Mobile {
 		$this->str = rand(21, 49);
 		$this->dex = rand(36, 55);
 		$this->int = rand(16, 30);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 3;
-		$this->damage_max = 5;
+		$this->hits = 3;
+		$this->maxhits = 5;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

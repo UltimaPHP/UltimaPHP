@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class runedprism extends Object {
+class RunedPrism extends Object {
 	public function build() {
 		$this->name = "runed prism";
 		$this->graphic = 0x2F57;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class summonfamiliarscroll extends Object {
+class SummonFamiliarScroll extends Object {
 	public function build() {
 		$this->name = "summon familiar scroll";
 		$this->graphic = 0x226B;

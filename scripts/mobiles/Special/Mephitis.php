@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class mephitis extends Mobile {
+class Mephitis extends Mobile {
 	public function summon() {
 		$this->name = "mephitis";
 		$this->body = 173;
@@ -16,10 +16,8 @@ class mephitis extends Mobile {
 		$this->str = rand(505, 1000);
 		$this->dex = rand(102, 300);
 		$this->int = rand(402, 600);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 21;
-		$this->damage_max = 33;
+		$this->hits = 21;
+		$this->maxhits = 33;
 		$this->resist_physical = rand(75, 80);
 		$this->resist_fire = rand(60, 70);
 		$this->resist_cold = rand(60, 70);

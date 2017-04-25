@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class gingerbreadcookie extends Object {
+class GingerBreadCookie extends Object {
 	public function build() {
 		$this->name = "ginger bread cookie";
 		$this->graphic = 0x2be1;
@@ -26,7 +26,7 @@ class gingerbreadcookie extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

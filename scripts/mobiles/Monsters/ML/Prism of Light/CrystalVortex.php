@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class crystalvortex extends Mobile {
+class CrystalVortex extends Mobile {
 	public function summon() {
 		$this->name = "a crystal vortex";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class crystalvortex extends Mobile {
 		$this->str = rand(800, 900);
 		$this->dex = rand(500, 600);
 		$this->int = 0;
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 15;
-		$this->damage_max = 20;
+		$this->hits = 15;
+		$this->maxhits = 20;
 		$this->resist_physical = rand(60, 80);
 		$this->resist_fire = rand(0, 10);
 		$this->resist_cold = rand(70, 80);

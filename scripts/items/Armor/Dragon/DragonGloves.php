@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class dragongloves extends Object {
+class DragonGloves extends Object {
 	public function build() {
 		$this->name = "dragon gloves";
 		$this->graphic = 0x2643;

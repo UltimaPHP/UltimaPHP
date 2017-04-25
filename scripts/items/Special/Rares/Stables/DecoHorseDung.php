@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class decohorsedung extends Object {
+class DecoHorseDung extends Object {
 	public function build() {
 		$this->name = "deco horse dung";
 		$this->graphic = 0xF3B;

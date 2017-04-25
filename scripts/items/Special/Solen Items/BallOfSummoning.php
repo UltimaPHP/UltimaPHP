@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ballofsummoning extends Object {
+class BallOfSummoning extends Object {
 	public function build() {
 		$this->name = "ball of summoning";
 		$this->graphic = 0xE2E;
@@ -13,7 +13,7 @@ class ballofsummoning extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x89B;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

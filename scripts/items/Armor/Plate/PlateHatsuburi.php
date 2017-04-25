@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class platehatsuburi extends Object {
+class PlateHatsuburi extends Object {
 	public function build() {
 		$this->name = "plate hatsuburi";
 		$this->graphic = 0x2775;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class sweatofparoxysmus extends Object {
+class SweatOfParoxysmus extends Object {
 	public function build() {
 		$this->name = "sweat of paroxysmus";
 		$this->graphic = 0xF01;
@@ -13,7 +13,7 @@ class sweatofparoxysmus extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x3D1;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

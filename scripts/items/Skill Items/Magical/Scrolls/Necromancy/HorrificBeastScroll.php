@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class horrificbeastscroll extends Object {
+class HorrificBeastScroll extends Object {
 	public function build() {
 		$this->name = "horrific beast scroll";
 		$this->graphic = 0x2265;

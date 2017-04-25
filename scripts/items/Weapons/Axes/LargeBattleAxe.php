@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class largebattleaxe extends Object {
+class LargeBattleAxe extends Object {
 	public function build() {
 		$this->name = "large battle axe";
 		$this->graphic = 0x13FB;
@@ -22,8 +22,8 @@ class largebattleaxe extends Object {
 		$this->oldstrengthreq = 40;
 		$this->oldmindamage = 6;
 		$this->oldspeed = 30;
-		$this->defhitsound = 0x232;
-		$this->defmisssound = 0x23A;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 70;
 		$this->weight = 6.0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class travestyscollectionofshells extends Object {
+class TravestysCollectionOfShells extends Object {
 	public function build() {
 		$this->name = "travestys collection of shells";
 		$this->graphic = 0xFD3;

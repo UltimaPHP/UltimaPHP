@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class harpy extends Mobile {
+class Harpy extends Mobile {
 	public function summon() {
 		$this->name = "a harpy";
 		$this->body = 30;
@@ -16,10 +16,8 @@ class harpy extends Mobile {
 		$this->str = rand(96, 120);
 		$this->dex = rand(86, 110);
 		$this->int = rand(51, 75);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 5;
-		$this->damage_max = 7;
+		$this->hits = 5;
+		$this->maxhits = 7;
 		$this->resist_physical = rand(25, 30);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(10, 30);

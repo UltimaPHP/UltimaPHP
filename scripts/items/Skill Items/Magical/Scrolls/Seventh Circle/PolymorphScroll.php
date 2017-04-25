@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class polymorphscroll extends Object {
+class PolymorphScroll extends Object {
 	public function build() {
 		$this->name = "polymorph scroll";
 		$this->graphic = 0x1F64;

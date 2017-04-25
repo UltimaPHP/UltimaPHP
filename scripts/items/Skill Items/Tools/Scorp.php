@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class scorp extends Object {
+class Scorp extends Object {
 	public function build() {
 		$this->name = "scorp";
 		$this->graphic = 0x10E7;
@@ -13,7 +13,7 @@ class scorp extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x3B9;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

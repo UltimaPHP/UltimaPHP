@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class closehelm extends Object {
+class CloseHelm extends Object {
 	public function build() {
 		$this->name = "close helm";
 		$this->graphic = 0x1408;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class seaserpent extends Mobile {
+class SeaSerpent extends Mobile {
 	public function summon() {
 		$this->name = "a sea serpent";
 		$this->body = 150;
@@ -16,10 +16,8 @@ class seaserpent extends Mobile {
 		$this->str = rand(168, 225);
 		$this->dex = rand(58, 85);
 		$this->int = rand(53, 95);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 7;
-		$this->damage_max = 13;
+		$this->hits = 7;
+		$this->maxhits = 13;
 		$this->resist_physical = rand(25, 35);
 		$this->resist_fire = rand(50, 60);
 		$this->resist_cold = rand(30, 40);

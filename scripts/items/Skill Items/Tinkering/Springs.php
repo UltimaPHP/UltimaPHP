@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class springs extends Object {
+class Springs extends Object {
 	public function build() {
 		$this->name = "springs";
 		$this->graphic = 0x105D;

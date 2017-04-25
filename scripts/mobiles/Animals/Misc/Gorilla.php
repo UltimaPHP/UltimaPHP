@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class gorilla extends Mobile {
+class Gorilla extends Mobile {
 	public function summon() {
 		$this->name = "a gorilla";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class gorilla extends Mobile {
 		$this->str = rand(53, 95);
 		$this->dex = rand(36, 55);
 		$this->int = rand(36, 60);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 4;
-		$this->damage_max = 10;
+		$this->hits = 4;
+		$this->maxhits = 10;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = rand(10, 15);

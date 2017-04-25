@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class polarbear extends Mobile {
+class PolarBear extends Mobile {
 	public function summon() {
 		$this->name = "a polar bear";
 		$this->body = 213;
@@ -16,10 +16,8 @@ class polarbear extends Mobile {
 		$this->str = rand(116, 140);
 		$this->dex = rand(81, 105);
 		$this->int = rand(26, 50);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 7;
-		$this->damage_max = 12;
+		$this->hits = 7;
+		$this->maxhits = 12;
 		$this->resist_physical = rand(25, 35);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(60, 80);

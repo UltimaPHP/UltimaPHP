@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class mldryad extends Mobile {
+class MLDryad extends Mobile {
 	public function summon() {
 		$this->name = "a dryad";
 		$this->body = 266;
@@ -16,10 +16,8 @@ class mldryad extends Mobile {
 		$this->str = rand(132, 149);
 		$this->dex = rand(152, 168);
 		$this->int = rand(251, 280);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 11;
-		$this->damage_max = 20;
+		$this->hits = 11;
+		$this->maxhits = 20;
 		$this->resist_physical = rand(40, 50);
 		$this->resist_fire = rand(15, 25);
 		$this->resist_cold = rand(40, 45);

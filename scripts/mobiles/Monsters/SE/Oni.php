@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class oni extends Mobile {
+class Oni extends Mobile {
 	public function summon() {
 		$this->name = "an oni";
 		$this->body = 0x1CF0;
@@ -16,10 +16,8 @@ class oni extends Mobile {
 		$this->str = rand(801, 910);
 		$this->dex = rand(151, 300);
 		$this->int = rand(171, 195);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 14;
-		$this->damage_max = 20;
+		$this->hits = 14;
+		$this->maxhits = 20;
 		$this->resist_physical = rand(65, 80);
 		$this->resist_fire = rand(50, 70);
 		$this->resist_cold = rand(35, 50);

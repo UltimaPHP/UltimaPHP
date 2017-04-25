@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ginseng extends Object {
+class Ginseng extends Object {
 	public function build() {
 		$this->name = "ginseng";
 		$this->graphic = 0xF85;

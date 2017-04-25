@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class campfireentry extends Object {
+class CampfireEntry extends Object {
 	public function build() {
 		$this->name = "campfire entry";
 		$this->graphic = 0xDE3;
@@ -26,7 +26,7 @@ class campfireentry extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 5.0;
+		$this->weight = 0;
 
 }}
 ?>

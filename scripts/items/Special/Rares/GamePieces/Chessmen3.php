@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class chessmen3 extends Object {
+class Chessmen3 extends Object {
 	public function build() {
 		$this->name = "chessmen";
 		$this->graphic = 0xE14;

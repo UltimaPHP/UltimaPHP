@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ringmailarms extends Object {
+class RingmailArms extends Object {
 	public function build() {
 		$this->name = "ringmail arms";
 		$this->graphic = 0x13EE;

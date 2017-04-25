@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class studdedchest extends Object {
+class StuddedChest extends Object {
 	public function build() {
 		$this->name = "studded chest";
 		$this->graphic = 0x13DB;

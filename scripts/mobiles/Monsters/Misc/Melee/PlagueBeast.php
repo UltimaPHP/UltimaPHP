@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class plaguebeast extends Mobile {
+class PlagueBeast extends Mobile {
 	public function summon() {
 		$this->name = "a plague beast";
 		$this->body = 775;
@@ -16,10 +16,8 @@ class plaguebeast extends Mobile {
 		$this->str = rand(302, 500);
 		$this->dex = 0;
 		$this->int = rand(16, 20);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 20;
-		$this->damage_max = 24;
+		$this->hits = 20;
+		$this->maxhits = 24;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(25, 35);

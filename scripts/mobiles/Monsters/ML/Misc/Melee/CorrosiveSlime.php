@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class corrosiveslime extends Mobile {
+class CorrosiveSlime extends Mobile {
 	public function summon() {
 		$this->name = "a corrosive slime";
 		$this->body = 51;
@@ -16,10 +16,8 @@ class corrosiveslime extends Mobile {
 		$this->str = rand(22, 34);
 		$this->dex = rand(16, 21);
 		$this->int = rand(16, 20);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 1;
-		$this->damage_max = 5;
+		$this->hits = 1;
+		$this->maxhits = 5;
 		$this->resist_physical = rand(5, 10);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

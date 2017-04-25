@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bedroll extends Object {
+class Bedroll extends Object {
 	public function build() {
 		$this->name = "bedroll";
 		$this->graphic = 0xA57;

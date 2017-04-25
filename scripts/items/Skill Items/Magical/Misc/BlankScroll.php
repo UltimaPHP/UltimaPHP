@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class blankscroll extends Object {
+class BlankScroll extends Object {
 	public function build() {
 		$this->name = "blank scroll";
 		$this->graphic = 0xEF3;

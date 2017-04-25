@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class gears extends Object {
+class Gears extends Object {
 	public function build() {
 		$this->name = "gears";
 		$this->graphic = 0x1053;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class treasuremapchest extends Object {
+class TreasureMapChest extends Object {
 	public function build() {
 		$this->name = "treasure map chest";
 		$this->graphic = 0xE40;
@@ -26,7 +26,7 @@ class treasuremapchest extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 2.0;
+		$this->weight = 0;
 
 }}
 ?>

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class giantrat extends Mobile {
+class GiantRat extends Mobile {
 	public function summon() {
 		$this->name = "a giant rat";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class giantrat extends Mobile {
 		$this->str = rand(32, 74);
 		$this->dex = rand(46, 65);
 		$this->int = rand(16, 30);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 4;
-		$this->damage_max = 8;
+		$this->hits = 4;
+		$this->maxhits = 8;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = 0;

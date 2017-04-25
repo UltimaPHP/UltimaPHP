@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class daemonchest extends Object {
+class DaemonChest extends Object {
 	public function build() {
 		$this->name = "daemon chest";
 		$this->graphic = 0x144F;

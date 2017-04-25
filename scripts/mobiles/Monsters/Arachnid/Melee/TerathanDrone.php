@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class terathandrone extends Mobile {
+class TerathanDrone extends Mobile {
 	public function summon() {
 		$this->name = "a terathan drone";
 		$this->body = 71;
@@ -16,10 +16,8 @@ class terathandrone extends Mobile {
 		$this->str = rand(36, 65);
 		$this->dex = rand(96, 145);
 		$this->int = rand(21, 45);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 6;
-		$this->damage_max = 12;
+		$this->hits = 6;
+		$this->maxhits = 12;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(15, 25);

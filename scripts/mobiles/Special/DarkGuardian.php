@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class darkguardian extends Mobile {
+class DarkGuardian extends Mobile {
 	public function summon() {
 		$this->name = "a dark guardian";
 		$this->body = 78;
@@ -16,10 +16,8 @@ class darkguardian extends Mobile {
 		$this->str = rand(125, 150);
 		$this->dex = rand(100, 120);
 		$this->int = rand(200, 235);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 43;
-		$this->damage_max = 48;
+		$this->hits = 43;
+		$this->maxhits = 48;
 		$this->resist_physical = rand(40, 50);
 		$this->resist_fire = rand(20, 45);
 		$this->resist_cold = rand(50, 60);

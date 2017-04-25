@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ophidianmatriarch extends Mobile {
+class OphidianMatriarch extends Mobile {
 	public function summon() {
 		$this->name = "an ophidian matriarch";
 		$this->body = 87;
@@ -16,10 +16,8 @@ class ophidianmatriarch extends Mobile {
 		$this->str = rand(416, 505);
 		$this->dex = rand(96, 115);
 		$this->int = rand(366, 455);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 11;
-		$this->damage_max = 13;
+		$this->hits = 11;
+		$this->maxhits = 13;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(35, 45);

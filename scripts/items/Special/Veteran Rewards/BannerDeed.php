@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bannerdeed extends Object {
+class BannerDeed extends Object {
 	public function build() {
 		$this->name = "banner deed";
 		$this->graphic = 0x14F0;

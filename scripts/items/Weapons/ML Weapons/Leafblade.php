@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class leafblade extends Object {
+class Leafblade extends Object {
 	public function build() {
 		$this->name = "leafblade";
 		$this->graphic = 0x2D22;
@@ -22,7 +22,7 @@ class leafblade extends Object {
 		$this->oldstrengthreq = 20;
 		$this->oldmindamage = 13;
 		$this->oldspeed = 42;
-		$this->defhitsound = 0x23B;
+		$this->defhitsound = 0;
 		$this->defmisssound = 0x239;
 		$this->hits = 30;
 		$this->maxHits = 60;

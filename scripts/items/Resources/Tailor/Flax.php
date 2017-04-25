@@ -5,10 +5,10 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class flax extends Object {
+class Flax extends Object {
 	public function build() {
 		$this->name = "flax";
-		$this->graphic = 0x1079;
+		$this->graphic = 0x1A9C;
 		$this->type = "";
 		$this->flags = 0x00;
 		$this->value = 0;
@@ -26,7 +26,7 @@ class flax extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 5.0;
+		$this->weight = 1.0;
 
 }}
 ?>

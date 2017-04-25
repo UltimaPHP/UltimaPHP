@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class shadowwisp extends Mobile {
+class ShadowWisp extends Mobile {
 	public function summon() {
 		$this->name = "a shadow wisp";
 		$this->body = 165;
@@ -16,10 +16,8 @@ class shadowwisp extends Mobile {
 		$this->str = rand(16, 40);
 		$this->dex = rand(16, 45);
 		$this->int = rand(11, 25);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 5;
-		$this->damage_max = 10;
+		$this->hits = 5;
+		$this->maxhits = 10;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = 0;

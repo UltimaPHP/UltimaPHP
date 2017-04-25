@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class rabbit extends Mobile {
+class Rabbit extends Mobile {
 	public function summon() {
 		$this->name = "a rabbit";
 		$this->body = 205;
@@ -18,8 +18,6 @@ class rabbit extends Mobile {
 		$this->int = rand(6, 14);
 		$this->hits = 0;
 		$this->maxhits = 0;
-		$this->damage_min = 0;
-		$this->damage_max = 0;
 		$this->resist_physical = rand(5, 10);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

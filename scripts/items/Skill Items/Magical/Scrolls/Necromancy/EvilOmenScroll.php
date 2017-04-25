@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class evilomenscroll extends Object {
+class EvilOmenScroll extends Object {
 	public function build() {
 		$this->name = "evil omen scroll";
 		$this->graphic = 0x2264;

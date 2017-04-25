@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class houserafflestone extends Object {
+class HouseRaffleStone extends Object {
 	public function build() {
 		$this->name = "house raffle stone";
 		$this->graphic = 0xEDD;
@@ -13,7 +13,7 @@ class houserafflestone extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x501;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

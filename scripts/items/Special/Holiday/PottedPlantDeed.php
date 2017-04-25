@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class pottedplantdeed extends Object {
+class PottedPlantDeed extends Object {
 	public function build() {
 		$this->name = "potted plant deed";
 		$this->graphic = 0x14F0;
@@ -26,7 +26,7 @@ class pottedplantdeed extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

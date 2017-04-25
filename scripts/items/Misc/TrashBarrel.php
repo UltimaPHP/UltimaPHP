@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class trashbarrel extends Object {
+class TrashBarrel extends Object {
 	public function build() {
 		$this->name = "trash barrel";
 		$this->graphic = 0xE77;
@@ -26,7 +26,7 @@ class trashbarrel extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class skitteringhopper extends Mobile {
+class SkitteringHopper extends Mobile {
 	public function summon() {
 		$this->name = "a skittering hopper";
 		$this->body = 302;
@@ -16,10 +16,8 @@ class skitteringhopper extends Mobile {
 		$this->str = rand(41, 65);
 		$this->dex = rand(91, 115);
 		$this->int = rand(26, 50);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 3;
-		$this->damage_max = 5;
+		$this->hits = 3;
+		$this->maxhits = 5;
 		$this->resist_physical = rand(5, 10);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(10, 20);

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class smallurn extends Object {
+class SmallUrn extends Object {
 	public function build() {
 		$this->name = "small urn";
 		$this->graphic = 0x241C;
@@ -13,7 +13,7 @@ class smallurn extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x835;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

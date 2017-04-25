@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class dartboardsouthdeed extends Object {
+class DartBoardSouthDeed extends Object {
 	public function build() {
 		$this->name = "dart board south deed";
 		$this->graphic = 0x1E2F;
@@ -26,7 +26,7 @@ class dartboardsouthdeed extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

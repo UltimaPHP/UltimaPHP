@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class deadwood extends Object {
+class DeadWood extends Object {
 	public function build() {
 		$this->name = "dead wood";
 		$this->graphic = 0xF90;

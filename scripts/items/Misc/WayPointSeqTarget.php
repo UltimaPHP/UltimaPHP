@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class waypointseqtarget extends Object {
+class WayPointSeqTarget extends Object {
 	public function build() {
 		$this->name = "way point seq target";
 		$this->graphic = 0x1f14;
@@ -26,7 +26,7 @@ class waypointseqtarget extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 2.0;
+		$this->weight = 0;
 
 }}
 ?>

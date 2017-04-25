@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class reaper extends Mobile {
+class Reaper extends Mobile {
 	public function summon() {
 		$this->name = "a reaper";
 		$this->body = 47;
@@ -16,10 +16,8 @@ class reaper extends Mobile {
 		$this->str = rand(66, 215);
 		$this->dex = rand(66, 75);
 		$this->int = rand(101, 250);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 9;
-		$this->damage_max = 11;
+		$this->hits = 9;
+		$this->maxhits = 11;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(15, 25);
 		$this->resist_cold = rand(10, 20);

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class trashchest extends Object {
+class TrashChest extends Object {
 	public function build() {
 		$this->name = "trash chest";
 		$this->graphic = 0xE41;
@@ -13,7 +13,7 @@ class trashchest extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x3B2;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;
@@ -26,7 +26,7 @@ class trashchest extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

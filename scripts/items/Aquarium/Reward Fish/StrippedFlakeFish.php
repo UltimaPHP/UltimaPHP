@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class strippedflakefish extends Object {
+class StrippedFlakeFish extends Object {
 	public function build() {
 		$this->name = "stripped flake fish";
 		$this->graphic = 0x3B0A;

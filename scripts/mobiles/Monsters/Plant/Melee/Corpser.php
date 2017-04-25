@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class corpser extends Mobile {
+class Corpser extends Mobile {
 	public function summon() {
 		$this->name = "a corpser";
 		$this->body = 8;
@@ -16,10 +16,8 @@ class corpser extends Mobile {
 		$this->str = rand(156, 180);
 		$this->dex = rand(26, 45);
 		$this->int = rand(26, 40);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 10;
-		$this->damage_max = 23;
+		$this->hits = 10;
+		$this->maxhits = 23;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = rand(15, 25);
 		$this->resist_cold = rand(10, 20);

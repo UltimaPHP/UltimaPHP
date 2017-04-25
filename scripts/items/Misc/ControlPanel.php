@@ -5,10 +5,10 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class controlpanel extends Object {
+class ControlPanel extends Object {
 	public function build() {
 		$this->name = "control panel";
-		$this->graphic = 0x2AAA;
+		$this->graphic = 0xBDC;
 		$this->type = "";
 		$this->flags = 0x00;
 		$this->value = 0;
@@ -26,7 +26,7 @@ class controlpanel extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 5.0;
+		$this->weight = 0;
 
 }}
 ?>

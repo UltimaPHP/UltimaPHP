@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class kraken extends Mobile {
+class Kraken extends Mobile {
 	public function summon() {
 		$this->name = "a kraken";
 		$this->body = 77;
@@ -16,10 +16,8 @@ class kraken extends Mobile {
 		$this->str = rand(756, 780);
 		$this->dex = rand(226, 245);
 		$this->int = rand(26, 40);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 19;
-		$this->damage_max = 33;
+		$this->hits = 19;
+		$this->maxhits = 33;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(30, 40);

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class studdedlegs extends Object {
+class StuddedLegs extends Object {
 	public function build() {
 		$this->name = "studded legs";
 		$this->graphic = 0x13DA;

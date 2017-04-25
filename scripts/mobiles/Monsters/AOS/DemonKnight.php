@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class demonknight extends Mobile {
+class DemonKnight extends Mobile {
 	public function summon() {
 		$this->name = "unholy bones";
 		$this->body = 318;
@@ -16,10 +16,8 @@ class demonknight extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 17;
-		$this->damage_max = 21;
+		$this->hits = 17;
+		$this->maxhits = 21;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

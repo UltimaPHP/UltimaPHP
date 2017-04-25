@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bow extends Object {
+class Bow extends Object {
 	public function build() {
 		$this->name = "bow";
 		$this->graphic = 0x13B2;
@@ -22,8 +22,8 @@ class bow extends Object {
 		$this->oldstrengthreq = 20;
 		$this->oldmindamage = 9;
 		$this->oldspeed = 20;
-		$this->defhitsound = 0x234;
-		$this->defmisssound = 0x238;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 60;
 		$this->weight = 6.0;

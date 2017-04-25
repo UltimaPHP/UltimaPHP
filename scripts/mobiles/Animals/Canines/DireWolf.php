@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class direwolf extends Mobile {
+class DireWolf extends Mobile {
 	public function summon() {
 		$this->name = "a dire wolf";
 		$this->body = 23;
@@ -16,10 +16,8 @@ class direwolf extends Mobile {
 		$this->str = rand(96, 120);
 		$this->dex = rand(81, 105);
 		$this->int = rand(36, 60);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 11;
-		$this->damage_max = 17;
+		$this->hits = 11;
+		$this->maxhits = 17;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(5, 10);

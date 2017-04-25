@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class diamondmace extends Object {
+class DiamondMace extends Object {
 	public function build() {
 		$this->name = "diamond mace";
 		$this->graphic = 0x2D24;
@@ -23,7 +23,7 @@ class diamondmace extends Object {
 		$this->oldmindamage = 14;
 		$this->oldspeed = 37;
 		$this->defhitsound = 0;
-		$this->defmisssound = 0x239;
+		$this->defmisssound = 0;
 		$this->hits = 30;
 		$this->maxHits = 60;
 		$this->weight = 10.0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class tarotcardsartifact extends Object {
+class TarotCardsArtifact extends Object {
 	public function build() {
 		$this->name = "tarot cards artifact";
 		$this->graphic = 0x12A5;
@@ -26,7 +26,7 @@ class tarotcardsartifact extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 10.0;
+		$this->weight = 0;
 
 }}
 ?>

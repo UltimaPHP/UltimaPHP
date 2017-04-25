@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class mindrotscroll extends Object {
+class MindRotScroll extends Object {
 	public function build() {
 		$this->name = "mind rot scroll";
 		$this->graphic = 0x2267;

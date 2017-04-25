@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class woodlandlegs extends Object {
+class WoodlandLegs extends Object {
 	public function build() {
 		$this->name = "woodland legs";
 		$this->graphic = 0x2B6B;

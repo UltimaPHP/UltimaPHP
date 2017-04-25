@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class orccaptain extends Mobile {
+class OrcCaptain extends Mobile {
 	public function summon() {
 		$this->name = "orc";
 		$this->body = 7;
@@ -16,10 +16,8 @@ class orccaptain extends Mobile {
 		$this->str = rand(111, 145);
 		$this->dex = rand(101, 135);
 		$this->int = rand(86, 110);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 5;
-		$this->damage_max = 15;
+		$this->hits = 5;
+		$this->maxhits = 15;
 		$this->resist_physical = rand(30, 35);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(15, 25);

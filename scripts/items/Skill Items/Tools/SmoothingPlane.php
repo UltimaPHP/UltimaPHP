@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class smoothingplane extends Object {
+class SmoothingPlane extends Object {
 	public function build() {
 		$this->name = "smoothing plane";
 		$this->graphic = 0x1032;
@@ -13,7 +13,7 @@ class smoothingplane extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x3B9;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

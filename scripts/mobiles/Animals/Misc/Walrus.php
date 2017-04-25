@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class walrus extends Mobile {
+class Walrus extends Mobile {
 	public function summon() {
 		$this->name = "a walrus";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class walrus extends Mobile {
 		$this->str = rand(21, 29);
 		$this->dex = rand(46, 55);
 		$this->int = rand(16, 20);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 4;
-		$this->damage_max = 10;
+		$this->hits = 4;
+		$this->maxhits = 10;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = rand(20, 25);

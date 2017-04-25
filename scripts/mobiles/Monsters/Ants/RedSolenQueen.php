@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class redsolenqueen extends Mobile {
+class RedSolenQueen extends Mobile {
 	public function summon() {
 		$this->name = "a red solen queen";
 		$this->body = 783;
@@ -16,10 +16,8 @@ class redsolenqueen extends Mobile {
 		$this->str = rand(296, 320);
 		$this->dex = rand(121, 145);
 		$this->int = rand(76, 100);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 10;
-		$this->damage_max = 15;
+		$this->hits = 10;
+		$this->maxhits = 15;
 		$this->resist_physical = rand(30, 40);
 		$this->resist_fire = rand(30, 35);
 		$this->resist_cold = rand(25, 35);

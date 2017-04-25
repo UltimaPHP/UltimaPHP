@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class compositebow extends Object {
+class CompositeBow extends Object {
 	public function build() {
 		$this->name = "composite bow";
 		$this->graphic = 0x26C2;
@@ -22,8 +22,8 @@ class compositebow extends Object {
 		$this->oldstrengthreq = 45;
 		$this->oldmindamage = 15;
 		$this->oldspeed = 25;
-		$this->defhitsound = 0x234;
-		$this->defmisssound = 0x238;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 70;
 		$this->weight = 5.0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class pottedcactusdeed extends Object {
+class PottedCactusDeed extends Object {
 	public function build() {
 		$this->name = "potted cactus deed";
 		$this->graphic = 0x14F0;
@@ -13,7 +13,7 @@ class pottedcactusdeed extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x47;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

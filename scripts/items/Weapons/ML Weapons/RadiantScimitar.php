@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class radiantscimitar extends Object {
+class RadiantScimitar extends Object {
 	public function build() {
 		$this->name = "radiant scimitar";
 		$this->graphic = 0x2D33;

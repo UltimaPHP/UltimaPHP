@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class woodlandgorget extends Object {
+class WoodlandGorget extends Object {
 	public function build() {
 		$this->name = "woodland gorget";
 		$this->graphic = 0x2B69;
@@ -26,7 +26,7 @@ class woodlandgorget extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 50;
 		$this->maxHits = 65;
-		$this->weight = 2.0;
+		$this->weight = 0;
 
 }}
 ?>

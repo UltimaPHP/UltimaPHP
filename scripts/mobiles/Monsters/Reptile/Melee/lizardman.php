@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class lizardman extends Mobile {
+class Lizardman extends Mobile {
 	public function summon() {
 		$this->name = "lizardman";
 		$this->body = Functions::RandomList(array(35, 36));
@@ -16,10 +16,8 @@ class lizardman extends Mobile {
 		$this->str = rand(96, 120);
 		$this->dex = rand(86, 105);
 		$this->int = rand(36, 60);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 5;
-		$this->damage_max = 7;
+		$this->hits = 5;
+		$this->maxhits = 7;
 		$this->resist_physical = rand(25, 30);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = rand(5, 10);

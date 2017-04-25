@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class swamptentacle extends Mobile {
+class SwampTentacle extends Mobile {
 	public function summon() {
 		$this->name = "a swamp tentacle";
 		$this->body = 66;
@@ -16,10 +16,8 @@ class swamptentacle extends Mobile {
 		$this->str = rand(96, 120);
 		$this->dex = rand(66, 85);
 		$this->int = rand(16, 30);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 6;
-		$this->damage_max = 12;
+		$this->hits = 6;
+		$this->maxhits = 12;
 		$this->resist_physical = rand(25, 35);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(10, 20);

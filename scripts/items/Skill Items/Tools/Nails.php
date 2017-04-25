@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class nails extends Object {
+class Nails extends Object {
 	public function build() {
 		$this->name = "nails";
 		$this->graphic = 0x102C;
@@ -13,7 +13,7 @@ class nails extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x3B9;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

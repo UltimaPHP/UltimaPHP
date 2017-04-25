@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class dragonchest extends Object {
+class DragonChest extends Object {
 	public function build() {
 		$this->name = "dragon chest";
 		$this->graphic = 0x2641;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class succubus extends Mobile {
+class Succubus extends Mobile {
 	public function summon() {
 		$this->name = "a succubus";
 		$this->body = 149;
@@ -16,10 +16,8 @@ class succubus extends Mobile {
 		$this->str = rand(488, 620);
 		$this->dex = rand(121, 170);
 		$this->int = rand(498, 657);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 18;
-		$this->damage_max = 28;
+		$this->hits = 18;
+		$this->maxhits = 28;
 		$this->resist_physical = rand(80, 90);
 		$this->resist_fire = rand(70, 80);
 		$this->resist_cold = rand(40, 50);

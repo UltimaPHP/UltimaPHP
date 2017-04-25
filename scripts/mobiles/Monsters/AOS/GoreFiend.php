@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class gorefiend extends Mobile {
+class GoreFiend extends Mobile {
 	public function summon() {
 		$this->name = "a gore fiend";
 		$this->body = 305;
@@ -16,10 +16,8 @@ class gorefiend extends Mobile {
 		$this->str = rand(161, 185);
 		$this->dex = rand(41, 65);
 		$this->int = rand(46, 70);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 15;
-		$this->damage_max = 21;
+		$this->hits = 15;
+		$this->maxhits = 21;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(25, 35);
 		$this->resist_cold = rand(15, 25);

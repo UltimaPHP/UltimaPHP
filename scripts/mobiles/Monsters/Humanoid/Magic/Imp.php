@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class imp extends Mobile {
+class Imp extends Mobile {
 	public function summon() {
 		$this->name = "an imp";
 		$this->body = 74;
@@ -16,10 +16,8 @@ class imp extends Mobile {
 		$this->str = rand(91, 115);
 		$this->dex = rand(61, 80);
 		$this->int = rand(86, 105);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 10;
-		$this->damage_max = 14;
+		$this->hits = 10;
+		$this->maxhits = 14;
 		$this->resist_physical = rand(25, 35);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(20, 30);

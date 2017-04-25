@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bladespirits extends Mobile {
+class BladeSpirits extends Mobile {
 	public function summon() {
 		$this->name = "a blade spirit";
 		$this->body = 574;
@@ -16,10 +16,8 @@ class bladespirits extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 10;
-		$this->damage_max = 14;
+		$this->hits = 10;
+		$this->maxhits = 14;
 		$this->resist_physical = rand(30, 40);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(30, 40);

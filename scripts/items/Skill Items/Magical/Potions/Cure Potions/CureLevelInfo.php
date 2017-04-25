@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class curelevelinfo extends Object {
+class CureLevelInfo extends Object {
 	public function build() {
 		$this->name = "cure level info";
 		$this->graphic = 0xF07;

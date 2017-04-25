@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class keyring extends Object {
+class KeyRing extends Object {
 	public function build() {
 		$this->name = "key ring";
 		$this->graphic = 0x1011;
@@ -13,7 +13,7 @@ class keyring extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x8AC;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

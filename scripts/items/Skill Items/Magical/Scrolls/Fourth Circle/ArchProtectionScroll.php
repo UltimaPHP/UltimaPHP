@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class archprotectionscroll extends Object {
+class ArchProtectionScroll extends Object {
 	public function build() {
 		$this->name = "arch protection scroll";
 		$this->graphic = 0x1F46;

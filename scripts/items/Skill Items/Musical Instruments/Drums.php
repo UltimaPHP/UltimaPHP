@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class drums extends Object {
+class Drums extends Object {
 	public function build() {
 		$this->name = "drums";
 		$this->graphic = 0xE9C;

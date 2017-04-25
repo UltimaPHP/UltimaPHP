@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class taintedwool extends Object {
+class TaintedWool extends Object {
 	public function build() {
 		$this->name = "tainted wool";
 		$this->graphic = 0x101F;
@@ -26,7 +26,7 @@ class taintedwool extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 4.0;
 
 }}
 ?>

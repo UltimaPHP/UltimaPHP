@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class diamond extends Object {
+class Diamond extends Object {
 	public function build() {
 		$this->name = "diamond";
 		$this->graphic = 0xF26;

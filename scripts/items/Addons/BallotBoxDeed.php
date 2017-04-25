@@ -5,10 +5,10 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ballotboxdeed extends Object {
+class BallotBoxDeed extends Object {
 	public function build() {
 		$this->name = "ballot box deed";
-		$this->graphic = 0x14F0;
+		$this->graphic = 0x9A8;
 		$this->type = "";
 		$this->flags = 0x00;
 		$this->value = 0;
@@ -26,7 +26,7 @@ class ballotboxdeed extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

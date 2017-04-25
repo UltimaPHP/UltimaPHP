@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class fleshrenderer extends Mobile {
+class FleshRenderer extends Mobile {
 	public function summon() {
 		$this->name = "a fleshrenderer";
 		$this->body = 315;
@@ -16,10 +16,8 @@ class fleshrenderer extends Mobile {
 		$this->str = rand(401, 460);
 		$this->dex = rand(201, 210);
 		$this->int = rand(221, 260);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 16;
-		$this->damage_max = 20;
+		$this->hits = 16;
+		$this->maxhits = 20;
 		$this->resist_physical = rand(80, 90);
 		$this->resist_fire = rand(50, 60);
 		$this->resist_cold = rand(50, 60);

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class lightplatejingasa extends Object {
+class LightPlateJingasa extends Object {
 	public function build() {
 		$this->name = "light plate jingasa";
 		$this->graphic = 0x2781;

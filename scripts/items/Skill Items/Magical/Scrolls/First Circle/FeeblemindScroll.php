@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class feeblemindscroll extends Object {
+class FeeblemindScroll extends Object {
 	public function build() {
 		$this->name = "feeblemind scroll";
 		$this->graphic = 0x1F30;

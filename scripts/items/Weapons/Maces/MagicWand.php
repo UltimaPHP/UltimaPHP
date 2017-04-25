@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class magicwand extends Object {
+class MagicWand extends Object {
 	public function build() {
 		$this->name = "magic wand";
 		$this->graphic = 0xDF2;
@@ -13,7 +13,7 @@ class magicwand extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x47E;
+		$this->color = 0;
 		$this->aosstrengthreq = 5;
 		$this->aosmindamage = 9;
 		$this->aosmaxdamage = 11;
@@ -22,8 +22,8 @@ class magicwand extends Object {
 		$this->oldstrengthreq = 0;
 		$this->oldmindamage = 2;
 		$this->oldspeed = 35;
-		$this->defhitsound = 0x233;
-		$this->defmisssound = 0x239;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 110;
 		$this->weight = 1.0;

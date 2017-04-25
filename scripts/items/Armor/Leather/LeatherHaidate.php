@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class leatherhaidate extends Object {
+class LeatherHaidate extends Object {
 	public function build() {
 		$this->name = "leather haidate";
 		$this->graphic = 0x278A;

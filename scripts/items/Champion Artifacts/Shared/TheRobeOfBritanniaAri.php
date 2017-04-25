@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class therobeofbritanniaari extends Object {
+class TheRobeOfBritanniaAri extends Object {
 	public function build() {
 		$this->name = "the robe of britannia ari";
 		$this->graphic = 0x2684;

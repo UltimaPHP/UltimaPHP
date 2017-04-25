@@ -5,10 +5,10 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class barbedhides extends Object {
+class BarbedHides extends Object {
 	public function build() {
 		$this->name = "barbed hides";
-		$this->graphic = 0x1081;
+		$this->graphic = 0x1079;
 		$this->type = "";
 		$this->flags = 0x00;
 		$this->value = 0;
@@ -26,7 +26,7 @@ class barbedhides extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 5.0;
 
 }}
 ?>

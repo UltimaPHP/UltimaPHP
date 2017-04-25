@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class gazerlarva extends Mobile {
+class GazerLarva extends Mobile {
 	public function summon() {
 		$this->name = "a gazer larva";
 		$this->body = 778;
@@ -16,10 +16,8 @@ class gazerlarva extends Mobile {
 		$this->str = rand(76, 100);
 		$this->dex = rand(51, 75);
 		$this->int = rand(56, 80);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 2;
-		$this->damage_max = 9;
+		$this->hits = 2;
+		$this->maxhits = 9;
 		$this->resist_physical = rand(15, 25);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

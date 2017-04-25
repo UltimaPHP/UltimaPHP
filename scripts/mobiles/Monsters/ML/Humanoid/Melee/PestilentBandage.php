@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class pestilentbandage extends Mobile {
+class PestilentBandage extends Mobile {
 	public function summon() {
 		$this->name = "a pestilent bandage";
 		$this->body = 154;
@@ -16,10 +16,8 @@ class pestilentbandage extends Mobile {
 		$this->str = rand(691, 740);
 		$this->dex = rand(141, 180);
 		$this->int = rand(51, 80);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 13;
-		$this->damage_max = 23;
+		$this->hits = 13;
+		$this->maxhits = 23;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(50, 60);

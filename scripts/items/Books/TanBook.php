@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class tanbook extends Object {
+class TanBook extends Object {
 	public function build() {
 		$this->name = "tan book";
 		$this->graphic = 0xFF0;

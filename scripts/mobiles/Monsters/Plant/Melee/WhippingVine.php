@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class whippingvine extends Mobile {
+class WhippingVine extends Mobile {
 	public function summon() {
 		$this->name = "a whipping vine";
 		$this->body = 8;
@@ -16,10 +16,8 @@ class whippingvine extends Mobile {
 		$this->str = rand(251, 300);
 		$this->dex = rand(76, 100);
 		$this->int = rand(26, 40);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 7;
-		$this->damage_max = 25;
+		$this->hits = 7;
+		$this->maxhits = 25;
 		$this->resist_physical = rand(75, 85);
 		$this->resist_fire = rand(15, 25);
 		$this->resist_cold = rand(15, 25);

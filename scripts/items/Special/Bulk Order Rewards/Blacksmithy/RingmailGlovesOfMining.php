@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ringmailglovesofmining extends Object {
+class RingmailGlovesOfMining extends Object {
 	public function build() {
 		$this->name = "ringmail gloves of mining";
 		$this->graphic = 0x13EB;
@@ -13,7 +13,7 @@ class ringmailglovesofmining extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x482;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;
@@ -26,7 +26,7 @@ class ringmailglovesofmining extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 40;
 		$this->maxHits = 50;
-		$this->weight = 8.0;
+		$this->weight = 0;
 
 }}
 ?>

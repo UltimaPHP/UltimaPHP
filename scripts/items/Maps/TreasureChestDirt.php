@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class treasurechestdirt extends Object {
+class TreasureChestDirt extends Object {
 	public function build() {
 		$this->name = "treasure chest dirt";
 		$this->graphic = 0x912;
@@ -26,7 +26,7 @@ class treasurechestdirt extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

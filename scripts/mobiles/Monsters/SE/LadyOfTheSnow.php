@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ladyofthesnow extends Mobile {
+class LadyOfTheSnow extends Mobile {
 	public function summon() {
 		$this->name = "a lady of the snow";
 		$this->body = 252;
@@ -16,10 +16,8 @@ class ladyofthesnow extends Mobile {
 		$this->str = rand(276, 305);
 		$this->dex = rand(106, 125);
 		$this->int = rand(471, 495);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 13;
-		$this->damage_max = 20;
+		$this->hits = 13;
+		$this->maxhits = 20;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(40, 55);
 		$this->resist_cold = rand(70, 90);

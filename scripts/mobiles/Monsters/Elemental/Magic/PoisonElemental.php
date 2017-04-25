@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class poisonelemental extends Mobile {
+class PoisonElemental extends Mobile {
 	public function summon() {
 		$this->name = "a poison elemental";
 		$this->body = 162;
@@ -16,10 +16,8 @@ class poisonelemental extends Mobile {
 		$this->str = rand(426, 515);
 		$this->dex = rand(166, 185);
 		$this->int = rand(361, 435);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 12;
-		$this->damage_max = 18;
+		$this->hits = 12;
+		$this->maxhits = 18;
 		$this->resist_physical = rand(60, 70);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(20, 30);

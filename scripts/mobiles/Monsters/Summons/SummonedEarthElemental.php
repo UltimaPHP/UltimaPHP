@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class summonedearthelemental extends Mobile {
+class SummonedEarthElemental extends Mobile {
 	public function summon() {
 		$this->name = "an earth elemental";
 		$this->body = 14;
@@ -16,10 +16,8 @@ class summonedearthelemental extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 14;
-		$this->damage_max = 21;
+		$this->hits = 14;
+		$this->maxhits = 21;
 		$this->resist_physical = rand(65, 75);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(40, 50);

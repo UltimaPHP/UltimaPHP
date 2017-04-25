@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class spam extends Object {
+class Spam extends Object {
 	public function build() {
 		$this->name = "spam";
 		$this->graphic = 0x1044;
@@ -26,7 +26,7 @@ class spam extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

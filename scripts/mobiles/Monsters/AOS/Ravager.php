@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ravager extends Mobile {
+class Ravager extends Mobile {
 	public function summon() {
 		$this->name = "a ravager";
 		$this->body = 314;
@@ -16,10 +16,8 @@ class ravager extends Mobile {
 		$this->str = rand(251, 275);
 		$this->dex = rand(101, 125);
 		$this->int = rand(66, 90);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 15;
-		$this->damage_max = 20;
+		$this->hits = 15;
+		$this->maxhits = 20;
 		$this->resist_physical = rand(50, 60);
 		$this->resist_fire = rand(50, 60);
 		$this->resist_cold = rand(60, 70);

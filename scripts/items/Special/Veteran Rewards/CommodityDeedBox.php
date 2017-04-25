@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class commoditydeedbox extends Object {
+class CommodityDeedBox extends Object {
 	public function build() {
 		$this->name = "commodity deed box";
 		$this->graphic = 0x9AA;

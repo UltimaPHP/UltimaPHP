@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class recipescroll extends Object {
+class RecipeScroll extends Object {
 	public function build() {
 		$this->name = "recipe scroll";
 		$this->graphic = 0x2831;
@@ -13,7 +13,7 @@ class recipescroll extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x466;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;
@@ -26,7 +26,7 @@ class recipescroll extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

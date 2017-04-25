@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class quarterstaff extends Object {
+class QuarterStaff extends Object {
 	public function build() {
 		$this->name = "quarter staff";
 		$this->graphic = 0xE89;
@@ -13,7 +13,7 @@ class quarterstaff extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x480;
+		$this->color = 0;
 		$this->aosstrengthreq = 30;
 		$this->aosmindamage = 11;
 		$this->aosmaxdamage = 14;
@@ -22,8 +22,8 @@ class quarterstaff extends Object {
 		$this->oldstrengthreq = 30;
 		$this->oldmindamage = 8;
 		$this->oldspeed = 48;
-		$this->defhitsound = 0x233;
-		$this->defmisssound = 0x239;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 60;
 		$this->weight = 4.0;

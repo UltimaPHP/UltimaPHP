@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class corruptedsoul extends Mobile {
+class CorruptedSoul extends Mobile {
 	public function summon() {
 		$this->name = "a corrupted soul";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class corruptedsoul extends Mobile {
 		$this->str = rand(102, 115);
 		$this->dex = rand(101, 115);
 		$this->int = rand(203, 215);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 4;
-		$this->damage_max = 40;
+		$this->hits = 4;
+		$this->maxhits = 40;
 		$this->resist_physical = rand(61, 74);
 		$this->resist_fire = rand(22, 48);
 		$this->resist_cold = rand(73, 100);

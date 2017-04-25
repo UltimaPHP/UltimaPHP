@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class telekinisisscroll extends Object {
+class TelekinisisScroll extends Object {
 	public function build() {
 		$this->name = "telekinisis scroll";
 		$this->graphic = 0x1F41;

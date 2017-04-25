@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bandagecontext extends Object {
+class BandageContext extends Object {
 	public function build() {
 		$this->name = "bandage context";
 		$this->graphic = 0xE21;

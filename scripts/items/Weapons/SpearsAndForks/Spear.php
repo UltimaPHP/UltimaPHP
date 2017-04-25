@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class spear extends Object {
+class Spear extends Object {
 	public function build() {
 		$this->name = "spear";
 		$this->graphic = 0xF62;
@@ -22,8 +22,8 @@ class spear extends Object {
 		$this->oldstrengthreq = 30;
 		$this->oldmindamage = 2;
 		$this->oldspeed = 46;
-		$this->defhitsound = 0x23C;
-		$this->defmisssound = 0x238;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 80;
 		$this->weight = 7.0;

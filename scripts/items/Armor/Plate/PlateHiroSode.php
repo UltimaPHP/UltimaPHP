@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class platehirosode extends Object {
+class PlateHiroSode extends Object {
 	public function build() {
 		$this->name = "plate hiro sode";
 		$this->graphic = 0x2780;

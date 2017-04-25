@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class heatingstand extends Object {
+class HeatingStand extends Object {
 	public function build() {
 		$this->name = "heating stand";
 		$this->graphic = 0x1849;

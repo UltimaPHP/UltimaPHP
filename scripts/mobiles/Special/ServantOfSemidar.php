@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class servantofsemidar extends Mobile {
+class ServantOfSemidar extends Mobile {
 	public function summon() {
 		$this->name = "a servant of semidar";
 		$this->body = 0;
@@ -18,8 +18,6 @@ class servantofsemidar extends Mobile {
 		$this->int = 0;
 		$this->hits = 0;
 		$this->maxhits = 0;
-		$this->damage_min = 0;
-		$this->damage_max = 0;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

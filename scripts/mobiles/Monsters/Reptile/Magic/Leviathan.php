@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class leviathan extends Mobile {
+class Leviathan extends Mobile {
 	public function summon() {
 		$this->name = "a leviathan";
 		$this->body = 77;
@@ -16,10 +16,8 @@ class leviathan extends Mobile {
 		$this->str = 0;
 		$this->dex = rand(501, 520);
 		$this->int = rand(501, 515);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 25;
-		$this->damage_max = 33;
+		$this->hits = 25;
+		$this->maxhits = 33;
 		$this->resist_physical = rand(55, 65);
 		$this->resist_fire = rand(45, 55);
 		$this->resist_cold = rand(45, 55);

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class lavalizard extends Mobile {
+class LavaLizard extends Mobile {
 	public function summon() {
 		$this->name = "a lava lizard";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class lavalizard extends Mobile {
 		$this->str = rand(126, 150);
 		$this->dex = rand(56, 75);
 		$this->int = rand(11, 20);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 6;
-		$this->damage_max = 24;
+		$this->hits = 6;
+		$this->maxhits = 24;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(30, 45);
 		$this->resist_cold = 0;

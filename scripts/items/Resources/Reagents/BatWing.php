@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class batwing extends Object {
+class BatWing extends Object {
 	public function build() {
 		$this->name = "bat wing";
 		$this->graphic = 0xF78;

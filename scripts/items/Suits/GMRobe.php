@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class gmrobe extends Object {
+class GMRobe extends Object {
 	public function build() {
 		$this->name = "gm robe";
 		$this->graphic = 0x26;
@@ -26,7 +26,7 @@ class gmrobe extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

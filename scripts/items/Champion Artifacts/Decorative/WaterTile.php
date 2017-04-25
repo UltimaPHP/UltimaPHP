@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class watertile extends Object {
+class WaterTile extends Object {
 	public function build() {
 		$this->name = "water tile";
 		$this->graphic = 0x346E;
@@ -13,7 +13,7 @@ class watertile extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x909;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

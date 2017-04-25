@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class daemongloves extends Object {
+class DaemonGloves extends Object {
 	public function build() {
 		$this->name = "daemon gloves";
 		$this->graphic = 0x1450;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class arcaneempowermentscroll extends Object {
+class ArcaneEmpowermentScroll extends Object {
 	public function build() {
 		$this->name = "arcane empowerment scroll";
 		$this->graphic = 0x2D60;
@@ -26,7 +26,7 @@ class arcaneempowermentscroll extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

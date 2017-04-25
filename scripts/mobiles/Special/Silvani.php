@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class silvani extends Mobile {
+class Silvani extends Mobile {
 	public function summon() {
 		$this->name = "silvani";
 		$this->body = 176;
@@ -16,10 +16,8 @@ class silvani extends Mobile {
 		$this->str = rand(253, 400);
 		$this->dex = rand(157, 850);
 		$this->int = rand(503, 800);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 27;
-		$this->damage_max = 38;
+		$this->hits = 27;
+		$this->maxhits = 38;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(30, 40);

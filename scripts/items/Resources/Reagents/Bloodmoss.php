@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bloodmoss extends Object {
+class Bloodmoss extends Object {
 	public function build() {
 		$this->name = "bloodmoss";
 		$this->graphic = 0xF7B;

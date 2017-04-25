@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class braziertall extends Object {
+class BrazierTall extends Object {
 	public function build() {
 		$this->name = "brazier tall";
 		$this->graphic = 0x19AA;

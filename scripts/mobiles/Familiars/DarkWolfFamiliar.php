@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class darkwolffamiliar extends Mobile {
+class DarkWolfFamiliar extends Mobile {
 	public function summon() {
 		$this->name = "a dark wolf";
 		$this->body = 99;
@@ -16,10 +16,8 @@ class darkwolffamiliar extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 5;
-		$this->damage_max = 10;
+		$this->hits = 5;
+		$this->maxhits = 10;
 		$this->resist_physical = rand(40, 50);
 		$this->resist_fire = rand(25, 40);
 		$this->resist_cold = rand(25, 40);

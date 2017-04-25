@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class terathanwarrior extends Mobile {
+class TerathanWarrior extends Mobile {
 	public function summon() {
 		$this->name = "a terathan warrior";
 		$this->body = 70;
@@ -16,10 +16,8 @@ class terathanwarrior extends Mobile {
 		$this->str = rand(166, 215);
 		$this->dex = rand(96, 145);
 		$this->int = rand(41, 65);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 7;
-		$this->damage_max = 17;
+		$this->hits = 7;
+		$this->maxhits = 17;
 		$this->resist_physical = rand(30, 35);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(25, 35);

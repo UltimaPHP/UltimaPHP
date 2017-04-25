@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class mindblastscroll extends Object {
+class MindBlastScroll extends Object {
 	public function build() {
 		$this->name = "mind blast scroll";
 		$this->graphic = 0x1F51;

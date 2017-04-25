@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class totemofvoid extends Object {
+class TotemOfVoid extends Object {
 	public function build() {
 		$this->name = "totem of void";
 		$this->graphic = 0x2F5B;
@@ -24,9 +24,9 @@ class totemofvoid extends Object {
 		$this->oldspeed = 0;
 		$this->defhitsound = 0;
 		$this->defmisssound = 0;
-		$this->hits = 255;
-		$this->maxHits = 255;
-		$this->weight = 3.0;
+		$this->hits = 0;
+		$this->maxHits = 0;
+		$this->weight = 0;
 
 }}
 ?>

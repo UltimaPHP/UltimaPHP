@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class grizzledskullcollection extends Object {
+class GrizzledSkullCollection extends Object {
 	public function build() {
 		$this->name = "grizzled skull collection";
 		$this->graphic = 0x21FC;

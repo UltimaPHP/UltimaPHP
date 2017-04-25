@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class garlic extends Object {
+class Garlic extends Object {
 	public function build() {
 		$this->name = "garlic";
 		$this->graphic = 0xF84;

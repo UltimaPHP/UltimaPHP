@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class cloth extends Object {
+class Cloth extends Object {
 	public function build() {
 		$this->name = "cloth";
 		$this->graphic = 0x1766;
@@ -26,7 +26,7 @@ class cloth extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

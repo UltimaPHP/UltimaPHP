@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class toolkit extends Object {
+class ToolKit extends Object {
 	public function build() {
 		$this->name = "tool kit";
 		$this->graphic = 0x1EBA;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class luckynecklace extends Object {
+class LuckyNecklace extends Object {
 	public function build() {
 		$this->name = "lucky necklace";
 		$this->graphic = 0x1088;
@@ -26,7 +26,7 @@ class luckynecklace extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 3.0;
+		$this->weight = 0;
 
 }}
 ?>

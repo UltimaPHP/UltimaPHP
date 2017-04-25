@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class yewboard extends Object {
+class YewBoard extends Object {
 	public function build() {
 		$this->name = "yew board";
 		$this->graphic = 0x1BD7;

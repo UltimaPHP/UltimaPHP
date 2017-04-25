@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class waraxe extends Object {
+class WarAxe extends Object {
 	public function build() {
 		$this->name = "war axe";
 		$this->graphic = 0x13B0;

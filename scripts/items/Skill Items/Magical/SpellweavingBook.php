@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class spellweavingbook extends Object {
+class SpellweavingBook extends Object {
 	public function build() {
 		$this->name = "spellweaving book";
 		$this->graphic = 0x2D50;
@@ -26,7 +26,7 @@ class spellweavingbook extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 3.0;
+		$this->weight = 0;
 
 }}
 ?>

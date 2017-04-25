@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class kryss extends Object {
+class Kryss extends Object {
 	public function build() {
 		$this->name = "kryss";
 		$this->graphic = 0x1401;

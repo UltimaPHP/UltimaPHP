@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class lordbritishsuit extends Object {
+class LordBritishSuit extends Object {
 	public function build() {
 		$this->name = "lord british suit";
 		$this->graphic = 0x0;
@@ -26,7 +26,7 @@ class lordbritishsuit extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bullfrog extends Mobile {
+class BullFrog extends Mobile {
 	public function summon() {
 		$this->name = "a bull frog";
 		$this->body = 81;
@@ -16,10 +16,8 @@ class bullfrog extends Mobile {
 		$this->str = rand(46, 70);
 		$this->dex = rand(6, 25);
 		$this->int = rand(11, 20);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 1;
-		$this->damage_max = 2;
+		$this->hits = 1;
+		$this->maxhits = 2;
 		$this->resist_physical = rand(5, 10);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

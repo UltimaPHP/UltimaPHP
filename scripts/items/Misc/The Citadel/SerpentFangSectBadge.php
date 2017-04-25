@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class serpentfangsectbadge extends Object {
+class SerpentFangSectBadge extends Object {
 	public function build() {
 		$this->name = "serpent fang sect badge";
 		$this->graphic = 0x23C;

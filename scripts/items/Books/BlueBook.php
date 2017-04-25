@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bluebook extends Object {
+class BlueBook extends Object {
 	public function build() {
 		$this->name = "blue book";
 		$this->graphic = 0xFF2;

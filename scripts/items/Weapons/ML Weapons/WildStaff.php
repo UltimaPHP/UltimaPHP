@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class wildstaff extends Object {
+class WildStaff extends Object {
 	public function build() {
 		$this->name = "wild staff";
 		$this->graphic = 0x2D25;
@@ -22,8 +22,8 @@ class wildstaff extends Object {
 		$this->oldstrengthreq = 15;
 		$this->oldmindamage = 10;
 		$this->oldspeed = 48;
-		$this->defhitsound = 0x23B;
-		$this->defmisssound = 0x239;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 30;
 		$this->maxHits = 60;
 		$this->weight = 8.0;

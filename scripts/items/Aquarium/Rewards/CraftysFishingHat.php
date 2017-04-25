@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class craftysfishinghat extends Object {
+class CraftysFishingHat extends Object {
 	public function build() {
 		$this->name = "craftys fishing hat";
 		$this->graphic = 0x1713;

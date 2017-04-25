@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class tsukiwolf extends Mobile {
+class TsukiWolf extends Mobile {
 	public function summon() {
 		$this->name = "a tsuki wolf";
 		$this->body = 250;
@@ -16,10 +16,8 @@ class tsukiwolf extends Mobile {
 		$this->str = rand(401, 450);
 		$this->dex = rand(151, 200);
 		$this->int = rand(66, 76);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 14;
-		$this->damage_max = 18;
+		$this->hits = 14;
+		$this->maxhits = 18;
 		$this->resist_physical = rand(40, 60);
 		$this->resist_fire = rand(50, 70);
 		$this->resist_cold = rand(50, 70);

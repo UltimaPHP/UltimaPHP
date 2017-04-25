@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class agilityscroll extends Object {
+class AgilityScroll extends Object {
 	public function build() {
 		$this->name = "agility scroll";
 		$this->graphic = 0x1F35;

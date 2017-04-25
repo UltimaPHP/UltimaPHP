@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class crane extends Mobile {
+class Crane extends Mobile {
 	public function summon() {
 		$this->name = "a crane";
 		$this->body = 254;
@@ -16,10 +16,8 @@ class crane extends Mobile {
 		$this->str = rand(26, 35);
 		$this->dex = rand(16, 25);
 		$this->int = rand(11, 15);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 1;
-		$this->damage_max = 1;
+		$this->hits = 1;
+		$this->maxhits = 1;
 		$this->resist_physical = rand(5, 5);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

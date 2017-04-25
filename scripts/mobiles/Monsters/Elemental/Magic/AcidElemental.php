@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class acidelemental extends Mobile {
+class AcidElemental extends Mobile {
 	public function summon() {
 		$this->name = "an acid elemental";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class acidelemental extends Mobile {
 		$this->str = rand(326, 355);
 		$this->dex = rand(66, 85);
 		$this->int = rand(271, 295);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 9;
-		$this->damage_max = 15;
+		$this->hits = 9;
+		$this->maxhits = 15;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(20, 30);

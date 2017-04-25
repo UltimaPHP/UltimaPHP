@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class rightarm extends Object {
+class RightArm extends Object {
 	public function build() {
 		$this->name = "right arm";
 		$this->graphic = 0x1DA2;
@@ -26,7 +26,7 @@ class rightarm extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 5.0;
+		$this->weight = 0;
 
 }}
 ?>

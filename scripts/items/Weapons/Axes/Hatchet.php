@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class hatchet extends Object {
+class Hatchet extends Object {
 	public function build() {
 		$this->name = "hatchet";
 		$this->graphic = 0xF43;
@@ -22,8 +22,8 @@ class hatchet extends Object {
 		$this->oldstrengthreq = 15;
 		$this->oldmindamage = 2;
 		$this->oldspeed = 40;
-		$this->defhitsound = 0x232;
-		$this->defmisssound = 0x23A;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 80;
 		$this->weight = 4.0;

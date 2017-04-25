@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class valoriteelemental extends Mobile {
+class ValoriteElemental extends Mobile {
 	public function summon() {
 		$this->name = "a valorite elemental";
 		$this->body = 112;
@@ -18,8 +18,6 @@ class valoriteelemental extends Mobile {
 		$this->int = rand(71, 92);
 		$this->hits = 0;
 		$this->maxhits = 0;
-		$this->damage_min = 0;
-		$this->damage_max = 0;
 		$this->resist_physical = rand(65, 75);
 		$this->resist_fire = rand(50, 60);
 		$this->resist_cold = rand(50, 60);

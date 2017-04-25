@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class tambourinetassel extends Object {
+class TambourineTassel extends Object {
 	public function build() {
 		$this->name = "tambourine tassel";
 		$this->graphic = 0xE9E;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class blackstaff extends Object {
+class BlackStaff extends Object {
 	public function build() {
 		$this->name = "black staff";
 		$this->graphic = 0xDF0;
@@ -22,8 +22,8 @@ class blackstaff extends Object {
 		$this->oldstrengthreq = 35;
 		$this->oldmindamage = 8;
 		$this->oldspeed = 35;
-		$this->defhitsound = 0x233;
-		$this->defmisssound = 0x239;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 70;
 		$this->weight = 6.0;

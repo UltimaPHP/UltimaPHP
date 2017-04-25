@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class makotocourtesanfish extends Object {
+class MakotoCourtesanFish extends Object {
 	public function build() {
 		$this->name = "makoto courtesan fish";
 		$this->graphic = 0x3AFD;
@@ -13,7 +13,7 @@ class makotocourtesanfish extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x527;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

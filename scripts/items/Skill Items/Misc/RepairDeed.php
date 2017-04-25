@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class repairdeed extends Object {
+class RepairDeed extends Object {
 	public function build() {
 		$this->name = "repair deed";
 		$this->graphic = 0x14F0;
@@ -26,7 +26,7 @@ class repairdeed extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

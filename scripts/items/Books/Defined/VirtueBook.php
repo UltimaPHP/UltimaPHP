@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class virtuebook extends Object {
+class VirtueBook extends Object {
 	public function build() {
 		$this->name = "virtue book";
 		$this->graphic = 0xFEF;
@@ -13,7 +13,7 @@ class virtuebook extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x89B;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

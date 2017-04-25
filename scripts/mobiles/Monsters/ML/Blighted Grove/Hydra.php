@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class hydra extends Mobile {
+class Hydra extends Mobile {
 	public function summon() {
 		$this->name = "a hydra";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class hydra extends Mobile {
 		$this->str = rand(801, 828);
 		$this->dex = rand(102, 118);
 		$this->int = rand(102, 120);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 21;
-		$this->damage_max = 26;
+		$this->hits = 21;
+		$this->maxhits = 26;
 		$this->resist_physical = rand(65, 75);
 		$this->resist_fire = rand(70, 85);
 		$this->resist_cold = rand(25, 35);

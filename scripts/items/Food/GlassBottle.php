@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class glassbottle extends Object {
+class GlassBottle extends Object {
 	public function build() {
 		$this->name = "glass bottle";
 		$this->graphic = 0xe2b;

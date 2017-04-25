@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class axlegears extends Object {
+class AxleGears extends Object {
 	public function build() {
 		$this->name = "axle gears";
 		$this->graphic = 0x1051;

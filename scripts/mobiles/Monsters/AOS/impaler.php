@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class impaler extends Mobile {
+class Impaler extends Mobile {
 	public function summon() {
 		$this->name = "impaler";
 		$this->body = 306;
@@ -16,10 +16,8 @@ class impaler extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 31;
-		$this->damage_max = 35;
+		$this->hits = 31;
+		$this->maxhits = 35;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

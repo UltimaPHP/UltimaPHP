@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class sheafofhay extends Object {
+class SheafOfHay extends Object {
 	public function build() {
 		$this->name = "sheaf of hay";
 		$this->graphic = 0xF36;
@@ -13,7 +13,7 @@ class sheafofhay extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x47E;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

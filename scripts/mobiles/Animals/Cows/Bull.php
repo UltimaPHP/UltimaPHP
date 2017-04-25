@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bull extends Mobile {
+class Bull extends Mobile {
 	public function summon() {
 		$this->name = "a bull";
 		$this->body = Functions::RandomList(array(8, 0));
@@ -16,10 +16,8 @@ class bull extends Mobile {
 		$this->str = rand(77, 111);
 		$this->dex = rand(56, 75);
 		$this->int = rand(47, 75);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 4;
-		$this->damage_max = 9;
+		$this->hits = 4;
+		$this->maxhits = 9;
 		$this->resist_physical = rand(25, 30);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(10, 15);

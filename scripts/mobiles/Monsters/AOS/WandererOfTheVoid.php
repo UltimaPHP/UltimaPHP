@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class wandererofthevoid extends Mobile {
+class WandererOfTheVoid extends Mobile {
 	public function summon() {
 		$this->name = "a wanderer of the void";
 		$this->body = 316;
@@ -16,10 +16,8 @@ class wandererofthevoid extends Mobile {
 		$this->str = rand(111, 200);
 		$this->dex = rand(101, 125);
 		$this->int = rand(301, 390);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 11;
-		$this->damage_max = 13;
+		$this->hits = 11;
+		$this->maxhits = 13;
 		$this->resist_physical = rand(40, 50);
 		$this->resist_fire = rand(15, 25);
 		$this->resist_cold = rand(40, 50);

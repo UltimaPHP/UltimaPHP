@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class tormentedminotaur extends Mobile {
+class TormentedMinotaur extends Mobile {
 	public function summon() {
 		$this->name = "tormented minotaur";
 		$this->body = 262;
@@ -16,10 +16,8 @@ class tormentedminotaur extends Mobile {
 		$this->str = rand(822, 930);
 		$this->dex = rand(401, 415);
 		$this->int = rand(128, 138);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 16;
-		$this->damage_max = 30;
+		$this->hits = 16;
+		$this->maxhits = 30;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

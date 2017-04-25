@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class hairdyegump extends Object {
+class HairDyeGump extends Object {
 	public function build() {
 		$this->name = "hair dye gump";
 		$this->graphic = 0xEFF;
@@ -13,7 +13,7 @@ class hairdyegump extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x8AC;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

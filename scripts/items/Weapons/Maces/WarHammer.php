@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class warhammer extends Object {
+class WarHammer extends Object {
 	public function build() {
 		$this->name = "war hammer";
 		$this->graphic = 0x1439;
@@ -13,7 +13,7 @@ class warhammer extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x47E;
+		$this->color = 0;
 		$this->aosstrengthreq = 95;
 		$this->aosmindamage = 17;
 		$this->aosmaxdamage = 18;
@@ -22,8 +22,8 @@ class warhammer extends Object {
 		$this->oldstrengthreq = 40;
 		$this->oldmindamage = 8;
 		$this->oldspeed = 31;
-		$this->defhitsound = 0x233;
-		$this->defmisssound = 0x239;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 110;
 		$this->weight = 10.0;

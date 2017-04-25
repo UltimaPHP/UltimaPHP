@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class silverserpent extends Mobile {
+class SilverSerpent extends Mobile {
 	public function summon() {
 		$this->name = "a silver serpent";
 		$this->body = 92;
@@ -16,10 +16,8 @@ class silverserpent extends Mobile {
 		$this->str = rand(161, 360);
 		$this->dex = rand(151, 300);
 		$this->int = rand(21, 40);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 5;
-		$this->damage_max = 21;
+		$this->hits = 5;
+		$this->maxhits = 21;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = rand(5, 10);

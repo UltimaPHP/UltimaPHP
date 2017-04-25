@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class jukalord extends Mobile {
+class JukaLord extends Mobile {
 	public function summon() {
 		$this->name = "a juka lord";
 		$this->body = 766;
@@ -16,10 +16,8 @@ class jukalord extends Mobile {
 		$this->str = rand(401, 500);
 		$this->dex = rand(81, 100);
 		$this->int = rand(151, 200);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 10;
-		$this->damage_max = 12;
+		$this->hits = 10;
+		$this->maxhits = 12;
 		$this->resist_physical = rand(40, 50);
 		$this->resist_fire = rand(45, 50);
 		$this->resist_cold = rand(40, 50);

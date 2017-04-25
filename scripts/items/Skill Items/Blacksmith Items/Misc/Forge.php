@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class forge extends Object {
+class Forge extends Object {
 	public function build() {
 		$this->name = "forge";
 		$this->graphic = 0xFB1;

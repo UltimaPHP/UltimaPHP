@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class silverbracelet extends Object {
+class SilverBracelet extends Object {
 	public function build() {
 		$this->name = "silver bracelet";
 		$this->graphic = 0x1F06;

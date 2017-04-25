@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class lightningscroll extends Object {
+class LightningScroll extends Object {
 	public function build() {
 		$this->name = "lightning scroll";
 		$this->graphic = 0x1F4A;

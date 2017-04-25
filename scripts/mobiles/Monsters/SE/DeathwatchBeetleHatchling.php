@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class deathwatchbeetlehatchling extends Mobile {
+class DeathwatchBeetleHatchling extends Mobile {
 	public function summon() {
 		$this->name = "a deathwatch beetle hatchling";
 		$this->body = 242;
@@ -16,10 +16,8 @@ class deathwatchbeetlehatchling extends Mobile {
 		$this->str = rand(26, 50);
 		$this->dex = rand(41, 52);
 		$this->int = rand(21, 30);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 2;
-		$this->damage_max = 8;
+		$this->hits = 2;
+		$this->maxhits = 8;
 		$this->resist_physical = rand(35, 40);
 		$this->resist_fire = rand(15, 30);
 		$this->resist_cold = rand(15, 30);

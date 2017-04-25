@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class skeleton extends Mobile {
+class Skeleton extends Mobile {
 	public function summon() {
 		$this->name = "a skeleton";
 		$this->body = Functions::RandomList(array(50, 56));
@@ -16,10 +16,8 @@ class skeleton extends Mobile {
 		$this->str = rand(56, 80);
 		$this->dex = rand(56, 75);
 		$this->int = rand(16, 40);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 3;
-		$this->damage_max = 7;
+		$this->hits = 3;
+		$this->maxhits = 7;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = rand(25, 40);

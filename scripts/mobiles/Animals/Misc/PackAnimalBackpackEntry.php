@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class packanimalbackpackentry extends Mobile {
+class PackAnimalBackpackEntry extends Mobile {
 	public function summon() {
 		$this->name = "a pack horse";
 		$this->body = 291;
@@ -16,10 +16,8 @@ class packanimalbackpackentry extends Mobile {
 		$this->str = rand(44, 120);
 		$this->dex = rand(36, 55);
 		$this->int = rand(6, 10);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 5;
-		$this->damage_max = 11;
+		$this->hits = 5;
+		$this->maxhits = 11;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = rand(10, 15);
 		$this->resist_cold = rand(20, 25);

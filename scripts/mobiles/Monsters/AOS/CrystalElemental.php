@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class crystalelemental extends Mobile {
+class CrystalElemental extends Mobile {
 	public function summon() {
 		$this->name = "a crystal elemental";
 		$this->body = 300;
@@ -16,10 +16,8 @@ class crystalelemental extends Mobile {
 		$this->str = rand(136, 160);
 		$this->dex = rand(51, 65);
 		$this->int = rand(86, 110);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 10;
-		$this->damage_max = 15;
+		$this->hits = 10;
+		$this->maxhits = 15;
 		$this->resist_physical = rand(50, 60);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(40, 50);

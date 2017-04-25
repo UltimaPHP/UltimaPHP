@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class plaguebeastmainorgan extends Object {
+class PlagueBeastMainOrgan extends Object {
 	public function build() {
 		$this->name = "plague beast main organ";
 		$this->graphic = 0x1362;
@@ -26,7 +26,7 @@ class plaguebeastmainorgan extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

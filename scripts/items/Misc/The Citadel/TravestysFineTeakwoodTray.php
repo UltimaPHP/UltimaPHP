@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class travestysfineteakwoodtray extends Object {
+class TravestysFineTeakwoodTray extends Object {
 	public function build() {
 		$this->name = "travestys fine teakwood tray";
 		$this->graphic = 0x991;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class crystallatticeseeker extends Mobile {
+class CrystalLatticeSeeker extends Mobile {
 	public function summon() {
 		$this->name = "crystal lattice seeker";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class crystallatticeseeker extends Mobile {
 		$this->str = rand(550, 850);
 		$this->dex = rand(190, 250);
 		$this->int = rand(350, 450);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 13;
-		$this->damage_max = 19;
+		$this->hits = 13;
+		$this->maxhits = 19;
 		$this->resist_physical = rand(80, 90);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(40, 50);

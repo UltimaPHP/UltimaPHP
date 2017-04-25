@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class twaulo extends Mobile {
+class Twaulo extends Mobile {
 	public function summon() {
 		$this->name = "twaulo";
 		$this->body = 101;
@@ -16,10 +16,8 @@ class twaulo extends Mobile {
 		$this->str = rand(1751, 1950);
 		$this->dex = rand(251, 450);
 		$this->int = rand(801, 1000);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 19;
-		$this->damage_max = 24;
+		$this->hits = 19;
+		$this->maxhits = 24;
 		$this->resist_physical = rand(65, 75);
 		$this->resist_fire = rand(45, 55);
 		$this->resist_cold = rand(50, 60);

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class mace extends Object {
+class Mace extends Object {
 	public function build() {
 		$this->name = "mace";
 		$this->graphic = 0xF5C;
@@ -13,7 +13,7 @@ class mace extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x47E;
+		$this->color = 0;
 		$this->aosstrengthreq = 45;
 		$this->aosmindamage = 12;
 		$this->aosmaxdamage = 14;
@@ -22,8 +22,8 @@ class mace extends Object {
 		$this->oldstrengthreq = 20;
 		$this->oldmindamage = 8;
 		$this->oldspeed = 30;
-		$this->defhitsound = 0x233;
-		$this->defmisssound = 0x239;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 70;
 		$this->weight = 14.0;

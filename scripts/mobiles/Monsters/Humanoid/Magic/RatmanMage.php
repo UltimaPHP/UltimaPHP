@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ratmanmage extends Mobile {
+class RatmanMage extends Mobile {
 	public function summon() {
 		$this->name = "ratman";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class ratmanmage extends Mobile {
 		$this->str = rand(146, 180);
 		$this->dex = rand(101, 130);
 		$this->int = rand(186, 210);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 7;
-		$this->damage_max = 14;
+		$this->hits = 7;
+		$this->maxhits = 14;
 		$this->resist_physical = rand(40, 45);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(10, 20);

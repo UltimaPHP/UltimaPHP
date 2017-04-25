@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class vendorrentalcontract extends Object {
+class VendorRentalContract extends Object {
 	public function build() {
 		$this->name = "vendor rental contract";
 		$this->graphic = 0x14F0;

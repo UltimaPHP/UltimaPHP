@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class decogoldingot extends Object {
+class DecoGoldIngot extends Object {
 	public function build() {
 		$this->name = "deco gold ingot";
 		$this->graphic = 0x1BE9;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class chainhatsuburi extends Object {
+class ChainHatsuburi extends Object {
 	public function build() {
 		$this->name = "chain hatsuburi";
 		$this->graphic = 0x2774;

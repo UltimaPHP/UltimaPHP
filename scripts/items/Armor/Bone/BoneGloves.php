@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bonegloves extends Object {
+class BoneGloves extends Object {
 	public function build() {
 		$this->name = "bone gloves";
 		$this->graphic = 0x1450;

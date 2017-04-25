@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class strongbox extends Object {
+class StrongBox extends Object {
 	public function build() {
 		$this->name = "strong box";
 		$this->graphic = 0xE80;
@@ -26,7 +26,7 @@ class strongbox extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 2.0;
+		$this->weight = 0;
 
 }}
 ?>

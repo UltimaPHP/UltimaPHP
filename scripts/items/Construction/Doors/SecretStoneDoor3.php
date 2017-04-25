@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class secretstonedoor3 extends Object {
+class SecretStoneDoor3 extends Object {
 	public function build() {
 		$this->name = "secret stone door";
 		$this->graphic = 0x354;
@@ -13,7 +13,7 @@ class secretstonedoor3 extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x44E;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

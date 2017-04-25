@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class shepherdscrook extends Object {
+class ShepherdsCrook extends Object {
 	public function build() {
 		$this->name = "shepherds crook";
 		$this->graphic = 0xE81;
@@ -13,7 +13,7 @@ class shepherdscrook extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x480;
+		$this->color = 0;
 		$this->aosstrengthreq = 20;
 		$this->aosmindamage = 13;
 		$this->aosmaxdamage = 15;
@@ -22,8 +22,8 @@ class shepherdscrook extends Object {
 		$this->oldstrengthreq = 10;
 		$this->oldmindamage = 3;
 		$this->oldspeed = 30;
-		$this->defhitsound = 0x233;
-		$this->defmisssound = 0x239;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 50;
 		$this->weight = 4.0;

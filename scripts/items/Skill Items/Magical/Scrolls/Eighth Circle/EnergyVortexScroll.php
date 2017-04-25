@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class energyvortexscroll extends Object {
+class EnergyVortexScroll extends Object {
 	public function build() {
 		$this->name = "energy vortex scroll";
 		$this->graphic = 0x1F66;

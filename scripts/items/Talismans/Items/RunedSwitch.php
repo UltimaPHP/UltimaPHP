@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class runedswitch extends Object {
+class RunedSwitch extends Object {
 	public function build() {
 		$this->name = "runed switch";
 		$this->graphic = 0x2F61;

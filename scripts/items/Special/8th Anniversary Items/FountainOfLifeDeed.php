@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class fountainoflifedeed extends Object {
+class FountainOfLifeDeed extends Object {
 	public function build() {
 		$this->name = "fountain of life deed";
 		$this->graphic = 0x2AC0;
@@ -24,9 +24,9 @@ class fountainoflifedeed extends Object {
 		$this->oldspeed = 0;
 		$this->defhitsound = 0;
 		$this->defmisssound = 0;
-		$this->hits = 255;
-		$this->maxHits = 255;
-		$this->weight = 6.0;
+		$this->hits = 0;
+		$this->maxHits = 0;
+		$this->weight = 0;
 
 }}
 ?>

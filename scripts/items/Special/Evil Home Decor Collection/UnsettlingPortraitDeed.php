@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class unsettlingportraitdeed extends Object {
+class UnsettlingPortraitDeed extends Object {
 	public function build() {
 		$this->name = "unsettling portrait deed";
 		$this->graphic = 0x2A65;

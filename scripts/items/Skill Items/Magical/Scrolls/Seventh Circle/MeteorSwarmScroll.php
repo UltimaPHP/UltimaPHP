@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class meteorswarmscroll extends Object {
+class MeteorSwarmScroll extends Object {
 	public function build() {
 		$this->name = "meteor swarm scroll";
 		$this->graphic = 0x1F63;

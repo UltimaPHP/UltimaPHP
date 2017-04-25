@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class fereltreefellow extends Mobile {
+class FerelTreefellow extends Mobile {
 	public function summon() {
 		$this->name = "a ferel treefellow";
 		$this->body = 301;
@@ -16,10 +16,8 @@ class fereltreefellow extends Mobile {
 		$this->str = rand(1351, 1600);
 		$this->dex = rand(301, 550);
 		$this->int = rand(651, 900);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 26;
-		$this->damage_max = 35;
+		$this->hits = 26;
+		$this->maxhits = 35;
 		$this->resist_physical = rand(60, 70);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(70, 80);

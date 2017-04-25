@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class exodusoverseer extends Mobile {
+class ExodusOverseer extends Mobile {
 	public function summon() {
 		$this->name = "exodus overseer";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class exodusoverseer extends Mobile {
 		$this->str = rand(561, 650);
 		$this->dex = rand(76, 95);
 		$this->int = rand(61, 90);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 13;
-		$this->damage_max = 19;
+		$this->hits = 13;
+		$this->maxhits = 19;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(40, 60);
 		$this->resist_cold = rand(25, 35);

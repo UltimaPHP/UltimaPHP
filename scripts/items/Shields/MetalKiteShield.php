@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class metalkiteshield extends Object {
+class MetalKiteShield extends Object {
 	public function build() {
 		$this->name = "metal kite shield";
 		$this->graphic = 0x1B74;

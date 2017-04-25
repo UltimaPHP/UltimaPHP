@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class hidechest extends Object {
+class HideChest extends Object {
 	public function build() {
 		$this->name = "hide chest";
 		$this->graphic = 0x2B74;

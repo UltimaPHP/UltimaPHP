@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class stainedooze extends Mobile {
+class StainedOoze extends Mobile {
 	public function summon() {
 		$this->name = "ilhenir";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class stainedooze extends Mobile {
 		$this->str = rand(1105, 1350);
 		$this->dex = rand(82, 160);
 		$this->int = rand(505, 750);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 21;
-		$this->damage_max = 28;
+		$this->hits = 21;
+		$this->maxhits = 28;
 		$this->resist_physical = rand(55, 65);
 		$this->resist_fire = rand(50, 60);
 		$this->resist_cold = rand(55, 65);

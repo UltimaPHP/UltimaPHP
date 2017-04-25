@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class gibberling extends Mobile {
+class Gibberling extends Mobile {
 	public function summon() {
 		$this->name = "a gibberling";
 		$this->body = 307;
@@ -16,10 +16,8 @@ class gibberling extends Mobile {
 		$this->str = rand(141, 165);
 		$this->dex = rand(101, 125);
 		$this->int = rand(56, 80);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 12;
-		$this->damage_max = 17;
+		$this->hits = 12;
+		$this->maxhits = 17;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(25, 35);
 		$this->resist_cold = rand(25, 35);

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class titan extends Mobile {
+class Titan extends Mobile {
 	public function summon() {
 		$this->name = "a titan";
 		$this->body = 76;
@@ -16,10 +16,8 @@ class titan extends Mobile {
 		$this->str = rand(536, 585);
 		$this->dex = rand(126, 145);
 		$this->int = rand(281, 305);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 13;
-		$this->damage_max = 16;
+		$this->hits = 13;
+		$this->maxhits = 16;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(25, 35);

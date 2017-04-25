@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class boneknight extends Mobile {
+class BoneKnight extends Mobile {
 	public function summon() {
 		$this->name = "a bone knight";
 		$this->body = 57;
@@ -16,10 +16,8 @@ class boneknight extends Mobile {
 		$this->str = rand(196, 250);
 		$this->dex = rand(76, 95);
 		$this->int = rand(36, 60);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 8;
-		$this->damage_max = 18;
+		$this->hits = 8;
+		$this->maxhits = 18;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(50, 60);

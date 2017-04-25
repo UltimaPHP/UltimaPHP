@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class invisibilitypotion extends Object {
+class InvisibilityPotion extends Object {
 	public function build() {
 		$this->name = "invisibility potion";
 		$this->graphic = 0xF0A;
@@ -26,7 +26,7 @@ class invisibilitypotion extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

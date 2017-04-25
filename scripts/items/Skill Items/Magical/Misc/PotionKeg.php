@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class potionkeg extends Object {
+class PotionKeg extends Object {
 	public function build() {
 		$this->name = "potion keg";
 		$this->graphic = 0x1940;
@@ -26,7 +26,7 @@ class potionkeg extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ronin extends Mobile {
+class Ronin extends Mobile {
 	public function summon() {
 		$this->name = "a ronin";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class ronin extends Mobile {
 		$this->str = rand(326, 375);
 		$this->dex = rand(31, 45);
 		$this->int = rand(101, 110);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 17;
-		$this->damage_max = 25;
+		$this->hits = 17;
+		$this->maxhits = 25;
 		$this->resist_physical = rand(55, 75);
 		$this->resist_fire = rand(40, 60);
 		$this->resist_cold = rand(35, 55);

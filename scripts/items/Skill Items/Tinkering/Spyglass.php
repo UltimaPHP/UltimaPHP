@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class spyglass extends Object {
+class Spyglass extends Object {
 	public function build() {
 		$this->name = "spyglass";
 		$this->graphic = 0x14F5;

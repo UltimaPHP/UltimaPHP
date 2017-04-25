@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class arcanegem extends Object {
+class ArcaneGem extends Object {
 	public function build() {
 		$this->name = "arcane gem";
 		$this->graphic = 0x1EA7;
@@ -13,7 +13,7 @@ class arcanegem extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x3F;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

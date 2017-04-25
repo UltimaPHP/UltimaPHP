@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class darknightcreeper extends Mobile {
+class DarknightCreeper extends Mobile {
 	public function summon() {
 		$this->name = "darknight creeper";
 		$this->body = 313;
@@ -16,10 +16,8 @@ class darknightcreeper extends Mobile {
 		$this->str = rand(301, 330);
 		$this->dex = rand(101, 110);
 		$this->int = rand(301, 330);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 22;
-		$this->damage_max = 26;
+		$this->hits = 22;
+		$this->maxhits = 26;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

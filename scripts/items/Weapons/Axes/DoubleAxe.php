@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class doubleaxe extends Object {
+class DoubleAxe extends Object {
 	public function build() {
 		$this->name = "double axe";
 		$this->graphic = 0xF4B;
@@ -22,8 +22,8 @@ class doubleaxe extends Object {
 		$this->oldstrengthreq = 45;
 		$this->oldmindamage = 5;
 		$this->oldspeed = 37;
-		$this->defhitsound = 0x232;
-		$this->defmisssound = 0x23A;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 110;
 		$this->weight = 8.0;

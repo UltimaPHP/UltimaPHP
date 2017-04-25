@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class headlessone extends Mobile {
+class HeadlessOne extends Mobile {
 	public function summon() {
 		$this->name = "a headless one";
 		$this->body = 31;
@@ -16,10 +16,8 @@ class headlessone extends Mobile {
 		$this->str = rand(26, 50);
 		$this->dex = rand(36, 55);
 		$this->int = rand(16, 30);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 5;
-		$this->damage_max = 10;
+		$this->hits = 5;
+		$this->maxhits = 10;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class tourmaline extends Object {
+class Tourmaline extends Object {
 	public function build() {
 		$this->name = "tourmaline";
 		$this->graphic = 0xF2D;

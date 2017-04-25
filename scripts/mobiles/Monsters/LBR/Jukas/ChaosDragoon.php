@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class chaosdragoon extends Mobile {
+class ChaosDragoon extends Mobile {
 	public function summon() {
 		$this->name = "a chaos dragoon";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class chaosdragoon extends Mobile {
 		$this->str = rand(176, 225);
 		$this->dex = rand(81, 95);
 		$this->int = rand(61, 85);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 24;
-		$this->damage_max = 26;
+		$this->hits = 24;
+		$this->maxhits = 26;
 		$this->resist_physical = rand(25, 38);
 		$this->resist_fire = rand(25, 38);
 		$this->resist_cold = rand(25, 38);

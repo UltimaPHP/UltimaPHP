@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class enslavedgargoyle extends Mobile {
+class EnslavedGargoyle extends Mobile {
 	public function summon() {
 		$this->name = "an enslaved gargoyle";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class enslavedgargoyle extends Mobile {
 		$this->str = rand(302, 360);
 		$this->dex = rand(76, 95);
 		$this->int = rand(81, 105);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 7;
-		$this->damage_max = 14;
+		$this->hits = 7;
+		$this->maxhits = 14;
 		$this->resist_physical = rand(30, 40);
 		$this->resist_fire = rand(50, 70);
 		$this->resist_cold = rand(15, 25);

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class grobusfur extends Object {
+class GrobusFur extends Object {
 	public function build() {
 		$this->name = "grobus fur";
 		$this->graphic = 0x11F4;

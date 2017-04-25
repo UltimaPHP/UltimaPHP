@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bardiche extends Object {
+class Bardiche extends Object {
 	public function build() {
 		$this->name = "bardiche";
 		$this->graphic = 0xF4D;
@@ -22,8 +22,8 @@ class bardiche extends Object {
 		$this->oldstrengthreq = 40;
 		$this->oldmindamage = 5;
 		$this->oldspeed = 26;
-		$this->defhitsound = 0x237;
-		$this->defmisssound = 0x238;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 100;
 		$this->weight = 7.0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class summonedairelemental extends Mobile {
+class SummonedAirElemental extends Mobile {
 	public function summon() {
 		$this->name = "an air elemental";
 		$this->body = 13;
@@ -16,10 +16,8 @@ class summonedairelemental extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 6;
-		$this->damage_max = 9;
+		$this->hits = 6;
+		$this->maxhits = 9;
 		$this->resist_physical = rand(40, 50);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(35, 45);

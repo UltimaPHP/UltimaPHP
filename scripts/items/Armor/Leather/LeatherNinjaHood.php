@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class leatherninjahood extends Object {
+class LeatherNinjaHood extends Object {
 	public function build() {
 		$this->name = "leather ninja hood";
 		$this->graphic = 0x278E;

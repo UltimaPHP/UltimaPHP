@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class platedo extends Object {
+class PlateDo extends Object {
 	public function build() {
 		$this->name = "plate do";
 		$this->graphic = 0x277D;

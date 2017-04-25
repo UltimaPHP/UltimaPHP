@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class broadsword extends Object {
+class Broadsword extends Object {
 	public function build() {
 		$this->name = "broadsword";
 		$this->graphic = 0xF5E;

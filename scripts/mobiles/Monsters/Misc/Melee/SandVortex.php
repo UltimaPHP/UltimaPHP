@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class sandvortex extends Mobile {
+class SandVortex extends Mobile {
 	public function summon() {
 		$this->name = "a sand vortex";
 		$this->body = 790;
@@ -16,10 +16,8 @@ class sandvortex extends Mobile {
 		$this->str = rand(96, 120);
 		$this->dex = rand(171, 195);
 		$this->int = rand(76, 100);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 3;
-		$this->damage_max = 16;
+		$this->hits = 3;
+		$this->maxhits = 16;
 		$this->resist_physical = rand(80, 90);
 		$this->resist_fire = rand(60, 70);
 		$this->resist_cold = rand(60, 70);

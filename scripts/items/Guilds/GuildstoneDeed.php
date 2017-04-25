@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class guildstonedeed extends Object {
+class GuildstoneDeed extends Object {
 	public function build() {
 		$this->name = "guildstone deed";
 		$this->graphic = 0x14F0;

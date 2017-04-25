@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class clumsyscroll extends Object {
+class ClumsyScroll extends Object {
 	public function build() {
 		$this->name = "clumsy scroll";
 		$this->graphic = 0x1F2E;

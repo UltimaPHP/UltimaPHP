@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class crystallinefragments extends Object {
+class CrystallineFragments extends Object {
 	public function build() {
 		$this->name = "crystalline fragments";
 		$this->graphic = 0x223B;

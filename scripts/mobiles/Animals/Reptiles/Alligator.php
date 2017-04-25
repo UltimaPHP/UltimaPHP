@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class alligator extends Mobile {
+class Alligator extends Mobile {
 	public function summon() {
 		$this->name = "an alligator";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class alligator extends Mobile {
 		$this->str = rand(76, 100);
 		$this->dex = rand(6, 25);
 		$this->int = rand(11, 20);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 5;
-		$this->damage_max = 15;
+		$this->hits = 5;
+		$this->maxhits = 15;
 		$this->resist_physical = rand(25, 35);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = 0;

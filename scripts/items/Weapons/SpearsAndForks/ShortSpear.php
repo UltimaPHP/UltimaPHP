@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class shortspear extends Object {
+class ShortSpear extends Object {
 	public function build() {
 		$this->name = "short spear";
 		$this->graphic = 0x1403;
@@ -22,8 +22,8 @@ class shortspear extends Object {
 		$this->oldstrengthreq = 15;
 		$this->oldmindamage = 4;
 		$this->oldspeed = 50;
-		$this->defhitsound = 0x23C;
-		$this->defmisssound = 0x238;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 70;
 		$this->weight = 4.0;

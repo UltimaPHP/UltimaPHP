@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class specialbearddyegump extends Object {
+class SpecialBeardDyeGump extends Object {
 	public function build() {
 		$this->name = "special beard dye gump";
 		$this->graphic = 0xE26;
@@ -13,7 +13,7 @@ class specialbearddyegump extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x497;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

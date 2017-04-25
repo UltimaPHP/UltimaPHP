@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class swamptile extends Object {
+class SwampTile extends Object {
 	public function build() {
 		$this->name = "swamp tile";
 		$this->graphic = 0x320D;

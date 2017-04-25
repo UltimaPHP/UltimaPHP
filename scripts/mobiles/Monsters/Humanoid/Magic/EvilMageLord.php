@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class evilmagelord extends Mobile {
+class EvilMageLord extends Mobile {
 	public function summon() {
 		$this->name = "evil mage lord";
 		$this->body = Functions::RandomList(array(125, 126));
@@ -16,10 +16,8 @@ class evilmagelord extends Mobile {
 		$this->str = rand(81, 105);
 		$this->dex = rand(191, 215);
 		$this->int = rand(126, 150);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 5;
-		$this->damage_max = 10;
+		$this->hits = 5;
+		$this->maxhits = 10;
 		$this->resist_physical = rand(35, 40);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(30, 40);

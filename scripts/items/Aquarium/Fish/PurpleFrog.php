@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class purplefrog extends Object {
+class PurpleFrog extends Object {
 	public function build() {
 		$this->name = "purple frog";
 		$this->graphic = 0x3B0D;

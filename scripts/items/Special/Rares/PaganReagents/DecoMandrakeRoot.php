@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class decomandrakeroot extends Object {
+class DecoMandrakeRoot extends Object {
 	public function build() {
 		$this->name = "deco mandrake root";
 		$this->graphic = 0x18DE;

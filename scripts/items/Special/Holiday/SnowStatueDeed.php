@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class snowstatuedeed extends Object {
+class SnowStatueDeed extends Object {
 	public function build() {
 		$this->name = "snow statue deed";
 		$this->graphic = 0x14F0;
@@ -13,7 +13,7 @@ class snowstatuedeed extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x481;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;
@@ -26,7 +26,7 @@ class snowstatuedeed extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 10.0;
+		$this->weight = 0;
 
 }}
 ?>

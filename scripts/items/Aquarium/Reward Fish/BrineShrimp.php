@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class brineshrimp extends Object {
+class BrineShrimp extends Object {
 	public function build() {
 		$this->name = "brine shrimp";
 		$this->graphic = 0x3B11;

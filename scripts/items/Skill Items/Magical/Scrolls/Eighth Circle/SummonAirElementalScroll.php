@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class summonairelementalscroll extends Object {
+class SummonAirElementalScroll extends Object {
 	public function build() {
 		$this->name = "summon air elemental scroll";
 		$this->graphic = 0x1F68;

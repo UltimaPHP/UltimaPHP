@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class primitivefetish extends Object {
+class PrimitiveFetish extends Object {
 	public function build() {
 		$this->name = "primitive fetish";
 		$this->graphic = 0x23F;

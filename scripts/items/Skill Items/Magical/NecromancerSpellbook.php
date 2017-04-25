@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class necromancerspellbook extends Object {
+class NecromancerSpellbook extends Object {
 	public function build() {
 		$this->name = "necromancer spellbook";
 		$this->graphic = 0x2253;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class giantspider extends Mobile {
+class GiantSpider extends Mobile {
 	public function summon() {
 		$this->name = "a giant spider";
 		$this->body = 28;
@@ -16,10 +16,8 @@ class giantspider extends Mobile {
 		$this->str = rand(76, 100);
 		$this->dex = rand(76, 95);
 		$this->int = rand(36, 60);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 5;
-		$this->damage_max = 13;
+		$this->hits = 5;
+		$this->maxhits = 13;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

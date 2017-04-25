@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class shuriken extends Object {
+class Shuriken extends Object {
 	public function build() {
 		$this->name = "shuriken";
 		$this->graphic = 0x27AC;

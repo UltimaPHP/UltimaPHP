@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class corpse extends Object {
+class Corpse extends Object {
 	public function build() {
 		$this->name = "corpse";
 		$this->graphic = 0x2006;

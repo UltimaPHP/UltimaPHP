@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class backgammon extends Object {
+class Backgammon extends Object {
 	public function build() {
 		$this->name = "backgammon";
 		$this->graphic = 0xE1C;
@@ -26,7 +26,7 @@ class backgammon extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 5.0;
+		$this->weight = 0;
 
 }}
 ?>

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bolaball extends Object {
+class BolaBall extends Object {
 	public function build() {
 		$this->name = "bola ball";
 		$this->graphic = 0xE73;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class rangerchest extends Object {
+class RangerChest extends Object {
 	public function build() {
 		$this->name = "ranger chest";
 		$this->graphic = 0x13DB;

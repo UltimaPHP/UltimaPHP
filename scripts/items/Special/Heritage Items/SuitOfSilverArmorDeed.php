@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class suitofsilverarmordeed extends Object {
+class SuitOfSilverArmorDeed extends Object {
 	public function build() {
 		$this->name = "suit of silver armor deed";
 		$this->graphic = 0x3D86;

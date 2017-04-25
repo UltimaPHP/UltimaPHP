@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class baseenraged extends Mobile {
+class BaseEnraged extends Mobile {
 	public function summon() {
 		$this->name = "an eagle";
 		$this->body = 0;
@@ -18,8 +18,6 @@ class baseenraged extends Mobile {
 		$this->int = 0;
 		$this->hits = 0;
 		$this->maxhits = 0;
-		$this->damage_min = 0;
-		$this->damage_max = 0;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

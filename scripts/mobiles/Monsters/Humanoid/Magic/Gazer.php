@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class gazer extends Mobile {
+class Gazer extends Mobile {
 	public function summon() {
 		$this->name = "a gazer";
 		$this->body = 22;
@@ -16,10 +16,8 @@ class gazer extends Mobile {
 		$this->str = rand(96, 125);
 		$this->dex = rand(86, 105);
 		$this->int = rand(141, 165);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 5;
-		$this->damage_max = 10;
+		$this->hits = 5;
+		$this->maxhits = 10;
 		$this->resist_physical = rand(35, 40);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(20, 30);

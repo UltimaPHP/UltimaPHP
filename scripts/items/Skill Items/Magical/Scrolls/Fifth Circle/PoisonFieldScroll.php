@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class poisonfieldscroll extends Object {
+class PoisonFieldScroll extends Object {
 	public function build() {
 		$this->name = "poison field scroll";
 		$this->graphic = 0x1F53;

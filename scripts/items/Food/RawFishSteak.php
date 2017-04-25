@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class rawfishsteak extends Object {
+class RawFishSteak extends Object {
 	public function build() {
 		$this->name = "raw fish steak";
 		$this->graphic = 0x097A;
@@ -13,7 +13,7 @@ class rawfishsteak extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x47E;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

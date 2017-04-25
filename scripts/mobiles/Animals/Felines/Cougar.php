@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class cougar extends Mobile {
+class Cougar extends Mobile {
 	public function summon() {
 		$this->name = "a cougar";
 		$this->body = 63;
@@ -16,10 +16,8 @@ class cougar extends Mobile {
 		$this->str = rand(56, 80);
 		$this->dex = rand(66, 85);
 		$this->int = rand(26, 50);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 4;
-		$this->damage_max = 10;
+		$this->hits = 4;
+		$this->maxhits = 10;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = rand(10, 15);

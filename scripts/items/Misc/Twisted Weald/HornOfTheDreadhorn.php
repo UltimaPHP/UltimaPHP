@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class hornofthedreadhorn extends Object {
+class HornOfTheDreadhorn extends Object {
 	public function build() {
 		$this->name = "horn of the dreadhorn";
 		$this->graphic = 0x315C;

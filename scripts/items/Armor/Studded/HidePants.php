@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class hidepants extends Object {
+class HidePants extends Object {
 	public function build() {
 		$this->name = "hide pants";
 		$this->graphic = 0x2B78;

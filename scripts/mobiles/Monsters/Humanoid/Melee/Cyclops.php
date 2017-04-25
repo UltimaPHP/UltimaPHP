@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class cyclops extends Mobile {
+class Cyclops extends Mobile {
 	public function summon() {
 		$this->name = "a cyclopean warrior";
 		$this->body = 75;
@@ -16,10 +16,8 @@ class cyclops extends Mobile {
 		$this->str = rand(336, 385);
 		$this->dex = rand(96, 115);
 		$this->int = rand(31, 55);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 7;
-		$this->damage_max = 23;
+		$this->hits = 7;
+		$this->maxhits = 23;
 		$this->resist_physical = rand(45, 50);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(25, 35);

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class adminrobe extends Object {
+class AdminRobe extends Object {
 	public function build() {
 		$this->name = "admin robe";
 		$this->graphic = 0x0;
@@ -26,7 +26,7 @@ class adminrobe extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 0;
 		$this->maxHits = 0;
-		$this->weight = 1.0;
+		$this->weight = 0;
 
 }}
 ?>

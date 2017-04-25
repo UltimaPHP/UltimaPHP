@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class jeweledfiligree extends Object {
+class JeweledFiligree extends Object {
 	public function build() {
 		$this->name = "jeweled filigree";
 		$this->graphic = 0x2F5E;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class skinningknife extends Object {
+class SkinningKnife extends Object {
 	public function build() {
 		$this->name = "skinning knife";
 		$this->graphic = 0xEC4;
@@ -22,8 +22,8 @@ class skinningknife extends Object {
 		$this->oldstrengthreq = 5;
 		$this->oldmindamage = 1;
 		$this->oldspeed = 40;
-		$this->defhitsound = 0x23B;
-		$this->defmisssound = 0x238;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 40;
 		$this->weight = 1.0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class savage extends Mobile {
+class Savage extends Mobile {
 	public function summon() {
 		$this->name = "savage";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class savage extends Mobile {
 		$this->str = rand(96, 115);
 		$this->dex = rand(86, 105);
 		$this->int = rand(51, 65);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 23;
-		$this->damage_max = 27;
+		$this->hits = 23;
+		$this->maxhits = 27;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class archcurescroll extends Object {
+class ArchCureScroll extends Object {
 	public function build() {
 		$this->name = "arch cure scroll";
 		$this->graphic = 0x1F45;

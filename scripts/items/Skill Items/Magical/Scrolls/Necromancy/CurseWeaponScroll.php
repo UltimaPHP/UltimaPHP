@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class curseweaponscroll extends Object {
+class CurseWeaponScroll extends Object {
 	public function build() {
 		$this->name = "curse weapon scroll";
 		$this->graphic = 0x2263;

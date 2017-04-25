@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class playingcards extends Object {
+class PlayingCards extends Object {
 	public function build() {
 		$this->name = "playing cards";
 		$this->graphic = 0xFA3;

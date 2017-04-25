@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class pickaxe extends Object {
+class Pickaxe extends Object {
 	public function build() {
 		$this->name = "pickaxe";
 		$this->graphic = 0xE86;
@@ -22,8 +22,8 @@ class pickaxe extends Object {
 		$this->oldstrengthreq = 25;
 		$this->oldmindamage = 1;
 		$this->oldspeed = 35;
-		$this->defhitsound = 0x232;
-		$this->defmisssound = 0x23A;
+		$this->defhitsound = 0;
+		$this->defmisssound = 0;
 		$this->hits = 31;
 		$this->maxHits = 60;
 		$this->weight = 11.0;

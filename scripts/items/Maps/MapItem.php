@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class mapitem extends Object {
+class MapItem extends Object {
 	public function build() {
 		$this->name = "map item";
 		$this->graphic = 0x14EC;
@@ -13,7 +13,7 @@ class mapitem extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x961;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

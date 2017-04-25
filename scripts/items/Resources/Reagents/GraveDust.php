@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class gravedust extends Object {
+class GraveDust extends Object {
 	public function build() {
 		$this->name = "grave dust";
 		$this->graphic = 0xF8F;

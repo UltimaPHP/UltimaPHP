@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class krisnahair extends Object {
+class KrisnaHair extends Object {
 	public function build() {
 		$this->name = "krisna hair";
 		$this->graphic = 0x204A;

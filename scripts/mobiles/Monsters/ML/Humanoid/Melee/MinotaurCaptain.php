@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class minotaurcaptain extends Mobile {
+class MinotaurCaptain extends Mobile {
 	public function summon() {
 		$this->name = "a minotaur captain";
 		$this->body = 280;
@@ -16,10 +16,8 @@ class minotaurcaptain extends Mobile {
 		$this->str = rand(401, 425);
 		$this->dex = rand(91, 110);
 		$this->int = rand(31, 50);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 11;
-		$this->damage_max = 20;
+		$this->hits = 11;
+		$this->maxhits = 20;
 		$this->resist_physical = rand(65, 75);
 		$this->resist_fire = rand(35, 45);
 		$this->resist_cold = rand(40, 50);

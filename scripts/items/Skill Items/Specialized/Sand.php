@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class sand extends Object {
+class Sand extends Object {
 	public function build() {
 		$this->name = "sand";
 		$this->graphic = 0x11EA;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class etherealwarrior extends Mobile {
+class EtherealWarrior extends Mobile {
 	public function summon() {
 		$this->name = "ethereal warrior";
 		$this->body = 123;
@@ -16,10 +16,8 @@ class etherealwarrior extends Mobile {
 		$this->str = rand(586, 785);
 		$this->dex = rand(177, 255);
 		$this->int = rand(351, 450);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 13;
-		$this->damage_max = 19;
+		$this->hits = 13;
+		$this->maxhits = 19;
 		$this->resist_physical = rand(80, 90);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(40, 50);

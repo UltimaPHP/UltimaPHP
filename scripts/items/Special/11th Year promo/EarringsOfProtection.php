@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class earringsofprotection extends Object {
+class EarringsOfProtection extends Object {
 	public function build() {
 		$this->name = "earrings of protection";
 		$this->graphic = 0x1087;

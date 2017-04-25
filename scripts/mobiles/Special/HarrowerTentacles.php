@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class harrowertentacles extends Mobile {
+class HarrowerTentacles extends Mobile {
 	public function summon() {
 		$this->name = "tentacles of the harrower";
 		$this->body = 129;
@@ -16,10 +16,8 @@ class harrowertentacles extends Mobile {
 		$this->str = rand(901, 1000);
 		$this->dex = rand(126, 140);
 		$this->int = rand(1001, 1200);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 13;
-		$this->damage_max = 20;
+		$this->hits = 13;
+		$this->maxhits = 20;
 		$this->resist_physical = rand(55, 65);
 		$this->resist_fire = rand(35, 45);
 		$this->resist_cold = rand(35, 45);

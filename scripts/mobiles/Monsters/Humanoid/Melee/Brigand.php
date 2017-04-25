@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class brigand extends Mobile {
+class Brigand extends Mobile {
 	public function summon() {
 		$this->name = "male";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class brigand extends Mobile {
 		$this->str = rand(86, 100);
 		$this->dex = rand(81, 95);
 		$this->int = rand(61, 75);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 10;
-		$this->damage_max = 23;
+		$this->hits = 10;
+		$this->maxhits = 23;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

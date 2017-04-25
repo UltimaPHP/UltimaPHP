@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class cow extends Mobile {
+class Cow extends Mobile {
 	public function summon() {
 		$this->name = "a cow";
 		$this->body = Functions::RandomList(array(8, 0));
@@ -16,10 +16,8 @@ class cow extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 1;
-		$this->damage_max = 4;
+		$this->hits = 1;
+		$this->maxhits = 4;
 		$this->resist_physical = rand(5, 15);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

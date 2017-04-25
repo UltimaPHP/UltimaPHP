@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class roseoftrinsicpetal extends Object {
+class RoseOfTrinsicPetal extends Object {
 	public function build() {
 		$this->name = "rose of trinsic petal";
 		$this->graphic = 0x1021;
@@ -24,8 +24,8 @@ class roseoftrinsicpetal extends Object {
 		$this->oldspeed = 0;
 		$this->defhitsound = 0;
 		$this->defmisssound = 0;
-		$this->hits = 255;
-		$this->maxHits = 255;
+		$this->hits = 0;
+		$this->maxHits = 0;
 		$this->weight = 1.0;
 
 }}

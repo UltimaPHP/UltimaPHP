@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class elvenglasses extends Object {
+class ElvenGlasses extends Object {
 	public function build() {
 		$this->name = "elven glasses";
 		$this->graphic = 0x2FB8;
@@ -13,7 +13,7 @@ class elvenglasses extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x73;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class boar extends Mobile {
+class Boar extends Mobile {
 	public function summon() {
 		$this->name = "a boar";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class boar extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 3;
-		$this->damage_max = 6;
+		$this->hits = 3;
+		$this->maxhits = 6;
 		$this->resist_physical = rand(10, 15);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = 0;

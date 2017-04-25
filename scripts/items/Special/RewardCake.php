@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class rewardcake extends Object {
+class RewardCake extends Object {
 	public function build() {
 		$this->name = "reward cake";
 		$this->graphic = 0x9e9;

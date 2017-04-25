@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ghostshipanchor extends Object {
+class GhostShipAnchor extends Object {
 	public function build() {
 		$this->name = "ghost ship anchor";
 		$this->graphic = 0x14F7;
@@ -24,8 +24,8 @@ class ghostshipanchor extends Object {
 		$this->oldspeed = 0;
 		$this->defhitsound = 0;
 		$this->defmisssound = 0;
-		$this->hits = 255;
-		$this->maxHits = 255;
+		$this->hits = 0;
+		$this->maxHits = 0;
 		$this->weight = 0;
 
 }}

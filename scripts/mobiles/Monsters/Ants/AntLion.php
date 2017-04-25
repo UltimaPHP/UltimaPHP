@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class antlion extends Mobile {
+class AntLion extends Mobile {
 	public function summon() {
 		$this->name = "an ant lion";
 		$this->body = 787;
@@ -16,10 +16,8 @@ class antlion extends Mobile {
 		$this->str = rand(296, 320);
 		$this->dex = rand(81, 105);
 		$this->int = rand(36, 60);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 7;
-		$this->damage_max = 21;
+		$this->hits = 7;
+		$this->maxhits = 21;
 		$this->resist_physical = rand(45, 60);
 		$this->resist_fire = rand(25, 35);
 		$this->resist_cold = rand(30, 40);

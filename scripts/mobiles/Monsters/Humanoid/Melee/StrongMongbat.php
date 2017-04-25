@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class strongmongbat extends Mobile {
+class StrongMongbat extends Mobile {
 	public function summon() {
 		$this->name = "a mongbat";
 		$this->body = 39;
@@ -16,10 +16,8 @@ class strongmongbat extends Mobile {
 		$this->str = rand(6, 10);
 		$this->dex = rand(26, 38);
 		$this->int = rand(6, 14);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 5;
-		$this->damage_max = 7;
+		$this->hits = 5;
+		$this->maxhits = 7;
 		$this->resist_physical = rand(15, 25);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

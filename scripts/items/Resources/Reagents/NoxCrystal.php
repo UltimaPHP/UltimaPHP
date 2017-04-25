@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class noxcrystal extends Object {
+class NoxCrystal extends Object {
 	public function build() {
 		$this->name = "nox crystal";
 		$this->graphic = 0xF8E;

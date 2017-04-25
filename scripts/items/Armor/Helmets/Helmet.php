@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class helmet extends Object {
+class Helmet extends Object {
 	public function build() {
 		$this->name = "helmet";
 		$this->graphic = 0x140A;
@@ -13,7 +13,7 @@ class helmet extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x648;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

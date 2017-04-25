@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bladespiritsscroll extends Object {
+class BladeSpiritsScroll extends Object {
 	public function build() {
 		$this->name = "blade spirits scroll";
 		$this->graphic = 0x1F4D;

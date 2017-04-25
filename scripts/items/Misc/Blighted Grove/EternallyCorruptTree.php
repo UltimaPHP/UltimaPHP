@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class eternallycorrupttree extends Object {
+class EternallyCorruptTree extends Object {
 	public function build() {
 		$this->name = "eternally corrupt tree";
 		$this->graphic = 0x20FA;

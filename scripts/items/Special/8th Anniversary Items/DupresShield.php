@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class dupresshield extends Object {
+class DupresShield extends Object {
 	public function build() {
 		$this->name = "dupres shield";
 		$this->graphic = 0x2B01;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class neira extends Mobile {
+class Neira extends Mobile {
 	public function summon() {
 		$this->name = "neira";
 		$this->body = 401;
@@ -16,10 +16,8 @@ class neira extends Mobile {
 		$this->str = rand(305, 425);
 		$this->dex = rand(72, 150);
 		$this->int = rand(505, 750);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 25;
-		$this->damage_max = 35;
+		$this->hits = 25;
+		$this->maxhits = 35;
 		$this->resist_physical = rand(25, 30);
 		$this->resist_fire = rand(35, 45);
 		$this->resist_cold = rand(50, 60);

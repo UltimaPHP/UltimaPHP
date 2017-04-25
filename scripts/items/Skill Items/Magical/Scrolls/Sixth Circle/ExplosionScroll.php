@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class explosionscroll extends Object {
+class ExplosionScroll extends Object {
 	public function build() {
 		$this->name = "explosion scroll";
 		$this->graphic = 0x1F57;

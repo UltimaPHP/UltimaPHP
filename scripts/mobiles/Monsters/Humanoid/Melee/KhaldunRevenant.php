@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class khaldunrevenant extends Mobile {
+class KhaldunRevenant extends Mobile {
 	public function summon() {
 		$this->name = "a revenant";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class khaldunrevenant extends Mobile {
 		$this->str = rand(401, 500);
 		$this->dex = rand(296, 315);
 		$this->int = rand(101, 200);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 20;
-		$this->damage_max = 30;
+		$this->hits = 20;
+		$this->maxhits = 30;
 		$this->resist_physical = rand(55, 65);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(60, 70);

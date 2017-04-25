@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class waterloggedboots extends Object {
+class WaterloggedBoots extends Object {
 	public function build() {
 		$this->name = "waterlogged boots";
 		$this->graphic = 0x1711;
@@ -24,8 +24,8 @@ class waterloggedboots extends Object {
 		$this->oldspeed = 0;
 		$this->defhitsound = 0;
 		$this->defmisssound = 0;
-		$this->hits = 20;
-		$this->maxHits = 30;
+		$this->hits = 0;
+		$this->maxHits = 0;
 		$this->weight = 3.0;
 
 }}

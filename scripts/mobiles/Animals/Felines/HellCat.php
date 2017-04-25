@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class hellcat extends Mobile {
+class HellCat extends Mobile {
 	public function summon() {
 		$this->name = "a hell cat";
 		$this->body = 0;
@@ -16,10 +16,8 @@ class hellcat extends Mobile {
 		$this->str = rand(51, 100);
 		$this->dex = rand(52, 150);
 		$this->int = rand(13, 85);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 6;
-		$this->damage_max = 12;
+		$this->hits = 6;
+		$this->maxhits = 12;
 		$this->resist_physical = rand(25, 35);
 		$this->resist_fire = rand(80, 90);
 		$this->resist_cold = 0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class bonedemon extends Mobile {
+class BoneDemon extends Mobile {
 	public function summon() {
 		$this->name = "a bone demon";
 		$this->body = 308;
@@ -16,10 +16,8 @@ class bonedemon extends Mobile {
 		$this->str = 0;
 		$this->dex = rand(151, 175);
 		$this->int = rand(171, 220);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 34;
-		$this->damage_max = 36;
+		$this->hits = 34;
+		$this->maxhits = 36;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class femaleleatherchest extends Object {
+class FemaleLeatherChest extends Object {
 	public function build() {
 		$this->name = "female leather chest";
 		$this->graphic = 0x1C06;

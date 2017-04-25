@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class scorpion extends Mobile {
+class Scorpion extends Mobile {
 	public function summon() {
 		$this->name = "a scorpion";
 		$this->body = 48;
@@ -16,10 +16,8 @@ class scorpion extends Mobile {
 		$this->str = rand(73, 115);
 		$this->dex = rand(76, 95);
 		$this->int = rand(16, 30);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 5;
-		$this->damage_max = 10;
+		$this->hits = 5;
+		$this->maxhits = 10;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = rand(10, 15);
 		$this->resist_cold = rand(20, 25);

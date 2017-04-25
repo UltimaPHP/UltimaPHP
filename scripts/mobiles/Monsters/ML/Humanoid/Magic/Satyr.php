@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class satyr extends Mobile {
+class Satyr extends Mobile {
 	public function summon() {
 		$this->name = "a satyr";
 		$this->body = 271;
@@ -16,10 +16,8 @@ class satyr extends Mobile {
 		$this->str = rand(177, 195);
 		$this->dex = rand(251, 269);
 		$this->int = rand(153, 170);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 13;
-		$this->damage_max = 24;
+		$this->hits = 13;
+		$this->maxhits = 24;
 		$this->resist_physical = rand(55, 60);
 		$this->resist_fire = rand(25, 35);
 		$this->resist_cold = rand(30, 40);

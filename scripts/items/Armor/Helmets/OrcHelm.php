@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class orchelm extends Object {
+class OrcHelm extends Object {
 	public function build() {
 		$this->name = "orc helm";
 		$this->graphic = 0x1F0B;
@@ -13,7 +13,7 @@ class orchelm extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x648;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;
@@ -26,7 +26,7 @@ class orchelm extends Object {
 		$this->defmisssound = 0;
 		$this->hits = 30;
 		$this->maxHits = 50;
-		$this->weight = 5.0;
+		$this->weight = 0;
 
 }}
 ?>

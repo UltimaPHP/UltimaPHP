@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class elvenpants extends Object {
+class ElvenPants extends Object {
 	public function build() {
 		$this->name = "elven pants";
 		$this->graphic = 0x2FC3;
@@ -13,7 +13,7 @@ class elvenpants extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x8A4;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;
@@ -24,8 +24,8 @@ class elvenpants extends Object {
 		$this->oldspeed = 0;
 		$this->defhitsound = 0;
 		$this->defmisssound = 0;
-		$this->hits = 20;
-		$this->maxHits = 30;
+		$this->hits = 0;
+		$this->maxHits = 0;
 		$this->weight = 2.0;
 
 }}

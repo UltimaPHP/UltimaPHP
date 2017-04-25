@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class devourer extends Mobile {
+class Devourer extends Mobile {
 	public function summon() {
 		$this->name = "a devourer of souls";
 		$this->body = 303;
@@ -16,10 +16,8 @@ class devourer extends Mobile {
 		$this->str = rand(801, 950);
 		$this->dex = rand(126, 175);
 		$this->int = rand(201, 250);
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 22;
-		$this->damage_max = 26;
+		$this->hits = 22;
+		$this->maxhits = 26;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(25, 35);
 		$this->resist_cold = rand(15, 25);

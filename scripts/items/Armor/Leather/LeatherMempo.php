@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class leathermempo extends Object {
+class LeatherMempo extends Object {
 	public function build() {
 		$this->name = "leather mempo";
 		$this->graphic = 0x277A;

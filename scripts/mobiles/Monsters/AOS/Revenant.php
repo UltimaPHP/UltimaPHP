@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class revenant extends Mobile {
+class Revenant extends Mobile {
 	public function summon() {
 		$this->name = "a revenant";
 		$this->body = 400;
@@ -16,10 +16,8 @@ class revenant extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 0;
-		$this->maxhits = 0;
-		$this->damage_min = 16;
-		$this->damage_max = 17;
+		$this->hits = 16;
+		$this->maxhits = 17;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

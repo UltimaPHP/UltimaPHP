@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class mortarpestle extends Object {
+class MortarPestle extends Object {
 	public function build() {
 		$this->name = "mortar pestle";
 		$this->graphic = 0xE9B;
@@ -13,7 +13,7 @@ class mortarpestle extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x3B9;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

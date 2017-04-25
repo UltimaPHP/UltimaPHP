@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class confirmgump extends Object {
+class ConfirmGump extends Object {
 	public function build() {
 		$this->name = "confirm gump";
 		$this->graphic = 0x32F8;
@@ -13,7 +13,7 @@ class confirmgump extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x47;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

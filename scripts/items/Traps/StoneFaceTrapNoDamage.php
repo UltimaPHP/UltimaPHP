@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class stonefacetrapnodamage extends Object {
+class StoneFaceTrapNoDamage extends Object {
 	public function build() {
 		$this->name = "stone face trap no damage";
 		$this->graphic = 0x10FC;
@@ -13,7 +13,7 @@ class stonefacetrapnodamage extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x3FFF;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

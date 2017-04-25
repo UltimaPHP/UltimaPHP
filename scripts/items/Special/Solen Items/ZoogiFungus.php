@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class zoogifungus extends Object {
+class ZoogiFungus extends Object {
 	public function build() {
 		$this->name = "zoogi fungus";
 		$this->graphic = 0x26B7;
@@ -13,7 +13,7 @@ class zoogifungus extends Object {
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;
-		$this->color = 0x489;
+		$this->color = 0;
 		$this->aosstrengthreq = 0;
 		$this->aosmindamage = 0;
 		$this->aosmaxdamage = 0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class redbook extends Object {
+class RedBook extends Object {
 	public function build() {
 		$this->name = "red book";
 		$this->graphic = 0xFF1;
