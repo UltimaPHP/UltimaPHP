@@ -251,7 +251,7 @@ class Packets {
     public static function packet_0x06($data, $client) {
         $command = $data[0];
         $uid     = $data[1] . $data[2] . $data[3] . $data[4];
-
+		
         $player = UltimaPHP::$socketClients[$client]['account']->player;
         $player->dclick($uid);
         // UltimaPHP::log("Character " . $player->name . " double clicked on UID '$uid'");

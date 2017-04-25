@@ -354,12 +354,12 @@ class Map {
 
         $chunk = self::$serialData[$serial];
         $info  = self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']][$serial];
-
+		
         switch ($info['type']) {
             case 'player':
                 return UltimaPHP::$socketClients[$info['client']]['account']->player;
                 break;
-            case 'mobile':
+            case 'mobile':            
             case 'object':
                 return $info['instance'];
                 break;

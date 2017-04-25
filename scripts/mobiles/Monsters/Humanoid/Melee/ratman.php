@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ratman extends Mobile {
+class ratman_melee extends Mobile {
 	public function summon() {
 		$this->name = "ratman";
 		$this->body = 42;

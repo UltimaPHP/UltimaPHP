@@ -265,10 +265,9 @@ class Player {
         if ($serial === null) {
             return false;
         }
-
+                
         // Check if the character dclick itself
-
-        if (($this->serial | "80000000") || Functions::isChar($serial)) {
+        if (($this->serial | "80000000") && Functions::isChar($serial)) {
             $this->openPaperdoll($serial, false);
         } else {
             echo "Clicked something else\n";

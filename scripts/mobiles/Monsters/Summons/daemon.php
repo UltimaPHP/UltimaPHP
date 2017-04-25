@@ -28,6 +28,7 @@ class daemon extends Mobile {
 		$this->karma = 0;
 		$this->fame = 0;
 		$this->virtualarmor = 40;
+	}
+}
 
-}}
 ?>

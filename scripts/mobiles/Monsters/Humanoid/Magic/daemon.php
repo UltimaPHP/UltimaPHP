@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class daemon extends Mobile {
+class daemon_mage extends Mobile {
 	public function summon() {
 		$this->name = "daemon";
 		$this->body = 9;
