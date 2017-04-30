@@ -4,4 +4,5 @@
  * Version: 0.1 - Pre Alpha
  */
 class TypeArmorLeather extends Object {
+	public function typeStart() {}
 }

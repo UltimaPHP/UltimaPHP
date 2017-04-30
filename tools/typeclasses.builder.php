@@ -23,6 +23,7 @@ foreach($types as $type) {
  * Version: 0.1 - Pre Alpha
  */
 class Type$className extends Object {
+	public function typeStart() {}
 }";
 
 	file_put_contents("../core/types/$classFileName.type.php", $file);

@@ -4,4 +4,5 @@
  * Version: 0.1 - Pre Alpha
  */
 class TypeBone extends Object {
+	public function typeStart() {}
 }

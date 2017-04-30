@@ -346,8 +346,6 @@ class Map {
 
         $serial = (int)$serial;
 
-        echo "Testing serial: $serial\n";
-
         if (!isset(self::$serialData[$serial])) {
             return false;
         }

@@ -4,4 +4,5 @@
  * Version: 0.1 - Pre Alpha
  */
 class TypeShaft extends Object {
+	public function typeStart() {}
 }
