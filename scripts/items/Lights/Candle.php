@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Candle extends Object {
+class Candle extends TypeNormal {
 	public function build() {
 		$this->name = "candle";
 		$this->graphic = 0xA28;

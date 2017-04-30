@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class YewBoard extends Object {
+class YewBoard extends TypeNormal {
 	public function build() {
 		$this->name = "yew board";
 		$this->graphic = 0x1BD7;

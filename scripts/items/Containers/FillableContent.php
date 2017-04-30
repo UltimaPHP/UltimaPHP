@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FillableContent extends Object {
+class FillableContent extends TypeNormal {
 	public function build() {
 		$this->name = "fillable content";
 		$this->graphic = 0xE43;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoPumice extends Object {
+class DecoPumice extends TypeNormal {
 	public function build() {
 		$this->name = "deco pumice";
 		$this->graphic = 0xF8B;

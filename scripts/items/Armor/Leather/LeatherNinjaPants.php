@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeatherNinjaPants extends Object {
+class LeatherNinjaPants extends TypeNormal {
 	public function build() {
 		$this->name = "leather ninja pants";
 		$this->graphic = 0x2791;

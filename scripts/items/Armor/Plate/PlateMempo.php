@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlateMempo extends Object {
+class PlateMempo extends TypeNormal {
 	public function build() {
 		$this->name = "plate mempo";
 		$this->graphic = 0x2779;

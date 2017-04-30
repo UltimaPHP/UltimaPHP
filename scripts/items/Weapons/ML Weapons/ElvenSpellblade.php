@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ElvenSpellblade extends Object {
+class ElvenSpellblade extends TypeNormal {
 	public function build() {
 		$this->name = "elven spellblade";
 		$this->graphic = 0x2D20;

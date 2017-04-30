@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WoodlandBelt extends Object {
+class WoodlandBelt extends TypeNormal {
 	public function build() {
 		$this->name = "woodland belt";
 		$this->graphic = 0x2B68;

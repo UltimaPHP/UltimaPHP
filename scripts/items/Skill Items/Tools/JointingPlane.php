@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class JointingPlane extends Object {
+class JointingPlane extends TypeNormal {
 	public function build() {
 		$this->name = "jointing plane";
 		$this->graphic = 0x1030;

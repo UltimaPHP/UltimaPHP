@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class KillerFrog extends Object {
+class KillerFrog extends TypeNormal {
 	public function build() {
 		$this->name = "killer frog";
 		$this->graphic = 0x3B0D;

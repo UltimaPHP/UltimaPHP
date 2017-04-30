@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Daisho extends Object {
+class Daisho extends TypeNormal {
 	public function build() {
 		$this->name = "daisho";
 		$this->graphic = 0x27A9;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ClockLeft extends Object {
+class ClockLeft extends TypeNormal {
 	public function build() {
 		$this->name = "clock left";
 		$this->graphic = 0x104C;

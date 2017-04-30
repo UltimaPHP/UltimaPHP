@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Blocker extends Object {
+class Blocker extends TypeNormal {
 	public function build() {
 		$this->name = "blocker";
 		$this->graphic = 0x1A;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ClothingBlessDeed extends Object {
+class ClothingBlessDeed extends TypeNormal {
 	public function build() {
 		$this->name = "clothing bless deed";
 		$this->graphic = 0x14F0;

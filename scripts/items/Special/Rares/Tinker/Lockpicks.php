@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Lockpicks extends Object {
+class Lockpicks extends TypeNormal {
 	public function build() {
 		$this->name = "lockpicks";
 		$this->graphic = 0x14FD;

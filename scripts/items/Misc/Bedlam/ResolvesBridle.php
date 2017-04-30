@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ResolvesBridle extends Object {
+class ResolvesBridle extends TypeNormal {
 	public function build() {
 		$this->name = "resolves bridle";
 		$this->graphic = 0x1374;

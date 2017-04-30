@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MarkScroll extends Object {
+class MarkScroll extends TypeNormal {
 	public function build() {
 		$this->name = "mark scroll";
 		$this->graphic = 0x1F59;

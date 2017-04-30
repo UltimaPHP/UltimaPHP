@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoRock extends Object {
+class DecoRock extends TypeNormal {
 	public function build() {
 		$this->name = "deco rock";
 		$this->graphic = 0x1778;

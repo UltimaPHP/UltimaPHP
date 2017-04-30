@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HammerPick extends Object {
+class HammerPick extends TypeNormal {
 	public function build() {
 		$this->name = "hammer pick";
 		$this->graphic = 0x143D;

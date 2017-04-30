@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StrongBox extends Object {
+class StrongBox extends TypeNormal {
 	public function build() {
 		$this->name = "strong box";
 		$this->graphic = 0xE80;

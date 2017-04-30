@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SturdyPickaxe extends Object {
+class SturdyPickaxe extends TypeNormal {
 	public function build() {
 		$this->name = "sturdy pickaxe";
 		$this->graphic = 0xE86;

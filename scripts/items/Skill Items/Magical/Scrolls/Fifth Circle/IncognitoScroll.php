@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class IncognitoScroll extends Object {
+class IncognitoScroll extends TypeNormal {
 	public function build() {
 		$this->name = "incognito scroll";
 		$this->graphic = 0x1F4F;

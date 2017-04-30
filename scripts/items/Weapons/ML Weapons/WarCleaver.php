@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WarCleaver extends Object {
+class WarCleaver extends TypeNormal {
 	public function build() {
 		$this->name = "war cleaver";
 		$this->graphic = 0x2D2F;

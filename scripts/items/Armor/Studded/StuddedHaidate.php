@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StuddedHaidate extends Object {
+class StuddedHaidate extends TypeNormal {
 	public function build() {
 		$this->name = "studded haidate";
 		$this->graphic = 0x278B;

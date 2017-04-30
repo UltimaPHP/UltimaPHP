@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class YewLog extends Object {
+class YewLog extends TypeNormal {
 	public function build() {
 		$this->name = "yew log";
 		$this->graphic = 0x1BDD;

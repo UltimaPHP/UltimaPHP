@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EnergyBoltScroll extends Object {
+class EnergyBoltScroll extends TypeNormal {
 	public function build() {
 		$this->name = "energy bolt scroll";
 		$this->graphic = 0x1F56;

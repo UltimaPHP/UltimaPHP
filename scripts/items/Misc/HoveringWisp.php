@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HoveringWisp extends Object {
+class HoveringWisp extends TypeNormal {
 	public function build() {
 		$this->name = "hovering wisp";
 		$this->graphic = 0x2100;

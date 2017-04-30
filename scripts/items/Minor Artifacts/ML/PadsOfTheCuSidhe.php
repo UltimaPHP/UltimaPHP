@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PadsOfTheCuSidhe extends Object {
+class PadsOfTheCuSidhe extends TypeNormal {
 	public function build() {
 		$this->name = "pads of the cu sidhe";
 		$this->graphic = 0x47E;

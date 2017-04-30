@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PotionKeg extends Object {
+class PotionKeg extends TypeNormal {
 	public function build() {
 		$this->name = "potion keg";
 		$this->graphic = 0x1940;

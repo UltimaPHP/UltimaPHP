@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Dagger extends Object {
+class Dagger extends TypeNormal {
 	public function build() {
 		$this->name = "dagger";
 		$this->graphic = 0xF52;

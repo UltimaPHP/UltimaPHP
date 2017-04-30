@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Globe extends Object {
+class Globe extends TypeNormal {
 	public function build() {
 		$this->name = "globe";
 		$this->graphic = 0x1047;

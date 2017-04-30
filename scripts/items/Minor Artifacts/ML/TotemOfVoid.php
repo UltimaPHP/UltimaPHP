@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TotemOfVoid extends Object {
+class TotemOfVoid extends TypeNormal {
 	public function build() {
 		$this->name = "totem of void";
 		$this->graphic = 0x2F5B;

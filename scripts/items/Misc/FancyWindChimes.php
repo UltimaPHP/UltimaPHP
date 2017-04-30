@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FancyWindChimes extends Object {
+class FancyWindChimes extends TypeNormal {
 	public function build() {
 		$this->name = "fancy wind chimes";
 		$this->graphic = 0x2833;

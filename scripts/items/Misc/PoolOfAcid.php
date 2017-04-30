@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PoolOfAcid extends Object {
+class PoolOfAcid extends TypeNormal {
 	public function build() {
 		$this->name = "pool of acid";
 		$this->graphic = 0x122A;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Beeswax extends Object {
+class Beeswax extends TypeNormal {
 	public function build() {
 		$this->name = "beeswax";
 		$this->graphic = 0x1422;

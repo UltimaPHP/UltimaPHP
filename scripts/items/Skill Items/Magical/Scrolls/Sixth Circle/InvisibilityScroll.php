@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class InvisibilityScroll extends Object {
+class InvisibilityScroll extends TypeNormal {
 	public function build() {
 		$this->name = "invisibility scroll";
 		$this->graphic = 0x1F58;

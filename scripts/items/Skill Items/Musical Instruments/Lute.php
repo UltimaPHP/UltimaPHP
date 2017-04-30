@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Lute extends Object {
+class Lute extends TypeNormal {
 	public function build() {
 		$this->name = "lute";
 		$this->graphic = 0xEB3;

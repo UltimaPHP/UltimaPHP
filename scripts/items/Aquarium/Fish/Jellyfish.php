@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Jellyfish extends Object {
+class Jellyfish extends TypeNormal {
 	public function build() {
 		$this->name = "jellyfish";
 		$this->graphic = 0x3B0E;

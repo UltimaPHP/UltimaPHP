@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Tessen extends Object {
+class Tessen extends TypeNormal {
 	public function build() {
 		$this->name = "tessen";
 		$this->graphic = 0x27A3;

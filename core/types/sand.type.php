@@ -3,7 +3,5 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-
-class TypeSand {
-	public $type = TypesDef::TYPE_SAND;
+class TypeSand extends Object {
 }

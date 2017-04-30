@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WaterTile extends Object {
+class WaterTile extends TypeNormal {
 	public function build() {
 		$this->name = "water tile";
 		$this->graphic = 0x346E;

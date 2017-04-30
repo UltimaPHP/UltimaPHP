@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PortcullisEW extends Object {
+class PortcullisEW extends TypeNormal {
 	public function build() {
 		$this->name = "portcullis";
 		$this->graphic = 0x6F6;

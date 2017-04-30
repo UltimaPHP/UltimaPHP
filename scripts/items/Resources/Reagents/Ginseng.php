@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Ginseng extends Object {
+class Ginseng extends TypeNormal {
 	public function build() {
 		$this->name = "ginseng";
 		$this->graphic = 0xF85;

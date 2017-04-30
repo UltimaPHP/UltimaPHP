@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DragonFlameSectBadge extends Object {
+class DragonFlameSectBadge extends TypeNormal {
 	public function build() {
 		$this->name = "dragon flame sect badge";
 		$this->graphic = 0x23E;

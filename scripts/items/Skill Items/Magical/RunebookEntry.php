@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RunebookEntry extends Object {
+class RunebookEntry extends TypeNormal {
 	public function build() {
 		$this->name = "runebook entry";
 		$this->graphic = 0x22C5;

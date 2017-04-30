@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ShojiLantern extends Object {
+class ShojiLantern extends TypeNormal {
 	public function build() {
 		$this->name = "shoji lantern";
 		$this->graphic = 0x24BC;

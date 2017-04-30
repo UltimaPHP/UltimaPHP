@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EarthquakeScroll extends Object {
+class EarthquakeScroll extends TypeNormal {
 	public function build() {
 		$this->name = "earthquake scroll";
 		$this->graphic = 0x1F65;

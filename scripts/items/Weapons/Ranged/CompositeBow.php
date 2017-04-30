@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CompositeBow extends Object {
+class CompositeBow extends TypeNormal {
 	public function build() {
 		$this->name = "composite bow";
 		$this->graphic = 0x26C2;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SpellweavingBook extends Object {
+class SpellweavingBook extends TypeNormal {
 	public function build() {
 		$this->name = "spellweaving book";
 		$this->graphic = 0x2D50;

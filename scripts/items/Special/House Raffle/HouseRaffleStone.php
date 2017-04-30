@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HouseRaffleStone extends Object {
+class HouseRaffleStone extends TypeNormal {
 	public function build() {
 		$this->name = "house raffle stone";
 		$this->graphic = 0xEDD;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TribalPaint extends Object {
+class TribalPaint extends TypeNormal {
 	public function build() {
 		$this->name = "tribal paint";
 		$this->graphic = 0x9EC;

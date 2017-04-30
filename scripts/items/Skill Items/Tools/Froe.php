@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Froe extends Object {
+class Froe extends TypeNormal {
 	public function build() {
 		$this->name = "froe";
 		$this->graphic = 0x10E5;

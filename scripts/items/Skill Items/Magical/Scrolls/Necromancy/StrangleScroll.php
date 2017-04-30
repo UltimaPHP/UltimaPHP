@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StrangleScroll extends Object {
+class StrangleScroll extends TypeNormal {
 	public function build() {
 		$this->name = "strangle scroll";
 		$this->graphic = 0x226A;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RedDartFish extends Object {
+class RedDartFish extends TypeNormal {
 	public function build() {
 		$this->name = "red dart fish";
 		$this->graphic = 0x3B00;

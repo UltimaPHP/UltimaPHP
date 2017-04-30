@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class VesperReefTiger extends Object {
+class VesperReefTiger extends TypeNormal {
 	public function build() {
 		$this->name = "vesper reef tiger";
 		$this->graphic = 0x3B08;

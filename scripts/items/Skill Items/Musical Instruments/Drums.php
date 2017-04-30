@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Drums extends Object {
+class Drums extends TypeNormal {
 	public function build() {
 		$this->name = "drums";
 		$this->graphic = 0xE9C;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StoneFaceTrapNoDamage extends Object {
+class StoneFaceTrapNoDamage extends TypeNormal {
 	public function build() {
 		$this->name = "stone face trap no damage";
 		$this->graphic = 0x10FC;

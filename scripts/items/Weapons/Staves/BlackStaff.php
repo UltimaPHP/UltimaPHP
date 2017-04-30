@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BlackStaff extends Object {
+class BlackStaff extends TypeNormal {
 	public function build() {
 		$this->name = "black staff";
 		$this->graphic = 0xDF0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SmokeBomb extends Object {
+class SmokeBomb extends TypeNormal {
 	public function build() {
 		$this->name = "smoke bomb";
 		$this->graphic = 0x2808;

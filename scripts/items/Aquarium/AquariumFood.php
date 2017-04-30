@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AquariumFood extends Object {
+class AquariumFood extends TypeNormal {
 	public function build() {
 		$this->name = "aquarium food";
 		$this->graphic = 0xEFC;

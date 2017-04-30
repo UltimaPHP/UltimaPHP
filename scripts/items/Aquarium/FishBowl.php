@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FishBowl extends Object {
+class FishBowl extends TypeNormal {
 	public function build() {
 		$this->name = "fish bowl";
 		$this->graphic = 0x241C;

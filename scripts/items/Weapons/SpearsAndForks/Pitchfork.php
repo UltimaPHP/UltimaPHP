@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Pitchfork extends Object {
+class Pitchfork extends TypeNormal {
 	public function build() {
 		$this->name = "pitchfork";
 		$this->graphic = 0xE87;

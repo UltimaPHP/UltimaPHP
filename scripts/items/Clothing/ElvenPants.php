@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ElvenPants extends Object {
+class ElvenPants extends TypeNormal {
 	public function build() {
 		$this->name = "elven pants";
 		$this->graphic = 0x2FC3;

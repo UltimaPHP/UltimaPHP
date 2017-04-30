@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlateHatsuburi extends Object {
+class PlateHatsuburi extends TypeNormal {
 	public function build() {
 		$this->name = "plate hatsuburi";
 		$this->graphic = 0x2775;

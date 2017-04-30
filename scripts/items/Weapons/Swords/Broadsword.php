@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Broadsword extends Object {
+class Broadsword extends TypeNormal {
 	public function build() {
 		$this->name = "broadsword";
 		$this->graphic = 0xF5E;

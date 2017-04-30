@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class YellowFinBluebelly extends Object {
+class YellowFinBluebelly extends TypeNormal {
 	public function build() {
 		$this->name = "yellow fin bluebelly";
 		$this->graphic = 0x3B07;

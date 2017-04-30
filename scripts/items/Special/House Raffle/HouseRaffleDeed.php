@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HouseRaffleDeed extends Object {
+class HouseRaffleDeed extends TypeNormal {
 	public function build() {
 		$this->name = "house raffle deed";
 		$this->graphic = 0x2830;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RawFishSteak extends Object {
+class RawFishSteak extends TypeNormal {
 	public function build() {
 		$this->name = "raw fish steak";
 		$this->graphic = 0x097A;

@@ -3,7 +3,5 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-
-class TypeDyeVat {
-	public $type = TypesDef::TYPE_DYE_VAT;
+class TypeDyeVat extends Object {
 }

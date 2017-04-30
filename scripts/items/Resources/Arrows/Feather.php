@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Feather extends Object {
+class Feather extends TypeNormal {
 	public function build() {
 		$this->name = "feather";
 		$this->graphic = 0x1BD1;

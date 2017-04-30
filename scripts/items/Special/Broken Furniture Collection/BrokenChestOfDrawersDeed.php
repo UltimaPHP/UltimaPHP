@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrokenChestOfDrawersDeed extends Object {
+class BrokenChestOfDrawersDeed extends TypeNormal {
 	public function build() {
 		$this->name = "broken chest of drawers deed";
 		$this->graphic = 0xC24;

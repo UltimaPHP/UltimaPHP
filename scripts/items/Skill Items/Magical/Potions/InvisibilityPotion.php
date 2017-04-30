@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class InvisibilityPotion extends Object {
+class InvisibilityPotion extends TypeNormal {
 	public function build() {
 		$this->name = "invisibility potion";
 		$this->graphic = 0xF0A;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Torso extends Object {
+class Torso extends TypeNormal {
 	public function build() {
 		$this->name = "torso";
 		$this->graphic = 0x1D9F;

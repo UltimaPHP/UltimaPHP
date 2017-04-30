@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class IslandStatue extends Object {
+class IslandStatue extends TypeNormal {
 	public function build() {
 		$this->name = "island statue";
 		$this->graphic = 0x3B0F;

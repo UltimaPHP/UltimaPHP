@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TaintedWool extends Object {
+class TaintedWool extends TypeNormal {
 	public function build() {
 		$this->name = "tainted wool";
 		$this->graphic = 0x101F;

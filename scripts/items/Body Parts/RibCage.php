@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RibCage extends Object {
+class RibCage extends TypeNormal {
 	public function build() {
 		$this->name = "rib cage";
 		$this->graphic = 0x1B17;

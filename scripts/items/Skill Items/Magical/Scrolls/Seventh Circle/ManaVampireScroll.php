@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ManaVampireScroll extends Object {
+class ManaVampireScroll extends TypeNormal {
 	public function build() {
 		$this->name = "mana vampire scroll";
 		$this->graphic = 0x1F61;

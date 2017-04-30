@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WaterloggedBoots extends Object {
+class WaterloggedBoots extends TypeNormal {
 	public function build() {
 		$this->name = "waterlogged boots";
 		$this->graphic = 0x1711;

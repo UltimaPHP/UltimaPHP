@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FootStool extends Object {
+class FootStool extends TypeNormal {
 	public function build() {
 		$this->name = "foot stool";
 		$this->graphic = 0xB5E;

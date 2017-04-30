@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RoseInAVase extends Object {
+class RoseInAVase extends TypeNormal {
 	public function build() {
 		$this->name = "rose in a vase";
 		$this->graphic = 0x0EB0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PurpleFrog extends Object {
+class PurpleFrog extends TypeNormal {
 	public function build() {
 		$this->name = "purple frog";
 		$this->graphic = 0x3B0D;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LOSBlocker extends Object {
+class LOSBlocker extends TypeNormal {
 	public function build() {
 		$this->name = "los blocker";
 		$this->graphic = 0x1A;

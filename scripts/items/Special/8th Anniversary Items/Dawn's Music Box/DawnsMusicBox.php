@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DawnsMusicBox extends Object {
+class DawnsMusicBox extends TypeNormal {
 	public function build() {
 		$this->name = "dawns music box";
 		$this->graphic = 0x2AF9;

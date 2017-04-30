@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ThrowingDagger extends Object {
+class ThrowingDagger extends TypeNormal {
 	public function build() {
 		$this->name = "throwing dagger";
 		$this->graphic = 0xF52;

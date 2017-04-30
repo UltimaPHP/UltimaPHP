@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LanternOfSouls extends Object {
+class LanternOfSouls extends TypeNormal {
 	public function build() {
 		$this->name = "lantern of souls";
 		$this->graphic = 0xA25;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HangingLantern extends Object {
+class HangingLantern extends TypeNormal {
 	public function build() {
 		$this->name = "hanging lantern";
 		$this->graphic = 0xA1D;

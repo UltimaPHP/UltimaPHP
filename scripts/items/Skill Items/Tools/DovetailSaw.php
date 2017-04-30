@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DovetailSaw extends Object {
+class DovetailSaw extends TypeNormal {
 	public function build() {
 		$this->name = "dovetail saw";
 		$this->graphic = 0x1028;

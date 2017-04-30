@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GlobOfMonstreousInterredGrizzle extends Object {
+class GlobOfMonstreousInterredGrizzle extends TypeNormal {
 	public function build() {
 		$this->name = "glob of monstreous interred grizzle";
 		$this->graphic = 0x2F3;

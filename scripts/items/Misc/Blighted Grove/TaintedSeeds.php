@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TaintedSeeds extends Object {
+class TaintedSeeds extends TypeNormal {
 	public function build() {
 		$this->name = "tainted seeds";
 		$this->graphic = 0xDFA;

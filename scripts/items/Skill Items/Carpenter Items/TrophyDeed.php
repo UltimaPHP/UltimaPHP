@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TrophyDeed extends Object {
+class TrophyDeed extends TypeNormal {
 	public function build() {
 		$this->name = "trophy deed";
 		$this->graphic = 0x1EBA;

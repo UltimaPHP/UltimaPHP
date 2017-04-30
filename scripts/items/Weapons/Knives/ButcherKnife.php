@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ButcherKnife extends Object {
+class ButcherKnife extends TypeNormal {
 	public function build() {
 		$this->name = "butcher knife";
 		$this->graphic = 0x13F6;

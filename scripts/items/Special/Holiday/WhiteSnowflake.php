@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WhiteSnowflake extends Object {
+class WhiteSnowflake extends TypeNormal {
 	public function build() {
 		$this->name = "white snowflake";
 		$this->graphic = 0x232F;

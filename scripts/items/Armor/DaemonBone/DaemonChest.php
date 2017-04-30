@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DaemonChest extends Object {
+class DaemonChest extends TypeNormal {
 	public function build() {
 		$this->name = "daemon chest";
 		$this->graphic = 0x144F;

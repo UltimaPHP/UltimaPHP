@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Lajatang extends Object {
+class Lajatang extends TypeNormal {
 	public function build() {
 		$this->name = "lajatang";
 		$this->graphic = 0x27A7;

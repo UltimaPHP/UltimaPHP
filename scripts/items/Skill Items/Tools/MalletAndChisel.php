@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MalletAndChisel extends Object {
+class MalletAndChisel extends TypeNormal {
 	public function build() {
 		$this->name = "mallet and chisel";
 		$this->graphic = 0x12B3;

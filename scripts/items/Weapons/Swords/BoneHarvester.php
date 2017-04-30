@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BoneHarvester extends Object {
+class BoneHarvester extends TypeNormal {
 	public function build() {
 		$this->name = "bone harvester";
 		$this->graphic = 0x26BB;

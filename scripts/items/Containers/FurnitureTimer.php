@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FurnitureTimer extends Object {
+class FurnitureTimer extends TypeNormal {
 	public function build() {
 		$this->name = "furniture timer";
 		$this->graphic = 0xA4D;

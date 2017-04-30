@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HideGorget extends Object {
+class HideGorget extends TypeNormal {
 	public function build() {
 		$this->name = "hide gorget";
 		$this->graphic = 0x2B76;

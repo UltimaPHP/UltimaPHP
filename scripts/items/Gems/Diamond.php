@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Diamond extends Object {
+class Diamond extends TypeNormal {
 	public function build() {
 		$this->name = "diamond";
 		$this->graphic = 0xF26;

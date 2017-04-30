@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SpottedBuccaneer extends Object {
+class SpottedBuccaneer extends TypeNormal {
 	public function build() {
 		$this->name = "spotted buccaneer";
 		$this->graphic = 0x3B09;

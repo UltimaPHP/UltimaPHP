@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BambooFlute extends Object {
+class BambooFlute extends TypeNormal {
 	public function build() {
 		$this->name = "bamboo flute";
 		$this->graphic = 0x2805;

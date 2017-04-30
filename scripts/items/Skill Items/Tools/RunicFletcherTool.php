@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RunicFletcherTool extends Object {
+class RunicFletcherTool extends TypeNormal {
 	public function build() {
 		$this->name = "runic fletcher tool";
 		$this->graphic = 0x1022;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ExecutionersAxe extends Object {
+class ExecutionersAxe extends TypeNormal {
 	public function build() {
 		$this->name = "executioners axe";
 		$this->graphic = 0xF45;

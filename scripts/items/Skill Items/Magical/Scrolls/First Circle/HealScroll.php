@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HealScroll extends Object {
+class HealScroll extends TypeNormal {
 	public function build() {
 		$this->name = "heal scroll";
 		$this->graphic = 0x1F31;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GreySlateFloor extends Object {
+class GreySlateFloor extends TypeNormal {
 	public function build() {
 		$this->name = "grey slate floor";
 		$this->graphic = 0x49C;

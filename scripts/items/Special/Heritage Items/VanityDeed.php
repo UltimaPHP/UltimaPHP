@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class VanityDeed extends Object {
+class VanityDeed extends TypeNormal {
 	public function build() {
 		$this->name = "vanity deed";
 		$this->graphic = 0xA44;

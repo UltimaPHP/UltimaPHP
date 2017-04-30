@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SamplesOfCorruptedWater extends Object {
+class SamplesOfCorruptedWater extends TypeNormal {
 	public function build() {
 		$this->name = "samples of corrupted water";
 		$this->graphic = 0xEFE;

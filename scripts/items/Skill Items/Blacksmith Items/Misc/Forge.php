@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Forge extends Object {
+class Forge extends TypeNormal {
 	public function build() {
 		$this->name = "forge";
 		$this->graphic = 0xFB1;

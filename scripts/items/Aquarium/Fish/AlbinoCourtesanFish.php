@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AlbinoCourtesanFish extends Object {
+class AlbinoCourtesanFish extends TypeNormal {
 	public function build() {
 		$this->name = "albino courtesan fish";
 		$this->graphic = 0x3B04;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SpidersSilk extends Object {
+class SpidersSilk extends TypeNormal {
 	public function build() {
 		$this->name = "spiders silk";
 		$this->graphic = 0xF8D;

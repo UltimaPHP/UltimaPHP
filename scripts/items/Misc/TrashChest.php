@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TrashChest extends Object {
+class TrashChest extends TypeNormal {
 	public function build() {
 		$this->name = "trash chest";
 		$this->graphic = 0xE41;

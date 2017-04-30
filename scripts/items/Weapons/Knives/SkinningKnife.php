@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SkinningKnife extends Object {
+class SkinningKnife extends TypeNormal {
 	public function build() {
 		$this->name = "skinning knife";
 		$this->graphic = 0xEC4;

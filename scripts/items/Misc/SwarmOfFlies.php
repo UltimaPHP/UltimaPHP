@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SwarmOfFlies extends Object {
+class SwarmOfFlies extends TypeNormal {
 	public function build() {
 		$this->name = "swarm of flies";
 		$this->graphic = 0x91B;

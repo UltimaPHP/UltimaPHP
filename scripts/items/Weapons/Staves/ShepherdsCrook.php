@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ShepherdsCrook extends Object {
+class ShepherdsCrook extends TypeNormal {
 	public function build() {
 		$this->name = "shepherds crook";
 		$this->graphic = 0xE81;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ZenRock3Artifact extends Object {
+class ZenRock3Artifact extends TypeNormal {
 	public function build() {
 		$this->name = "zen rock 3 artifact";
 		$this->graphic = 0x24E5;

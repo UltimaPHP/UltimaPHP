@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DyeTub extends Object {
+class DyeTub extends TypeNormal {
 	public function build() {
 		$this->name = "dye tub";
 		$this->graphic = 0xFAB;

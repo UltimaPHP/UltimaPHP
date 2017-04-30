@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Bow extends Object {
+class Bow extends TypeNormal {
 	public function build() {
 		$this->name = "bow";
 		$this->graphic = 0x13B2;

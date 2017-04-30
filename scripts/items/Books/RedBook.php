@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RedBook extends Object {
+class RedBook extends TypeNormal {
 	public function build() {
 		$this->name = "red book";
 		$this->graphic = 0xFF1;

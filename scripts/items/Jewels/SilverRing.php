@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SilverRing extends Object {
+class SilverRing extends TypeNormal {
 	public function build() {
 		$this->name = "silver ring";
 		$this->graphic = 0x1F09;

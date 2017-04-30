@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PoisonStrikeScroll extends Object {
+class PoisonStrikeScroll extends TypeNormal {
 	public function build() {
 		$this->name = "poison strike scroll";
 		$this->graphic = 0x2269;

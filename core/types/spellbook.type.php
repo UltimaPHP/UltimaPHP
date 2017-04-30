@@ -3,7 +3,5 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-
-class TypeSpellbook {
-	public $type = TypesDef::TYPE_SPELLBOOK;
+class TypeSpellbook extends Object {
 }

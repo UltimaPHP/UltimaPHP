@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RoyalCirclet extends Object {
+class RoyalCirclet extends TypeNormal {
 	public function build() {
 		$this->name = "royal circlet";
 		$this->graphic = 0x2B6F;

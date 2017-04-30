@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MagicUnTrapScroll extends Object {
+class MagicUnTrapScroll extends TypeNormal {
 	public function build() {
 		$this->name = "magic un trap scroll";
 		$this->graphic = 0x1F3A;

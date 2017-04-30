@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CampfireEntry extends Object {
+class CampfireEntry extends TypeNormal {
 	public function build() {
 		$this->name = "campfire entry";
 		$this->graphic = 0xDE3;

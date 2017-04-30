@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SamuraiHelm extends Object {
+class SamuraiHelm extends TypeNormal {
 	public function build() {
 		$this->name = "samurai helm";
 		$this->graphic = 0x236C;

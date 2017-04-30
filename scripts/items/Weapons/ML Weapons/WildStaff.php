@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WildStaff extends Object {
+class WildStaff extends TypeNormal {
 	public function build() {
 		$this->name = "wild staff";
 		$this->graphic = 0x2D25;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MahjongGame extends Object {
+class MahjongGame extends TypeNormal {
 	public function build() {
 		$this->name = "mahjong game";
 		$this->graphic = 0xFAA;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CorpseSkinScroll extends Object {
+class CorpseSkinScroll extends TypeNormal {
 	public function build() {
 		$this->name = "corpse skin scroll";
 		$this->graphic = 0x2262;

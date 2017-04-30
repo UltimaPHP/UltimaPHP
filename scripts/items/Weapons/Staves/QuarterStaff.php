@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class QuarterStaff extends Object {
+class QuarterStaff extends TypeNormal {
 	public function build() {
 		$this->name = "quarter staff";
 		$this->graphic = 0xE89;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GMRobe extends Object {
+class GMRobe extends TypeNormal {
 	public function build() {
 		$this->name = "gm robe";
 		$this->graphic = 0x26;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OilCloth extends Object {
+class OilCloth extends TypeNormal {
 	public function build() {
 		$this->name = "oil cloth";
 		$this->graphic = 0x175D;

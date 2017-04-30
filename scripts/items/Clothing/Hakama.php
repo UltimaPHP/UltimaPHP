@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Hakama extends Object {
+class Hakama extends TypeNormal {
 	public function build() {
 		$this->name = "hakama";
 		$this->graphic = 0x279A;

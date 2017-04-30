@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ThinLongsword extends Object {
+class ThinLongsword extends TypeNormal {
 	public function build() {
 		$this->name = "thin longsword";
 		$this->graphic = 0x13B8;

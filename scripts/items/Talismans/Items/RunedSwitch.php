@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RunedSwitch extends Object {
+class RunedSwitch extends TypeNormal {
 	public function build() {
 		$this->name = "runed switch";
 		$this->graphic = 0x2F61;

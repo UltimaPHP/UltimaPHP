@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RunicSewingKit extends Object {
+class RunicSewingKit extends TypeNormal {
 	public function build() {
 		$this->name = "runic sewing kit";
 		$this->graphic = 0xF9D;

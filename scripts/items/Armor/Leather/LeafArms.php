@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeafArms extends Object {
+class LeafArms extends TypeNormal {
 	public function build() {
 		$this->name = "leaf arms";
 		$this->graphic = 0x2FC8;

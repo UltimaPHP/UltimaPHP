@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BladedStaff extends Object {
+class BladedStaff extends TypeNormal {
 	public function build() {
 		$this->name = "bladed staff";
 		$this->graphic = 0x26BD;

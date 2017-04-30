@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BannerDeed extends Object {
+class BannerDeed extends TypeNormal {
 	public function build() {
 		$this->name = "banner deed";
 		$this->graphic = 0x14F0;

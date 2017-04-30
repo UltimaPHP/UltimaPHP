@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlateGloves extends Object {
+class PlateGloves extends TypeNormal {
 	public function build() {
 		$this->name = "plate gloves";
 		$this->graphic = 0x1414;

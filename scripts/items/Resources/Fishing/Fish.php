@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Fish extends Object {
+class Fish extends TypeNormal {
 	public function build() {
 		$this->name = "fish";
 		$this->graphic = 0x09CC;

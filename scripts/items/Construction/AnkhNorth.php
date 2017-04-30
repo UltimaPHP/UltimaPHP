@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AnkhNorth extends Object {
+class AnkhNorth extends TypeNormal {
 	public function build() {
 		$this->name = "ankh north";
 		$this->graphic = 0x1E5C;

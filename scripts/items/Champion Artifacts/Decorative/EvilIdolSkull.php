@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EvilIdolSkull extends Object {
+class EvilIdolSkull extends TypeNormal {
 	public function build() {
 		$this->name = "evil idol skull";
 		$this->graphic = 0x1F18;

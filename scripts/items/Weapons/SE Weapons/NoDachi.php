@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class NoDachi extends Object {
+class NoDachi extends TypeNormal {
 	public function build() {
 		$this->name = "no dachi";
 		$this->graphic = 0x27A2;

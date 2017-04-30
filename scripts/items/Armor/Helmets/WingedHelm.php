@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WingedHelm extends Object {
+class WingedHelm extends TypeNormal {
 	public function build() {
 		$this->name = "winged helm";
 		$this->graphic = 0x2B73;

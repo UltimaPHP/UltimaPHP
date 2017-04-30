@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HollowPrism extends Object {
+class HollowPrism extends TypeNormal {
 	public function build() {
 		$this->name = "hollow prism";
 		$this->graphic = 0x2F5D;

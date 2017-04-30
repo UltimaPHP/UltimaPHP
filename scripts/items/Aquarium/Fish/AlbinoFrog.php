@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AlbinoFrog extends Object {
+class AlbinoFrog extends TypeNormal {
 	public function build() {
 		$this->name = "albino frog";
 		$this->graphic = 0x3B0D;

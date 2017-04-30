@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BookOfBushido extends Object {
+class BookOfBushido extends TypeNormal {
 	public function build() {
 		$this->name = "book of bushido";
 		$this->graphic = 0x238C;

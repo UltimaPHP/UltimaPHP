@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SerpentFangSectBadge extends Object {
+class SerpentFangSectBadge extends TypeNormal {
 	public function build() {
 		$this->name = "serpent fang sect badge";
 		$this->graphic = 0x23C;

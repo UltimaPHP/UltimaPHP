@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Spyglass extends Object {
+class Spyglass extends TypeNormal {
 	public function build() {
 		$this->name = "spyglass";
 		$this->graphic = 0x14F5;

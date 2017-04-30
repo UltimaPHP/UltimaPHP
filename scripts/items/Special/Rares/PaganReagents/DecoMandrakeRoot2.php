@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoMandrakeRoot2 extends Object {
+class DecoMandrakeRoot2 extends TypeNormal {
 	public function build() {
 		$this->name = "deco mandrake root";
 		$this->graphic = 0x18DD;

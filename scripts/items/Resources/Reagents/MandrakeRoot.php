@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MandrakeRoot extends Object {
+class MandrakeRoot extends TypeNormal {
 	public function build() {
 		$this->name = "mandrake root";
 		$this->graphic = 0xF86;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GuildTeleporter extends Object {
+class GuildTeleporter extends TypeNormal {
 	public function build() {
 		$this->name = "guild teleporter";
 		$this->graphic = 0x1869;

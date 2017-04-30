@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoBridle extends Object {
+class DecoBridle extends TypeNormal {
 	public function build() {
 		$this->name = "deco bridle";
 		$this->graphic = 0x1374;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Scimitar extends Object {
+class Scimitar extends TypeNormal {
 	public function build() {
 		$this->name = "scimitar";
 		$this->graphic = 0x13B6;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CraftysFishingHat extends Object {
+class CraftysFishingHat extends TypeNormal {
 	public function build() {
 		$this->name = "craftys fishing hat";
 		$this->graphic = 0x1713;

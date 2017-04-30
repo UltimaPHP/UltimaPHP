@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CounselorRobe extends Object {
+class CounselorRobe extends TypeNormal {
 	public function build() {
 		$this->name = "counselor robe";
 		$this->graphic = 0x3;

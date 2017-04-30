@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SmallPlateJingasa extends Object {
+class SmallPlateJingasa extends TypeNormal {
 	public function build() {
 		$this->name = "small plate jingasa";
 		$this->graphic = 0x2784;

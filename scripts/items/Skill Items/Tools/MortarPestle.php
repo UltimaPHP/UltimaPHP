@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MortarPestle extends Object {
+class MortarPestle extends TypeNormal {
 	public function build() {
 		$this->name = "mortar pestle";
 		$this->graphic = 0xE9B;

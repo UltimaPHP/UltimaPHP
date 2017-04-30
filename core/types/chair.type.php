@@ -3,7 +3,5 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-
-class TypeChair {
-	public $type = TypesDef::TYPE_CHAIR;
+class TypeChair extends Object {
 }

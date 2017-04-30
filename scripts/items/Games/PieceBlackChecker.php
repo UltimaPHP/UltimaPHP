@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PieceBlackChecker extends Object {
+class PieceBlackChecker extends TypeNormal {
 	public function build() {
 		$this->name = "piece black checker";
 		$this->graphic = 0x358B;

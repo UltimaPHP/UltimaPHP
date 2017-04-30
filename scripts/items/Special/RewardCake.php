@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RewardCake extends Object {
+class RewardCake extends TypeNormal {
 	public function build() {
 		$this->name = "reward cake";
 		$this->graphic = 0x9e9;

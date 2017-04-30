@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Yumi extends Object {
+class Yumi extends TypeNormal {
 	public function build() {
 		$this->name = "yumi";
 		$this->graphic = 0x27A5;

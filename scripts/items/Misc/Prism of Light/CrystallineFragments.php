@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CrystallineFragments extends Object {
+class CrystallineFragments extends TypeNormal {
 	public function build() {
 		$this->name = "crystalline fragments";
 		$this->graphic = 0x223B;

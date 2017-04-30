@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OrderShield extends Object {
+class OrderShield extends TypeNormal {
 	public function build() {
 		$this->name = "order shield";
 		$this->graphic = 0x1BC4;

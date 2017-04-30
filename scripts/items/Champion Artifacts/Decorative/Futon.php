@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Futon extends Object {
+class Futon extends TypeNormal {
 	public function build() {
 		$this->name = "futon";
 		$this->graphic = 0x295C;

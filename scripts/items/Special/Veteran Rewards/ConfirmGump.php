@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ConfirmGump extends Object {
+class ConfirmGump extends TypeNormal {
 	public function build() {
 		$this->name = "confirm gump";
 		$this->graphic = 0x32F8;

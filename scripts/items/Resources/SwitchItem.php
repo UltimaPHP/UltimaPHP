@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SwitchItem extends Object {
+class SwitchItem extends TypeNormal {
 	public function build() {
 		$this->name = "switch item";
 		$this->graphic = 0x2F5F;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecorativeShieldDeed extends Object {
+class DecorativeShieldDeed extends TypeNormal {
 	public function build() {
 		$this->name = "decorative shield deed";
 		$this->graphic = 0x14F0;

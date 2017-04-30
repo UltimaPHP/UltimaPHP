@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Maul extends Object {
+class Maul extends TypeNormal {
 	public function build() {
 		$this->name = "maul";
 		$this->graphic = 0x143B;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StuddedGloves extends Object {
+class StuddedGloves extends TypeNormal {
 	public function build() {
 		$this->name = "studded gloves";
 		$this->graphic = 0x13D5;

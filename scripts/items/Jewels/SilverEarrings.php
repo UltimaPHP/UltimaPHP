@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SilverEarrings extends Object {
+class SilverEarrings extends TypeNormal {
 	public function build() {
 		$this->name = "silver earrings";
 		$this->graphic = 0x1F07;

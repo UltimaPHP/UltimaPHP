@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Springs extends Object {
+class Springs extends TypeNormal {
 	public function build() {
 		$this->name = "springs";
 		$this->graphic = 0x105D;

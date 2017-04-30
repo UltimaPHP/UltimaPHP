@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WarFork extends Object {
+class WarFork extends TypeNormal {
 	public function build() {
 		$this->name = "war fork";
 		$this->graphic = 0x1405;

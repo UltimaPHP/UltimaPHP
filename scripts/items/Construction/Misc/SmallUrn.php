@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SmallUrn extends Object {
+class SmallUrn extends TypeNormal {
 	public function build() {
 		$this->name = "small urn";
 		$this->graphic = 0x241C;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GemmedCirclet extends Object {
+class GemmedCirclet extends TypeNormal {
 	public function build() {
 		$this->name = "gemmed circlet";
 		$this->graphic = 0x2B70;

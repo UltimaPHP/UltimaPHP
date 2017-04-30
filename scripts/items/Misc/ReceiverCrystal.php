@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ReceiverCrystal extends Object {
+class ReceiverCrystal extends TypeNormal {
 	public function build() {
 		$this->name = "receiver crystal";
 		$this->graphic = 0x1ED0;

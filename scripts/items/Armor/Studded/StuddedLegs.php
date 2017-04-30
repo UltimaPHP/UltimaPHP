@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StuddedLegs extends Object {
+class StuddedLegs extends TypeNormal {
 	public function build() {
 		$this->name = "studded legs";
 		$this->graphic = 0x13DA;

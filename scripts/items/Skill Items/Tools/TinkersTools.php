@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TinkersTools extends Object {
+class TinkersTools extends TypeNormal {
 	public function build() {
 		$this->name = "tinkers tools";
 		$this->graphic = 0x1EB8;

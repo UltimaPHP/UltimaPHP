@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SummonWaterElementalScroll extends Object {
+class SummonWaterElementalScroll extends TypeNormal {
 	public function build() {
 		$this->name = "summon water elemental scroll";
 		$this->graphic = 0x1F6C;

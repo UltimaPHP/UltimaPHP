@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Leafblade extends Object {
+class Leafblade extends TypeNormal {
 	public function build() {
 		$this->name = "leafblade";
 		$this->graphic = 0x2D22;

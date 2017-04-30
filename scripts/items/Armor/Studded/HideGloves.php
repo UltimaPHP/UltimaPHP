@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HideGloves extends Object {
+class HideGloves extends TypeNormal {
 	public function build() {
 		$this->name = "hide gloves";
 		$this->graphic = 0x2B75;

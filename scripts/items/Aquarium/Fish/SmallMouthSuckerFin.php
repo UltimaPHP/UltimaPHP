@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SmallMouthSuckerFin extends Object {
+class SmallMouthSuckerFin extends TypeNormal {
 	public function build() {
 		$this->name = "small mouth sucker fin";
 		$this->graphic = 0x3B01;

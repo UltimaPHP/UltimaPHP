@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OrigamiFish extends Object {
+class OrigamiFish extends TypeNormal {
 	public function build() {
 		$this->name = "origami fish";
 		$this->graphic = 0x283D;

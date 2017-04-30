@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HolidayTimepiece extends Object {
+class HolidayTimepiece extends TypeNormal {
 	public function build() {
 		$this->name = "holiday timepiece";
 		$this->graphic = 0x1086;

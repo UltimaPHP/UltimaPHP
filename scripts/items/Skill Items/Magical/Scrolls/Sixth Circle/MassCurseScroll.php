@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MassCurseScroll extends Object {
+class MassCurseScroll extends TypeNormal {
 	public function build() {
 		$this->name = "mass curse scroll";
 		$this->graphic = 0x1F5A;

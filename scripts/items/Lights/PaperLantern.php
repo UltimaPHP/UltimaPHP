@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PaperLantern extends Object {
+class PaperLantern extends TypeNormal {
 	public function build() {
 		$this->name = "paper lantern";
 		$this->graphic = 0x24BE;

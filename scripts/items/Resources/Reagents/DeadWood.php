@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DeadWood extends Object {
+class DeadWood extends TypeNormal {
 	public function build() {
 		$this->name = "dead wood";
 		$this->graphic = 0xF90;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GoldenBroadtail extends Object {
+class GoldenBroadtail extends TypeNormal {
 	public function build() {
 		$this->name = "golden broadtail";
 		$this->graphic = 0x3B03;

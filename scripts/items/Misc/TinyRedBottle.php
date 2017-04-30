@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TinyRedBottle extends Object {
+class TinyRedBottle extends TypeNormal {
 	public function build() {
 		$this->name = "tiny red bottle";
 		$this->graphic = 0x0F04;

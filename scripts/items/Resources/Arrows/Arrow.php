@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Arrow extends Object {
+class Arrow extends TypeNormal {
 	public function build() {
 		$this->name = "arrow";
 		$this->graphic = 0xF3F;

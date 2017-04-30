@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FemalePlateChest extends Object {
+class FemalePlateChest extends TypeNormal {
 	public function build() {
 		$this->name = "female plate chest";
 		$this->graphic = 0x1C04;

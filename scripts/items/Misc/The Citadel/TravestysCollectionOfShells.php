@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TravestysCollectionOfShells extends Object {
+class TravestysCollectionOfShells extends TypeNormal {
 	public function build() {
 		$this->name = "travestys collection of shells";
 		$this->graphic = 0xFD3;

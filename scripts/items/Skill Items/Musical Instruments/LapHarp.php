@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LapHarp extends Object {
+class LapHarp extends TypeNormal {
 	public function build() {
 		$this->name = "lap harp";
 		$this->graphic = 0xEB2;

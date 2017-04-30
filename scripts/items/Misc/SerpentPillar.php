@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SerpentPillar extends Object {
+class SerpentPillar extends TypeNormal {
 	public function build() {
 		$this->name = "serpent pillar";
 		$this->graphic = 0x233F;

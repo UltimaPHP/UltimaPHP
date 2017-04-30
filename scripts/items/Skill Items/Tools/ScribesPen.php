@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ScribesPen extends Object {
+class ScribesPen extends TypeNormal {
 	public function build() {
 		$this->name = "scribes pen";
 		$this->graphic = 0x0FBF;

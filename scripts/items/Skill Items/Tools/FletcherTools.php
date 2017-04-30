@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FletcherTools extends Object {
+class FletcherTools extends TypeNormal {
 	public function build() {
 		$this->name = "fletcher tools";
 		$this->graphic = 0x1022;

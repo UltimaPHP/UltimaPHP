@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MushroomTrap extends Object {
+class MushroomTrap extends TypeNormal {
 	public function build() {
 		$this->name = "mushroom trap";
 		$this->graphic = 0x1125;

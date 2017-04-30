@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DiamondMace extends Object {
+class DiamondMace extends TypeNormal {
 	public function build() {
 		$this->name = "diamond mace";
 		$this->graphic = 0x2D24;

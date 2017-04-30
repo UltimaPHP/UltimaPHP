@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MelisandesHairDye extends Object {
+class MelisandesHairDye extends TypeNormal {
 	public function build() {
 		$this->name = "melisandes hair dye";
 		$this->graphic = 0xEFF;

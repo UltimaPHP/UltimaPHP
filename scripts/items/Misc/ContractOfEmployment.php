@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ContractOfEmployment extends Object {
+class ContractOfEmployment extends TypeNormal {
 	public function build() {
 		$this->name = "contract of employment";
 		$this->graphic = 0x14F0;

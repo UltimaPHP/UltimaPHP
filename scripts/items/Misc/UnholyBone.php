@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class UnholyBone extends Object {
+class UnholyBone extends TypeNormal {
 	public function build() {
 		$this->name = "unholy bone";
 		$this->graphic = 0xF7E;

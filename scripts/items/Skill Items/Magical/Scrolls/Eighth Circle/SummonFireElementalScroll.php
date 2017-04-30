@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SummonFireElementalScroll extends Object {
+class SummonFireElementalScroll extends TypeNormal {
 	public function build() {
 		$this->name = "summon fire elemental scroll";
 		$this->graphic = 0x1F6B;

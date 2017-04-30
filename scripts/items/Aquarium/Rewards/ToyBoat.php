@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ToyBoat extends Object {
+class ToyBoat extends TypeNormal {
 	public function build() {
 		$this->name = "toy boat";
 		$this->graphic = 0x14F4;

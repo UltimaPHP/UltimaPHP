@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AcidProofRope extends Object {
+class AcidProofRope extends TypeNormal {
 	public function build() {
 		$this->name = "acid proof rope";
 		$this->graphic = 0x20D;

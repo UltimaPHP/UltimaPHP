@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SextantParts extends Object {
+class SextantParts extends TypeNormal {
 	public function build() {
 		$this->name = "sextant parts";
 		$this->graphic = 0x1059;

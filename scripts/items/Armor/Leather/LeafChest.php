@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeafChest extends Object {
+class LeafChest extends TypeNormal {
 	public function build() {
 		$this->name = "leaf chest";
 		$this->graphic = 0x2FC5;

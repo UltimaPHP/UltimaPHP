@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LuckyDagger extends Object {
+class LuckyDagger extends TypeNormal {
 	public function build() {
 		$this->name = "lucky dagger";
 		$this->graphic = 0xF52;

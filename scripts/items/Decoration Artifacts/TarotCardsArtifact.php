@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TarotCardsArtifact extends Object {
+class TarotCardsArtifact extends TypeNormal {
 	public function build() {
 		$this->name = "tarot cards artifact";
 		$this->graphic = 0x12A5;

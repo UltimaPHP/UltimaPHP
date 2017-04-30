@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GiftBox extends Object {
+class GiftBox extends TypeNormal {
 	public function build() {
 		$this->name = "gift box";
 		$this->graphic = 0x232A;

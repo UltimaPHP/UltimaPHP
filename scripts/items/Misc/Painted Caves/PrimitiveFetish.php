@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PrimitiveFetish extends Object {
+class PrimitiveFetish extends TypeNormal {
 	public function build() {
 		$this->name = "primitive fetish";
 		$this->graphic = 0x23F;

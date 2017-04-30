@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RepeatingCrossbow extends Object {
+class RepeatingCrossbow extends TypeNormal {
 	public function build() {
 		$this->name = "repeating crossbow";
 		$this->graphic = 0x26C3;

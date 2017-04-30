@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WindSpirit extends Object {
+class WindSpirit extends TypeNormal {
 	public function build() {
 		$this->name = "wind spirit";
 		$this->graphic = 0x1F1F;

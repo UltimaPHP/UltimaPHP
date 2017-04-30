@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ControlPanel extends Object {
+class ControlPanel extends TypeNormal {
 	public function build() {
 		$this->name = "control panel";
 		$this->graphic = 0xBDC;

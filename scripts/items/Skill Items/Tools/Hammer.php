@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Hammer extends Object {
+class Hammer extends TypeNormal {
 	public function build() {
 		$this->name = "hammer";
 		$this->graphic = 0x102A;

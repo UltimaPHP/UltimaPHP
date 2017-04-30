@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BallOfSummoning extends Object {
+class BallOfSummoning extends TypeNormal {
 	public function build() {
 		$this->name = "ball of summoning";
 		$this->graphic = 0xE2E;

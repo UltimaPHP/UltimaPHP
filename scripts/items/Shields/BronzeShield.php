@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BronzeShield extends Object {
+class BronzeShield extends TypeNormal {
 	public function build() {
 		$this->name = "bronze shield";
 		$this->graphic = 0x1B72;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeatherMempo extends Object {
+class LeatherMempo extends TypeNormal {
 	public function build() {
 		$this->name = "leather mempo";
 		$this->graphic = 0x277A;

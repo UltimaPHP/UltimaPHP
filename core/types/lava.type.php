@@ -3,7 +3,5 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-
-class TypeLava {
-	public $type = TypesDef::TYPE_LAVA;
+class TypeLava extends Object {
 }

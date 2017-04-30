@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlagueBeastBackpack extends Object {
+class PlagueBeastBackpack extends TypeNormal {
 	public function build() {
 		$this->name = "plague beast backpack";
 		$this->graphic = 0x261B;

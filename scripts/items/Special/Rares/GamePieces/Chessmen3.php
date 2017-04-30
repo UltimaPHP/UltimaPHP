@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Chessmen3 extends Object {
+class Chessmen3 extends TypeNormal {
 	public function build() {
 		$this->name = "chessmen";
 		$this->graphic = 0xE14;

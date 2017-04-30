@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Cards4 extends Object {
+class Cards4 extends TypeNormal {
 	public function build() {
 		$this->name = "cards";
 		$this->graphic = 0xE17;

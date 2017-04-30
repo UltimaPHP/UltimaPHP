@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GrizzledMare extends Object {
+class GrizzledMare extends TypeNormal {
 	public function build() {
 		$this->name = "grizzled mare";
 		$this->graphic = 0x2617;

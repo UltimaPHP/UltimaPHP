@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class NightSightPotion extends Object {
+class NightSightPotion extends TypeNormal {
 	public function build() {
 		$this->name = "night sight potion";
 		$this->graphic = 0xF06;

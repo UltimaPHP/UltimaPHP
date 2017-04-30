@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ReactiveArmorScroll extends Object {
+class ReactiveArmorScroll extends TypeNormal {
 	public function build() {
 		$this->name = "reactive armor scroll";
 		$this->graphic = 0x1F2D;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FirebombField extends Object {
+class FirebombField extends TypeNormal {
 	public function build() {
 		$this->name = "firebomb field";
 		$this->graphic = 0x376A;

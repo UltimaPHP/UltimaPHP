@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MetalKiteShield extends Object {
+class MetalKiteShield extends TypeNormal {
 	public function build() {
 		$this->name = "metal kite shield";
 		$this->graphic = 0x1B74;

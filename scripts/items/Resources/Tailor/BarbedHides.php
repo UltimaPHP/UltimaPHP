@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BarbedHides extends Object {
+class BarbedHides extends TypeNormal {
 	public function build() {
 		$this->name = "barbed hides";
 		$this->graphic = 0x1079;

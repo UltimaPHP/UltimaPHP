@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Helmet extends Object {
+class Helmet extends TypeNormal {
 	public function build() {
 		$this->name = "helmet";
 		$this->graphic = 0x140A;

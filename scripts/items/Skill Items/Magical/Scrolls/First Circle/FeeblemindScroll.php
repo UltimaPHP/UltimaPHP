@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FeeblemindScroll extends Object {
+class FeeblemindScroll extends TypeNormal {
 	public function build() {
 		$this->name = "feeblemind scroll";
 		$this->graphic = 0x1F30;

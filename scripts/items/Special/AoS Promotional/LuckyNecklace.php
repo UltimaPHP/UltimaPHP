@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LuckyNecklace extends Object {
+class LuckyNecklace extends TypeNormal {
 	public function build() {
 		$this->name = "lucky necklace";
 		$this->graphic = 0x1088;

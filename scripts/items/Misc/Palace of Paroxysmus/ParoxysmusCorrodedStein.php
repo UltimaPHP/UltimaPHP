@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ParoxysmusCorrodedStein extends Object {
+class ParoxysmusCorrodedStein extends TypeNormal {
 	public function build() {
 		$this->name = "paroxysmus corroded stein";
 		$this->graphic = 0x9D6;

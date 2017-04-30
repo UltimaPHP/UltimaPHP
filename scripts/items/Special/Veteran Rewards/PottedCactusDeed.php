@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PottedCactusDeed extends Object {
+class PottedCactusDeed extends TypeNormal {
 	public function build() {
 		$this->name = "potted cactus deed";
 		$this->graphic = 0x14F0;

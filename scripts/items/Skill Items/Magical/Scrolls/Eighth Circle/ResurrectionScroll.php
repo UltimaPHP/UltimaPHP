@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ResurrectionScroll extends Object {
+class ResurrectionScroll extends TypeNormal {
 	public function build() {
 		$this->name = "resurrection scroll";
 		$this->graphic = 0x1F67;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DragonBardingDeed extends Object {
+class DragonBardingDeed extends TypeNormal {
 	public function build() {
 		$this->name = "dragon barding deed";
 		$this->graphic = 0x14F0;

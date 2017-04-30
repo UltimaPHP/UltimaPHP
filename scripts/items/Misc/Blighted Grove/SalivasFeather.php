@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SalivasFeather extends Object {
+class SalivasFeather extends TypeNormal {
 	public function build() {
 		$this->name = "salivas feather";
 		$this->graphic = 0x1020;

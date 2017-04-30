@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SmithHammer extends Object {
+class SmithHammer extends TypeNormal {
 	public function build() {
 		$this->name = "smith hammer";
 		$this->graphic = 0x13E3;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DupreSuit extends Object {
+class DupreSuit extends TypeNormal {
 	public function build() {
 		$this->name = "dupre suit";
 		$this->graphic = 0x0;

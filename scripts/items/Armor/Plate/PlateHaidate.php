@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlateHaidate extends Object {
+class PlateHaidate extends TypeNormal {
 	public function build() {
 		$this->name = "plate haidate";
 		$this->graphic = 0x278D;

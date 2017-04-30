@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MetalTreasureChest extends Object {
+class MetalTreasureChest extends TypeNormal {
 	public function build() {
 		$this->name = "metal treasure chest";
 		$this->graphic = 0x9AB;

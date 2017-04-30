@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MoongateGump extends Object {
+class MoongateGump extends TypeNormal {
 	public function build() {
 		$this->name = "moongate gump";
 		$this->graphic = 0xF6C;

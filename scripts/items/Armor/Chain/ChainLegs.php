@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ChainLegs extends Object {
+class ChainLegs extends TypeNormal {
 	public function build() {
 		$this->name = "chain legs";
 		$this->graphic = 0x13BE;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BookOfNinjitsu extends Object {
+class BookOfNinjitsu extends TypeNormal {
 	public function build() {
 		$this->name = "book of ninjitsu";
 		$this->graphic = 0x23A0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ValoriteIngot extends Object {
+class ValoriteIngot extends TypeNormal {
 	public function build() {
 		$this->name = "valorite ingot";
 		$this->graphic = 0x1BF2;

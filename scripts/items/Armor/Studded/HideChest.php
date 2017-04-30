@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HideChest extends Object {
+class HideChest extends TypeNormal {
 	public function build() {
 		$this->name = "hide chest";
 		$this->graphic = 0x2B74;

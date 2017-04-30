@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MapItem extends Object {
+class MapItem extends TypeNormal {
 	public function build() {
 		$this->name = "map item";
 		$this->graphic = 0x14EC;

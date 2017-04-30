@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StuddedBustierArms extends Object {
+class StuddedBustierArms extends TypeNormal {
 	public function build() {
 		$this->name = "studded bustier arms";
 		$this->graphic = 0x1C0C;

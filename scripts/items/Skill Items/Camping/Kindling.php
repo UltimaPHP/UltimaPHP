@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Kindling extends Object {
+class Kindling extends TypeNormal {
 	public function build() {
 		$this->name = "kindling";
 		$this->graphic = 0xDE1;

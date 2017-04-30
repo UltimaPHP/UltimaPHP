@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeatherHiroSode extends Object {
+class LeatherHiroSode extends TypeNormal {
 	public function build() {
 		$this->name = "leather hiro sode";
 		$this->graphic = 0x277E;

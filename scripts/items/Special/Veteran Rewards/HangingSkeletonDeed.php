@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HangingSkeletonDeed extends Object {
+class HangingSkeletonDeed extends TypeNormal {
 	public function build() {
 		$this->name = "hanging skeleton deed";
 		$this->graphic = 0x14F0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoIronIngots2 extends Object {
+class DecoIronIngots2 extends TypeNormal {
 	public function build() {
 		$this->name = "deco iron ingots";
 		$this->graphic = 0x1BF0;

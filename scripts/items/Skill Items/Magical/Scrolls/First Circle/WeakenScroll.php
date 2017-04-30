@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WeakenScroll extends Object {
+class WeakenScroll extends TypeNormal {
 	public function build() {
 		$this->name = "weaken scroll";
 		$this->graphic = 0x1F34;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MagicWand extends Object {
+class MagicWand extends TypeNormal {
 	public function build() {
 		$this->name = "magic wand";
 		$this->graphic = 0xDF2;

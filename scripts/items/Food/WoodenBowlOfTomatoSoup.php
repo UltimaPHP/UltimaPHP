@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WoodenBowlOfTomatoSoup extends Object {
+class WoodenBowlOfTomatoSoup extends TypeNormal {
 	public function build() {
 		$this->name = "wooden bowl of tomato soup";
 		$this->graphic = 0x1606;

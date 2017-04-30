@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ChainChest extends Object {
+class ChainChest extends TypeNormal {
 	public function build() {
 		$this->name = "chain chest";
 		$this->graphic = 0x13BF;

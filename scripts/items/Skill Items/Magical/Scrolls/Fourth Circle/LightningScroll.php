@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LightningScroll extends Object {
+class LightningScroll extends TypeNormal {
 	public function build() {
 		$this->name = "lightning scroll";
 		$this->graphic = 0x1F4A;

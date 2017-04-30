@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GnarledStaff extends Object {
+class GnarledStaff extends TypeNormal {
 	public function build() {
 		$this->name = "gnarled staff";
 		$this->graphic = 0x13F8;

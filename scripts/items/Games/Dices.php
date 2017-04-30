@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Dices extends Object {
+class Dices extends TypeNormal {
 	public function build() {
 		$this->name = "dices";
 		$this->graphic = 0xFA7;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoFlower extends Object {
+class DecoFlower extends TypeNormal {
 	public function build() {
 		$this->name = "deco flower";
 		$this->graphic = 0x18DA;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AwesomeDisturbingPortraitDeed extends Object {
+class AwesomeDisturbingPortraitDeed extends TypeNormal {
 	public function build() {
 		$this->name = "awesome disturbing portrait deed";
 		$this->graphic = 0x2A5D;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Nightshade extends Object {
+class Nightshade extends TypeNormal {
 	public function build() {
 		$this->name = "nightshade";
 		$this->graphic = 0xF88;

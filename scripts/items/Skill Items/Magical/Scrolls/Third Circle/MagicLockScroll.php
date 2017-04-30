@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MagicLockScroll extends Object {
+class MagicLockScroll extends TypeNormal {
 	public function build() {
 		$this->name = "magic lock scroll";
 		$this->graphic = 0x1F3F;

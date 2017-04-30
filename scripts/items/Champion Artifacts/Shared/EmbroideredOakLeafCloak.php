@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EmbroideredOakLeafCloak extends Object {
+class EmbroideredOakLeafCloak extends TypeNormal {
 	public function build() {
 		$this->name = "embroidered oak leaf cloak";
 		$this->graphic = 0x2684;

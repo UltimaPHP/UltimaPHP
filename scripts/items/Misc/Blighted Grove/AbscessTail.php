@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AbscessTail extends Object {
+class AbscessTail extends TypeNormal {
 	public function build() {
 		$this->name = "abscess tail";
 		$this->graphic = 0x1A9D;

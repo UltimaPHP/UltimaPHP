@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FullMoonFish extends Object {
+class FullMoonFish extends TypeNormal {
 	public function build() {
 		$this->name = "full moon fish";
 		$this->graphic = 0x3B15;

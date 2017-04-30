@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TribalSpear extends Object {
+class TribalSpear extends TypeNormal {
 	public function build() {
 		$this->name = "tribal spear";
 		$this->graphic = 0xF62;

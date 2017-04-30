@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CrossbowBolts extends Object {
+class CrossbowBolts extends TypeNormal {
 	public function build() {
 		$this->name = "crossbow bolts";
 		$this->graphic = 0x1BFC;

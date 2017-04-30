@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Bokuto extends Object {
+class Bokuto extends TypeNormal {
 	public function build() {
 		$this->name = "bokuto";
 		$this->graphic = 0x27A8;

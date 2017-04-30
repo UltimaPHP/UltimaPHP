@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HairDyeGump extends Object {
+class HairDyeGump extends TypeNormal {
 	public function build() {
 		$this->name = "hair dye gump";
 		$this->graphic = 0xEFF;

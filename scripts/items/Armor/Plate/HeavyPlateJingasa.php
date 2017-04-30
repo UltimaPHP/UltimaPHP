@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HeavyPlateJingasa extends Object {
+class HeavyPlateJingasa extends TypeNormal {
 	public function build() {
 		$this->name = "heavy plate jingasa";
 		$this->graphic = 0x2777;

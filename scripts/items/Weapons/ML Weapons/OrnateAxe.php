@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OrnateAxe extends Object {
+class OrnateAxe extends TypeNormal {
 	public function build() {
 		$this->name = "ornate axe";
 		$this->graphic = 0x2D28;

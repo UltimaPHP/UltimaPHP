@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DaemonHelm extends Object {
+class DaemonHelm extends TypeNormal {
 	public function build() {
 		$this->name = "daemon helm";
 		$this->graphic = 0x1451;

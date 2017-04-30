@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MagicalShortbow extends Object {
+class MagicalShortbow extends TypeNormal {
 	public function build() {
 		$this->name = "magical shortbow";
 		$this->graphic = 0x2D2B;

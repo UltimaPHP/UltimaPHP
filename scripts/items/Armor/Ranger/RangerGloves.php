@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RangerGloves extends Object {
+class RangerGloves extends TypeNormal {
 	public function build() {
 		$this->name = "ranger gloves";
 		$this->graphic = 0x13D5;

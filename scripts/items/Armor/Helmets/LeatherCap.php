@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeatherCap extends Object {
+class LeatherCap extends TypeNormal {
 	public function build() {
 		$this->name = "leather cap";
 		$this->graphic = 0x1DB9;

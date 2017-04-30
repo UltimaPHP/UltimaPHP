@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MouldingPlane extends Object {
+class MouldingPlane extends TypeNormal {
 	public function build() {
 		$this->name = "moulding plane";
 		$this->graphic = 0x102C;

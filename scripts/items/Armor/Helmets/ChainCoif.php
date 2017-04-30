@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ChainCoif extends Object {
+class ChainCoif extends TypeNormal {
 	public function build() {
 		$this->name = "chain coif";
 		$this->graphic = 0x13BB;

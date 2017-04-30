@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SmoothingPlane extends Object {
+class SmoothingPlane extends TypeNormal {
 	public function build() {
 		$this->name = "smoothing plane";
 		$this->graphic = 0x1032;

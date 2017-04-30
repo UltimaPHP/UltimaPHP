@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Club extends Object {
+class Club extends TypeNormal {
 	public function build() {
 		$this->name = "club";
 		$this->graphic = 0x13B4;

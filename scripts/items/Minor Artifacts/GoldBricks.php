@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GoldBricks extends Object {
+class GoldBricks extends TypeNormal {
 	public function build() {
 		$this->name = "gold bricks";
 		$this->graphic = 0x1BEB;

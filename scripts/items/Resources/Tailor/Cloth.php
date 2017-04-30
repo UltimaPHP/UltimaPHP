@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Cloth extends Object {
+class Cloth extends TypeNormal {
 	public function build() {
 		$this->name = "cloth";
 		$this->graphic = 0x1766;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RunicDovetailSaw extends Object {
+class RunicDovetailSaw extends TypeNormal {
 	public function build() {
 		$this->name = "runic dovetail saw";
 		$this->graphic = 0x1028;

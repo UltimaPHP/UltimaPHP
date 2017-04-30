@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Katana extends Object {
+class Katana extends TypeNormal {
 	public function build() {
 		$this->name = "katana";
 		$this->graphic = 0x13FF;

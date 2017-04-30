@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BraceletOfBinding extends Object {
+class BraceletOfBinding extends TypeNormal {
 	public function build() {
 		$this->name = "bracelet of binding";
 		$this->graphic = 0x1086;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AssassinSpike extends Object {
+class AssassinSpike extends TypeNormal {
 	public function build() {
 		$this->name = "assassin spike";
 		$this->graphic = 0x2D21;

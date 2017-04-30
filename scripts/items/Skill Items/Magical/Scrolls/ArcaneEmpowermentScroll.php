@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ArcaneEmpowermentScroll extends Object {
+class ArcaneEmpowermentScroll extends TypeNormal {
 	public function build() {
 		$this->name = "arcane empowerment scroll";
 		$this->graphic = 0x2D60;

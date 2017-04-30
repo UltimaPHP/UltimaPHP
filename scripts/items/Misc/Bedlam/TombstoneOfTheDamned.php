@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TombstoneOfTheDamned extends Object {
+class TombstoneOfTheDamned extends TypeNormal {
 	public function build() {
 		$this->name = "tombstone of the damned";
 		$this->graphic = 0xED7;

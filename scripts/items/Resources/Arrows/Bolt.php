@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Bolt extends Object {
+class Bolt extends TypeNormal {
 	public function build() {
 		$this->name = "bolt";
 		$this->graphic = 0x1BFB;

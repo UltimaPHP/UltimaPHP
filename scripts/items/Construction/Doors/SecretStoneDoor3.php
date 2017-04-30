@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SecretStoneDoor3 extends Object {
+class SecretStoneDoor3 extends TypeNormal {
 	public function build() {
 		$this->name = "secret stone door";
 		$this->graphic = 0x354;

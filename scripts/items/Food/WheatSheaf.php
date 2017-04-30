@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WheatSheaf extends Object {
+class WheatSheaf extends TypeNormal {
 	public function build() {
 		$this->name = "wheat sheaf";
 		$this->graphic = 0x9b4;

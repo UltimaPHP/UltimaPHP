@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TrashBarrel extends Object {
+class TrashBarrel extends TypeNormal {
 	public function build() {
 		$this->name = "trash barrel";
 		$this->graphic = 0xE77;

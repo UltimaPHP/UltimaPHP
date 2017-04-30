@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FountainOfLifeDeed extends Object {
+class FountainOfLifeDeed extends TypeNormal {
 	public function build() {
 		$this->name = "fountain of life deed";
 		$this->graphic = 0x2AC0;

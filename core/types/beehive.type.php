@@ -3,7 +3,5 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-
-class TypeBeeHive {
-	public $type = TypesDef::TYPE_BEE_HIVE;
+class TypeBeeHive extends Object {
 }

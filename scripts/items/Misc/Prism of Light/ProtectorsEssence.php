@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ProtectorsEssence extends Object {
+class ProtectorsEssence extends TypeNormal {
 	public function build() {
 		$this->name = "protectors essence";
 		$this->graphic = 0x23F;

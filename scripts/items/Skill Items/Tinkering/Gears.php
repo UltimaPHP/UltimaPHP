@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Gears extends Object {
+class Gears extends TypeNormal {
 	public function build() {
 		$this->name = "gears";
 		$this->graphic = 0x1053;

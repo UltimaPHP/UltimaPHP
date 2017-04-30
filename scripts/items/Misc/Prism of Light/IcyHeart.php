@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class IcyHeart extends Object {
+class IcyHeart extends TypeNormal {
 	public function build() {
 		$this->name = "icy heart";
 		$this->graphic = 0x24B;

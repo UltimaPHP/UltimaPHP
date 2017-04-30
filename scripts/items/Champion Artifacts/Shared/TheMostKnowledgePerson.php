@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TheMostKnowledgePerson extends Object {
+class TheMostKnowledgePerson extends TypeNormal {
 	public function build() {
 		$this->name = "the most knowledge person";
 		$this->graphic = 0x2684;

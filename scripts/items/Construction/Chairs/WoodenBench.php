@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WoodenBench extends Object {
+class WoodenBench extends TypeNormal {
 	public function build() {
 		$this->name = "wooden bench";
 		$this->graphic = 0xB2D;

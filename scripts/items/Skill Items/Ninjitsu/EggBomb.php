@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EggBomb extends Object {
+class EggBomb extends TypeNormal {
 	public function build() {
 		$this->name = "egg bomb";
 		$this->graphic = 0x2808;

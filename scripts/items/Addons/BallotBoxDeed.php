@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BallotBoxDeed extends Object {
+class BallotBoxDeed extends TypeNormal {
 	public function build() {
 		$this->name = "ballot box deed";
 		$this->graphic = 0x9A8;

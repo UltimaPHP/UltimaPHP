@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EmptyToolKit extends Object {
+class EmptyToolKit extends TypeNormal {
 	public function build() {
 		$this->name = "empty tool kit";
 		$this->graphic = 0x1EB6;

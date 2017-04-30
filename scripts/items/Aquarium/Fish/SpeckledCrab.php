@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SpeckledCrab extends Object {
+class SpeckledCrab extends TypeNormal {
 	public function build() {
 		$this->name = "speckled crab";
 		$this->graphic = 0x3AFC;

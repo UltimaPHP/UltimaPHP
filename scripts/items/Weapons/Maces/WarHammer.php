@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WarHammer extends Object {
+class WarHammer extends TypeNormal {
 	public function build() {
 		$this->name = "war hammer";
 		$this->graphic = 0x1439;

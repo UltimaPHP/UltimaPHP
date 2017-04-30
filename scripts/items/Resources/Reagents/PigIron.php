@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PigIron extends Object {
+class PigIron extends TypeNormal {
 	public function build() {
 		$this->name = "pig iron";
 		$this->graphic = 0xF8A;

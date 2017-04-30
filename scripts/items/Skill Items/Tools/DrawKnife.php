@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DrawKnife extends Object {
+class DrawKnife extends TypeNormal {
 	public function build() {
 		$this->name = "draw knife";
 		$this->graphic = 0x10E4;

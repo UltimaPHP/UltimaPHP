@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DoubleAxe extends Object {
+class DoubleAxe extends TypeNormal {
 	public function build() {
 		$this->name = "double axe";
 		$this->graphic = 0xF4B;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Sapphire extends Object {
+class Sapphire extends TypeNormal {
 	public function build() {
 		$this->name = "sapphire";
 		$this->graphic = 0xF19;

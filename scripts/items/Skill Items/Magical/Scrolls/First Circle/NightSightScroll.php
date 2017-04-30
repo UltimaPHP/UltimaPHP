@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class NightSightScroll extends Object {
+class NightSightScroll extends TypeNormal {
 	public function build() {
 		$this->name = "night sight scroll";
 		$this->graphic = 0x1F33;

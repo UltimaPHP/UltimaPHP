@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Halberd extends Object {
+class Halberd extends TypeNormal {
 	public function build() {
 		$this->name = "halberd";
 		$this->graphic = 0x143E;

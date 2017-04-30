@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoHay2 extends Object {
+class DecoHay2 extends TypeNormal {
 	public function build() {
 		$this->name = "deco hay";
 		$this->graphic = 0xF34;

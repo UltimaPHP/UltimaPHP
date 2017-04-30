@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SacrificialAltarDeed extends Object {
+class SacrificialAltarDeed extends TypeNormal {
 	public function build() {
 		$this->name = "sacrificial altar deed";
 		$this->graphic = 0x2A9B;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MarkContainer extends Object {
+class MarkContainer extends TypeNormal {
 	public function build() {
 		$this->name = "mark container";
 		$this->graphic = 0xECA;

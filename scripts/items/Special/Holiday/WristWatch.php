@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WristWatch extends Object {
+class WristWatch extends TypeNormal {
 	public function build() {
 		$this->name = "wrist watch";
 		$this->graphic = 0x1086;

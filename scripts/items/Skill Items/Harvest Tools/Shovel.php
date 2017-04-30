@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Shovel extends Object {
+class Shovel extends TypeNormal {
 	public function build() {
 		$this->name = "shovel";
 		$this->graphic = 0xF39;

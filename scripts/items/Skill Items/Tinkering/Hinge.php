@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Hinge extends Object {
+class Hinge extends TypeNormal {
 	public function build() {
 		$this->name = "hinge";
 		$this->graphic = 0x1055;

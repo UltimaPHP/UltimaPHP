@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BatWing extends Object {
+class BatWing extends TypeNormal {
 	public function build() {
 		$this->name = "bat wing";
 		$this->graphic = 0xF78;

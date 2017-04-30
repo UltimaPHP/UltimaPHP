@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlayerBBGump extends Object {
+class PlayerBBGump extends TypeNormal {
 	public function build() {
 		$this->name = "player bb gump";
 		$this->graphic = 0x2312;

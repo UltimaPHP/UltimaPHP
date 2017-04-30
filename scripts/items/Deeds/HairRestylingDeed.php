@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HairRestylingDeed extends Object {
+class HairRestylingDeed extends TypeNormal {
 	public function build() {
 		$this->name = "hair restyling deed";
 		$this->graphic = 0x14F0;

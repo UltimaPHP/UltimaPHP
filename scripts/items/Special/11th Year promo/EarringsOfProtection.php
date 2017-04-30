@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EarringsOfProtection extends Object {
+class EarringsOfProtection extends TypeNormal {
 	public function build() {
 		$this->name = "earrings of protection";
 		$this->graphic = 0x1087;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Skillet extends Object {
+class Skillet extends TypeNormal {
 	public function build() {
 		$this->name = "skillet";
 		$this->graphic = 0x97F;

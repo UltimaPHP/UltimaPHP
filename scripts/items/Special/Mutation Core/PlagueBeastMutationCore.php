@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlagueBeastMutationCore extends Object {
+class PlagueBeastMutationCore extends TypeNormal {
 	public function build() {
 		$this->name = "plague beast mutation core";
 		$this->graphic = 0x1CF0;

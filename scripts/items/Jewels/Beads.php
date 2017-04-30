@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Beads extends Object {
+class Beads extends TypeNormal {
 	public function build() {
 		$this->name = "beads";
 		$this->graphic = 0x108B;

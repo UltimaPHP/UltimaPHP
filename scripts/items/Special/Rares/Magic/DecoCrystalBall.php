@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoCrystalBall extends Object {
+class DecoCrystalBall extends TypeNormal {
 	public function build() {
 		$this->name = "deco crystal ball";
 		$this->graphic = 0xE2E;

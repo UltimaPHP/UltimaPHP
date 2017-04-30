@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WoodlandChest extends Object {
+class WoodlandChest extends TypeNormal {
 	public function build() {
 		$this->name = "woodland chest";
 		$this->graphic = 0x2B67;

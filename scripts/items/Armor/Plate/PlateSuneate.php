@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlateSuneate extends Object {
+class PlateSuneate extends TypeNormal {
 	public function build() {
 		$this->name = "plate suneate";
 		$this->graphic = 0x2788;

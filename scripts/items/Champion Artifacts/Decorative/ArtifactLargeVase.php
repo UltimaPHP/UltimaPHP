@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ArtifactLargeVase extends Object {
+class ArtifactLargeVase extends TypeNormal {
 	public function build() {
 		$this->name = "artifact large vase";
 		$this->graphic = 0x0B47;

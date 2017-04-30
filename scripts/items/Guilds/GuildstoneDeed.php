@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GuildstoneDeed extends Object {
+class GuildstoneDeed extends TypeNormal {
 	public function build() {
 		$this->name = "guildstone deed";
 		$this->graphic = 0x14F0;

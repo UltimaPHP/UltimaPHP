@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class NewPlayerTicket extends Object {
+class NewPlayerTicket extends TypeNormal {
 	public function build() {
 		$this->name = "new player ticket";
 		$this->graphic = 0x14EF;

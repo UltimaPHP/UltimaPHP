@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Scorp extends Object {
+class Scorp extends TypeNormal {
 	public function build() {
 		$this->name = "scorp";
 		$this->graphic = 0x10E7;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Kama extends Object {
+class Kama extends TypeNormal {
 	public function build() {
 		$this->name = "kama";
 		$this->graphic = 0x27AD;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class VacationWafer extends Object {
+class VacationWafer extends TypeNormal {
 	public function build() {
 		$this->name = "vacation wafer";
 		$this->graphic = 0x973;

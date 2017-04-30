@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SmallPumpkin extends Object {
+class SmallPumpkin extends TypeNormal {
 	public function build() {
 		$this->name = "small pumpkin";
 		$this->graphic = 0xC6C;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Brazier extends Object {
+class Brazier extends TypeNormal {
 	public function build() {
 		$this->name = "brazier";
 		$this->graphic = 0xE31;

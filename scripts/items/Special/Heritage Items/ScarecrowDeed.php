@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ScarecrowDeed extends Object {
+class ScarecrowDeed extends TypeNormal {
 	public function build() {
 		$this->name = "scarecrow deed";
 		$this->graphic = 0x1E34;

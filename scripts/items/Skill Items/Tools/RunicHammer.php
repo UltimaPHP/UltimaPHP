@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RunicHammer extends Object {
+class RunicHammer extends TypeNormal {
 	public function build() {
 		$this->name = "runic hammer";
 		$this->graphic = 0x13E3;

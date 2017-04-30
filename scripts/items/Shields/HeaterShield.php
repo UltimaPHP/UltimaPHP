@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HeaterShield extends Object {
+class HeaterShield extends TypeNormal {
 	public function build() {
 		$this->name = "heater shield";
 		$this->graphic = 0x1B76;

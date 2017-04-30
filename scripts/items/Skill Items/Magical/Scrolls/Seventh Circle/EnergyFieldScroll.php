@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EnergyFieldScroll extends Object {
+class EnergyFieldScroll extends TypeNormal {
 	public function build() {
 		$this->name = "energy field scroll";
 		$this->graphic = 0x1F5E;

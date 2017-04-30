@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ClockworkAssembly extends Object {
+class ClockworkAssembly extends TypeNormal {
 	public function build() {
 		$this->name = "clockwork assembly";
 		$this->graphic = 0x1EA8;

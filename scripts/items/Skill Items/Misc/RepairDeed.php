@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RepairDeed extends Object {
+class RepairDeed extends TypeNormal {
 	public function build() {
 		$this->name = "repair deed";
 		$this->graphic = 0x14F0;

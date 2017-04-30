@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class UncutCloth extends Object {
+class UncutCloth extends TypeNormal {
 	public function build() {
 		$this->name = "uncut cloth";
 		$this->graphic = 0x1767;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class VirtueBook extends Object {
+class VirtueBook extends TypeNormal {
 	public function build() {
 		$this->name = "virtue book";
 		$this->graphic = 0xFEF;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DeathShroud extends Object {
+class DeathShroud extends TypeNormal {
 	public function build() {
 		$this->name = "death shroud";
 		$this->graphic = 0x0;

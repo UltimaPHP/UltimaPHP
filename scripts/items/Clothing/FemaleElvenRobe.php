@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FemaleElvenRobe extends Object {
+class FemaleElvenRobe extends TypeNormal {
 	public function build() {
 		$this->name = "female elven robe";
 		$this->graphic = 0x2FBA;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class UnfinishedBarrel extends Object {
+class UnfinishedBarrel extends TypeNormal {
 	public function build() {
 		$this->name = "unfinished barrel";
 		$this->graphic = 0x1EB5;

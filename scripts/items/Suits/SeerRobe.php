@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SeerRobe extends Object {
+class SeerRobe extends TypeNormal {
 	public function build() {
 		$this->name = "seer robe";
 		$this->graphic = 0x1D3;

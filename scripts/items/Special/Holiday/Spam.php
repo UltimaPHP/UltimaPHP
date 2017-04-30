@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Spam extends Object {
+class Spam extends TypeNormal {
 	public function build() {
 		$this->name = "spam";
 		$this->graphic = 0x1044;

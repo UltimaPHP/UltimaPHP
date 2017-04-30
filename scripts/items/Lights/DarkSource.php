@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DarkSource extends Object {
+class DarkSource extends TypeNormal {
 	public function build() {
 		$this->name = "dark source";
 		$this->graphic = 0x1646;

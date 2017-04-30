@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FlamingHeadDeed extends Object {
+class FlamingHeadDeed extends TypeNormal {
 	public function build() {
 		$this->name = "flaming head deed";
 		$this->graphic = 0x14F0;

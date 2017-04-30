@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoArrowShafts extends Object {
+class DecoArrowShafts extends TypeNormal {
 	public function build() {
 		$this->name = "deco arrow shafts";
 		$this->graphic = 0x1024;

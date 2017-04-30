@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AwaseMisoSoup extends Object {
+class AwaseMisoSoup extends TypeNormal {
 	public function build() {
 		$this->name = "awase miso soup";
 		$this->graphic = 0x2850;

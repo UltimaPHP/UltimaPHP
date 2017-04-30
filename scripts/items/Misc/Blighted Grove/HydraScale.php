@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HydraScale extends Object {
+class HydraScale extends TypeNormal {
 	public function build() {
 		$this->name = "hydra scale";
 		$this->graphic = 0x26B4;

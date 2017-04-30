@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Axle extends Object {
+class Axle extends TypeNormal {
 	public function build() {
 		$this->name = "axle";
 		$this->graphic = 0x105B;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ElvenCompositeLongbow extends Object {
+class ElvenCompositeLongbow extends TypeNormal {
 	public function build() {
 		$this->name = "elven composite longbow";
 		$this->graphic = 0x2D1E;

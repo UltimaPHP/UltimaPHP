@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RollingPin extends Object {
+class RollingPin extends TypeNormal {
 	public function build() {
 		$this->name = "rolling pin";
 		$this->graphic = 0x1043;

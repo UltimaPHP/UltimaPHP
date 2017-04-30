@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrokenChair extends Object {
+class BrokenChair extends TypeNormal {
 	public function build() {
 		$this->name = "broken chair";
 		$this->graphic = 0xC19;

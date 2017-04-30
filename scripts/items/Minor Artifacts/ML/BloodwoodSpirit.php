@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BloodwoodSpirit extends Object {
+class BloodwoodSpirit extends TypeNormal {
 	public function build() {
 		$this->name = "bloodwood spirit";
 		$this->graphic = 0x2F5A;

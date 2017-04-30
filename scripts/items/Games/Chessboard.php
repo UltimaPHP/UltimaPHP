@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Chessboard extends Object {
+class Chessboard extends TypeNormal {
 	public function build() {
 		$this->name = "chessboard";
 		$this->graphic = 0xFA6;

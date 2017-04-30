@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DoubleBladedStaff extends Object {
+class DoubleBladedStaff extends TypeNormal {
 	public function build() {
 		$this->name = "double bladed staff";
 		$this->graphic = 0x26BF;

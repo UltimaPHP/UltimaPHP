@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Bardiche extends Object {
+class Bardiche extends TypeNormal {
 	public function build() {
 		$this->name = "bardiche";
 		$this->graphic = 0xF4D;

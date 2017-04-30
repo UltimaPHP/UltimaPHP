@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Tongs extends Object {
+class Tongs extends TypeNormal {
 	public function build() {
 		$this->name = "tongs";
 		$this->graphic = 0xFBB;

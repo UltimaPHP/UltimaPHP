@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Hatchet extends Object {
+class Hatchet extends TypeNormal {
 	public function build() {
 		$this->name = "hatchet";
 		$this->graphic = 0xF43;

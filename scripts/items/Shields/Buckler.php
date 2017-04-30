@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Buckler extends Object {
+class Buckler extends TypeNormal {
 	public function build() {
 		$this->name = "buckler";
 		$this->graphic = 0x1B73;

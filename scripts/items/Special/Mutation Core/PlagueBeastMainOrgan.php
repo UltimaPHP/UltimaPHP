@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlagueBeastMainOrgan extends Object {
+class PlagueBeastMainOrgan extends TypeNormal {
 	public function build() {
 		$this->name = "plague beast main organ";
 		$this->graphic = 0x1362;

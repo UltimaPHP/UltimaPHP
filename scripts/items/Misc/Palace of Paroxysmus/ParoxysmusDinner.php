@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ParoxysmusDinner extends Object {
+class ParoxysmusDinner extends TypeNormal {
 	public function build() {
 		$this->name = "paroxysmus dinner";
 		$this->graphic = 0x1E95;

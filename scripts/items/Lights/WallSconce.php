@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WallSconce extends Object {
+class WallSconce extends TypeNormal {
 	public function build() {
 		$this->name = "wall sconce";
 		$this->graphic = 0x9FB;

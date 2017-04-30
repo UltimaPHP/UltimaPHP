@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SewingKit extends Object {
+class SewingKit extends TypeNormal {
 	public function build() {
 		$this->name = "sewing kit";
 		$this->graphic = 0xF9D;

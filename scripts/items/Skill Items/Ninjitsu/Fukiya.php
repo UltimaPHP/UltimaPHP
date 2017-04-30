@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Fukiya extends Object {
+class Fukiya extends TypeNormal {
 	public function build() {
 		$this->name = "fukiya";
 		$this->graphic = 0x27AA;

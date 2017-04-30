@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Nunchaku extends Object {
+class Nunchaku extends TypeNormal {
 	public function build() {
 		$this->name = "nunchaku";
 		$this->graphic = 0x27AE;

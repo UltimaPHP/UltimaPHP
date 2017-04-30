@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Wakizashi extends Object {
+class Wakizashi extends TypeNormal {
 	public function build() {
 		$this->name = "wakizashi";
 		$this->graphic = 0x27A4;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RecallScroll extends Object {
+class RecallScroll extends TypeNormal {
 	public function build() {
 		$this->name = "recall scroll";
 		$this->graphic = 0x1F4C;

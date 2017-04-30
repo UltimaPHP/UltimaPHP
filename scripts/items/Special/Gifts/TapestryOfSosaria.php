@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TapestryOfSosaria extends Object {
+class TapestryOfSosaria extends TypeNormal {
 	public function build() {
 		$this->name = "tapestry of sosaria";
 		$this->graphic = 0x234E;

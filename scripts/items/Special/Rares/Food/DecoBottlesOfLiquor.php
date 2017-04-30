@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoBottlesOfLiquor extends Object {
+class DecoBottlesOfLiquor extends TypeNormal {
 	public function build() {
 		$this->name = "deco bottles of liquor";
 		$this->graphic = 0x99E;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BolaBall extends Object {
+class BolaBall extends TypeNormal {
 	public function build() {
 		$this->name = "bola ball";
 		$this->graphic = 0xE73;

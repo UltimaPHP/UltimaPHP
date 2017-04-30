@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BlueScales extends Object {
+class BlueScales extends TypeNormal {
 	public function build() {
 		$this->name = "blue scales";
 		$this->graphic = 0x26B4;

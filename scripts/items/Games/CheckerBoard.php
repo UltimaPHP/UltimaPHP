@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CheckerBoard extends Object {
+class CheckerBoard extends TypeNormal {
 	public function build() {
 		$this->name = "checker board";
 		$this->graphic = 0xFA6;

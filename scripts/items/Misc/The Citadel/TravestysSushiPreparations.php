@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TravestysSushiPreparations extends Object {
+class TravestysSushiPreparations extends TypeNormal {
 	public function build() {
 		$this->name = "travestys sushi preparations";
 		$this->graphic = 0x1E15;

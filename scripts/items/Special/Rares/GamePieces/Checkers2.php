@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Checkers2 extends Object {
+class Checkers2 extends TypeNormal {
 	public function build() {
 		$this->name = "checkers";
 		$this->graphic = 0xE1B;

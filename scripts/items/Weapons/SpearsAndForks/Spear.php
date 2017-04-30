@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Spear extends Object {
+class Spear extends TypeNormal {
 	public function build() {
 		$this->name = "spear";
 		$this->graphic = 0xF62;

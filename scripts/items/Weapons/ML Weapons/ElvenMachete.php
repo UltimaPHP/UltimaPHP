@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ElvenMachete extends Object {
+class ElvenMachete extends TypeNormal {
 	public function build() {
 		$this->name = "elven machete";
 		$this->graphic = 0x2D35;

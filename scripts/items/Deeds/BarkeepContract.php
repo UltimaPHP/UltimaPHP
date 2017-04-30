@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BarkeepContract extends Object {
+class BarkeepContract extends TypeNormal {
 	public function build() {
 		$this->name = "barkeep contract";
 		$this->graphic = 0x14F0;

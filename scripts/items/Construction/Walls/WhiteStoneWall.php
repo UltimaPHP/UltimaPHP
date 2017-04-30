@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WhiteStoneWall extends Object {
+class WhiteStoneWall extends TypeNormal {
 	public function build() {
 		$this->name = "white stone wall";
 		$this->graphic = 0x0057;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WoodlandGloves extends Object {
+class WoodlandGloves extends TypeNormal {
 	public function build() {
 		$this->name = "woodland gloves";
 		$this->graphic = 0x2B6A;

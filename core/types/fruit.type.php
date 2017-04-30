@@ -3,7 +3,5 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-
-class TypeFruit {
-	public $type = TypesDef::TYPE_FRUIT;
+class TypeFruit extends Object {
 }

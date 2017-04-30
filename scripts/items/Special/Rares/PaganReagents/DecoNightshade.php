@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoNightshade extends Object {
+class DecoNightshade extends TypeNormal {
 	public function build() {
 		$this->name = "deco nightshade";
 		$this->graphic = 0x18E7;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WarAxe extends Object {
+class WarAxe extends TypeNormal {
 	public function build() {
 		$this->name = "war axe";
 		$this->graphic = 0x13B0;

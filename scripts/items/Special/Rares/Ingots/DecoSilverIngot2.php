@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoSilverIngot2 extends Object {
+class DecoSilverIngot2 extends TypeNormal {
 	public function build() {
 		$this->name = "deco silver ingot";
 		$this->graphic = 0x1BF8;

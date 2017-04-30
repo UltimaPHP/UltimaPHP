@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RobeOfTheEquinox extends Object {
+class RobeOfTheEquinox extends TypeNormal {
 	public function build() {
 		$this->name = "robe of the equinox";
 		$this->graphic = 0x1F04;

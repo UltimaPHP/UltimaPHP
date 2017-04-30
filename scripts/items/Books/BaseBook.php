@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BaseBook extends Object {
+class BaseBook extends TypeNormal {
 	public function build() {
 		$this->name = "base book";
 		$this->graphic = 0x66;

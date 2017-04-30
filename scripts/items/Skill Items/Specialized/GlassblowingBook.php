@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GlassblowingBook extends Object {
+class GlassblowingBook extends TypeNormal {
 	public function build() {
 		$this->name = "glassblowing book";
 		$this->graphic = 0xFF4;

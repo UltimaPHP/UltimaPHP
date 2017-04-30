@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DupresShield extends Object {
+class DupresShield extends TypeNormal {
 	public function build() {
 		$this->name = "dupres shield";
 		$this->graphic = 0x2B01;

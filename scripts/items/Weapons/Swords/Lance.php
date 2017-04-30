@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Lance extends Object {
+class Lance extends TypeNormal {
 	public function build() {
 		$this->name = "lance";
 		$this->graphic = 0x26C0;

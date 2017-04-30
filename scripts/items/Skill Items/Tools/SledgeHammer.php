@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SledgeHammer extends Object {
+class SledgeHammer extends TypeNormal {
 	public function build() {
 		$this->name = "sledge hammer";
 		$this->graphic = 0xFB5;

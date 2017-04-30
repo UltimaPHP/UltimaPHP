@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ZoogiFungus extends Object {
+class ZoogiFungus extends TypeNormal {
 	public function build() {
 		$this->name = "zoogi fungus";
 		$this->graphic = 0x26B7;

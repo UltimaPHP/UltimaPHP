@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeafTonlet extends Object {
+class LeafTonlet extends TypeNormal {
 	public function build() {
 		$this->name = "leaf tonlet";
 		$this->graphic = 0x2FCA;

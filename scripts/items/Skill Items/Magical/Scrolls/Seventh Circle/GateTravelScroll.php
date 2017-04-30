@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GateTravelScroll extends Object {
+class GateTravelScroll extends TypeNormal {
 	public function build() {
 		$this->name = "gate travel scroll";
 		$this->graphic = 0x1F60;

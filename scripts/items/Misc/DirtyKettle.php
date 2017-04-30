@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DirtyKettle extends Object {
+class DirtyKettle extends TypeNormal {
 	public function build() {
 		$this->name = "dirty kettle";
 		$this->graphic = 0x9DC;

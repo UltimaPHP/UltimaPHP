@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TribalBerry extends Object {
+class TribalBerry extends TypeNormal {
 	public function build() {
 		$this->name = "tribal berry";
 		$this->graphic = 0x9D0;

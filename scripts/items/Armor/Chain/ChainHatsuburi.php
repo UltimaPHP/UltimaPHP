@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ChainHatsuburi extends Object {
+class ChainHatsuburi extends TypeNormal {
 	public function build() {
 		$this->name = "chain hatsuburi";
 		$this->graphic = 0x2774;

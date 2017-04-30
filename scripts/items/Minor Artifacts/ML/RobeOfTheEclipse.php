@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RobeOfTheEclipse extends Object {
+class RobeOfTheEclipse extends TypeNormal {
 	public function build() {
 		$this->name = "robe of the eclipse";
 		$this->graphic = 0x1F03;

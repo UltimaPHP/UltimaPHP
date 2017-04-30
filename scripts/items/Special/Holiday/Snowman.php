@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Snowman extends Object {
+class Snowman extends TypeNormal {
 	public function build() {
 		$this->name = "snowman";
 		$this->graphic = 0x2328;

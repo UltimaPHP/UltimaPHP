@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StrongWoodDoor extends Object {
+class StrongWoodDoor extends TypeNormal {
 	public function build() {
 		$this->name = "strong wood door";
 		$this->graphic = 0x6E5;

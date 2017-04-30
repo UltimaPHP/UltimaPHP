@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class InternalItem extends Object {
+class InternalItem extends TypeNormal {
 	public function build() {
 		$this->name = "internal item";
 		$this->graphic = 0x398C;

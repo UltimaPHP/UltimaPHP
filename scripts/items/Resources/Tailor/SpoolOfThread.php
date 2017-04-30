@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SpoolOfThread extends Object {
+class SpoolOfThread extends TypeNormal {
 	public function build() {
 		$this->name = "spool of thread";
 		$this->graphic = 0xFA0;

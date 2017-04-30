@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Amber extends Object {
+class Amber extends TypeNormal {
 	public function build() {
 		$this->name = "amber";
 		$this->graphic = 0xF25;

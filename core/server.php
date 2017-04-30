@@ -99,6 +99,17 @@ class UltimaPHP {
         }
         echo "\n";
 
+        // Load Skills
+        $skillFiles = glob(self::$basedir . "core/skills/*.skill.php");
+        $totalFiles = count($skillFiles);
+        foreach ($skillFiles as $fileCount => $file) {
+            Functions::progressBar($fileCount+1, $totalFiles, "Loading skills");
+            if (!require_once ($file)) {
+                self::setStatus(self::STATUS_FILE_LOAD_FAIL);
+                self::stop();
+            }
+        }
+
         // Load definitions
         $defFiles = glob(self::$basedir . "core/defs/*.def.php");
         $totalFiles = count($defFiles);
@@ -111,33 +122,30 @@ class UltimaPHP {
         }
         echo "\n";
 
-        // Load Skills
-        $skillFiles = glob(self::$basedir . "core/skills/*.skill.php");
-        $totalFiles = count($skillFiles);
-        foreach ($skillFiles as $fileCount => $file) {
-            Functions::progressBar($fileCount+1, $totalFiles, "Loading skills");
+        // Load types
+        $defFiles = glob(self::$basedir . "core/types/*.type.php");
+        $totalFiles = count($defFiles);
+        foreach ($defFiles as $fileCount => $file) {
+            Functions::progressBar($fileCount+1, $totalFiles, "Loading types");
             if (!require_once ($file)) {
                 self::setStatus(self::STATUS_FILE_LOAD_FAIL);
                 self::stop();
             }
         }
+        echo "\n";
 
         // Load scripts
         $scripts = Functions::rglob(self::$conf['scripts']['load'] . "*.php");
         $scriptsTotal = count($scripts);
-        foreach ($scripts as $scriptKey => $file) {            
+        foreach ($scripts as $scriptKey => $file) {
             Functions::progressBar($scriptKey+1, $scriptsTotal, "Loading scripts");
 
             if (class_exists(pathinfo($file, PATHINFO_FILENAME))) {
                 self::setStatus(self::STATUS_FILE_LOAD_IGNORE, [$file]);
             } else {
-                if (!require_once ($file)) {
-                    self::setStatus(self::STATUS_FILE_LOAD_FAIL);
-                    self::stop();
-                }
+                require_once $file;
             }
         }
-        echo "\n";
 
         self::setStatus(self::STATUS_DATABASE_CONNECTING);
         try {

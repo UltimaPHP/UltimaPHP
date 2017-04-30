@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RecallRune extends Object {
+class RecallRune extends TypeNormal {
 	public function build() {
 		$this->name = "recall rune";
 		$this->graphic = 0x1F14;

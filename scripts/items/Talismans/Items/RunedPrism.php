@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RunedPrism extends Object {
+class RunedPrism extends TypeNormal {
 	public function build() {
 		$this->name = "runed prism";
 		$this->graphic = 0x2F57;

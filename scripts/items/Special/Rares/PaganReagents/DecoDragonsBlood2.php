@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoDragonsBlood2 extends Object {
+class DecoDragonsBlood2 extends TypeNormal {
 	public function build() {
 		$this->name = "deco dragons blood";
 		$this->graphic = 0xF82;

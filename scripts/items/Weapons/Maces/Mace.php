@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Mace extends Object {
+class Mace extends TypeNormal {
 	public function build() {
 		$this->name = "mace";
 		$this->graphic = 0xF5C;

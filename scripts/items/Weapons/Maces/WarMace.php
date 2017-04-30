@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WarMace extends Object {
+class WarMace extends TypeNormal {
 	public function build() {
 		$this->name = "war mace";
 		$this->graphic = 0x1407;

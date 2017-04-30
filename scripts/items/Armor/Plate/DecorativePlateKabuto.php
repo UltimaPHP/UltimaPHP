@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecorativePlateKabuto extends Object {
+class DecorativePlateKabuto extends TypeNormal {
 	public function build() {
 		$this->name = "decorative plate kabuto";
 		$this->graphic = 0x2778;

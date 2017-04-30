@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StuddedSuneate extends Object {
+class StuddedSuneate extends TypeNormal {
 	public function build() {
 		$this->name = "studded suneate";
 		$this->graphic = 0x27D2;

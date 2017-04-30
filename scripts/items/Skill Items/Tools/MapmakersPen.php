@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MapmakersPen extends Object {
+class MapmakersPen extends TypeNormal {
 	public function build() {
 		$this->name = "mapmakers pen";
 		$this->graphic = 0x0FBF;

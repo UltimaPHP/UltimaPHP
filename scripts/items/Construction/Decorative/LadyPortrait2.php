@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LadyPortrait2 extends Object {
+class LadyPortrait2 extends TypeNormal {
 	public function build() {
 		$this->name = "lady portrait";
 		$this->graphic = 0x0EA7;

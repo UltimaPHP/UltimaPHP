@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FireHorn extends Object {
+class FireHorn extends TypeNormal {
 	public function build() {
 		$this->name = "fire horn";
 		$this->graphic = 0xFC7;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DaemonBlood extends Object {
+class DaemonBlood extends TypeNormal {
 	public function build() {
 		$this->name = "daemon blood";
 		$this->graphic = 0xF7D;

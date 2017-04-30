@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LordBlackthorneSuit extends Object {
+class LordBlackthorneSuit extends TypeNormal {
 	public function build() {
 		$this->name = "lord blackthorne suit";
 		$this->graphic = 0x0;

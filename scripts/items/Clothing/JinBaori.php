@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class JinBaori extends Object {
+class JinBaori extends TypeNormal {
 	public function build() {
 		$this->name = "jin baori";
 		$this->graphic = 0x27A1;

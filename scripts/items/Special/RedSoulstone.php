@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RedSoulstone extends Object {
+class RedSoulstone extends TypeNormal {
 	public function build() {
 		$this->name = "red soulstone";
 		$this->graphic = 0x32F3;

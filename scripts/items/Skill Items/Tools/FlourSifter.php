@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FlourSifter extends Object {
+class FlourSifter extends TypeNormal {
 	public function build() {
 		$this->name = "flour sifter";
 		$this->graphic = 0x103E;

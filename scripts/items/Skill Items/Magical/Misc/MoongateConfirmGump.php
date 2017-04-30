@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MoongateConfirmGump extends Object {
+class MoongateConfirmGump extends TypeNormal {
 	public function build() {
 		$this->name = "moongate confirm gump";
 		$this->graphic = 0xF6C;

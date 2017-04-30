@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CommodityDeedBox extends Object {
+class CommodityDeedBox extends TypeNormal {
 	public function build() {
 		$this->name = "commodity deed box";
 		$this->graphic = 0x9AA;

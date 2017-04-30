@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlagueBeastBlood extends Object {
+class PlagueBeastBlood extends TypeNormal {
 	public function build() {
 		$this->name = "plague beast blood";
 		$this->graphic = 0x122C;

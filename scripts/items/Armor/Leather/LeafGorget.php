@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeafGorget extends Object {
+class LeafGorget extends TypeNormal {
 	public function build() {
 		$this->name = "leaf gorget";
 		$this->graphic = 0x2FC7;

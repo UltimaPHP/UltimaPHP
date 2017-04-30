@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TreasureChestDirt extends Object {
+class TreasureChestDirt extends TypeNormal {
 	public function build() {
 		$this->name = "treasure chest dirt";
 		$this->graphic = 0x912;

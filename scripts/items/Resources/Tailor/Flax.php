@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Flax extends Object {
+class Flax extends TypeNormal {
 	public function build() {
 		$this->name = "flax";
 		$this->graphic = 0x1A9C;

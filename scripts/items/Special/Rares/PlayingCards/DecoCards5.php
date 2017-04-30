@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoCards5 extends Object {
+class DecoCards5 extends TypeNormal {
 	public function build() {
 		$this->name = "deco cards";
 		$this->graphic = 0xE18;

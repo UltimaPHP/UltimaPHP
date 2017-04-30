@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecorativeShieldSword2West extends Object {
+class DecorativeShieldSword2West extends TypeNormal {
 	public function build() {
 		$this->name = "decorative shield sword 2 west";
 		$this->graphic = 0x1636;

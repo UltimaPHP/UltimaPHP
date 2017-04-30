@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Cantaloupe extends Object {
+class Cantaloupe extends TypeNormal {
 	public function build() {
 		$this->name = "cantaloupe";
 		$this->graphic = 0xc79;

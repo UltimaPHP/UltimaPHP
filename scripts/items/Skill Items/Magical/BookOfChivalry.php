@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BookOfChivalry extends Object {
+class BookOfChivalry extends TypeNormal {
 	public function build() {
 		$this->name = "book of chivalry";
 		$this->graphic = 0x2252;

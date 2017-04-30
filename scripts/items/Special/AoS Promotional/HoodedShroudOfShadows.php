@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HoodedShroudOfShadows extends Object {
+class HoodedShroudOfShadows extends TypeNormal {
 	public function build() {
 		$this->name = "hooded shroud of shadows";
 		$this->graphic = 0x2684;

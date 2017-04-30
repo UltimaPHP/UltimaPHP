@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlateBattleKabuto extends Object {
+class PlateBattleKabuto extends TypeNormal {
 	public function build() {
 		$this->name = "plate battle kabuto";
 		$this->graphic = 0x2785;

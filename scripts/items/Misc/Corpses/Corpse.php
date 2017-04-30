@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Corpse extends Object {
+class Corpse extends TypeNormal {
 	public function build() {
 		$this->name = "corpse";
 		$this->graphic = 0x2006;

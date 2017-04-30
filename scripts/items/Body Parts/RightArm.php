@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RightArm extends Object {
+class RightArm extends TypeNormal {
 	public function build() {
 		$this->name = "right arm";
 		$this->graphic = 0x1DA2;

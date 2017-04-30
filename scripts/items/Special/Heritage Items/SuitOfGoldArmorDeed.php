@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SuitOfGoldArmorDeed extends Object {
+class SuitOfGoldArmorDeed extends TypeNormal {
 	public function build() {
 		$this->name = "suit of gold armor deed";
 		$this->graphic = 0x3DAA;

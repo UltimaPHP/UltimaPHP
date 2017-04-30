@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Scales extends Object {
+class Scales extends TypeNormal {
 	public function build() {
 		$this->name = "scales";
 		$this->graphic = 0x1852;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BritainCrownFish extends Object {
+class BritainCrownFish extends TypeNormal {
 	public function build() {
 		$this->name = "britain crown fish";
 		$this->graphic = 0x3AFF;

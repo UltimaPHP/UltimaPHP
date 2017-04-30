@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WhitePoinsettia extends Object {
+class WhitePoinsettia extends TypeNormal {
 	public function build() {
 		$this->name = "white poinsettia";
 		$this->graphic = 0x2331;

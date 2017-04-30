@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlateHelm extends Object {
+class PlateHelm extends TypeNormal {
 	public function build() {
 		$this->name = "plate helm";
 		$this->graphic = 0x1412;

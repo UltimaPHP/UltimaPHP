@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Citrine extends Object {
+class Citrine extends TypeNormal {
 	public function build() {
 		$this->name = "citrine";
 		$this->graphic = 0xF15;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RavenHelm extends Object {
+class RavenHelm extends TypeNormal {
 	public function build() {
 		$this->name = "raven helm";
 		$this->graphic = 0x2B71;

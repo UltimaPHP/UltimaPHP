@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ToolKit extends Object {
+class ToolKit extends TypeNormal {
 	public function build() {
 		$this->name = "tool kit";
 		$this->graphic = 0x1EBA;

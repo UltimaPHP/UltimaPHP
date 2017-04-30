@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class KrisnaHair extends Object {
+class KrisnaHair extends TypeNormal {
 	public function build() {
 		$this->name = "krisna hair";
 		$this->graphic = 0x204A;

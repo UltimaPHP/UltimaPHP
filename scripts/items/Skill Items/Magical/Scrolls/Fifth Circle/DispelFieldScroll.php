@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DispelFieldScroll extends Object {
+class DispelFieldScroll extends TypeNormal {
 	public function build() {
 		$this->name = "dispel field scroll";
 		$this->graphic = 0x1F4E;

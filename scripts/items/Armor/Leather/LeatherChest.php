@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeatherChest extends Object {
+class LeatherChest extends TypeNormal {
 	public function build() {
 		$this->name = "leather chest";
 		$this->graphic = 0x13CC;

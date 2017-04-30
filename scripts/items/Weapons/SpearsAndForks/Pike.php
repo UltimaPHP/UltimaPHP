@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Pike extends Object {
+class Pike extends TypeNormal {
 	public function build() {
 		$this->name = "pike";
 		$this->graphic = 0x26BE;

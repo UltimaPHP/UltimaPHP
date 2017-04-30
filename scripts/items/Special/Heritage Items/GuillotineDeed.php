@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GuillotineDeed extends Object {
+class GuillotineDeed extends TypeNormal {
 	public function build() {
 		$this->name = "guillotine deed";
 		$this->graphic = 0x125E;

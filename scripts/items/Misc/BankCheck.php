@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BankCheck extends Object {
+class BankCheck extends TypeNormal {
 	public function build() {
 		$this->name = "bank check";
 		$this->graphic = 0x14F0;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Shaft extends Object {
+class Shaft extends TypeNormal {
 	public function build() {
 		$this->name = "shaft";
 		$this->graphic = 0x1BD4;

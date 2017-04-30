@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OrcHelm extends Object {
+class OrcHelm extends TypeNormal {
 	public function build() {
 		$this->name = "orc helm";
 		$this->graphic = 0x1F0B;

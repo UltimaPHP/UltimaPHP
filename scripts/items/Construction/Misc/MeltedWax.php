@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MeltedWax extends Object {
+class MeltedWax extends TypeNormal {
 	public function build() {
 		$this->name = "melted wax";
 		$this->graphic = 0x122A;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BlueBook extends Object {
+class BlueBook extends TypeNormal {
 	public function build() {
 		$this->name = "blue book";
 		$this->graphic = 0xFF2;

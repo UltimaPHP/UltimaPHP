@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class OrdersFromMinax extends Object {
+class OrdersFromMinax extends TypeNormal {
 	public function build() {
 		$this->name = "orders from minax";
 		$this->graphic = 0x2279;

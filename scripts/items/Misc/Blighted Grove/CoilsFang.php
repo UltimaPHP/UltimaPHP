@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CoilsFang extends Object {
+class CoilsFang extends TypeNormal {
 	public function build() {
 		$this->name = "coils fang";
 		$this->graphic = 0x10E8;

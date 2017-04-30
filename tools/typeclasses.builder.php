@@ -11,7 +11,7 @@ foreach($types as $type) {
 	$className = $classFileName = $constName = "";
 	foreach ($tmp as $x => $val) {
 		$className .= ucfirst($val);
-		$constName .= strtoupper($val) . ($x < (count($tmp) -1) ? "_" : "");
+		$constName .= strtolower($val) . ($x < (count($tmp) -1) ? "\\" : "");
 		$classFileName .= $val;
 	}
 
@@ -22,11 +22,9 @@ foreach($types as $type) {
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-
-class Type$className {
-	public \$type = TypesDef::TYPE_$constName;
+class Type$className extends Object {
 }";
 
 	file_put_contents("../core/types/$classFileName.type.php", $file);
-	echo "const TYPE_$constName = \"$className\";\n";
+	// echo "const TYPE_$constName = \"$className\";\n";
 }

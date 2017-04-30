@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PowerCrystal extends Object {
+class PowerCrystal extends TypeNormal {
 	public function build() {
 		$this->name = "power crystal";
 		$this->graphic = 0x1F1C;

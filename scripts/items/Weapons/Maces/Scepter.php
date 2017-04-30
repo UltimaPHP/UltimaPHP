@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Scepter extends Object {
+class Scepter extends TypeNormal {
 	public function build() {
 		$this->name = "scepter";
 		$this->graphic = 0x26BC;

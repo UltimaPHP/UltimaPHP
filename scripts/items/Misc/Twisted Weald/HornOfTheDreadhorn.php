@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HornOfTheDreadhorn extends Object {
+class HornOfTheDreadhorn extends TypeNormal {
 	public function build() {
 		$this->name = "horn of the dreadhorn";
 		$this->graphic = 0x315C;

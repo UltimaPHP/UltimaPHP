@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeatherJingasa extends Object {
+class LeatherJingasa extends TypeNormal {
 	public function build() {
 		$this->name = "leather jingasa";
 		$this->graphic = 0x2776;

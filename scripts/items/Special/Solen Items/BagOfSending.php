@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BagOfSending extends Object {
+class BagOfSending extends TypeNormal {
 	public function build() {
 		$this->name = "bag of sending";
 		$this->graphic = 0xE76;

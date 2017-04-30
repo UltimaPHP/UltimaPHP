@@ -3,7 +3,5 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-
-class TypeKey {
-	public $type = TypesDef::TYPE_KEY;
+class TypeKey extends Object {
 }

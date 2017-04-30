@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Head extends Object {
+class Head extends TypeNormal {
 	public function build() {
 		$this->name = "head";
 		$this->graphic = 0x1DA0;

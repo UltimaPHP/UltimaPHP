@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MetalShield extends Object {
+class MetalShield extends TypeNormal {
 	public function build() {
 		$this->name = "metal shield";
 		$this->graphic = 0x1B7B;

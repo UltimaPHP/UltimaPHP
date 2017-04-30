@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LocalizedStatic extends Object {
+class LocalizedStatic extends TypeNormal {
 	public function build() {
 		$this->name = "localized static";
 		$this->graphic = 0x80;

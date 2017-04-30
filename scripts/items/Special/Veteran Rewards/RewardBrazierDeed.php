@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RewardBrazierDeed extends Object {
+class RewardBrazierDeed extends TypeNormal {
 	public function build() {
 		$this->name = "reward brazier deed";
 		$this->graphic = 0x14F0;

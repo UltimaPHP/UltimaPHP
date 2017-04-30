@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BoneThroneDeed extends Object {
+class BoneThroneDeed extends TypeNormal {
 	public function build() {
 		$this->name = "bone throne deed";
 		$this->graphic = 0x2A58;

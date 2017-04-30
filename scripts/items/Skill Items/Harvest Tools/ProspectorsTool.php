@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ProspectorsTool extends Object {
+class ProspectorsTool extends TypeNormal {
 	public function build() {
 		$this->name = "prospectors tool";
 		$this->graphic = 0xFB4;

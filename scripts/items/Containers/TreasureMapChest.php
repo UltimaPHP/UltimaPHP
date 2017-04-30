@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class TreasureMapChest extends Object {
+class TreasureMapChest extends TypeNormal {
 	public function build() {
 		$this->name = "treasure map chest";
 		$this->graphic = 0xE40;

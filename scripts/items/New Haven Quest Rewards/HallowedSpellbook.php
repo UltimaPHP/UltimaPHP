@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HallowedSpellbook extends Object {
+class HallowedSpellbook extends TypeNormal {
 	public function build() {
 		$this->name = "hallowed spellbook";
 		$this->graphic = 0x3FFFFFFFF;

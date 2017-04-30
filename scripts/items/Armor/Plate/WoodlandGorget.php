@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WoodlandGorget extends Object {
+class WoodlandGorget extends TypeNormal {
 	public function build() {
 		$this->name = "woodland gorget";
 		$this->graphic = 0x2B69;

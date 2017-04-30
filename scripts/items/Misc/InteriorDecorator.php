@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class InteriorDecorator extends Object {
+class InteriorDecorator extends TypeNormal {
 	public function build() {
 		$this->name = "interior decorator";
 		$this->graphic = 0xFC1;

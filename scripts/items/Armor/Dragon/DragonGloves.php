@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DragonGloves extends Object {
+class DragonGloves extends TypeNormal {
 	public function build() {
 		$this->name = "dragon gloves";
 		$this->graphic = 0x2643;

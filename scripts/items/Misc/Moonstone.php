@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Moonstone extends Object {
+class Moonstone extends TypeNormal {
 	public function build() {
 		$this->name = "moonstone";
 		$this->graphic = 0xF8B;

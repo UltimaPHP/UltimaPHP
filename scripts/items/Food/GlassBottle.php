@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GlassBottle extends Object {
+class GlassBottle extends TypeNormal {
 	public function build() {
 		$this->name = "glass bottle";
 		$this->graphic = 0xe2b;

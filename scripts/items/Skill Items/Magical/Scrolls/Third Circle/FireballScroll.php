@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FireballScroll extends Object {
+class FireballScroll extends TypeNormal {
 	public function build() {
 		$this->name = "fireball scroll";
 		$this->graphic = 0x1F3E;

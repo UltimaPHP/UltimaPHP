@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Backgammon extends Object {
+class Backgammon extends TypeNormal {
 	public function build() {
 		$this->name = "backgammon";
 		$this->graphic = 0xE1C;

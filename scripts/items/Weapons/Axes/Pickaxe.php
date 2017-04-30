@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Pickaxe extends Object {
+class Pickaxe extends TypeNormal {
 	public function build() {
 		$this->name = "pickaxe";
 		$this->graphic = 0xE86;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrownBook extends Object {
+class BrownBook extends TypeNormal {
 	public function build() {
 		$this->name = "brown book";
 		$this->graphic = 0xFEF;

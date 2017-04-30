@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class JesterHat extends Object {
+class JesterHat extends TypeNormal {
 	public function build() {
 		$this->name = "jester hat";
 		$this->graphic = 0x171C;

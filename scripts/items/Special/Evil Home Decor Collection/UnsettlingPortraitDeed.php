@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class UnsettlingPortraitDeed extends Object {
+class UnsettlingPortraitDeed extends TypeNormal {
 	public function build() {
 		$this->name = "unsettling portrait deed";
 		$this->graphic = 0x2A65;

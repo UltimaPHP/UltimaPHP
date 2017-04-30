@@ -3,7 +3,5 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-
-class TypePitcher {
-	public $type = TypesDef::TYPE_PITCHER;
+class TypePitcher extends Object {
 }

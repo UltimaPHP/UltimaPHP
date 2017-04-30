@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Tetsubo extends Object {
+class Tetsubo extends TypeNormal {
 	public function build() {
 		$this->name = "tetsubo";
 		$this->graphic = 0x27A6;

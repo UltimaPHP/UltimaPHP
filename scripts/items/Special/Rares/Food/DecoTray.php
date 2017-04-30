@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoTray extends Object {
+class DecoTray extends TypeNormal {
 	public function build() {
 		$this->name = "deco tray";
 		$this->graphic = 0x991;

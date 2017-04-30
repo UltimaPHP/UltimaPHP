@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CloseHelm extends Object {
+class CloseHelm extends TypeNormal {
 	public function build() {
 		$this->name = "close helm";
 		$this->graphic = 0x1408;

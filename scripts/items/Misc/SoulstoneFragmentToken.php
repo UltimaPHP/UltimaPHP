@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SoulstoneFragmentToken extends Object {
+class SoulstoneFragmentToken extends TypeNormal {
 	public function build() {
 		$this->name = "soulstone fragment token";
 		$this->graphic = 0x2AAA;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Tekagi extends Object {
+class Tekagi extends TypeNormal {
 	public function build() {
 		$this->name = "tekagi";
 		$this->graphic = 0x27AB;

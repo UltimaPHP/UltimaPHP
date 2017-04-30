@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SnowStatueDeed extends Object {
+class SnowStatueDeed extends TypeNormal {
 	public function build() {
 		$this->name = "snow statue deed";
 		$this->graphic = 0x14F0;

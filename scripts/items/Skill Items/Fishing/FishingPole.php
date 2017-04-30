@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class FishingPole extends Object {
+class FishingPole extends TypeNormal {
 	public function build() {
 		$this->name = "fishing pole";
 		$this->graphic = 0x0DC0;

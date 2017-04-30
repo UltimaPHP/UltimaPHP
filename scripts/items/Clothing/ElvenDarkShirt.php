@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ElvenDarkShirt extends Object {
+class ElvenDarkShirt extends TypeNormal {
 	public function build() {
 		$this->name = "elven dark shirt";
 		$this->graphic = 0x3176;

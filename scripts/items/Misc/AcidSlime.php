@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AcidSlime extends Object {
+class AcidSlime extends TypeNormal {
 	public function build() {
 		$this->name = "acid slime";
 		$this->graphic = 0x122A;

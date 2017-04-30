@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class CandleSkull extends Object {
+class CandleSkull extends TypeNormal {
 	public function build() {
 		$this->name = "candle skull";
 		$this->graphic = 0x1853;

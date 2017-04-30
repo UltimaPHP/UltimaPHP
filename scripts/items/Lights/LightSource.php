@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LightSource extends Object {
+class LightSource extends TypeNormal {
 	public function build() {
 		$this->name = "light source";
 		$this->graphic = 0x1647;

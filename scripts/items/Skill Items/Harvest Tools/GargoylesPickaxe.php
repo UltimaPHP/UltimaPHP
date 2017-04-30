@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class GargoylesPickaxe extends Object {
+class GargoylesPickaxe extends TypeNormal {
 	public function build() {
 		$this->name = "gargoyles pickaxe";
 		$this->graphic = 0xE85;

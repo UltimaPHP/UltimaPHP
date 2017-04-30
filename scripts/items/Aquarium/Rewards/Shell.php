@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Shell extends Object {
+class Shell extends TypeNormal {
 	public function build() {
 		$this->name = "shell";
 		$this->graphic = 0x3B12;

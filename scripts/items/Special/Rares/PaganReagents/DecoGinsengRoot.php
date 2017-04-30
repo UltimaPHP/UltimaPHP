@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoGinsengRoot extends Object {
+class DecoGinsengRoot extends TypeNormal {
 	public function build() {
 		$this->name = "deco ginseng root";
 		$this->graphic = 0x18EB;

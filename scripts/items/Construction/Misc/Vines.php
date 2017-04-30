@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Vines extends Object {
+class Vines extends TypeNormal {
 	public function build() {
 		$this->name = "vines";
 		$this->graphic = 0xCEB;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Nails extends Object {
+class Nails extends TypeNormal {
 	public function build() {
 		$this->name = "nails";
 		$this->graphic = 0x102C;

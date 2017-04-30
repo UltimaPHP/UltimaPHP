@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ShortSpear extends Object {
+class ShortSpear extends TypeNormal {
 	public function build() {
 		$this->name = "short spear";
 		$this->graphic = 0x1403;

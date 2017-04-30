@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SheafOfHay extends Object {
+class SheafOfHay extends TypeNormal {
 	public function build() {
 		$this->name = "sheaf of hay";
 		$this->graphic = 0xF36;

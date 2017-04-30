@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SummonCreatureScroll extends Object {
+class SummonCreatureScroll extends TypeNormal {
 	public function build() {
 		$this->name = "summon creature scroll";
 		$this->graphic = 0x1F54;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ReptalonFormTalisman extends Object {
+class ReptalonFormTalisman extends TypeNormal {
 	public function build() {
 		$this->name = "reptalon form talisman";
 		$this->graphic = 0x2F59;

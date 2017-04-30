@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DragonChest extends Object {
+class DragonChest extends TypeNormal {
 	public function build() {
 		$this->name = "dragon chest";
 		$this->graphic = 0x2641;

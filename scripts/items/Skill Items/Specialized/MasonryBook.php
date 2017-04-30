@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MasonryBook extends Object {
+class MasonryBook extends TypeNormal {
 	public function build() {
 		$this->name = "masonry book";
 		$this->graphic = 0xFBE;

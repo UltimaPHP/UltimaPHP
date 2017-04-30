@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StrippedFlakeFish extends Object {
+class StrippedFlakeFish extends TypeNormal {
 	public function build() {
 		$this->name = "stripped flake fish";
 		$this->graphic = 0x3B0A;

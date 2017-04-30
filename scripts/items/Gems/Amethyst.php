@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Amethyst extends Object {
+class Amethyst extends TypeNormal {
 	public function build() {
 		$this->name = "amethyst";
 		$this->graphic = 0xF16;

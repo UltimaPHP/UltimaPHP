@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Scythe extends Object {
+class Scythe extends TypeNormal {
 	public function build() {
 		$this->name = "scythe";
 		$this->graphic = 0x26BA;

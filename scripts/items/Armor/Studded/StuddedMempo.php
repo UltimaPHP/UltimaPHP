@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class StuddedMempo extends Object {
+class StuddedMempo extends TypeNormal {
 	public function build() {
 		$this->name = "studded mempo";
 		$this->graphic = 0x279D;

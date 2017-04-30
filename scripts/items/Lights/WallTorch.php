@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WallTorch extends Object {
+class WallTorch extends TypeNormal {
 	public function build() {
 		$this->name = "wall torch";
 		$this->graphic = 0xA05;

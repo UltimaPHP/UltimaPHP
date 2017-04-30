@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BrokenArmoireDeed extends Object {
+class BrokenArmoireDeed extends TypeNormal {
 	public function build() {
 		$this->name = "broken armoire deed";
 		$this->graphic = 0xC12;

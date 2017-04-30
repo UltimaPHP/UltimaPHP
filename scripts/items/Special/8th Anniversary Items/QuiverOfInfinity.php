@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class QuiverOfInfinity extends Object {
+class QuiverOfInfinity extends TypeNormal {
 	public function build() {
 		$this->name = "quiver of infinity";
 		$this->graphic = 0x2B02;

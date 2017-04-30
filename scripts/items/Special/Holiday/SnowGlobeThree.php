@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class SnowGlobeThree extends Object {
+class SnowGlobeThree extends TypeNormal {
 	public function build() {
 		$this->name = "snow globe three";
 		$this->graphic = 0xE2F;

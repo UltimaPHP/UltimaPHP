@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class HidePauldrons extends Object {
+class HidePauldrons extends TypeNormal {
 	public function build() {
 		$this->name = "hide pauldrons";
 		$this->graphic = 0x2B77;

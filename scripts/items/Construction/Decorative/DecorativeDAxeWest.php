@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecorativeDAxeWest extends Object {
+class DecorativeDAxeWest extends TypeNormal {
 	public function build() {
 		$this->name = "decorative d axe west";
 		$this->graphic = 0x156B;

@@ -3,7 +3,5 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-
-class TypeRoof {
-	public $type = TypesDef::TYPE_ROOF;
+class TypeRoof extends Object {
 }

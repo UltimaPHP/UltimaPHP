@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ChaosShield extends Object {
+class ChaosShield extends TypeNormal {
 	public function build() {
 		$this->name = "chaos shield";
 		$this->graphic = 0x1BC3;

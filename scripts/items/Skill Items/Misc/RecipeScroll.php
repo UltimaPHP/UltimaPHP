@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class RecipeScroll extends Object {
+class RecipeScroll extends TypeNormal {
 	public function build() {
 		$this->name = "recipe scroll";
 		$this->graphic = 0x2831;

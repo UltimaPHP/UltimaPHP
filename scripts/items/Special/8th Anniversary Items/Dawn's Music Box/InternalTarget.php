@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class InternalTarget extends Object {
+class InternalTarget extends TypeNormal {
 	public function build() {
 		$this->name = "internal target";
 		$this->graphic = 0x1053;

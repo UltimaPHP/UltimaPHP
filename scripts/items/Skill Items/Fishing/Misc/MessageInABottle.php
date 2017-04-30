@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MessageInABottle extends Object {
+class MessageInABottle extends TypeNormal {
 	public function build() {
 		$this->name = "message in a bottle";
 		$this->graphic = 0x099F;

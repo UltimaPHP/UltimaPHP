@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class AdminRobe extends Object {
+class AdminRobe extends TypeNormal {
 	public function build() {
 		$this->name = "admin robe";
 		$this->graphic = 0x0;

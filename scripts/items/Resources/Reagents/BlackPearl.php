@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class BlackPearl extends Object {
+class BlackPearl extends TypeNormal {
 	public function build() {
 		$this->name = "black pearl";
 		$this->graphic = 0xF7A;

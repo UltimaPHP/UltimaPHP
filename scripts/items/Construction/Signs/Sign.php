@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Sign extends Object {
+class Sign extends TypeNormal {
 	public function build() {
 		$this->name = "sign";
 		$this->graphic = 0xB95;

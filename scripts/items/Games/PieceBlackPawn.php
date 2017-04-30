@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PieceBlackPawn extends Object {
+class PieceBlackPawn extends TypeNormal {
 	public function build() {
 		$this->name = "piece black pawn";
 		$this->graphic = 0x3590;

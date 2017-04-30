@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Tapestry6W extends Object {
+class Tapestry6W extends TypeNormal {
 	public function build() {
 		$this->name = "tapestry";
 		$this->graphic = 0xFE4;

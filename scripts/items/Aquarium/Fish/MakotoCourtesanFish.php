@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MakotoCourtesanFish extends Object {
+class MakotoCourtesanFish extends TypeNormal {
 	public function build() {
 		$this->name = "makoto courtesan fish";
 		$this->graphic = 0x3AFD;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class ManaDrainScroll extends Object {
+class ManaDrainScroll extends TypeNormal {
 	public function build() {
 		$this->name = "mana drain scroll";
 		$this->graphic = 0x1F4B;

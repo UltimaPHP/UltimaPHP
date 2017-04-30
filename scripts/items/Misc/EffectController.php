@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class EffectController extends Object {
+class EffectController extends TypeNormal {
 	public function build() {
 		$this->name = "effect controller";
 		$this->graphic = 0x1B72;

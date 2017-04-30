@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class MinocBlueFish extends Object {
+class MinocBlueFish extends TypeNormal {
 	public function build() {
 		$this->name = "minoc blue fish";
 		$this->graphic = 0x3AFE;

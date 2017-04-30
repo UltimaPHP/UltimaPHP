@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class WallOfStoneScroll extends Object {
+class WallOfStoneScroll extends TypeNormal {
 	public function build() {
 		$this->name = "wall of stone scroll";
 		$this->graphic = 0x1F44;

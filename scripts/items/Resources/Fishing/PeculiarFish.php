@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PeculiarFish extends Object {
+class PeculiarFish extends TypeNormal {
 	public function build() {
 		$this->name = "peculiar fish";
 		$this->graphic = 0xDD6;

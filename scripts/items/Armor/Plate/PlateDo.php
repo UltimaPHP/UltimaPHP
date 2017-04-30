@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class PlateDo extends Object {
+class PlateDo extends TypeNormal {
 	public function build() {
 		$this->name = "plate do";
 		$this->graphic = 0x277D;

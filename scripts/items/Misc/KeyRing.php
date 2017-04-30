@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class KeyRing extends Object {
+class KeyRing extends TypeNormal {
 	public function build() {
 		$this->name = "key ring";
 		$this->graphic = 0x1011;

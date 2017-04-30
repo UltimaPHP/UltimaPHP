@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Cleaver extends Object {
+class Cleaver extends TypeNormal {
 	public function build() {
 		$this->name = "cleaver";
 		$this->graphic = 0xEC3;

@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class Cotton extends Object {
+class Cotton extends TypeNormal {
 	public function build() {
 		$this->name = "cotton";
 		$this->graphic = 0xDF9;

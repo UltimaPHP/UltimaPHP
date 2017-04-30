@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class LeafLegs extends Object {
+class LeafLegs extends TypeNormal {
 	public function build() {
 		$this->name = "leaf legs";
 		$this->graphic = 0x2FC9;

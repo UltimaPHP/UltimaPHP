@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DaemonLegs extends Object {
+class DaemonLegs extends TypeNormal {
 	public function build() {
 		$this->name = "daemon legs";
 		$this->graphic = 0x1452;

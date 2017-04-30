@@ -5,7 +5,7 @@
 * Version: 0.1 - Pre Alpha
 */
 
-class DecoObsidian extends Object {
+class DecoObsidian extends TypeNormal {
 	public function build() {
 		$this->name = "deco obsidian";
 		$this->graphic = 0xF89;
