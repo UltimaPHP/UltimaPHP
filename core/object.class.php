@@ -29,9 +29,7 @@ class Object {
 
     public function __construct($serial = null) {
         $this->build();
-        if (method_exists($this, "typeStart")) {
-            $this->typeStart();
-        }
+        $this->typeStart();
         if ($serial === null) {
             $this->id     = Map::newSerial("object");
             $this->serial = dechex(UltimaPHP::BITMASK_ITEM | $this->id);
