@@ -10,15 +10,23 @@ class ICommand {
             return false;
         }
 
-        $itemDef = str_replace(" ", "_", $args[0]);
+        if (strstr($args[0], " ")) {
+            $tmp = explode(" ", $args[0]);
+            $itemDef = "";
+            foreach ($tmp as $v) {
+                $itemDef .= ucfirst($v);
+            }
+        } else {
+            $itemDef = $args[0];
+        }
 
         if (!class_exists($itemDef)) {
-            new SysmessageCommand($client, ["Sorry, but the item you are trying to create (" . $args[0] . ") has not been found."]);
+            new SysmessageCommand($client, ["Sorry, but the item you are trying to create (" . $itemDef . ") has not been found."]);
             return false;
         }
 
         if (!isset(class_parents($itemDef)['Object'])) {
-            new SysmessageCommand($client, ["Sorry, but you are trying to add a mobile as an item, use .m ".$args[0]." to add this mobile."]);
+            new SysmessageCommand($client, ["Sorry, but you are trying to add a mobile as an item, use .m ".$itemDef." to add this mobile."]);
             return false;
         }
 

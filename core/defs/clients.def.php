@@ -4,7 +4,7 @@
  * Version: 0.1 - Pre Alpha
  */
 
-abstract class clientDefs {
+abstract class ClientDefs {
     const CLIENT_NONE                 = 0x00000000;
     const CLIENT_T2A                  = 0x00000001;
     const CLIENT_UOR                  = 0x00000002;

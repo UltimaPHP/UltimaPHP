@@ -9,7 +9,7 @@ class VikingSword extends Object {
 	public function build() {
 		$this->name = "viking sword";
 		$this->graphic = 0x13B9;
-		$this->type = "";
+		$this->type = TypesDefs::TYPE_WEAPON_SWORD;
 		$this->flags = 0x00;
 		$this->value = 0;
 		$this->amount = 1;

@@ -18,7 +18,6 @@ class Object {
     /**
      * Item variables
      */
-    public $cont;
     public $serial;
     public $id;
     public $graphic;

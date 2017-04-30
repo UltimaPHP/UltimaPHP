@@ -1,6 +1,6 @@
 <?php
 
-abstract class animDefs {
+abstract class AnimDefs {
     const ANIM_WALK_UNARM        = 0x00;
     const ANIM_WALK_ARM          = 0x01;
     const ANIM_RUN_UNARM         = 0x02;

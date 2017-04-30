@@ -16,6 +16,7 @@ class Player {
     public $body;
     public $color;
     public $sex;
+    public $layers;
     // Flags -- init
     public $frozen;
     public $female;
@@ -243,9 +244,28 @@ class Player {
 
                     if (class_exists($skillclass)) {
                         $this->skills[constant($skilldef)] = new $skillclass((float)$value);
+                    } else {
+                        UltimaPHP::log("Trying to set $skilldef to player  " . $this->name . " (".$this->serial.")", "ERROR");
                     }
                 }
             }
+
+            /* Get player equipment from database*/
+            // $query = "SELECT
+            //             a.id,
+            //             a.player,
+            //             a.layer,
+            //             a.itemSerial";
+            // $sth = UltimaPHP::$db->prepare($query);
+            // $sth->execute(array(
+            //     ":player_id" => $this->id,
+            // ));
+            // $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+            // if (count($result) > 0) {
+            // }
+
+
         } else {
             UltimaPHP::$socketClients[$this->client]['account']->disconnect();
         }
