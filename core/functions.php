@@ -151,6 +151,9 @@ class Functions {
     public static  function progressBar($done, $total, $msg = null) {
         $perc = floor(($done / $total) * 100);
         echo date("H:i:s") . ": {$msg}: {$perc}%\r";
+        if ($perc >= 100) {
+            echo "\n";
+        }
     }
 
 }

@@ -85,7 +85,6 @@ class UltimaPHP {
             $className = ucfirst($name);
             $$name     = new $className();
         }
-        echo "\n";
 
         // Load included classes
         $classFiles = glob(self::$basedir . "core/*.class.php");
@@ -97,7 +96,6 @@ class UltimaPHP {
                 self::stop();
             }
         }
-        echo "\n";
 
         // Load Skills
         $skillFiles = glob(self::$basedir . "core/skills/*.skill.php");
@@ -120,7 +118,6 @@ class UltimaPHP {
                 self::stop();
             }
         }
-        echo "\n";
 
         // Load types
         $defFiles = glob(self::$basedir . "core/types/*.type.php");
@@ -132,7 +129,6 @@ class UltimaPHP {
                 self::stop();
             }
         }
-        echo "\n";
 
         // Load scripts
         $scripts = Functions::rglob(self::$conf['scripts']['load'] . "*.php");
