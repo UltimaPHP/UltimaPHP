@@ -46,11 +46,13 @@ def readMobilesFiles(path, filesList):
             propriedades = {'className': '', 'name': '', 'body': 0,
                 'basesoundid': 0x00, 'str': 0,
                 'dex': 0, 'int': 0,
-                'hits': 0, 'maxhits': 0, 'damage_min': 0,
-                'damage_max': 0, 'resist_physical': 0,
+                'hits': 0, 'maxhits': 0, 
+                'resist_physical': 0, 'damage': 0,
+                'damageMax': 0,
                 'resist_fire': 0, 'resist_cold': 0,
                 'resist_poison': 0, 'resist_energy': 0,
                 'fame': 0, 'karma': 0, 'virtualarmor': 0}
+                
             if file != path+"\PlayerMobile.cs" and file != path+"\BaseCreature.cs":                
                 arquivo = open(file,'r')
                 for readLine in arquivo:
@@ -96,11 +98,15 @@ def readMobilesFiles(path, filesList):
                         m = re.search(r'(\d+)\, (\d+)', readLine, re.IGNORECASE)
                         if m != None:
                             propriedades['int'] = 'rand('+m.group(1)+', '+m.group(2)+')'
-                    elif re.search(r'SetDamage', readLine, re.IGNORECASE):
+                    elif re.search(r'SetHits', readLine, re.IGNORECASE):
                         m = re.search(r'(\d+)\, (\d+)', readLine, re.IGNORECASE)
                         if m != None:
-                            propriedades['damage_min'] = m.group(1)
-                            propriedades['damage_max'] = m.group(2)
+                            propriedades['maxhits'] = 'rand('+m.group(1)+', '+m.group(2)+')'
+                    elif re.search(r'SetDamage', readLine, re.IGNORECASE):
+                    	m = re.search(r'(\d+)\, (\d+)', readLine, re.IGNORECASE)
+                    	if m != None:
+                    		propriedades['damage'] = m.group(1)
+                    		propriedades['damageMax'] = m.group(2)
                     elif re.search(r'ResistanceType.Physical, ', readLine, re.IGNORECASE):
                         m = re.search(r'(\d+)\, (\d+)', readLine, re.IGNORECASE)                        
                         if m != None:
@@ -156,19 +162,17 @@ def readMobilesFiles(path, filesList):
     ele envia para a proxima funcao
 '''
 def readItemsFiles(path, filesList):
-    proprieadesStart = propriedades = {'name': '', 'weight': 0,
+     
+    try:
+        for file in filesList:
+            propriedades = {'name': '', 'weight': 0,
                    'baseid': 0x00, 'initmaxhits': 0,
                    'initminhits': 0, 'defmisssound': 0,
                    'defhitsound': 0, 'oldspeed': 0,
                    'oldmaxdamage': 0, 'oldmindamage': 0,
                    'oldstrengthreq': 0, 'mlspeed': 0,
                    'aosspeed': 0, 'aosmaxdamage': 0,
-                   'aosmindamage': 0, 'aosstrengthreq': 0,
-                   'hue': 0x00}
-
-    
-    try:
-        for file in filesList:
+                   'aosmindamage': 0, 'aosstrengthreq': 0, 'hue': 0x00}   
             arquivo = open(file,'r')
             for readLine in arquivo:
                 if re.search(r'public class ', readLine, re.IGNORECASE):
@@ -238,10 +242,13 @@ def readItemsFiles(path, filesList):
                 elif re.search(r'Hue =', readLine, re.IGNORECASE):
                     m = re.search(r'0x[0-9a-fA-F]+', readLine, re.IGNORECASE)
                     if m != None:
-                        propriedades['hue'] = m.group(0)
-                if propriedades['name'] != "" and propriedades['baseid'] != 0x00:
-                    convertData(path, propriedades)
-                    propriedades = proprieadesStart
+                        propriedades['hue'] = m.group(0)                
+            if propriedades['name'] != "" and propriedades['baseid'] != 0x00:
+                convertData(path, propriedades)
+                propriedades = {}
+            else:
+                propriedades = {}
+
     except ValueError as er:
         print(er)
 
@@ -258,7 +265,6 @@ def criaEspaco(string):
             word += sil
 
     return word
-    #print(m.group(0).replace(m.group(0),m.group(0)+" "))
 
 '''
     Recebe o dicionario preenchido e a raiz do arquivo de origem, assim ele cria o arquivo .php
@@ -273,7 +279,7 @@ def convertData(path, readLine):
         '* Ultima PHP - OpenSource Ultima Online Server written in PHP\n'\
         '* Version: 0.1 - Pre Alpha\n'\
         '*/\n\n'\
-        'class '+readLine['name'].lower()+' extends Object {\n'\
+        'class '+readLine['name']+' extends Object {\n'\
         '	public function build() {\n'\
         '		$this->name = \"'+criaEspaco(readLine['name']).lower()+'\";\n'\
         '		$this->graphic = '+str(readLine['baseid'])+';\n'\
@@ -302,7 +308,7 @@ def convertData(path, readLine):
         '* Ultima PHP - OpenSource Ultima Online Server written in PHP\n'\
         '* Version: 0.1 - Pre Alpha\n'\
         '*/\n\n'\
-        'class '+readLine['className'].lower()+' extends Mobile {\n'\
+        'class '+readLine['className']+' extends Mobile {\n'\
         '	public function summon() {\n'\
         '		$this->name = '+readLine['name'].lower()+';\n'\
         '		$this->body = '+str(readLine['body'])+';\n'\
@@ -313,10 +319,10 @@ def convertData(path, readLine):
         '		$this->str = '+str(readLine['str'])+';\n'\
         '		$this->dex = '+str(readLine['dex'])+';\n'\
         '		$this->int = '+str(readLine['int'])+';\n'\
-        '		$this->hits = '+str(readLine['hits'])+';\n'\
         '		$this->maxhits = '+str(readLine['maxhits'])+';\n'\
-        '		$this->damage_min = '+str(readLine['damage_min'])+';\n'\
-        '		$this->damage_max = '+str(readLine['damage_max'])+';\n'\
+        '		$this->hits = $this->maxhits;\n'\
+        '		$this->damage = '+str(readLine['damage'])+';\n'\
+        '		$this->damageMax = '+str(readLine['damageMax'])+';\n'\
         '		$this->resist_physical = '+str(readLine['resist_physical'])+';\n'\
         '		$this->resist_fire = '+str(readLine['resist_fire'])+';\n'\
         '		$this->resist_cold = '+str(readLine['resist_cold'])+';\n'\
@@ -328,12 +334,16 @@ def convertData(path, readLine):
         '}}\n?>\n'
 
     
-    fileCreated = open(path+'\\'+readLine['className']+'.php','w')    
-    print(path+'\\'+readLine['className']+'.php')
+       
+    
     if items:
+        fileCreated = open(path+'\\'+readLine['name']+'.php','w') 
         fileCreated.write(item_php_template)
+        print(path+'\\'+readLine['name']+'.php')
     else:
+        fileCreated = open(path+'\\'+readLine['className']+'.php','w') 
         fileCreated.write(mobile_php_template)
+        print(path+'\\'+readLine['className']+'.php')
     fileCreated.close()
 
 if __name__ == "__main__":
