@@ -256,7 +256,13 @@ class Player {
 
             /* Define player layers */
             for ($i=1; $i<=31; $i++) {
-                $this->layers[$i] = ($i == 30 ? [] : null);
+                if ($i == LayersDefs::BACKPACK) {
+                    $bp = new Backpack();
+                    print_r($bp);
+                    $this->layers[$i] = $bp;
+                } else {
+                    $this->layers[$i] = ($i == 30 ? [] : null);
+                }
             }
 
             /* Get player equipment from database*/

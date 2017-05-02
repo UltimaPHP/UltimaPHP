@@ -63,7 +63,7 @@ make install
  * Equip item
  * PickUp / Drag / Drop item
  * Walk / Run in any world
- * Sysmessage
+ * Unicode Sysmessage
  * Where Command
  * Teleport command to any world
  * Invis command
@@ -72,6 +72,8 @@ make install
  * Click on players/mobiles/objects
  * DClick on players/mobiles/objects
  * Open skills info
+ * Emote
+ * Talk
 
 ### Usefull links that could help you code
 
