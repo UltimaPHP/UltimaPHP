@@ -16,8 +16,10 @@ class SummonedEarthElemental extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 14;
-		$this->maxhits = 21;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 14;
+		$this->damageMax = 21;
 		$this->resist_physical = rand(65, 75);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(40, 50);

@@ -16,8 +16,10 @@ class KazeKemono extends Mobile {
 		$this->str = rand(201, 275);
 		$this->dex = rand(101, 155);
 		$this->int = rand(101, 105);
-		$this->hits = 15;
-		$this->maxhits = 20;
+		$this->maxhits = rand(251, 330);
+		$this->hits = $this->maxhits;
+		$this->damage = 15;
+		$this->damageMax = 20;
 		$this->resist_physical = rand(50, 70);
 		$this->resist_fire = rand(30, 60);
 		$this->resist_cold = rand(30, 60);

@@ -16,8 +16,10 @@ class HeadlessOne extends Mobile {
 		$this->str = rand(26, 50);
 		$this->dex = rand(36, 55);
 		$this->int = rand(16, 30);
-		$this->hits = 5;
-		$this->maxhits = 10;
+		$this->maxhits = rand(16, 30);
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 10;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

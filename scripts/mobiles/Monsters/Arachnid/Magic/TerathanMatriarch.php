@@ -16,8 +16,10 @@ class TerathanMatriarch extends Mobile {
 		$this->str = rand(316, 405);
 		$this->dex = rand(96, 115);
 		$this->int = rand(366, 455);
-		$this->hits = 11;
-		$this->maxhits = 14;
+		$this->maxhits = rand(190, 243);
+		$this->hits = $this->maxhits;
+		$this->damage = 11;
+		$this->damageMax = 14;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(35, 45);

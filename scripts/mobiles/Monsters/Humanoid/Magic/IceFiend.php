@@ -16,8 +16,10 @@ class IceFiend extends Mobile {
 		$this->str = rand(376, 405);
 		$this->dex = rand(176, 195);
 		$this->int = rand(201, 225);
-		$this->hits = 8;
-		$this->maxhits = 19;
+		$this->maxhits = rand(226, 243);
+		$this->hits = $this->maxhits;
+		$this->damage = 8;
+		$this->damageMax = 19;
 		$this->resist_physical = rand(55, 65);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(60, 70);

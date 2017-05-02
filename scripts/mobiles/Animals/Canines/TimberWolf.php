@@ -16,8 +16,10 @@ class TimberWolf extends Mobile {
 		$this->str = rand(56, 80);
 		$this->dex = rand(56, 75);
 		$this->int = rand(11, 25);
-		$this->hits = 5;
-		$this->maxhits = 9;
+		$this->maxhits = rand(34, 48);
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 9;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = rand(10, 15);

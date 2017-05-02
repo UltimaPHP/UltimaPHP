@@ -16,8 +16,10 @@ class Gibberling extends Mobile {
 		$this->str = rand(141, 165);
 		$this->dex = rand(101, 125);
 		$this->int = rand(56, 80);
-		$this->hits = 12;
-		$this->maxhits = 17;
+		$this->maxhits = rand(85, 99);
+		$this->hits = $this->maxhits;
+		$this->damage = 12;
+		$this->damageMax = 17;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(25, 35);
 		$this->resist_cold = rand(25, 35);

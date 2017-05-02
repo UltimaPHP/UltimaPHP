@@ -16,8 +16,10 @@ class ExodusOverseer extends Mobile {
 		$this->str = rand(561, 650);
 		$this->dex = rand(76, 95);
 		$this->int = rand(61, 90);
-		$this->hits = 13;
-		$this->maxhits = 19;
+		$this->maxhits = rand(331, 390);
+		$this->hits = $this->maxhits;
+		$this->damage = 13;
+		$this->damageMax = 19;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(40, 60);
 		$this->resist_cold = rand(25, 35);

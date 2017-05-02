@@ -16,8 +16,10 @@ class BlackBear extends Mobile {
 		$this->str = rand(76, 100);
 		$this->dex = rand(56, 75);
 		$this->int = rand(11, 14);
-		$this->hits = 4;
-		$this->maxhits = 10;
+		$this->maxhits = rand(46, 60);
+		$this->hits = $this->maxhits;
+		$this->damage = 4;
+		$this->damageMax = 10;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(10, 15);

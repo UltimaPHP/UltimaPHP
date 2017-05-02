@@ -16,8 +16,10 @@ class Troglodyte extends Mobile {
 		$this->str = rand(148, 217);
 		$this->dex = rand(91, 120);
 		$this->int = rand(51, 70);
-		$this->hits = 11;
-		$this->maxhits = 14;
+		$this->maxhits = rand(302, 340);
+		$this->hits = $this->maxhits;
+		$this->damage = 11;
+		$this->damageMax = 14;
 		$this->resist_physical = rand(30, 35);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(35, 40);

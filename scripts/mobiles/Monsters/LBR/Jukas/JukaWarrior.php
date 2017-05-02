@@ -16,8 +16,10 @@ class JukaWarrior extends Mobile {
 		$this->str = rand(251, 350);
 		$this->dex = rand(61, 80);
 		$this->int = rand(101, 150);
-		$this->hits = 7;
-		$this->maxhits = 9;
+		$this->maxhits = rand(151, 210);
+		$this->hits = $this->maxhits;
+		$this->damage = 7;
+		$this->damageMax = 9;
 		$this->resist_physical = rand(40, 50);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(25, 35);

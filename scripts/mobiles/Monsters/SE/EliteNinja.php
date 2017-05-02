@@ -16,8 +16,10 @@ class EliteNinja extends Mobile {
 		$this->str = rand(126, 225);
 		$this->dex = rand(81, 95);
 		$this->int = rand(151, 165);
-		$this->hits = 12;
-		$this->maxhits = 20;
+		$this->maxhits = rand(251, 350);
+		$this->hits = $this->maxhits;
+		$this->damage = 12;
+		$this->damageMax = 20;
 		$this->resist_physical = rand(35, 65);
 		$this->resist_fire = rand(40, 60);
 		$this->resist_cold = rand(25, 45);

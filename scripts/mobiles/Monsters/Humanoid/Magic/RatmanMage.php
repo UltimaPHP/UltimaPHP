@@ -16,8 +16,10 @@ class RatmanMage extends Mobile {
 		$this->str = rand(146, 180);
 		$this->dex = rand(101, 130);
 		$this->int = rand(186, 210);
-		$this->hits = 7;
-		$this->maxhits = 14;
+		$this->maxhits = rand(88, 108);
+		$this->hits = $this->maxhits;
+		$this->damage = 7;
+		$this->damageMax = 14;
 		$this->resist_physical = rand(40, 45);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(10, 20);

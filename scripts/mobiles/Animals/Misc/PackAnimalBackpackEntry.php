@@ -16,8 +16,10 @@ class PackAnimalBackpackEntry extends Mobile {
 		$this->str = rand(44, 120);
 		$this->dex = rand(36, 55);
 		$this->int = rand(6, 10);
-		$this->hits = 5;
-		$this->maxhits = 11;
+		$this->maxhits = rand(61, 80);
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 11;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = rand(10, 15);
 		$this->resist_cold = rand(20, 25);

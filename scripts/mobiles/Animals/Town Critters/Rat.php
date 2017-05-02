@@ -16,8 +16,10 @@ class Rat extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 1;
-		$this->maxhits = 2;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 1;
+		$this->damageMax = 2;
 		$this->resist_physical = rand(5, 10);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

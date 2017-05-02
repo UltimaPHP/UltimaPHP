@@ -16,8 +16,10 @@ class Impaler extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 31;
-		$this->maxhits = 35;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 31;
+		$this->damageMax = 35;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

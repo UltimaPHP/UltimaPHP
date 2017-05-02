@@ -16,8 +16,10 @@ class Slime extends Mobile {
 		$this->str = rand(22, 34);
 		$this->dex = rand(16, 21);
 		$this->int = rand(16, 20);
-		$this->hits = 1;
-		$this->maxhits = 5;
+		$this->maxhits = rand(15, 19);
+		$this->hits = $this->maxhits;
+		$this->damage = 1;
+		$this->damageMax = 5;
 		$this->resist_physical = rand(5, 10);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

@@ -16,8 +16,10 @@ class ElderGazer extends Mobile {
 		$this->str = rand(296, 325);
 		$this->dex = rand(86, 105);
 		$this->int = rand(291, 385);
-		$this->hits = 8;
-		$this->maxhits = 19;
+		$this->maxhits = rand(178, 195);
+		$this->hits = $this->maxhits;
+		$this->damage = 8;
+		$this->damageMax = 19;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(60, 70);
 		$this->resist_cold = rand(40, 50);

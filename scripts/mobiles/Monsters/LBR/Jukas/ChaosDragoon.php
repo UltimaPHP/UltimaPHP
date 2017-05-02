@@ -16,8 +16,10 @@ class ChaosDragoon extends Mobile {
 		$this->str = rand(176, 225);
 		$this->dex = rand(81, 95);
 		$this->int = rand(61, 85);
-		$this->hits = 24;
-		$this->maxhits = 26;
+		$this->maxhits = rand(176, 225);
+		$this->hits = $this->maxhits;
+		$this->damage = 24;
+		$this->damageMax = 26;
 		$this->resist_physical = rand(25, 38);
 		$this->resist_fire = rand(25, 38);
 		$this->resist_cold = rand(25, 38);

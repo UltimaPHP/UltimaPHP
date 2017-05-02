@@ -16,8 +16,10 @@ class SkitteringHopper extends Mobile {
 		$this->str = rand(41, 65);
 		$this->dex = rand(91, 115);
 		$this->int = rand(26, 50);
-		$this->hits = 3;
-		$this->maxhits = 5;
+		$this->maxhits = rand(31, 45);
+		$this->hits = $this->maxhits;
+		$this->damage = 3;
+		$this->damageMax = 5;
 		$this->resist_physical = rand(5, 10);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(10, 20);

@@ -16,8 +16,10 @@ class WhippingVine extends Mobile {
 		$this->str = rand(251, 300);
 		$this->dex = rand(76, 100);
 		$this->int = rand(26, 40);
-		$this->hits = 7;
-		$this->maxhits = 25;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 7;
+		$this->damageMax = 25;
 		$this->resist_physical = rand(75, 85);
 		$this->resist_fire = rand(15, 25);
 		$this->resist_cold = rand(15, 25);

@@ -16,8 +16,10 @@ class RatmanArcher extends Mobile {
 		$this->str = rand(146, 180);
 		$this->dex = rand(101, 130);
 		$this->int = rand(116, 140);
-		$this->hits = 4;
-		$this->maxhits = 10;
+		$this->maxhits = rand(88, 108);
+		$this->hits = $this->maxhits;
+		$this->damage = 4;
+		$this->damageMax = 10;
 		$this->resist_physical = rand(40, 55);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(10, 20);

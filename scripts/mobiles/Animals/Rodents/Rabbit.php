@@ -16,8 +16,10 @@ class Rabbit extends Mobile {
 		$this->str = rand(6, 10);
 		$this->dex = rand(26, 38);
 		$this->int = rand(6, 14);
-		$this->hits = 0;
-		$this->maxhits = 0;
+		$this->maxhits = rand(4, 6);
+		$this->hits = $this->maxhits;
+		$this->damage = 0;
+		$this->damageMax = 0;
 		$this->resist_physical = rand(5, 10);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

@@ -16,8 +16,10 @@ class Gargoyle extends Mobile {
 		$this->str = rand(146, 175);
 		$this->dex = rand(76, 95);
 		$this->int = rand(81, 105);
-		$this->hits = 7;
-		$this->maxhits = 14;
+		$this->maxhits = rand(88, 105);
+		$this->hits = $this->maxhits;
+		$this->damage = 7;
+		$this->damageMax = 14;
 		$this->resist_physical = rand(30, 35);
 		$this->resist_fire = rand(25, 35);
 		$this->resist_cold = rand(5, 10);

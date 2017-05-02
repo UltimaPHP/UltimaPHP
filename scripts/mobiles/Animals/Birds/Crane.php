@@ -16,8 +16,10 @@ class Crane extends Mobile {
 		$this->str = rand(26, 35);
 		$this->dex = rand(16, 25);
 		$this->int = rand(11, 15);
-		$this->hits = 1;
-		$this->maxhits = 1;
+		$this->maxhits = rand(26, 35);
+		$this->hits = $this->maxhits;
+		$this->damage = 1;
+		$this->damageMax = 1;
 		$this->resist_physical = rand(5, 5);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

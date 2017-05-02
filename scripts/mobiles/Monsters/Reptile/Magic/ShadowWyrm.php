@@ -16,8 +16,10 @@ class ShadowWyrm extends Mobile {
 		$this->str = rand(898, 1030);
 		$this->dex = rand(68, 200);
 		$this->int = rand(488, 620);
-		$this->hits = 29;
-		$this->maxhits = 35;
+		$this->maxhits = rand(558, 599);
+		$this->hits = $this->maxhits;
+		$this->damage = 29;
+		$this->damageMax = 35;
 		$this->resist_physical = rand(65, 75);
 		$this->resist_fire = rand(50, 60);
 		$this->resist_cold = rand(45, 55);

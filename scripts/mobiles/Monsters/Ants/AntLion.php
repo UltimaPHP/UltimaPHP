@@ -16,8 +16,10 @@ class AntLion extends Mobile {
 		$this->str = rand(296, 320);
 		$this->dex = rand(81, 105);
 		$this->int = rand(36, 60);
-		$this->hits = 7;
-		$this->maxhits = 21;
+		$this->maxhits = rand(151, 162);
+		$this->hits = $this->maxhits;
+		$this->damage = 7;
+		$this->damageMax = 21;
 		$this->resist_physical = rand(45, 60);
 		$this->resist_fire = rand(25, 35);
 		$this->resist_cold = rand(30, 40);

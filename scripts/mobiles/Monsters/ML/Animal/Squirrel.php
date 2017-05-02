@@ -16,8 +16,10 @@ class Squirrel extends Mobile {
 		$this->str = rand(44, 50);
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 1;
-		$this->maxhits = 2;
+		$this->maxhits = rand(42, 50);
+		$this->hits = $this->maxhits;
+		$this->damage = 1;
+		$this->damageMax = 2;
 		$this->resist_physical = rand(30, 34);
 		$this->resist_fire = rand(10, 14);
 		$this->resist_cold = rand(30, 35);

@@ -16,8 +16,10 @@ class Ettin extends Mobile {
 		$this->str = rand(136, 165);
 		$this->dex = rand(56, 75);
 		$this->int = rand(31, 55);
-		$this->hits = 7;
-		$this->maxhits = 17;
+		$this->maxhits = rand(82, 99);
+		$this->hits = $this->maxhits;
+		$this->damage = 7;
+		$this->damageMax = 17;
 		$this->resist_physical = rand(35, 40);
 		$this->resist_fire = rand(15, 25);
 		$this->resist_cold = rand(40, 50);

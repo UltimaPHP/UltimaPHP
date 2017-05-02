@@ -16,8 +16,10 @@ class Reaper extends Mobile {
 		$this->str = rand(66, 215);
 		$this->dex = rand(66, 75);
 		$this->int = rand(101, 250);
-		$this->hits = 9;
-		$this->maxhits = 11;
+		$this->maxhits = rand(40, 129);
+		$this->hits = $this->maxhits;
+		$this->damage = 9;
+		$this->damageMax = 11;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(15, 25);
 		$this->resist_cold = rand(10, 20);

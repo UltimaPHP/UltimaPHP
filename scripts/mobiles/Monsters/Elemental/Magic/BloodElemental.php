@@ -16,8 +16,10 @@ class BloodElemental extends Mobile {
 		$this->str = rand(526, 615);
 		$this->dex = rand(66, 85);
 		$this->int = rand(226, 350);
-		$this->hits = 17;
-		$this->maxhits = 27;
+		$this->maxhits = rand(316, 369);
+		$this->hits = $this->maxhits;
+		$this->damage = 17;
+		$this->damageMax = 27;
 		$this->resist_physical = rand(55, 65);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(40, 50);

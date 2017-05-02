@@ -16,8 +16,10 @@ class DarkWisp extends Mobile {
 		$this->str = rand(196, 225);
 		$this->dex = rand(196, 225);
 		$this->int = rand(196, 225);
-		$this->hits = 17;
-		$this->maxhits = 18;
+		$this->maxhits = rand(118, 135);
+		$this->hits = $this->maxhits;
+		$this->damage = 17;
+		$this->damageMax = 18;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(20, 40);
 		$this->resist_cold = rand(10, 30);

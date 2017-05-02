@@ -16,8 +16,10 @@ class Devourer extends Mobile {
 		$this->str = rand(801, 950);
 		$this->dex = rand(126, 175);
 		$this->int = rand(201, 250);
-		$this->hits = 22;
-		$this->maxhits = 26;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 22;
+		$this->damageMax = 26;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(25, 35);
 		$this->resist_cold = rand(15, 25);

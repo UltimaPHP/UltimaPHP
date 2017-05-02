@@ -16,8 +16,10 @@ class FrostSpider extends Mobile {
 		$this->str = rand(76, 100);
 		$this->dex = rand(126, 145);
 		$this->int = rand(36, 60);
-		$this->hits = 6;
-		$this->maxhits = 16;
+		$this->maxhits = rand(46, 60);
+		$this->hits = $this->maxhits;
+		$this->damage = 6;
+		$this->damageMax = 16;
 		$this->resist_physical = rand(25, 30);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = rand(40, 50);

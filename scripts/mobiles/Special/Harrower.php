@@ -16,8 +16,10 @@ class Harrower extends Mobile {
 		$this->str = rand(900, 1000);
 		$this->dex = rand(125, 135);
 		$this->int = rand(1000, 1200);
-		$this->hits = 0;
 		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 0;
+		$this->damageMax = 0;
 		$this->resist_physical = rand(55, 65);
 		$this->resist_fire = rand(60, 80);
 		$this->resist_cold = rand(60, 80);

@@ -16,8 +16,10 @@ class Efreet extends Mobile {
 		$this->str = rand(326, 355);
 		$this->dex = rand(266, 285);
 		$this->int = rand(171, 195);
-		$this->hits = 11;
-		$this->maxhits = 13;
+		$this->maxhits = rand(196, 213);
+		$this->hits = $this->maxhits;
+		$this->damage = 11;
+		$this->damageMax = 13;
 		$this->resist_physical = rand(50, 60);
 		$this->resist_fire = rand(60, 70);
 		$this->resist_cold = 0;

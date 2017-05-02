@@ -16,8 +16,10 @@ class OrcishMage extends Mobile {
 		$this->str = rand(116, 150);
 		$this->dex = rand(91, 115);
 		$this->int = rand(161, 185);
-		$this->hits = 4;
-		$this->maxhits = 14;
+		$this->maxhits = rand(70, 90);
+		$this->hits = $this->maxhits;
+		$this->damage = 4;
+		$this->damageMax = 14;
 		$this->resist_physical = rand(25, 35);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(20, 30);

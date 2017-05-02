@@ -16,8 +16,10 @@ class GreatHart extends Mobile {
 		$this->str = rand(41, 71);
 		$this->dex = rand(47, 77);
 		$this->int = rand(27, 57);
-		$this->hits = 5;
-		$this->maxhits = 9;
+		$this->maxhits = rand(27, 41);
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 9;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(5, 10);

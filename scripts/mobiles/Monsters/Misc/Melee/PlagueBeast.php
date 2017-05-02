@@ -16,8 +16,10 @@ class PlagueBeast extends Mobile {
 		$this->str = rand(302, 500);
 		$this->dex = 0;
 		$this->int = rand(16, 20);
-		$this->hits = 20;
-		$this->maxhits = 24;
+		$this->maxhits = rand(318, 404);
+		$this->hits = $this->maxhits;
+		$this->damage = 20;
+		$this->damageMax = 24;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(25, 35);

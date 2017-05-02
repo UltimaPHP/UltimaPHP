@@ -16,8 +16,10 @@ class BrownBear extends Mobile {
 		$this->str = rand(76, 100);
 		$this->dex = rand(26, 45);
 		$this->int = rand(23, 47);
-		$this->hits = 6;
-		$this->maxhits = 12;
+		$this->maxhits = rand(46, 60);
+		$this->hits = $this->maxhits;
+		$this->damage = 6;
+		$this->damageMax = 12;
 		$this->resist_physical = rand(20, 30);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(15, 20);

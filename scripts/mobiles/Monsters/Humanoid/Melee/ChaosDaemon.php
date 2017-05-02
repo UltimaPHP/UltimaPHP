@@ -16,8 +16,10 @@ class ChaosDaemon extends Mobile {
 		$this->str = rand(106, 130);
 		$this->dex = rand(171, 200);
 		$this->int = rand(56, 80);
-		$this->hits = 12;
-		$this->maxhits = 17;
+		$this->maxhits = rand(91, 110);
+		$this->hits = $this->maxhits;
+		$this->damage = 12;
+		$this->damageMax = 17;
 		$this->resist_physical = rand(50, 60);
 		$this->resist_fire = rand(60, 70);
 		$this->resist_cold = rand(40, 50);

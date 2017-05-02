@@ -16,8 +16,10 @@ class GiantSerpent extends Mobile {
 		$this->str = rand(186, 215);
 		$this->dex = rand(56, 80);
 		$this->int = rand(66, 85);
-		$this->hits = 7;
-		$this->maxhits = 17;
+		$this->maxhits = rand(112, 129);
+		$this->hits = $this->maxhits;
+		$this->damage = 7;
+		$this->damageMax = 17;
 		$this->resist_physical = rand(30, 35);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = rand(10, 20);

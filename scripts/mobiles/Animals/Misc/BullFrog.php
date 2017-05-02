@@ -16,8 +16,10 @@ class BullFrog extends Mobile {
 		$this->str = rand(46, 70);
 		$this->dex = rand(6, 25);
 		$this->int = rand(11, 20);
-		$this->hits = 1;
-		$this->maxhits = 2;
+		$this->maxhits = rand(28, 42);
+		$this->hits = $this->maxhits;
+		$this->damage = 1;
+		$this->damageMax = 2;
 		$this->resist_physical = rand(5, 10);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

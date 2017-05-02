@@ -16,8 +16,10 @@ class YomotsuElder extends Mobile {
 		$this->str = rand(686, 830);
 		$this->dex = rand(251, 365);
 		$this->int = rand(17, 31);
-		$this->hits = 19;
-		$this->maxhits = 27;
+		$this->maxhits = rand(801, 900);
+		$this->hits = $this->maxhits;
+		$this->damage = 19;
+		$this->damageMax = 27;
 		$this->resist_physical = rand(65, 85);
 		$this->resist_fire = rand(30, 50);
 		$this->resist_cold = rand(45, 65);

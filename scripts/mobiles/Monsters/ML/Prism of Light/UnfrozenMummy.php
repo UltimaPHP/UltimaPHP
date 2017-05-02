@@ -16,8 +16,10 @@ class UnfrozenMummy extends Mobile {
 		$this->str = rand(450, 500);
 		$this->dex = rand(200, 250);
 		$this->int = rand(800, 850);
-		$this->hits = 16;
-		$this->maxhits = 20;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 16;
+		$this->damageMax = 20;
 		$this->resist_physical = rand(35, 40);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(60, 80);

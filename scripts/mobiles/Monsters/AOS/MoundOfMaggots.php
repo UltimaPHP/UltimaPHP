@@ -16,8 +16,10 @@ class MoundOfMaggots extends Mobile {
 		$this->str = rand(61, 70);
 		$this->dex = rand(61, 70);
 		$this->int = 0;
-		$this->hits = 3;
-		$this->maxhits = 9;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 3;
+		$this->damageMax = 9;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

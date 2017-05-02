@@ -16,8 +16,10 @@ class HordeMinion extends Mobile {
 		$this->str = rand(16, 40);
 		$this->dex = rand(31, 60);
 		$this->int = rand(11, 25);
-		$this->hits = 5;
-		$this->maxhits = 10;
+		$this->maxhits = rand(10, 24);
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 10;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = 0;

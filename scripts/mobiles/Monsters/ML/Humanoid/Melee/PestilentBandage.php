@@ -16,8 +16,10 @@ class PestilentBandage extends Mobile {
 		$this->str = rand(691, 740);
 		$this->dex = rand(141, 180);
 		$this->int = rand(51, 80);
-		$this->hits = 13;
-		$this->maxhits = 23;
+		$this->maxhits = rand(415, 445);
+		$this->hits = $this->maxhits;
+		$this->damage = 13;
+		$this->damageMax = 23;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(50, 60);

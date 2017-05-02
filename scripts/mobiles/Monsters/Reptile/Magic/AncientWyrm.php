@@ -16,8 +16,10 @@ class AncientWyrm extends Mobile {
 		$this->str = rand(1096, 1185);
 		$this->dex = rand(86, 175);
 		$this->int = rand(686, 775);
-		$this->hits = 29;
-		$this->maxhits = 35;
+		$this->maxhits = rand(658, 711);
+		$this->hits = $this->maxhits;
+		$this->damage = 29;
+		$this->damageMax = 35;
 		$this->resist_physical = rand(65, 75);
 		$this->resist_fire = rand(80, 90);
 		$this->resist_cold = rand(70, 80);

@@ -16,8 +16,10 @@ class GiantSpider extends Mobile {
 		$this->str = rand(76, 100);
 		$this->dex = rand(76, 95);
 		$this->int = rand(36, 60);
-		$this->hits = 5;
-		$this->maxhits = 13;
+		$this->maxhits = rand(46, 60);
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 13;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

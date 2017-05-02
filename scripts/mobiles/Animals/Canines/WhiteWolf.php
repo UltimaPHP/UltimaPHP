@@ -16,8 +16,10 @@ class WhiteWolf extends Mobile {
 		$this->str = rand(56, 80);
 		$this->dex = rand(56, 75);
 		$this->int = rand(31, 55);
-		$this->hits = 3;
-		$this->maxhits = 7;
+		$this->maxhits = rand(34, 48);
+		$this->hits = $this->maxhits;
+		$this->damage = 3;
+		$this->damageMax = 7;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = rand(10, 15);
 		$this->resist_cold = rand(20, 25);

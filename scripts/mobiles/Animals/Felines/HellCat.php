@@ -16,8 +16,10 @@ class HellCat extends Mobile {
 		$this->str = rand(51, 100);
 		$this->dex = rand(52, 150);
 		$this->int = rand(13, 85);
-		$this->hits = 6;
-		$this->maxhits = 12;
+		$this->maxhits = rand(48, 67);
+		$this->hits = $this->maxhits;
+		$this->damage = 6;
+		$this->damageMax = 12;
 		$this->resist_physical = rand(25, 35);
 		$this->resist_fire = rand(80, 90);
 		$this->resist_cold = 0;

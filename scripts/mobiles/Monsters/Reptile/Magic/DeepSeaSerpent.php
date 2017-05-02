@@ -16,8 +16,10 @@ class DeepSeaSerpent extends Mobile {
 		$this->str = rand(251, 425);
 		$this->dex = rand(87, 135);
 		$this->int = rand(87, 155);
-		$this->hits = 6;
-		$this->maxhits = 14;
+		$this->maxhits = rand(151, 255);
+		$this->hits = $this->maxhits;
+		$this->damage = 6;
+		$this->damageMax = 14;
 		$this->resist_physical = rand(30, 40);
 		$this->resist_fire = rand(70, 80);
 		$this->resist_cold = rand(40, 50);

@@ -16,8 +16,10 @@ class Scorpion extends Mobile {
 		$this->str = rand(73, 115);
 		$this->dex = rand(76, 95);
 		$this->int = rand(16, 30);
-		$this->hits = 5;
-		$this->maxhits = 10;
+		$this->maxhits = rand(50, 63);
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 10;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = rand(10, 15);
 		$this->resist_cold = rand(20, 25);

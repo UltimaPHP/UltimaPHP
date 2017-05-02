@@ -16,8 +16,10 @@ class Moloch extends Mobile {
 		$this->str = rand(331, 360);
 		$this->dex = rand(66, 85);
 		$this->int = rand(41, 65);
-		$this->hits = 15;
-		$this->maxhits = 23;
+		$this->maxhits = rand(171, 200);
+		$this->hits = $this->maxhits;
+		$this->damage = 15;
+		$this->damageMax = 23;
 		$this->resist_physical = rand(60, 70);
 		$this->resist_fire = rand(60, 70);
 		$this->resist_cold = rand(40, 50);

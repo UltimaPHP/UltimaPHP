@@ -16,8 +16,10 @@ class AbandonEscortEntry extends Mobile {
 		$this->str = rand(90, 100);
 		$this->dex = rand(90, 100);
 		$this->int = rand(15, 25);
-		$this->hits = 0;
 		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 0;
+		$this->damageMax = 0;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

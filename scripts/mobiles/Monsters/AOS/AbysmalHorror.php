@@ -16,8 +16,10 @@ class AbysmalHorror extends Mobile {
 		$this->str = rand(401, 420);
 		$this->dex = rand(81, 90);
 		$this->int = rand(401, 420);
-		$this->hits = 13;
-		$this->maxhits = 17;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 13;
+		$this->damageMax = 17;
 		$this->resist_physical = rand(30, 35);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(50, 55);

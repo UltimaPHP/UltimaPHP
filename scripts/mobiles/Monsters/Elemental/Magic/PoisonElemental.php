@@ -16,8 +16,10 @@ class PoisonElemental extends Mobile {
 		$this->str = rand(426, 515);
 		$this->dex = rand(166, 185);
 		$this->int = rand(361, 435);
-		$this->hits = 12;
-		$this->maxhits = 18;
+		$this->maxhits = rand(256, 309);
+		$this->hits = $this->maxhits;
+		$this->damage = 12;
+		$this->damageMax = 18;
 		$this->resist_physical = rand(60, 70);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(20, 30);

@@ -16,8 +16,10 @@ class Walrus extends Mobile {
 		$this->str = rand(21, 29);
 		$this->dex = rand(46, 55);
 		$this->int = rand(16, 20);
-		$this->hits = 4;
-		$this->maxhits = 10;
+		$this->maxhits = rand(14, 17);
+		$this->hits = $this->maxhits;
+		$this->damage = 4;
+		$this->damageMax = 10;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = rand(20, 25);

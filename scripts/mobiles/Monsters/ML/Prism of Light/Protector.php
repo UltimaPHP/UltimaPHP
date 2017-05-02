@@ -16,8 +16,10 @@ class Protector extends Mobile {
 		$this->str = rand(700, 800);
 		$this->dex = rand(100, 150);
 		$this->int = rand(50, 75);
-		$this->hits = 6;
-		$this->maxhits = 12;
+		$this->maxhits = rand(350, 450);
+		$this->hits = $this->maxhits;
+		$this->damage = 6;
+		$this->damageMax = 12;
 		$this->resist_physical = rand(30, 40);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(35, 40);

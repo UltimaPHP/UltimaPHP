@@ -16,8 +16,10 @@ class StoneHarpy extends Mobile {
 		$this->str = rand(296, 320);
 		$this->dex = rand(86, 110);
 		$this->int = rand(51, 75);
-		$this->hits = 8;
-		$this->maxhits = 16;
+		$this->maxhits = rand(178, 192);
+		$this->hits = $this->maxhits;
+		$this->damage = 8;
+		$this->damageMax = 16;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(10, 20);

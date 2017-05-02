@@ -16,8 +16,10 @@ class EnslavedGargoyle extends Mobile {
 		$this->str = rand(302, 360);
 		$this->dex = rand(76, 95);
 		$this->int = rand(81, 105);
-		$this->hits = 7;
-		$this->maxhits = 14;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 7;
+		$this->damageMax = 14;
 		$this->resist_physical = rand(30, 40);
 		$this->resist_fire = rand(50, 70);
 		$this->resist_cold = rand(15, 25);

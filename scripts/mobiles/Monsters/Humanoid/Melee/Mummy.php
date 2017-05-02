@@ -16,8 +16,10 @@ class Mummy extends Mobile {
 		$this->str = rand(346, 370);
 		$this->dex = rand(71, 90);
 		$this->int = rand(26, 40);
-		$this->hits = 13;
-		$this->maxhits = 23;
+		$this->maxhits = rand(208, 222);
+		$this->hits = $this->maxhits;
+		$this->damage = 13;
+		$this->damageMax = 23;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(50, 60);

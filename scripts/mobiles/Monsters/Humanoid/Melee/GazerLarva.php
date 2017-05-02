@@ -16,8 +16,10 @@ class GazerLarva extends Mobile {
 		$this->str = rand(76, 100);
 		$this->dex = rand(51, 75);
 		$this->int = rand(56, 80);
-		$this->hits = 2;
-		$this->maxhits = 9;
+		$this->maxhits = rand(36, 47);
+		$this->hits = $this->maxhits;
+		$this->damage = 2;
+		$this->damageMax = 9;
 		$this->resist_physical = rand(15, 25);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

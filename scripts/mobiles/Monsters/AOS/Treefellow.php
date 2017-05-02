@@ -16,8 +16,10 @@ class Treefellow extends Mobile {
 		$this->str = rand(196, 220);
 		$this->dex = rand(31, 55);
 		$this->int = rand(66, 90);
-		$this->hits = 12;
-		$this->maxhits = 16;
+		$this->maxhits = rand(118, 132);
+		$this->hits = $this->maxhits;
+		$this->damage = 12;
+		$this->damageMax = 16;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(50, 60);

@@ -16,8 +16,10 @@ class BaseEnraged extends Mobile {
 		$this->str = rand(50, 200);
 		$this->dex = rand(50, 200);
 		$this->int = 0;
-		$this->hits = 0;
-		$this->maxhits = 0;
+		$this->maxhits = rand(50, 200);
+		$this->hits = $this->maxhits;
+		$this->damage = 0;
+		$this->damageMax = 0;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

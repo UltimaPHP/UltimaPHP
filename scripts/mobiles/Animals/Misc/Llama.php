@@ -16,8 +16,10 @@ class Llama extends Mobile {
 		$this->str = rand(21, 49);
 		$this->dex = rand(36, 55);
 		$this->int = rand(16, 30);
-		$this->hits = 3;
-		$this->maxhits = 5;
+		$this->maxhits = rand(15, 27);
+		$this->hits = $this->maxhits;
+		$this->damage = 3;
+		$this->damageMax = 5;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

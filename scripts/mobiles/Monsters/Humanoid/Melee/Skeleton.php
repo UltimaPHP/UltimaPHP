@@ -16,8 +16,10 @@ class Skeleton extends Mobile {
 		$this->str = rand(56, 80);
 		$this->dex = rand(56, 75);
 		$this->int = rand(16, 40);
-		$this->hits = 3;
-		$this->maxhits = 7;
+		$this->maxhits = rand(34, 48);
+		$this->hits = $this->maxhits;
+		$this->damage = 3;
+		$this->damageMax = 7;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = rand(25, 40);

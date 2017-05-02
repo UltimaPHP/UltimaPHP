@@ -16,8 +16,10 @@ class KhaldunZealot extends Mobile {
 		$this->str = rand(351, 400);
 		$this->dex = rand(151, 165);
 		$this->int = rand(76, 100);
-		$this->hits = 15;
-		$this->maxhits = 25;
+		$this->maxhits = rand(448, 470);
+		$this->hits = $this->maxhits;
+		$this->damage = 15;
+		$this->damageMax = 25;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(25, 30);
 		$this->resist_cold = rand(50, 60);

@@ -16,8 +16,10 @@ class TormentedMinotaur extends Mobile {
 		$this->str = rand(822, 930);
 		$this->dex = rand(401, 415);
 		$this->int = rand(128, 138);
-		$this->hits = 16;
-		$this->maxhits = 30;
+		$this->maxhits = rand(4000, 4200);
+		$this->hits = $this->maxhits;
+		$this->damage = 16;
+		$this->damageMax = 30;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

@@ -16,8 +16,10 @@ class HarrowerTentacles extends Mobile {
 		$this->str = rand(901, 1000);
 		$this->dex = rand(126, 140);
 		$this->int = rand(1001, 1200);
-		$this->hits = 13;
-		$this->maxhits = 20;
+		$this->maxhits = rand(541, 600);
+		$this->hits = $this->maxhits;
+		$this->damage = 13;
+		$this->damageMax = 20;
 		$this->resist_physical = rand(55, 65);
 		$this->resist_fire = rand(35, 45);
 		$this->resist_cold = rand(35, 45);

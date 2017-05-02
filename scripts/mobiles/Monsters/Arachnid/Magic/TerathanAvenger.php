@@ -16,8 +16,10 @@ class TerathanAvenger extends Mobile {
 		$this->str = rand(467, 645);
 		$this->dex = rand(77, 95);
 		$this->int = rand(126, 150);
-		$this->hits = 18;
-		$this->maxhits = 22;
+		$this->maxhits = rand(296, 372);
+		$this->hits = $this->maxhits;
+		$this->damage = 18;
+		$this->damageMax = 22;
 		$this->resist_physical = rand(40, 50);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(35, 45);

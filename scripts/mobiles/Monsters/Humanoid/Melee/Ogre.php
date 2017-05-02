@@ -16,8 +16,10 @@ class Ogre extends Mobile {
 		$this->str = rand(166, 195);
 		$this->dex = rand(46, 65);
 		$this->int = rand(46, 70);
-		$this->hits = 9;
-		$this->maxhits = 11;
+		$this->maxhits = rand(100, 117);
+		$this->hits = $this->maxhits;
+		$this->damage = 9;
+		$this->damageMax = 11;
 		$this->resist_physical = rand(30, 35);
 		$this->resist_fire = rand(15, 25);
 		$this->resist_cold = rand(15, 25);

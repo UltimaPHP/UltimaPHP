@@ -16,8 +16,10 @@ class BoneDemon extends Mobile {
 		$this->str = 0;
 		$this->dex = rand(151, 175);
 		$this->int = rand(171, 220);
-		$this->hits = 34;
-		$this->maxhits = 36;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 34;
+		$this->damageMax = 36;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

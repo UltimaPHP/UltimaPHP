@@ -16,8 +16,10 @@ class Pig extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 2;
-		$this->maxhits = 4;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 2;
+		$this->damageMax = 4;
 		$this->resist_physical = rand(10, 15);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

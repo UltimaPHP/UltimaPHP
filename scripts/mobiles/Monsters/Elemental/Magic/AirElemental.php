@@ -16,8 +16,10 @@ class AirElemental extends Mobile {
 		$this->str = rand(126, 155);
 		$this->dex = rand(166, 185);
 		$this->int = rand(101, 125);
-		$this->hits = 8;
-		$this->maxhits = 10;
+		$this->maxhits = rand(76, 93);
+		$this->hits = $this->maxhits;
+		$this->damage = 8;
+		$this->damageMax = 10;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(15, 25);
 		$this->resist_cold = rand(10, 20);

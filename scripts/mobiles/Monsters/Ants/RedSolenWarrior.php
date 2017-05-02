@@ -16,8 +16,10 @@ class RedSolenWarrior extends Mobile {
 		$this->str = rand(196, 220);
 		$this->dex = rand(101, 125);
 		$this->int = rand(36, 60);
-		$this->hits = 5;
-		$this->maxhits = 15;
+		$this->maxhits = rand(96, 107);
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 15;
 		$this->resist_physical = rand(20, 35);
 		$this->resist_fire = rand(20, 35);
 		$this->resist_cold = rand(10, 25);

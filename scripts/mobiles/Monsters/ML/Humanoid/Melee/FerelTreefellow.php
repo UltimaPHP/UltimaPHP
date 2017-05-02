@@ -16,8 +16,10 @@ class FerelTreefellow extends Mobile {
 		$this->str = rand(1351, 1600);
 		$this->dex = rand(301, 550);
 		$this->int = rand(651, 900);
-		$this->hits = 26;
-		$this->maxhits = 35;
+		$this->maxhits = rand(1170, 1320);
+		$this->hits = $this->maxhits;
+		$this->damage = 26;
+		$this->damageMax = 35;
 		$this->resist_physical = rand(60, 70);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(70, 80);

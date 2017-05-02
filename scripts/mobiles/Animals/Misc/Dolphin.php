@@ -16,8 +16,10 @@ class Dolphin extends Mobile {
 		$this->str = rand(21, 49);
 		$this->dex = rand(66, 85);
 		$this->int = rand(96, 110);
-		$this->hits = 3;
-		$this->maxhits = 6;
+		$this->maxhits = rand(15, 27);
+		$this->hits = $this->maxhits;
+		$this->damage = 3;
+		$this->damageMax = 6;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = rand(70, 80);
 		$this->resist_cold = rand(25, 30);

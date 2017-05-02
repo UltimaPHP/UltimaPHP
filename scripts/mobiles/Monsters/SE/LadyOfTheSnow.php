@@ -16,8 +16,10 @@ class LadyOfTheSnow extends Mobile {
 		$this->str = rand(276, 305);
 		$this->dex = rand(106, 125);
 		$this->int = rand(471, 495);
-		$this->hits = 13;
-		$this->maxhits = 20;
+		$this->maxhits = rand(596, 625);
+		$this->hits = $this->maxhits;
+		$this->damage = 13;
+		$this->damageMax = 20;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(40, 55);
 		$this->resist_cold = rand(70, 90);

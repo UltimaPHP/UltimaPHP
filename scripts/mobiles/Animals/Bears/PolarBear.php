@@ -16,8 +16,10 @@ class PolarBear extends Mobile {
 		$this->str = rand(116, 140);
 		$this->dex = rand(81, 105);
 		$this->int = rand(26, 50);
-		$this->hits = 7;
-		$this->maxhits = 12;
+		$this->maxhits = rand(70, 84);
+		$this->hits = $this->maxhits;
+		$this->damage = 7;
+		$this->damageMax = 12;
 		$this->resist_physical = rand(25, 35);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(60, 80);

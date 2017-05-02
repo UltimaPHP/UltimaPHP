@@ -16,8 +16,10 @@ class Centaur extends Mobile {
 		$this->str = rand(202, 300);
 		$this->dex = rand(104, 260);
 		$this->int = rand(91, 100);
-		$this->hits = 13;
-		$this->maxhits = 24;
+		$this->maxhits = rand(130, 172);
+		$this->hits = $this->maxhits;
+		$this->damage = 13;
+		$this->damageMax = 24;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(35, 45);
 		$this->resist_cold = rand(25, 35);

@@ -16,8 +16,10 @@ class AncientLich extends Mobile {
 		$this->str = rand(216, 305);
 		$this->dex = rand(96, 115);
 		$this->int = rand(966, 1045);
-		$this->hits = 15;
-		$this->maxhits = 27;
+		$this->maxhits = rand(560, 595);
+		$this->hits = $this->maxhits;
+		$this->damage = 15;
+		$this->damageMax = 27;
 		$this->resist_physical = rand(55, 65);
 		$this->resist_fire = rand(25, 30);
 		$this->resist_cold = rand(50, 60);

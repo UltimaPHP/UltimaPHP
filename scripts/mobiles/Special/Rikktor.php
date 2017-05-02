@@ -16,8 +16,10 @@ class Rikktor extends Mobile {
 		$this->str = rand(701, 900);
 		$this->dex = rand(201, 350);
 		$this->int = rand(51, 100);
-		$this->hits = 28;
-		$this->maxhits = 55;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 28;
+		$this->damageMax = 55;
 		$this->resist_physical = rand(80, 90);
 		$this->resist_fire = rand(80, 90);
 		$this->resist_cold = rand(30, 40);

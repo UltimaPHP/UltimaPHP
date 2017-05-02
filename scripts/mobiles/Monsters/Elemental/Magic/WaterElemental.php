@@ -16,8 +16,10 @@ class WaterElemental extends Mobile {
 		$this->str = rand(126, 155);
 		$this->dex = rand(66, 85);
 		$this->int = rand(101, 125);
-		$this->hits = 7;
-		$this->maxhits = 9;
+		$this->maxhits = rand(76, 93);
+		$this->hits = $this->maxhits;
+		$this->damage = 7;
+		$this->damageMax = 9;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(10, 25);
 		$this->resist_cold = rand(10, 25);

@@ -16,8 +16,10 @@ class AcidElemental extends Mobile {
 		$this->str = rand(326, 355);
 		$this->dex = rand(66, 85);
 		$this->int = rand(271, 295);
-		$this->hits = 9;
-		$this->maxhits = 15;
+		$this->maxhits = rand(196, 213);
+		$this->hits = $this->maxhits;
+		$this->damage = 9;
+		$this->damageMax = 15;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(20, 30);

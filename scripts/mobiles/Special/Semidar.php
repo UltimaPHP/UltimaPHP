@@ -16,8 +16,10 @@ class Semidar extends Mobile {
 		$this->str = rand(502, 600);
 		$this->dex = rand(102, 200);
 		$this->int = rand(601, 750);
-		$this->hits = 29;
-		$this->maxhits = 35;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 29;
+		$this->damageMax = 35;
 		$this->resist_physical = rand(20, 30);
 		$this->resist_fire = rand(50, 60);
 		$this->resist_cold = rand(20, 30);

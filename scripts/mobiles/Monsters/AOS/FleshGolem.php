@@ -16,8 +16,10 @@ class FleshGolem extends Mobile {
 		$this->str = rand(176, 200);
 		$this->dex = rand(51, 75);
 		$this->int = rand(46, 70);
-		$this->hits = 18;
-		$this->maxhits = 22;
+		$this->maxhits = rand(106, 120);
+		$this->hits = $this->maxhits;
+		$this->damage = 18;
+		$this->damageMax = 22;
 		$this->resist_physical = rand(50, 60);
 		$this->resist_fire = rand(25, 35);
 		$this->resist_cold = rand(15, 25);

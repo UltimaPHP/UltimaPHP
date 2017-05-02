@@ -16,8 +16,10 @@ class SandVortex extends Mobile {
 		$this->str = rand(96, 120);
 		$this->dex = rand(171, 195);
 		$this->int = rand(76, 100);
-		$this->hits = 3;
-		$this->maxhits = 16;
+		$this->maxhits = rand(51, 62);
+		$this->hits = $this->maxhits;
+		$this->damage = 3;
+		$this->damageMax = 16;
 		$this->resist_physical = rand(80, 90);
 		$this->resist_fire = rand(60, 70);
 		$this->resist_cold = rand(60, 70);

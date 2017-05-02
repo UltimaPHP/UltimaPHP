@@ -16,8 +16,10 @@ class OrcCaptain extends Mobile {
 		$this->str = rand(111, 145);
 		$this->dex = rand(101, 135);
 		$this->int = rand(86, 110);
-		$this->hits = 5;
-		$this->maxhits = 15;
+		$this->maxhits = rand(67, 87);
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 15;
 		$this->resist_physical = rand(30, 35);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(15, 25);

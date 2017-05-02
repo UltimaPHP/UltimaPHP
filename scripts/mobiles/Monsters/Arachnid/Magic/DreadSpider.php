@@ -16,8 +16,10 @@ class DreadSpider extends Mobile {
 		$this->str = rand(196, 220);
 		$this->dex = rand(126, 145);
 		$this->int = rand(286, 310);
-		$this->hits = 5;
-		$this->maxhits = 17;
+		$this->maxhits = rand(118, 132);
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 17;
 		$this->resist_physical = rand(40, 50);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(20, 30);

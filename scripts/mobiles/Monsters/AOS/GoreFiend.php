@@ -16,8 +16,10 @@ class GoreFiend extends Mobile {
 		$this->str = rand(161, 185);
 		$this->dex = rand(41, 65);
 		$this->int = rand(46, 70);
-		$this->hits = 15;
-		$this->maxhits = 21;
+		$this->maxhits = rand(97, 111);
+		$this->hits = $this->maxhits;
+		$this->damage = 15;
+		$this->damageMax = 21;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(25, 35);
 		$this->resist_cold = rand(15, 25);

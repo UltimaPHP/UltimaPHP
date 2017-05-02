@@ -16,8 +16,10 @@ class DireWolf extends Mobile {
 		$this->str = rand(96, 120);
 		$this->dex = rand(81, 105);
 		$this->int = rand(36, 60);
-		$this->hits = 11;
-		$this->maxhits = 17;
+		$this->maxhits = rand(58, 72);
+		$this->hits = $this->maxhits;
+		$this->damage = 11;
+		$this->damageMax = 17;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(5, 10);

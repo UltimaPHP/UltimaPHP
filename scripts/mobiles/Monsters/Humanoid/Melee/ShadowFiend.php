@@ -16,8 +16,10 @@ class ShadowFiend extends Mobile {
 		$this->str = rand(46, 55);
 		$this->dex = rand(121, 130);
 		$this->int = rand(46, 55);
-		$this->hits = 10;
-		$this->maxhits = 22;
+		$this->maxhits = rand(28, 33);
+		$this->hits = $this->maxhits;
+		$this->damage = 10;
+		$this->damageMax = 22;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = rand(20, 25);
 		$this->resist_cold = rand(40, 45);

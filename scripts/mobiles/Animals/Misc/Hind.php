@@ -16,8 +16,10 @@ class Hind extends Mobile {
 		$this->str = rand(21, 51);
 		$this->dex = rand(47, 77);
 		$this->int = rand(17, 47);
-		$this->hits = 0;
-		$this->maxhits = 0;
+		$this->maxhits = rand(15, 29);
+		$this->hits = $this->maxhits;
+		$this->damage = 0;
+		$this->damageMax = 0;
 		$this->resist_physical = rand(5, 15);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

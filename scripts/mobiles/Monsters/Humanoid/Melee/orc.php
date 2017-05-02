@@ -16,8 +16,10 @@ class Orc extends Mobile {
 		$this->str = rand(96, 120);
 		$this->dex = rand(81, 105);
 		$this->int = rand(36, 60);
-		$this->hits = 5;
-		$this->maxhits = 7;
+		$this->maxhits = rand(58, 72);
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 7;
 		$this->resist_physical = rand(25, 30);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(10, 20);

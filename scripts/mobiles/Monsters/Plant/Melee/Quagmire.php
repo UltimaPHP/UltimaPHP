@@ -16,8 +16,10 @@ class Quagmire extends Mobile {
 		$this->str = rand(101, 130);
 		$this->dex = rand(66, 85);
 		$this->int = rand(31, 55);
-		$this->hits = 10;
-		$this->maxhits = 14;
+		$this->maxhits = rand(91, 105);
+		$this->hits = $this->maxhits;
+		$this->damage = 10;
+		$this->damageMax = 14;
 		$this->resist_physical = rand(50, 60);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(10, 20);

@@ -16,8 +16,10 @@ class WandererOfTheVoid extends Mobile {
 		$this->str = rand(111, 200);
 		$this->dex = rand(101, 125);
 		$this->int = rand(301, 390);
-		$this->hits = 11;
-		$this->maxhits = 13;
+		$this->maxhits = rand(351, 400);
+		$this->hits = $this->maxhits;
+		$this->damage = 11;
+		$this->damageMax = 13;
 		$this->resist_physical = rand(40, 50);
 		$this->resist_fire = rand(15, 25);
 		$this->resist_cold = rand(40, 50);

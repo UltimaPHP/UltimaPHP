@@ -16,8 +16,10 @@ class FireElemental extends Mobile {
 		$this->str = rand(126, 155);
 		$this->dex = rand(166, 185);
 		$this->int = rand(101, 125);
-		$this->hits = 7;
-		$this->maxhits = 9;
+		$this->maxhits = rand(76, 93);
+		$this->hits = $this->maxhits;
+		$this->damage = 7;
+		$this->damageMax = 9;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(60, 80);
 		$this->resist_cold = rand(5, 10);

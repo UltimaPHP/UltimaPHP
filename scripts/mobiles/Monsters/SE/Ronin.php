@@ -16,8 +16,10 @@ class Ronin extends Mobile {
 		$this->str = rand(326, 375);
 		$this->dex = rand(31, 45);
 		$this->int = rand(101, 110);
-		$this->hits = 17;
-		$this->maxhits = 25;
+		$this->maxhits = rand(301, 400);
+		$this->hits = $this->maxhits;
+		$this->damage = 17;
+		$this->damageMax = 25;
 		$this->resist_physical = rand(55, 75);
 		$this->resist_fire = rand(40, 60);
 		$this->resist_cold = rand(35, 55);

@@ -16,8 +16,10 @@ class BladeSpirits extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 10;
-		$this->maxhits = 14;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 10;
+		$this->damageMax = 14;
 		$this->resist_physical = rand(30, 40);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(30, 40);

@@ -16,8 +16,10 @@ class SummonedFireElemental extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 9;
-		$this->maxhits = 14;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 9;
+		$this->damageMax = 14;
 		$this->resist_physical = rand(50, 60);
 		$this->resist_fire = rand(70, 80);
 		$this->resist_cold = rand(0, 10);

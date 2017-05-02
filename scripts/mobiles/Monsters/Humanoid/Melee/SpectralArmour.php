@@ -16,8 +16,10 @@ class SpectralArmour extends Mobile {
 		$this->str = rand(101, 110);
 		$this->dex = rand(101, 110);
 		$this->int = rand(101, 110);
-		$this->hits = 10;
-		$this->maxhits = 22;
+		$this->maxhits = rand(178, 201);
+		$this->hits = $this->maxhits;
+		$this->damage = 10;
+		$this->damageMax = 22;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(30, 40);

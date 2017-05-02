@@ -16,8 +16,10 @@ class Twaulo extends Mobile {
 		$this->str = rand(1751, 1950);
 		$this->dex = rand(251, 450);
 		$this->int = rand(801, 1000);
-		$this->hits = 19;
-		$this->maxhits = 24;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 19;
+		$this->damageMax = 24;
 		$this->resist_physical = rand(65, 75);
 		$this->resist_fire = rand(45, 55);
 		$this->resist_cold = rand(50, 60);

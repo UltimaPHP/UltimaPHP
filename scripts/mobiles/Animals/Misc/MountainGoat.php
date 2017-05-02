@@ -16,8 +16,10 @@ class MountainGoat extends Mobile {
 		$this->str = rand(22, 64);
 		$this->dex = rand(56, 75);
 		$this->int = rand(16, 30);
-		$this->hits = 3;
-		$this->maxhits = 7;
+		$this->maxhits = rand(20, 33);
+		$this->hits = $this->maxhits;
+		$this->damage = 3;
+		$this->damageMax = 7;
 		$this->resist_physical = rand(10, 20);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = rand(10, 20);

@@ -16,8 +16,10 @@ class IceSerpent extends Mobile {
 		$this->str = rand(216, 245);
 		$this->dex = rand(26, 50);
 		$this->int = rand(66, 85);
-		$this->hits = 7;
-		$this->maxhits = 17;
+		$this->maxhits = rand(130, 147);
+		$this->hits = $this->maxhits;
+		$this->damage = 7;
+		$this->damageMax = 17;
 		$this->resist_physical = rand(30, 35);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(80, 90);

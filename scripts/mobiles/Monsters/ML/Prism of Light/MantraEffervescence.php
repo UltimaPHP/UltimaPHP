@@ -16,8 +16,10 @@ class MantraEffervescence extends Mobile {
 		$this->str = rand(130, 150);
 		$this->dex = rand(120, 130);
 		$this->int = rand(150, 230);
-		$this->hits = 21;
-		$this->maxhits = 25;
+		$this->maxhits = rand(150, 250);
+		$this->hits = $this->maxhits;
+		$this->damage = 21;
+		$this->damageMax = 25;
 		$this->resist_physical = rand(60, 65);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(40, 50);
