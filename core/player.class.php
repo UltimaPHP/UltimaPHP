@@ -303,7 +303,7 @@ class Player {
         if ($this->serial == $instance->serial) {
             return $this->openPaperdoll($serial, true);
         } else if ($instance->instanceType == UltimaPHP::INSTANCE_PLAYER) {
-            return $this->openPaperdoll($serial, (UltimaPHP::$socketClientes[$this->client]['account']->plevel > 1 ? true : false));
+            return $this->openPaperdoll($serial, (UltimaPHP::$socketClients[$this->client]['account']->plevel > 1 ? true : false));
         } else if ($instance->instanceType == UltimaPHP::INSTANCE_MOBILE) {
             // TODO: Detect if it's a humanoid mobile, if yes: open paperdoll
         } else if ($instance->instanceType == UltimaPHP::INSTANCE_OBJECT) {
@@ -318,9 +318,42 @@ class Player {
         if ($serial === null || $layer === null) {
             return false;
         }
-        
-        echo "Serial: ".$serial."\nLayer: ".$layer."\nContainer: ".$container;
 
+        $instance = Map::getBySerial($serial);
+
+        // Self equip
+        if ($container == $this->serial) {
+            echo "Self equiping\n";
+            return true;
+        }
+
+        $continer = Map::getBySerial($container);
+
+        if (!$container) {
+            return false;
+        } 
+
+        if ($container->instanceType == UltimaPHP::INSTANCE_PLAYER) {
+            if (UltimaPHP::$socketClients[$this->client]['plevel'] > UltimaPHP::$socketClients[$container->client]['plevel']) {
+                echo "Trying to equip another player\n";
+                return true;
+            }
+
+            new SysmessageCommand($client, ["Sorry, you have no privileges to change this player equipment."]);
+            return false;
+        }
+
+        if ($container->instanceType == UltimaPHP::INSTANCE_MOBILE) {
+            if (UltimaPHP::$socketClients[$this->client]['plevel'] > 1) {
+                echo "Trying to equip some mobile\n";
+                return true;
+            }
+
+            new SysmessageCommand($client, ["Sorry, you have no privileges to change this mobile equipment."]);
+            return false;
+        }
+
+        return false;
     }
     
 	/**

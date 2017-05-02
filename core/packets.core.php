@@ -362,9 +362,9 @@ class Packets {
      */
     public static function packet_0x13($data, $client) {
         $command   = $data[0];
-        $serial    = hexdec(Functions::implodeByte($data, 1, 4));
+        $serial    = $data[1] . $data[2] . $data[3] . $data[4];
         $layer     = $data[5];
-        $container = hexdec(Functions::implodeByte($data, 6, 9));
+        $container = $data[6] . $data[7] . $data[8] . $data[9];
 
         UltimaPHP::$socketClients[$client]['account']->player->equipRequest($serial, $layer, $container);
     }
