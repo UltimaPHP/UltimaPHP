@@ -250,6 +250,11 @@ class Player {
                 }
             }
 
+            /* Define player layers */
+            for ($i=1; $i<=29; $i++) {
+                $this->layers[$i] = null;
+            }
+
             /* Get player equipment from database*/
             // $query = "SELECT
             //             a.id,
@@ -265,10 +270,10 @@ class Player {
             // if (count($result) > 0) {
             // }
 
-
-        } else {
-            UltimaPHP::$socketClients[$this->client]['account']->disconnect();
+            return true;
         }
+        UltimaPHP::$socketClients[$this->client]['account']->disconnect();
+        return false;
     }
 
     public function click($serial = null) {
@@ -319,11 +324,25 @@ class Player {
             return false;
         }
 
-        $instance = Map::getBySerial($serial);
-
         // Self equip
         if ($container == $this->serial) {
-            echo "Self equiping\n";
+            // Something is already on the layer?
+            if ($this->layers[hexdec($layer)] !== null) {
+                // Unequip the item before equip new
+            }
+
+            $instance = Map::getBySerial($serial);
+            $this->layers[hexdec($layer)] = $instance;
+
+            Map::removeSerialData($serial);
+
+            /* Removes from everyone view range */
+            // $packet = "1D";
+            // $packet .= str_pad($instance->serial, 8, "0", STR_PAD_LEFT);
+            // Map::sendPacketRangePosition($packet, $instance->position);
+
+            $this->drawChar();
+            Map::updateChunk(null, $this->client);
             return true;
         }
 
@@ -612,8 +631,20 @@ class Player {
             $player = $this;
         }
 
+        $tmpEquips = "";
+        foreach ($player->layers as $layer => $instance) {
+            if ($instance !== null) {
+                $tmpEquips .= str_pad($instance->serial, 8, "0", STR_PAD_LEFT);
+                $tmpEquips .= str_pad(dechex(($instance->color > 0 ? ($instance->graphic | 0x8000) : $instance->graphic)), 4, "0", STR_PAD_LEFT);
+                $tmpEquips .= str_pad(dechex($instance->layer), 2, "0", STR_PAD_LEFT);
+                if ($instance->color > 0) {
+                    $tmpEquips .= str_pad(dechex($instance->color), 4, "0", STR_PAD_LEFT);
+                }
+            }
+        }
+
         $packet = "78";
-        $packet .= str_pad(dechex(23), 4, "0", STR_PAD_LEFT);
+        $packet .= str_pad(dechex(23 + ceil(strlen($tmpEquips) / 2)), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad($player->serial, 8, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($player->body), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($player->position['x']), 4, "0", STR_PAD_LEFT);
@@ -623,6 +654,7 @@ class Player {
         $packet .= str_pad(dechex($player->color), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex(0), 2, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex(1), 2, "0", STR_PAD_LEFT);
+        $packet .= $tmpEquips;
         $packet .= "00000000";
 
         Sockets::out($this->client, $packet, $runInLot);

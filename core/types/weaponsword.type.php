@@ -6,6 +6,6 @@
 class TypeWeaponSword extends Object {
     public function typeStart() {
         $this->equiped = false;
-        $this->layer   = ($this->twohands ? LayersDefs::TWOHANDED : LayersDefs::ONEHANDED);
+        $this->layer   = ($this->twohands ? LayersDefs::HAND_TWO : LayersDefs::HAND_ONE);
     }
 }

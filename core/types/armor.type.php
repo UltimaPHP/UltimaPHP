@@ -4,5 +4,8 @@
  * Version: 0.1 - Pre Alpha
  */
 class TypeArmor extends Object {
-	public function typeStart() {}
+	public function typeStart() {
+        $this->equiped = false;
+        $this->layer   = LayersDefs::INNER_TORSO;
+    }
 }

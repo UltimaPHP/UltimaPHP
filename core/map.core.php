@@ -265,6 +265,23 @@ class Map {
         ];
     }
 
+    public static function removeSerialData($serial = null) {
+        if ($serial === null) {
+            return false;
+        }
+
+        if (!isset(self::$serialData[$serial])) {
+            return false;
+        }
+
+        $instance = self::getBySerial($serial);
+        $pos = $instance->position;
+        $chunk = self::getChunk($pos['x'], $pos['y']);
+        unset(self::$serialData[$serial]);
+        unset(self::$chunks[$pos['map']][$chunk['x']][$chunk['y']][$serial]);
+        return true;
+    }
+
     /**
      * Add the player to into the map and store information inside the right chunk
      */
@@ -476,7 +493,7 @@ class Map {
                     }
 
                     /* If mobile/item leaves player map view range, removes */
-                    if (isset($actual_player->mapRange[$serialTest]) && !Functions::inRangeView($dataTest['instance']->position, $updateRange)) {
+                    if (isset($actual_player->mapRange[$serialTest]) && (!Functions::inRangeView($dataTest['instance']->position, $updateRange) || !isset(self::$serialData[$serialTest]))) {
                         $actual_player->removeObjectFromView($serialTest);
                         continue;
                     }

@@ -16,7 +16,6 @@ class InvisCommand {
         $hidden = UltimaPHP::$socketClients[$client]['account']->player->hidden;
 	    UltimaPHP::$socketClients[$client]['account']->player->hidden = ($force ? $args[0] : ($hidden == false || $hidden == null ? true : false));
 	    
-        // UltimaPHP::$socketClients[$client]['account']->player->drawChar();
         UltimaPHP::$socketClients[$client]['account']->player->drawPlayer();
         // Map::updatePlayerLocation($client);
         Map::updateChunk(null, $client);
