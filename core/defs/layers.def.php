@@ -35,4 +35,7 @@ abstract class LayersDefs {
     const SHOP_RESALE  = 0x1B;
     const SHOP_SELL    = 0x1C;
     const BANK         = 0x1D;
+    /* Other layers */
+    const SPECIAL      = 0x1E; // Can have multiple objects
+    const DRAGGING     = 0x1F;
 }

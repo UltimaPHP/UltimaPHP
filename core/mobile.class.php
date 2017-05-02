@@ -69,6 +69,20 @@ class Mobile {
         $this->summon();
     }
 
+    public function setName($newName = false, $client = false) {
+        if (!$newName) {
+            return false;
+        }
+
+        $this->name = $newName;
+
+        if (!$client) {
+            return true;
+        }
+
+        return $this->draw();
+    }
+
     /**
      * Draw mobile for client
      */
@@ -87,9 +101,22 @@ class Mobile {
         $packet .= "00000000";
 
         Sockets::out($client, $packet);
+
+        return true;
     }
 
     public function statusBarInfo($client) {
-        echo "Status bar from  mobile ".$this->name." (UID: ".$this->serial.")\n";
+        $packet = "11";
+        $packet .= str_pad(dechex(70), 4, "0", STR_PAD_LEFT);
+        $packet .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);
+        $packet .= str_pad(Functions::strToHex($this->name), 60, "0", STR_PAD_RIGHT);
+        $packet .= str_pad(dechex(ceil($this->hits / ($this->maxhits / 100))), 4, "0", STR_PAD_LEFT);
+        $packet .= str_pad(dechex(100), 4, "0", STR_PAD_LEFT);
+        $packet .= (UltimaPHP::$socketClients[$client]['account']->plevel > 1 ? "01" : "00");
+        $packet .= "00000000000000000000000000000000000000000000000000000000";
+
+        Sockets::out($client, $packet);
+
+        return true;
     }
 }

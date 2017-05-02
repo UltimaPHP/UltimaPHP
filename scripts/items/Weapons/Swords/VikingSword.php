@@ -26,6 +26,6 @@ class VikingSword extends TypeWeaponSword {
         $this->hits           = 31;
         $this->maxHits        = 100;
         $this->weight         = 6.0;
-        $this->twohands       = true;
+        $this->twohands       = false;
     }
 }

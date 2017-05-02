@@ -101,13 +101,21 @@ class Functions {
 
     public static function isChar($serial) {
 
-		if(get_parent_class(Map::getBySerial($serial)) === "Mobile"){
-			return false;			
-		}
-		
+        if(get_parent_class(Map::getBySerial($serial)) === "Mobile"){
+            return false;           
+        }
+        
         if (($serial & (UltimaPHP::BITMASK_ITEM | UltimaPHP::BITMASK_RESOURCE)) == 0) {
             return self::isValidSerial($serial);
         }
+        return false;
+    }
+
+    public static function isMobile($serial) {
+        if(get_parent_class(Map::getBySerial($serial)) === "Mobile"){
+            return true;           
+        }
+        
         return false;
     }
 

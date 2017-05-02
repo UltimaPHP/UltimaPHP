@@ -327,6 +327,16 @@ class Map {
         return true;
     }
 
+    public static function updateChunkForced($position = null) {
+        if ($position === null) {
+            return false;
+        }
+
+        $chunk = self::getChunk($position['x'], $position['y']);
+        self::updateChunk($chunk, false, $position['map'], true);
+        return true;
+    }
+
     /**
      *     Add the desired object into the map and store information inside the right chunk
      */
@@ -447,7 +457,8 @@ class Map {
      * Update players with objects from desired chunk
      * $map is only used in case of the request come from a mobile or items
      */
-    public static function updateChunk($chunk = null, $client = false, $map = null) {
+    //self::updateChunk($chunk, false, $position['map'], true);
+    public static function updateChunk($chunk = null, $client = false, $map = null, $forceItemUpdate = false) {
         if ($chunk === null && $client !== false) {
             $chunk = self::getChunk(UltimaPHP::$socketClients[$client]['account']->player->position['x'], UltimaPHP::$socketClients[$client]['account']->player->position['y']);
             $map   = UltimaPHP::$socketClients[$client]['account']->player->position['map'];
@@ -481,7 +492,10 @@ class Map {
 
             /* Remove objects that was removed from player view */
             foreach ($actual_player->mapRange as $serialTest => $active) {
-                $actual_player->removeObjectFromView($serialTest);
+                $instance = Map::getBySerial($serialTest);
+                if (!$instance || $instance->instanceType != UltimaPHP::INSTANCE_PLAYER) {
+                    $actual_player->removeObjectFromView($serialTest);
+                }
             }
 
             /* Loop trought every items and mobiles to update on player view */
@@ -493,17 +507,25 @@ class Map {
                     }
 
                     /* If mobile/item leaves player map view range, removes */
-                    if (isset($actual_player->mapRange[$serialTest]) && (!Functions::inRangeView($dataTest['instance']->position, $updateRange) || !isset(self::$serialData[$serialTest]))) {
+                    if  ($forceItemUpdate == true || (isset($actual_player->mapRange[$serialTest]) && (!Functions::inRangeView($dataTest['instance']->position, $updateRange) || !isset(self::$serialData[$serialTest])))) {
                         $actual_player->removeObjectFromView($serialTest);
-                        continue;
+
+                        if ($forceItemUpdate == false) {
+                            continue;
+                        }
                     }
 
-                    if (!isset($actual_player->mapRange[$serialTest]) && Functions::inRangeView($dataTest['instance']->position, $updateRange)) {
+                    if ($forceItemUpdate == true || (!isset($actual_player->mapRange[$serialTest]) && Functions::inRangeView($dataTest['instance']->position, $updateRange))) {
                         $dataTest['instance']->draw($actual_player->client);
                     }
                 } else {
                     $player        = UltimaPHP::$socketClients[$dataTest['client']]['account']->player;
                     $player_plevel = UltimaPHP::$socketClients[$dataTest['client']]['account']->plevel;
+
+                    /* Remove running flags if player stoped */
+                    if (UltimaPHP::$socketClients[$dataTest['client']]['account']->player->position['running'] == true && (time() - UltimaPHP::$socketClients[$dataTest['client']]['account']->player->lastMove) > 2) {
+                        UltimaPHP::$socketClients[$dataTest['client']]['account']->player->position['running'] = false;
+                    }
 
                     if ($player->hidden && $actual_player_plevel < $player_plevel) {
                         if (isset($actual_player->mapRange[$player->serial])) {
@@ -513,14 +535,23 @@ class Map {
                     }
 
                     if ($actual_player->serial != $player->serial) {
-                        if (!isset($actual_player->mapRange[$player->serial])) {
-                            $actual_player->mapRange[$player->serial] = true;
+                        if (!isset($actual_player->mapRange[$player->serial]) || (time() - $actual_player->mapRange[$player->serial]['lastupdate']) > 2 || $player->forceUpdate == true) {
+                            $actual_player->mapRange[$player->serial] = [
+                                'status' => true,
+                                'lastupdate' => time()
+                            ];
                             $actual_player->drawChar(false, $player->client);
-                        } else {
-                            $actual_player->updatePlayer($player->client);
                         }
+
+                        $actual_player->updatePlayer($player->client);
                     }
                 }
+            }
+        }
+
+        foreach ($chunkData as $serial => $data) {
+            if ($data['type'] == "player") {
+                UltimaPHP::$socketClients[$data['client']]['account']->player->forceUpdate = false;
             }
         }
 
