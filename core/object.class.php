@@ -133,6 +133,10 @@ class Object {
             return false;
         }
 
-        return $this->say("I'm a " . $this->name . " and i accep unicode text, like: ãéíôú", 0x07a1);
+        if ($this->layer > 0) {
+            return UltimaPHP::$socketClients[$client]['account']->player->equipRequest($this->serial, $this->layer, UltimaPHP::$socketClients[$client]['account']->player->serial);
+        } else {
+            return $this->say("I'm a " . $this->name . " and i accep unicode text, like: ãéíôú", 0x07a1);
+        }
     }
 }
