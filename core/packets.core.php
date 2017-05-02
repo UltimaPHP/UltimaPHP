@@ -679,7 +679,7 @@ class Packets {
         $command  = $data[0];
         $length   = hexdec($data[1] . $data[2]);
         $type     = $data[3];
-        $color    = hexdec($data[4] . $data[5]);
+        $color    = $data[4] . $data[5];
         $font     = hexdec($data[6] . $data[7]);
         $language = Functions::hexToChr($data, 8, 11);
 

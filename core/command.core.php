@@ -31,6 +31,9 @@ class Command {
         'sysm'       => array(
             'minPlevel' => 2,
         ),
+        'emote'       => array(
+            'minPlevel' => 2,
+        ),
     );
 
     static $commandAlias = [

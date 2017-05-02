@@ -515,28 +515,44 @@ class Player {
         }
 
         if (dechex($type) == 0x06) {
-            $tmpPacket = Functions::strToHex($text);
-            $packet    = "1C";
-            $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 45), 4, "0", STR_PAD_LEFT);
-            $packet .= str_pad((dechex($type) == 0x06 ? "FFFFFFFF" : $this->serial), 8, "0", STR_PAD_LEFT);
-            $packet .= str_pad((dechex($type) == 0x06 ? "FFFF" : dechex($this->body)), 4, "0", STR_PAD_LEFT);
-            $packet .= str_pad(dechex($type), 2, "0", STR_PAD_LEFT);
-            $packet .= str_pad(dechex($color), 4, "0", STR_PAD_LEFT);
-            $packet .= str_pad(dechex($font), 4, "0", STR_PAD_LEFT);
-            $packet .= str_pad(Functions::strToHex($this->name), 60, "0", STR_PAD_RIGHT);
-            $packet .= $tmpPacket;
+            if ($color == 0) {
+                $color = UltimaPHP::$conf['colors']['sysmessage'];
+            }
+
+            $tmpPacket = Functions::strToHex($text, true);
+            $packet    = "AE";
+            $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 50), 4, "0", STR_PAD_LEFT);
+            $packet .= "FFFFFFFF";
+            $packet .= "FFFF";
             $packet .= "00";
+            $packet .= str_pad($color, 4, "0", STR_PAD_LEFT);
+            $packet .= "0000";
+            $packet .= "00000000";
+            $packet .= str_pad(Functions::strToHex("System"), 60, "0", STR_PAD_RIGHT);
+            $packet .= $tmpPacket;
+            $packet .= "0000";
         } else {
+            $name = $this->name;
+            // If it's an emote
+            if (dechex($type) == 0x02) {
+                $text = "* $text *";
+                $name = "You see";
+
+                if (hexdec($color) == 0) {
+                    $color = UltimaPHP::$conf['colors']['emote'];
+                }
+            }
+
             $tmpPacket = Functions::strToHex($text, true);
             $packet    = "AE";
             $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 50), 4, "0", STR_PAD_LEFT);
             $packet .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex($this->body), 4, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex($type), 2, "0", STR_PAD_LEFT);
-            $packet .= str_pad(dechex($color), 4, "0", STR_PAD_LEFT);
+            $packet .= str_pad($color, 4, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex($font), 4, "0", STR_PAD_LEFT);
             $packet .= Functions::strToHex($language);
-            $packet .= str_pad(Functions::strToHex($this->name), 60, "0", STR_PAD_RIGHT);
+            $packet .= str_pad(Functions::strToHex($name), 60, "0", STR_PAD_RIGHT);
             $packet .= $tmpPacket;
             $packet .= "0000";
 
