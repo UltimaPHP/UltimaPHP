@@ -6,8 +6,8 @@
  */
 class Player {
     /* Server variables */
-
     public $client;
+    public $instanceType = UltimaPHP::INSTANCE_PLAYER;
 
     /* Player variables */
     public $id;
@@ -271,13 +271,16 @@ class Player {
         }
     }
 
-    public function click($object = null) {
-        if ($object === null) {
+    public function click($serial = null) {
+        if ($serial === null) {
             return false;
         }
 
-        if (hexdec($object) & UltimaPHP::BITMASK_ITEM) {
-            echo "clicked on object";
+        if (hexdec($serial) & UltimaPHP::BITMASK_ITEM) {
+            $item = Map::getBySerial($serial);
+            if ($item) {
+                $item->click($this->client);
+            }
         }
     }
 
@@ -285,13 +288,29 @@ class Player {
         if ($serial === null) {
             return false;
         }
-                
-        // Check if the character dclick itself
-        if (($this->serial | "80000000") && Functions::isChar($serial)) {
-            $this->openPaperdoll($serial, false);
-        } else {
-            echo "Clicked something else\n";
+
+        if (hexdec($serial) & 0x80000000) {
+            $serial = dechex(hexdec($serial) - 0x80000000);
         }
+
+        $instance = Map::getBySerial($serial);
+
+        if (!$instance) {
+            return false;
+        }
+
+
+        if ($this->serial == $instance->serial) {
+            return $this->openPaperdoll($serial, true);
+        } else if ($instance->instanceType == UltimaPHP::INSTANCE_PLAYER) {
+            return $this->openPaperdoll($serial, (UltimaPHP::$socketClientes[$this->client]['account']->plevel > 1 ? true : false));
+        } else if ($instance->instanceType == UltimaPHP::INSTANCE_MOBILE) {
+            // TODO: Detect if it's a humanoid mobile, if yes: open paperdoll
+        } else if ($instance->instanceType == UltimaPHP::INSTANCE_OBJECT) {
+            return $instance->dclick($this->client);
+        }
+
+        return false;
     }
 
 	// A ser implementado    
@@ -324,12 +343,8 @@ class Player {
     }
 
     public function openPaperdoll($serial, $canLift) {
-        if ($serial | 0x80000000) {
-            $serial = "0" . substr($serial, 1);
-        }
-
         $packet = "88";
-        $packet .= $serial;
+        $packet .= str_pad($serial, 8, "0", STR_PAD_LEFT);
         $packet .= str_pad(Functions::strToHex(trim($this->name) . ", " . trim($this->title)), 120, "0", STR_PAD_RIGHT);
 
         $flags = 0x00;
@@ -346,6 +361,8 @@ class Player {
 
         $packet .= str_pad(hexdec($flags), 2, "0", STR_PAD_LEFT);
         Sockets::out($this->client, $packet, false);
+
+        return true;
     }
 
     public function speech($type, $color, $font, $language, $text) {
@@ -358,8 +375,8 @@ class Player {
             $tmpPacket = Functions::strToHex($text);
             $packet    = "1C";
             $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 45), 4, "0", STR_PAD_LEFT);
-            $packet .= str_pad((dechex($type) == 0x06 ? "FFFFFFFF" : $this->serial), 2, "0", STR_PAD_LEFT);
-            $packet .= str_pad((dechex($type) == 0x06 ? "FFFF" : $this->body), 2, "0", STR_PAD_LEFT);
+            $packet .= str_pad((dechex($type) == 0x06 ? "FFFFFFFF" : $this->serial), 8, "0", STR_PAD_LEFT);
+            $packet .= str_pad((dechex($type) == 0x06 ? "FFFF" : dechex($this->body)), 4, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex($type), 2, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex($color), 4, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex($font), 4, "0", STR_PAD_LEFT);
@@ -370,7 +387,7 @@ class Player {
             $tmpPacket = Functions::strToHex($text, true);
             $packet    = "AE";
             $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 50), 4, "0", STR_PAD_LEFT);
-            $packet .= $this->serial;
+            $packet .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex($this->body), 4, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex($type), 2, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex($color), 4, "0", STR_PAD_LEFT);

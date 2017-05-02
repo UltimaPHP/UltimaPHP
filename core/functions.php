@@ -35,6 +35,21 @@ class Functions {
         return strToUpper($hex);
     }
 
+    public static function uniord($u) { 
+        $k = mb_convert_encoding($u, 'UCS-2LE', 'UTF-8'); 
+        $k1 = ord(substr($k, 0, 1)); 
+        $k2 = ord(substr($k, 1, 1)); 
+        return $k2 * 256 + $k1; 
+    } 
+
+    public static function mbStrToHex($string, $addEmptyByte = false) {
+        $hex = '';
+        for ($i = 0; $i < mb_strlen($string); $i++) {
+            $hex .= ($addEmptyByte ? "00" : "") . substr('0' . dechex(self::uniord( mb_substr($string, $i, 1))), -2);
+        }
+        return strToUpper($hex);
+    }
+
     public static function hexToChr($data, $from = null, $to = null, $explodeOnChr = false) {
         if (is_array($data)) {
             $hex = self::implodeByte($data, $from, $to);

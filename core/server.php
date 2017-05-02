@@ -38,6 +38,11 @@ class UltimaPHP {
     const BITMASK_ITEM       = 0x40000000;
     const BITMASK_RESOURCE   = 0x0000000;
 
+    /* Instances types */
+    const INSTANCE_PLAYER = 0x00;
+    const INSTANCE_OBJECT = 0x01;
+    const INSTANCE_MOBILE = 0x02;
+
     /* Server Variables */
     static $status = self::STATUS_UNKNOWN;
     static $start_time;

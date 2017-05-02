@@ -6,8 +6,7 @@
  */
 class Mobile {
     /* Server variables */
-
-    public $mobile;
+    public $instanceType = UltimaPHP::INSTANCE_MOBILE;
 
     /* Player variables */
     public $id;

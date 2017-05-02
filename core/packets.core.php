@@ -254,7 +254,6 @@ class Packets {
 		
         $player = UltimaPHP::$socketClients[$client]['account']->player;
         $player->dclick($uid);
-        // UltimaPHP::log("Character " . $player->name . " double clicked on UID '$uid'");
     }
 
     /**

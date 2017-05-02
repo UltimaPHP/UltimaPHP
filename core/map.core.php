@@ -357,7 +357,7 @@ class Map {
             case 'player':
                 return UltimaPHP::$socketClients[$info['client']]['account']->player;
                 break;
-            case 'mobile':            
+            case 'mobile':
             case 'object':
                 return $info['instance'];
                 break;
@@ -381,8 +381,8 @@ class Map {
         $chunk     = self::$chunks[$actual_player->position['map']][$chunkInfo['x']][$chunkInfo['y']];
 
         $updateRange = [
-            'from' => ['x' => ($actual_player->position['x'] - 10), 'y' => ($actual_player->position['y'] - 10)],
-            'to'   => ['x' => ($actual_player->position['x'] + 10), 'y' => ($actual_player->position['y'] + 10)],
+            'from' => ['x' => ($actual_player->position['x'] - UltimaPHP::$conf['muls']['render_range']), 'y' => ($actual_player->position['y'] - UltimaPHP::$conf['muls']['render_range'])],
+            'to'   => ['x' => ($actual_player->position['x'] + UltimaPHP::$conf['muls']['render_range']), 'y' => ($actual_player->position['y'] + UltimaPHP::$conf['muls']['render_range'])],
         ];
 
         foreach ($chunk as $serial => $data) {
@@ -393,6 +393,34 @@ class Map {
             $player = UltimaPHP::$socketClients[$data['client']]['account']->player;
 
             if ($actual_player->serial != $player->serial && $player->position['x'] >= $updateRange['from']['x'] && $player->position['x'] <= $updateRange['to']['x'] && $player->position['y'] >= $updateRange['from']['y'] && $player->position['y'] <= $updateRange['to']['y']) {
+                Sockets::out($player->client, $packet, false);
+            }
+        }
+    }
+
+    /**
+     * Send desired packet to a range of players around desired position
+     */
+    public static function sendPacketRangePosition($packet = null, $position  = null) {
+        if ($packet === null || $position === null) {
+            return false;
+        }
+
+        $chunkInfo = self::getChunk($position['x'], $position['y']);
+        $chunk     = self::$chunks[$position['map']][$chunkInfo['x']][$chunkInfo['y']];
+
+        $updateRange = [
+            'from' => ['x' => ($position['x'] - UltimaPHP::$conf['muls']['render_range']), 'y' => ($position['y'] - UltimaPHP::$conf['muls']['render_range'])],
+            'to'   => ['x' => ($position['x'] + UltimaPHP::$conf['muls']['render_range']), 'y' => ($position['y'] + UltimaPHP::$conf['muls']['render_range'])],
+        ];
+
+        foreach ($chunk as $serial => $data) {
+            if ($data['type'] != "player") {
+                continue;
+            }
+
+            $player = UltimaPHP::$socketClients[$data['client']]['account']->player;
+            if ($player->position['x'] >= $updateRange['from']['x'] && $player->position['x'] <= $updateRange['to']['x'] && $player->position['y'] >= $updateRange['from']['y'] && $player->position['y'] <= $updateRange['to']['y']) {
                 Sockets::out($player->client, $packet, false);
             }
         }
