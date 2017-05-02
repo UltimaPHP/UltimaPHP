@@ -16,8 +16,10 @@ class LichLord extends Mobile {
 		$this->str = rand(416, 505);
 		$this->dex = rand(146, 165);
 		$this->int = rand(566, 655);
-		$this->hits = 11;
-		$this->maxhits = 13;
+		$this->maxhits = rand(250, 303);
+		$this->hits = $this->maxhits;
+		$this->damage = 11;
+		$this->damageMax = 13;
 		$this->resist_physical = rand(40, 50);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(50, 60);

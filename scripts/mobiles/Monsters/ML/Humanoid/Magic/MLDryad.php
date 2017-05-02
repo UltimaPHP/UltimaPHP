@@ -16,8 +16,10 @@ class MLDryad extends Mobile {
 		$this->str = rand(132, 149);
 		$this->dex = rand(152, 168);
 		$this->int = rand(251, 280);
-		$this->hits = 11;
-		$this->maxhits = 20;
+		$this->maxhits = rand(304, 321);
+		$this->hits = $this->maxhits;
+		$this->damage = 11;
+		$this->damageMax = 20;
 		$this->resist_physical = rand(40, 50);
 		$this->resist_fire = rand(15, 25);
 		$this->resist_cold = rand(40, 45);

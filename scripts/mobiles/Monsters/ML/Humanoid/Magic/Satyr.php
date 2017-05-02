@@ -16,8 +16,10 @@ class Satyr extends Mobile {
 		$this->str = rand(177, 195);
 		$this->dex = rand(251, 269);
 		$this->int = rand(153, 170);
-		$this->hits = 13;
-		$this->maxhits = 24;
+		$this->maxhits = rand(350, 400);
+		$this->hits = $this->maxhits;
+		$this->damage = 13;
+		$this->damageMax = 24;
 		$this->resist_physical = rand(55, 60);
 		$this->resist_fire = rand(25, 35);
 		$this->resist_cold = rand(30, 40);

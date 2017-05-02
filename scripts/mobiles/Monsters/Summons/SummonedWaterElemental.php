@@ -16,8 +16,10 @@ class SummonedWaterElemental extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 12;
-		$this->maxhits = 16;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 12;
+		$this->damageMax = 16;
 		$this->resist_physical = rand(50, 60);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(70, 80);

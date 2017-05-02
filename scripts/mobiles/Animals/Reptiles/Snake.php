@@ -16,8 +16,10 @@ class Snake extends Mobile {
 		$this->str = rand(22, 34);
 		$this->dex = rand(16, 25);
 		$this->int = rand(6, 10);
-		$this->hits = 1;
-		$this->maxhits = 4;
+		$this->maxhits = rand(15, 19);
+		$this->hits = $this->maxhits;
+		$this->damage = 1;
+		$this->damageMax = 4;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

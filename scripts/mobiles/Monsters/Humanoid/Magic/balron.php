@@ -16,8 +16,10 @@ class Balron extends Mobile {
 		$this->str = rand(986, 1185);
 		$this->dex = rand(177, 255);
 		$this->int = rand(151, 250);
-		$this->hits = 22;
-		$this->maxhits = 29;
+		$this->maxhits = rand(592, 711);
+		$this->hits = $this->maxhits;
+		$this->damage = 22;
+		$this->damageMax = 29;
 		$this->resist_physical = rand(65, 80);
 		$this->resist_fire = rand(60, 80);
 		$this->resist_cold = rand(50, 60);

@@ -16,8 +16,10 @@ class Savage extends Mobile {
 		$this->str = rand(96, 115);
 		$this->dex = rand(86, 105);
 		$this->int = rand(51, 65);
-		$this->hits = 23;
-		$this->maxhits = 27;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 23;
+		$this->damageMax = 27;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

@@ -16,8 +16,10 @@ class Dragon extends Mobile {
 		$this->str = rand(796, 825);
 		$this->dex = rand(86, 105);
 		$this->int = rand(436, 475);
-		$this->hits = 16;
-		$this->maxhits = 22;
+		$this->maxhits = rand(478, 495);
+		$this->hits = $this->maxhits;
+		$this->damage = 16;
+		$this->damageMax = 22;
 		$this->resist_physical = rand(55, 65);
 		$this->resist_fire = rand(60, 70);
 		$this->resist_cold = rand(30, 40);

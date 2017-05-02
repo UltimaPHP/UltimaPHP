@@ -16,8 +16,10 @@ class PlagueSpawn extends Mobile {
 		$this->str = rand(201, 300);
 		$this->dex = 0;
 		$this->int = rand(16, 20);
-		$this->hits = 11;
-		$this->maxhits = 17;
+		$this->maxhits = rand(121, 180);
+		$this->hits = $this->maxhits;
+		$this->damage = 11;
+		$this->damageMax = 17;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(25, 35);

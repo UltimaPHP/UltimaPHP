@@ -16,8 +16,10 @@ class FrostTroll extends Mobile {
 		$this->str = rand(227, 265);
 		$this->dex = rand(66, 85);
 		$this->int = rand(46, 70);
-		$this->hits = 14;
-		$this->maxhits = 20;
+		$this->maxhits = rand(140, 156);
+		$this->hits = $this->maxhits;
+		$this->damage = 14;
+		$this->damageMax = 20;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(40, 50);

@@ -16,8 +16,10 @@ class Cursed extends Mobile {
 		$this->str = rand(91, 100);
 		$this->dex = rand(86, 95);
 		$this->int = rand(61, 70);
-		$this->hits = 5;
-		$this->maxhits = 13;
+		$this->maxhits = rand(91, 120);
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 13;
 		$this->resist_physical = rand(15, 25);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = rand(25, 35);

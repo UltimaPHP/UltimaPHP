@@ -16,8 +16,10 @@ class Betrayer extends Mobile {
 		$this->str = rand(401, 500);
 		$this->dex = rand(81, 100);
 		$this->int = rand(151, 200);
-		$this->hits = 16;
-		$this->maxhits = 22;
+		$this->maxhits = rand(241, 300);
+		$this->hits = $this->maxhits;
+		$this->damage = 16;
+		$this->damageMax = 22;
 		$this->resist_physical = rand(60, 70);
 		$this->resist_fire = rand(60, 70);
 		$this->resist_cold = rand(60, 70);

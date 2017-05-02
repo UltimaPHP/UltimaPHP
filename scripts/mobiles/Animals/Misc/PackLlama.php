@@ -16,8 +16,10 @@ class PackLlama extends Mobile {
 		$this->str = rand(52, 80);
 		$this->dex = rand(36, 55);
 		$this->int = rand(16, 30);
-		$this->hits = 2;
-		$this->maxhits = 6;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 2;
+		$this->damageMax = 6;
 		$this->resist_physical = rand(25, 35);
 		$this->resist_fire = rand(10, 15);
 		$this->resist_cold = rand(10, 15);

@@ -16,8 +16,10 @@ class IceSnake extends Mobile {
 		$this->str = rand(42, 54);
 		$this->dex = rand(36, 45);
 		$this->int = rand(26, 30);
-		$this->hits = 4;
-		$this->maxhits = 12;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 4;
+		$this->damageMax = 12;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(80, 90);

@@ -16,8 +16,10 @@ class Executioner extends Mobile {
 		$this->str = rand(386, 400);
 		$this->dex = rand(151, 165);
 		$this->int = rand(161, 175);
-		$this->hits = 8;
-		$this->maxhits = 10;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 8;
+		$this->damageMax = 10;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(25, 30);
 		$this->resist_cold = rand(25, 30);

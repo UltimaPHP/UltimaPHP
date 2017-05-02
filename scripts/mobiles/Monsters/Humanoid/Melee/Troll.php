@@ -16,8 +16,10 @@ class Troll extends Mobile {
 		$this->str = rand(176, 205);
 		$this->dex = rand(46, 65);
 		$this->int = rand(46, 70);
-		$this->hits = 8;
-		$this->maxhits = 14;
+		$this->maxhits = rand(106, 123);
+		$this->hits = $this->maxhits;
+		$this->damage = 8;
+		$this->damageMax = 14;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(25, 35);
 		$this->resist_cold = rand(15, 25);

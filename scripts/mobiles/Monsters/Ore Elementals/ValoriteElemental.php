@@ -16,8 +16,10 @@ class ValoriteElemental extends Mobile {
 		$this->str = rand(226, 255);
 		$this->dex = rand(126, 145);
 		$this->int = rand(71, 92);
-		$this->hits = 0;
-		$this->maxhits = 0;
+		$this->maxhits = rand(136, 153);
+		$this->hits = $this->maxhits;
+		$this->damage = 0;
+		$this->damageMax = 0;
 		$this->resist_physical = rand(65, 75);
 		$this->resist_fire = rand(50, 60);
 		$this->resist_cold = rand(50, 60);

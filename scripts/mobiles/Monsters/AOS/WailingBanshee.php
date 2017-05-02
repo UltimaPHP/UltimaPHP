@@ -16,8 +16,10 @@ class WailingBanshee extends Mobile {
 		$this->str = rand(126, 150);
 		$this->dex = rand(76, 100);
 		$this->int = rand(86, 110);
-		$this->hits = 10;
-		$this->maxhits = 14;
+		$this->maxhits = rand(76, 90);
+		$this->hits = $this->maxhits;
+		$this->damage = 10;
+		$this->damageMax = 14;
 		$this->resist_physical = rand(50, 60);
 		$this->resist_fire = rand(25, 30);
 		$this->resist_cold = rand(70, 80);

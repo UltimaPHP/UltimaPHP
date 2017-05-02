@@ -16,8 +16,10 @@ class LavaLizard extends Mobile {
 		$this->str = rand(126, 150);
 		$this->dex = rand(56, 75);
 		$this->int = rand(11, 20);
-		$this->hits = 6;
-		$this->maxhits = 24;
+		$this->maxhits = rand(76, 90);
+		$this->hits = $this->maxhits;
+		$this->damage = 6;
+		$this->damageMax = 24;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(30, 45);
 		$this->resist_cold = 0;

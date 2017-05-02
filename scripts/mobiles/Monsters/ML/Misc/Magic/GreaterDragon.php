@@ -16,8 +16,10 @@ class GreaterDragon extends Mobile {
 		$this->str = rand(1025, 1425);
 		$this->dex = rand(81, 148);
 		$this->int = rand(475, 675);
-		$this->hits = 24;
-		$this->maxhits = 33;
+		$this->maxhits = rand(1000, 2000);
+		$this->hits = $this->maxhits;
+		$this->damage = 24;
+		$this->damageMax = 33;
 		$this->resist_physical = rand(60, 85);
 		$this->resist_fire = rand(65, 90);
 		$this->resist_cold = rand(40, 55);

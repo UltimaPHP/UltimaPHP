@@ -16,8 +16,10 @@ class LavaSnake extends Mobile {
 		$this->str = rand(43, 55);
 		$this->dex = rand(16, 25);
 		$this->int = rand(6, 10);
-		$this->hits = 1;
-		$this->maxhits = 8;
+		$this->maxhits = rand(28, 32);
+		$this->hits = $this->maxhits;
+		$this->damage = 1;
+		$this->damageMax = 8;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = 0;

@@ -16,8 +16,10 @@ class Boar extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 3;
-		$this->maxhits = 6;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 3;
+		$this->damageMax = 6;
 		$this->resist_physical = rand(10, 15);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = 0;

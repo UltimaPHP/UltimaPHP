@@ -16,8 +16,10 @@ class MeerMage extends Mobile {
 		$this->str = rand(171, 200);
 		$this->dex = rand(126, 145);
 		$this->int = rand(276, 305);
-		$this->hits = 24;
-		$this->maxhits = 26;
+		$this->maxhits = rand(103, 120);
+		$this->hits = $this->maxhits;
+		$this->damage = 24;
+		$this->damageMax = 26;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(15, 25);
 		$this->resist_cold = 0;

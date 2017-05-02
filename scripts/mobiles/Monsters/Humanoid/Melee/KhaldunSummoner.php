@@ -16,8 +16,10 @@ class KhaldunSummoner extends Mobile {
 		$this->str = rand(351, 400);
 		$this->dex = rand(101, 150);
 		$this->int = rand(502, 700);
-		$this->hits = 5;
-		$this->maxhits = 15;
+		$this->maxhits = rand(421, 480);
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 15;
 		$this->resist_physical = rand(35, 40);
 		$this->resist_fire = rand(25, 30);
 		$this->resist_cold = rand(50, 60);

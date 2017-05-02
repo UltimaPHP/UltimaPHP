@@ -16,8 +16,10 @@ class BoneMagi extends Mobile {
 		$this->str = rand(76, 100);
 		$this->dex = rand(56, 75);
 		$this->int = rand(186, 210);
-		$this->hits = 3;
-		$this->maxhits = 7;
+		$this->maxhits = rand(46, 60);
+		$this->hits = $this->maxhits;
+		$this->damage = 3;
+		$this->damageMax = 7;
 		$this->resist_physical = rand(35, 40);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(50, 60);

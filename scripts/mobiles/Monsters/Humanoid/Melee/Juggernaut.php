@@ -16,8 +16,10 @@ class Juggernaut extends Mobile {
 		$this->str = rand(301, 400);
 		$this->dex = rand(51, 70);
 		$this->int = rand(51, 100);
-		$this->hits = 12;
-		$this->maxhits = 19;
+		$this->maxhits = rand(181, 240);
+		$this->hits = $this->maxhits;
+		$this->damage = 12;
+		$this->damageMax = 19;
 		$this->resist_physical = rand(65, 75);
 		$this->resist_fire = rand(35, 45);
 		$this->resist_cold = rand(35, 45);

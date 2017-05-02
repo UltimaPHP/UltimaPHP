@@ -16,8 +16,10 @@ class StainedOoze extends Mobile {
 		$this->str = rand(1105, 1350);
 		$this->dex = rand(82, 160);
 		$this->int = rand(505, 750);
-		$this->hits = 21;
-		$this->maxhits = 28;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 21;
+		$this->damageMax = 28;
 		$this->resist_physical = rand(55, 65);
 		$this->resist_fire = rand(50, 60);
 		$this->resist_cold = rand(55, 65);

@@ -16,8 +16,10 @@ class LavaSerpent extends Mobile {
 		$this->str = rand(386, 415);
 		$this->dex = rand(56, 80);
 		$this->int = rand(66, 85);
-		$this->hits = 10;
-		$this->maxhits = 22;
+		$this->maxhits = rand(232, 249);
+		$this->hits = $this->maxhits;
+		$this->damage = 10;
+		$this->damageMax = 22;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(70, 80);
 		$this->resist_cold = 0;

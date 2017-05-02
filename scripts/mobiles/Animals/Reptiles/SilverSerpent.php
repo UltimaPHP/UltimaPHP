@@ -16,8 +16,10 @@ class SilverSerpent extends Mobile {
 		$this->str = rand(161, 360);
 		$this->dex = rand(151, 300);
 		$this->int = rand(21, 40);
-		$this->hits = 5;
-		$this->maxhits = 21;
+		$this->maxhits = rand(97, 216);
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 21;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = rand(5, 10);

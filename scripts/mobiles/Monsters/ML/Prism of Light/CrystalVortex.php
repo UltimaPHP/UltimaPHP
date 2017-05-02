@@ -16,8 +16,10 @@ class CrystalVortex extends Mobile {
 		$this->str = rand(800, 900);
 		$this->dex = rand(500, 600);
 		$this->int = 0;
-		$this->hits = 15;
-		$this->maxhits = 20;
+		$this->maxhits = rand(350, 400);
+		$this->hits = $this->maxhits;
+		$this->damage = 15;
+		$this->damageMax = 20;
 		$this->resist_physical = rand(60, 80);
 		$this->resist_fire = rand(0, 10);
 		$this->resist_cold = rand(70, 80);

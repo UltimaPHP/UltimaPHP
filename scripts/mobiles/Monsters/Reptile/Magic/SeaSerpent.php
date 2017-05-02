@@ -16,8 +16,10 @@ class SeaSerpent extends Mobile {
 		$this->str = rand(168, 225);
 		$this->dex = rand(58, 85);
 		$this->int = rand(53, 95);
-		$this->hits = 7;
-		$this->maxhits = 13;
+		$this->maxhits = rand(110, 127);
+		$this->hits = $this->maxhits;
+		$this->damage = 7;
+		$this->damageMax = 13;
 		$this->resist_physical = rand(25, 35);
 		$this->resist_fire = rand(50, 60);
 		$this->resist_cold = rand(30, 40);

@@ -16,8 +16,10 @@ class Gorilla extends Mobile {
 		$this->str = rand(53, 95);
 		$this->dex = rand(36, 55);
 		$this->int = rand(36, 60);
-		$this->hits = 4;
-		$this->maxhits = 10;
+		$this->maxhits = rand(38, 51);
+		$this->hits = $this->maxhits;
+		$this->damage = 4;
+		$this->damageMax = 10;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = rand(10, 15);

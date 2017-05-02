@@ -16,8 +16,10 @@ class Phoenix extends Mobile {
 		$this->str = rand(504, 700);
 		$this->dex = rand(202, 300);
 		$this->int = rand(504, 700);
-		$this->hits = 0;
-		$this->maxhits = 0;
+		$this->maxhits = rand(340, 383);
+		$this->hits = $this->maxhits;
+		$this->damage = 0;
+		$this->damageMax = 0;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(60, 70);
 		$this->resist_cold = 0;

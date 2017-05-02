@@ -16,8 +16,10 @@ class SkeletalKnight extends Mobile {
 		$this->str = rand(196, 250);
 		$this->dex = rand(76, 95);
 		$this->int = rand(36, 60);
-		$this->hits = 8;
-		$this->maxhits = 18;
+		$this->maxhits = rand(118, 150);
+		$this->hits = $this->maxhits;
+		$this->damage = 8;
+		$this->damageMax = 18;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(50, 60);

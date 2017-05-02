@@ -16,8 +16,10 @@ class EtherealWarrior extends Mobile {
 		$this->str = rand(586, 785);
 		$this->dex = rand(177, 255);
 		$this->int = rand(351, 450);
-		$this->hits = 13;
-		$this->maxhits = 19;
+		$this->maxhits = rand(352, 471);
+		$this->hits = $this->maxhits;
+		$this->damage = 13;
+		$this->damageMax = 19;
 		$this->resist_physical = rand(80, 90);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(40, 50);

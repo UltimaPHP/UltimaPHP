@@ -16,8 +16,10 @@ class KhaldunRevenant extends Mobile {
 		$this->str = rand(401, 500);
 		$this->dex = rand(296, 315);
 		$this->int = rand(101, 200);
-		$this->hits = 20;
-		$this->maxhits = 30;
+		$this->maxhits = rand(241, 300);
+		$this->hits = $this->maxhits;
+		$this->damage = 20;
+		$this->damageMax = 30;
 		$this->resist_physical = rand(55, 65);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(60, 70);

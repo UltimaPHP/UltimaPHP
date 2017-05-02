@@ -16,8 +16,10 @@ class RagingGrizzlyBear extends Mobile {
 		$this->str = rand(1251, 1550);
 		$this->dex = rand(801, 1050);
 		$this->int = rand(151, 400);
-		$this->hits = 18;
-		$this->maxhits = 23;
+		$this->maxhits = rand(751, 930);
+		$this->hits = $this->maxhits;
+		$this->damage = 18;
+		$this->damageMax = 23;
 		$this->resist_physical = rand(50, 70);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(30, 50);

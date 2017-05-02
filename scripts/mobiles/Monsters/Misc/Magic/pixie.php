@@ -16,8 +16,10 @@ class Pixie extends Mobile {
 		$this->str = rand(21, 30);
 		$this->dex = rand(301, 400);
 		$this->int = rand(201, 250);
-		$this->hits = 9;
-		$this->maxhits = 15;
+		$this->maxhits = rand(13, 18);
+		$this->hits = $this->maxhits;
+		$this->damage = 9;
+		$this->damageMax = 15;
 		$this->resist_physical = rand(80, 90);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(40, 50);

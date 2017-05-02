@@ -16,8 +16,10 @@ class JukaMage extends Mobile {
 		$this->str = rand(201, 300);
 		$this->dex = rand(71, 90);
 		$this->int = rand(451, 500);
-		$this->hits = 4;
-		$this->maxhits = 10;
+		$this->maxhits = rand(121, 180);
+		$this->hits = $this->maxhits;
+		$this->damage = 4;
+		$this->damageMax = 10;
 		$this->resist_physical = rand(20, 30);
 		$this->resist_fire = rand(35, 45);
 		$this->resist_cold = rand(30, 40);

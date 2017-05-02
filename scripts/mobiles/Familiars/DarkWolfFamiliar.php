@@ -16,8 +16,10 @@ class DarkWolfFamiliar extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 5;
-		$this->maxhits = 10;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 10;
 		$this->resist_physical = rand(40, 50);
 		$this->resist_fire = rand(25, 40);
 		$this->resist_cold = rand(25, 40);

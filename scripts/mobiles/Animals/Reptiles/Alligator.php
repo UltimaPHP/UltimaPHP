@@ -16,8 +16,10 @@ class Alligator extends Mobile {
 		$this->str = rand(76, 100);
 		$this->dex = rand(6, 25);
 		$this->int = rand(11, 20);
-		$this->hits = 5;
-		$this->maxhits = 15;
+		$this->maxhits = rand(46, 60);
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 15;
 		$this->resist_physical = rand(25, 35);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = 0;

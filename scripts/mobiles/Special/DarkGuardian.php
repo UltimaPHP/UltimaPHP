@@ -16,8 +16,10 @@ class DarkGuardian extends Mobile {
 		$this->str = rand(125, 150);
 		$this->dex = rand(100, 120);
 		$this->int = rand(200, 235);
-		$this->hits = 43;
-		$this->maxhits = 48;
+		$this->maxhits = rand(150, 180);
+		$this->hits = $this->maxhits;
+		$this->damage = 43;
+		$this->damageMax = 48;
 		$this->resist_physical = rand(40, 50);
 		$this->resist_fire = rand(20, 45);
 		$this->resist_cold = rand(50, 60);

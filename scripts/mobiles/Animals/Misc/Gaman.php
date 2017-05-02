@@ -16,8 +16,10 @@ class Gaman extends Mobile {
 		$this->str = rand(146, 175);
 		$this->dex = rand(111, 150);
 		$this->int = rand(46, 60);
-		$this->hits = 6;
-		$this->maxhits = 11;
+		$this->maxhits = rand(131, 160);
+		$this->hits = $this->maxhits;
+		$this->damage = 6;
+		$this->damageMax = 11;
 		$this->resist_physical = rand(50, 70);
 		$this->resist_fire = rand(30, 50);
 		$this->resist_cold = rand(30, 50);

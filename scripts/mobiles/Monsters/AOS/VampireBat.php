@@ -16,8 +16,10 @@ class VampireBat extends Mobile {
 		$this->str = rand(91, 110);
 		$this->dex = rand(91, 115);
 		$this->int = rand(26, 50);
-		$this->hits = 7;
-		$this->maxhits = 9;
+		$this->maxhits = rand(55, 66);
+		$this->hits = $this->maxhits;
+		$this->damage = 7;
+		$this->damageMax = 9;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(15, 25);
 		$this->resist_cold = rand(15, 25);

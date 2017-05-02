@@ -16,8 +16,10 @@ class MinotaurScout extends Mobile {
 		$this->str = rand(353, 375);
 		$this->dex = rand(111, 130);
 		$this->int = rand(34, 50);
-		$this->hits = 11;
-		$this->maxhits = 20;
+		$this->maxhits = rand(354, 383);
+		$this->hits = $this->maxhits;
+		$this->damage = 11;
+		$this->damageMax = 20;
 		$this->resist_physical = rand(55, 65);
 		$this->resist_fire = rand(25, 35);
 		$this->resist_cold = rand(30, 40);

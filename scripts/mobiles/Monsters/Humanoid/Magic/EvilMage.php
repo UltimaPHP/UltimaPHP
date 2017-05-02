@@ -16,8 +16,10 @@ class EvilMage extends Mobile {
 		$this->str = rand(81, 105);
 		$this->dex = rand(91, 115);
 		$this->int = rand(96, 120);
-		$this->hits = 5;
-		$this->maxhits = 10;
+		$this->maxhits = rand(49, 63);
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 10;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = 0;

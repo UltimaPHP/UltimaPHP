@@ -16,8 +16,10 @@ class CrystalLatticeSeeker extends Mobile {
 		$this->str = rand(550, 850);
 		$this->dex = rand(190, 250);
 		$this->int = rand(350, 450);
-		$this->hits = 13;
-		$this->maxhits = 19;
+		$this->maxhits = rand(350, 550);
+		$this->hits = $this->maxhits;
+		$this->damage = 13;
+		$this->damageMax = 19;
 		$this->resist_physical = rand(80, 90);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(40, 50);

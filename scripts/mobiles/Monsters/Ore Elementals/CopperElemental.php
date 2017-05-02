@@ -16,8 +16,10 @@ class CopperElemental extends Mobile {
 		$this->str = rand(226, 255);
 		$this->dex = rand(126, 145);
 		$this->int = rand(71, 92);
-		$this->hits = 9;
-		$this->maxhits = 16;
+		$this->maxhits = rand(136, 153);
+		$this->hits = $this->maxhits;
+		$this->damage = 9;
+		$this->damageMax = 16;
 		$this->resist_physical = rand(30, 40);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(30, 40);

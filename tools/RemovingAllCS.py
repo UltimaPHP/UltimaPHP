@@ -1,11 +1,11 @@
 import os, sys
 
 '''
-    Fiz essa função para remover todos os arquivos .cs da pasta do RunUO depois da conversão
+    Fiz essa fun??o para remover todos os arquivos .cs da pasta do RunUO depois da convers?o
 '''
 def RemoveFiles(subDir=None):
     extensions = ['cs']
-    root = 'C:\\runuo-master\\Scripts'
+    root = 'C:\\runuo-master2\\Scripts'
     runUOdir = "C:\\runuo-master\\Scripts"
     listFilesPath = []
 

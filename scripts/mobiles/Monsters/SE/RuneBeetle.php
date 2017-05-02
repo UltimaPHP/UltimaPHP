@@ -16,8 +16,10 @@ class RuneBeetle extends Mobile {
 		$this->str = rand(401, 460);
 		$this->dex = rand(121, 170);
 		$this->int = rand(376, 450);
-		$this->hits = 15;
-		$this->maxhits = 22;
+		$this->maxhits = rand(301, 360);
+		$this->hits = $this->maxhits;
+		$this->damage = 15;
+		$this->damageMax = 22;
 		$this->resist_physical = rand(40, 65);
 		$this->resist_fire = rand(35, 50);
 		$this->resist_cold = rand(35, 50);

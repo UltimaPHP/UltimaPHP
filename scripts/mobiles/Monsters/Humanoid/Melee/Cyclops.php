@@ -16,8 +16,10 @@ class Cyclops extends Mobile {
 		$this->str = rand(336, 385);
 		$this->dex = rand(96, 115);
 		$this->int = rand(31, 55);
-		$this->hits = 7;
-		$this->maxhits = 23;
+		$this->maxhits = rand(202, 231);
+		$this->hits = $this->maxhits;
+		$this->damage = 7;
+		$this->damageMax = 23;
 		$this->resist_physical = rand(45, 50);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(25, 35);

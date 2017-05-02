@@ -16,8 +16,10 @@ class HellHound extends Mobile {
 		$this->str = rand(102, 150);
 		$this->dex = rand(81, 105);
 		$this->int = rand(36, 60);
-		$this->hits = 11;
-		$this->maxhits = 17;
+		$this->maxhits = rand(66, 125);
+		$this->hits = $this->maxhits;
+		$this->damage = 11;
+		$this->damageMax = 17;
 		$this->resist_physical = rand(25, 35);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = 0;

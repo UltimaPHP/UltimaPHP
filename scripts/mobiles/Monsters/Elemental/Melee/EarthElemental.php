@@ -16,8 +16,10 @@ class EarthElemental extends Mobile {
 		$this->str = rand(126, 155);
 		$this->dex = rand(66, 85);
 		$this->int = rand(71, 92);
-		$this->hits = 9;
-		$this->maxhits = 16;
+		$this->maxhits = rand(76, 93);
+		$this->hits = $this->maxhits;
+		$this->damage = 9;
+		$this->damageMax = 16;
 		$this->resist_physical = rand(30, 35);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(10, 20);

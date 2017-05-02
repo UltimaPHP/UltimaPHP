@@ -16,8 +16,10 @@ class DarknightCreeper extends Mobile {
 		$this->str = rand(301, 330);
 		$this->dex = rand(101, 110);
 		$this->int = rand(301, 330);
-		$this->hits = 22;
-		$this->maxhits = 26;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 22;
+		$this->damageMax = 26;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

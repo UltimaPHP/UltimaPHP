@@ -16,8 +16,10 @@ class ShadowKnight extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 20;
-		$this->maxhits = 30;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 20;
+		$this->damageMax = 30;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

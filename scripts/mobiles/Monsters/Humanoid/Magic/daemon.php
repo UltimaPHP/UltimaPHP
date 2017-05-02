@@ -16,8 +16,10 @@ class Daemon extends Mobile {
 		$this->str = rand(476, 505);
 		$this->dex = rand(76, 95);
 		$this->int = rand(301, 325);
-		$this->hits = 7;
-		$this->maxhits = 14;
+		$this->maxhits = rand(286, 303);
+		$this->hits = $this->maxhits;
+		$this->damage = 7;
+		$this->damageMax = 14;
 		$this->resist_physical = rand(45, 60);
 		$this->resist_fire = rand(50, 60);
 		$this->resist_cold = rand(30, 40);

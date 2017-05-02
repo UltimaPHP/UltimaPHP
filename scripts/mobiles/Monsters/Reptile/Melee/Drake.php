@@ -16,8 +16,10 @@ class Drake extends Mobile {
 		$this->str = rand(401, 430);
 		$this->dex = rand(133, 152);
 		$this->int = rand(101, 140);
-		$this->hits = 11;
-		$this->maxhits = 17;
+		$this->maxhits = rand(241, 258);
+		$this->hits = $this->maxhits;
+		$this->damage = 11;
+		$this->damageMax = 17;
 		$this->resist_physical = rand(45, 50);
 		$this->resist_fire = rand(50, 60);
 		$this->resist_cold = rand(40, 50);

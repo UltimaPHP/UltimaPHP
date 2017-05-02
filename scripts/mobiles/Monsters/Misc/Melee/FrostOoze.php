@@ -16,8 +16,10 @@ class FrostOoze extends Mobile {
 		$this->str = rand(18, 30);
 		$this->dex = rand(16, 21);
 		$this->int = rand(16, 20);
-		$this->hits = 3;
-		$this->maxhits = 9;
+		$this->maxhits = rand(13, 17);
+		$this->hits = $this->maxhits;
+		$this->damage = 3;
+		$this->damageMax = 9;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(40, 50);

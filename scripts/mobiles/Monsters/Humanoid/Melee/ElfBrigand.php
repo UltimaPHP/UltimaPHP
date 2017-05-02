@@ -16,8 +16,10 @@ class ElfBrigand extends Mobile {
 		$this->str = rand(86, 100);
 		$this->dex = rand(81, 95);
 		$this->int = rand(61, 75);
-		$this->hits = 10;
-		$this->maxhits = 23;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 10;
+		$this->damageMax = 23;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

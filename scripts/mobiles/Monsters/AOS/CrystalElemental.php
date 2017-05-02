@@ -16,8 +16,10 @@ class CrystalElemental extends Mobile {
 		$this->str = rand(136, 160);
 		$this->dex = rand(51, 65);
 		$this->int = rand(86, 110);
-		$this->hits = 10;
-		$this->maxhits = 15;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 10;
+		$this->damageMax = 15;
 		$this->resist_physical = rand(50, 60);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(40, 50);

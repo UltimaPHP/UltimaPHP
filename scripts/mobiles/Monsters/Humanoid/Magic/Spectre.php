@@ -16,8 +16,10 @@ class Spectre extends Mobile {
 		$this->str = rand(76, 100);
 		$this->dex = rand(76, 95);
 		$this->int = rand(36, 60);
-		$this->hits = 7;
-		$this->maxhits = 11;
+		$this->maxhits = rand(46, 60);
+		$this->hits = $this->maxhits;
+		$this->damage = 7;
+		$this->damageMax = 11;
 		$this->resist_physical = rand(25, 30);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(15, 25);

@@ -16,8 +16,10 @@ class MeerWarrior extends Mobile {
 		$this->str = rand(86, 100);
 		$this->dex = rand(186, 200);
 		$this->int = rand(86, 100);
-		$this->hits = 12;
-		$this->maxhits = 19;
+		$this->maxhits = rand(52, 60);
+		$this->hits = $this->maxhits;
+		$this->damage = 12;
+		$this->damageMax = 19;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(5, 15);
 		$this->resist_cold = rand(30, 40);

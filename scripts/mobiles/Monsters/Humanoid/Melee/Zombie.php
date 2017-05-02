@@ -16,8 +16,10 @@ class Zombie extends Mobile {
 		$this->str = rand(46, 70);
 		$this->dex = rand(31, 50);
 		$this->int = rand(26, 40);
-		$this->hits = 3;
-		$this->maxhits = 7;
+		$this->maxhits = rand(28, 42);
+		$this->hits = $this->maxhits;
+		$this->damage = 3;
+		$this->damageMax = 7;
 		$this->resist_physical = rand(15, 20);
 		$this->resist_fire = 0;
 		$this->resist_cold = rand(20, 30);

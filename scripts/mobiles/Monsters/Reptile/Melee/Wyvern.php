@@ -16,8 +16,10 @@ class Wyvern extends Mobile {
 		$this->str = rand(202, 240);
 		$this->dex = rand(153, 172);
 		$this->int = rand(51, 90);
-		$this->hits = 8;
-		$this->maxhits = 19;
+		$this->maxhits = rand(125, 141);
+		$this->hits = $this->maxhits;
+		$this->damage = 8;
+		$this->damageMax = 19;
 		$this->resist_physical = rand(35, 45);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(20, 30);

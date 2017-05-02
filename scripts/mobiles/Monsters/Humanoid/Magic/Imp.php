@@ -16,8 +16,10 @@ class Imp extends Mobile {
 		$this->str = rand(91, 115);
 		$this->dex = rand(61, 80);
 		$this->int = rand(86, 105);
-		$this->hits = 10;
-		$this->maxhits = 14;
+		$this->maxhits = rand(55, 70);
+		$this->hits = $this->maxhits;
+		$this->damage = 10;
+		$this->damageMax = 14;
 		$this->resist_physical = rand(25, 35);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(20, 30);

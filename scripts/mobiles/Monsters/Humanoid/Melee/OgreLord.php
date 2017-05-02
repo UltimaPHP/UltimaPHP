@@ -16,8 +16,10 @@ class OgreLord extends Mobile {
 		$this->str = rand(767, 945);
 		$this->dex = rand(66, 75);
 		$this->int = rand(46, 70);
-		$this->hits = 20;
-		$this->maxhits = 25;
+		$this->maxhits = rand(476, 552);
+		$this->hits = $this->maxhits;
+		$this->damage = 20;
+		$this->damageMax = 25;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(30, 40);

@@ -16,8 +16,10 @@ class CorruptedSoul extends Mobile {
 		$this->str = rand(102, 115);
 		$this->dex = rand(101, 115);
 		$this->int = rand(203, 215);
-		$this->hits = 4;
-		$this->maxhits = 40;
+		$this->maxhits = rand(61, 69);
+		$this->hits = $this->maxhits;
+		$this->damage = 4;
+		$this->damageMax = 40;
 		$this->resist_physical = rand(61, 74);
 		$this->resist_fire = rand(22, 48);
 		$this->resist_cold = rand(73, 100);

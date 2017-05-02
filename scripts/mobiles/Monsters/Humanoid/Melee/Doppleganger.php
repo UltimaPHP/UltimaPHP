@@ -16,8 +16,10 @@ class Doppleganger extends Mobile {
 		$this->str = rand(81, 110);
 		$this->dex = rand(56, 75);
 		$this->int = rand(81, 105);
-		$this->hits = 8;
-		$this->maxhits = 12;
+		$this->maxhits = rand(101, 120);
+		$this->hits = $this->maxhits;
+		$this->damage = 8;
+		$this->damageMax = 12;
 		$this->resist_physical = rand(50, 60);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(40, 50);

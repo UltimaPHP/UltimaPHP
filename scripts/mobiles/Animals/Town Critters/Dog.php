@@ -16,8 +16,10 @@ class Dog extends Mobile {
 		$this->str = rand(27, 37);
 		$this->dex = rand(28, 43);
 		$this->int = rand(29, 37);
-		$this->hits = 4;
-		$this->maxhits = 7;
+		$this->maxhits = rand(17, 22);
+		$this->hits = $this->maxhits;
+		$this->damage = 4;
+		$this->damageMax = 7;
 		$this->resist_physical = rand(10, 15);
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

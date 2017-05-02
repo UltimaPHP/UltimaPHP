@@ -16,8 +16,10 @@ class Revenant extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 16;
-		$this->maxhits = 17;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 16;
+		$this->damageMax = 17;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

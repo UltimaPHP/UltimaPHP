@@ -16,8 +16,10 @@ class Kraken extends Mobile {
 		$this->str = rand(756, 780);
 		$this->dex = rand(226, 245);
 		$this->int = rand(26, 40);
-		$this->hits = 19;
-		$this->maxhits = 33;
+		$this->maxhits = rand(454, 468);
+		$this->hits = $this->maxhits;
+		$this->damage = 19;
+		$this->damageMax = 33;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(30, 40);

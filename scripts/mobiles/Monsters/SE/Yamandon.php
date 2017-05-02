@@ -16,8 +16,10 @@ class Yamandon extends Mobile {
 		$this->str = rand(786, 930);
 		$this->dex = rand(251, 365);
 		$this->int = rand(101, 115);
-		$this->hits = 19;
-		$this->maxhits = 35;
+		$this->maxhits = rand(1601, 1800);
+		$this->hits = $this->maxhits;
+		$this->damage = 19;
+		$this->damageMax = 35;
 		$this->resist_physical = rand(65, 85);
 		$this->resist_fire = rand(70, 90);
 		$this->resist_cold = rand(50, 70);

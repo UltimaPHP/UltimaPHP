@@ -16,8 +16,10 @@ class Oni extends Mobile {
 		$this->str = rand(801, 910);
 		$this->dex = rand(151, 300);
 		$this->int = rand(171, 195);
-		$this->hits = 14;
-		$this->maxhits = 20;
+		$this->maxhits = rand(401, 530);
+		$this->hits = $this->maxhits;
+		$this->damage = 14;
+		$this->damageMax = 20;
 		$this->resist_physical = rand(65, 80);
 		$this->resist_fire = rand(50, 70);
 		$this->resist_cold = rand(35, 50);

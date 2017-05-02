@@ -16,8 +16,10 @@ class EnergyVortex extends Mobile {
 		$this->str = 0;
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 14;
-		$this->maxhits = 17;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 14;
+		$this->damageMax = 17;
 		$this->resist_physical = rand(60, 70);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(40, 50);

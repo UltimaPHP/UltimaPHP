@@ -16,8 +16,10 @@ class SnowElemental extends Mobile {
 		$this->str = rand(326, 355);
 		$this->dex = rand(166, 185);
 		$this->int = rand(71, 95);
-		$this->hits = 11;
-		$this->maxhits = 17;
+		$this->maxhits = rand(196, 213);
+		$this->hits = $this->maxhits;
+		$this->damage = 11;
+		$this->damageMax = 17;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(10, 15);
 		$this->resist_cold = rand(60, 70);

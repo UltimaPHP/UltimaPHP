@@ -16,8 +16,10 @@ class Gazer extends Mobile {
 		$this->str = rand(96, 125);
 		$this->dex = rand(86, 105);
 		$this->int = rand(141, 165);
-		$this->hits = 5;
-		$this->maxhits = 10;
+		$this->maxhits = rand(58, 75);
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 10;
 		$this->resist_physical = rand(35, 40);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(20, 30);

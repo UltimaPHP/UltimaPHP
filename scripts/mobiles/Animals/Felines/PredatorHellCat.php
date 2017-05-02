@@ -16,8 +16,10 @@ class PredatorHellCat extends Mobile {
 		$this->str = rand(161, 185);
 		$this->dex = rand(96, 115);
 		$this->int = rand(76, 100);
-		$this->hits = 5;
-		$this->maxhits = 17;
+		$this->maxhits = rand(97, 131);
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 17;
 		$this->resist_physical = rand(25, 35);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = 0;

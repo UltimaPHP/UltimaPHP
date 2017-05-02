@@ -16,8 +16,10 @@ class FleshRenderer extends Mobile {
 		$this->str = rand(401, 460);
 		$this->dex = rand(201, 210);
 		$this->int = rand(221, 260);
-		$this->hits = 16;
-		$this->maxhits = 20;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 16;
+		$this->damageMax = 20;
 		$this->resist_physical = rand(80, 90);
 		$this->resist_fire = rand(50, 60);
 		$this->resist_cold = rand(50, 60);

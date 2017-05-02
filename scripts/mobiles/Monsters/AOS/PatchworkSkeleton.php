@@ -16,8 +16,10 @@ class PatchworkSkeleton extends Mobile {
 		$this->str = rand(96, 120);
 		$this->dex = rand(71, 95);
 		$this->int = rand(16, 40);
-		$this->hits = 18;
-		$this->maxhits = 22;
+		$this->maxhits = rand(58, 72);
+		$this->hits = $this->maxhits;
+		$this->damage = 18;
+		$this->damageMax = 22;
 		$this->resist_physical = rand(55, 65);
 		$this->resist_fire = rand(50, 60);
 		$this->resist_cold = rand(70, 80);

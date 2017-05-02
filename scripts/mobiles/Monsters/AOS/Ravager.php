@@ -16,8 +16,10 @@ class Ravager extends Mobile {
 		$this->str = rand(251, 275);
 		$this->dex = rand(101, 125);
 		$this->int = rand(66, 90);
-		$this->hits = 15;
-		$this->maxhits = 20;
+		$this->maxhits = rand(161, 175);
+		$this->hits = $this->maxhits;
+		$this->damage = 15;
+		$this->damageMax = 20;
 		$this->resist_physical = rand(50, 60);
 		$this->resist_fire = rand(50, 60);
 		$this->resist_cold = rand(60, 70);

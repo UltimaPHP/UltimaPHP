@@ -16,8 +16,10 @@ class CrystalDaemon extends Mobile {
 		$this->str = rand(140, 200);
 		$this->dex = rand(120, 150);
 		$this->int = rand(800, 850);
-		$this->hits = 16;
-		$this->maxhits = 20;
+		$this->maxhits = rand(200, 220);
+		$this->hits = $this->maxhits;
+		$this->damage = 16;
+		$this->damageMax = 20;
 		$this->resist_physical = rand(20, 40);
 		$this->resist_fire = rand(0, 20);
 		$this->resist_cold = rand(60, 80);

@@ -16,8 +16,10 @@ class Leviathan extends Mobile {
 		$this->str = 0;
 		$this->dex = rand(501, 520);
 		$this->int = rand(501, 515);
-		$this->hits = 25;
-		$this->maxhits = 33;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 25;
+		$this->damageMax = 33;
 		$this->resist_physical = rand(55, 65);
 		$this->resist_fire = rand(45, 55);
 		$this->resist_cold = rand(45, 55);

@@ -16,8 +16,10 @@ class SavageRider extends Mobile {
 		$this->str = rand(151, 170);
 		$this->dex = rand(92, 130);
 		$this->int = rand(51, 65);
-		$this->hits = 29;
-		$this->maxhits = 34;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 29;
+		$this->damageMax = 34;
 		$this->resist_physical = 0;
 		$this->resist_fire = 0;
 		$this->resist_cold = 0;

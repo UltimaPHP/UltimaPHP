@@ -16,8 +16,10 @@ class Hydra extends Mobile {
 		$this->str = rand(801, 828);
 		$this->dex = rand(102, 118);
 		$this->int = rand(102, 120);
-		$this->hits = 21;
-		$this->maxhits = 26;
+		$this->maxhits = rand(1480, 1500);
+		$this->hits = $this->maxhits;
+		$this->damage = 21;
+		$this->damageMax = 26;
 		$this->resist_physical = rand(65, 75);
 		$this->resist_fire = rand(70, 85);
 		$this->resist_cold = rand(25, 35);

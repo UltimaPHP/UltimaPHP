@@ -16,8 +16,10 @@ class DeathwatchBeetle extends Mobile {
 		$this->str = rand(136, 160);
 		$this->dex = rand(41, 52);
 		$this->int = rand(31, 40);
-		$this->hits = 5;
-		$this->maxhits = 10;
+		$this->maxhits = rand(121, 145);
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 10;
 		$this->resist_physical = rand(35, 40);
 		$this->resist_fire = rand(15, 30);
 		$this->resist_cold = rand(15, 30);

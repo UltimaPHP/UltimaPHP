@@ -16,8 +16,10 @@ class Cougar extends Mobile {
 		$this->str = rand(56, 80);
 		$this->dex = rand(66, 85);
 		$this->int = rand(26, 50);
-		$this->hits = 4;
-		$this->maxhits = 10;
+		$this->maxhits = rand(34, 48);
+		$this->hits = $this->maxhits;
+		$this->damage = 4;
+		$this->damageMax = 10;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = rand(5, 10);
 		$this->resist_cold = rand(10, 15);

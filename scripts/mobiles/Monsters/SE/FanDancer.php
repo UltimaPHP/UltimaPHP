@@ -16,8 +16,10 @@ class FanDancer extends Mobile {
 		$this->str = rand(301, 375);
 		$this->dex = rand(201, 255);
 		$this->int = rand(21, 25);
-		$this->hits = 12;
-		$this->maxhits = 17;
+		$this->maxhits = rand(351, 430);
+		$this->hits = $this->maxhits;
+		$this->damage = 12;
+		$this->damageMax = 17;
 		$this->resist_physical = rand(40, 60);
 		$this->resist_fire = rand(50, 70);
 		$this->resist_cold = rand(50, 70);

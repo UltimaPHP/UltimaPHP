@@ -16,8 +16,10 @@ class BlackSolenInfiltratorQueen extends Mobile {
 		$this->str = rand(326, 350);
 		$this->dex = rand(141, 165);
 		$this->int = rand(96, 120);
-		$this->hits = 10;
-		$this->maxhits = 15;
+		$this->maxhits = rand(151, 162);
+		$this->hits = $this->maxhits;
+		$this->damage = 10;
+		$this->damageMax = 15;
 		$this->resist_physical = rand(30, 40);
 		$this->resist_fire = rand(30, 35);
 		$this->resist_cold = rand(25, 35);

@@ -16,8 +16,10 @@ class OphidianMatriarch extends Mobile {
 		$this->str = rand(416, 505);
 		$this->dex = rand(96, 115);
 		$this->int = rand(366, 455);
-		$this->hits = 11;
-		$this->maxhits = 13;
+		$this->maxhits = rand(250, 303);
+		$this->hits = $this->maxhits;
+		$this->damage = 11;
+		$this->damageMax = 13;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(35, 45);

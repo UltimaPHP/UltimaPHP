@@ -16,8 +16,10 @@ class Silvani extends Mobile {
 		$this->str = rand(253, 400);
 		$this->dex = rand(157, 850);
 		$this->int = rand(503, 800);
-		$this->hits = 27;
-		$this->maxhits = 38;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 27;
+		$this->damageMax = 38;
 		$this->resist_physical = rand(45, 55);
 		$this->resist_fire = rand(30, 40);
 		$this->resist_cold = rand(30, 40);

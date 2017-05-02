@@ -16,8 +16,10 @@ class Ferret extends Mobile {
 		$this->str = rand(41, 48);
 		$this->dex = 0;
 		$this->int = 0;
-		$this->hits = 7;
-		$this->maxhits = 9;
+		$this->maxhits = rand(45, 50);
+		$this->hits = $this->maxhits;
+		$this->damage = 7;
+		$this->damageMax = 9;
 		$this->resist_physical = rand(45, 50);
 		$this->resist_fire = rand(10, 14);
 		$this->resist_cold = rand(30, 40);

@@ -16,8 +16,10 @@ class AgapiteElemental extends Mobile {
 		$this->str = rand(226, 255);
 		$this->dex = rand(126, 145);
 		$this->int = rand(71, 92);
-		$this->hits = 0;
-		$this->maxhits = 0;
+		$this->maxhits = rand(136, 153);
+		$this->hits = $this->maxhits;
+		$this->damage = 0;
+		$this->damageMax = 0;
 		$this->resist_physical = rand(30, 40);
 		$this->resist_fire = rand(40, 50);
 		$this->resist_cold = rand(40, 50);

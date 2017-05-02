@@ -16,8 +16,10 @@ class RevenantLion extends Mobile {
 		$this->str = rand(276, 325);
 		$this->dex = rand(156, 175);
 		$this->int = rand(76, 105);
-		$this->hits = 18;
-		$this->maxhits = 24;
+		$this->maxhits = rand(251, 280);
+		$this->hits = $this->maxhits;
+		$this->damage = 18;
+		$this->damageMax = 24;
 		$this->resist_physical = rand(40, 60);
 		$this->resist_fire = rand(20, 30);
 		$this->resist_cold = rand(50, 60);

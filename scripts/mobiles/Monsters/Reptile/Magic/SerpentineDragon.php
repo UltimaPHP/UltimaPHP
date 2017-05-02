@@ -16,8 +16,10 @@ class SerpentineDragon extends Mobile {
 		$this->str = rand(111, 140);
 		$this->dex = rand(201, 220);
 		$this->int = rand(1001, 1040);
-		$this->hits = 5;
-		$this->maxhits = 12;
+		$this->maxhits = 0;
+		$this->hits = $this->maxhits;
+		$this->damage = 5;
+		$this->damageMax = 12;
 		$this->resist_physical = rand(35, 40);
 		$this->resist_fire = rand(25, 35);
 		$this->resist_cold = rand(25, 35);

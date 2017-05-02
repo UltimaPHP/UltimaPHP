@@ -16,8 +16,10 @@ class Succubus extends Mobile {
 		$this->str = rand(488, 620);
 		$this->dex = rand(121, 170);
 		$this->int = rand(498, 657);
-		$this->hits = 18;
-		$this->maxhits = 28;
+		$this->maxhits = rand(312, 353);
+		$this->hits = $this->maxhits;
+		$this->damage = 18;
+		$this->damageMax = 28;
 		$this->resist_physical = rand(80, 90);
 		$this->resist_fire = rand(70, 80);
 		$this->resist_cold = rand(40, 50);

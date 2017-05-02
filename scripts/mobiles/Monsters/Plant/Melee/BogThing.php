@@ -16,8 +16,10 @@ class BogThing extends Mobile {
 		$this->str = rand(801, 900);
 		$this->dex = rand(46, 65);
 		$this->int = rand(36, 50);
-		$this->hits = 10;
-		$this->maxhits = 23;
+		$this->maxhits = rand(481, 540);
+		$this->hits = $this->maxhits;
+		$this->damage = 10;
+		$this->damageMax = 23;
 		$this->resist_physical = rand(30, 40);
 		$this->resist_fire = rand(20, 25);
 		$this->resist_cold = rand(10, 15);

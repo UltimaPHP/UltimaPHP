@@ -16,8 +16,10 @@ class TerathanDrone extends Mobile {
 		$this->str = rand(36, 65);
 		$this->dex = rand(96, 145);
 		$this->int = rand(21, 45);
-		$this->hits = 6;
-		$this->maxhits = 12;
+		$this->maxhits = rand(22, 39);
+		$this->hits = $this->maxhits;
+		$this->damage = 6;
+		$this->damageMax = 12;
 		$this->resist_physical = rand(20, 25);
 		$this->resist_fire = rand(10, 20);
 		$this->resist_cold = rand(15, 25);
