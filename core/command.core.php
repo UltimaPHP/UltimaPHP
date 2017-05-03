@@ -31,8 +31,11 @@ class Command {
         'sysm'       => array(
             'minPlevel' => 2,
         ),
-        'emote'       => array(
+        'emote'      => array(
             'minPlevel' => 2,
+        ),
+        'sendpacket' => array(
+            'minPlevel' => 7,
         ),
     );
 

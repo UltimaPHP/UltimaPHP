@@ -179,4 +179,36 @@ class Functions {
         }
     }
 
+    public static function findSerialOnContainer(TypeContainer &$container, $serial = null, $removeOnReturn = false) {
+        if (!$container || $serial === null) {
+            return false;
+        }
+
+        $result = false;
+
+        foreach ($container->objects as $key => $object) {
+            if ($result) {
+                continue;
+            }
+
+            if ($object->serial == $serial) {
+                $result = $object;
+                if ($removeOnReturn) {
+                    unset($container->objects[$key]);
+                }
+                continue;
+            }
+
+            if (isset(class_parents($object)['TypeContainer'])) {
+                $tmp = self::findSerialOnContainer($object, $serial, $removeOnReturn);
+
+                if ($tmp) {
+                    $result = $tmp;
+                    continue;
+                }
+            }
+        }
+
+        return $result;
+    }
 }

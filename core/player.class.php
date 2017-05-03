@@ -258,7 +258,11 @@ class Player {
             for ($i=1; $i<=31; $i++) {
                 if ($i == LayersDefs::BACKPACK) {
                     $bp = new Backpack();
-                    print_r($bp);
+                    $bp2 = new Backpack();
+                    $tmp = new VikingSword();
+                    $bp2->addItem($this->client, $tmp, ['x' => 5, 'y' => 5], true);
+                    $bp->addItem($this->client, $bp2, ['x' => 5, 'y' => 5], true);
+
                     $this->layers[$i] = $bp;
                 } else {
                     $this->layers[$i] = ($i == 30 ? [] : null);
@@ -306,12 +310,29 @@ class Player {
             return false;
         }
 
-        if (hexdec($serial) & UltimaPHP::BITMASK_ITEM) {
-            $item = Map::getBySerial($serial);
-            if ($item) {
-                $item->click($this->client);
+        $instance = Map::getBySerial($serial);
+
+        if (!$instance) {
+            /* Test player layers to find the object */
+            foreach ($this->layers as $layer => $object) {
+                if ($object !== null && !is_array($object)) {
+                    if ($object->serial == $serial) {
+                        $instance = $this->layers[$layer];
+                    }
+                }
+            }
+
+            if (!$instance) {
+                /* Test to look inside payers backpack */
+                $instance = Functions::findSerialOnContainer($this->layers[LayersDefs::BACKPACK], $serial);
+                
+                if (!$instance) {
+                    return false;
+                }
             }
         }
+
+        $instance->click($this->client);
     }
 
     public function dclick($serial = null) {
@@ -326,9 +347,24 @@ class Player {
         $instance = Map::getBySerial($serial);
 
         if (!$instance) {
-            return false;
-        }
+            /* Test player layers to find the object */
+            foreach ($this->layers as $layer => $object) {
+                if ($object !== null && !is_array($object)) {
+                    if ($object->serial == $serial) {
+                        $instance = $this->layers[$layer];
+                    }
+                }
+            }
 
+            if (!$instance) {
+                /* Test to look inside payers backpack */
+                $instance = Functions::findSerialOnContainer($this->layers[LayersDefs::BACKPACK], $serial);
+
+                if (!$instance) {
+                    return false;
+                }
+            }
+        }
 
         if ($this->serial == $instance->serial) {
             return $this->openPaperdoll($serial, true);
@@ -351,6 +387,7 @@ class Player {
 
         // Self equip
         if ($container == $this->serial) {
+            $removeFromMap = true;
             // Something is already on the layer?
             if ($this->layers[hexdec($layer)] !== null) {
                 // Unequip the item before equip new
@@ -363,6 +400,16 @@ class Player {
                 $this->layers[LayersDefs::DRAGGING] = null;
             } else {
                 $instance = Map::getBySerial($serial);
+
+                if (!$instance) {
+                    /* Test to look inside payers backpack */
+                    $instance = Functions::findSerialOnContainer($this->layers[LayersDefs::BACKPACK], $serial, true);
+                    $removeFromMap = false;
+                }
+
+                if (!$instance) {
+                    return false;
+                }
             }
 
             $this->layers[hexdec($layer)] = $instance;
@@ -370,7 +417,9 @@ class Player {
             $this->drawChar();
 
             /* Removes from everyone view range */
-            Map::removeSerialData($serial);
+            if ($removeFromMap) {
+                Map::removeSerialData($serial);
+            }
             Map::updateChunk(null, $this->client);
             return true;
         }
@@ -435,13 +484,61 @@ class Player {
         }
 
         if ($this->layers[LayersDefs::DRAGGING] !== null && $this->layers[LayersDefs::DRAGGING]->serial == $serial) {
-            Map::addObjectToMap($this->layers[LayersDefs::DRAGGING], $position['x'], $position['y'], $position['z'], $this->position['map']);
-        } else {
-            echo "Dropping other item on $container\n";
-        }
+            if ($container == "FFFFFFFF") {
+                Map::addObjectToMap($this->layers[LayersDefs::DRAGGING], $position['x'], $position['y'], $position['z'], $this->position['map']);
+                $this->layers[LayersDefs::DRAGGING] = null;
+            } else {
+                $removeFromMap = true;
+                $containerInstance = Map::getBySerial($container);
+                $objectInstance = Map::getBySerial($serial);
 
-        $this->dropAccept();
-        return true;
+                if (!$containerInstance) {
+                    /* Test player layers to find the object */
+                    foreach ($this->layers as $layer => $object) {
+                        if ($object !== null && !is_array($object)) {
+                            if ($object->serial == $container) {
+                                $containerInstance = $this->layers[$layer];
+                            }
+                        }
+                    }
+
+                    if (!$containerInstance) {
+                        /* Test to look inside payers backpack */
+                        $containerInstance = Functions::findSerialOnContainer($this->layers[LayersDefs::BACKPACK], $container);
+                        
+                        if (!$containerInstance) {
+                            return false;
+                        }
+                    }
+                }
+
+                if (!$objectInstance) {
+                    /* Test player layers to find the object */
+                    foreach ($this->layers as $layer => $object) {
+                        if ($object !== null && !is_array($object)) {
+                            if ($object->serial == $serial) {
+                                $objectInstance = $this->layers[$layer];
+                            }
+                        }
+                    }
+
+                    if (!$objectInstance) {
+                        /* Test to look inside payers backpack */
+                        $objectInstance = Functions::findSerialOnContainer($this->layers[LayersDefs::BACKPACK], $serial, true);
+                        
+                        if (!$objectInstance) {
+                            return false;
+                        }
+                    }
+                }
+
+                $containerInstance->addItem($this->client, $objectInstance);
+            }
+
+            $this->dropAccept();
+            return true;
+        }
+        return false;
     }
 
     public function pickUp($serial = null, $amount = 1) {
@@ -450,15 +547,32 @@ class Player {
         }
 
         $instance = Map::getBySerial($serial);
+
         if (!$instance) {
-            return false;
+            /* Test player layers to find the object */
+            foreach ($this->layers as $layer => $object) {
+                if ($object !== null && !is_array($object)) {
+                    if ($object->serial == $serial) {
+                        $instance = $this->layers[$layer];
+                    }
+                }
+            }
+
+            if (!$instance) {
+                /* Test to look inside payers backpack */
+                $instance = Functions::findSerialOnContainer($this->layers[LayersDefs::BACKPACK], $serial, true);
+                
+                if (!$instance) {
+                    return false;
+                }
+            }
         }
 
         if ($instance->amount < $amount) {
             return false;
         }
 
-        if ($instance->amount > $amount) {
+        // if ($instance->amount > $amount) {
             // echo "Picking some part of the item stack\n";
             // update item amount
             // $instance->amount = ($instance->amount - $amount);
@@ -470,13 +584,13 @@ class Player {
             // $newItem->amount = $amount;
 
             // $this->layers[LayersDefs::DRAGGING] = $newItem;
-        } else {
+        // } else {
             Map::removeSerialData($serial);
             $this->layers[LayersDefs::DRAGGING] = $instance;
 
             $packet = "1D" . str_pad($serial, 8, "0", STR_PAD_LEFT);
             Map::sendPacketRange($packet, $this->client);
-        }
+        // }
 
         /* Removes from everyone view range */
         // Map::updateChunkForced($this->position);

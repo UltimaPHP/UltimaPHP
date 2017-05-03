@@ -6,9 +6,10 @@
  */
 
 class Backpack extends TypeContainer {
-	public function build() {
+    public function build() {
         $this->name           = "backpack";
         $this->graphic        = 0xE75;
+        $this->gump           = 0x003C;
         $this->type           = "";
         $this->flags          = 0x00;
         $this->value          = 0;
@@ -29,4 +30,3 @@ class Backpack extends TypeContainer {
         $this->weight         = 4.0;
     }
 }
-?>

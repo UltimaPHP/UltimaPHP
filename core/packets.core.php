@@ -277,7 +277,7 @@ class Packets {
         $y                = hexdec(Functions::implodeByte($data, 7, 8));
         $z                = hexdec(Functions::fromChar8($data[9]));
         $grid_location    = $data[10];
-        $conatiner_serial = Functions::implodeByte($data, 11, 13);
+        $conatiner_serial = Functions::implodeByte($data, 11, 14);
 
         return UltimaPHP::$socketClients[$client]['account']->player->dropItem($item_serial, ['x' => $x, 'y' => $y, 'z' => $z], $grid_location, $conatiner_serial);
     }
