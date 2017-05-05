@@ -51,7 +51,8 @@ make install
 ```
 
 ### What is already working?
-
+ * Classic client
+ * 3D Client
  * Login
  * Create Character
  * Open Paperdol (self/other players)
