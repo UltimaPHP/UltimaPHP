@@ -151,7 +151,7 @@ class UltimaPHP {
         self::setStatus(self::STATUS_DATABASE_CONNECTING);
         try {
             self::$db = new Mongodb();
-        } catch (PDOException $e) {
+        } catch (Exception $e) {
             self::setStatus(self::STATUS_DATABASE_CONNECTION_FAILED, array(
                 "\n" . $e->getMessage(),
             ));
