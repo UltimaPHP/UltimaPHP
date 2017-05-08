@@ -32,36 +32,15 @@ class Account {
     public function __construct($account = null, $password = null, $client = null) {
         $this->client = $client;
 
-        $query = "SELECT
-                        a.id,
-                        a.account,
-                        a.password,
-                        a.maxchars,
-                        a.creation_date,
-                        a.last_login,
-                        a.plevel,
-                        a.status
-                    FROM
-                        accounts a
-                    WHERE
-                        a.account = :account and
-                        a.password = :password and
-                        a.status = 1";
-
-        $sth = UltimaPHP::$db->prepare($query);
-        $sth->execute(array(
-            ":account"  => $account,
-            ":password" => $password,
-        ));
-        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+        $result = UltimaPHP::$db->collection("accounts")->find(['account' => $account, 'password' => $password])->toArray();
 
         if (isset($result[0])) {
-            $this->serial        = $result[0]['id'];
+            $this->serial        = $result[0]['serial'];
             $this->account       = $result[0]['account'];
             $this->password      = $result[0]['password'];
-            $this->maxchars      = $result[0]['maxchars'];
-            $this->creation_date = $result[0]['creation_date'];
-            $this->last_login    = $result[0]['last_login'];
+            $this->maxchars      = $result[0]['maxChars'];
+            $this->creation_date = $result[0]['creationDate'];
+            $this->last_login    = $result[0]['lastLogin'];
             $this->plevel        = $result[0]['plevel'];
             $this->status        = $result[0]['status'];
             $this->characters    = $this->getCharacterList();
@@ -84,24 +63,14 @@ class Account {
      */
     public function getCharacterList($updateList = false) {
         if ($updateList || $this->characters === null) {
-            $query = "SELECT
-                        a.id,
-                        a.name
-                    FROM
-                        players a
-                    WHERE
-                        a.account = :account_serial";
 
-            $sth = UltimaPHP::$db->prepare($query);
-            $sth->execute(array(
-                ":account_serial" => $this->serial,
-            ));
-            $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+            $result = UltimaPHP::$db->collection("players")->find(['player_serial' => 1], ['projection' => ['player_serial'=> true, 'name'=> true]])->toArray();
 
             $chars = array();
             foreach ($result as $char) {
                 $chars[] = array(
-                    'serial' => (442500 + $char['id']),
+                    'player_serial' => $char['player_serial'],
+                    'serial' => (442500 + $char['player_serial']),
                     'name'   => $char['name'],
                 );
             }
@@ -216,7 +185,7 @@ class Account {
      */
     public function loginCharacter($slot = 0) {
         if (isset($this->characters[$slot])) {
-            $this->player = new Player($this->client, $this->characters[$slot]['serial']);
+            $this->player = new Player($this->client, $this->characters[$slot]);
             // Sockets::addEvent($this->client, array(
             //     "option" => "player",
             //     "method" => "enableMapDiffs",

@@ -15,6 +15,7 @@ class Player {
 
     /* Player variables */
     public $id;
+    public $mongoId;
     public $serial;
     public $name;
     public $body;
@@ -66,77 +67,26 @@ class Player {
     /* Temporary Variables */
     public $mapRange = [];
 
-    public function __construct($client = null, $character_serial = null) {
-        if (null === $client || null === $character_serial) {
+    public function __construct($client = null, $character = null) {
+        if (null === $client || null === $character) {
             return false;
         }
 
         $this->client       = $client;
-        $this->serial       = str_pad($character_serial, 8, "0", STR_PAD_LEFT);
-        $this->id           = ($character_serial - 442500);
+        $this->serial       = str_pad($character['serial'], 8, "0", STR_PAD_LEFT);
+        $this->id           = $character['player_serial'];
         $this->render_range = UltimaPHP::$conf['muls']['render_range'];
 
-        $query = "SELECT
-                        a.id,
-                        a.name,
-                        a.body,
-                        a.color,
-                        a.sex,
-                        a.race,
-                        a.position,
-                        a.hits,
-                        a.maxhits,
-                        a.mana,
-                        a.maxmana,
-                        a.stam,
-                        a.maxstam,
-                        a.str,
-                        a.maxstr,
-                        a.int,
-                        a.maxint,
-                        a.dex,
-                        a.maxdex,
-                        a.statscap,
-                        a.pets,
-                        a.maxpets,
-                        a.resist_physical,
-                        a.resist_fire,
-                        a.resist_cold,
-                        a.resist_poison,
-                        a.resist_energy,
-                        a.luck,
-                        a.damage_min,
-                        a.damage_max,
-                        a.karma,
-                        a.fame,
-                        a.title
-                    FROM
-                        players a
-                    WHERE
-                        a.id = :player_id";
-
-        $sth = UltimaPHP::$db->prepare($query);
-        $sth->execute(array(
-            ":player_id" => $this->id,
-        ));
-        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+        $result = UltimaPHP::$db->collection("players")->find(['player_serial' => $this->id])->toArray();
 
         if (isset($result[0])) {
-            $position = explode(",", $result[0]['position']);
-
-            $this->name     = $result[0]['name'];
-            $this->body     = $result[0]['body'];
-            $this->color    = $result[0]['color'];
-            $this->sex      = $result[0]['sex'];
-            $this->race     = $result[0]['race'];
-            $this->position = [
-                'x'       => $position[0],
-                'y'       => $position[1],
-                'z'       => $position[2],
-                'map'     => $position[3],
-                'facing'  => 6,
-                'running' => 0,
-            ];
+            $this->mongoId         = $result[0]['_id'];
+            $this->name            = $result[0]['name'];
+            $this->body            = $result[0]['body'];
+            $this->color           = $result[0]['color'];
+            $this->sex             = $result[0]['sex'];
+            $this->race            = $result[0]['race'];
+            $this->position        = $result[0]['position'];
             $this->hits            = $result[0]['hits'];
             $this->maxhits         = $result[0]['maxhits'];
             $this->mana            = $result[0]['mana'];
@@ -165,99 +115,21 @@ class Player {
             $this->title           = $result[0]['title'];
             $this->warmode         = false;
 
-            $query = "SELECT
-                        a.id,
-                        a.player,
-                        a.alchemy,
-                        a.anatomy,
-                        a.animallore,
-                        a.itemid,
-                        a.armslore,
-                        a.parrying,
-                        a.begging,
-                        a.blacksmith,
-                        a.bowcraft,
-                        a.peacemaking,
-                        a.camping,
-                        a.carpentry,
-                        a.cartography,
-                        a.cooking,
-                        a.detecthidden,
-                        a.enticement,
-                        a.evalint,
-                        a.healing,
-                        a.fishing,
-                        a.forensics,
-                        a.herding,
-                        a.hiding,
-                        a.provocation,
-                        a.inscription,
-                        a.lockpick,
-                        a.magery,
-                        a.magicresist,
-                        a.tactics,
-                        a.snooping,
-                        a.musicianship,
-                        a.poisoning,
-                        a.archery,
-                        a.spiritspeak,
-                        a.stealing,
-                        a.tailoring,
-                        a.taming,
-                        a.tasteid,
-                        a.tinkering,
-                        a.tracking,
-                        a.vet,
-                        a.swordsmanship,
-                        a.macefighting,
-                        a.fencing,
-                        a.wrestling,
-                        a.lumberjack,
-                        a.mining,
-                        a.meditation,
-                        a.stealth,
-                        a.removetrap,
-                        a.necromancy,
-                        a.focus,
-                        a.chivalry,
-                        a.bushido,
-                        a.ninjitsu,
-                        a.spellweaving,
-                        a.mysticism,
-                        a.imbuing,
-                        a.throwing
-                    FROM
-                        players_skills a
-                    WHERE
-                        a.player = :player_id";
+            foreach ($result[0]['skills'] as $skill => $value) {
+                $skillclass = "Skill" . ucfirst($skill);
+                $skilldef   = "SkillsDefs::SKILL_" . strtoupper($skill);
 
-            $sth = UltimaPHP::$db->prepare($query);
-            $sth->execute(array(
-                ":player_id" => $this->id,
-            ));
-            $result = $sth->fetchAll(PDO::FETCH_ASSOC);
-
-            if (isset($result[0])) {
-                foreach ($result[0] as $skill => $value) {
-                    if (in_array($skill, ['id', 'player'])) {
-                        continue;
-                    }
-
-                    $skillclass = "Skill".ucfirst($skill);
-                    $skilldef = "SkillsDefs::SKILL_" . strtoupper($skill);
-
-                    if (class_exists($skillclass)) {
-                        $this->skills[constant($skilldef)] = new $skillclass((float)$value);
-                    } else {
-                        UltimaPHP::log("Trying to set $skilldef to player  " . $this->name . " (".$this->serial.")", "ERROR");
-                    }
+                if (class_exists($skillclass)) {
+                    $this->skills[constant($skilldef)] = new $skillclass((float) $value);
+                } else {
+                    UltimaPHP::log("Trying to set $skilldef to player  " . $this->name . " (" . $this->serial . ")", "ERROR");
                 }
             }
 
             /* Define player layers */
-            for ($i=1; $i<=31; $i++) {
+            for ($i = 1; $i <= 31; $i++) {
                 if ($i == LayersDefs::BACKPACK) {
-                    $bp = new Backpack();
+                    $bp  = new Backpack();
                     $bp2 = new Backpack();
                     $tmp = new VikingSword();
                     $bp2->addItem($this->client, $tmp, ['x' => 5, 'y' => 5], true);
@@ -268,21 +140,6 @@ class Player {
                     $this->layers[$i] = ($i == 30 ? [] : null);
                 }
             }
-
-            /* Get player equipment from database*/
-            // $query = "SELECT
-            //             a.id,
-            //             a.player,
-            //             a.layer,
-            //             a.itemSerial";
-            // $sth = UltimaPHP::$db->prepare($query);
-            // $sth->execute(array(
-            //     ":player_id" => $this->id,
-            // ));
-            // $result = $sth->fetchAll(PDO::FETCH_ASSOC);
-
-            // if (count($result) > 0) {
-            // }
 
             return true;
         }
@@ -325,7 +182,7 @@ class Player {
             if (!$instance) {
                 /* Test to look inside payers backpack */
                 $instance = Functions::findSerialOnContainer($this->layers[LayersDefs::BACKPACK], $serial);
-                
+
                 if (!$instance) {
                     return false;
                 }
@@ -379,7 +236,7 @@ class Player {
         return false;
     }
 
-	// A ser implementado    
+    // A ser implementado
     public function equipRequest($serial = null, $layer = null, $container = null) {
         if ($serial === null || $layer === null) {
             return false;
@@ -403,7 +260,7 @@ class Player {
 
                 if (!$instance) {
                     /* Test to look inside payers backpack */
-                    $instance = Functions::findSerialOnContainer($this->layers[LayersDefs::BACKPACK], $serial, true);
+                    $instance      = Functions::findSerialOnContainer($this->layers[LayersDefs::BACKPACK], $serial, true);
                     $removeFromMap = false;
                 }
 
@@ -413,7 +270,7 @@ class Player {
             }
 
             $this->layers[hexdec($layer)] = $instance;
-            $this->forceUpdate = true;
+            $this->forceUpdate            = true;
             $this->drawChar();
 
             /* Removes from everyone view range */
@@ -446,7 +303,7 @@ class Player {
                 }
 
                 $container->layers[hexdec($layer)] = $instance;
-                $container->forceUpdate = true;
+                $container->forceUpdate            = true;
                 $container->drawChar();
 
                 /* Removes from everyone view range */
@@ -469,9 +326,9 @@ class Player {
             return false;
         }
     }
-    
-	/**
-     * Send the client drop accept - A ser testado 
+
+    /**
+     * Send the client drop accept - A ser testado
      */
     public function dropAccept($runInLot = false) {
         $packet = "29";
@@ -488,9 +345,9 @@ class Player {
                 Map::addObjectToMap($this->layers[LayersDefs::DRAGGING], $position['x'], $position['y'], $position['z'], $this->position['map']);
                 $this->layers[LayersDefs::DRAGGING] = null;
             } else {
-                $removeFromMap = true;
+                $removeFromMap     = true;
                 $containerInstance = Map::getBySerial($container);
-                $objectInstance = Map::getBySerial($serial);
+                $objectInstance    = Map::getBySerial($serial);
 
                 if (!$containerInstance) {
                     /* Test player layers to find the object */
@@ -505,7 +362,7 @@ class Player {
                     if (!$containerInstance) {
                         /* Test to look inside payers backpack */
                         $containerInstance = Functions::findSerialOnContainer($this->layers[LayersDefs::BACKPACK], $container);
-                        
+
                         if (!$containerInstance) {
                             return false;
                         }
@@ -525,7 +382,7 @@ class Player {
                     if (!$objectInstance) {
                         /* Test to look inside payers backpack */
                         $objectInstance = Functions::findSerialOnContainer($this->layers[LayersDefs::BACKPACK], $serial, true);
-                        
+
                         if (!$objectInstance) {
                             return false;
                         }
@@ -561,7 +418,7 @@ class Player {
             if (!$instance) {
                 /* Test to look inside payers backpack */
                 $instance = Functions::findSerialOnContainer($this->layers[LayersDefs::BACKPACK], $serial, true);
-                
+
                 if (!$instance) {
                     return false;
                 }
@@ -573,23 +430,23 @@ class Player {
         }
 
         // if ($instance->amount > $amount) {
-            // echo "Picking some part of the item stack\n";
-            // update item amount
-            // $instance->amount = ($instance->amount - $amount);
+        // echo "Picking some part of the item stack\n";
+        // update item amount
+        // $instance->amount = ($instance->amount - $amount);
 
-            // // Duplicate the item
-            // $class = get_class($instance);
+        // // Duplicate the item
+        // $class = get_class($instance);
 
-            // $newItem = new $$class();
-            // $newItem->amount = $amount;
+        // $newItem = new $$class();
+        // $newItem->amount = $amount;
 
-            // $this->layers[LayersDefs::DRAGGING] = $newItem;
+        // $this->layers[LayersDefs::DRAGGING] = $newItem;
         // } else {
-            Map::removeSerialData($serial);
-            $this->layers[LayersDefs::DRAGGING] = $instance;
+        Map::removeSerialData($serial);
+        $this->layers[LayersDefs::DRAGGING] = $instance;
 
-            $packet = "1D" . str_pad($serial, 8, "0", STR_PAD_LEFT);
-            Map::sendPacketRange($packet, $this->client);
+        $packet = "1D" . str_pad($serial, 8, "0", STR_PAD_LEFT);
+        Map::sendPacketRange($packet, $this->client);
         // }
 
         /* Removes from everyone view range */
@@ -604,8 +461,8 @@ class Player {
         }
 
         if (!$instance) {
-                return false;
-            }
+            return false;
+        }
 
         $packet = "88";
         $packet .= str_pad($instance->serial, 8, "0", STR_PAD_LEFT);
@@ -613,9 +470,9 @@ class Player {
 
         $flags = 0x00;
 
-		if($instance->warmode) {
-			$flags |= 0x01;
-		}
+        if ($instance->warmode) {
+            $flags |= 0x01;
+        }
 
         // Can alter paperdoll
         if ($canLift) {
@@ -680,7 +537,7 @@ class Player {
         }
         Sockets::out($this->client, $packet, false);
     }
-    
+
     /**
      * Send to the client the locale and body information
      */
@@ -690,10 +547,10 @@ class Player {
             'x'      => $this->position['x'],
             'y'      => $this->position['y'],
             'z'      => $this->position['z'],
-            'map'      => $this->position['map'],
+            'map'    => $this->position['map'],
             'facing' => $this->position['facing'],
         );
-        $mapInfo = explode(",", UltimaPHP::$conf['muls']["map".$this->position['map']]);
+        $mapInfo  = explode(",", UltimaPHP::$conf['muls']["map" . $this->position['map']]);
         $map_size = array(
             'x' => $mapInfo[0] - 8,
             'y' => $mapInfo[1],
@@ -722,13 +579,13 @@ class Player {
      */
     public function sendFullSkillList($runInLot = false) {
         $tmpPacket = "02";
-        
+
         foreach ($this->skills as $skill_id => $skillInfo) {
-            $tmpPacket .= str_pad(dechex($skill_id+1), 4, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(dechex($skillInfo->value*10), 4, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(dechex($skillInfo->value*10), 4, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(dechex($skill_id + 1), 4, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(dechex($skillInfo->value * 10), 4, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(dechex($skillInfo->value * 10), 4, "0", STR_PAD_LEFT);
             $tmpPacket .= "00";
-            $tmpPacket .= str_pad(dechex(((float)UltimaPHP::$conf['accounts']['skillcap']) * 10), 4, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(dechex(((float) UltimaPHP::$conf['accounts']['skillcap']) * 10), 4, "0", STR_PAD_LEFT);
         }
         $tmpPacket .= "0000";
 
@@ -762,12 +619,12 @@ class Player {
         $packet = "0018";
         $packet .= str_pad(dechex($maps), 4, "0", STR_PAD_LEFT);
 
-        for ($i=0; $i <= ($maps-1); $i++) { 
+        for ($i = 0; $i <= ($maps - 1); $i++) {
             $packet .= "00000000";
             $packet .= "00000000";
         }
 
-        $packet = "BF" . str_pad(dechex((strlen($packet) /2) + 3), 4, "0", STR_PAD_LEFT) . $packet;
+        $packet = "BF" . str_pad(dechex((strlen($packet) / 2) + 3), 4, "0", STR_PAD_LEFT) . $packet;
         Sockets::out($this->client, $packet, $runInLot);
     }
 
@@ -824,7 +681,7 @@ class Player {
         $playSound = (isset($args[1]) ? $args[1] : false);
 
         $packet = "BC" . str_pad(dechex($season), 2, "0", STR_PAD_LEFT) . str_pad(dechex((int) $playSound), 2, "0", STR_PAD_LEFT);
-        
+
         Sockets::out($this->client, $packet, $runInLot);
     }
 
@@ -907,39 +764,44 @@ class Player {
         $packet .= "0000";
         $packet .= str_pad(dechex($this->position['facing']), 2, "0", STR_PAD_LEFT);
         $packet .= Functions::toChar8($this->position['z']);
-		
+
         Sockets::out($this->client, $packet, $runInLot);
     }
-    
+
     /**
-	* Return packet flags for > SA client
-	* 
-	* @return
-	*/
-    public function GetPacketFlags()
-	{
-		$flags = 0x00;
+     * Return packet flags for > SA client
+     *
+     * @return
+     */
+    public function GetPacketFlags() {
+        $flags = 0x00;
 
-		if( $this->paralyzed || $this->frozen )
-			$flags |= 0x01;
+        if ($this->paralyzed || $this->frozen) {
+            $flags |= 0x01;
+        }
 
-		if( $this->female )
-			$flags |= 0x02;
+        if ($this->female) {
+            $flags |= 0x02;
+        }
 
-		if( $this->flying )
-			$flags |= 0x04;
+        if ($this->flying) {
+            $flags |= 0x04;
+        }
 
-		if( $this->blessed || $this->yellowHealthBar )
-			$flags |= 0x08;
+        if ($this->blessed || $this->yellowHealthBar) {
+            $flags |= 0x08;
+        }
 
-		if( $this->warmode )
-			$flags |= 0x40;
+        if ($this->warmode) {
+            $flags |= 0x40;
+        }
 
-		if( $this->hidden )
-			$flags |= 0x80;
+        if ($this->hidden) {
+            $flags |= 0x80;
+        }
 
-		return $flags;
-	}
+        return $flags;
+    }
 
     /**
      * Packet sent to confirm player movement request
@@ -962,34 +824,34 @@ class Player {
             $this->position['facing'] = (int) $tmpDirection;
         } else {
             switch (hexdec($tmpDirection)) {
-                case 0: /* North */
-                    $this->position['y']--;
-                    break;
-                case 1: /* Northeast */
-                    $this->position['x']++;
-                    $this->position['y']--;
-                    break;
-                case 2: /* East */
-                    $this->position['x']++;
-                    break;
-                case 3: /* Southeast */
-                    $this->position['x']++;
-                    $this->position['y']++;
-                    break;
-                case 4: /* South */
-                    $this->position['y']++;
-                    break;
-                case 5: /* Southwest */
-                    $this->position['x']--;
-                    $this->position['y']++;
-                    break;
-                case 6: /* West */
-                    $this->position['x']--;
-                    break;
-                case 7: /* Northwest */
-                    $this->position['x']--;
-                    $this->position['y']--;
-                    break;
+            case 0: /* North */
+                $this->position['y']--;
+                break;
+            case 1: /* Northeast */
+                $this->position['x']++;
+                $this->position['y']--;
+                break;
+            case 2: /* East */
+                $this->position['x']++;
+                break;
+            case 3: /* Southeast */
+                $this->position['x']++;
+                $this->position['y']++;
+                break;
+            case 4: /* South */
+                $this->position['y']++;
+                break;
+            case 5: /* Southwest */
+                $this->position['x']--;
+                $this->position['y']++;
+                break;
+            case 6: /* West */
+                $this->position['x']--;
+                break;
+            case 7: /* Northwest */
+                $this->position['x']--;
+                $this->position['y']--;
+                break;
             }
             $this->lastMove = time();
         }
@@ -999,6 +861,9 @@ class Player {
 
         /* Tell server to update player location */
         Map::updateChunk(null, $this->client);
+
+        /* Update player position on database */
+        UltimaPHP::$db->collection("players")->updateOne(['_id' => $this->mongoId], ['$set' => ['position' => $this->position]]);
     }
 
     /**
@@ -1032,7 +897,7 @@ class Player {
         /* Remove the object from player view range*/
         unset($this->mapRange[$serial]);
 
-        Sockets::out($this->client, $packet, false);   
+        Sockets::out($this->client, $packet, false);
     }
 
     /**
@@ -1199,22 +1064,21 @@ class Player {
         $tmpPacket = str_pad($serial, 8, "0", STR_PAD_LEFT);
         $tmpPacket .= str_pad(Functions::strToHex($instance->name), 60, "0", STR_PAD_RIGHT);
 
-
         $packet = "98";
         $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 3), 4, "0", STR_PAD_LEFT);
         $packet .= $tmpPacket;
 
         Sockets::out($this->client, $packet);
     }
-    
+
     public function actionOldVersion($serial) {
-    	$frameCount = 0;
-		$action = 0;
-		$delay = 0;
-		$repeat = 0;
-		$repeatTimes = 0x00;
-		$forward = 0x00;
-		
+        $frameCount  = 0;
+        $action      = 0;
+        $delay       = 0;
+        $repeat      = 0;
+        $repeatTimes = 0x00;
+        $forward     = 0x00;
+
         $packet = "6E";
         $packet .= str_pad($serial, 8, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($action), 4, "0", STR_PAD_LEFT);
@@ -1226,12 +1090,12 @@ class Player {
 
         //Sockets::out($this->client, $packet);
     }
-    
-	public function actionNewVersion($serial) {
-		$type = 0;
-		$action = 0;
-		$delay = 0;
-		
+
+    public function actionNewVersion($serial) {
+        $type   = 0;
+        $action = 0;
+        $delay  = 0;
+
         $packet = "E2";
         $packet .= str_pad($serial, 8, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($type), 4, "0", STR_PAD_LEFT);

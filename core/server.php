@@ -150,10 +150,7 @@ class UltimaPHP {
 
         self::setStatus(self::STATUS_DATABASE_CONNECTING);
         try {
-            $dnsString = self::$conf['database']['type'] . ":host=" . self::$conf['database']['host'] . ";dbname=" . self::$conf['database']['schema'] . ";charset=utf8";
-            self::$db  = new PDO($dnsString, self::$conf['database']['user'], self::$conf['database']['password']);
-            self::setStatus(self::STATUS_DATABASE_CONNECTED);
-            self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            self::$db = new Mongodb();
         } catch (PDOException $e) {
             self::setStatus(self::STATUS_DATABASE_CONNECTION_FAILED, array(
                 "\n" . $e->getMessage(),
@@ -192,8 +189,8 @@ class UltimaPHP {
         // Ini validations
         if (!isset(self::$conf['server'])) {
             $iniMessage = "No [server] configuration section";
-        } elseif (!isset(self::$conf['database'])) {
-            $iniMessage = "No [databe] configuration section";
+        } elseif (!isset(self::$conf['mongodb'])) {
+            $iniMessage = "No [mongodb] configuration section";
         } elseif (!isset(self::$conf['accounts'])) {
             $iniMessage = "No [accounts] configuration section";
         } elseif (!isset(self::$conf['logs'])) {
@@ -213,16 +210,10 @@ class UltimaPHP {
             $iniMessage = "Server save time not defined";
         } elseif (!isset(self::$conf['server']['client'])) {
             $iniMessage = "Server client not defined";
-        } elseif (!isset(self::$conf['database']['type'])) {
-            $iniMessage = "Server database type not defined";
-        } elseif (!isset(self::$conf['database']['host'])) {
-            $iniMessage = "Server database host not defined";
-        } elseif (!isset(self::$conf['database']['user'])) {
-            $iniMessage = "Server database user not defined";
-        } elseif (!isset(self::$conf['database']['password'])) {
-            $iniMessage = "Server database password not defined";
-        } elseif (!isset(self::$conf['database']['schema'])) {
-            $iniMessage = "Server database schema not defined";
+        } elseif (!isset(self::$conf['mongodb']['host'])) {
+            $iniMessage = "Server mongodb host not defined";
+        } elseif (!isset(self::$conf['mongodb']['database'])) {
+            $iniMessage = "Server mongodb database not defined";
         } elseif (!isset(self::$conf['accounts']['auto_create'])) {
             $iniMessage = "Server accounts auto create not defined";
         } elseif (!isset(self::$conf['accounts']['password_crypt'])) {
@@ -387,36 +378,8 @@ class UltimaPHP {
     }
 
     public static function updateStartingLocations() {
-        $query = "SELECT
-                        a.name,
-                        a.area,
-                        a.position,
-                        a.clioc
-                    FROM
-                        starting_locations a";
-
-        $sth = UltimaPHP::$db->prepare($query);
-        $sth->execute();
-        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
-
-        foreach ($result as $key => $location) {
-            $position                   = explode(",", $location['position']);
-            self::$starting_locations[] = array(
-                'name'     => $location['name'],
-                'area'     => $location['area'],
-                'position' => array(
-                    "x"   => $position[0],
-                    "y"   => $position[1],
-                    "z"   => $position[2],
-                    'map' => $position[3],
-                ),
-                'clioc'    => $location['clioc'],
-            );
-        }
-
+        self::$starting_locations = self::$db->collection("server_starting_locations")->find([])->toArray();
         return true;
     }
 
 }
-
-?>
