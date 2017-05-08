@@ -12,20 +12,22 @@ Note 2: I'm developing using the Ultima Online Classic Client Patch version 59 -
 
 ## How to install?
 
-First of all you will need to install PHP 7.0 or greater, I reccomend to use PHP 7.1 it's ultra fast and MySQL Server 5.7 (or any database compatible with PDO) on your machine, for that open this links:
+First of all you will need to install PHP 7.0 or greater, I reccomend to use PHP 7.1 it's ultra fast and MongoDb 3.4+, for that open this links:
 
 * [PHP download page](http://php.net/downloads.php) and get the version of PHP you want to use
-* [MySQL dowload page](http://dev.mysql.com/downloads/mysql/) and get the right version of MySQL for your machine.
+* [MongoDB page](https://www.mongodb.com) and get the right version of mongodb for your machine.
 
-After install PHP and MySQL on the machine (mysql will ask to create the password or a new user on the instalation), edit the file ```ultimaphp.ini``` as you wish, import the file ```database.sql``` to your database (with some query program, like [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)) and follow the next steps to start the server:
+After install PHP and MongoDB on the machine, edit the file ```ultimaphp.ini``` as you wish, create a mongodb database and create and import any collections from ```tools/Mongo Database/*.json``` (file name is the collection name) and follow the next steps to start the server:
 
-Note 1: The default owner account/password in the database is: test/test
+Note 1: You can use some program to visualize and work with mongodb like: [RoboMongo](https://robomongo.org/download) or [MongoChef](https://studio3t.com/download/)
 
-Note 2: The default player account/password in the database is: test2/test
+Note 2: The default owner account/password in the database is: test/test
 
-Note 3: Passwords is allways stored in MD5 encryption both in database and in server variables
+Note 3: The default player account/password in the database is: test2/test
 
-Note 4: UltimaPHP only works (till now) with no-encrypted clients.
+Note 4: Passwords is allways stored in MD5 encryption both in database and in server variables
+
+Note 5: UltimaPHP only works (till now) with no-encrypted clients.
 
 ### Linux
 
@@ -45,7 +47,7 @@ Note 4: UltimaPHP only works (till now) with no-encrypted clients.
 ## Base PHP compilation
 #### For those, like me, who preffer to use an most performatic standalone PHP, with only what it really needs
 ```bash
-./configure --prefix=/usr --with-config-file-path=/etc --enable-sockets --enable-bcmath --enable-mbstring --enable-zip --enable-pcntl --enable-ftp --enable-exif --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-wddx --with-mcrypt --with-iconv --with-zlib-dir=/usr --with-xpm-dir=/usr --with-openssl --with-pdo-mysql=/usr --with-gettext=/usr --with-zlib=/usr --with-bz2=/usr --with-mysqli=/usr/bin/mysql_config
+./configure --prefix=/usr --with-config-file-path=/etc --enable-sockets --enable-bcmath --enable-mbstring --enable-zip --enable-pcntl --enable-ftp --enable-exif --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-wddx --with-mcrypt --with-iconv --with-zlib-dir=/usr --with-xpm-dir=/usr --with-openssl --with-gettext=/usr --with-zlib=/usr --with-bz2=/usr
 make
 make install
 ```
