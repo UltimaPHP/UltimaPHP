@@ -12,12 +12,12 @@ Note 2: I'm developing using the Ultima Online Classic Client Patch version 59 -
 
 ## How to install?
 
-First of all you will need to install PHP 7.0 or greater, I reccomend to use PHP 7.1 it's ultra fast and MongoDb 3.4+, for that open this links:
+First of all you will need to install PHP 7.0 or greater and MongoDb 3.4+, I reccomend you to use PHP 7.1 it's ultra fast and lightweight, for that:
 
 * [PHP download page](http://php.net/downloads.php) and get the version of PHP you want to use
 * [MongoDB page](https://www.mongodb.com) and get the right version of mongodb for your machine.
 
-After install PHP and MongoDB on the machine, edit the file ```ultimaphp.ini``` as you wish, create a mongodb database and create and import any collections from ```tools/Mongo Database/*.json``` (file name is the collection name) and follow the next steps to start the server:
+After install PHP and MongoDB on the machine, edit the file ```ultimaphp.ini``` as you wish, create a mongodb database named "ultimaphp" (or anyone, just need to change at the ultimaphp.ini) and create/import all collections from ```tools/Mongo Database/*.json``` (file name is the collection name) and follow the next steps to start the server:
 
 Note 1: You can use some program to visualize and work with mongodb like: [RoboMongo](https://robomongo.org/download) or [MongoChef](https://studio3t.com/download/)
 
