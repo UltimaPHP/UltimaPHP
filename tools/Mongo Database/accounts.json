@@ -1,0 +1,2 @@
+{"_id":{"$oid":"590fda01cb874ac34b7fb015"},"serial":1,"account":"test","password":"098f6bcd4621d373cade4e832627b4f6","maxChars":5,"creationDate":"2017-08-16 02:41:25","lastLogin":false,"plevel":7,"status":1}
+{"_id":{"$oid":"590fda01cb874ac34b7fb017"},"serial":2,"account":"test2","password":"098f6bcd4621d373cade4e832627b4f6","maxChars":5,"creationDate":"2017-08-16 02:41:25","lastLogin":false,"plevel":1,"status":1}
