@@ -12,7 +12,7 @@ class Map {
     public static $maps        = [];
     public static $mapSizes    = [];
     public static $chunks      = [];
-    public static $chunkSize   = 256; // Number in square
+    public static $chunkSize   = 512; // Number in square
     public static $tileMatrix  = [];
     private static $serialData = [];
     private static $lastSerial = [
@@ -61,10 +61,12 @@ class Map {
             self::$maps[$actualMap]['size']['x'] = (int) $mapSize[0] >> 3;
             self::$maps[$actualMap]['size']['y'] = (int) $mapSize[1] >> 3;
 
-            // for ($x = 0; $x < self::$maps[$actualMap]['size']['x']; ++$x) {
-            //     self::$maps[$actualMap][$x] = [];
-            //     for ($y = 0; $y < self::$maps[$actualMap]['size']['y']; ++$y) {
-            //         self::$maps[$actualMap][$x][$y] = [];
+
+            for ($x = 0; $x < self::$maps[$actualMap]['size']['x']; ++$x) {
+                self::$maps[$actualMap][$x] = [];
+                for ($y = 0; $y < self::$maps[$actualMap]['size']['y']; ++$y) {
+
+                    self::$maps[$actualMap][$x][$y] = [];
 
             //         fseek(self::$maps[$actualMap]['mul'], ((($x * self::$maps[$actualMap]['size']['y']) + $y) * 196), SEEK_SET);
             //         $header = hexdec(bin2hex(fread(self::$maps[$actualMap]['mul'], 4)));
@@ -86,14 +88,39 @@ class Map {
             //                 // self::$maps[$actualMap][$x][$y][$z] = $tile;
             //             }
             //         }
-            //     }
-            // }
+                }
+            }
 
             /* Send the server proccess and map the statics from actual map */
             // self::readStaticsFromPosition(0, 1429, 1695);
             // self::readStatics($actualMap);
             $actualMap++;
+            // exit();
         }
+
+
+        $pos_x = 1589;
+        $pos_y = 515;
+        $pos_z = 0;
+        $pos_m = 0;
+
+        $range = 0;
+
+        $updateRange = [
+            'from' => ['x' => ($pos_x - $range), 'y' => ($pos_y - $range)],
+            'to'   => ['x' => ($pos_x + $range), 'y' => ($pos_y + $range)],
+        ];
+
+        // for ($x = $updateRange['from']['x']; $x <= $updateRange['to']['x']; $x++) {
+        //     for ($y = $updateRange['from']['y']; $y <= $updateRange['to']['y']; $y++) {
+                echo "INICIO\n\n";
+                echo "$pos_x|$pos_y\n\n";
+                $data = Functions::seekMap($pos_m, $pos_x, $pos_y);
+                print_r($data);
+        //     }
+        // }
+
+        exit();
 
         // $chunks_x = ceil($mapSize[0] / self::$chunkSize);
         // $chunks_y = ceil($mapSize[1] / self::$chunkSize);
