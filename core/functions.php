@@ -211,4 +211,67 @@ class Functions {
 
         return $result;
     }
+    
+    public $itemDef = [];
+    public $tileDef = [];
+
+    public static function readTiledata() {
+        $tiledata = fopen(UltimaPHP::$conf['muls']['location'] . "tiledata.mul", "rb");
+        
+        for($i = 0; $i<0x4000; ++$i)
+        {
+        	if ( $i == 1 || ( $i > 0 && ($i & 0x1F) == 0 ) )
+        	{
+				fread($tiledata, 4);
+			}
+			$tileDef[$i] = [
+				'flags'     => [
+        			'flag1' => self::read_byte($tiledata,1),
+        			'flag2' => self::read_byte($tiledata,1),
+        			'flag3' => self::read_byte($tiledata,1),
+        			'flag4' => self::read_byte($tiledata,1),
+        			'flag5' => self::read_byte($tiledata,1),
+        			'flag6' => self::read_byte($tiledata,1),
+        			'flag7' => self::read_byte($tiledata,1),
+        			'flag8' => self::read_byte($tiledata,1),
+        		],
+				'unknown1'  => fread($tiledata, 2),	            
+	            'name'      => fread($tiledata, 20),
+			];
+		}
+		
+		for($i = 0; $i<0x10000; ++$i)
+        {
+        	if (($i & 0x1F) == 0 ) 
+        	{
+				fread($tiledata, 4);
+			}
+			
+        	$itemDef[$i] = [
+        		'flags'     => [
+        			'flag1' => self::read_byte($tiledata,1),
+        			'flag2' => self::read_byte($tiledata,1),
+        			'flag3' => self::read_byte($tiledata,1),
+        			'flag4' => self::read_byte($tiledata,1),
+        			'flag5' => self::read_byte($tiledata,1),
+        			'flag6' => self::read_byte($tiledata,1),
+        			'flag7' => self::read_byte($tiledata,1),
+        			'flag8' => self::read_byte($tiledata,1),
+        		],
+        		//Weight is UNSIGNED CHAR 
+        		'weight'    => unpack('C',fread($tiledata,1))[1],
+        		'quality'   => self::read_byte($tiledata, 1),
+        		'unknown1'  => self::read_byte($tiledata, 2),
+        		'unknown2'  => self::read_byte($tiledata, 1),
+        		'quantity'  => self::read_byte($tiledata, 1),
+        		'unknown3'  => self::read_byte($tiledata, 4),
+        		'unknown4'  => self::read_byte($tiledata, 1),
+        		'hue'  		=> self::read_byte($tiledata, 1),
+        		'height'  	=> self::read_byte($tiledata, 1),
+        		'name'      => fread($tiledata, 20),
+        	];
+        }
+		
+        fclose($tiledata);
+    }
 }
