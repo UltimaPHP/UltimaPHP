@@ -35,17 +35,17 @@ class Functions {
         return strToUpper($hex);
     }
 
-    public static function uniord($u) { 
-        $k = mb_convert_encoding($u, 'UCS-2LE', 'UTF-8'); 
-        $k1 = ord(substr($k, 0, 1)); 
-        $k2 = ord(substr($k, 1, 1)); 
-        return $k2 * 256 + $k1; 
-    } 
+    public static function uniord($u) {
+        $k  = mb_convert_encoding($u, 'UCS-2LE', 'UTF-8');
+        $k1 = ord(substr($k, 0, 1));
+        $k2 = ord(substr($k, 1, 1));
+        return $k2 * 256 + $k1;
+    }
 
     public static function mbStrToHex($string, $addEmptyByte = false) {
         $hex = '';
         for ($i = 0; $i < mb_strlen($string); $i++) {
-            $hex .= ($addEmptyByte ? "00" : "") . substr('0' . dechex(self::uniord( mb_substr($string, $i, 1))), -2);
+            $hex .= ($addEmptyByte ? "00" : "") . substr('0' . dechex(self::uniord(mb_substr($string, $i, 1))), -2);
         }
         return strToUpper($hex);
     }
@@ -91,7 +91,7 @@ class Functions {
         $text = "";
 
         foreach ($data as $key => $value) {
-            if (hexdec($value) >= 0x20 && hexdec($value) < 0xFFFE) {
+            if (hexdec($value) != 0x00 && hexdec($value) >= 0x20 && hexdec($value) < 0xFFFE) {
                 $text .= chr(hexdec($value));
             }
         }
@@ -101,10 +101,10 @@ class Functions {
 
     public static function isChar($serial) {
 
-        if(get_parent_class(Map::getBySerial($serial)) === "Mobile"){
-            return false;           
+        if (get_parent_class(Map::getBySerial($serial)) === "Mobile") {
+            return false;
         }
-        
+
         if (($serial & (UltimaPHP::BITMASK_ITEM | UltimaPHP::BITMASK_RESOURCE)) == 0) {
             return self::isValidSerial($serial);
         }
@@ -112,10 +112,10 @@ class Functions {
     }
 
     public static function isMobile($serial) {
-        if(get_parent_class(Map::getBySerial($serial)) === "Mobile"){
-            return true;           
+        if (get_parent_class(Map::getBySerial($serial)) === "Mobile") {
+            return true;
         }
-        
+
         return false;
     }
 
@@ -129,14 +129,14 @@ class Functions {
         }
 
         switch ($length) {
-        case 4:$val = unpack('l', $val);
-            break;
-        case 2:$val = unpack('s', $val);
-            break;
-        case 1:$val = unpack('c', $val);
-            break;
-        default:$val = unpack('l*', $val);
-            return $val;
+            case 4:$val = unpack('l', $val);
+                break;
+            case 2:$val = unpack('s', $val);
+                break;
+            case 1:$val = unpack('c', $val);
+                break;
+            default:$val = unpack('l*', $val);
+                return $val;
         }
         return ($val[1]);
     }
@@ -171,7 +171,7 @@ class Functions {
         return ($position['x'] >= $updateRange['from']['x'] && $position['x'] <= $updateRange['to']['x'] && $position['y'] >= $updateRange['from']['y'] && $position['y'] <= $updateRange['to']['y'] ? true : false);
     }
 
-    public static  function progressBar($done, $total, $msg = null) {
+    public static function progressBar($done, $total, $msg = null) {
         $perc = floor(($done / $total) * 100);
         echo date("H:i:s") . ": {$msg}: {$perc}%\r";
         if ($perc >= 100) {
@@ -210,68 +210,5 @@ class Functions {
         }
 
         return $result;
-    }
-    
-    public $itemDef = [];
-    public $tileDef = [];
-
-    public static function readTiledata() {
-        $tiledata = fopen(UltimaPHP::$conf['muls']['location'] . "tiledata.mul", "rb");
-        
-        for($i = 0; $i<0x4000; ++$i)
-        {
-        	if ( $i == 1 || ( $i > 0 && ($i & 0x1F) == 0 ) )
-        	{
-				fread($tiledata, 4);
-			}
-			$tileDef[$i] = [
-				'flags'     => [
-        			'flag1' => self::read_byte($tiledata,1),
-        			'flag2' => self::read_byte($tiledata,1),
-        			'flag3' => self::read_byte($tiledata,1),
-        			'flag4' => self::read_byte($tiledata,1),
-        			'flag5' => self::read_byte($tiledata,1),
-        			'flag6' => self::read_byte($tiledata,1),
-        			'flag7' => self::read_byte($tiledata,1),
-        			'flag8' => self::read_byte($tiledata,1),
-        		],
-				'unknown1'  => fread($tiledata, 2),	            
-	            'name'      => fread($tiledata, 20),
-			];
-		}
-		
-		for($i = 0; $i<0x10000; ++$i)
-        {
-        	if (($i & 0x1F) == 0 ) 
-        	{
-				fread($tiledata, 4);
-			}
-			
-        	$itemDef[$i] = [
-        		'flags'     => [
-        			'flag1' => self::read_byte($tiledata,1),
-        			'flag2' => self::read_byte($tiledata,1),
-        			'flag3' => self::read_byte($tiledata,1),
-        			'flag4' => self::read_byte($tiledata,1),
-        			'flag5' => self::read_byte($tiledata,1),
-        			'flag6' => self::read_byte($tiledata,1),
-        			'flag7' => self::read_byte($tiledata,1),
-        			'flag8' => self::read_byte($tiledata,1),
-        		],
-        		//Weight is UNSIGNED CHAR 
-        		'weight'    => unpack('C',fread($tiledata,1))[1],
-        		'quality'   => self::read_byte($tiledata, 1),
-        		'unknown1'  => self::read_byte($tiledata, 2),
-        		'unknown2'  => self::read_byte($tiledata, 1),
-        		'quantity'  => self::read_byte($tiledata, 1),
-        		'unknown3'  => self::read_byte($tiledata, 4),
-        		'unknown4'  => self::read_byte($tiledata, 1),
-        		'hue'  		=> self::read_byte($tiledata, 1),
-        		'height'  	=> self::read_byte($tiledata, 1),
-        		'name'      => fread($tiledata, 20),
-        	];
-        }
-		
-        fclose($tiledata);
     }
 }

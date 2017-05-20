@@ -12,9 +12,10 @@ class Map {
     public static $maps        = [];
     public static $mapSizes    = [];
     public static $chunks      = [];
-    public static $chunkSize   = 256; // Number in square
+    public static $chunkSize   = 512; // Number in square
     public static $tileMatrix  = [];
     private static $serialData = [];
+    private static $tiledata   = [];
     private static $lastSerial = [
         'mobile' => 0,
         'object' => 0,
@@ -31,7 +32,7 @@ class Map {
             $mapSize = explode(",", UltimaPHP::$conf["muls"]["map{$actualMap}"]);
 
             if (!is_file($mapFile)) {
-                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_LOAD_FAIL);
+                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL);
                 UltimaPHP::stop();
             }
 
@@ -61,56 +62,89 @@ class Map {
             self::$maps[$actualMap]['size']['x'] = (int) $mapSize[0] >> 3;
             self::$maps[$actualMap]['size']['y'] = (int) $mapSize[1] >> 3;
 
-            // for ($x = 0; $x < self::$maps[$actualMap]['size']['x']; ++$x) {
-            //     self::$maps[$actualMap][$x] = [];
-            //     for ($y = 0; $y < self::$maps[$actualMap]['size']['y']; ++$y) {
-            //         self::$maps[$actualMap][$x][$y] = [];
-
-            //         fseek(self::$maps[$actualMap]['mul'], ((($x * self::$maps[$actualMap]['size']['y']) + $y) * 196), SEEK_SET);
-            //         $header = hexdec(bin2hex(fread(self::$maps[$actualMap]['mul'], 4)));
-
-            //         for ($i = 0; $i < 64; ++$i) {
-            //             $tile = bin2hex(fread(self::$maps[$actualMap]['mul'], 2));
-            //             $z = hexdec(bin2hex(fread(self::$maps[$actualMap]['mul'], 1)));
-            //             if ((hexdec($tile) < 0) || ($tile >= 0x4000)) {
-            //                 $tile = 0;
-            //             }
-            //             if ($z < -128) {
-            //                 $z = -128;
-            //             }
-            //             if ($z > 127) {
-            //                 $z = 127;
-            //             }
-            //             if ($tile > 0) {
-            //                 echo "$tile|$x,$y,$z,$actualMap\n";
-            //                 // self::$maps[$actualMap][$x][$y][$z] = $tile;
-            //             }
-            //         }
-            //     }
-            // }
-
             /* Send the server proccess and map the statics from actual map */
-            // self::readStaticsFromPosition(0, 1429, 1695);
-            // self::readStatics($actualMap);
             $actualMap++;
         }
 
-        // $chunks_x = ceil($mapSize[0] / self::$chunkSize);
-        // $chunks_y = ceil($mapSize[1] / self::$chunkSize);
+        // Test propouse:
+        // $pos_x = 1589;
+        // $pos_y = 515;
+        // $pos_z = 0;
+        // $pos_m = 0;
 
-        // // Build the array that will store map chunks
-        // for ($x = 0; $x < $chunks_x; $x++) {
-        //     self::$chunks[$x] = [];
-        //     for ($y = 0; $y < $chunks_y; $y++) {
-        //         self::$chunks[$x][$y] = array(
-        //             'objects' => [],
-        //             'players' => [],
-        //             'npcs' => [],
-        //         );
+        // $range = 0;
+
+        // $updateRange = [
+        //     'from' => ['x' => ($pos_x - $range), 'y' => ($pos_y - $range)],
+        //     'to'   => ['x' => ($pos_x + $range), 'y' => ($pos_y + $range)],
+        // ];
+
+        // for ($x = $updateRange['from']['x']; $x <= $updateRange['to']['x']; $x++) {
+        //     for ($y = $updateRange['from']['y']; $y <= $updateRange['to']['y']; $y++) {
+                // echo "INICIO\n\n";
+                // echo "$pos_x|$pos_y\n\n";
+                // $data = Functions::seekMap($pos_m, $pos_x, $pos_y);
+                // print_r($data);
         //     }
         // }
     }
 
+    public static function readTiledata() {
+        $tiledata = UltimaPHP::$conf['muls']['location'] . "tiledata.mul";
+        
+        if (!is_file($tiledata)) {
+            UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$tiledata]);
+            UltimaPHP::stop();
+        }
+
+        $tiledata = fopen($tiledata, "rb");
+
+        for ($i = 0; $i < 0x4000; ++$i) {
+            if (($i & 0x1F) == 0) {
+                fread($tiledata, 4);
+            }
+
+            $blockInfo = [
+                'flags'   => Functions::strToHex(fread($tiledata, 4)),
+                'unknown' => Functions::strToHex(fread($tiledata, 4)),
+                'index'   => Functions::strToHex(fread($tiledata, 2)),
+                'name'    => trim(Functions::readUnicodeStringSafe(str_split(Functions::strToHex(fread($tiledata, 20)), 2))),
+            ];
+
+            if ($blockInfo['name'] != "") {
+                self::$tiledata['land'][$i] = $blockInfo;
+            }
+        }
+
+        for ($i = 0; $i < 0x10000; ++$i) {
+            if (($i & 0x1F) == 0) {
+                fread($tiledata, 4);
+            }
+
+            $blockInfo = [
+                'flags'    => Functions::strToHex(fread($tiledata, 4)),
+                'flags2'    => Functions::strToHex(fread($tiledata, 4)),
+                'weight'   => Functions::strToHex(fread($tiledata, 1)),
+                'quality'  => Functions::strToHex(fread($tiledata, 1)),
+                'unknown1' => Functions::strToHex(fread($tiledata, 2)),
+                'unknown2' => Functions::strToHex(fread($tiledata, 1)),
+                'quantity' => Functions::strToHex(fread($tiledata, 1)),
+                'unknown3' => Functions::strToHex(fread($tiledata, 4)),
+                'unknown4' => Functions::strToHex(fread($tiledata, 1)),
+                'hue'      => Functions::strToHex(fread($tiledata, 1)),
+                'height'   => Functions::strToHex(fread($tiledata, 1)),
+                'name'     => trim(Functions::readUnicodeStringSafe(str_split(Functions::strToHex(fread($tiledata, 20)), 2))),
+            ];
+
+            if ($blockInfo['name'] != "") {
+                self::$tiledata['static'][$i] = $blockInfo;
+            }
+        }
+    }
+
+    /**
+     * Creates a new serial based on last serial created
+     */
     public static function newSerial($type = null) {
         if ($type === null) {
             return false;
@@ -118,137 +152,6 @@ class Map {
 
         self::$lastSerial[$type]++;
         return (isset(self::$serialData[self::$lastSerial[$type]]) ? self::newSerial($type) : self::$lastSerial[$type]);
-    }
-
-    /**
-     * Read statics tiles from the .mul file
-     */
-    public static function readStatics($actualMap = false) {
-        if ($actualMap === false) {
-            return false;
-        }
-
-        $staticIdx = fopen(UltimaPHP::$conf['muls']['location'] . "statics{$actualMap}.mul", 'rb');
-        $staticMul = fopen(UltimaPHP::$conf['muls']['location'] . "staidx{$actualMap}.mul", 'rb');
-        $mapSize   = explode(",", UltimaPHP::$conf["muls"]["map{$actualMap}"]);
-
-        $block_x = (int) $mapSize[0] >> 3;
-        $block_y = (int) $mapSize[1] >> 3;
-
-        $binidx = $binmul = "";
-
-        $byteStream;
-
-        for ($x = 0; $x < $block_x; ++$x) {
-            for ($y = 0; $y < $block_y; ++$y) {
-                /* Set the position of file to the actual point of file */
-
-                fseek($staticIdx, (($x * $block_y) + $y) * 12, SEEK_SET);
-                $data = Functions::strToHex(fread($staticIdx, 12));
-
-                // echo ((($x * $block_y) + $y) * 12) . ": " . $data . "\n";
-                // continue;
-                // $lookup = hexdec(fread($staticIdx, 4));
-                // $length = hexdec(fread($staticIdx, 4));
-                // $extra = hexdec(fread($staticIdx, 4));
-
-                if ($lookup < 0 || $length <= 0) {
-
-                } else {
-                    if (($lookup >= 0) && ($length > 0)) {
-                        fseek($staticMul, $lookup, SEEK_SET);
-                    }
-
-                    $count = $length / 7;
-
-                    $firstitem = true;
-
-                    for ($i = 0; $i < $count; ++$i) {
-                        $static_graphic = hexdec(fread($staticMul, 2)); // ReadUInt16();
-                        $static_x       = hexdec(fread($staticMul, 1)); // ReadByte();
-                        $static_y       = hexdec(fread($staticMul, 1)); // ReadByte();
-                        $static_z       = hexdec(fread($staticMul, 1)); // ReadSByte();
-                        $static_hue     = hexdec(fread($staticMul, 2)); // ReadInt16();
-                        // echo "$static_graphic|$static_x|$static_y|$static_z|$static_hue\n";
-                        // continue;
-                        if ($static_graphic >= 0) {
-                            if ($static_hue < 0) {
-                                $static_hue = 0;
-                            }
-
-                            if ($firstitem) {
-                                $binidx .= Functions::strToHex($lookup);
-                                $firstitem = false;
-                            }
-
-                            if ($static_graphic > 0) {
-                                echo "$static_graphic|$static_x|$static_y|$static_z|$static_hue\n";
-                            }
-
-                            $binmul .= Functions::strToHex($static_graphic);
-                            $binmul .= Functions::strToHex($static_x);
-                            $binmul .= Functions::strToHex($static_y);
-                            $binmul .= Functions::strToHex($static_z);
-                            $binmul .= Functions::strToHex($static_hue);
-                        } else {
-                            $binmul .= Functions::strToHex("00");
-                            $binmul .= Functions::strToHex("0");
-                            $binmul .= Functions::strToHex("0");
-                            $binmul .= Functions::strToHex("00");
-                            $binmul .= Functions::strToHex("00");
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public static function readStaticsFromPosition($map, $pos_x, $pos_y) {
-        $staticIdx = fopen(UltimaPHP::$conf['muls']['location'] . "statics{$map}.mul", 'rb');
-        $staticMul = fopen(UltimaPHP::$conf['muls']['location'] . "staidx{$map}.mul", 'rb');
-
-        $updateRange = [
-            'from' => ['x' => ($pos_x - 10), 'y' => ($pos_y - 10)],
-            'to'   => ['x' => ($pos_x + 10), 'y' => ($pos_y + 10)],
-        ];
-
-        // for ($x = $updateRange['from']['x']; $x < $updateRange['to']['x']; $x++) {
-        //     for ($y = $updateRange['from']['y']; $y < $updateRange['to']['y']; $y++) {
-        //         $index = (($x * self::$maps[$map]['size']['y']) + $y) * 12;
-        //         fseek($staticIdx, $index, SEEK_SET);
-
-        //         $lookup = (int) Functions::strToHex(fread($staticIdx, 4));
-        //         $length = (int) Functions::strToHex(fread($staticIdx, 4));
-        //         // $lookup = Functions::read_byte($staticIdx, 4);
-        //         // $length = Functions::read_byte($staticIdx, 4);
-        //         echo "$lookup|$length\n";
-        //         if ($length > 0 && $lookup > 0) {
-        //             echo "$lookup|$length\n";
-
-        //             fseek($staticMul, $lookup, SEEK_SET);
-        //             for ($i=0; $i < ($length/7); $i++) {
-        //                 $tileId = Functions::read_byte($staticMul, 2);
-        //                 $x = Functions::read_byte($staticMul, 1);
-        //                 $y = Functions::read_byte($staticMul, 1);
-        //                 $z = Functions::read_byte($staticMul, 1);
-        //                 $hue = Functions::read_byte($staticMul, 2);
-        //                 if ($tileId >= 0) {
-        //                     if ($hue < 0) {
-        //                         $hue = 0;
-        //                     }
-        //                     if ($tileId > 0) {
-        //                         // echo "$tileId|$x|$y|$z|$hue\n";
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-        // exit();
-
-        // $data = bin2hex(fread($staticMul, $length));
-        // echo "\n\n\nFIM\n\n\n";
-        // exit();
     }
 
     /**
