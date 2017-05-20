@@ -10,10 +10,10 @@ class UltimaPHP {
     const STATUS_START                      = 0x00000;
     const STATUS_STOP                       = 0x00001;
     const STATUS_FATAL                      = 0x00002;
-    const STATUS_FILE_LOADING               = 0x00004;
-    const STATUS_FILE_LOAD_FAIL             = 0x00008;
-    const STATUS_FILE_LOADED                = 0x00010;
-    const STATUS_FILE_LOAD_IGNORE           = 0x00020;
+    const STATUS_FILE_READING               = 0x00004;
+    const STATUS_FILE_READ_FAIL             = 0x00008;
+    const STATUS_FILE_READED                = 0x00010;
+    const STATUS_FILE_READ_IGNORE           = 0x00020;
     const STATUS_DATABASE_CONNECTING        = 0x00040;
     const STATUS_DATABASE_CONNECTED         = 0x00080;
     const STATUS_DATABASE_CONNECTION_FAILED = 0x00100;
@@ -82,7 +82,7 @@ class UltimaPHP {
             Functions::progressBar($fileCount+1, $totalFiles, "Loading core");
 
             if (!require_once ($file)) {
-                self::setStatus(self::STATUS_FILE_LOAD_FAIL);
+                self::setStatus(self::STATUS_FILE_READ_FAIL);
                 self::stop();
             }
 
@@ -97,7 +97,7 @@ class UltimaPHP {
         foreach ($classFiles as $fileCount => $file) {
             Functions::progressBar($fileCount+1, $totalFiles, "Loading classes");            
             if (!require_once ($file)) {
-                self::setStatus(self::STATUS_FILE_LOAD_FAIL);
+                self::setStatus(self::STATUS_FILE_READ_FAIL);
                 self::stop();
             }
         }
@@ -108,7 +108,7 @@ class UltimaPHP {
         foreach ($skillFiles as $fileCount => $file) {
             Functions::progressBar($fileCount+1, $totalFiles, "Loading skills");
             if (!require_once ($file)) {
-                self::setStatus(self::STATUS_FILE_LOAD_FAIL);
+                self::setStatus(self::STATUS_FILE_READ_FAIL);
                 self::stop();
             }
         }
@@ -119,7 +119,7 @@ class UltimaPHP {
         foreach ($defFiles as $fileCount => $file) {
             Functions::progressBar($fileCount+1, $totalFiles, "Loading definitions");
             if (!require_once ($file)) {
-                self::setStatus(self::STATUS_FILE_LOAD_FAIL);
+                self::setStatus(self::STATUS_FILE_READ_FAIL);
                 self::stop();
             }
         }
@@ -130,7 +130,7 @@ class UltimaPHP {
         foreach ($defFiles as $fileCount => $file) {
             Functions::progressBar($fileCount+1, $totalFiles, "Loading types");
             if (!require_once ($file)) {
-                self::setStatus(self::STATUS_FILE_LOAD_FAIL);
+                self::setStatus(self::STATUS_FILE_READ_FAIL);
                 self::stop();
             }
         }
@@ -142,11 +142,13 @@ class UltimaPHP {
             Functions::progressBar($scriptKey+1, $scriptsTotal, "Loading scripts");
 
             if (class_exists(pathinfo($file, PATHINFO_FILENAME))) {
-                self::setStatus(self::STATUS_FILE_LOAD_IGNORE, [$file]);
+                self::setStatus(self::STATUS_FILE_READ_IGNORE, [$file]);
             } else {
                 require_once $file;
             }
         }
+
+        Map::readTiledata();
 
         self::setStatus(self::STATUS_DATABASE_CONNECTING);
         try {
@@ -180,7 +182,7 @@ class UltimaPHP {
 
     private static function loadIni() {
         if (!is_file(self::$basedir . "ultimaphp.ini")) {
-            self::setStatus(self::STATUS_FILE_LOAD_FAIL);
+            self::setStatus(self::STATUS_FILE_READ_FAIL);
             self::stop();
         }
 
@@ -303,22 +305,22 @@ class UltimaPHP {
             $shutdown = true;
             break;
 
-        case self::STATUS_FILE_LOADING:
+        case self::STATUS_FILE_READING:
             $message = "Loading file: " . $args[0];
             $type    = self::LOG_NORMAL;
             break;
 
-        case self::STATUS_FILE_LOAD_FAIL:
-            $message = "Loading file failed";
+        case self::STATUS_FILE_READ_FAIL:
+            $message = "Loading file ".(isset($args[0]) ? $args[0] . " " : "")."failed";
             $type    = self::LOG_DANGER;
             break;
 
-        case self::STATUS_FILE_LOADED:
+        case self::STATUS_FILE_READED:
             $message = null;
             $type    = self::LOG_NORMAL;
             break;
 
-        case self::STATUS_FILE_LOAD_IGNORE:
+        case self::STATUS_FILE_READ_IGNORE:
             $message = "Can't load file, the class name is already taken" . (isset($args[0]) ? " (".$args[0].")" : "");
             $type    = self::LOG_WARNING;
             break;
