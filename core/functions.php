@@ -211,81 +211,67 @@ class Functions {
 
         return $result;
     }
+    
+    public $itemDef = [];
+    public $tileDef = [];
 
-    public static function seekMap($pos_m, $x, $y) {
-        $mapFile = UltimaPHP::$conf['muls']['location'] . "map{$pos_m}.mul";
-
-        $ox = $x;
-        $oy = $y;
-        $x = $x >> 3;
-        $y = $y >> 3;
-
-        $BlockHeight = Map::$maps[$pos_m]['size']['y'];
-        $lookup = (($x * $BlockHeight) + $y) * 196;
-
-        $map = fopen($mapFile, 'r');
-        fseek($map, $lookup, SEEK_SET);
-
-        $tmp = [];
-       
-        $header = self::strToHex(fread($map, 4));
-
-        for ($i = 0; $i < 64; ++$i) {
-            // $tileid = implode("", array_reverse(str_split(hexdec(bin2hex(fread($map, 2))),2)));
-            $tileid = hexdec(bin2hex(fread($map, 2)));
-            $z = self::fromChar8(bin2hex(fread($map, 1)));
-            
-            if (($tileid < 0) || (dechex($tileid) >= 0x4000)) {
-                $tileid = 0;
-                continue;
-            }
-
-            if ($z < -128) {
-                $z = -128;
-            }
-            if ($z > 127) {
-                $z = 127;
-            }
-
-            echo "XT: " . (($ox << 3) + ($i >> 3)) . "|" . (($oy << 3) + ($i >> 3)) . "\n";
-
-            if (!isset($tmp[$z])) {
-                $tmp[$z] = [];
-            }
-
-            if (!in_array(dechex($tileid), $tmp[$z])) {
-                $tmp[$z][] = ['hex' => dechex($tileid), 'int' => $tileid];
-            }
-
-            // echo "$i|".ftell($map)."|$tileid|$z\n";
-        }
-
-        return $tmp;
-    }
-
-    public static function readTiledata($id) {
+    public static function readTiledata() {
         $tiledata = fopen(UltimaPHP::$conf['muls']['location'] . "tiledata.mul", "rb");
-        $index    = hexdec($id);
-        $group    = intval($index / 32);
-        $groupidx = $index % 32;
-
-        fseek($tiledata, 512 * 836 + 1188 * $group + 4 + $groupidx * 37, SEEK_SET);
-        $tmp = [
-            'flags'     => self::read_byte($tiledata, 1),
-            'weight'    => self::read_byte($tiledata, 1),
-            'quality'   => self::read_byte($tiledata, 1),
-            'unknown1'  => self::read_byte($tiledata, 1),
-            'unknown2'  => self::read_byte($tiledata, 1),
-            'quantity'  => self::read_byte($tiledata, 1),
-            'animation' => self::read_byte($tiledata, 1),
-            'unknown3'  => self::read_byte($tiledata, 1),
-            'hue'       => self::read_byte($tiledata, 1),
-            'unknown4'  => self::read_byte($tiledata, 1),
-            'unknown5'  => self::read_byte($tiledata, 1),
-            'height'    => self::read_byte($tiledata, 1),
-            'name'      => trim(substr(fread($tiledata, 20), 5)),
-        ];
+        
+        for($i = 0; $i<0x4000; ++$i)
+        {
+        	if ( $i == 1 || ( $i > 0 && ($i & 0x1F) == 0 ) )
+        	{
+				fread($tiledata, 4);
+			}
+			$tileDef[$i] = [
+				'flags'     => [
+        			'flag1' => self::read_byte($tiledata,1),
+        			'flag2' => self::read_byte($tiledata,1),
+        			'flag3' => self::read_byte($tiledata,1),
+        			'flag4' => self::read_byte($tiledata,1),
+        			'flag5' => self::read_byte($tiledata,1),
+        			'flag6' => self::read_byte($tiledata,1),
+        			'flag7' => self::read_byte($tiledata,1),
+        			'flag8' => self::read_byte($tiledata,1),
+        		],
+				'unknown1'  => fread($tiledata, 2),	            
+	            'name'      => fread($tiledata, 20),
+			];
+		}
+		
+		for($i = 0; $i<0x10000; ++$i)
+        {
+        	if (($i & 0x1F) == 0 ) 
+        	{
+				fread($tiledata, 4);
+			}
+			
+        	$itemDef[$i] = [
+        		'flags'     => [
+        			'flag1' => self::read_byte($tiledata,1),
+        			'flag2' => self::read_byte($tiledata,1),
+        			'flag3' => self::read_byte($tiledata,1),
+        			'flag4' => self::read_byte($tiledata,1),
+        			'flag5' => self::read_byte($tiledata,1),
+        			'flag6' => self::read_byte($tiledata,1),
+        			'flag7' => self::read_byte($tiledata,1),
+        			'flag8' => self::read_byte($tiledata,1),
+        		],
+        		//Weight is UNSIGNED CHAR 
+        		'weight'    => unpack('C',fread($tiledata,1))[1],
+        		'quality'   => self::read_byte($tiledata, 1),
+        		'unknown1'  => self::read_byte($tiledata, 2),
+        		'unknown2'  => self::read_byte($tiledata, 1),
+        		'quantity'  => self::read_byte($tiledata, 1),
+        		'unknown3'  => self::read_byte($tiledata, 4),
+        		'unknown4'  => self::read_byte($tiledata, 1),
+        		'hue'  		=> self::read_byte($tiledata, 1),
+        		'height'  	=> self::read_byte($tiledata, 1),
+        		'name'      => fread($tiledata, 20),
+        	];
+        }
+		
         fclose($tiledata);
-        return $tmp;
     }
 }
