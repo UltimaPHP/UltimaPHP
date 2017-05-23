@@ -235,6 +235,16 @@ class Player {
 
         return false;
     }
+    
+    public static function attachTarget($client)
+    {
+    	$packet = "6C";
+    	$packet .= "01";
+    	$packet .= "00000001";
+    	$packet .= "00000000000000000000000000";    	    
+    	
+		Sockets::out($client, $packet, false);
+	}
 
     // A ser implementado
     public function equipRequest($serial = null, $layer = null, $container = null) {

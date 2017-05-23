@@ -377,15 +377,20 @@ class Packets {
     Implementando ainda
      */
     public static function packet_0x6C($data, $client) {
-        $type     = $data[0];
-        $targetID = hexdec(Functions::implodeByte($data, 1, 4));
-        $flags    = $data[5];
-        $serial   = hexdec(Functions::implodeByte($data, 6, 4));
-        $x        = hexdec(Functions::implodeByte($data, 10, 2));
-        $y        = hexdec(Functions::implodeByte($data, 12, 2));
-        $z        = hexdec(Functions::implodeByte($data, 14, 2));
-        $graphic  = hexdec(Functions::implodeByte($data, 16, 2));
-
+    	$targetData = [
+    		'id'	   => $data[0],
+	        'type'     => $data[1],
+	        'targetID' => hexdec(Functions::implodeByte($data, 2, 4)),
+	        'flags'    => $data[6],
+	        'serial'   => hexdec(Functions::implodeByte($data, 7, 4)),
+	        'x'        => hexdec(Functions::implodeByte($data, 11, 2)),
+	        'y'        => hexdec(Functions::implodeByte($data, 13, 2)),
+	        'z'        => hexdec(Functions::implodeByte($data, 15, 2)),
+	        'graphic'  => hexdec(Functions::implodeByte($data, 17, 2)),
+		];
+		
+		print_r($targetData);
+		return $targetData;
     }
 
     /*

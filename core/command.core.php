@@ -37,6 +37,9 @@ class Command {
         'sendpacket' => array(
             'minPlevel' => 7,
         ),
+        'target' => array(
+            'minPlevel' => 7,
+        ),
     );
 
     static $commandAlias = [
@@ -66,7 +69,7 @@ class Command {
 
         $tmp  = array_slice($tmp, 1);
         $args = (count($tmp) > 0 ? explode(",", implode(" ", $tmp)) : []);
-
+		
         self::runCommand($client, $command, $args);
     }
 
