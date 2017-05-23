@@ -12,13 +12,7 @@ class TargetCommand extends Command {
             return false;
         }        
         
-        if(empty($args))
-        {
-			new SysmessageCommand($client, ["Sorry, information is missing. The default is \"x y z map\"."]);
-            return false;
-		}
-		
-		Player::attachTarget($client);
+        Player::attachTarget($client);
 				
         return true;
     }
