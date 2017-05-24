@@ -777,6 +777,7 @@ class Player {
 
         Sockets::out($this->client, $packet, $runInLot);
     }
+    
 
     /**
      * Return packet flags for > SA client

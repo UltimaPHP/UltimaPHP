@@ -13,7 +13,7 @@ class TargetCommand extends Command {
         }        
         
         Player::attachTarget($client);
-				
+                
         return true;
     }
 }   
