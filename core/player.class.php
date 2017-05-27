@@ -236,13 +236,11 @@ class Player {
         return false;
     }
     
-    public static function attachTarget($client)
-    {
+    public function attachTarget($client, $type = 1) {
     	$packet = "6C";
-    	$packet .= "01";
-    	$packet .= "00000001";
-    	$packet .= "00000000000000000000000000";    	    
-    	
+    	$packet .= str_pad($type, 2, "0", STR_PAD_LEFT);
+    	$packet .= str_pad($client, 8, "0", STR_PAD_LEFT);
+    	$packet .= "00000000000000000000000000";
 		Sockets::out($client, $packet, false);
 	}
 

@@ -377,38 +377,41 @@ class Packets {
     Implementando ainda
      */
     public static function packet_0x6C($data, $client) {
-    	$targetData = [
-		'id'	   => $data[0],
-        'type'     => hexdec($data[1]),
-        'senderSerial' => hexdec($data[2].$data[3].$data[4].$data[5]),
-        'flags'    => hexdec($data[6]),
-        'objectSerial'   => hexdec($data[7].$data[8].$data[9].$data[10]),
-        'x'        => hexdec($data[11].$data[12]),
-        'y'        => hexdec($data[13].$data[14]),
-        'z'       => hexdec($data[15].$data[16]),
-        'graphic'  => hexdec($data[17].$data[18]),	
-		];
-		TargetRequest::responsed($client, $targetData);
+        $targetData = [
+            'id'      => $data[0],
+            'target'  => hexdec($data[1]),
+            'cursor'  => hexdec($data[2] . $data[3] . $data[4] . $data[5]),
+            'type'    => hexdec($data[6]),
+            'serial'  => $data[7] . $data[8] . $data[9] . $data[10],
+            'x'       => hexdec($data[11] . $data[12]),
+            'y'       => hexdec($data[13] . $data[14]),
+            'z'       => Functions::fromChar8($data[16]),
+            'graphic' => hexdec($data[17] . $data[18]),
+        ];
+
+        TargetRequest::responsed($client, $targetData);
     }
-    
+
     /*
      * Packet received from client to Batch Query Properties
     Implementando ainda
      */
     public static function packet_0xD6($data, $client) {
-    	$targetData = [
-		'id'	   => $data[0],
-        'size'     => hexdec($data[1]),
-        'senderSerial' => hexdec($data[2].$data[3].$data[4].$data[5]),
-        'flags'    => hexdec($data[6]),
-        'objectSerial'   => hexdec($data[7].$data[8].$data[9].$data[10]),
-        'x'        => hexdec($data[11].$data[12]),
-        'y'        => hexdec($data[13].$data[14]),
-        'z'       => hexdec($data[15].$data[16]),
-        'graphic'  => hexdec($data[17].$data[18]),	
-		];
-		
-		TargetRequest::responsed($client, $targetData);
+        $targetData = [
+            'id'           => $data[0],
+            'size'         => hexdec($data[1]),
+            'senderSerial' => hexdec($data[2] . $data[3] . $data[4] . $data[5]),
+            'flags'        => hexdec($data[6]),
+            'objectSerial' => hexdec($data[7] . $data[8] . $data[9] . $data[10]),
+            'x'            => hexdec($data[11] . $data[12]),
+            'y'            => hexdec($data[13] . $data[14]),
+            'z'            => hexdec($data[15] . $data[16]),
+            'graphic'      => hexdec($data[17] . $data[18]),
+        ];
+
+        echo "Target 1\n";
+
+        TargetRequest::responsed($client, $targetData);
     }
 
     /*

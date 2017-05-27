@@ -12,7 +12,7 @@ class TargetCommand extends Command {
             return false;
         }        
         
-        Player::attachTarget($client);
+        UltimaPHP::$socketClients[$client]['account']->player->attachTarget($client);
                 
         return true;
     }
