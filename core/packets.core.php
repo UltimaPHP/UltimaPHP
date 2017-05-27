@@ -389,7 +389,7 @@ class Packets {
             'graphic' => hexdec($data[17] . $data[18]),
         ];
 
-        TargetRequest::responsed($client, $targetData);
+         UltimaPHP::$socketClients[$client]['account']->player->targetAction($client, $targetData);
     }
 
     /*
@@ -409,9 +409,7 @@ class Packets {
             'graphic'      => hexdec($data[17] . $data[18]),
         ];
 
-        echo "Target 1\n";
-
-        TargetRequest::responsed($client, $targetData);
+        UltimaPHP::$socketClients[$client]['account']->player->targetAction($client, $targetData);
     }
 
     /*
