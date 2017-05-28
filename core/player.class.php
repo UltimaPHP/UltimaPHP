@@ -261,6 +261,15 @@ class Player {
                 new SysmessageCommand($client, ["Target at item " . $instance->name . "."]);
             }
         } elseif ($target['target'] == TargetDefs::TARGET_LAND) {
+
+            $landTiles = Map::getTerrainLand($target['x'], $target['y'], $this->position['map']);
+            $staticsTiles = Map::getTerrainStatics($target['x'], $target['y'], $this->position['map']);
+
+            echo "Land tiles at target: \n";
+            print_r($landTiles);
+            echo "Static tiles at target: \n";
+            print_r($staticsTiles);
+
             new SysmessageCommand($client, ["Target at " . $target['x'] . ",".$target['y'].",".$target['z']."."]);
         } else {
             return false;
@@ -888,6 +897,11 @@ class Player {
                 break;
             }
             $this->lastMove = time();
+        }
+
+        /* Updates player Z */
+        if ($land = Map::getTerrainLand($this->position['x'], $this->position['y'], $this->position['map'])) {
+            $this->position['z'] = $land['position']['z'];
         }
 
         $packet = "22" . str_pad($sequence, 2, "0", STR_PAD_LEFT) . "01";

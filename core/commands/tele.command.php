@@ -12,8 +12,7 @@ class TeleCommand extends Command {
             return false;
         }        
         
-        if(empty($args))
-        {
+        if(empty($args)) {
 			new SysmessageCommand($client, ["Sorry, information is missing. The default is \"x y z map\"."]);
             return false;
 		}

@@ -48,12 +48,15 @@ class UltimaPHP {
     static $start_time;
     static $basedir;
     static $conf;
-    static $servers = array();
+    static $servers = [];
+
+    /* File Management Variables */
+    static $files = [];
 
     /* Server Clients Sockets Variables */
     static $socketServer;
-    static $socketClients = array();
-    static $socketEvents  = array();
+    static $socketClients = [];
+    static $socketEvents  = [];
 
     /* Server Database Connection Variables */
     static $db;
