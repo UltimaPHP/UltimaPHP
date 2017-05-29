@@ -170,31 +170,6 @@ class Map {
 
             Functions::progressBar(1, 1, "Reading statics{$actualMap}.mul file");
         }
-
-        // $range = 0;
-        // $x     = 1436;
-        // $y     = 1462;
-
-        // print_r(self::getTerrainLand($x, $y, 0));
-
-        // $updateRange = [
-        //     'from' => ['x' => ($x - $range), 'y' => ($y - $range)],
-        //     'to'   => ['x' => ($x + $range), 'y' => ($y + $range)],
-        // ];
-
-        // $tiles = [];
-
-        // for ($fx = $updateRange['from']['x']; $fx <= $updateRange['to']['x']; $fx++) {
-        //     for ($fy = $updateRange['from']['y']; $fy <= $updateRange['to']['y']; $fy++) {
-        //         $tmp = self::getTerrainStatics($fx, $fy, 0);
-        //         if ($tmp && count($tmp) > 0) {
-        //             $tiles[] = $tmp;
-        //         }
-        //     }
-        // }
-
-        // print_r($tiles);
-        // exit();
     }
 
     public static function getTerrainLand($p_x = 0, $p_y = 0, $map = 0) {
