@@ -47,8 +47,7 @@ class Map {
 
             $blockInfo = [
                 'type'    => 'land',
-                'flags1'  => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt32(),
-                'flags2'  => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt32(),
+                'flags'  => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt64(),
                 'texture' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt16(),
                 'name'    => trim(Functions::readUnicodeStringSafe(str_split(Functions::strToHex(UltimaPHP::$files[Reader::FILE_TILEDATA]->read(20)), 2))),
             ];
@@ -63,8 +62,7 @@ class Map {
 
             $blockInfo = [
                 'type'      => 'static',
-                'flags1'    => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt32(),
-                'flags2'    => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt32(),
+                'flags'    => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt64(),
                 'weight'    => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
                 'quality'   => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
                 'unknown1'  => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt16(),
@@ -440,6 +438,31 @@ class Map {
 
             if ($actual_player->serial != $player->serial && $player->position['x'] >= $updateRange['from']['x'] && $player->position['x'] <= $updateRange['to']['x'] && $player->position['y'] >= $updateRange['from']['y'] && $player->position['y'] <= $updateRange['to']['y']) {
                 Sockets::out($player->client, $packet, false);
+            }
+        }
+    }
+
+    /**
+     * Send the text message to the NPC's and mobile around player as hearing action
+     */
+    public static function sendHearMessage($text = null, $client) {
+        if ($text === null) {
+            return false;
+        }
+
+        $actual_player = UltimaPHP::$socketClients[$client]['account']->player;
+
+        $chunkInfo = self::getChunk($actual_player->position['x'], $actual_player->position['y']);
+        $chunk     = self::$chunks[$actual_player->position['map']][$chunkInfo['x']][$chunkInfo['y']];
+
+        $updateRange = [
+            'from' => ['x' => ($actual_player->position['x'] - UltimaPHP::$conf['muls']['render_range']), 'y' => ($actual_player->position['y'] - UltimaPHP::$conf['muls']['render_range'])],
+            'to'   => ['x' => ($actual_player->position['x'] + UltimaPHP::$conf['muls']['render_range']), 'y' => ($actual_player->position['y'] + UltimaPHP::$conf['muls']['render_range'])],
+        ];
+
+        foreach ($chunk as $serial => $data) {
+            if ($data['type'] == "mobile") {
+                $data['instance']->hear($text, $client);
             }
         }
     }

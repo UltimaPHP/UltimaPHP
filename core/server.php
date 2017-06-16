@@ -138,6 +138,17 @@ class UltimaPHP {
             }
         }
 
+        // Load types
+        $defFiles = glob(self::$basedir . "core/AI/*.ai.php");
+        $totalFiles = count($defFiles);
+        foreach ($defFiles as $fileCount => $file) {
+            Functions::progressBar($fileCount+1, $totalFiles, "Loading artificial intelligence");
+            if (!require_once ($file)) {
+                self::setStatus(self::STATUS_FILE_READ_FAIL);
+                self::stop();
+            }
+        }
+
         // Load scripts
         $scripts = Functions::rglob(self::$conf['scripts']['load'] . "*.php");
         $scriptsTotal = count($scripts);

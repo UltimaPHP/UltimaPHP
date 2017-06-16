@@ -236,7 +236,7 @@ class Player {
         return false;
     }
     
-    public function attachTarget($client, $type = 1) {
+    public function attachTarget($client, $callback = null, $type = 1) {
     	$packet = "6C";
     	$packet .= str_pad($type, 2, "0", STR_PAD_LEFT);
     	$packet .= str_pad($client, 8, "0", STR_PAD_LEFT);
@@ -576,6 +576,7 @@ class Player {
             $packet .= "0000";
 
             Map::sendPacketRange($packet, $this->client);
+            Map::sendHearMessage($text, $this->client);
         }
         Sockets::out($this->client, $packet, false);
     }

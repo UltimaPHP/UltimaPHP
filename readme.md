@@ -89,7 +89,7 @@ make install
  * [POL Repository](https://github.com/polserver/polserver) to see how things works
  * [Ultima Online Classic - Patch 59 - 7.0.20.0](https://docs.google.com/uc?id=0B5JIbJ4zjyOaTnZEMmhjZW5oYnc&export=download) to download the same version i'm using to build the server
 
-### Coding padronization
+### Coding standards
 
  * All .php files should start with `<?php` and end without `?>`
  * All .php files should have the comment line header
@@ -98,7 +98,7 @@ make install
  * All codes must be idented with tab
  * All codes must be formatted in K&R style before commited, manually or using your preffered tool
 
-### Database padronization
+### Database standards
 
  * All data storage tables must have an ID indexed
  * All secure information, like passwords, must be stored encrypted

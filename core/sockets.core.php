@@ -208,6 +208,29 @@ class Sockets {
     }
 
     /**
+     * Register an $event to run in $client after $time seconds.
+     *
+     */
+    public static function addSerialEvent($serial, $event, $time) {
+        $mt = microtime(true);
+        if (!is_array($event)) {
+            UltimaPHP::log("Unknow event was send to the server.", UltimaPHP::LOG_WARNING);
+            return false;
+        } else {
+            UltimaPHP::$socketEvents[$mt][] = array(
+                'event' => $event,
+                'serial' => $serial,
+                'time' => ($mt + $time),
+                'lot' => array(
+                    false,
+                    false
+                ),
+            );
+            return true;
+        }
+    }
+
+    /**
      * Method called on every server tick to trigger registered events on the right time
      */
     public static function runEvents() {
@@ -224,6 +247,9 @@ class Sockets {
                         UltimaPHP::$socketClients[$event['client']]['account']->$method($event['lot'], $args);
                     } else if ($event['event']['option'] == "map") {
                         Map::$method($args);
+                    } else if ($event['event']['option'] == "mobile") {
+                        $instance = Map::getBySerial($event['serial']);
+                        $instance->$method($args);
                     } else {
                         UltimaPHP::$socketClients[$event['client']]['account']->$option->$method($event['lot'], $args);
                     }
