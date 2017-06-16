@@ -170,7 +170,7 @@ class Player {
             return false;
         }
 
-        $instance = Map::getBySerial($serial);
+        $instance = Map::getBySerial((int)$serial);
 
         if (!$instance) {
             /* Test player layers to find the object */
