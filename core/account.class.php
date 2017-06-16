@@ -141,7 +141,7 @@ class Account {
         }
 
         if (UltimaPHP::$conf['features']['featureaos'] & 0x04) {
-            $this->charListFlags |= 0x8;
+            $this->charListFlags |= 0x08;
         }
 
         if (UltimaPHP::$conf['features']['featurese'] & 0x02) {
@@ -167,6 +167,9 @@ class Account {
         } else if (UltimaPHP::$conf['accounts']['max_chars'] == 1) {
             $this->charListFlags |= (0x10 | 0x4);
         }
+
+        /* Disable the "overwrite configuration file" */
+        $this->charListFlags |= 0x02;
 
         // if ( m_NetState->isClientKR() || m_NetState->isClientEnhanced() )       // tooltips must be always enabled on enhanced clients
         //     $charListFlags |= (0x400|0x200|0x20);
