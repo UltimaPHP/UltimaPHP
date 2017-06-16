@@ -150,6 +150,21 @@ class Player {
         return false;
     }
 
+    public function update() {
+        /* Clear old objects from map view */
+        foreach ($this->mapRange as $serial => $info) {
+            $this->removeObjectFromView($serial);
+        }
+
+        $this->mapRange = [];
+        
+        $this->updateCursorColor(false, $this->position['map']);
+        $this->drawChar();
+        $this->drawPlayer();
+
+        Map::updateChunk(null, $this->client);
+    }
+
     public function setName($newName = false, $client = false) {
         if (!$newName) {
             return false;
@@ -937,10 +952,11 @@ class Player {
         if ($serial === null) {
             return false;
         }
+
         $packet = "1D";
         $packet .= str_pad($serial, 8, "0", STR_PAD_LEFT);
 
-        /* Remove the object from player view range*/
+        /* Remove the object from player view range */
         unset($this->mapRange[$serial]);
 
         Sockets::out($this->client, $packet, false);

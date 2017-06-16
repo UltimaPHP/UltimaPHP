@@ -34,7 +34,6 @@ class MCommand {
         $player = UltimaPHP::$socketClients[$client]['account']->player;
 
 	    Map::addMobileToMap($mobile, $player->position['x'], $player->position['y'], $player->position['z'], $player->position['map']);
-	    unset($player);
         return true;
     }
 }

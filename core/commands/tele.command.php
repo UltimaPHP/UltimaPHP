@@ -42,28 +42,25 @@ class TeleCommand extends Command {
 
         /* Update old position to ensure other players keep updated */
         $oldPosition = UltimaPHP::$socketClients[$client]['account']->player->position;
+        $oldChunk = Map::getChunk($oldPosition['x'], $oldPosition['y']);
+        $newChunk = Map::getChunk($x, $y);
 
-        /* Clear old objects from map view */
-        foreach (UltimaPHP::$socketClients[$client]['account']->player->mapRange as $serial => $info) {
-            UltimaPHP::$socketClients[$client]['account']->player->removeObjectFromView($serial);
+        /* Update the player location before process updates */
+        UltimaPHP::$socketClients[$client]['account']->player->position['x'] = $x;
+        UltimaPHP::$socketClients[$client]['account']->player->position['y'] = $y;
+        UltimaPHP::$socketClients[$client]['account']->player->position['z'] = $z;
+        UltimaPHP::$socketClients[$client]['account']->player->position['map'] = $map;
+
+        if ($oldPosition['map'] != $map || $oldChunk['x'] != $newChunk['x'] || $oldChunk['y'] != $newChunk['y']) {
+            /* Remove the player from the map chunk view range */
+            unset(Map::$chunks[$oldPosition['map']][$oldPosition['x']][$oldPosition['y']][UltimaPHP::$socketClients[$client]['account']->player->serial]);
+            Map::addPlayerToMap(UltimaPHP::$socketClients[$client]['account']->player);
+
+            /* Update player old chunk */
+            Map::updateChunk($oldChunk, false, $oldPosition['map']);
         }
 
-        $chunk = Map::getChunk($oldPosition['x'], $oldPosition['y']);
-        unset(Map::$chunks[$oldPosition['map']][$oldPosition['x']][$oldPosition['y']][UltimaPHP::$socketClients[$client]['account']->player->serial]);
-        
-        UltimaPHP::$socketClients[$client]['account']->player->position['x'] = $x;
-		UltimaPHP::$socketClients[$client]['account']->player->position['y'] = $y;
-		UltimaPHP::$socketClients[$client]['account']->player->position['z'] = $z;
-        UltimaPHP::$socketClients[$client]['account']->player->position['map'] = $map;
-		UltimaPHP::$socketClients[$client]['account']->player->mapRange = [];
-		UltimaPHP::$socketClients[$client]['account']->player->updateCursorColor(false, $map);
-        UltimaPHP::$socketClients[$client]['account']->player->drawChar();
-        UltimaPHP::$socketClients[$client]['account']->player->drawPlayer();
-
-        /* Update player old chunk */
-        Map::updateChunk($chunk, null, $oldPosition['map']);
-        /* Update player new chunk */
-        Map::updateChunk(null, $client);
+        UltimaPHP::$socketClients[$client]['account']->player->update();
         return true;
     }
 }   

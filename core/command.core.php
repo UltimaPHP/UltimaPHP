@@ -6,35 +6,38 @@
  */
 class Command {
     /* Server variables */
-    static $list = array(
-        'i'          => array(
+    static $list = [
+        'i'          => [
             'minPlevel' => 6,
-        ),
-        'm'          => array(
+        ],
+        'm'          => [
             'minPlevel' => 6,
-        ),
-        'tele'       => array(
+        ],
+        'tele'       => [
             'minPlevel' => 2,
-        ),
-        'invis'      => array(
+        ],
+        'invis'      => [
             'minPlevel' => 4,
-        ),
-        'where'      => array(
+        ],
+        'where'      => [
             'minPlevel' => 1,
-        ),
-        'sysmessage' => array(
+        ],
+        'sysmessage' => [
             'minPlevel' => 2,
-        ),
-        'emote'      => array(
+        ],
+        'emote'      => [
             'minPlevel' => 2,
-        ),
-        'sendpacket' => array(
+        ],
+        'sendpacket' => [
             'minPlevel' => 7,
-        ),
-        'info' => array(
+        ],
+        'info' => [
             'minPlevel' => 4,
-        ),
-    );
+        ],
+        'update' => [
+            'minPlevel' => 2,
+        ]
+    ];
 
     static $commandAlias = [
         'add'     => 'i',

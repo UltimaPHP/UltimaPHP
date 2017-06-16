@@ -47,7 +47,7 @@ class Map {
 
             $blockInfo = [
                 'type'    => 'land',
-                'flags'  => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt64(),
+                'flags'   => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt64(),
                 'texture' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt16(),
                 'name'    => trim(Functions::readUnicodeStringSafe(str_split(Functions::strToHex(UltimaPHP::$files[Reader::FILE_TILEDATA]->read(20)), 2))),
             ];
@@ -62,7 +62,7 @@ class Map {
 
             $blockInfo = [
                 'type'      => 'static',
-                'flags'    => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt64(),
+                'flags'     => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt64(),
                 'weight'    => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
                 'quality'   => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
                 'unknown1'  => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt16(),
@@ -172,7 +172,7 @@ class Map {
             Functions::progressBar(0, 1, "Reading mapdif{$actualMap}.mul file");
 
             $diffFile = UltimaPHP::$conf['muls']['location'] . "mapdif{$actualMap}.mul";
-            
+
             if (!isset(UltimaPHP::$files[Reader::FILE_MAP_DIF])) {
                 UltimaPHP::$files[Reader::FILE_MAP_DIF] = [];
             }
@@ -551,32 +551,12 @@ class Map {
                 'to'   => ['x' => ($actual_player->position['x'] + $actual_player->render_range), 'y' => ($actual_player->position['y'] + $actual_player->render_range)],
             ];
 
-            /* Remove objects that was removed from player view */
-            foreach ($actual_player->mapRange as $serialTest => $active) {
-                $instance = Map::getBySerial($serialTest);
-                if (!$instance || $instance->instanceType != UltimaPHP::INSTANCE_PLAYER) {
-                    $actual_player->removeObjectFromView($serialTest);
-                }
-            }
-
             /* Loop trought every items and mobiles to update on player view */
             foreach ($chunkData as $serialTest => $dataTest) {
                 if ($dataTest['type'] != "player") {
-                    /* Do not send draw packets again if object is allready in player view */
-                    if ($serialTest == $serial) {
-                        continue;
-                    }
-
-                    /* If mobile/item leaves player map view range, removes */
-                    if ($forceItemUpdate == true || (isset($actual_player->mapRange[$serialTest]) && (!Functions::inRangeView($dataTest['instance']->position, $updateRange) || !isset(self::$serialData[$serialTest])))) {
+                    if (($actual_player->position['map'] != $dataTest['instance']->position['map']) || (abs($actual_player->position['x'] - $dataTest['instance']->position['x']) > $actual_player->render_range || abs($actual_player->position['y'] - $dataTest['instance']->position['y']) > $actual_player->render_range)) {
                         $actual_player->removeObjectFromView($serialTest);
-
-                        if ($forceItemUpdate == false) {
-                            continue;
-                        }
-                    }
-
-                    if ($forceItemUpdate == true || (!isset($actual_player->mapRange[$serialTest]) && Functions::inRangeView($dataTest['instance']->position, $updateRange))) {
+                    } else {
                         $dataTest['instance']->draw($actual_player->client);
                     }
                 } else {
@@ -588,7 +568,7 @@ class Map {
                         UltimaPHP::$socketClients[$dataTest['client']]['account']->player->position['running'] = false;
                     }
 
-                    if ($player->hidden && $actual_player_plevel < $player_plevel) {
+                    if (($actual_player->position['map'] != $player->position['map'] || abs($actual_player->position['x'] - $player->position['x']) > $actual_player->render_range || abs($actual_player->position['y'] - $player->position['y']) > $actual_player->render_range) || ($player->hidden && $actual_player_plevel < $player_plevel)) {
                         if (isset($actual_player->mapRange[$player->serial])) {
                             $actual_player->removeObjectFromView($player->serial);
                         }
@@ -609,14 +589,6 @@ class Map {
                 }
             }
         }
-
-        foreach ($chunkData as $serial => $data) {
-            if ($data['type'] == "player") {
-                UltimaPHP::$socketClients[$data['client']]['account']->player->forceUpdate = false;
-            }
-        }
-
         return true;
     }
-
 }
