@@ -21,7 +21,7 @@ class Packets {
         $unknown1    = hexdec(Functions::implodeByte($data, 1, 4));
         $unknown2    = hexdec(Functions::implodeByte($data, 5, 8));
         $unknown3    = hexdec($data[9]);
-        $charName    = Functions::hexToChr($data, 10, 39);
+        $charName    = Functions::readUnicodeStringSafe(str_split(Functions::implodeByte($data, 10, 39), 2));
         $unknown4    = hexdec(Functions::implodeByte($data, 40, 41));
         $flags       = hexdec(Functions::implodeByte($data, 42, 45));
         $unknown5    = hexdec(Functions::implodeByte($data, 46, 49));
@@ -913,7 +913,7 @@ class Packets {
         $unknown1    = hexdec(Functions::implodeByte($data, 1, 4));
         $unknown2    = hexdec(Functions::implodeByte($data, 5, 8));
         $unknown3    = hexdec($data[9]);
-        $charName    = Functions::hexToChr($data, 10, 39);
+        $charName    = Functions::readUnicodeStringSafe(str_split(Functions::implodeByte($data, 10, 39), 2));
         $unknown4    = hexdec(Functions::implodeByte($data, 40, 41));
         $flags       = hexdec(Functions::implodeByte($data, 42, 45));
         $unknown5    = hexdec(Functions::implodeByte($data, 46, 49));

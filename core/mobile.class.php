@@ -25,6 +25,9 @@ class Mobile {
     public $hidden;
     public $paralyzed;
     public $blessed;
+    public $walkSpeedFactor = 1;
+    public $lastMove;
+    public $lastDestination;
     // Flags -- end
     public $race;
     public $position;
@@ -223,7 +226,7 @@ class Mobile {
             if (!isset($direction[0])) {
                 return false;
             }
-            
+
             $direction = $direction[0];
         }
 
@@ -281,7 +284,7 @@ class Mobile {
             $staticsTiles = Map::getTerrainStatics($this->position['x'], $this->position['y'], $this->position['map']);
             if ($staticsTiles) {
                 foreach ($staticsTiles as $tile) {
-                    if (abs($tile['position']['z'] - $this->position['z']) > 10) {
+                    if (abs($tile['position']['z'] - $this->position['z']) > 20) {
                         continue;
                     }
                     if ($tile['flags'] & TiledataDefs::WALL || $tile['flags'] & TiledataDefs::IMPASSABLE || $tile['flags'] & TiledataDefs::DOOR) {
@@ -291,8 +294,29 @@ class Mobile {
             }
         }
 
+        if ($canWalk) {
+            $chunkInfo = Map::getChunk($this->position['x'], $this->position['y']);
+            $chunkData     = Map::$chunks[$this->position['map']][$chunkInfo['x']][$chunkInfo['y']];
+
+            foreach ($chunkData as $serial => $data) {
+                if ($data['type'] == "player") {
+                    $player = UltimaPHP::$socketClients[$data['client']]['account']->player;
+
+                    if ($player->position['x'] == $this->position['x'] && $player->position['y'] == $this->position['y']) {
+                        $canWalk = false;
+                    }
+                } else {
+                    if ($data['instance']->serial != $this->serial && $data['instance']->position['x'] == $this->position['x'] && $data['instance']->position['y'] == $this->position['y']) {
+                        $canWalk = false;
+                    }
+                }
+            }
+        }
+
         if (!$canWalk) {
             $this->position = $oldPos;
+            Sockets::removeAllSerialEvents($this->serial, ["option" => "mobile", "method" => "move"]);
+            return false;
         }
 
         $this->lastMove = time();
@@ -332,7 +356,7 @@ class Mobile {
                     $staticsTiles = Map::getTerrainStatics($x, $y, $this->position['map']);
                     if ($staticsTiles) {
                         foreach ($staticsTiles as $tile) {
-                            if (abs($tile['position']['z'] - $this->position['z']) > 10) {
+                            if (abs($tile['position']['z'] - $this->position['z']) > 20) {
                                 continue;
                             }
                             if ($tile['flags'] & TiledataDefs::WALL || $tile['flags'] & TiledataDefs::IMPASSABLE || $tile['flags'] & TiledataDefs::DOOR) {
@@ -357,16 +381,20 @@ class Mobile {
         $flowPath = new FlowPath($map, true);
         $steps = $flowPath->getPath();
 
-        if (count($steps) > 3) {
+        if (!$steps || count($steps) == 0) {
+            return false;
+        }
+
+        if (count($steps) >= 3) {
             $this->position['running'] = true;
         }
 
         foreach($steps as $stepId => $dir) {
-            Sockets::addSerialEvent($this->serial, array(
+            Sockets::addSerialEvent($this->serial, [
                 "option" => "mobile",
                 "method" => "move",
                 "args"   => $dir,
-            ), ($stepId * 0.2));
+            ], ($stepId * (0.25 / $this->walkSpeedFactor)));
         }
     }
 

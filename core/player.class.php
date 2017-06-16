@@ -606,8 +606,8 @@ class Player {
         $packet .= "00000000";
         $packet .= "00000000";
         $packet .= "00";
-        $packet .= str_pad(dechex($map_size['x']), 4, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($map_size['y']), 4, "0", STR_PAD_LEFT);
+        $packet .= str_pad(($this->position['map'] > 0 ? dechex($map_size['x']) : 0x1800), 4, "0", STR_PAD_LEFT);
+        $packet .= str_pad(($this->position['map'] > 0 ? dechex($map_size['y']) : 0x1000), 4, "0", STR_PAD_LEFT);
         $packet .= "000000000000";
         Sockets::out($this->client, $packet, $runInLot);
     }
@@ -644,7 +644,6 @@ class Player {
      */
     public function updateCursorColor($runInLot = false, $color = 0) {
         $packet = "BF00060008" . str_pad(dechex($color), 2, "0", STR_PAD_LEFT);
-
         Sockets::out($this->client, $packet, $runInLot);
     }
 
@@ -655,11 +654,15 @@ class Player {
         $maps = count(Map::$maps);
 
         $packet = "0018";
-        $packet .= str_pad(dechex($maps), 4, "0", STR_PAD_LEFT);
+        $packet .= str_pad(dechex($maps - 1), 8, "0", STR_PAD_LEFT);
 
-        for ($i = 0; $i <= ($maps - 1); $i++) {
-            $packet .= "00000000";
-            $packet .= "00000000";
+        for ($i = 0; $i < ($maps - 1); $i++) {
+            if (UltimaPHP::$conf['muls']['useDif'] && UltimaPHP::$files[Reader::FILE_MAP_DIF][$i] !== null) {
+                $packet .= str_pad(dechex(UltimaPHP::$files[Reader::FILE_MAP_DIF][$i]->fileLength / 4), 8, "0", STR_PAD_LEFT);
+                $packet .= str_pad(dechex(UltimaPHP::$files[Reader::FILE_MAP_DIF][$i]->fileLength / 4), 8, "0", STR_PAD_LEFT);
+            } else {
+                $packet .= "0000000000000000";
+            }
         }
 
         $packet = "BF" . str_pad(dechex((strlen($packet) / 2) + 3), 4, "0", STR_PAD_LEFT) . $packet;

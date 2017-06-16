@@ -230,6 +230,14 @@ class Sockets {
         }
     }
 
+    public static function removeAllSerialEvents($serial, $event) {
+        foreach (UltimaPHP::$socketEvents as $time => $ev) {
+            if (isset($ev['serial']) && $ev['serial'] == $serial && $ev['event']['option'] == $event['option'] && $ev['event']['method'] == $event['method']) {
+                unset(UltimaPHP::$socketEvents[$time]);
+            }
+        }
+    }
+
     /**
      * Method called on every server tick to trigger registered events on the right time
      */
@@ -286,7 +294,6 @@ class Sockets {
                     return false;
                 }
             } elseif (-1 == $expectedLength) {
-
                 // The packet have the information of lenth
                 $length = hexdec($inputArray[1] . $inputArray[2]);
 

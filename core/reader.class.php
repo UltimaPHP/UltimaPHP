@@ -8,15 +8,19 @@ class Reader {
     const FILE_STRING       = 0x00;
     const FILE_TILEDATA     = 0x01;
     const FILE_MAP_FILE     = 0x02;
-    const FILE_STATIC_INDEX = 0x03;
-    const FILE_STATIC_FILE  = 0x04;
+    const FILE_MAP_DIF      = 0x03;
+    const FILE_STATIC_INDEX = 0x04;
+    const FILE_STATIC_FILE  = 0x05;
 
     /* Class variables */
     public $fileType;
+    public $fileHolder;
+    public $fileLength;
 
     public function __construct($filePath = null, $type = self::FILE_STRING) {
         $this->fileType   = $type;
         $this->fileHolder = fopen($filePath, "rb");
+        $this->fileLength = filesize($filePath);
         return $this;
     }
 

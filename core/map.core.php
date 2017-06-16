@@ -167,6 +167,25 @@ class Map {
             UltimaPHP::$files[Reader::FILE_STATIC_FILE][$actualMap] = new Reader($staticFile, Reader::FILE_MAP_FILE);
 
             Functions::progressBar(1, 1, "Reading statics{$actualMap}.mul file");
+
+            /* Start reading the mapdif file of actual map */
+            Functions::progressBar(0, 1, "Reading mapdif{$actualMap}.mul file");
+
+            $diffFile = UltimaPHP::$conf['muls']['location'] . "mapdif{$actualMap}.mul";
+            
+            if (!isset(UltimaPHP::$files[Reader::FILE_MAP_DIF])) {
+                UltimaPHP::$files[Reader::FILE_MAP_DIF] = [];
+            }
+
+            if (!isset(UltimaPHP::$files[Reader::FILE_MAP_DIF][$actualMap])) {
+                UltimaPHP::$files[Reader::FILE_MAP_DIF][$actualMap] = null;
+            }
+
+            if (is_file($diffFile)) {
+                UltimaPHP::$files[Reader::FILE_MAP_DIF][$actualMap] = new Reader($diffFile, Reader::FILE_MAP_DIF);
+            }
+
+            Functions::progressBar(1, 1, "Reading mapdif{$actualMap}.mul file");
         }
     }
 
@@ -398,16 +417,16 @@ class Map {
         $info  = self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']][$serial];
 
         switch ($info['type']) {
-        case 'player':
-            return UltimaPHP::$socketClients[$info['client']]['account']->player;
-            break;
-        case 'mobile':
-        case 'object':
-            return $info['instance'];
-            break;
-        default:
-            return false;
-            break;
+            case 'player':
+                return UltimaPHP::$socketClients[$info['client']]['account']->player;
+                break;
+            case 'mobile':
+            case 'object':
+                return $info['instance'];
+                break;
+            default:
+                return false;
+                break;
         }
     }
 

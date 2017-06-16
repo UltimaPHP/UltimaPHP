@@ -170,35 +170,21 @@ class FlowPath {
 
     public function getPath() {
         $ret = [];
-        for ($y = 0; $y < $this->blockY; $y++) {
-            for ($x = 0; $x < $this->blockX; $x++) {
-                if ($this->map[$y][$x] == 1) {
-                } else if ($this->map[$y][$x] == 2) {
-                } else if ($this->mapFlow[$y][$x] == -1) {
-                } else {
-                    $dir = null;
-                    if ($this->mapPathSteps !== null) {
-                        foreach ($this->mapPathSteps as $sk => $step) {
-                            if ($step[1] == $y && $step[0] == $x) {
-                                if ($sk == 0) {
-                                    $dir = $this->getDirection($this->source, [$x, $y]);
-                                } else if ($sk == count($this->mapPathSteps) - 1) {
-                                    $dir = $this->getDirection([$x, $y], $this->destination);
-                                } else {
-                                    $dir = $this->getDirection($this->mapPathSteps[$sk - 1], $step);
-                                }
-                            }
-                        }
-                    }
 
-                    if ($dir !== null) {
-                        $ret[] = $dir;
-                    }
-                }
-            }
+        $from = $this->source;
+
+        if (!$this->mapPathSteps | count($this->mapPathSteps) == 0) {
+            return false;
+        }
+        
+        foreach ($this->mapPathSteps as $stepId => $node) {
+            $ret[] = $this->getDirection($from, $node);
+            $from = $node;
         }
 
-        return array_reverse($ret);
+        $ret[] = $this->getDirection($from, $this->destination);
+        
+        return $ret;
     }
 
     public function dumpPath($return = false) {

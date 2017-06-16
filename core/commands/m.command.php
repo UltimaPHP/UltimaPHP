@@ -10,7 +10,15 @@ class MCommand {
             return false;
         }
 
-        $mobileDef = str_replace(" ", "_", $args[0]);
+        if (strstr($args[0], " ")) {
+            $tmp     = explode(" ", $args[0]);
+            $mobileDef = "";
+            foreach ($tmp as $v) {
+                $mobileDef .= ucfirst($v);
+            }
+        } else {
+            $mobileDef = $args[0];
+        }
 
         if (!isset(class_parents($mobileDef)['Mobile'])) {
             new SysmessageCommand($client, ["Sorry, but you are trying to add a item as an mobile, use .i ".$args[0]." to add this item."]);
