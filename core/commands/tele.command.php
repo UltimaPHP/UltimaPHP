@@ -13,8 +13,9 @@ class TeleCommand extends Command {
         }        
         
         if(empty($args)) {
-			new SysmessageCommand($client, ["Sorry, information is missing. The default is \"x y z map\"."]);
-            return false;
+            new SysmessageCommand($client, ["Where do you want to go?"]);
+            UltimaPHP::$socketClients[$client]['account']->player->attachTarget($client, ['method' => "TeleCommandCallback", 'args' => []]);
+            return true;
 		}
 		
 		$x = $args[0];

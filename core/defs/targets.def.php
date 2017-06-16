@@ -6,6 +6,6 @@
  */
 
 abstract class TargetDefs {
-    const TARGET_OBJECT = 0x00;
-    const TARGET_LAND   = 0x01;
+    const OBJECT = 0x00;
+    const LAND   = 0x01;
 }

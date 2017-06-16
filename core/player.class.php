@@ -22,6 +22,8 @@ class Player {
     public $color;
     public $sex;
     public $layers;
+    public $target;
+    public $callbacks;
     // Flags -- init
     public $frozen;
     public $female;
@@ -76,6 +78,7 @@ class Player {
         $this->serial       = str_pad($character['serial'], 8, "0", STR_PAD_LEFT);
         $this->id           = $character['player_serial'];
         $this->render_range = UltimaPHP::$conf['muls']['render_range'];
+        $this->callbacks    = new PlayerCallbacks($client);
 
         $result = UltimaPHP::$db->collection("players")->find(['player_serial' => $this->id])->toArray();
 
@@ -235,46 +238,38 @@ class Player {
 
         return false;
     }
-    
-    public function attachTarget($client, $callback = null, $type = 1) {
-    	$packet = "6C";
-    	$packet .= str_pad($type, 2, "0", STR_PAD_LEFT);
-    	$packet .= str_pad($client, 8, "0", STR_PAD_LEFT);
-    	$packet .= "00000000000000000000000000";
-		Sockets::out($client, $packet, false);
-	}
+
+    public function attachTarget($client, $callback = null) {
+        if ($this->target !== null) {
+            new SysmessageCommand($client, ["Target canceled."]);
+        }
+
+        $packet = "6C01";
+        $packet .= str_pad($client, 8, "0", STR_PAD_LEFT);
+        $packet .= "00000000000000000000000000";
+
+        if ($callback !== null) {
+            $this->target = $callback;
+        }
+
+        Sockets::out($client, $packet, false);
+    }
 
     public function targetAction($client, $target) {
-        if ($target['target'] == TargetDefs::TARGET_OBJECT) {
-            $instance = Map::getBySerial((int) $target['serial']);
-        
-            if (!$instance) {
-                new SysmessageCommand($client, ["Sorry, but server could not find the desired target."]);
-                return false;
-            }
+        if ($target['x'] == 0xFFFF || $target['y'] == 0xFFFF) {
+            $this->target = null;
+            new SysmessageCommand($client, ["Target canceled."]);
+            return true;
+        }
 
-            if ($instance->instanceType == UltimaPHP::INSTANCE_PLAYER) {
-                new SysmessageCommand($client, ["Target at player " . $instance->name . "."]);
-            } else if ($instance->instanceType == UltimaPHP::INSTANCE_MOBILE) {
-                new SysmessageCommand($client, ["Target at mobile " . $instance->name . "."]);
-            } else if ($instance->instanceType == UltimaPHP::INSTANCE_OBJECT) {
-                new SysmessageCommand($client, ["Target at item " . $instance->name . "."]);
-            }
-        } elseif ($target['target'] == TargetDefs::TARGET_LAND) {
-
-            $landTiles = Map::getTerrainLand($target['x'], $target['y'], $this->position['map']);
-            $staticsTiles = Map::getTerrainStatics($target['x'], $target['y'], $this->position['map']);
-
-            echo "Land tiles at target: \n";
-            print_r($landTiles);
-            echo "Static tiles at target: \n";
-            print_r($staticsTiles);
-
-            new SysmessageCommand($client, ["Target at " . $target['x'] . ",".$target['y'].",".$target['z']."."]);
-        } else {
+        if ($this->target === null) {
+            new SysmessageCommand($client, "Target failed, there is an error at the script.");
             return false;
         }
-        
+
+        $callback = $this->target['method'];
+        $this->callbacks->$callback($target, $this->target['args']);
+        $this->target = null;
         return true;
     }
 
@@ -810,7 +805,6 @@ class Player {
 
         Sockets::out($this->client, $packet, $runInLot);
     }
-    
 
     /**
      * Return packet flags for > SA client
@@ -868,34 +862,34 @@ class Player {
             $this->position['facing'] = (int) $tmpDirection;
         } else {
             switch (hexdec($tmpDirection)) {
-            case 0: /* North */
-                $this->position['y']--;
-                break;
-            case 1: /* Northeast */
-                $this->position['x']++;
-                $this->position['y']--;
-                break;
-            case 2: /* East */
-                $this->position['x']++;
-                break;
-            case 3: /* Southeast */
-                $this->position['x']++;
-                $this->position['y']++;
-                break;
-            case 4: /* South */
-                $this->position['y']++;
-                break;
-            case 5: /* Southwest */
-                $this->position['x']--;
-                $this->position['y']++;
-                break;
-            case 6: /* West */
-                $this->position['x']--;
-                break;
-            case 7: /* Northwest */
-                $this->position['x']--;
-                $this->position['y']--;
-                break;
+                case 0: /* North */
+                    $this->position['y']--;
+                    break;
+                case 1: /* Northeast */
+                    $this->position['x']++;
+                    $this->position['y']--;
+                    break;
+                case 2: /* East */
+                    $this->position['x']++;
+                    break;
+                case 3: /* Southeast */
+                    $this->position['x']++;
+                    $this->position['y']++;
+                    break;
+                case 4: /* South */
+                    $this->position['y']++;
+                    break;
+                case 5: /* Southwest */
+                    $this->position['x']--;
+                    $this->position['y']++;
+                    break;
+                case 6: /* West */
+                    $this->position['x']--;
+                    break;
+                case 7: /* Northwest */
+                    $this->position['x']--;
+                    $this->position['y']--;
+                    break;
             }
             $this->lastMove = time();
         }

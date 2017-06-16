@@ -117,22 +117,30 @@ class Mobile {
      * Display a "say" message above the mobile
      * It client not sent, send to all players around the mobile
      */
-    public function say($text = null, $color = 0, $font = 3, $client = false) {
-        if ($text === null || mb_strlen($text) == 0) {
-            return false;
+    public function say($text = null, $color = 0, $font = 3, $client = false, $type = 0) {
+        // If it's an emote
+        if (dechex($type) == 0x02) {
+            $text = "* $text *";
+            $name = "You see";
+
+            if (hexdec($color) == 0) {
+                $color = UltimaPHP::$conf['colors']['emote'];
+            }
+        } else {
+            $name = $this->name;
         }
 
-        $tmpPacket = Functions::mbStrToHex($text, true);
+        $tmpPacket = Functions::strToHex($text, true);
 
         $packet = "AE";
         $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 50), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($this->body), 4, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex(0), 2, "0", STR_PAD_LEFT);
+        $packet .= str_pad(dechex($type), 2, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($color), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($font), 4, "0", STR_PAD_LEFT);
         $packet .= Functions::strToHex("ENU ");
-        $packet .= str_pad(Functions::strToHex($this->name), 60, "0", STR_PAD_RIGHT);
+        $packet .= str_pad(Functions::strToHex($name), 60, "0", STR_PAD_RIGHT);
         $packet .= $tmpPacket;
         $packet .= "0000";
 
@@ -211,6 +219,14 @@ class Mobile {
     }
 
     public function move($direction = false) {
+        if (is_array($direction)) {
+            if (!isset($direction[0])) {
+                return false;
+            }
+            
+            $direction = $direction[0];
+        }
+
         /**
          * Remove dirname(path)ection flags
          */
@@ -244,6 +260,9 @@ class Mobile {
             case 7: /* Northwest */
                 $this->position['x']--;
                 $this->position['y']--;
+                break;
+            default:
+                return false;
                 break;
         }
         $this->position['facing'] = $direction;

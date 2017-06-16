@@ -64,7 +64,7 @@ class Account {
     public function getCharacterList($updateList = false) {
         if ($updateList || $this->characters === null) {
 
-            $result = UltimaPHP::$db->collection("players")->find(['player_serial' => 1], ['projection' => ['player_serial'=> true, 'name'=> true]])->toArray();
+            $result = UltimaPHP::$db->collection("players")->find(['account_serial' => $this->serial], ['projection' => ['player_serial'=> true, 'name'=> true]])->toArray();
 
             $chars = array();
             foreach ($result as $char) {
