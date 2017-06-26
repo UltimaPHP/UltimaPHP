@@ -214,30 +214,6 @@ class Account {
     public function sendServerList($runInLot = false) {
         $packet = new packet_0xA8($this->client);
         $packet->send();
-        
-        // $packet    = "";
-        // $tmpPacket = "";
-        // foreach (UltimaPHP::$servers as $key => $server) {
-        //     $ip = explode(".", $server['ip']);
-
-        //     $this->add
-        //     $tmpPacket .= str_pad(dechex(($key + 1)), 4, "0", STR_PAD_LEFT);
-        //     $tmpPacket .= str_pad(Functions::strToHex($server['name']), 64, "0", STR_PAD_RIGHT);
-        //     $tmpPacket .= str_pad(dechex($server['full']), 2, "0", STR_PAD_LEFT);
-        //     $tmpPacket .= str_pad(dechex($server['timezone']), 2, "0", STR_PAD_LEFT);
-        //     $tmpPacket .= str_pad(dechex($ip[3]), 2, "0", STR_PAD_LEFT);
-        //     $tmpPacket .= str_pad(dechex($ip[2]), 2, "0", STR_PAD_LEFT);
-        //     $tmpPacket .= str_pad(dechex($ip[1]), 2, "0", STR_PAD_LEFT);
-        //     $tmpPacket .= str_pad(dechex($ip[0]), 2, "0", STR_PAD_LEFT);
-        // }
-
-        // $packet = "A8";
-        // $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 6), 4, "0", STR_PAD_LEFT);
-        // $packet .= "FF";
-        // $packet .= str_pad(dechex(count(UltimaPHP::$servers)), 4, "0", STR_PAD_LEFT);
-        // $packet .= $tmpPacket;
-
-        // Sockets::out($this->client, $packet, $runInLot);
     }
 
     /**
@@ -395,11 +371,6 @@ class Account {
             $packet .= str_pad(dechex(UltimaPHP::$socketClients[$this->client]['version']['prototype']), 2, "0", STR_PAD_LEFT);
 
             Sockets::out($this->client, $packet, $runInLot);
-            // Sockets::addEvent($this->client, array(
-            //     "option" => "account",
-            //     "method" => "disconnectEvent",
-            //     "args" => [4]
-            // ), 0.1);
         } else {
             $this->disconnect(4);
         }
