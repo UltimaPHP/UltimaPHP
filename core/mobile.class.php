@@ -284,9 +284,10 @@ class Mobile {
             $staticsTiles = Map::getTerrainStatics($this->position['x'], $this->position['y'], $this->position['map']);
             if ($staticsTiles) {
                 foreach ($staticsTiles as $tile) {
-                    if (abs($tile['position']['z'] - $this->position['z']) > 20) {
+                    if (abs($tile['position']['z'] - $this->position['z']) >= 20) {
                         continue;
                     }
+
                     if ($tile['flags'] & TiledataDefs::WALL || $tile['flags'] & TiledataDefs::IMPASSABLE || $tile['flags'] & TiledataDefs::DOOR) {
                         $canWalk = false;
                     }
@@ -321,9 +322,26 @@ class Mobile {
 
         $this->lastMove = time();
 
-        /* Updates player Z */
-        if ($land = Map::getTerrainLand($this->position['x'], $this->position['y'], $this->position['map'])) {
-            $this->position['z'] = $land['position']['z'];
+        if ($statics = Map::getTerrainStatics($this->position['x'], $this->position['y'], $this->position['map'])) {
+            $bz = $this->position['z'];
+
+            foreach ($statics as $tile) {
+                if (abs($tile['position']['z'] - $this->position['z']) >= 20) {
+                    continue;
+                }
+
+                if ($bz > $this->position['z']) {
+                    continue;
+                }
+
+                $bz = $tile['position']['z'] + $tile['height'];
+            }
+
+            $this->position['z'] = $bz;
+        } else {
+            if ($landTile = Map::getTerrainLand($this->position['x'], $this->position['y'], $this->position['map'])) {
+                $this->position['z'] = $landTile['position']['z'];
+            }
         }
 
         $this->updateMobile();
@@ -343,25 +361,21 @@ class Mobile {
             $mX = 0;
 
             for ($x = $viewRange['from']['x']; $x <= $viewRange['to']['x']; $x++) {
-                $landTile = Map::getTerrainLand($x, $y, $this->position['map']);
                 $canWalk = true;
 
-                if ($landTile) {
-                    if ($landTile['flags'] & TiledataDefs::WALL || $landTile['flags'] & TiledataDefs::IMPASSABLE || $landTile['flags'] & TiledataDefs::DOOR) {
-                        $canWalk = false;
-                    }
-                }
+                $staticsTiles = Map::getTerrainStatics($x, $y, $this->position['map']);
+                if ($staticsTiles) {
+                    foreach ($staticsTiles as $tile) {
+                        if (abs($tile['position']['z'] - $this->position['z']) >= 20) {
+                            continue;
+                        }
 
-                if ($canWalk) {
-                    $staticsTiles = Map::getTerrainStatics($x, $y, $this->position['map']);
-                    if ($staticsTiles) {
-                        foreach ($staticsTiles as $tile) {
-                            if (abs($tile['position']['z'] - $this->position['z']) > 20) {
-                                continue;
-                            }
-                            if ($tile['flags'] & TiledataDefs::WALL || $tile['flags'] & TiledataDefs::IMPASSABLE || $tile['flags'] & TiledataDefs::DOOR) {
-                                $canWalk = false;
-                            }
+                        if ($tile['flags'] & TiledataDefs::STAIRBACK || $tile['flags'] & TiledataDefs::STAIRRIGHT) {
+                            continue;
+                        }
+
+                        if ($tile['flags'] & TiledataDefs::WALL || $tile['flags'] & TiledataDefs::IMPASSABLE || $tile['flags'] & TiledataDefs::DOOR) {
+                            $canWalk = false;
                         }
                     }
                 }
@@ -381,6 +395,8 @@ class Mobile {
         $flowPath = new FlowPath($map, true);
         $steps = $flowPath->getPath();
 
+        // $flowPath->dumpPath();
+
         if (!$steps || count($steps) == 0) {
             return false;
         }
@@ -399,9 +415,11 @@ class Mobile {
     }
 
     public function hear($message, $from) {
+        $this->say("I've heard this: " . $message . " :)", 0, 3);
+
         if (strstr($message, "goto")) {
             $tmp = explode(",", str_replace("goto ", "", $message));
-            $position = ['x' => $tmp[0], 'y' => $tmp[1]];
+            $position = ['x' => $tmp[0], 'y' => $tmp[1], 'z' => (isset($tmp[2]) ? $tmp[2] : $this->position['z'])];
             $this->goTo($position);
         }
     }

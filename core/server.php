@@ -105,6 +105,19 @@ class UltimaPHP {
             }
         }
 
+        // Load the packets files
+        $coreFiles = glob(self::$basedir . "core/packets/*.packet.php");
+        $totalFiles = count($coreFiles);
+
+        foreach ($coreFiles as $fileCount => $file) {
+            Functions::progressBar($fileCount+1, $totalFiles, "Loading packets");
+
+            if (!require_once ($file)) {
+                self::setStatus(self::STATUS_FILE_READ_FAIL);
+                self::stop();
+            }
+        }
+
         // Load Skills
         $skillFiles = glob(self::$basedir . "core/skills/*.skill.php");
         $totalFiles = count($skillFiles);

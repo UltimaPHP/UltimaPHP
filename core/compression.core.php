@@ -5,7 +5,6 @@
  * Version: 0.1 - Pre Alpha
  */
 class Compression {
-
     static $huffmanTable = array(
         array(
             0x02,
@@ -1037,21 +1036,21 @@ class Compression {
         ),
     );
 
-    public function compress($source) {
-        $tmp = str_split($source, 2);
+    public static function compress($source) {
+        $tmp    = str_split($source, 2);
         $source = array();
 
         foreach ($tmp as $key => $value) {
             $source[] = hexdec($value);
         }
 
-        $length = count($source);
-        $retval = array();
+        $length  = count($source);
+        $retval  = array();
         $current = $val = $cBits = 0;
 
         for ($i = 0; $i < $length; $i++) {
             $nrBits = (int) self::$huffmanTable[$source[$i]][0] - 1;
-            $val = (int) self::$huffmanTable[$source[$i]][1];
+            $val    = (int) self::$huffmanTable[$source[$i]][1];
 
             for ($n = $nrBits; $n >= 0; $n--) {
                 $x = ($val >> $n) % 2;
@@ -1060,13 +1059,13 @@ class Compression {
                 $cBits++;
                 if (8 == $cBits) {
                     $retval[] = $current;
-                    $cBits = 0;
+                    $cBits    = 0;
                 }
             }
         }
 
         $nrBits = (int) self::$huffmanTable[256][0] - 1;
-        $val = (int) self::$huffmanTable[256][1];
+        $val    = (int) self::$huffmanTable[256][1];
 
         for ($n = $nrBits; $n >= 0; $n--) {
             $x = ($val >> $n) % 2;
@@ -1075,7 +1074,7 @@ class Compression {
             $cBits++;
             if (8 == $cBits) {
                 $retval[] = $current;
-                $cBits = 0;
+                $cBits    = 0;
             }
         }
 
@@ -1085,8 +1084,8 @@ class Compression {
 
             if (8 == $cBits) {
                 $retval[] = $current;
-                $current = 0;
-                $cBits = 0;
+                $current  = 0;
+                $cBits    = 0;
             }
         }
 
@@ -1098,13 +1097,16 @@ class Compression {
         return $return;
     }
 
-    public function decompress($source) {
-        $source = str_split($source, 2);
-        $m_tree = $this->createTree();
+    public static function decompress($source) {
+        if (!is_array($source)) {
+            $source = str_split($source, 2);
+        }
 
-        $retval = array();
-        $current = $val = 0;
-        $length = count($source);
+        $m_tree = self::createTree();
+
+        $retval      = array();
+        $current     = $val     = 0;
+        $length      = count($source);
         $currentNode = $m_tree;
 
         for ($i = 0; $i < $length; $i++) {
@@ -1120,15 +1122,19 @@ class Compression {
                 }
 
                 if (true == $currentNode->isLeaf) {
-                    $val = $currentNode->value;
+                    $val         = $currentNode->value;
                     $currentNode = $m_tree;
 
                     if (256 == $val) {
-                        $return = "";
+                        $return = [];
                         foreach ($retval as $key => $value) {
-                            $return .= chr($value);
+                            $return[] = str_pad(dechex($value), 2, "0", STR_PAD_LEFT);
                         }
                         return $return;
+                    }
+
+                    if (count($retval) == 0 && $val == 0) {
+                        continue;
                     }
 
                     $retval[] = $val;
@@ -1136,15 +1142,15 @@ class Compression {
             }
         }
 
-        $return = "";
+        $return = [];
         foreach ($retval as $key => $value) {
-            $return .= chr($value);
+            $return[] = str_pad(dechex($value), 2, "0", STR_PAD_LEFT);
         }
 
         return $return;
     }
 
-    public function createTree() {
+    public static function createTree() {
         $mTree = new TreeNode();
 
         $nrBits = $val = 0;
@@ -1153,7 +1159,7 @@ class Compression {
             $current = $mTree;
 
             $nrBits = (int) self::$huffmanTable[$i][0] - 1;
-            $val = (int) self::$huffmanTable[$i][1];
+            $val    = (int) self::$huffmanTable[$i][1];
 
             for ($n = $nrBits; $n >= 0; $n--) {
 
@@ -1172,20 +1178,15 @@ class Compression {
             }
 
             $current->isLeaf = true;
-            $current->value = $i;
+            $current->value  = $i;
         }
         return $mTree;
     }
-
 }
 
 class TreeNode {
-
     public $isLeaf = false;
-    public $value = 0;
-    public $left = null;
-    public $right = null;
-
+    public $value  = 0;
+    public $left   = null;
+    public $right  = null;
 }
-
-?>
