@@ -33,4 +33,14 @@ class Encrypt {
 
         return $data;
     }
+
+    public static function gameDecrypt($data, $version = null) {
+        if ($version === null || !is_array($version) || $version['major'] <= 0) {
+            return $data;
+        }
+
+        $seed = $version['seed'];
+        $key1 = $version['key1'];
+        $key2 = $version['key2'];
+    }
 }

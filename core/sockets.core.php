@@ -126,6 +126,8 @@ class Sockets {
                                 continue;
                             }
 
+                            $buffer = $converted;
+                            $length = count($buffer);
                             UltimaPHP::$socketClients[$client]['version']['encrypted'] = true;
                         }
 
