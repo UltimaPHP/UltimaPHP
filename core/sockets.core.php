@@ -67,8 +67,8 @@ class Sockets {
                             $packetTemp = Functions::strToHex($packet['packet']);
 
                             if (isset(UltimaPHP::$socketClients[$client]['compressed']) && UltimaPHP::$socketClients[$client]['compressed'] === true) {
-                                $compress = new Compression();
-                                $packetTemp = Functions::strToHex(implode("", $compress->decompress($packetTemp)));
+                                // $compress = new Compression();
+                                // $packetTemp = Functions::strToHex(implode("", $compress->decompress($packetTemp)));
                                 echo "----------------------------------------------\nSending compressed packet to socket #$client (Length: ".(strlen($packetTemp)/2) .") :: " . $packetTemp . "\n----------------------------------------------\n";
                             } else {
                                 echo "----------------------------------------------\nSending packet to socket #$client (Length: ".(strlen($packetTemp)/2) .") :: " . $packetTemp . "\n----------------------------------------------\n";
@@ -93,7 +93,7 @@ class Sockets {
                 }
 
                 $input = "";
-                @socket_recv($socket['socket'], $input, 8192, MSG_WAITALL);
+                @socket_recv($socket['socket'], $input, 4096, MSG_WAITALL);
 
                 $buffer = ($input ? str_split(Functions::strToHex($input), 2) : false);
                 $length = ($buffer ? count($buffer) : 0);
@@ -116,7 +116,7 @@ class Sockets {
                     }
 
                     // If player isn't relayed and not tested for encryption
-                    if ($socket['version'] !== null) {
+                    if ($socket['version'] !== null && is_array($socket['version']) && isset($socket['version']['encrypted'])) {
                         if($socket['version']['encrypted'] === null && hexdec($buffer[0]) != 0x80 && $length == 62) {
                             $converted = Encrypt::decryptLoginPacket($buffer, $socket['version']);
 
@@ -136,8 +136,16 @@ class Sockets {
                         }
                     }
 
-                    UltimaPHP::$socketClients[$client]['LastInput'] = $microtime;
-                    self::in($buffer, $client);
+                    $validation = self::validatePacket($buffer);
+
+                    if ($validation !== false) {
+                        UltimaPHP::$socketClients[$client]['LastInput'] = $microtime;
+                        foreach ($validation as $packetArray) {
+                            self::in($packetArray, $client);
+                        }
+                    } else {
+                        echo "Invalid packet received: " . Functions::strToHex($input) . "\n";
+                    }
                 }
             }
         }
@@ -159,7 +167,7 @@ class Sockets {
         } else {
             echo "----------------------------------------------\nReceived unknow packet from socket #$client (Length: ". count($input) . ") :: " . implode("", $input) . "\n----------------------------------------------\n";
             if (isset(UltimaPHP::$socketClients[$client]['account'])) {
-                UltimaPHP::$socketClients[$client]['account']->disconnect();
+                //UltimaPHP::$socketClients[$client]['account']->disconnect();
             }
         }
     }
