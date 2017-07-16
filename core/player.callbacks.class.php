@@ -76,7 +76,7 @@ class PlayerCallbacks {
             echo "Static tiles at target: \n";
             print_r($staticsTiles);
             echo "Top Level Item: \n";
-            print_r($topLevelView);
+            print_r($topLevel);
             
             new SysmessageCommand($this->client, ["Target at " . $target['x'] . "," . $target['y'] . "," . $target['z'] . "."]);
         } else {
