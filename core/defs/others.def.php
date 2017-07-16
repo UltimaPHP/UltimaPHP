@@ -7,7 +7,4 @@
 abstract class Others {
     const TILEDATA_LAND   = 0;
     const TILEDATA_STATIC = 1;
-
-    /* Land tiles flags */
-    
 }

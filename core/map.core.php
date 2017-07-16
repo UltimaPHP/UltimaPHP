@@ -169,24 +169,56 @@ class Map {
             Functions::progressBar(1, 1, "Reading statics{$actualMap}.mul file");
 
             /* Start reading the mapdif file of actual map */
-            Functions::progressBar(0, 1, "Reading mapdif{$actualMap}.mul file");
-
             $diffFile = UltimaPHP::$conf['muls']['location'] . "mapdif{$actualMap}.mul";
 
-            if (!isset(UltimaPHP::$files[Reader::FILE_MAP_DIF])) {
-                UltimaPHP::$files[Reader::FILE_MAP_DIF] = [];
-            }
+            if (file_exists($diffFile)) {
+                Functions::progressBar(0, 1, "Reading mapdif{$actualMap}.mul file");
 
-            if (!isset(UltimaPHP::$files[Reader::FILE_MAP_DIF][$actualMap])) {
-                UltimaPHP::$files[Reader::FILE_MAP_DIF][$actualMap] = null;
-            }
+                if (!isset(UltimaPHP::$files[Reader::FILE_MAP_DIF])) {
+                    UltimaPHP::$files[Reader::FILE_MAP_DIF] = [];
+                }
 
-            if (is_file($diffFile)) {
-                UltimaPHP::$files[Reader::FILE_MAP_DIF][$actualMap] = new Reader($diffFile, Reader::FILE_MAP_DIF);
-            }
+                if (!isset(UltimaPHP::$files[Reader::FILE_MAP_DIF][$actualMap])) {
+                    UltimaPHP::$files[Reader::FILE_MAP_DIF][$actualMap] = null;
+                }
 
-            Functions::progressBar(1, 1, "Reading mapdif{$actualMap}.mul file");
+                if (is_file($diffFile)) {
+                    UltimaPHP::$files[Reader::FILE_MAP_DIF][$actualMap] = new Reader($diffFile, Reader::FILE_MAP_DIF);
+                }
+
+                Functions::progressBar(1, 1, "Reading mapdif{$actualMap}.mul file");
+            }
         }
+
+        /* Start reading the texture files file of actual map */
+        Functions::progressBar(0, 1, "Reading texidx.mul file");
+
+        $texidx = UltimaPHP::$conf['muls']['location'] . "texidx.mul";
+
+        if (!isset(UltimaPHP::$files[Reader::FILE_TEXTURE_INDEX])) {
+            UltimaPHP::$files[Reader::FILE_TEXTURE_INDEX] = null;
+        }
+
+        if (is_file($texidx)) {
+            UltimaPHP::$files[Reader::FILE_TEXTURE_INDEX] = new Reader($texidx, Reader::FILE_TEXTURE_INDEX);
+        }
+
+        Functions::progressBar(1, 1, "Reading texmaps.mul file");
+
+        /* Start reading the texture files file of actual map */
+        Functions::progressBar(0, 1, "Reading texmaps.mul file");
+
+        $textmaps = UltimaPHP::$conf['muls']['location'] . "texmaps.mul";
+
+        if (!isset(UltimaPHP::$files[Reader::FILE_TEXTURE_FILE])) {
+            UltimaPHP::$files[Reader::FILE_TEXTURE_FILE] = null;
+        }
+
+        if (is_file($textmaps)) {
+            UltimaPHP::$files[Reader::FILE_TEXTURE_FILE] = new Reader($textmaps, Reader::FILE_TEXTURE_FILE);
+        }
+
+        Functions::progressBar(1, 1, "Reading texmaps.mul file");
     }
 
     /* Tries do define what is the right Z position from */

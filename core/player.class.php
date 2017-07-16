@@ -916,6 +916,9 @@ class Player {
         /* Updates player Z */
         $topItem = Map::getTopItemFrom($tmpPosition['x'], $tmpPosition['y'], $tmpPosition['z'], $tmpPosition['map']);
 
+        /* Logic to block player walking into impossible locations */
+        /*
+        // This code is commented ultill we find a solution to fix the Z detection from textured land tiles
         if (abs($topItem['position']['z'] - $this->position['z']) > 10) {
             new SysmessageCommand($this->client, ["You can't walk in there."]);
 
@@ -926,6 +929,7 @@ class Player {
             $this->update();
             return true;
         }
+        */
 
         $tmpPosition['z'] = $topItem['position']['z'];
 
