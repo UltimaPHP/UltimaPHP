@@ -67,8 +67,6 @@ class Sockets {
                             $packetTemp = Functions::strToHex($packet['packet']);
 
                             if (isset(UltimaPHP::$socketClients[$client]['compressed']) && UltimaPHP::$socketClients[$client]['compressed'] === true) {
-                                // $compress = new Compression();
-                                // $packetTemp = Functions::strToHex(implode("", $compress->decompress($packetTemp)));
                                 echo "----------------------------------------------\nSending compressed packet to socket #$client (Length: ".(strlen($packetTemp)/2) .") :: " . $packetTemp . "\n----------------------------------------------\n";
                             } else {
                                 echo "----------------------------------------------\nSending packet to socket #$client (Length: ".(strlen($packetTemp)/2) .") :: " . $packetTemp . "\n----------------------------------------------\n";
@@ -84,16 +82,19 @@ class Sockets {
  
                         // Release the socket from server after send disconnect packet
                         if (!isset($packet['packet'][0])) {
-                            exit();
+                            unset(UltimaPHP::$socketClients[$client]);
+                            continue 2;
                         }
+
                         if (dechex(ord($packet['packet'][0])) == 82) {
                             unset(UltimaPHP::$socketClients[$client]);
+                            continue 2;
                         }
                     }
                 }
 
                 $input = "";
-                @socket_recv($socket['socket'], $input, 4096, MSG_WAITALL);
+                socket_recv($socket['socket'], $input, 4096,  (PHP_OS == "Linux" ? MSG_WAITALL : 0));
 
                 $buffer = ($input ? str_split(Functions::strToHex($input), 2) : false);
                 $length = ($buffer ? count($buffer) : 0);
@@ -205,6 +206,8 @@ class Sockets {
                 'time' => (microtime(true) + 0.00100),
             );
         }
+
+        return true;
     }
 
     /**

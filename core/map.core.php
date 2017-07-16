@@ -189,6 +189,41 @@ class Map {
         }
     }
 
+    /* Tries do define what is the right Z position from */
+    public static function getTopItemFrom($x = 0, $y = 0, $z = 0,  $map = 0, $maxHeight = 10) {
+        if ($x == 0 || $y == 0) {
+            return false;
+        }
+
+        if (!isset(UltimaPHP::$files[Reader::FILE_MAP_FILE][$map])) {
+            return false;
+        }
+
+        $mapBoundries = Map::$mapSizes[$map];
+        if ($x <= 0 || $x > $mapBoundries['x'] || $y <= 0 || $y > $mapBoundries['y']) {
+            return false;
+        }
+
+        $topItem = self::getTerrainLand($x, $y, $map);
+        $statics = self::getTerrainStatics($x, $y, $map);
+
+        foreach ($statics as $item) {
+            $itemFinalZ = ($item['position']['z'] + $item['height']);
+
+            if ($z > ($itemFinalZ + $maxHeight) || $z < ($itemFinalZ - $maxHeight)) {
+                continue;
+            }
+
+            if ($itemFinalZ >= $topItem['position']['z']) {
+                $item['position']['z_orig'] = $item['position']['z'];
+                $item['position']['z'] = $itemFinalZ;
+                $topItem = $item;
+            }
+        }
+
+        return $topItem;
+    }
+
     public static function getTerrainLand($p_x = 0, $p_y = 0, $map = 0) {
         if ($p_x == 0 || $p_y == 0) {
             return false;
@@ -228,11 +263,11 @@ class Map {
 
     public static function getTerrainStatics($p_x = 0, $p_y = 0, $map = 0) {
         if ($p_x == 0 || $p_y == 0) {
-            return false;
+            return [];
         }
 
         if (!isset(UltimaPHP::$files[Reader::FILE_STATIC_INDEX][$map]) || !isset(UltimaPHP::$files[Reader::FILE_STATIC_FILE][$map])) {
-            return false;
+            return [];
         }
 
         $x = $p_x >> 3;
@@ -246,7 +281,7 @@ class Map {
         $length = UltimaPHP::$files[Reader::FILE_STATIC_INDEX][$map]->readInt32();
 
         if ($lookup <= 0 || $length <= 0) {
-            return false;
+            return [];
         }
 
         UltimaPHP::$files[Reader::FILE_STATIC_FILE][$map]->setPosition($lookup);
@@ -269,7 +304,7 @@ class Map {
         }
 
         if (count($tiles) == 0) {
-            return false;
+            return [];
         }
 
         return $tiles;

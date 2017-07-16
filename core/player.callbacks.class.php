@@ -63,14 +63,21 @@ class PlayerCallbacks {
                 new SysmessageCommand($this->client, ["Target at item " . $instance->name . "."]);
             }
         } elseif ($target['target'] == TargetDefs::LAND) {
-            $landTiles    = Map::getTerrainLand($target['x'], $target['y'], UltimaPHP::$socketClients[$this->client]['account']->player->position['map']);
-            $staticsTiles = Map::getTerrainStatics($target['x'], $target['y'], UltimaPHP::$socketClients[$this->client]['account']->player->position['map']);
+            $playerPos = UltimaPHP::$socketClients[$this->client]['account']->player->position;
 
+            $landTiles    = Map::getTerrainLand($target['x'], $target['y'], $playerPos['map']);
+            $staticsTiles = Map::getTerrainStatics($target['x'], $target['y'], $playerPos['map']);
+            $topLevel     = Map::getTopItemFrom($target['x'], $target['y'], $target['z'], $playerPos['map'], 10);
+
+            echo "Target:\n";
+            print_r($target);
             echo "Land tiles at target: \n";
             print_r($landTiles);
             echo "Static tiles at target: \n";
             print_r($staticsTiles);
-
+            echo "Top Level Item: \n";
+            print_r($topLevelView);
+            
             new SysmessageCommand($this->client, ["Target at " . $target['x'] . "," . $target['y'] . "," . $target['z'] . "."]);
         } else {
             $this->target = null;

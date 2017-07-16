@@ -870,52 +870,67 @@ class Player {
         $tmpDirection = hexdec($direction);
         $tmpDirection &= ~0x80;
 
+        $tmpPosition = $this->position;
+
         if ((int) $direction >= 80) {
-            $this->position['running'] = true;
+            $tmpPosition['running'] = true;
         } else {
-            $this->position['running'] = false;
+            $tmpPosition['running'] = false;
         }
 
-        if ((int) $this->position['facing'] != (int) $tmpDirection) {
-            $this->position['facing'] = (int) $tmpDirection;
+        if ((int) $tmpPosition['facing'] != (int) $tmpDirection) {
+            $tmpPosition['facing'] = (int) $tmpDirection;
         } else {
             switch (hexdec($tmpDirection)) {
                 case 0: /* North */
-                    $this->position['y']--;
+                    $tmpPosition['y']--;
                     break;
                 case 1: /* Northeast */
-                    $this->position['x']++;
-                    $this->position['y']--;
+                    $tmpPosition['x']++;
+                    $tmpPosition['y']--;
                     break;
                 case 2: /* East */
-                    $this->position['x']++;
+                    $tmpPosition['x']++;
                     break;
                 case 3: /* Southeast */
-                    $this->position['x']++;
-                    $this->position['y']++;
+                    $tmpPosition['x']++;
+                    $tmpPosition['y']++;
                     break;
                 case 4: /* South */
-                    $this->position['y']++;
+                    $tmpPosition['y']++;
                     break;
                 case 5: /* Southwest */
-                    $this->position['x']--;
-                    $this->position['y']++;
+                    $tmpPosition['x']--;
+                    $tmpPosition['y']++;
                     break;
                 case 6: /* West */
-                    $this->position['x']--;
+                    $tmpPosition['x']--;
                     break;
                 case 7: /* Northwest */
-                    $this->position['x']--;
-                    $this->position['y']--;
+                    $tmpPosition['x']--;
+                    $tmpPosition['y']--;
                     break;
             }
-            $this->lastMove = time();
         }
 
         /* Updates player Z */
-        if ($land = Map::getTerrainLand($this->position['x'], $this->position['y'], $this->position['map'])) {
-            $this->position['z'] = $land['position']['z'];
+        $topItem = Map::getTopItemFrom($tmpPosition['x'], $tmpPosition['y'], $tmpPosition['z'], $tmpPosition['map']);
+
+        if (abs($topItem['position']['z'] - $this->position['z']) > 10) {
+            new SysmessageCommand($this->client, ["You can't walk in there."]);
+
+            $packet = new packet_0x21($this->client);
+            $packet->setPosition($tmpPosition['x'], $tmpPosition['y'], $tmpPosition['z'], $tmpPosition['facing'], $sequence);
+            $packet->send();
+
+            $this->update();
+            return true;
         }
+
+        $tmpPosition['z'] = $topItem['position']['z'];
+
+        $this->position = $tmpPosition;
+        $this->lastMove = time();
 
         $packet = "22" . str_pad($sequence, 2, "0", STR_PAD_LEFT) . "01";
         Sockets::out($this->client, $packet, false);

@@ -79,7 +79,7 @@ class Packets {
     }
 
     public function addInt16($value = 0) {
-        $hexStr = str_split(strtoupper(str_pad(dechex($this->int16($value)), 4, "0", STR_PAD_LEFT)),2);
+        $hexStr = str_split($this->int16($value) ,2);
         
         foreach ($hexStr as $hex) {
             $this->packetBytes[] = $hex;
@@ -111,7 +111,7 @@ class Packets {
     }
 
     public static function int16($i) {
-        return is_int($i) ? strtoupper(str_pad(dechex($i), 2, "0", STR_PAD_LEFT)) : unpack("s", $i)[1];
+        return is_int($i) ? strtoupper(str_pad(dechex($i), 4, "0", STR_PAD_LEFT)) : unpack("s", $i)[1];
     }
 
     public static function uInt16($i, $endianness = false) {
