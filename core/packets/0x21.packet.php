@@ -25,7 +25,7 @@ class packet_0x21 extends Packets {
     }
 
     /**s
-     * Handle the packet receive
+     * Handle the packet transmission
      */
     public function send() {
         if (!$this->client) {

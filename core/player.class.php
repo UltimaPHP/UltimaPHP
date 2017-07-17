@@ -917,21 +917,23 @@ class Player {
         $topItem = Map::getTopItemFrom($tmpPosition['x'], $tmpPosition['y'], $tmpPosition['z'], $tmpPosition['map']);
 
         /* Logic to block player walking into impossible locations */
-        /*
-        // This code is commented ultill we find a solution to fix the Z detection from textured land tiles
-        if (abs($topItem['position']['z'] - $this->position['z']) > 10) {
-            new SysmessageCommand($this->client, ["You can't walk in there."]);
+        if ($topItem) {
+            /*
+            // This code is commented ultill we find a solution to fix the Z detection from textured land tiles
+            if (abs($topItem['position']['z'] - $this->position['z']) > 10) {
+                new SysmessageCommand($this->client, ["You can't walk in there."]);
 
-            $packet = new packet_0x21($this->client);
-            $packet->setPosition($tmpPosition['x'], $tmpPosition['y'], $tmpPosition['z'], $tmpPosition['facing'], $sequence);
-            $packet->send();
+                $packet = new packet_0x21($this->client);
+                $packet->setPosition($tmpPosition['x'], $tmpPosition['y'], $tmpPosition['z'], $tmpPosition['facing'], $sequence);
+                $packet->send();
 
-            $this->update();
-            return true;
+                $this->update();
+                return true;
+            }
+            */
+
+            $tmpPosition['z'] = $topItem['position']['z'];
         }
-        */
-
-        $tmpPosition['z'] = $topItem['position']['z'];
 
         $this->position = $tmpPosition;
         $this->lastMove = time();

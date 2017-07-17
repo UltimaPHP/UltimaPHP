@@ -65,16 +65,19 @@ class PlayerCallbacks {
         } elseif ($target['target'] == TargetDefs::LAND) {
             $playerPos = UltimaPHP::$socketClients[$this->client]['account']->player->position;
 
-            $landTiles    = Map::getTerrainLand($target['x'], $target['y'], $playerPos['map']);
-            $staticsTiles = Map::getTerrainStatics($target['x'], $target['y'], $playerPos['map']);
-            $topLevel     = Map::getTopItemFrom($target['x'], $target['y'], $target['z'], $playerPos['map'], 10);
+            $landTiles    = Map::getTerrainLand($target['x'], $target['y'], $target['z'], $playerPos['map']);
+            $staticsTiles = Map::getTerrainStatics($target['x'], $target['y'], $target['z'], $playerPos['map']);
+            $topLevel     = Map::getTopItemFrom($target['x'], $target['y'], $target['z'], $playerPos['map']);
 
             echo "Target:\n";
             print_r($target);
+
             echo "Land tiles at target: \n";
             print_r($landTiles);
+            
             echo "Static tiles at target: \n";
             print_r($staticsTiles);
+            
             echo "Top Level Item: \n";
             print_r($topLevel);
             

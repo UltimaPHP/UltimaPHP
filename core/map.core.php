@@ -40,44 +40,63 @@ class Map {
 
         Functions::progressBar(0, 1, "Reading tiledata.mul");
 
-        for ($i = 0; $i < 0x4000; $i++) {
-            if (($i & 0x1F) == 0) {
-                UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt32();
+        $highSeas = true;
+
+        for ($i = 0; $i < 0x4000; $i += 32) {
+            $header = UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt32();
+
+            for ($count = 0; $count < 32; ++$count) {
+                if (!$highSeas) {
+                    $blockInfo = [
+                        'type'    => 'land',
+                        'flags'   => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt32(),
+                        'texture' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt16(),
+                        'name'    => trim(Functions::readUnicodeStringSafe(str_split(Functions::strToHex(UltimaPHP::$files[Reader::FILE_TILEDATA]->read(20)), 2))),
+                    ];
+                } else {
+                    $blockInfo = [
+                        'type'    => 'land',
+                        'flags'   => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt32(),
+                        'unknown' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt32(),
+                        'texture' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt16(),
+                        'name'    => trim(Functions::readUnicodeStringSafe(str_split(Functions::strToHex(UltimaPHP::$files[Reader::FILE_TILEDATA]->read(20)), 2))),
+                    ];
+                }
+
+                self::$tiledata[Others::TILEDATA_LAND][$i + $count] = $blockInfo;
             }
-
-            $blockInfo = [
-                'type'    => 'land',
-                'flags'   => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt64(),
-                'texture' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt16(),
-                'name'    => trim(Functions::readUnicodeStringSafe(str_split(Functions::strToHex(UltimaPHP::$files[Reader::FILE_TILEDATA]->read(20)), 2))),
-            ];
-
-            self::$tiledata[Others::TILEDATA_LAND][$i] = $blockInfo;
         }
 
-        for ($i = 0; $i < 0x10000; $i++) {
-            if (($i & 0x1F) == 0) {
-                UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt32();
+        $remaining = UltimaPHP::$files[Reader::FILE_TILEDATA]->fileLength - UltimaPHP::$files[Reader::FILE_TILEDATA]->getAcutalPosition();
+
+        $staticItemSize   = (!$highSeas ? 37 : 41);
+        $remainingHeaders = ($remaining / (($staticItemSize * 32) + 4));
+        $totalStaticItems = $remainingHeaders * 32;
+
+        for ($i = 0; $i < $totalStaticItems; $i += 32) {
+            $header = UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt32();
+
+            for ($count = 0; $count < 32; ++$count) {
+                $blockInfo = [
+                    'type'           => 'static',
+                    'flags'          => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt32(),
+                    'unknown1'       => (!$highSeas ? 0 : UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt32()),
+                    'weight'         => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
+                    'quality'        => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
+                    'miscdata'       => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt16(),
+                    'unknown2'       => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
+                    'quantity'       => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
+                    'animation'      => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt16(),
+                    'unknown3'       => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
+                    'hue'            => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
+                    'stackingoffset' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
+                    'value'          => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
+                    'height'         => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
+                    'name'           => Functions::readUnicodeStringSafe(str_split(Functions::strToHex(UltimaPHP::$files[Reader::FILE_TILEDATA]->read(20)), 2)),
+                ];
+
+                self::$tiledata[Others::TILEDATA_STATIC][$i + $count] = $blockInfo;
             }
-
-            $blockInfo = [
-                'type'      => 'static',
-                'flags'     => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt64(),
-                'weight'    => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
-                'quality'   => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
-                'unknown1'  => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt16(),
-                'unknown2'  => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
-                'quantity'  => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
-                'animation' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt16(),
-                'unknown3'  => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
-                'hue'       => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
-                'unknown4'  => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
-                'value'     => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
-                'height'    => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
-                'name'      => Functions::readUnicodeStringSafe(str_split(Functions::strToHex(UltimaPHP::$files[Reader::FILE_TILEDATA]->read(20)), 2)),
-            ];
-
-            self::$tiledata[Others::TILEDATA_STATIC][$i] = $blockInfo;
         }
 
         Functions::progressBar(1, 1, "Reading tiledata.mul");
@@ -189,36 +208,6 @@ class Map {
                 Functions::progressBar(1, 1, "Reading mapdif{$actualMap}.mul file");
             }
         }
-
-        /* Start reading the texture files file of actual map */
-        Functions::progressBar(0, 1, "Reading texidx.mul file");
-
-        $texidx = UltimaPHP::$conf['muls']['location'] . "texidx.mul";
-
-        if (!isset(UltimaPHP::$files[Reader::FILE_TEXTURE_INDEX])) {
-            UltimaPHP::$files[Reader::FILE_TEXTURE_INDEX] = null;
-        }
-
-        if (is_file($texidx)) {
-            UltimaPHP::$files[Reader::FILE_TEXTURE_INDEX] = new Reader($texidx, Reader::FILE_TEXTURE_INDEX);
-        }
-
-        Functions::progressBar(1, 1, "Reading texmaps.mul file");
-
-        /* Start reading the texture files file of actual map */
-        Functions::progressBar(0, 1, "Reading texmaps.mul file");
-
-        $textmaps = UltimaPHP::$conf['muls']['location'] . "texmaps.mul";
-
-        if (!isset(UltimaPHP::$files[Reader::FILE_TEXTURE_FILE])) {
-            UltimaPHP::$files[Reader::FILE_TEXTURE_FILE] = null;
-        }
-
-        if (is_file($textmaps)) {
-            UltimaPHP::$files[Reader::FILE_TEXTURE_FILE] = new Reader($textmaps, Reader::FILE_TEXTURE_FILE);
-        }
-
-        Functions::progressBar(1, 1, "Reading texmaps.mul file");
     }
 
     /* Tries do define what is the right Z position from */
@@ -236,13 +225,24 @@ class Map {
             return false;
         }
 
-        $topItem = self::getTerrainLand($x, $y, $map);
-        $statics = self::getTerrainStatics($x, $y, $map);
+        $land = self::getTerrainLand($x, $y, $z, $map, $maxHeight);
+        $statics = self::getTerrainStatics($x, $y, $z, $map, $maxHeight);
+
+        if (count($land) == 0 && count($statics) == 0) {
+            return false;
+        }
+
+        $topItem = $land;
 
         foreach ($statics as $item) {
             $itemFinalZ = ($item['position']['z'] + $item['height']);
 
             if ($z > ($itemFinalZ + $maxHeight) || $z < ($itemFinalZ - $maxHeight)) {
+                continue;
+            }
+
+            if (!$topItem) {
+                $topItem = $item;
                 continue;
             }
 
@@ -256,13 +256,13 @@ class Map {
         return $topItem;
     }
 
-    public static function getTerrainLand($p_x = 0, $p_y = 0, $map = 0) {
+    public static function getTerrainLand($p_x = 0, $p_y = 0, $p_z = 0, $map = 0, $maxHeight = 10) {
         if ($p_x == 0 || $p_y == 0) {
-            return false;
+            return [];
         }
 
         if (!isset(UltimaPHP::$files[Reader::FILE_MAP_FILE][$map])) {
-            return false;
+            return [];
         }
 
         $x = $p_x >> 3;
@@ -284,16 +284,17 @@ class Map {
                     ],
                 ];
 
+                // if (isset(self::$tiledata[Others::TILEDATA_LAND][$info['tile']]) && $info['position']['x'] == $p_x && $info['position']['y'] == $p_y && abs($info['position']['z'] - $p_z) < $maxHeight) {
                 if (isset(self::$tiledata[Others::TILEDATA_LAND][$info['tile']]) && $info['position']['x'] == $p_x && $info['position']['y'] == $p_y) {
                     return array_merge(self::$tiledata[Others::TILEDATA_LAND][$info['tile']], ['tile' => $info['tile'], 'position' => $info['position']]);
                 }
             }
         }
 
-        return false;
+        return [];
     }
 
-    public static function getTerrainStatics($p_x = 0, $p_y = 0, $map = 0) {
+    public static function getTerrainStatics($p_x = 0, $p_y = 0, $p_z = 0, $map = 0, $maxHeight = 10) {
         if ($p_x == 0 || $p_y == 0) {
             return [];
         }
