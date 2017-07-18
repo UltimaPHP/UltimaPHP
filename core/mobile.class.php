@@ -271,7 +271,7 @@ class Mobile {
         $this->position['facing'] = $direction;
 
         /* Check if can go to position */
-        $landTile = Map::getTerrainLand($this->position['x'], $this->position['y'], $this->position['map']);
+        $landTile = Map::getTerrainLand($this->position['x'], $this->position['y'], $this->position['z'], $this->position['map']);
         $canWalk = true;
 
         if ($landTile) {

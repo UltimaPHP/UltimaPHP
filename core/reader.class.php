@@ -26,6 +26,10 @@ class Reader {
         return $this;
     }
 
+    public function getAcutalPosition() {
+        return ftell($this->fileHolder);
+    }
+
     public function read($length = 0) {
         return fread($this->fileHolder, $length);
     }
