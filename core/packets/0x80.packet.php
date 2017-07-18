@@ -16,6 +16,24 @@ class packet_0x80 extends Packets {
             $this->client = $client;
         }
     }
+    
+    private function insertAccount($account, $password)
+    {
+    	$dbLastSerial = UltimaPHP::$db->collection("accounts")->find([], ['projection' => ['serial' => true], 'sort' => ['serial' => -1], 'limit' => 1			])->toArray();
+		$nextSerial   = ((int) $dbLastSerial[0]['serial'] + 1);
+		
+		$obj = [
+			'account' => $account,
+			'password' => $password,
+			'serial' => $nextSerial,
+			'creationDate' => date("d-m-Y H:i:s "),
+			'maxChars' => UltimaPHP::$conf['accounts']['max_chars'],
+			'lastLogin' => false,
+			'plevel' => 1,
+			'status' => 1,
+		];
+		UltimaPHP::$db->collection("accounts")->insertOne($obj);
+	}
 
     /**
      * Handle the packet receive
@@ -44,9 +62,12 @@ class packet_0x80 extends Packets {
 
             // Send to the client the server list
             UltimaPHP::$socketClients[$this->client]['account']->sendServerList();
-        } else {
-            UltimaPHP::$socketClients[$this->client]['account']->disconnect(3);
-        }
+        } elseif (UltimaPHP::$conf['accounts']['auto_create'] == 1){
+				$this->insertAccount($account, md5($password));
+				$this->receive($data);						
+			}else{
+				UltimaPHP::$socketClients[$this->client]['account']->disconnect(3);					
+		}            
 
         return true;
     }
