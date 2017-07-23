@@ -186,7 +186,11 @@ class UltimaPHP {
             ));
         }
 
+        /* Update starting location list */
         self::updateStartingLocations();
+
+        /* Load map objects */
+        Map::readObjects();
 
         self::setStatus(self::STATUS_RUNNING, array(
             self::$conf['server']['ip'],

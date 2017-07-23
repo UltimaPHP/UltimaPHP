@@ -63,7 +63,7 @@ make install
  * Add objects
  * Add mobiles
  * Login multiple chars
- * Equip item
+ * Equip multiple objects
  * PickUp / Drag / Drop item
  * Walk / Run in any world
  * Unicode Sysmessage
@@ -77,6 +77,9 @@ make install
  * Open skills info
  * Emote
  * Talk
+ * Store objects inside multiple containers
+ * Save the player objects
+ * Save the world objects
 
 ### Usefull links that could help you code
 

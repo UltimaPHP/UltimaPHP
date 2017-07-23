@@ -5,6 +5,9 @@
  */
 class TypeContainer extends Object {
     public $gump;
+    /* access properties */
+    public $owner;
+
     /* carry properties */
     public $maxCarryCapacity;
     public $actualCarry;
@@ -17,9 +20,16 @@ class TypeContainer extends Object {
     public function typeStart() {
         $this->actualCarry  = 0;
         $this->actualWeight = 0;
+        $this->equiped      = false;
+        $this->owner        = null;
+    }
 
-        $this->equiped = false;
-        $this->layer   = LayersDefs::BACKPACK;
+    public function click($client = null) {
+        if ($client === null) {
+            return false;
+        }
+        
+        return $this->message($this->name . " (".count($this->objects)." item ". (count($this->objects) > 1 ? "s" : "") .")", 0, 3, $client);
     }
 
     public function dclick($client = null) {
@@ -33,8 +43,8 @@ class TypeContainer extends Object {
 
         if (!$position) {
             $position = [
-                'x' => rand(0,10),
-                'y' => rand(0,10)
+                'x' => rand(1,127),
+                'y' => rand(1,127)
             ];
         }
 
@@ -42,15 +52,45 @@ class TypeContainer extends Object {
         $object->position['y'] = $position['y'];
         $object->position['z'] = null;
         $object->position['map'] = null;
+        $object->holder = $this->serial;
+        $object->save();
 
-        $this->objects[] = $object;
+        $this->objects[] = $object->serial;
+        $this->save();
+
+        if (Map::isValidSerial($object->serial)) {
+            Map::updateObjectHolder($object);
+        } else {
+            Map::addHoldedObject($object);
+        }
+
+        if (Map::isValidSerial($this->serial)) {
+            Map::updateObjectHolder($this);
+        } else {
+            Map::addHoldedObject($this);
+        }
 
         if (!$noUpdate) {
-            $this->renderItems($client);
+            $this->addItemToOpenedContainer($client, $object);
+            // $this->renderItems($client);
         }
+
+        return true;
     }
 
-    public function removeItem() {}
+    public function removeItem($client = false, $objectSerial = false) {
+        if (!$objectSerial || !$client) {
+            return false;
+        }
+
+        if(($key = array_search($objectSerial, $this->objects)) !== false) {
+            unset($this->objects[$key]);
+            $this->save();
+        }
+
+        Map::updateObjectHolder($this);
+        return true;
+    }
 
     public function open($client) {
         return $this->drawContainer($client);
@@ -70,9 +110,16 @@ class TypeContainer extends Object {
         return true;
     }
 
+    public function addItemToOpenedContainer($client = false, Object $instance) {
+        $packet = new packet_0x25($client, $instance);
+        $packet->send();
+    }
+
     public function renderItems($client) {
         $tmpPacket = str_pad(dechex(count($this->objects)), 4, "0", STR_PAD_LEFT);
-        foreach ($this->objects as $key => $instance) {
+        foreach ($this->objects as $key => $serial) {
+            $instance = Map::getBySerial($serial);
+
             $tmpPacket .= str_pad($instance->serial, 8, "0", STR_PAD_LEFT);
             $tmpPacket .= str_pad(dechex($instance->graphic), 4, "0", STR_PAD_LEFT);
             $tmpPacket .= "00";

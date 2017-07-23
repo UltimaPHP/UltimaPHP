@@ -8,12 +8,14 @@ class Object {
     public $instanceType = UltimaPHP::INSTANCE_OBJECT;
 
     /* Object variables */
+    public $objectName;
     public $serial;
     public $id;
     public $graphic;
     public $type;
     public $name;
     public $position;
+    public $holder;
     public $hits;
     public $maxHits;
     public $direction;
@@ -27,13 +29,33 @@ class Object {
     public $equiped  = false;
     public $layer    = LayersDefs::INVALID;
 
-    public function __construct($serial = null) {
+    public function __construct($serial = null, $id = null, $holderSerial = false) {
         $this->build();
         $this->typeStart();
+        $this->objectName = get_class($this);
+
         if ($serial === null) {
             $this->id     = Map::newSerial("object");
-            $this->serial = dechex(UltimaPHP::BITMASK_ITEM | $this->id);
+            $this->serial = strtoupper(dechex(UltimaPHP::BITMASK_ITEM | $this->id));
+
+            if ($holderSerial) {
+                $this->holder = $holderSerial;
+            }
+
+            /* Creates the item at the database */
+            UltimaPHP::$db->collection("objects")->insertOne($this);
+        } else {
+            $this->id     = $id;
+            $this->serial = $serial;
         }
+    }
+
+    /**
+     * Updates the database record about the object instance
+     */
+    public function save() {
+        UltimaPHP::$db->collection('objects')->updateOne(['id' => $this->id], ['$set' => $this]);
+        return true;
     }
 
     public function draw($client) {
@@ -111,13 +133,17 @@ class Object {
         $packet .= $tmpPacket;
         $packet .= "0000";
 
-        if ($client) {
-            Sockets::out($client, $packet, false);
-        } else {
-            Map::sendPacketRangePosition($packet, $this->position);
+        if ($this->holder === null) {
+            if ($client) {
+                Sockets::out($client, $packet, false);
+            } else {
+                Map::sendPacketRangePosition($packet, $this->position);
+            }
+
+            return true;
         }
 
-        return true;
+        return false;
     }
  
     public function click($client = null) {
@@ -136,7 +162,11 @@ class Object {
         if ($this->layer > 0) {
             return UltimaPHP::$socketClients[$client]['account']->player->equipRequest($this->serial, $this->layer, UltimaPHP::$socketClients[$client]['account']->player->serial);
         } else {
-            return $this->say("I'm a " . $this->name . " and i accep unicode text, like: ãéíôú", 0x07a1);
+            if ($this->holder === null) {
+                return $this->say("I'm a " . $this->name . " and i accept unicode text: ãéíôú?", 0x07a1);
+            } else {
+                return $this->message("I'm a " . $this->name . " and i accept unicode text: ãéíôú?", 0x07a1, 3, $client);
+            }
         }
     }
 }

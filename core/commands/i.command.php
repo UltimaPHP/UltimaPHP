@@ -32,6 +32,7 @@ class ICommand {
 
         $item = new $itemDef();
         $player = UltimaPHP::$socketClients[$client]['account']->player;
+        
         Map::addObjectToMap($item, $player->position['x'], $player->position['y'], $player->position['z'], $player->position['map']);
         unset($player);
         return true;

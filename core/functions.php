@@ -179,36 +179,66 @@ class Functions {
         }
     }
 
-    public static function findSerialOnContainer(TypeContainer &$container, $serial = null, $removeOnReturn = false) {
+    public static function canFindSerialOnContainer($container, $serial = null) {
         if (!$container || $serial === null) {
             return false;
         }
 
         $result = false;
 
-        foreach ($container->objects as $key => $object) {
+        $container = Map::getBySerial($container);
+
+        foreach ($container->objects as $key => $objSerial) {
             if ($result) {
                 continue;
             }
 
-            if ($object->serial == $serial) {
-                $result = $object;
-                if ($removeOnReturn) {
-                    unset($container->objects[$key]);
-                }
+            if ($objSerial == $serial) {
+                $result = true;
                 continue;
             }
 
+            $object = Map::getBySerial($objSerial);
+
             if (isset(class_parents($object)['TypeContainer'])) {
-                $tmp = self::findSerialOnContainer($object, $serial, $removeOnReturn);
+                $tmp = self::canFindSerialOnContainer($object->serial, $serial);
 
                 if ($tmp) {
-                    $result = $tmp;
+                    $result = true;
                     continue;
                 }
             }
         }
 
         return $result;
+    }
+
+    public static function getRelativeFace($from, $to) {
+        return (
+            $to[0] == $from[0] ?
+            (
+                $to[1] < $from[1] ?
+                0x00 :
+                0x04
+            ) : (
+                $to[1] == $from[1] ?
+                (
+                    $to[0] < $from[0] ?
+                    0x06 :
+                    0x02
+                ) : (
+                    $to[0] < $from[0] ?
+                    (
+                        $to[1] < $from[1] ?
+                        0x07 :
+                        0x05
+                    ) : (
+                        $to[1] < $from[1] ?
+                        0x01 :
+                        0x03
+                    )
+                )
+            )
+        );
     }
 }

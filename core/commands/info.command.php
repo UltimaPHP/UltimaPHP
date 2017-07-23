@@ -11,6 +11,17 @@ class InfoCommand extends Command {
             return false;
         }
 
+        if (isset($args[0]) && $args[0] == "layers") {
+            print_r(UltimaPHP::$socketClients[$client]['account']->player->layers[LayersDefs::BACKPACK]);
+            return true;
+        }
+
+        if (isset($args[0]) && $args[0] == "serial") {
+            print_r(Map::$serialData);
+            print_r(Map::$serialDataHolded);
+            return true;
+        }
+
         if (isset($args[0]) && $args[0] == "chunk") {
         	$chunk = Map::getChunk(UltimaPHP::$socketClients[$client]['account']->player->position['x'], UltimaPHP::$socketClients[$client]['account']->player->position['y']);
         	$chunkData = Map::$chunks[UltimaPHP::$socketClients[$client]['account']->player->position['map']][$chunk['x']][$chunk['y']];

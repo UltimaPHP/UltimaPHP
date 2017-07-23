@@ -62,6 +62,14 @@ class Packets {
         }
     }
 
+    public function addHexStr($hexStr) {
+        $bytes = str_split($hexStr, 2);
+
+        foreach ($bytes as $hex) {
+            $this->packetBytes[] = str_pad($hex, 2, "0", STR_PAD_LEFT);
+        }
+    }
+
     public function addUInt8($value = 0) {
         $this->packetBytes[] = $this->uInt8($value);
     }

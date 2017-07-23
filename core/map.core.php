@@ -8,14 +8,15 @@ class Map {
     /**
      * Map loading variables
      */
-    public static $maps        = [];
-    public static $mapSizes    = [];
-    public static $chunks      = [];
-    public static $chunkSize   = 512; // Number in square
-    public static $tileMatrix  = [];
-    private static $serialData = [];
-    private static $tiledata   = [];
-    private static $lastSerial = [
+    public static $maps                 = [];
+    public static $mapSizes             = [];
+    public static $chunks               = [];
+    public static $chunkSize            = 512; // Number in square
+    public static $tileMatrix           = [];
+    public static $serialData          = [];
+    public static $serialDataHolded    = [];
+    private static $tiledata            = [];
+    private static $lastSerial          = [
         'mobile' => 0,
         'object' => 0,
     ];
@@ -210,6 +211,46 @@ class Map {
         }
     }
 
+    public static function readObjects() {
+        $objects = UltimaPHP::$db->collection('objects')->find([])->toArray();
+
+        $total = count($objects);
+
+        if ($total) {
+            Functions::progressBar(0, 1, "Reading world objects");
+
+            foreach ($objects as $count => $object) {
+                $itemClass = $object['objectName'];
+                $instance = new $itemClass($object['serial'], $object['id']);
+
+                /* Update last object serial stored on server */
+                if (self::$lastSerial['object'] < $object['id']) {
+                    self::$lastSerial['object'] = $object['id'];
+                }
+
+                /* Clear database object before update variables */
+                foreach ($object as $attr => $value) {
+                    $instance->$attr = (in_array($attr, ['serial', 'holder']) && $value !== null ? strtoupper($value) : $value);
+                }
+
+                if ($instance->holder === null) {
+                    Map::addObjectToMap($instance, $instance->position['x'], $instance->position['y'], $instance->position['z'], $instance->position['map']);
+                } else {
+                    Map::addHoldedObject($instance);
+                }
+            }
+
+            Functions::progressBar(1, 1, "Reading world objects");
+        }
+
+        return true;
+    }
+
+    public static function addHoldedObject(Object $instance) {
+        self::$serialDataHolded[$instance->serial] = $instance;
+        return true;
+    }
+
     /* Tries do define what is the right Z position from */
     public static function getTopItemFrom($x = 0, $y = 0, $z = 0,  $map = 0, $maxHeight = 10) {
         if ($x == 0 || $y == 0) {
@@ -369,20 +410,25 @@ class Map {
         ];
     }
 
-    public static function removeSerialData($serial = null) {
+    public static function removeSerialData($serial = null, $evenHolded = false) {
         if ($serial === null) {
             return false;
         }
 
         if (!isset(self::$serialData[$serial])) {
-            return false;
+            if ($evenHolded && isset(self::$serialDataHolded[$serial])) {
+                unset(self::$serialDataHolded[$serial]);
+            } else {
+                return false;
+            }
+        } else {
+            $instance = self::getBySerial($serial);
+            $pos      = $instance->position;
+            $chunk    = self::getChunk($pos['x'], $pos['y']);
+            unset(self::$serialData[$serial]);
+            unset(self::$chunks[$pos['map']][$chunk['x']][$chunk['y']][$serial]);
         }
 
-        $instance = self::getBySerial($serial);
-        $pos      = $instance->position;
-        $chunk    = self::getChunk($pos['x'], $pos['y']);
-        unset(self::$serialData[$serial]);
-        unset(self::$chunks[$pos['map']][$chunk['x']][$chunk['y']][$serial]);
         return true;
     }
 
@@ -406,7 +452,7 @@ class Map {
     /**
      *     Add the desired object into the map and store information inside the right chunk
      */
-    public static function addObjectToMap(Object $object, $pos_x, $pos_y, $pos_z, $pos_m) {
+    public static function addObjectToMap(Object $object, $pos_x, $pos_y, $pos_z, $pos_m, $holderSerial = null) {
         $object->position = [
             'x'       => $pos_x,
             'y'       => $pos_y,
@@ -415,18 +461,32 @@ class Map {
             'facing'  => 0,
             'running' => 0,
         ];
+        
+        $object->holder = ($holderSerial !== null ? $holderSerial : null);
+        $object->save();
 
         $chunk = self::getChunk($pos_x, $pos_y);
 
         self::$chunks[$pos_m][$chunk['x']][$chunk['y']][$object->serial] = [
             'type'     => 'object',
             'client'   => null,
+            'holder'  => $holderSerial,
             'instance' => $object,
         ];
 
         self::$serialData[$object->serial] = ['map' => $pos_m, 'x' => $chunk['x'], 'y' => $chunk['y']];
-
+        
         self::updateChunk($chunk, false, $pos_m);
+
+        return true;
+    }
+
+    public static function updateObjectHolder(Object $instance) {
+        if (!$instance || !isset(self::$serialDataHolded[$instance->serial])) {
+            return false;
+        }
+
+        self::$serialDataHolded[$instance->serial] = $instance;
 
         return true;
     }
@@ -470,7 +530,7 @@ class Map {
         return true;
     }
 
-    public static function getBySerial($serial = false) {
+    public static function isValidSerial($serial = false) {
         if ($serial === false) {
             return false;
         }
@@ -478,7 +538,41 @@ class Map {
         $serial = (int) $serial;
 
         if (!isset(self::$serialData[$serial])) {
+            if (!isset(self::$serialDataHolded[$serial])) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        $chunk = self::$serialData[$serial];
+        $info  = self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']][$serial];
+
+        switch ($info['type']) {
+            case 'player':
+            case 'mobile':
+            case 'object':
+                return true;
+                break;
+            default:
+                return false;
+                break;
+        }
+    }
+
+    public static function getBySerial($serial = false) {
+        if ($serial === false) {
             return false;
+        }
+
+        $serial = ltrim($serial, '0');
+
+        if (!isset(self::$serialData[$serial])) {
+            if (!isset(self::$serialDataHolded[$serial])) {
+                return false;
+            } else {
+                return self::$serialDataHolded[$serial];
+            }
         }
 
         $chunk = self::$serialData[$serial];
