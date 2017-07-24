@@ -94,7 +94,7 @@ class Sockets {
                 }
 
                 $input = "";
-                socket_recv($socket['socket'], $input, 4096,  (PHP_OS == "Linux" ? MSG_WAITALL : 0));
+                @socket_recv($socket['socket'], $input, 4096,  (PHP_OS == "Linux" ? MSG_WAITALL : 0));
 
                 $buffer = ($input ? str_split(Functions::strToHex($input), 2) : false);
                 $length = ($buffer ? count($buffer) : 0);

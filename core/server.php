@@ -68,7 +68,7 @@ class UltimaPHP {
     static $npcs               = 0;
 
     public function __construct($dir) {
-        self::$basedir = $dir . "/";
+        self::$basedir = $dir . "/";    
     }
 
     public function start() {
