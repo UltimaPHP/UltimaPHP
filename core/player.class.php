@@ -22,6 +22,8 @@ class Player {
     public $color;
     public $sex;
     public $layers;
+    public $target;
+    public $callbacks;
     // Flags -- init
     public $frozen;
     public $female;
@@ -76,6 +78,7 @@ class Player {
         $this->serial       = str_pad($character['serial'], 8, "0", STR_PAD_LEFT);
         $this->id           = $character['player_serial'];
         $this->render_range = UltimaPHP::$conf['muls']['render_range'];
+        $this->callbacks    = new PlayerCallbacks($client);
 
         $result = UltimaPHP::$db->collection("players")->find(['player_serial' => $this->id])->toArray();
 
@@ -128,16 +131,16 @@ class Player {
 
             /* Define player layers */
             for ($i = 1; $i <= 31; $i++) {
-                if ($i == LayersDefs::BACKPACK) {
-                    $bp  = new Backpack();
-                    $bp2 = new Backpack();
-                    $tmp = new VikingSword();
-                    $bp2->addItem($this->client, $tmp, ['x' => 5, 'y' => 5], true);
-                    $bp->addItem($this->client, $bp2, ['x' => 5, 'y' => 5], true);
+                $this->layers[$i] = null;
+            }
 
-                    $this->layers[$i] = $bp;
-                } else {
-                    $this->layers[$i] = ($i == 30 ? [] : null);
+            $objects = UltimaPHP::$db->collection('objects')->find(['holder' => $this->serial], ['projection' => ['serial' => true]])->toArray();
+
+            foreach ($objects as $item) {
+                $instance = Map::getBySerial($item['serial']);
+
+                if ($this->layers[$instance->layer] === null) {
+                    $this->layers[$instance->layer] = $instance->serial;
                 }
             }
 
@@ -145,6 +148,21 @@ class Player {
         }
         UltimaPHP::$socketClients[$this->client]['account']->disconnect();
         return false;
+    }
+
+    public function update() {
+        /* Clear old objects from map view */
+        foreach ($this->mapRange as $serial => $info) {
+            $this->removeObjectFromView($serial);
+        }
+
+        $this->mapRange = [];
+        
+        $this->updateCursorColor(false, $this->position['map']);
+        $this->drawChar();
+        $this->drawPlayer();
+
+        Map::updateChunk(null, $this->client);
     }
 
     public function setName($newName = false, $client = false) {
@@ -170,26 +188,10 @@ class Player {
         $instance = Map::getBySerial($serial);
 
         if (!$instance) {
-            /* Test player layers to find the object */
-            foreach ($this->layers as $layer => $object) {
-                if ($object !== null && !is_array($object)) {
-                    if ($object->serial == $serial) {
-                        $instance = $this->layers[$layer];
-                    }
-                }
-            }
-
-            if (!$instance) {
-                /* Test to look inside payers backpack */
-                $instance = Functions::findSerialOnContainer($this->layers[LayersDefs::BACKPACK], $serial);
-
-                if (!$instance) {
-                    return false;
-                }
-            }
+            return false;
         }
 
-        $instance->click($this->client);
+        return $instance->click($this->client);
     }
 
     public function dclick($serial = null) {
@@ -204,23 +206,7 @@ class Player {
         $instance = Map::getBySerial($serial);
 
         if (!$instance) {
-            /* Test player layers to find the object */
-            foreach ($this->layers as $layer => $object) {
-                if ($object !== null && !is_array($object)) {
-                    if ($object->serial == $serial) {
-                        $instance = $this->layers[$layer];
-                    }
-                }
-            }
-
-            if (!$instance) {
-                /* Test to look inside payers backpack */
-                $instance = Functions::findSerialOnContainer($this->layers[LayersDefs::BACKPACK], $serial);
-
-                if (!$instance) {
-                    return false;
-                }
-            }
+            return false;
         }
 
         if ($this->serial == $instance->serial) {
@@ -230,172 +216,163 @@ class Player {
         } else if ($instance->instanceType == UltimaPHP::INSTANCE_MOBILE) {
             // TODO: Detect if it's a humanoid mobile, if yes: open paperdoll
         } else if ($instance->instanceType == UltimaPHP::INSTANCE_OBJECT) {
+            if ($instance->holder === null) {
+                $face = Functions::getRelativeFace([$this->position['x'], $this->position['y']], [$instance->position['x'], $instance->position['y']]);
+
+                if ($this->position['facing'] != $face) {
+                    $this->position['facing'] = $face;
+                    $this->update();
+                }
+            }
+
             return $instance->dclick($this->client);
         }
 
         return false;
     }
 
-    // A ser implementado
+    public function attachTarget($client, $callback = null) {
+        if ($this->target !== null) {
+            new SysmessageCommand($client, ["Target canceled."]);
+        }
+
+        $packet = "6C01";
+        $packet .= str_pad($client, 8, "0", STR_PAD_LEFT);
+        $packet .= "00000000000000000000000000";
+
+        if ($callback !== null) {
+            $this->target = $callback;
+        }
+
+        Sockets::out($client, $packet, false);
+    }
+
+    public function targetAction($client, $target) {
+        if ($target['x'] == 0xFFFF || $target['y'] == 0xFFFF) {
+            $this->target = null;
+            new SysmessageCommand($client, ["Target canceled."]);
+            return true;
+        }
+
+        if ($this->target === null) {
+            new SysmessageCommand($client, "Target failed, there is an error at the script.");
+            return false;
+        }
+
+        $callback = $this->target['method'];
+        $this->callbacks->$callback($target, $this->target['args']);
+        $this->target = null;
+        return true;
+    }
+
     public function equipRequest($serial = null, $layer = null, $container = null) {
         if ($serial === null || $layer === null) {
             return false;
         }
 
-        // Self equip
-        if ($container == $this->serial) {
-            $removeFromMap = true;
-            // Something is already on the layer?
-            if ($this->layers[hexdec($layer)] !== null) {
-                // Unequip the item before equip new
-            }
+        $instance = Map::getBySerial($serial);
+        $containerInstance = Map::getBySerial($container);
 
-            if ($this->layers[LayersDefs::DRAGGING] !== null && $this->layers[LayersDefs::DRAGGING]->serial == $serial) {
-                $instance = $this->layers[LayersDefs::DRAGGING];
+        if ($instance->holder !== null) {
+            $holder = Map::getBySerial($instance->holder);
 
-                /* Clear draggin layer */
-                $this->layers[LayersDefs::DRAGGING] = null;
-            } else {
-                $instance = Map::getBySerial($serial);
+            if ($holder->instanceType == UltimaPHP::INSTANCE_PLAYER) {
+                $holderBackpack = Map::getBySerial($holder->layers[LayersDefs::BACKPACK]);
 
-                if (!$instance) {
-                    /* Test to look inside payers backpack */
-                    $instance      = Functions::findSerialOnContainer($this->layers[LayersDefs::BACKPACK], $serial, true);
-                    $removeFromMap = false;
+                if (!$holderBackpack) {
+
+                    if ($instance->objectName == "Backpack") {
+                        $instance->holder = $this->serial;
+                        
+                        if (Map::isValidSerial($instance->serial)) {
+                            Map::updateObjectHolder($instance);
+                        } else {
+                            Map::addHoldedObject($instance);
+                        }
+
+                        $this->layers[LayersDefs::BACKPACK] = $instance->serial;
+                        $this->update();
+                        return true;
+                    }
+
+                    $holderBackpack = new Backpack(null, null, $this->serial);
+                    Map::addHoldedObject($holderBackpack);
+
+                    $this->layers[LayersDefs::BACKPACK] = $holderBackpack->serial;
+                    $this->update();
+
                 }
 
-                if (!$instance) {
+                if ($holder->serial != $this->serial && UltimaPHP::$socketClients[$this->client]['account']->plevel < UltimaPHP::$socketClients[$holder->client]['account']->plevel) {
+                    new SysmessageCommand($this->client, ["Sorry, you have no privileges to change this player equipment."]);
                     return false;
                 }
-            }
 
-            $this->layers[hexdec($layer)] = $instance;
-            $this->forceUpdate            = true;
-            $this->drawChar();
-
-            /* Removes from everyone view range */
-            if ($removeFromMap) {
-                Map::removeSerialData($serial);
-            }
-            Map::updateChunk(null, $this->client);
-            return true;
-        }
-
-        $container = Map::getBySerial($container);
-
-        if ($container === false) {
-            return false;
-        }
-
-        if ($container->instanceType == UltimaPHP::INSTANCE_PLAYER) {
-            if (UltimaPHP::$socketClients[$this->client]['account']->plevel > UltimaPHP::$socketClients[$container->client]['account']->plevel) {
-                if ($container->layers[hexdec($layer)] !== null) {
-                    // Unequip the item before equip new
+                if ($holder->layers[$instance->layer] !== null) {
+                    new SysmessageCommand($this->client, ["Sorry, this item is allready equiped."]);
+                    return false;
+                }
+            } else if ($holder->instanceType == UltimaPHP::INSTANCE_OBJECT) {
+                if (UltimaPHP::$socketClients[$this->client]['account']->plevel == 1 && $holder->owner !== null && $holder->owner != $this->serial) {
+                    new SysmessageCommand($this->client, ["Sorry, you have no privileges to use this container."]);
+                    return false;
                 }
 
-                if ($this->layers[LayersDefs::DRAGGING] !== null && $this->layers[LayersDefs::DRAGGING]->serial == $serial) {
-                    $instance = $this->layers[LayersDefs::DRAGGING];
-
-                    /* Clear draggin layer */
-                    $this->layers[LayersDefs::DRAGGING] = null;
-                } else {
-                    $instance = Map::getBySerial($serial);
-                }
-
-                $container->layers[hexdec($layer)] = $instance;
-                $container->forceUpdate            = true;
-                $container->drawChar();
-
-                /* Removes from everyone view range */
-                Map::removeSerialData($serial);
-                Map::updateChunk(null, $this->client);
-                return true;
-            }
-
-            new SysmessageCommand($client, ["Sorry, you have no privileges to change this player equipment."]);
-            return false;
-        }
-
-        if ($container->instanceType == UltimaPHP::INSTANCE_MOBILE) {
-            if (UltimaPHP::$socketClients[$this->client]['account']->plevel > 1) {
-                echo "Trying to equip some mobile\n";
-                return true;
-            }
-
-            new SysmessageCommand($client, ["Sorry, you have no privileges to change this mobile equipment."]);
-            return false;
-        }
-    }
-
-    /**
-     * Send the client drop accept - A ser testado
-     */
-    public function dropAccept($runInLot = false) {
-        $packet = "29";
-        Sockets::out($this->client, $packet, $runInLot);
-    }
-
-    public function dropItem($serial = null, $position = null, $grid = null, $container = null) {
-        if ($serial === null || $position === null || $grid === null || $container === null) {
-            return false;
-        }
-
-        if ($this->layers[LayersDefs::DRAGGING] !== null && $this->layers[LayersDefs::DRAGGING]->serial == $serial) {
-            if ($container == "FFFFFFFF") {
-                Map::addObjectToMap($this->layers[LayersDefs::DRAGGING], $position['x'], $position['y'], $position['z'], $this->position['map']);
-                $this->layers[LayersDefs::DRAGGING] = null;
+                $holder->removeItem($this->client, $instance->serial);
             } else {
-                $removeFromMap     = true;
-                $containerInstance = Map::getBySerial($container);
-                $objectInstance    = Map::getBySerial($serial);
+                return false;
+            }
+        } else {
+            Map::removeSerialData($instance->serial);
+        }
 
-                if (!$containerInstance) {
-                    /* Test player layers to find the object */
-                    foreach ($this->layers as $layer => $object) {
-                        if ($object !== null && !is_array($object)) {
-                            if ($object->serial == $container) {
-                                $containerInstance = $this->layers[$layer];
-                            }
-                        }
+        if ($this->layers[$instance->layer] !== null) {
+            $playerBackpack = Map::getBySerial($this->layers[LayersDefs::BACKPACK]);
+
+            if (!$playerBackpack) {
+                if ($instance->objectName == "Backpack") {
+                    $instance->holder = $this->serial;
+                    
+                    if (Map::isValidSerial($instance->serial)) {
+                        Map::updateObjectHolder($instance);
+                    } else {
+                        Map::addHoldedObject($instance);
                     }
 
-                    if (!$containerInstance) {
-                        /* Test to look inside payers backpack */
-                        $containerInstance = Functions::findSerialOnContainer($this->layers[LayersDefs::BACKPACK], $container);
+                    $this->layers[LayersDefs::BACKPACK] = $instance->serial;
+                    $this->update();
+                    // return true;
+                } else {
+                    $playerBackpack = new Backpack(null, null, $this->serial);
+                    Map::addHoldedObject($playerBackpack);
 
-                        if (!$containerInstance) {
-                            return false;
-                        }
-                    }
+                    $this->layers[LayersDefs::BACKPACK] = $playerBackpack->serial;
+                    $this->update();
                 }
-
-                if (!$objectInstance) {
-                    /* Test player layers to find the object */
-                    foreach ($this->layers as $layer => $object) {
-                        if ($object !== null && !is_array($object)) {
-                            if ($object->serial == $serial) {
-                                $objectInstance = $this->layers[$layer];
-                            }
-                        }
-                    }
-
-                    if (!$objectInstance) {
-                        /* Test to look inside payers backpack */
-                        $objectInstance = Functions::findSerialOnContainer($this->layers[LayersDefs::BACKPACK], $serial, true);
-
-                        if (!$objectInstance) {
-                            return false;
-                        }
-                    }
-                }
-
-                $containerInstance->addItem($this->client, $objectInstance);
             }
 
-            $this->dropAccept();
-            return true;
+            $layerInstance = Map::getBySerial($this->layers[$instance->layer]);
+            UltimaPHP::$socketClients[$this->client]['account']->player->layers[$instance->layer] = null;
+
+            $playerBackpack->addItem($this->client, $layerInstance, ['x' => rand(1,127), 'y' => rand(1,127), 'z' => 0, 'map' => null]);
         }
-        return false;
+
+        $this->layers[$instance->layer] = $instance->serial;
+
+        $instance->holder = $this->serial;
+        $instance->save();
+        
+        if (Map::isValidSerial($instance->serial)) {
+            Map::updateObjectHolder($instance);
+        } else {
+            Map::addHoldedObject($instance);
+        }
+
+        $this->forceUpdate = true;
+        $this->drawChar();
+        Map::updateChunk(null, $this->client);
+
+        return true;
     }
 
     public function pickUp($serial = null, $amount = 1) {
@@ -406,51 +383,131 @@ class Player {
         $instance = Map::getBySerial($serial);
 
         if (!$instance) {
-            /* Test player layers to find the object */
-            foreach ($this->layers as $layer => $object) {
-                if ($object !== null && !is_array($object)) {
-                    if ($object->serial == $serial) {
-                        $instance = $this->layers[$layer];
-                    }
-                }
-            }
-
-            if (!$instance) {
-                /* Test to look inside payers backpack */
-                $instance = Functions::findSerialOnContainer($this->layers[LayersDefs::BACKPACK], $serial, true);
-
-                if (!$instance) {
-                    return false;
-                }
-            }
-        }
-
-        if ($instance->amount < $amount) {
             return false;
         }
 
-        // if ($instance->amount > $amount) {
-        // echo "Picking some part of the item stack\n";
-        // update item amount
-        // $instance->amount = ($instance->amount - $amount);
+        Map::removeSerialData($serial, ($instance->holder === null ? false : true));
 
-        // // Duplicate the item
-        // $class = get_class($instance);
+        /* Remove the intem from the container */
+        if ($instance->holder !== null) {
+            $container = Map::getBySerial($instance->holder);
 
-        // $newItem = new $$class();
-        // $newItem->amount = $amount;
+            if ($container->instanceType == UltimaPHP::INSTANCE_OBJECT) {
+                $container->removeItem($this->client, $instance->serial, true);
+            } else {
+                for ($i = 1; $i <= 31; $i++) {
+                    if ($this->layers[$i] == $instance->serial) {
+                        $this->layers[$i] = null;
+                    }
+                }
+            }
+        }
 
-        // $this->layers[LayersDefs::DRAGGING] = $newItem;
-        // } else {
-        Map::removeSerialData($serial);
-        $this->layers[LayersDefs::DRAGGING] = $instance;
+        $this->layers[LayersDefs::DRAGGING] = $instance->serial;
+        $instance->holder = $this->serial;
+        $instance->save();
+        
+        Map::addHoldedObject($instance);
 
-        $packet = "1D" . str_pad($serial, 8, "0", STR_PAD_LEFT);
-        Map::sendPacketRange($packet, $this->client);
-        // }
+        return true;
+    }
 
-        /* Removes from everyone view range */
-        // Map::updateChunkForced($this->position);
+    public function dropItem($serial = null, $position = null, $grid = null, $container = null) {
+        if ($serial === null || $position === null || $grid === null || $container === null) {
+            return false;
+        }
+
+        if ($this->layers[LayersDefs::DRAGGING] === null || $this->layers[LayersDefs::DRAGGING] != $serial) {
+            return false;
+        }
+
+        $instance = Map::getBySerial($serial);
+
+        Map::removeSerialData($serial, true);
+
+        $this->layers[LayersDefs::DRAGGING] = null;
+
+        if ($container == "FFFFFFFF") {
+            Map::addObjectToMap($instance, $position['x'], $position['y'], $position['z'], $this->position['map']);
+            return true;
+        }
+
+        $containerInstance = Map::getBySerial($container);
+
+        if (!$containerInstance) {
+            return false;
+        }
+
+        if ($containerInstance->instanceType == UltimaPHP::INSTANCE_OBJECT) {
+            if ($position['x'] == 65535) {
+                $position['x'] = rand(1,127);
+            }
+            if ($position['y'] == 65535) {
+                $position['y'] = rand(1,127);
+            }
+            $containerInstance->addItem($this->client, $instance, $position);
+            return $this->dropAccept();
+        }
+
+        if ($containerInstance->serial == $this->serial) {
+            $playerBackpack = Map::getBySerial($this->layers[LayersDefs::BACKPACK]);
+
+            if (!$playerBackpack) {
+
+                if ($instance->objectName == "Backpack") {
+                    $instance->holder = $this->serial;
+                    
+                    if (Map::isValidSerial($instance->serial)) {
+                        Map::updateObjectHolder($instance);
+                    } else {
+                        Map::addHoldedObject($instance);
+                    }
+
+                    $this->layers[LayersDefs::BACKPACK] = $instance->serial;
+                    $this->update();
+
+                    return $this->dropAccept();
+                }
+
+                $playerBackpack = new Backpack(null, null, $this->serial);
+                Map::addHoldedObject($playerBackpack);
+
+                $this->layers[LayersDefs::BACKPACK] = $playerBackpack->serial;
+                $this->update();
+            }
+
+            $instance->holder = $playerBackpack->serial;
+
+            $playerBackpack->addItem($this->client, $instance, ['x' => rand(1,127), 'y' => rand(1,127), 'z' => 0, 'map' => null]);
+
+            return $this->dropAccept();
+        }
+
+        if ($containerInstance->instanceType == UltimaPHP::INSTANCE_MOBILE) {
+            $mobileBackpack = Map::getBySerial($container->layers[LayersDefs::BACKPACK]);
+
+            $instance->holder = $mobileBackpack->serial;
+
+            $mobileBackpack->addItem($this->client, $instance, ['x' => rand(1,127), 'y' => rand(1,127), 'z' => 0, 'map' => null]);
+
+            return $this->dropAccept();
+        }
+
+        if ($containerInstance->instanceType == UltimaPHP::INSTANCE_PLAYER) {
+            /* Trade window */
+            return $this->dropAccept();
+        }
+
+        return false;
+    }
+
+    /**
+     * Send the client drop accept - A ser testado
+     */
+    public function dropAccept($runInLot = false) {
+        $packet = "29";
+        Sockets::out($this->client, $packet, $runInLot);
+        return true;
     }
 
     public function openPaperdoll($serial, $canLift) {
@@ -534,6 +591,7 @@ class Player {
             $packet .= "0000";
 
             Map::sendPacketRange($packet, $this->client);
+            Map::sendHearMessage($text, $this->client);
         }
         Sockets::out($this->client, $packet, false);
     }
@@ -568,8 +626,8 @@ class Player {
         $packet .= "00000000";
         $packet .= "00000000";
         $packet .= "00";
-        $packet .= str_pad(dechex($map_size['x']), 4, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($map_size['y']), 4, "0", STR_PAD_LEFT);
+        $packet .= str_pad(($this->position['map'] > 0 ? dechex($map_size['x']) : 0x1800), 4, "0", STR_PAD_LEFT);
+        $packet .= str_pad(($this->position['map'] > 0 ? dechex($map_size['y']) : 0x1000), 4, "0", STR_PAD_LEFT);
         $packet .= "000000000000";
         Sockets::out($this->client, $packet, $runInLot);
     }
@@ -606,7 +664,6 @@ class Player {
      */
     public function updateCursorColor($runInLot = false, $color = 0) {
         $packet = "BF00060008" . str_pad(dechex($color), 2, "0", STR_PAD_LEFT);
-
         Sockets::out($this->client, $packet, $runInLot);
     }
 
@@ -617,11 +674,15 @@ class Player {
         $maps = count(Map::$maps);
 
         $packet = "0018";
-        $packet .= str_pad(dechex($maps), 4, "0", STR_PAD_LEFT);
+        $packet .= str_pad(dechex($maps - 1), 8, "0", STR_PAD_LEFT);
 
-        for ($i = 0; $i <= ($maps - 1); $i++) {
-            $packet .= "00000000";
-            $packet .= "00000000";
+        for ($i = 0; $i < ($maps - 1); $i++) {
+            if (UltimaPHP::$conf['muls']['useDif'] && UltimaPHP::$files[Reader::FILE_MAP_DIF][$i] !== null) {
+                $packet .= str_pad(dechex(UltimaPHP::$files[Reader::FILE_MAP_DIF][$i]->fileLength / 4), 8, "0", STR_PAD_LEFT);
+                $packet .= str_pad(dechex(UltimaPHP::$files[Reader::FILE_MAP_DIF][$i]->fileLength / 4), 8, "0", STR_PAD_LEFT);
+            } else {
+                $packet .= "0000000000000000";
+            }
         }
 
         $packet = "BF" . str_pad(dechex((strlen($packet) / 2) + 3), 4, "0", STR_PAD_LEFT) . $packet;
@@ -717,12 +778,14 @@ class Player {
 
         $tmpEquips = "";
 
-        foreach ($player->layers as $layer => $instance) {
+        foreach ($player->layers as $layer => $serial) {
             if ($layer > 29) {
                 continue;
             }
 
-            if ($instance !== null) {
+            if ($serial !== null) {
+                $instance = Map::getBySerial($serial);
+
                 $tmpEquips .= str_pad($instance->serial, 8, "0", STR_PAD_LEFT);
                 $tmpEquips .= str_pad(dechex(($instance->color > 0 ? ($instance->graphic | 0x8000) : $instance->graphic)), 4, "0", STR_PAD_LEFT);
                 $tmpEquips .= str_pad(dechex($instance->layer), 2, "0", STR_PAD_LEFT);
@@ -814,47 +877,73 @@ class Player {
         $tmpDirection = hexdec($direction);
         $tmpDirection &= ~0x80;
 
+        $tmpPosition = $this->position;
+
         if ((int) $direction >= 80) {
-            $this->position['running'] = true;
+            $tmpPosition['running'] = true;
         } else {
-            $this->position['running'] = false;
+            $tmpPosition['running'] = false;
         }
 
-        if ((int) $this->position['facing'] != (int) $tmpDirection) {
-            $this->position['facing'] = (int) $tmpDirection;
+        if ((int) $tmpPosition['facing'] != (int) $tmpDirection) {
+            $tmpPosition['facing'] = (int) $tmpDirection;
         } else {
             switch (hexdec($tmpDirection)) {
-            case 0: /* North */
-                $this->position['y']--;
-                break;
-            case 1: /* Northeast */
-                $this->position['x']++;
-                $this->position['y']--;
-                break;
-            case 2: /* East */
-                $this->position['x']++;
-                break;
-            case 3: /* Southeast */
-                $this->position['x']++;
-                $this->position['y']++;
-                break;
-            case 4: /* South */
-                $this->position['y']++;
-                break;
-            case 5: /* Southwest */
-                $this->position['x']--;
-                $this->position['y']++;
-                break;
-            case 6: /* West */
-                $this->position['x']--;
-                break;
-            case 7: /* Northwest */
-                $this->position['x']--;
-                $this->position['y']--;
-                break;
+                case 0: /* North */
+                    $tmpPosition['y']--;
+                    break;
+                case 1: /* Northeast */
+                    $tmpPosition['x']++;
+                    $tmpPosition['y']--;
+                    break;
+                case 2: /* East */
+                    $tmpPosition['x']++;
+                    break;
+                case 3: /* Southeast */
+                    $tmpPosition['x']++;
+                    $tmpPosition['y']++;
+                    break;
+                case 4: /* South */
+                    $tmpPosition['y']++;
+                    break;
+                case 5: /* Southwest */
+                    $tmpPosition['x']--;
+                    $tmpPosition['y']++;
+                    break;
+                case 6: /* West */
+                    $tmpPosition['x']--;
+                    break;
+                case 7: /* Northwest */
+                    $tmpPosition['x']--;
+                    $tmpPosition['y']--;
+                    break;
             }
-            $this->lastMove = time();
         }
+
+        /* Updates player Z */
+        $topItem = Map::getTopItemFrom($tmpPosition['x'], $tmpPosition['y'], $tmpPosition['z'], $tmpPosition['map']);
+
+        /* Logic to block player walking into impossible locations */
+        if ($topItem) {
+            /*
+            // This code is commented ultill we find a solution to fix the Z detection from textured land tiles
+            if (abs($topItem['position']['z'] - $this->position['z']) > 10) {
+                new SysmessageCommand($this->client, ["You can't walk in there."]);
+
+                $packet = new packet_0x21($this->client);
+                $packet->setPosition($tmpPosition['x'], $tmpPosition['y'], $tmpPosition['z'], $tmpPosition['facing'], $sequence);
+                $packet->send();
+
+                $this->update();
+                return true;
+            }
+            */
+
+            $tmpPosition['z'] = $topItem['position']['z'];
+        }
+
+        $this->position = $tmpPosition;
+        $this->lastMove = time();
 
         $packet = "22" . str_pad($sequence, 2, "0", STR_PAD_LEFT) . "01";
         Sockets::out($this->client, $packet, false);
@@ -891,10 +980,11 @@ class Player {
         if ($serial === null) {
             return false;
         }
+
         $packet = "1D";
         $packet .= str_pad($serial, 8, "0", STR_PAD_LEFT);
 
-        /* Remove the object from player view range*/
+        /* Remove the object from player view range */
         unset($this->mapRange[$serial]);
 
         Sockets::out($this->client, $packet, false);

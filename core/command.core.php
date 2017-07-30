@@ -6,38 +6,38 @@
  */
 class Command {
     /* Server variables */
-    static $list = array(
-        'i'          => array(
+    static $list = [
+        'i'          => [
             'minPlevel' => 6,
-        ),
-        'm'          => array(
+        ],
+        'm'          => [
             'minPlevel' => 6,
-        ),
-        'tele'       => array(
+        ],
+        'tele'       => [
             'minPlevel' => 2,
-        ),
-        'go'         => array(
-            'minPlevel' => 2,
-        ),
-        'invis'      => array(
+        ],
+        'invis'      => [
             'minPlevel' => 4,
-        ),
-        'where'      => array(
+        ],
+        'where'      => [
             'minPlevel' => 1,
-        ),
-        'sysmessage' => array(
+        ],
+        'sysmessage' => [
             'minPlevel' => 2,
-        ),
-        'sysm'       => array(
+        ],
+        'emote'      => [
             'minPlevel' => 2,
-        ),
-        'emote'      => array(
-            'minPlevel' => 2,
-        ),
-        'sendpacket' => array(
+        ],
+        'sendpacket' => [
             'minPlevel' => 7,
-        ),
-    );
+        ],
+        'info' => [
+            'minPlevel' => 4,
+        ],
+        'update' => [
+            'minPlevel' => 2,
+        ]
+    ];
 
     static $commandAlias = [
         'add'     => 'i',
@@ -50,13 +50,13 @@ class Command {
     public function __construct() {
         foreach (glob(UltimaPHP::$basedir . 'core/commands/*.command.php') as $file) {
             if (!require_once ($file)) {
-                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_LOAD_FAIL);
+                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL);
                 UltimaPHP::stop();
             }
         }
     }
 
-    public static function threatCommand($client = null, $command = null) {
+    public static function threatCommand($client = null, $command = null, $sentFrom = null, $ignorePlevel = false) {
         if ($client === null || $command === null) {
             return false;
         }
@@ -66,12 +66,17 @@ class Command {
 
         $tmp  = array_slice($tmp, 1);
         $args = (count($tmp) > 0 ? explode(",", implode(" ", $tmp)) : []);
-
-        self::runCommand($client, $command, $args);
+		
+        return self::runCommand($client, $command, $args, $sentFrom, $ignorePlevel);
     }
 
-    public static function runCommand($client = null, $command = null, $args = []) {
+    public static function runCommand($client = null, $command = null, $args = [], $sentFrom = null, $ignorePlevel = false) {
         if ($client === null) {
+            return false;
+        }
+
+        if (!isset($command)) {
+            new SysmessageCommand($client, ["Sorry, but no command was received from client."]);
             return false;
         }
 
@@ -79,9 +84,11 @@ class Command {
             $command = self::$commandAlias[$command];
         }
 
-        if (UltimaPHP::$socketClients[$client]['account']->plevel > 1 && !isset($command)) {
-            new SysmessageCommand($client, ["Sorry, but no command was received from client."]);
-            return false;
+        /* Check if there is an X before the command, meaning that the command will run in other player/object/mobile */
+        if (!isset(self::$list[$command]) && substr($command, 0, 1) == "x") {
+            new SysmessageCommand($client, ["Where do you want to execute this command?"]);
+            UltimaPHP::$socketClients[$client]['account']->player->attachTarget($client, ['method' => "GeneralCommandCallback", 'args' => ['command' => substr($command, 1), 'args' => $args]]);
+            return true;
         }
 
         if (!isset(self::$list[$command])) {
@@ -89,9 +96,16 @@ class Command {
             return false;
         }
 
-        if (self::$list[$command]['minPlevel'] > UltimaPHP::$socketClients[$client]['account']->plevel) {
-            new SysmessageCommand($client, ["Sorry, but you can't run this command, your account have no rights to do that."]);
-            return false;
+        if ($sentFrom !== null) {
+            if (!$ignorePlevel && self::$list[$command]['minPlevel'] > UltimaPHP::$socketClients[$sentFrom]['account']->plevel) {
+                new SysmessageCommand($client, ["Sorry, but you can't run this command, your account have no rights to do that."]);
+                return false;
+            }    
+        } else {
+            if (!$ignorePlevel && self::$list[$command]['minPlevel'] > UltimaPHP::$socketClients[$client]['account']->plevel) {
+                new SysmessageCommand($client, ["Sorry, but you can't run this command, your account have no rights to do that."]);
+                return false;
+            }
         }
 
         $cmd = ucfirst($command) . "Command";

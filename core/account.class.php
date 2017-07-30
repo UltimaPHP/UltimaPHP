@@ -11,6 +11,7 @@ class Account {
     public $client;
 
     /* Account information variables */
+    public $mongoId;
     public $serial;
     public $account;
     public $password;
@@ -19,6 +20,10 @@ class Account {
     public $last_login;
     public $plevel;
     public $status;
+    /* Account flags*/
+    public $featuresFlags  = 0;
+    public $charListFlags  = 0;
+    public $tooltipEnabled = false;
 
     /* Character object array */
     public $characters = null;
@@ -35,6 +40,7 @@ class Account {
         $result = UltimaPHP::$db->collection("accounts")->find(['account' => $account, 'password' => $password])->toArray();
 
         if (isset($result[0])) {
+            $this->mongoId       = $result[0]['_id'];
             $this->serial        = $result[0]['serial'];
             $this->account       = $result[0]['account'];
             $this->password      = $result[0]['password'];
@@ -46,8 +52,129 @@ class Account {
             $this->characters    = $this->getCharacterList();
             $this->isValid       = true;
 
+            $this->updateFeaturesFlags();
+            $this->updateCharListFlags();
+
             return $this;
         }
+    }
+
+    public function updateFeaturesFlags() {
+        $this->featuresFlags = 0;
+
+        if (UltimaPHP::$conf['features']['featuret2a'] & 0x01) {
+            $this->featuresFlags |= 0x4;
+        }
+
+        if (UltimaPHP::$conf['features']['featuret2a'] & 0x02) {
+            $this->featuresFlags |= 0x1;
+        }
+
+        if (UltimaPHP::$conf['features']['featurelbr'] & 0x01) {
+            $this->featuresFlags |= 0x8;
+        }
+
+        if (UltimaPHP::$conf['features']['featurelbr'] & 0x02) {
+            $this->featuresFlags |= 0x2;
+        }
+
+        if (UltimaPHP::$conf['features']['featureaos'] & 0x01) {
+            $this->featuresFlags |= (0x10 | 0x8000);
+        }
+
+        if (UltimaPHP::$conf['features']['featurese'] & 0x01) {
+            $this->featuresFlags |= 0x40;
+        }
+
+        if (UltimaPHP::$conf['features']['featureml'] & 0x01) {
+            $this->featuresFlags |= 0x80;
+        }
+
+        if (UltimaPHP::$conf['features']['featuresa'] & 0x01) {
+            $this->featuresFlags |= 0x10000;
+        }
+
+        if (UltimaPHP::$conf['features']['featuretol'] & 0x01) {
+            $this->featuresFlags |= 0x400000;
+        }
+
+        if (UltimaPHP::$conf['accounts']['max_chars'] > 6) {
+            $this->featuresFlags |= 0x1000;
+        }
+
+        if (UltimaPHP::$conf['accounts']['max_chars'] == 6) {
+            $this->featuresFlags |= 0x20;
+        }
+
+        if (UltimaPHP::$conf['features']['featureextra'] & 0x01) {
+            $this->featuresFlags |= 0x200;
+        }
+
+        if (UltimaPHP::$conf['features']['featureextra'] & 0x02) {
+            $this->featuresFlags |= 0x40000;
+        }
+
+        if (UltimaPHP::$conf['features']['featureextra'] & 0x04) {
+            $this->featuresFlags |= 0x80000;
+        }
+
+        if (UltimaPHP::$conf['features']['featureextra'] & 0x08) {
+            $this->featuresFlags |= 0x100000;
+        }
+
+        if (UltimaPHP::$conf['features']['featureextra'] & 0x10) {
+            $this->featuresFlags |= 0x200000;
+        }
+
+        // Only for KR or Enhanced
+        // if ( m_NetState->isClientKR() || m_NetState->isClientEnhanced() ) {}
+        if (UltimaPHP::$conf['features']['featureextra'] & 0x20) {
+            $this->featuresFlags |= 0x2000;
+        }
+    }
+
+    public function updateCharListFlags() {
+        $this->charListFlags = 0;
+
+        if (UltimaPHP::$conf['features']['featureaos'] & 0x02) {
+            $this->charListFlags |= 0x20;
+        }
+
+        if (UltimaPHP::$conf['features']['featureaos'] & 0x04) {
+            $this->charListFlags |= 0x08;
+        }
+
+        if (UltimaPHP::$conf['features']['featurese'] & 0x02) {
+            $this->charListFlags |= 0x80;
+        }
+
+        if (UltimaPHP::$conf['features']['featureml'] & 0x01) {
+            $this->charListFlags |= 0x100;
+        }
+
+        if (UltimaPHP::$conf['features']['featurekr'] & 0x01) {
+            $this->charListFlags |= 0x200;
+        }
+
+        if (UltimaPHP::$conf['features']['featuresa'] & 0x02) {
+            $this->charListFlags |= 0x4000;
+        }
+
+        if (UltimaPHP::$conf['accounts']['max_chars'] > 6) {
+            $this->charListFlags |= 0x1000;
+        } else if (UltimaPHP::$conf['accounts']['max_chars'] == 6) {
+            $this->charListFlags |= 0x40;
+        } else if (UltimaPHP::$conf['accounts']['max_chars'] == 1) {
+            $this->charListFlags |= (0x10 | 0x4);
+        }
+
+        /* Disable the "overwrite configuration file" */
+        $this->charListFlags |= 0x02;
+
+        // if ( m_NetState->isClientKR() || m_NetState->isClientEnhanced() )       // tooltips must be always enabled on enhanced clients
+        //     $charListFlags |= (0x400|0x200|0x20);
+
+        $this->tooltipEnabled = ($this->charListFlags & 0x20 ? true : false);
     }
 
     /**
@@ -64,14 +191,14 @@ class Account {
     public function getCharacterList($updateList = false) {
         if ($updateList || $this->characters === null) {
 
-            $result = UltimaPHP::$db->collection("players")->find(['player_serial' => 1], ['projection' => ['player_serial'=> true, 'name'=> true]])->toArray();
+            $result = UltimaPHP::$db->collection("players")->find(['account_serial' => $this->serial], ['projection' => ['player_serial' => true, 'name' => true]])->toArray();
 
             $chars = array();
             foreach ($result as $char) {
                 $chars[] = array(
                     'player_serial' => $char['player_serial'],
-                    'serial' => (442500 + $char['player_serial']),
-                    'name'   => $char['name'],
+                    'serial'        => (442500 + $char['player_serial']),
+                    'name'          => $char['name'],
                 );
             }
 
@@ -85,46 +212,16 @@ class Account {
      * Send the server list to the client
      */
     public function sendServerList($runInLot = false) {
-        $packet    = "";
-        $tmpPacket = "";
-        foreach (UltimaPHP::$servers as $key => $server) {
-            $ip = explode(".", $server['ip']);
-
-            $tmpPacket .= str_pad(dechex(($key + 1)), 4, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(Functions::strToHex($server['name']), 64, "0", STR_PAD_RIGHT);
-            $tmpPacket .= str_pad(dechex($server['full']), 2, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(dechex($server['timezone']), 2, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(dechex($ip[3]), 2, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(dechex($ip[2]), 2, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(dechex($ip[1]), 2, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(dechex($ip[0]), 2, "0", STR_PAD_LEFT);
-        }
-
-        $packet = "A8";
-        $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 6), 4, "0", STR_PAD_LEFT);
-        $packet .= "FF";
-        $packet .= str_pad(dechex(count(UltimaPHP::$servers)), 4, "0", STR_PAD_LEFT);
-        $packet .= $tmpPacket;
-
-        Sockets::out($this->client, $packet, $runInLot);
+        $packet = new packet_0xA8($this->client);
+        $packet->send();
     }
 
     /**
      * Enable locked client features
      */
     public function enableLockedFeatures($runInLot = false) {
-        $version = Functions::getClientVersion($this->client);
-
-        $tmpPacket = "";
-
-        /*if ($version['major'] <= 6 && $version['revision'] <= 14 && filter_var($version['prototype'], FILTER_SANITIZE_NUMBER_INT) <= 2) {
-             $tmpPacket = str_pad(dechex(clientDefs::EXPANSION_ML), 4, "0", STR_PAD_LEFT);
-        } else {*/
-        	 $tmpPacket = str_pad(dechex(clientDefs::EXPANSION_TOL), 8, "0", STR_PAD_LEFT);
-        //}
-
         $packet = "B9";
-        $packet .= $tmpPacket;
+        $packet .= str_pad(dechex($this->featuresFlags), 8, "0", STR_PAD_LEFT);
         Sockets::out($this->client, $packet, $runInLot);
     }
 
@@ -132,7 +229,6 @@ class Account {
      * Send the account characters list to the client
      */
     public function sendCharacterList($runInLot = false) {
-        $version           = Functions::getClientVersion();
         $characters        = $this->characters;
         $startingLocations = UltimaPHP::$starting_locations;
 
@@ -162,20 +258,13 @@ class Account {
             $tmpPacket .= str_pad("", 8, "0", STR_PAD_RIGHT);
         }
 
-        if (UltimaPHP::$conf['server']['useNewWalkPacket'] == 1){
-            $tmpPacket .= str_pad(dechex(clientDefs::EXPANSION_TOL | clientDefs::CLIENT_TRIALACCOUNT), 8, "0", STR_PAD_LEFT);
-        } else {
-            $tmpPacket .= str_pad(dechex(clientDefs::EXPANSION_TOL), 8, "0", STR_PAD_LEFT);
-        }
-        
+        $tmpPacket .= str_pad($this->charListFlags, 8, "0", STR_PAD_LEFT);
         $tmpPacket .= "FFFF";
 
         $packet = "A9";
         $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 4), 4, "0", STR_PAD_LEFT);
-        $packet .= "07"; // CharLimit $packet[3]
+        $packet .= "07";
         $packet .= $tmpPacket;
-
-        $version = Functions::getClientVersion($this->client);
 
         Sockets::out($this->client, $packet, $runInLot);
     }
@@ -186,10 +275,10 @@ class Account {
     public function loginCharacter($slot = 0) {
         if (isset($this->characters[$slot])) {
             $this->player = new Player($this->client, $this->characters[$slot]);
-            // Sockets::addEvent($this->client, array(
-            //     "option" => "player",
-            //     "method" => "enableMapDiffs",
-            // ), 0.0, true);
+            Sockets::addEvent($this->client, array(
+                "option" => "player",
+                "method" => "enableMapDiffs",
+            ), 0.0, true);
             Sockets::addEvent($this->client, array(
                 "option" => "player",
                 "method" => "sendClientLocaleBody",
@@ -280,7 +369,7 @@ class Account {
             $packet .= str_pad(dechex(UltimaPHP::$socketClients[$this->client]['version']['minor']), 2, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex(UltimaPHP::$socketClients[$this->client]['version']['revision']), 2, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex(UltimaPHP::$socketClients[$this->client]['version']['prototype']), 2, "0", STR_PAD_LEFT);
-			
+
             Sockets::out($this->client, $packet, $runInLot);
         } else {
             $this->disconnect(4);
@@ -301,21 +390,26 @@ class Account {
      * 7 - General IGR authentication failure.
      */
     public function disconnect($reason = 4) {
-        $packet = chr(130) . chr(hexdec($reason));
+        $packet = "82" . strtoupper(str_pad(dechex($reason), 2, "0", STR_PAD_LEFT));
+
         UltimaPHP::log("Client " . UltimaPHP::$socketClients[$this->client]['ip'] . " disconnected from the server");
-        Sockets::out($this->client, $packet, false, true, true);
+        Sockets::out($this->client, $packet);
+    }
+
+    public function disconnectEvent($lot, $args) {
+        $this->disconnect($args[0]);
     }
 
     public function sendClientVersionRequest($runInLot = false) {
         Sockets::out($this->client, "BD0003", $runInLot);
     }
-    
-	/**
-	* 
-	* Create New Char New clientes > 7.0.20
-	* 
-	* @return
-	*/
+
+    /**
+     *
+     * Create New Char New clientes > 7.0.20
+     *
+     * @return
+     */
     public function createNewChar($info = []) {
         $statSum = $info['stats']['str'] + $info['stats']['dex'] + $info['stats']['int'];
 
@@ -325,28 +419,126 @@ class Account {
             return false;
         }
 
-        $position = $info['start']['position']['x'] . "," . $info['start']['position']['y'] . "," . $info['start']['position']['z'] . "," . $info['start']['position']['map'];
-        $maxPets  = 5;
+        $position = [
+            'x'       => $info['start']['position']['x'],
+            'y'       => $info['start']['position']['y'],
+            'z'       => $info['start']['position']['z'],
+            'map'     => $info['start']['position']['map'],
+            'facing'  => 3,
+            'running' => false,
+        ];
+
+        $maxPets = 5;
+
+        $dbLastSerial = UltimaPHP::$db->collection("players")->find([], ['projection' => ['player_serial' => true], 'sort' => ['player_serial' => -1], 'limit' => 1])->toArray();
+        $nextSerial   = ((int) $dbLastSerial[0]['player_serial'] + 1);
 
         // Register the new char on the database
-        UltimaPHP::$db->query("INSERT INTO players (account, name, body, color, sex, race, position, hits, maxhits, mana, maxmana, stam, maxstam, str, maxstr, `int`, maxint, dex, maxdex, statscap, maxpets, title) VALUES (".$this->serial.",'".$info['name']."','".$info['body']."','".$info['color']['skin']."',".$info['sex'].",".$info['race'].",'".$position."',".$info['stats']['str'].",".$info['stats']['str'].",".$info['stats']['int'].",".$info['stats']['int'].",".$info['stats']['dex'].",".$info['stats']['dex'].",".$info['stats']['str'].",".$info['stats']['str'].",".$info['stats']['int'].",".$info['stats']['int'].",".$info['stats']['dex'].",".$info['stats']['dex'].",".UltimaPHP::$conf['accounts']['statscap'].",".$maxPets.",'".$info['title']."')");
-        $newPlayerId = UltimaPHP::$db->lastInsertId();
+        $startingSkill = (float) UltimaPHP::$conf['accounts']['starting_skills'];
+        $obj           = [
+            'account'         => $this->mongoId,
+            'account_serial'  => $this->serial,
+            'player_serial'   => $nextSerial,
+            'name'            => $info['name'],
+            'body'            => $info['body'],
+            'color'           => $info['color']['skin'],
+            'sex'             => $info['sex'],
+            'race'            => $info['race'],
+            'position'        => $position,
+            'skills'          => [
+                "alchemy"       => $startingSkill,
+                "anatomy"       => $startingSkill,
+                "animallore"    => $startingSkill,
+                "itemid"        => $startingSkill,
+                "armslore"      => $startingSkill,
+                "parrying"      => $startingSkill,
+                "begging"       => $startingSkill,
+                "blacksmith"    => $startingSkill,
+                "bowcraft"      => $startingSkill,
+                "peacemaking"   => $startingSkill,
+                "camping"       => $startingSkill,
+                "carpentry"     => $startingSkill,
+                "cartography"   => $startingSkill,
+                "cooking"       => $startingSkill,
+                "detecthidden"  => $startingSkill,
+                "enticement"    => $startingSkill,
+                "evalint"       => $startingSkill,
+                "healing"       => $startingSkill,
+                "fishing"       => $startingSkill,
+                "forensics"     => $startingSkill,
+                "herding"       => $startingSkill,
+                "hiding"        => $startingSkill,
+                "provocation"   => $startingSkill,
+                "inscription"   => $startingSkill,
+                "lockpick"      => $startingSkill,
+                "magery"        => $startingSkill,
+                "magicresist"   => $startingSkill,
+                "tactics"       => $startingSkill,
+                "snooping"      => $startingSkill,
+                "musicianship"  => $startingSkill,
+                "poisoning"     => $startingSkill,
+                "archery"       => $startingSkill,
+                "spiritspeak"   => $startingSkill,
+                "stealing"      => $startingSkill,
+                "tailoring"     => $startingSkill,
+                "taming"        => $startingSkill,
+                "tasteid"       => $startingSkill,
+                "tinkering"     => $startingSkill,
+                "tracking"      => $startingSkill,
+                "vet"           => $startingSkill,
+                "swordsmanship" => $startingSkill,
+                "macefighting"  => $startingSkill,
+                "fencing"       => $startingSkill,
+                "wrestling"     => $startingSkill,
+                "lumberjack"    => $startingSkill,
+                "mining"        => $startingSkill,
+                "meditation"    => $startingSkill,
+                "stealth"       => $startingSkill,
+                "removetrap"    => $startingSkill,
+                "necromancy"    => $startingSkill,
+                "focus"         => $startingSkill,
+                "chivalry"      => $startingSkill,
+                "bushido"       => $startingSkill,
+                "ninjitsu"      => $startingSkill,
+                "spellweaving"  => $startingSkill,
+                "mysticism"     => $startingSkill,
+                "imbuing"       => $startingSkill,
+                "throwing"      => $startingSkill,
+            ],
+            'hits'            => $info['stats']['str'],
+            'maxhits'         => $info['stats']['str'],
+            'mana'            => $info['stats']['int'],
+            'maxmana'         => $info['stats']['int'],
+            'stam'            => $info['stats']['dex'],
+            'maxstam'         => $info['stats']['dex'],
+            'str'             => $info['stats']['str'],
+            'maxstr'          => $info['stats']['str'],
+            'int'             => $info['stats']['int'],
+            'maxint'          => $info['stats']['int'],
+            'dex'             => $info['stats']['dex'],
+            'maxdex'          => $info['stats']['dex'],
+            'statscap'        => UltimaPHP::$conf['accounts']['statscap'],
+            'pets'            => 0,
+            'maxpets'         => $maxPets,
+            'resist_physical' => 0,
+            'resist_fire'     => 0,
+            'resist_cold'     => 0,
+            'resist_poison'   => 0,
+            'resist_energy'   => 0,
+            'luck'            => 0,
+            'damage_min'      => 1,
+            'damage_max'      => 4,
+            'karma'           => 0,
+            'fame'            => 0,
+            'title'           => $info['title'],
+        ];
 
-        // Build the starting skills query from the player
-        $query = "INSERT INTO players_skills (player, alchemy,anatomy,animallore,itemid,armslore,parrying,begging,blacksmith,bowcraft,peacemaking,camping,carpentry,cartography,cooking,detecthidden,enticement,evalint,healing,fishing,forensics,herding,hiding,provocation,inscription,lockpick,magery,magicresist,tactics,snooping,musicianship,poisoning,archery,spiritspeak,stealing,tailoring,taming,tasteid,tinkering,tracking,vet,swordsmanship,macefighting,fencing,wrestling,lumberjack,mining,meditation,stealth,removetrap,necromancy,focus,chivalry,bushido,ninjitsu,spellweaving,mysticism,imbuing,throwing) VALUES (".$newPlayerId.",";
-        for ($i=0; $i <= 57; $i++) {
-            $query .= (float) UltimaPHP::$conf['accounts']['starting_skills'] . ($i != 57 ? "," : "");
-        }
-        $query .= ")";
-        // Register the new char skills on the database
-        UltimaPHP::$db->query($query);
+        UltimaPHP::$db->collection("players")->insertOne($obj);
+        UltimaPHP::log("New character " . $info['name'] . " (#" . $nextSerial . ") created for account: " . $this->account);
 
-        UltimaPHP::log("New character ".$info['name']." (#" . $newPlayerId . ") created for account: " . $this->account);
-        
         // Update account instace characters
-        $this->characters    = $this->getCharacterList(true);
+        $this->characters = $this->getCharacterList(true);
         // Send login request for new char
         $this->loginCharacter($info['slot']);
     }
-    
 }

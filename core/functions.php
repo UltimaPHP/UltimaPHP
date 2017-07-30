@@ -35,17 +35,17 @@ class Functions {
         return strToUpper($hex);
     }
 
-    public static function uniord($u) { 
-        $k = mb_convert_encoding($u, 'UCS-2LE', 'UTF-8'); 
-        $k1 = ord(substr($k, 0, 1)); 
-        $k2 = ord(substr($k, 1, 1)); 
-        return $k2 * 256 + $k1; 
-    } 
+    public static function uniord($u) {
+        $k  = mb_convert_encoding($u, 'UCS-2LE', 'UTF-8');
+        $k1 = ord(substr($k, 0, 1));
+        $k2 = ord(substr($k, 1, 1));
+        return $k2 * 256 + $k1;
+    }
 
     public static function mbStrToHex($string, $addEmptyByte = false) {
         $hex = '';
         for ($i = 0; $i < mb_strlen($string); $i++) {
-            $hex .= ($addEmptyByte ? "00" : "") . substr('0' . dechex(self::uniord( mb_substr($string, $i, 1))), -2);
+            $hex .= ($addEmptyByte ? "00" : "") . substr('0' . dechex(self::uniord(mb_substr($string, $i, 1))), -2);
         }
         return strToUpper($hex);
     }
@@ -91,7 +91,7 @@ class Functions {
         $text = "";
 
         foreach ($data as $key => $value) {
-            if (hexdec($value) >= 0x20 && hexdec($value) < 0xFFFE) {
+            if (hexdec($value) != 0x00 && hexdec($value) >= 0x20 && hexdec($value) < 0xFFFE) {
                 $text .= chr(hexdec($value));
             }
         }
@@ -101,10 +101,10 @@ class Functions {
 
     public static function isChar($serial) {
 
-        if(get_parent_class(Map::getBySerial($serial)) === "Mobile"){
-            return false;           
+        if (get_parent_class(Map::getBySerial($serial)) === "Mobile") {
+            return false;
         }
-        
+
         if (($serial & (UltimaPHP::BITMASK_ITEM | UltimaPHP::BITMASK_RESOURCE)) == 0) {
             return self::isValidSerial($serial);
         }
@@ -112,10 +112,10 @@ class Functions {
     }
 
     public static function isMobile($serial) {
-        if(get_parent_class(Map::getBySerial($serial)) === "Mobile"){
-            return true;           
+        if (get_parent_class(Map::getBySerial($serial)) === "Mobile") {
+            return true;
         }
-        
+
         return false;
     }
 
@@ -129,14 +129,14 @@ class Functions {
         }
 
         switch ($length) {
-        case 4:$val = unpack('l', $val);
-            break;
-        case 2:$val = unpack('s', $val);
-            break;
-        case 1:$val = unpack('c', $val);
-            break;
-        default:$val = unpack('l*', $val);
-            return $val;
+            case 4:$val = unpack('l', $val);
+                break;
+            case 2:$val = unpack('s', $val);
+                break;
+            case 1:$val = unpack('c', $val);
+                break;
+            default:$val = unpack('l*', $val);
+                return $val;
         }
         return ($val[1]);
     }
@@ -171,7 +171,7 @@ class Functions {
         return ($position['x'] >= $updateRange['from']['x'] && $position['x'] <= $updateRange['to']['x'] && $position['y'] >= $updateRange['from']['y'] && $position['y'] <= $updateRange['to']['y'] ? true : false);
     }
 
-    public static  function progressBar($done, $total, $msg = null) {
+    public static function progressBar($done, $total, $msg = null) {
         $perc = floor(($done / $total) * 100);
         echo date("H:i:s") . ": {$msg}: {$perc}%\r";
         if ($perc >= 100) {
@@ -179,36 +179,66 @@ class Functions {
         }
     }
 
-    public static function findSerialOnContainer(TypeContainer &$container, $serial = null, $removeOnReturn = false) {
+    public static function canFindSerialOnContainer($container, $serial = null) {
         if (!$container || $serial === null) {
             return false;
         }
 
         $result = false;
 
-        foreach ($container->objects as $key => $object) {
+        $container = Map::getBySerial($container);
+
+        foreach ($container->objects as $key => $objSerial) {
             if ($result) {
                 continue;
             }
 
-            if ($object->serial == $serial) {
-                $result = $object;
-                if ($removeOnReturn) {
-                    unset($container->objects[$key]);
-                }
+            if ($objSerial == $serial) {
+                $result = true;
                 continue;
             }
 
+            $object = Map::getBySerial($objSerial);
+
             if (isset(class_parents($object)['TypeContainer'])) {
-                $tmp = self::findSerialOnContainer($object, $serial, $removeOnReturn);
+                $tmp = self::canFindSerialOnContainer($object->serial, $serial);
 
                 if ($tmp) {
-                    $result = $tmp;
+                    $result = true;
                     continue;
                 }
             }
         }
 
         return $result;
+    }
+
+    public static function getRelativeFace($from, $to) {
+        return (
+            $to[0] == $from[0] ?
+            (
+                $to[1] < $from[1] ?
+                0x00 :
+                0x04
+            ) : (
+                $to[1] == $from[1] ?
+                (
+                    $to[0] < $from[0] ?
+                    0x06 :
+                    0x02
+                ) : (
+                    $to[0] < $from[0] ?
+                    (
+                        $to[1] < $from[1] ?
+                        0x07 :
+                        0x05
+                    ) : (
+                        $to[1] < $from[1] ?
+                        0x01 :
+                        0x03
+                    )
+                )
+            )
+        );
     }
 }

@@ -27,5 +27,7 @@ class Backpack extends TypeContainer {
         $this->hits           = 0;
         $this->maxHits        = 0;
         $this->weight         = 4.0;
+        
+        $this->layer          = LayersDefs::BACKPACK;
     }
 }
