@@ -22,7 +22,7 @@ class packet_0x22 extends Packets {
             return false;
         }
 
-        UltimaPHP::$socketClients[$this->client]['account']->player->update();
+        UltimaPHP::$socketClients[$this->client]['account']->player->drawPlayer();
         return true;
     }
 }

@@ -717,8 +717,14 @@ class Map {
             foreach ($chunkData as $serialTest => $dataTest) {
                 if ($dataTest['type'] != "player") {
                     if (($actual_player->position['map'] != $dataTest['instance']->position['map']) || (abs($actual_player->position['x'] - $dataTest['instance']->position['x']) > $actual_player->render_range || abs($actual_player->position['y'] - $dataTest['instance']->position['y']) > $actual_player->render_range)) {
-                        $actual_player->removeObjectFromView($serialTest);
-                    } else {
+                        if (isset($actual_player->mapRange[$serialTest])) {
+                            $actual_player->removeObjectFromView($serialTest);
+                        }
+                    } else if (!isset($actual_player->mapRange[$serialTest])) {
+                        $actual_player->mapRange[$serialTest] = [
+                            'status' => true,
+                            'lastupdate' => time()
+                        ];
                         $dataTest['instance']->draw($actual_player->client);
                     }
                 } else {
@@ -732,6 +738,7 @@ class Map {
 
                     if (($actual_player->position['map'] != $player->position['map'] || abs($actual_player->position['x'] - $player->position['x']) > $actual_player->render_range || abs($actual_player->position['y'] - $player->position['y']) > $actual_player->render_range) || ($player->hidden && $actual_player_plevel < $player_plevel)) {
                         if (isset($actual_player->mapRange[$player->serial])) {
+                            echo "Removing (2): " . $player->serial . "\n";
                             $actual_player->removeObjectFromView($player->serial);
                         }
                         continue;
