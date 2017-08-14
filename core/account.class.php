@@ -169,7 +169,7 @@ class Account {
         }
 
         /* Disable the "overwrite configuration file" */
-        $this->charListFlags |= 0x02;
+        // $this->charListFlags |= 0x02;
 
         // if ( m_NetState->isClientKR() || m_NetState->isClientEnhanced() )       // tooltips must be always enabled on enhanced clients
         //     $charListFlags |= (0x400|0x200|0x20);
