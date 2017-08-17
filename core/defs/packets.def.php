@@ -228,7 +228,7 @@ abstract class PacketsDefs {
         0xDA => false,
         0xDB => false,
         0xDC => 9,
-        0xDD => 1,
+        0xDD => 0xFFFF,
         0xDE => 1,
         0xDF => 1,
         0xE0 => 1,

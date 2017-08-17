@@ -151,25 +151,11 @@ class Gumps {
     }
 
     /* {gumppictiled 50 155 170 230 2624} */
-    public function addGumpPicTiled($x = 0, $y = 0, $gump = null, $to_x = 1, $to_y = 1, $page = 0) {
-        if (!isset($this->pages[$page])) {
-            $this->pages[$page] = [];
-        }
-
-        if ($gump === null) {
-            return false;
-        }
-
-        $this->pages[$page][] = [
-            'type' => GumpDefs::TYPE_GUMPPICTILED,
-            'x'    => $x,
-            'y'    => $y,
-            'gump' => $gump,
-            'to_x' => $to_x,
-            'to_y' => $to_y,
-        ];
-
-        return true;
+    public function addTiledGump( $gumpX, $gumpY, $width, $height, $gumpId, $hue )
+    {
+        $hue = ($hue != -1 ? $hue : "");
+	$gumppictiled = "{gumppictiled ".$gumpX." ".$gumpY." ".$gumpId." ".$width." ".$height." ".$hue."}";
+        $this->layout .= $gumppictiled;
     }
 
     /* {checkertrans 50 155 170 230} */
@@ -205,6 +191,14 @@ class Gumps {
 	$htmlGump = "{htmlgump ".$x." ".$y." ".$width." ".$height." ".$html." ".$hashBack." ".$canScroll."}" ;
 	$this->layout .= $htmlGump;
     }
+    
+    public function addXmfHtmlGump( $x, $y, $width, $height, $clilocid, $hasBack, $canScroll )
+    {
+        $hashBack = ($hashBack === true ? 1 : 0);
+        $canScroll = ($canScroll === true ? 1 : 0);
+	$xmlhtmlgump = "{xmfhtmlgump ".$x." ".$y." ".$width." ".$height." ".$clilocid." ".$hasBack." ".$canScroll."}";
+	$this->layout .= $xmlhtmlgump;
+    }
 
     /* {text 90 173 1152 1} */
     public function addText( $textX, $textY, $data, $hue = 0)
@@ -221,10 +215,56 @@ class Gumps {
 	$this->layout .= $button;
     }
     
+    public function addPageButton( $buttonX, $buttonY, $gumpUp, $gumpDown, $pageId )
+    {
+	$pagebutton = "{button ".$buttonX." ".$buttonY." ".$gumpUp." ".$gumpDown." 0 ".$pageId." 0}";
+        $this->layout .= $pagebutton;	
+    }
+    
     public function addResizeGump( $gumpX, $gumpY, $gumpId, $width, $height )
     {
 	$resizepic = "{resizepic ".$gumpX." ".$gumpY." ".$gumpId." ".$width." ".$height."}" ;
         $this->layout .= $resizepic;
     }
     
+    public function addCroppedText( $textX, $textY, $width, $height, $data, $hue )
+    {   
+        $data = $this->addRawText($data);
+        $croppedtext = "{croppedtext ".$textX." ".$textY." ".$width." ".$height." ".$data." ".$hue."}";
+        $this->layout .= $croppedtext;
+    }
+    
+    public function startGroup( $groupId = 0 )
+    {
+        $this->layout .= "{group ".$groupId."}";
+    }
+    
+    public function addBackground( $gumpId, $width, $height )
+    {
+	$background = "{resizepic 0 0 ".$gumpId." ".$width." ".$height."}";
+        $this->layout .= $background;
+    }
+    
+    // Form-fields
+    // 7 = x,y,widthpix,widthchars,wHue,TEXTID,startstringindex
+    public function addInputField( $textX, $textY, $width, $height, $textId, $data, $hue = 0 )
+    {
+        $data = $this->addRawText($data);
+        $textentry = "{textentry ".$textX." ".$textY." ".$width." ".$height." ".$textId." ".$data." ".$hue."}";
+        $this->layout .= $textentry;
+    }
+    
+    public function addCheckbox( $checkX, $checkY, $gumpOff, $gumpOn, $returnVal, $checked = false )
+    {
+        $checked = ($checked ? 1 : 0);
+        $checkbox = "{checkbox ".$checkX." ".$checkY." ".$gumpOff." ".$gumpOn." ".$checked." ".$returnVal." }";
+        $this->layout .= $checkbox;
+    }
+    
+    public function addRadioButton( $radioX, $radioY, $gumpOff, $gumpOn, $returnVal, $checked = false )
+    {
+        $checked = ($checked ? 1 : 0);
+        $radio = "{radio ".$radioX." ".$radioY." ".$gumpOff." ".$gumpOn." ".$checked." ".$returnVal." }";
+        $this->layout .= $radio;
+    }
 }

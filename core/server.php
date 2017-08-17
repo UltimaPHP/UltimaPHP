@@ -161,6 +161,17 @@ class UltimaPHP {
                 self::stop();
             }
         }
+        
+        // Load gumps
+        $defFiles = glob(self::$basedir . "core/gumps/*.gump.php");
+        $totalFiles = count($defFiles);
+        foreach ($defFiles as $fileCount => $file) {
+            Functions::progressBar($fileCount+1, $totalFiles, "Loading gumps");
+            if (!require_once ($file)) {
+                self::setStatus(self::STATUS_FILE_READ_FAIL);
+                self::stop();
+            }
+        }
 
         // Load scripts
         $scripts = Functions::rglob(self::$conf['scripts']['load'] . "*.php");

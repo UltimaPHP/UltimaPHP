@@ -21,10 +21,9 @@ class packet_0xDD extends Packets {
         $this->y = $y;
         $this->layout = $layout;
         $this->text = $text;
-        $this->layoutCompress = zlib_encode($layout, ZLIB_ENCODING_GZIP);
-        $this->textCompress = zlib_encode($text, ZLIB_ENCODING_GZIP);
         
-        
+        $this->layoutCompress = zlib_encode($layout, ZLIB_ENCODING_DEFLATE, $level = 1);
+        $this->textCompress = zlib_encode($text, ZLIB_ENCODING_DEFLATE, $level = 1);       
         $this->compression = new Compression();                
     }
 
@@ -35,19 +34,19 @@ class packet_0xDD extends Packets {
         if (!$this->client) {
             return false;
         }
-        
-        $this->addInt16(0);// Size packet
+
+        $this->addInt16(1011);// Size packet
         $this->addInt32($this->client);
         $this->addInt32(0);
         $this->addInt32($this->x);
         $this->addInt32($this->y);
         $this->addInt32(strlen($this->layout)+4);//Entries Length + 4
-        $this->addInt32(strlen($this->layout));//Layout Length + 4
+        $this->addInt32(strlen($this->layout));//Layout Length
         $this->addText(unpack('H*', $this->compression->compress(strtoupper($this->layoutCompress)))[1]);
         $this->addInt32(0);//Lines Count
         $this->addInt32(strlen($this->text)+4);//String Length + 4
         $this->addText($this->text);//String Length + 4
-        $this->addText(unpack('H*', $this->compression->compress(strtoupper($this->textCompress)))[1]);
+        $this->addText(unpack('H*', $this->compression->compress(strtoupper($this->textCompress)))[1]);       
         
         Sockets::out($this->client, $this);
         return true;
