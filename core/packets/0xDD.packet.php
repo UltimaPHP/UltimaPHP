@@ -8,7 +8,7 @@
 class packet_0xDD extends Packets {
     
     private $textCompress, $layoutCompress, $compression;
-    private $x, $y, $layout, $text;
+    private $x, $y, $layout, $text, $sizePacket;
     /**
      * Defines the packet, the length and if there is a client send
      */
@@ -23,9 +23,11 @@ class packet_0xDD extends Packets {
         $this->layout = $layout;
         $this->text = $text;       
         
-        $this->layoutCompress = bin2hex(zlib_encode($this->layout, ZLIB_ENCODING_DEFLATE));
-        $this->textCompress = bin2hex(zlib_encode($this->text, ZLIB_ENCODING_DEFLATE));       
-        $this->comp = new Compression();                      
+        $this->layoutCompress = Functions::strToHex(zlib_encode($this->layout, ZLIB_ENCODING_DEFLATE));
+        $this->textCompress = Functions::strToHex(zlib_encode($this->text, ZLIB_ENCODING_DEFLATE));       
+        $this->compression = new Compression();                       
+        
+        $this->sizePacket = (42 + strlen($this->layoutCompress) + strlen($this->textCompress))/2;                
     }
 
     /**s
@@ -35,19 +37,22 @@ class packet_0xDD extends Packets {
         if (!$this->client) {
             return false;
         }
-
-        $this->addInt16(1011);// Size packet   
-        $this->addInt32(12900166);
-        $this->addInt32(1704);
+        echo $this->sizePacket. "\n\n";
+        $this->addInt16($this->sizePacket);// Size packet   
+        $this->addInt32(2);
+        $this->addInt32(2);
         $this->addInt32($this->x);
         $this->addInt32($this->y);      
-        $this->addInt32(strlen($this->layoutCompress)-4);//Entries Length + 4
-        $this->addInt32(strlen($this->layout));//Layout Length
-        $this->addText($this->layoutCompress);
+        $this->addInt32((strlen($this->layoutCompress)/2)-4);//Entries Length - 4
+        $this->addInt32(strlen($this->layout)/2);//Layout Length
+        $this->addHexStr($this->layoutCompress);
         $this->addInt32(0);//Lines Count
-        $this->addInt32(strlen($this->textCompress)-4);//String Length + 4
-        $this->addText(strlen($this->text)); //String Decoded + 4
-        $this->addText($this->textCompress);             
+        $this->addInt32((strlen($this->textCompress)/2)-4);//String Length - 4
+        $this->addInt32(strlen($this->text)/2); //Text Length Decoded
+        $this->addHexStr($this->textCompress);
+        
+        echo $this->getPacketStr(); 
+        echo "\n\n". $this->layoutCompress . "\n\n";
         
         Sockets::out($this->client, $this);        
         return true;

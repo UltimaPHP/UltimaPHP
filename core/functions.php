@@ -17,6 +17,7 @@ class Functions {
 
         return UltimaPHP::$socketClients[$client]['version'];
     }
+    
 
     public static function RandomList($list) {
         if ($list === null) {
