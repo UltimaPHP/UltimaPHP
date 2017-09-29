@@ -8,9 +8,10 @@ class Gumps {
     public $id;
     private $client;
     private $pages = [];
+    private $text  = [];
+
     private $x, $y, $noMove, $noClose, $noDispose, $type;
-    public $layout, $text;
-    public $gumpId = 0;
+    public $layout, $textLayout, $gumpId;
 
     /**
      * Dialog basic methods
@@ -19,7 +20,7 @@ class Gumps {
         if (!$client) {
             return false;
         }
-        
+
         $this->setType(1);
         $this->setNoClose(false);
         $this->setNoDispoe(false);
@@ -27,75 +28,99 @@ class Gumps {
         $this->setX(50);
         $this->setY(50);
         $this->client = $client;
+
+        if ($this->getGumpId() === null) {
+            $id = $this->retriveNewGumpId();
+            $this->setGumpId($id);
+
+            Map::$gumpsIds[$id] = &$this;
+        }
     }
-    
-    public function setX($x)
-    {
-        $this->x = $x;        
+
+    private function retriveNewGumpId() {
+        $tmpId = rand(1000000000, 4294967295);
+
+        if (isset(Map::$gumpsIds[$tmpId])) {
+            $tmpId = $this->retriveNewGumpId();
+        }
+
+        return $tmpId;
     }
-    
-    public function getX()
-    {
+
+    public function setGumpId($gumpId) {
+        $this->gumpId = $gumpId;
+    }
+
+    public function getGumpId() {
+        return $this->gumpId;
+    }
+
+    public function setX($x) {
+        $this->x = $x;
+    }
+
+    public function getX() {
         return $this->x;
     }
-    
-    public function setY($y)
-    {
-        $this->y = $y;        
+
+    public function setY($y) {
+        $this->y = $y;
     }
-    
-    public function getY()
-    {
+
+    public function getY() {
         return $this->y;
     }
-    
-    public function setNoClose($noClose)
-    {
-        $this->noClose = $noClose;        
+
+    public function setNoClose($noClose) {
+        $this->noClose = $noClose;
     }
-    
-    public function getNoClose()
-    {
+
+    public function getNoClose() {
         return $this->noClose;
     }
-    
-    public function setNoMove($noMove)
-    {
-        $this->noMove = $noMove;        
+
+    public function setNoMove($noMove) {
+        $this->noMove = $noMove;
     }
-    
-    public function getNoMove()
-    {
+
+    public function getNoMove() {
         return $this->noMove;
     }
-    
-    public function setNoDispoe($noDispose)
-    {
-        $this->noDispose = $noDispose;        
+
+    public function setNoDispoe($noDispose) {
+        $this->noDispose = $noDispose;
     }
-    
-    public function getNoDispose()
-    {
+
+    public function getNoDispose() {
         return $this->noDispose;
     }
-    
-    public function getLayout()
-    {
+
+    public function getLayout() {
         return $this->layout;
     }
-    
-    public function getText()
-    {
+
+    public function getText() {
         return $this->text;
     }
-    
-    public function setType($type)
-    {
+
+    public function getTextParsed() {
+        $textStr = "";
+
+        foreach ($this->getText() as $id => $text) {
+            $length = str_pad(dechex(strlen($text)), 4, "0", STR_PAD_LEFT);
+            $text   = Functions::strToHex($text, true);
+
+            $textStr .= $length . $text;
+        }
+
+        return $textStr;
+    }
+
+    public function setType($type) {
         $this->type = $type;
     }
-    
-    public function getType()
-    {
+
+    public function getType() {
         return $this->type;
     }
 
@@ -103,168 +128,68 @@ class Gumps {
      * Send the compressed packet 0xDD to the client
      */
     public function show() {
-
-    }
-
-    /**
-     * Send the close dialog packet to the client
-     */
-    public function close() {
-
-    }
-
-    /**
-     * Updates dialog view to the player
-     */
-    public function update() {
-
-    }
-
-    /**
-     * Build the layout information format and then compress in huffman table
-     */
-    private function compressLayout() {
-
-    }
-
-    /**
-     * Build the text information format and then compress in huffman table
-     */
-    private function compressTexts() {
-
+        $this->build();
+        $packet = new packet_0xDD($this->client, $this);
+        $packet->send();
     }
 
     /**
      * Dialog building methods
-     */        
-    
-    /* {page 1} */        
-    public function addPage( $pageId = 0 )
-    {
-        $this->layout .= "{page ".$pageId."}";	
-    }
-    
-    public function addTilePic( $tileX, $tileY, $tileId, $hue = 0)
-    {
-	$tilepic = "{tilepic ".$tileX." ".$tileY." ".$tileId." ".$hue."}";
-        $this->layout .= $tilepic;
+     */
+    public function addBackground($x, $y, $size_x, $size_y, $gump) {
+        $this->layout .= "{resizepic $x $y $gump $size_x $size_y}";
     }
 
-    /* {gumppictiled 50 155 170 230 2624} */
-    public function addTiledGump( $gumpX, $gumpY, $width, $height, $gumpId, $hue )
-    {
-        $hue = ($hue != -1 ? $hue : "");
-	$gumppictiled = "{gumppictiled ".$gumpX." ".$gumpY." ".$gumpId." ".$width." ".$height." ".$hue."}";
-        $this->layout .= $gumppictiled;
+    public function addText($x, $y, $color, $text) {
+        $this->text[] = $text;
+        $textId       = count($this->text) - 1;
+
+        $this->layout .= "{text $x $y $color $textId}";
     }
 
-    /* {checkertrans 50 155 170 230} */
-    public function addCheckerTrans($x, $y, $width , $height = 1, $page = 0) {
-        
-        $checkertrans = "{checkertrans ".$x." ".$y." ".$width." ".$height."}";
-        $this->layout .= $checkertrans;
-        
-    }
-    
-    public function addRawText( $data )
-    {
-	// Do we already have the text?
-	if ( strpos($this->text, $data) !== false )
-            $this->text .= $data ;
-
-	return strpos($this->text, $data);
+    public function addGumpPic($x, $y, $gump, $color) {
+        $this->layout .= "{gumppic $x $y $gump hue=$color}";
     }
 
-    /* {gumppic 451 74 10441} */
-    public function addGump( $gumpX, $gumpY, $gumpId, $hue = 0 )
-    {
-	$gumppic = "{gumppic ".$gumpX." ".$gumpY." ".$gumpId." ".$hue."}" ;
-        $this->layout .= $gumppic;
+    public function addGumpPicTiled($x, $y, $to_x, $to_y, $gump) {
+        $this->layout .= "{gumppictiled $x $y $to_x $to_y $gump}";
     }
 
-    /* {htmlgump 52 130 408 20 0 0 0} */
-    public function addHtmlGump($x, $y, $width, $height, $html, $hashBack, $canScroll, $text = null, $page = 0) 
-    {
-        $hashBack = ($hashBack === true ? 1 : 0);
-        $canScroll = ($canScroll === true ? 1 : 0);
-        $html = $this->addRawText( $html );
-	$htmlGump = "{htmlgump ".$x." ".$y." ".$width." ".$height." ".$html." ".$hashBack." ".$canScroll."}" ;
-	$this->layout .= $htmlGump;
-    }
-    
-    public function addXmfHtmlGump( $x, $y, $width, $height, $clilocid, $hasBack, $canScroll )
-    {
-        $hashBack = ($hashBack === true ? 1 : 0);
-        $canScroll = ($canScroll === true ? 1 : 0);
-	$xmlhtmlgump = "{xmfhtmlgump ".$x." ".$y." ".$width." ".$height." ".$clilocid." ".$hasBack." ".$canScroll."}";
-	$this->layout .= $xmlhtmlgump;
+    public function addTransparency($x, $y, $to_x, $to_y) {
+        $this->layout .= "{checkertrans $x $y $to_x $to_y}";
     }
 
-    /* {text 90 173 1152 1} */
-    public function addText( $textX, $textY, $data, $hue = 0)
-    {
-        $data = $this->addRawText($data);
-        $text = "{text ".$textX." ".$textY." ".$data." ".$hue."}";
-        $this->layout .= $text;
+    public function addCheckbox($x, $y, $gump, $gump_pressed, $info_1, $info_2) {
+        $this->layout .= "{checkbox $x $y $gump $gump_pressed $info_1 $info_2}";
     }
-    
-    /* {button 70 176 2117 2118 0 1 0} */
-    public function addButton( $buttonX, $buttonY, $gumpUp, $gumpDown, $returnCode )
-    {
-	$button = "{button ".$buttonX." ".$buttonY." ".$gumpUp." ".$gumpDown." ".$returnCode."}";
-	$this->layout .= $button;
+
+    public function addGroup($group_id) {
+        $this->layout .= "{Group $group_id}";
     }
-    
-    public function addPageButton( $buttonX, $buttonY, $gumpUp, $gumpDown, $pageId )
-    {
-	$pagebutton = "{button ".$buttonX." ".$buttonY." ".$gumpUp." ".$gumpDown." 0 ".$pageId." 0}";
-        $this->layout .= $pagebutton;	
+
+    public function addRadio($x, $y, $gump, $gump_pressed, $info_1, $info_2) {
+        $this->layout .= "{radio $x $y $gump $gump_pressed $info_1 $info_2}";
     }
-    
-    public function addResizeGump( $gumpX, $gumpY, $gumpId, $width, $height )
-    {
-	$resizepic = "{resizepic ".$gumpX." ".$gumpY." ".$gumpId." ".$width." ".$height."}" ;
-        $this->layout .= $resizepic;
+
+    public function addTilePicHue($x, $y, $item_id, $color) {
+        $this->layout .= "{tilepichue $x $y $item_id $color}";
     }
-    
-    public function addCroppedText( $textX, $textY, $width, $height, $data, $hue )
-    {   
-        $data = $this->addRawText($data);
-        $croppedtext = "{croppedtext ".$textX." ".$textY." ".$width." ".$height." ".$data." ".$hue."}";
-        $this->layout .= $croppedtext;
+
+    public function addTextEntry($x, $y, $to_x, $to_y, $color, $id, $text) {
+        $this->text[] = $text;
+        $textId       = count($this->text) - 1;
+
+        $this->layout .= "{textentry $x $y $to_x $to_y $color $id $textId}";
     }
-    
-    public function startGroup( $groupId = 0 )
-    {
-        $this->layout .= "{group ".$groupId."}";
+
+    public function addButtom($x, $y, $gump, $gump_pressed, $info_1, $info_2, $info_3) {
+        $this->layout .= "{button $x $y $gump $gump_pressed $info_1 $info_2 $info_3}";
     }
-    
-    public function addBackground( $gumpId, $width, $height )
-    {
-	$background = "{resizepic 0 0 ".$gumpId." ".$width." ".$height."}";
-        $this->layout .= $background;
-    }
-    
-    // Form-fields
-    // 7 = x,y,widthpix,widthchars,wHue,TEXTID,startstringindex
-    public function addInputField( $textX, $textY, $width, $height, $textId, $data, $hue = 0 )
-    {
-        $data = $this->addRawText($data);
-        $textentry = "{textentry ".$textX." ".$textY." ".$width." ".$height." ".$textId." ".$data." ".$hue."}";
-        $this->layout .= $textentry;
-    }
-    
-    public function addCheckbox( $checkX, $checkY, $gumpOff, $gumpOn, $returnVal, $checked = false )
-    {
-        $checked = ($checked ? 1 : 0);
-        $checkbox = "{checkbox ".$checkX." ".$checkY." ".$gumpOff." ".$gumpOn." ".$checked." ".$returnVal." }";
-        $this->layout .= $checkbox;
-    }
-    
-    public function addRadioButton( $radioX, $radioY, $gumpOff, $gumpOn, $returnVal, $checked = false )
-    {
-        $checked = ($checked ? 1 : 0);
-        $radio = "{radio ".$radioX." ".$radioY." ".$gumpOff." ".$gumpOn." ".$checked." ".$returnVal." }";
-        $this->layout .= $radio;
+
+    public function addHtmlGump($x, $y, $info_1, $info_2, $text, $info_4, $info_5) {
+        $this->text[] = $text;
+        $textId       = count($this->text) - 1;
+
+        $this->layout .= "{htmlgump $x $y $info_1 $info_2 $textId $info_4 $info_5}";
     }
 }

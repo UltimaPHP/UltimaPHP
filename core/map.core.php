@@ -13,8 +13,9 @@ class Map {
     public static $chunks               = [];
     public static $chunkSize            = 512; // Number in square
     public static $tileMatrix           = [];
-    public static $serialData          = [];
-    public static $serialDataHolded    = [];
+    public static $serialData           = [];
+    public static $serialDataHolded     = [];
+    public static $gumpsIds             = [];
     private static $tiledata            = [];
     private static $lastSerial          = [
         'mobile' => 0,

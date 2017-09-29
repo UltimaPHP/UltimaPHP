@@ -163,7 +163,7 @@ class UltimaPHP {
         }
         
         // Load gumps
-        $defFiles = glob(self::$basedir . "core/gumps/*.gump.php");
+        $defFiles = glob(self::$basedir . "scripts/gumps/*.gump.php");
         $totalFiles = count($defFiles);
         foreach ($defFiles as $fileCount => $file) {
             Functions::progressBar($fileCount+1, $totalFiles, "Loading gumps");

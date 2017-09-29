@@ -46,7 +46,7 @@ class Packets {
         $packet = str_pad(dechex($this->packet), 2, "0", STR_PAD_LEFT);
 
         if ($this->length === false) {
-            $packet .= str_pad(dechex(count($this->packetBytes) + 3), 4, "0", STR_PAD_LEFT);
+            $packet .= str_pad(dechex((strlen(implode("", $this->packetBytes)) / 2) + 3), 4, "0", STR_PAD_LEFT);
         }
 
         $packet .= implode("", $this->packetBytes);
