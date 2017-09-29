@@ -37,25 +37,19 @@ class packet_0xDD extends Packets {
             return false;
         }
 
+        $layoutCompressed = Functions::strToHex(zlib_encode($this->gump->getLayout() . chr(00), ZLIB_ENCODING_DEFLATE));
+        $textCompressed = Functions::strToHex(zlib_encode(Functions::hexToChr($this->gump->getTextParsed()), ZLIB_ENCODING_DEFLATE));
+
         $this->addInt32(UltimaPHP::$socketClients[$this->client]['account']->player->serial);
         $this->addInt32($this->gump->getGumpId());
         $this->addInt32($this->gump->getX());
         $this->addInt32($this->gump->getY());
-
-        $layoutCompressed = Functions::strToHex(zlib_encode($this->gump->getLayout() . chr(00), ZLIB_ENCODING_DEFLATE));
-
         $this->addInt32((strlen($layoutCompressed) / 2) + 4);
         $this->addInt32(strlen($this->gump->getLayout()) + 1);
         $this->addHexStr($layoutCompressed);
-
-        $texts          = $this->gump->getText();
-        $textCompressed = Functions::strToHex(zlib_encode(Functions::hexToChr($this->gump->getTextParsed()), ZLIB_ENCODING_DEFLATE));
-
-        $this->addInt32(count($texts));
-
+        $this->addInt32(count($this->gump->getText()));
         $this->addInt32((strlen($textCompressed) / 2) + 4);
         $this->addInt32(strlen($this->gump->getTextParsed()) / 2);
-
         $this->addHexStr($textCompressed);
 
         Sockets::out($this->client, $this);

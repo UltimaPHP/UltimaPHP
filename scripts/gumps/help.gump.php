@@ -15,12 +15,15 @@ class HelpMenuGump extends Gumps {
         $this->addTransparency(50, 155, 170, 230);
         $this->addGumpPic(451, 74, 10441);
         $this->addHtmlGump(52, 130, 408, 20, 0, 0, UltimaPHP::$conf['server']['name']);
+
         $this->addText(90, 173, 1152, "Go to the help room");
         $this->addText(90, 203, 1152, "Send page");
         $this->addText(90, 233, 1152, "Your Stats");
         $this->addText(90, 263, 1152, "Shard Stats");
+        $this->addText(90, 293, 1152, "Staffers");
         $this->addText(90, 323, 1152, "Site");
         $this->addText(90, 353, 1152, "Forum");
+
         $this->addButton(70, 176, 2117, 2118, 0, 1, 0);
         $this->addButton(70, 206, 2117, 2118, 0, 2, 0);
         $this->addButton(70, 236, 2117, 2118, 0, 3, 0);
@@ -28,7 +31,7 @@ class HelpMenuGump extends Gumps {
         $this->addButton(70, 326, 2117, 2118, 1, 0, 1);
         $this->addButton(70, 356, 2117, 2118, 1, 0, 2);
         $this->addTransparency(240, 155, 232, 230);
-        $this->addText(90, 293, 1152, "Staffers");
+        
         $this->addButton(70, 296, 2117, 2118, 1, 0, 3);
 
         $this->addPage(1);
