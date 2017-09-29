@@ -17,8 +17,8 @@ class TestGump extends Gumps {
         $this->addRadio(149, 369, 208, 209, 0, 0);
         $this->addTilePicHue(200, 344, 2491, 1935);
         $this->addTextEntry(279, 354, 200, 20, 1935, 99, "default text");
-        $this->addButtom(298, 391, 247, 248, 1, 0, 1);
-        $this->addButtom(371, 390, 247, 248, 1, 2, 0);
+        $this->addButton(298, 391, 247, 248, 1, 0, 1);
+        $this->addButton(371, 390, 247, 248, 1, 2, 0);
         $this->addHtmlGump(169, 435, 273, 41, "HTML TEXT ENTRY", 1, 1);
     }
 }

@@ -531,6 +531,8 @@ class Account {
             'karma'           => 0,
             'fame'            => 0,
             'title'           => $info['title'],
+            'kills'           => 0,
+            'deaths'          => 0
         ];
 
         UltimaPHP::$db->collection("players")->insertOne($obj);

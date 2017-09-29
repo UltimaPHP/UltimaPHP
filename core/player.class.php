@@ -63,6 +63,8 @@ class Player {
     public $damage_max;
     public $karma;
     public $fame;
+    public $kills;
+    public $deaths;
     public $title;
     public $skills = [];
 
@@ -116,6 +118,8 @@ class Player {
             $this->karma           = $result[0]['karma'];
             $this->fame            = $result[0]['fame'];
             $this->title           = $result[0]['title'];
+            $this->kills           = $result[0]['kills'];
+            $this->deaths           = $result[0]['deaths'];
             $this->warmode         = false;
 
             foreach ($result[0]['skills'] as $skill => $value) {

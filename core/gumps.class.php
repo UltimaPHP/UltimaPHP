@@ -37,6 +37,10 @@ class Gumps {
         }
     }
 
+    public function getClient() {
+        return $this->client;
+    }
+
     private function retriveNewGumpId() {
         $tmpId = rand(1000000000, 4294967295);
 
@@ -96,7 +100,7 @@ class Gumps {
     }
 
     public function getLayout() {
-        return $this->layout;
+        return ($this->getNoClose() ? "{noclose}" : "") . ($this->getNoDispose() ? "{nodispose}" : "") . ($this->getNoMove() ? "{nomove}" : "") . $this->layout;
     }
 
     public function getText() {
@@ -147,8 +151,12 @@ class Gumps {
         $this->layout .= "{text $x $y $color $textId}";
     }
 
-    public function addGumpPic($x, $y, $gump, $color) {
-        $this->layout .= "{gumppic $x $y $gump hue=$color}";
+    public function addGumpPic($x, $y, $gump, $color = false) {
+        if (!$color) {
+            $this->layout .= "{gumppic $x $y $gump}";
+        } else {
+            $this->layout .= "{gumppic $x $y $gump hue=$color}";
+        }
     }
 
     public function addGumpPicTiled($x, $y, $to_x, $to_y, $gump) {
@@ -182,14 +190,21 @@ class Gumps {
         $this->layout .= "{textentry $x $y $to_x $to_y $color $id $textId}";
     }
 
-    public function addButtom($x, $y, $gump, $gump_pressed, $info_1, $info_2, $info_3) {
+    public function addButton($x, $y, $gump, $gump_pressed, $info_1, $info_2, $info_3) {
         $this->layout .= "{button $x $y $gump $gump_pressed $info_1 $info_2 $info_3}";
     }
 
-    public function addHtmlGump($x, $y, $info_1, $info_2, $text, $info_4, $info_5) {
+    public function addHtmlGump($x, $y, $info_1, $info_2, $info_4, $info_5, $text) {
         $this->text[] = $text;
         $textId       = count($this->text) - 1;
 
         $this->layout .= "{htmlgump $x $y $info_1 $info_2 $textId $info_4 $info_5}";
+    }
+
+    public function addPage($page_id = 0) {
+        if ($page_id == 0) {
+            return true;
+        }
+        $this->layout .= "{page $page_id}";
     }
 }

@@ -12,7 +12,8 @@ class InfoCommand extends Command {
         }
         
         if (isset($args[0]) && $args[0] == "gump") {
-            $teste = new TestGump($client);
+            // $teste = new TestGump($client);
+            $teste = new HelpMenuGump($client);
             $teste->show();
             return true;
         }
