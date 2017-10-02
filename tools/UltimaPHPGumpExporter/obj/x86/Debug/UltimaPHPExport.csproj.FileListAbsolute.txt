@@ -1,0 +1,9 @@
+C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\bin\Debug\UltimaPHPExport.dll
+C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\bin\Debug\UltimaPHPExport.pdb
+C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\bin\Debug\GumpStudioCore.dll
+C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\bin\Debug\Ultima.dll
+C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\bin\Debug\UOFont.dll
+C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\obj\x86\Debug\UltimaPHPExport.csprojResolveAssemblyReference.cache
+C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\obj\x86\Debug\UltimaPHPExport.csproj.CoreCompileInputs.cache
+C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\obj\x86\Debug\UltimaPHPExport.dll
+C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\obj\x86\Debug\UltimaPHPExport.pdb
