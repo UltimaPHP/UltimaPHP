@@ -11,6 +11,7 @@
     public class UltimaPHPExport : GumpStudio.Plugins.BasePlugin
     {
         private GumpStudio.DesignerForm designer;
+        protected UltimaPHPExportForm frmUltimaPHP;
         private MenuItem menuitem;
         private string header = "<?php \n\n" +
                                  "/**\n" +
@@ -30,13 +31,23 @@
         public override void Load(GumpStudio.DesignerForm designer)
         {
             this.designer = designer;
-            this.menuitem = new MenuItem("Export for UltimaPHP");
-            this.menuitem.Click += new EventHandler(this.OnExportWolfpack);
-            designer.mnuMisc.MenuItems.Add(this.menuitem);
+            this.menuitem = new MenuItem("UltimaPHP");
+            this.menuitem.Click += new EventHandler(this.menuitem_Click);
+            if (!this.designer.mnuFileExport.Enabled)
+            {
+                this.designer.mnuFileExport.Enabled = true;
+            }
+            designer.mnuFileExport.MenuItems.Add(this.menuitem);
             base.Load(designer);
         }
 
-        public void OnExportWolfpack(object sender, EventArgs eventargs)
+        private void menuitem_Click(object sender, EventArgs e)
+        {
+            this.frmUltimaPHP = new UltimaPHPExportForm(this);
+            this.frmUltimaPHP.ShowDialog();
+        }
+
+        public void OnExportUltimaPHP(object sender, EventArgs eventargs, int x, int y, bool noDispose, bool noClose, bool noMove, string gumpName)
         {
             SaveFileDialog dialog = new SaveFileDialog {
                 Filter = "Script File (*.gump.php)|*.gump.php"
@@ -46,11 +57,16 @@
             {
                 StreamWriter writer = File.CreateText(dialog.FileName);
                 writer.WriteLine(header);
-                writer.WriteLine("class GUMP_NAME extends Gumps {");
+                writer.WriteLine("class "+gumpName+" extends Gumps {");
                 writer.WriteLine("\tpublic function build() {");
                 writer.WriteLine("\t\t$player = UltimaPHP::$socketClients[$this->getClient()]['account']->player;");
 
                 writer.WriteLine("");
+
+                writer.WriteLine("\t\t$this->setNoClose("+noClose+");");
+                writer.WriteLine("\t\t$this->setNoDispose(" + noDispose + ");");
+                writer.WriteLine("\t\t$this->setNoMove(" + noMove + ");");
+
                 int num = 0;
                 if (0 < this.designer.Stacks.Count)
                 {

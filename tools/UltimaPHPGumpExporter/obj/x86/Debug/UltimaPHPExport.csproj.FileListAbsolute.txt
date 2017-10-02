@@ -7,3 +7,13 @@ C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\obj\x86\Debug\UltimaPHPE
 C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\obj\x86\Debug\UltimaPHPExport.csproj.CoreCompileInputs.cache
 C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\obj\x86\Debug\UltimaPHPExport.dll
 C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\obj\x86\Debug\UltimaPHPExport.pdb
+C:\UltimaPHP\tools\UltimaPHPGumpExporter\obj\x86\Debug\UltimaPHPExport.csprojResolveAssemblyReference.cache
+C:\UltimaPHP\tools\UltimaPHPGumpExporter\obj\x86\Debug\UltimaPHPExport.UltimaPHPExportForm.resources
+C:\UltimaPHP\tools\UltimaPHPGumpExporter\obj\x86\Debug\UltimaPHPExport.csproj.GenerateResource.Cache
+C:\UltimaPHP\tools\UltimaPHPGumpExporter\obj\x86\Debug\UltimaPHPExport.dll
+C:\UltimaPHP\tools\UltimaPHPGumpExporter\obj\x86\Debug\UltimaPHPExport.pdb
+C:\UltimaPHP\tools\UltimaPHPGumpExporter\bin\Debug\UltimaPHPExport.dll
+C:\UltimaPHP\tools\UltimaPHPGumpExporter\bin\Debug\UltimaPHPExport.pdb
+C:\UltimaPHP\tools\UltimaPHPGumpExporter\bin\Debug\GumpStudioCore.dll
+C:\UltimaPHP\tools\UltimaPHPGumpExporter\bin\Debug\Ultima.dll
+C:\UltimaPHP\tools\UltimaPHPGumpExporter\bin\Debug\UOFont.dll

@@ -32,13 +32,21 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
+    <Compile Include="UltimaPHPExport\UltimaPHPExportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UltimaPHPExport\UltimaPHPExportForm.Designer.cs">
+      <DependentUpon>UltimaPHPExportForm.cs</DependentUpon>
+    </Compile>
     <Reference Include="Microsoft.VisualC" />
     <Reference Include="GumpStudioCore">
       <HintPath>..\..\..\..\GumpStudio 1.8r3\GumpStudioCore.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
     <Reference Include="Ultima">
       <HintPath>..\..\..\..\GumpStudio 1.8r3\Ultima.dll</HintPath>
     </Reference>
@@ -59,5 +67,10 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UltimaPHPExport\UltimaPHPExportForm.resx">
+      <DependentUpon>UltimaPHPExportForm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
