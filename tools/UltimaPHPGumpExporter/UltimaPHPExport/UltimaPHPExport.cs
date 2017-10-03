@@ -95,7 +95,7 @@
                                         GumpStudio.Elements.BackgroundElement element8 = element as GumpStudio.Elements.BackgroundElement;
                                         if (element8 != null)
                                         {
-                                            writer.Write("\n\t\t$this->addBackground(" + element8.X + ", "+ element8.Y + ", "+ element8.GumpID + ", "+ element8.Width + ", "+ element8.Height +");");
+                                            writer.Write("\n\t\t$this->addBackground(" + element8.X + ", "+ element8.Y + ", "+ element8.Width + ", "+ element8.Height + ", "+ element8.GumpID +");");
                                         }
                                         else
                                         {
@@ -104,11 +104,11 @@
                                             {
                                                 if (element4.ButtonType == GumpStudio.Elements.ButtonTypeEnum.Reply)
                                                 {
-                                                    writer.Write("\n\t\t$this->addButton(" + element4.X+", "+ element4.Y + ", "+ element4.NormalID + ", "+ element4.PressedID + ", "+ element4.Type+ ", "+ element4.Code + ", " + element4.Param+");");
+                                                    writer.Write("\n\t\t$this->addButton(" + element4.X+", "+ element4.Y + ", "+ element4.NormalID + ", "+ element4.PressedID + ", 1, "+ element4.Param + ", " + element4.Z+");");
                                                 }
                                                 else if (element4.ButtonType == GumpStudio.Elements.ButtonTypeEnum.Page)
                                                 {
-                                                    writer.Write("\n\t\t$this->addButton(" + element4.X + ", " + element4.Y + ", " + element4.NormalID + ", " + element4.PressedID + ", " + element4.Type + ", " + element4.Code + ", " + element4.Param + ");");
+                                                    writer.Write("\n\t\t$this->addButton(" + element4.X + ", " + element4.Y + ", " + element4.NormalID + ", " + element4.PressedID + ", 0, " + element4.Param + ", " + element4.Z + ");");
                                                 }
                                             }
                                             else
@@ -218,6 +218,14 @@
                                                                             writer.Write(", ");
                                                                             writer.Write(element5.Hue.ToString());
                                                                             writer.WriteLine(");");
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            GumpStudio.Elements.HTMLElement element13 = element as GumpStudio.Elements.HTMLElement;
+                                                                            if(element13 != null)
+                                                                            {
+                                                                                writer.Write("\n\t\t$this->addHtmlGump(" + element13.X + ", " + element13.Y + ", " + element13.Width + ", " + element13.Height + ", " + element13.HTML +", "+element13.ShowBackground+", " +element13.ShowScrollbar+");");
+                                                                            }
                                                                         }
                                                                     }
                                                                 }
