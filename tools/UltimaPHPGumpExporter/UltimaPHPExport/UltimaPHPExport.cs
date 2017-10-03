@@ -224,7 +224,7 @@
                                                                             GumpStudio.Elements.HTMLElement element13 = element as GumpStudio.Elements.HTMLElement;
                                                                             if(element13 != null)
                                                                             {
-                                                                                writer.Write("\n\t\t$this->addHtmlGump(" + element13.X + ", " + element13.Y + ", " + element13.Width + ", " + element13.Height + ", " + element13.HTML +", "+element13.ShowBackground+", " +element13.ShowScrollbar+");");
+                                                                                writer.Write("\n\t\t$this->addHtmlGump(" + element13.X + ", " + element13.Y + ", " + element13.Width + ", " + element13.Height + ", \"" + element13.HTML +"\", "+element13.ShowBackground+", " +element13.ShowScrollbar+");");
                                                                             }
                                                                         }
                                                                     }
