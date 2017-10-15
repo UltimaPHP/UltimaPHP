@@ -6,9 +6,7 @@ This server was created for thoes who ever wanted to create differend addaptatio
 
 I decided to build this project for study propose i've re-scripted the entire socket server to understand how it works and after that i decided to create a lightweight standalone version of the server that runs in any OS easly.
 
-Note 1: The server works with the last updated UO clients (7.0.59.5) and we will not spent time with older clients for now.
-
-Note 2: I'm developing using the Ultima Online Classic Client - v7.0.59.5
+Note: The server only works with the last updated Ultima Online client (7.0.59.5) and we will not spent time with older clients for now.
 
 ## How to install?
 
