@@ -263,8 +263,6 @@ class Account {
         $packet .= "07";
         $packet .= $tmpPacket;
 
-        echo "\n\nFLAG PACKET: ".str_pad(dechex($this->charListFlags), 8, "0", STR_PAD_LEFT)."\n\n";
-
         Sockets::out($this->client, $packet, $runInLot);
     }
 
