@@ -254,7 +254,6 @@ class Account {
             $tmpPacket .= str_pad("", 8, "0", STR_PAD_RIGHT);
         }
 
-        // 00 00 03 A8 = Sphere flag
         $tmpPacket .= str_pad(dechex($this->charListFlags), 8, "0", STR_PAD_LEFT);
         $tmpPacket .= "0000";
 
@@ -405,7 +404,6 @@ class Account {
      *
      * Create New Char New clientes > 7.0.20
      *
-     * @return
      */
     public function createNewChar($info = []) {
         $statSum = $info['stats']['str'] + $info['stats']['dex'] + $info['stats']['int'];

@@ -175,6 +175,7 @@ class Player {
         }
 
         $this->name = $newName;
+        UltimaPHP::$db->collection("players")->updateOne(['_id' => $this->mongoId], ['$set' => ['name' => $this->name]]);
 
         if (!$client) {
             return true;
@@ -793,10 +794,20 @@ class Player {
                 $instance = Map::getBySerial($serial);
 
                 $tmpEquips .= str_pad($instance->serial, 8, "0", STR_PAD_LEFT);
-                $tmpEquips .= str_pad(dechex(($instance->color > 0 ? ($instance->graphic | 0x8000) : $instance->graphic)), 4, "0", STR_PAD_LEFT);
-                $tmpEquips .= str_pad(dechex($instance->layer), 2, "0", STR_PAD_LEFT);
-                if ($instance->color > 0) {
+
+                if (UltimaPHP::$conf['server']['client']['major'] >= 7 &&
+                    UltimaPHP::$conf['server']['client']['minor'] >= 0 &&
+                    UltimaPHP::$conf['server']['client']['revision'] >= 33) {
+                    $tmpEquips .= str_pad(dechex($instance->graphic), 4, "0", STR_PAD_LEFT);
+                    $tmpEquips .= str_pad(dechex($instance->layer), 2, "0", STR_PAD_LEFT);
                     $tmpEquips .= str_pad(dechex($instance->color), 4, "0", STR_PAD_LEFT);
+                } else if ($instance->color > 0) {
+                    $tmpEquips .= str_pad(dechex($instance->graphic | 0x8000), 4, "0", STR_PAD_LEFT);
+                    $tmpEquips .= str_pad(dechex($instance->layer), 2, "0", STR_PAD_LEFT);
+                    $tmpEquips .= str_pad(dechex($instance->color), 4, "0", STR_PAD_LEFT);
+                } else {
+                    $tmpEquips .= str_pad(dechex($instance->graphic), 4, "0", STR_PAD_LEFT);
+                    $tmpEquips .= str_pad(dechex($instance->layer), 2, "0", STR_PAD_LEFT);
                 }
             }
         }
