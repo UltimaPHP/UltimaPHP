@@ -63,7 +63,7 @@ class Object {
         $packet .= "0001";
         $packet .= "00";
         $packet .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($this->graphic), 4, "0", STR_PAD_LEFT);
+        $packet .= str_pad(dechex($this->graphic & 0xFFFF), 4, "0", STR_PAD_LEFT);
         $packet .= "00";
         $packet .= str_pad(dechex($this->amount), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($this->amount), 4, "0", STR_PAD_LEFT);
