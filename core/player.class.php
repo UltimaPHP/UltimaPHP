@@ -405,6 +405,8 @@ class Player {
                     }
                 }
             }
+        } else {
+            $this->removeObjectFromView($serial);
         }
 
         $this->layers[LayersDefs::DRAGGING] = $instance->serial;

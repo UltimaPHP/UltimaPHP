@@ -239,7 +239,7 @@ abstract class PacketsDefs {
         0xED => 1,
         0xEF => 21,
         0xF0 => -1,
-        0xF1 => 1,
+        0xF1 => false,
         0xF3 => 24,
         0xF5 => 21,
         0xF8 => 106,
