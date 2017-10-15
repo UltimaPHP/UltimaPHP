@@ -63,19 +63,19 @@ class Account {
         $this->featuresFlags = 0;
 
         if (UltimaPHP::$conf['features']['featuret2a'] & 0x01) {
-            $this->featuresFlags |= 0x4;
+            $this->featuresFlags |= 0x04;
         }
 
         if (UltimaPHP::$conf['features']['featuret2a'] & 0x02) {
-            $this->featuresFlags |= 0x1;
+            $this->featuresFlags |= 0x01;
         }
 
         if (UltimaPHP::$conf['features']['featurelbr'] & 0x01) {
-            $this->featuresFlags |= 0x8;
+            $this->featuresFlags |= 0x08;
         }
 
         if (UltimaPHP::$conf['features']['featurelbr'] & 0x02) {
-            $this->featuresFlags |= 0x2;
+            $this->featuresFlags |= 0x02;
         }
 
         if (UltimaPHP::$conf['features']['featureaos'] & 0x01) {
@@ -127,7 +127,6 @@ class Account {
         }
 
         // Only for KR or Enhanced
-        // if ( m_NetState->isClientKR() || m_NetState->isClientEnhanced() ) {}
         if (UltimaPHP::$conf['features']['featureextra'] & 0x20) {
             $this->featuresFlags |= 0x2000;
         }
@@ -137,15 +136,15 @@ class Account {
         $this->charListFlags = 0;
 
         if (UltimaPHP::$conf['features']['featureaos'] & 0x02) {
-            $this->charListFlags |= 0x20;
+            $this->charListFlags |= 0x020;
         }
 
         if (UltimaPHP::$conf['features']['featureaos'] & 0x04) {
-            $this->charListFlags |= 0x8;
+            $this->charListFlags |= 0x08;
         }
 
         if (UltimaPHP::$conf['features']['featurese'] & 0x02) {
-            $this->charListFlags |= 0x80;
+            $this->charListFlags |= 0x080;
         }
 
         if (UltimaPHP::$conf['features']['featureml'] & 0x01) {
@@ -165,14 +164,11 @@ class Account {
         } else if (UltimaPHP::$conf['accounts']['max_chars'] == 6) {
             $this->charListFlags |= 0x40;
         } else if (UltimaPHP::$conf['accounts']['max_chars'] == 1) {
-            $this->charListFlags |= (0x10|0x4);
+            $this->charListFlags |= (0x10|0x04);
         }
 
-        /* Disable the "overwrite configuration file" */
+        /* Enable the "overwrite configuration file" */
         // $this->charListFlags |= 0x02;
-
-        // if ( m_NetState->isClientKR() || m_NetState->isClientEnhanced() )       // tooltips must be always enabled on enhanced clients
-        //     $charListFlags |= (0x400|0x200|0x20);
 
         $this->tooltipEnabled = ($this->charListFlags & 0x20 ? true : false);
     }
@@ -258,13 +254,16 @@ class Account {
             $tmpPacket .= str_pad("", 8, "0", STR_PAD_RIGHT);
         }
 
-        $tmpPacket .= str_pad($this->charListFlags, 8, "0", STR_PAD_LEFT);
-        $tmpPacket .= "FFFF";
+        // 00 00 03 A8 = Sphere flag
+        $tmpPacket .= str_pad(dechex($this->charListFlags), 8, "0", STR_PAD_LEFT);
+        $tmpPacket .= "0000";
 
         $packet = "A9";
         $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 4), 4, "0", STR_PAD_LEFT);
         $packet .= "07";
         $packet .= $tmpPacket;
+
+        echo "\n\nFLAG PACKET: ".str_pad(dechex($this->charListFlags), 8, "0", STR_PAD_LEFT)."\n\n";
 
         Sockets::out($this->client, $packet, $runInLot);
     }
