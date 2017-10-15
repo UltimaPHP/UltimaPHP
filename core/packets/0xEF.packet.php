@@ -31,7 +31,7 @@ class packet_0xEF extends Packets {
         $revision  = hexdec(Functions::implodeByte($data, 13, 16));
         $prototype = hexdec(Functions::implodeByte($data, 17, 20));
 
-        UltimaPHP::$socketClients[$this->client]['version'] = array(
+        UltimaPHP::$socketClients[$this->client]['version'] = [
             'encrypted' => null,
             'seed'      => $seed,
             'major'     => $major,
@@ -40,7 +40,7 @@ class packet_0xEF extends Packets {
             'prototype' => $prototype,
             'key1'      => EncryptionDefs::VERSION[$major . $minor . $revision][0],
             'key2'      => EncryptionDefs::VERSION[$major . $minor . $revision][1],
-        );
+        ];
 
         return true;
     }

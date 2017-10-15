@@ -79,7 +79,7 @@ class Account {
         }
 
         if (UltimaPHP::$conf['features']['featureaos'] & 0x01) {
-            $this->featuresFlags |= (0x10 | 0x8000);
+            $this->featuresFlags |= (0x10|0x8000);
         }
 
         if (UltimaPHP::$conf['features']['featurese'] & 0x01) {
@@ -141,7 +141,7 @@ class Account {
         }
 
         if (UltimaPHP::$conf['features']['featureaos'] & 0x04) {
-            $this->charListFlags |= 0x08;
+            $this->charListFlags |= 0x8;
         }
 
         if (UltimaPHP::$conf['features']['featurese'] & 0x02) {
@@ -165,7 +165,7 @@ class Account {
         } else if (UltimaPHP::$conf['accounts']['max_chars'] == 6) {
             $this->charListFlags |= 0x40;
         } else if (UltimaPHP::$conf['accounts']['max_chars'] == 1) {
-            $this->charListFlags |= (0x10 | 0x4);
+            $this->charListFlags |= (0x10|0x4);
         }
 
         /* Disable the "overwrite configuration file" */
