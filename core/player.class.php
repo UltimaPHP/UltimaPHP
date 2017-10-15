@@ -795,9 +795,7 @@ class Player {
 
                 $tmpEquips .= str_pad($instance->serial, 8, "0", STR_PAD_LEFT);
 
-                if (UltimaPHP::$conf['server']['client']['major'] >= 7 &&
-                    UltimaPHP::$conf['server']['client']['minor'] >= 0 &&
-                    UltimaPHP::$conf['server']['client']['revision'] >= 33) {
+                if (UltimaPHP::$conf['server']['client']['major'] >= 7 && UltimaPHP::$conf['server']['client']['minor'] >= 0 && UltimaPHP::$conf['server']['client']['revision'] >= 33) {
                     $tmpEquips .= str_pad(dechex($instance->graphic), 4, "0", STR_PAD_LEFT);
                     $tmpEquips .= str_pad(dechex($instance->layer), 2, "0", STR_PAD_LEFT);
                     $tmpEquips .= str_pad(dechex($instance->color), 4, "0", STR_PAD_LEFT);

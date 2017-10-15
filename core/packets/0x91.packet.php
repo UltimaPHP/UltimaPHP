@@ -34,7 +34,6 @@ class packet_0x91 extends Packets {
         UltimaPHP::$socketClients[$this->client]['account'] = new Account($account, md5($password), $this->client);
 
         if (UltimaPHP::$socketClients[$this->client]['account']->isValid) {
-            
             UltimaPHP::log("Account $account logged from IP " . UltimaPHP::$socketClients[$this->client]['ip']);
             // Set the flag on the connection to send next packets compressed
             UltimaPHP::$socketClients[$this->client]['relayed'] = true;

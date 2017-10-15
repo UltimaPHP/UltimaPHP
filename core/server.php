@@ -301,10 +301,10 @@ class UltimaPHP {
         // Update the variable as array
         $clientVersion                  = explode(".", self::$conf['server']['client']);
         self::$conf['server']['client'] = array(
-            'major'     => $clientVersion[0],
-            'minor'     => $clientVersion[1],
-            'revision'  => $clientVersion[2],
-            'prototype' => $clientVersion[3],
+            'major'     => (int) $clientVersion[0],
+            'minor'     => (int) $clientVersion[1],
+            'revision'  => (int) $clientVersion[2],
+            'prototype' => (int) $clientVersion[3],
         );
 
         // Update the debug variable
