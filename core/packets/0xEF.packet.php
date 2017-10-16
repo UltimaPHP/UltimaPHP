@@ -31,8 +31,10 @@ class packet_0xEF extends Packets {
         $revision  = (int) hexdec(Functions::implodeByte($data, 13, 16));
         $prototype = (int) hexdec(Functions::implodeByte($data, 17, 20));
 
+        
+        
         /* Check if client version is the sabe as the server default */
-        if ($major != UltimaPHP::$conf['server']['client']['major'] || $minor != UltimaPHP::$conf['server']['client']['minor'] || $revision != UltimaPHP::$conf['server']['client']['revision'] || $prototype != UltimaPHP::$conf['server']['client']['prototype']) {
+        if (Functions::isValidClient($major, $minor, $revision, $prototype)) {
             UltimaPHP::log("Connection attempt blocked from ". UltimaPHP::$socketClients[$this->client]['ip'] . " due wrong client version ($major.$minor.$revision.$prototype)", UltimaPHP::LOG_WARNING);
             socket_close(UltimaPHP::$socketClients[$this->client]['socket']);
             unset(UltimaPHP::$socketClients[$this->client]);

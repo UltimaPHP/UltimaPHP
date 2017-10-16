@@ -18,6 +18,30 @@ class Functions {
         return UltimaPHP::$socketClients[$client]['version'];
     }
     
+    public static function isValidClient($major, $minor, $revision, $prototype)
+    {
+        $isValid =  false;
+        if($major === null || $minor === null || $revision === null || $prototype === null)
+        {
+            return $isValid;
+        }
+        
+        $client_versions = explode(",", UltimaPHP::$conf['server']['client']);
+        foreach ($client_versions as $value) {
+            $version = explode(".", $value);
+            if($major != $version[0] || $minor != $version[1] || $revision != $version[2] || $prototype != $version[3])
+            {
+                $isValid = false;
+            }
+            else
+            {
+                $isValid = true;
+            }
+        }
+        
+        return $isValid;
+    }
+    
 
     public static function RandomList($list) {
         if ($list === null) {
