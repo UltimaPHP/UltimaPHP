@@ -30,6 +30,7 @@ class Account {
 
     /* Logged player variables */
     public $player = null;
+    
 
     /**
      * Looks for the account credentials in the database and define the base variables
@@ -202,6 +203,16 @@ class Account {
         } else {
             return $this->characters;
         }
+    }
+    
+    public function getVersionClient($runInLot = false)
+    {
+        // Update the variable as array
+        $result = UltimaPHP::$db->collection("account")->find(['clientVersion' => $this->clientVersion]);
+        
+        $clientVersion                  = explode(".", $result);
+        
+        return $clientVersion[0] . $clientVersion[1] . $clientVersion[2] . $clientVersion[3];
     }
 
     /**

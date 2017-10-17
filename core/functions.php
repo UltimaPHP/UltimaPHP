@@ -20,26 +20,26 @@ class Functions {
     
     public static function isValidClient($major, $minor, $revision, $prototype)
     {
-        $isValid =  false;
+        $isValidClient = FALSE;
         if($major === null || $minor === null || $revision === null || $prototype === null)
         {
-            return $isValid;
+            return $isValidClient;
         }
         
         $client_versions = explode(",", UltimaPHP::$conf['server']['client']);
+        
         foreach ($client_versions as $value) {
             $version = explode(".", $value);
-            if($major != $version[0] || $minor != $version[1] || $revision != $version[2] || $prototype != $version[3])
+            
+            if($major === $version[0] && $minor === $version[1] && $revision === $version[2] && $prototype === $version[3])
             {
-                $isValid = false;
+                echo "True\n\n";
+                $isValidClient = TRUE;
             }
-            else
-            {
-                $isValid = true;
-            }
+
         }
-        
-        return $isValid;
+        echo "isValid: ".$isValidClient .  "\n\n";
+        return $isValidClient;
     }
     
 
