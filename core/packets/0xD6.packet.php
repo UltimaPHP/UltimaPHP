@@ -6,6 +6,8 @@
 
 class packet_0xD6 extends Packets {
 
+    private $objects = [];
+
     /**
      * Defines the packet, the length and if there is a client send
      */
@@ -18,24 +20,36 @@ class packet_0xD6 extends Packets {
     }
 
     /**
-     * Handle the packet receive
+     * Handle the packet sending
+     * 
+     * D6
+     * 00 3D
+     * 00 01
+     * 00 00 00 01
+     * 00 00
+     * 00 00 00 01
+     * 
+     * 00 10 05 BD
+     * 00 1E
+     * 4F 00 77 00 6E 00 65 00 72 00 20 00 09 00 58 00 61 00 62 00 6C 00 61 00 75 00 09 00 20 00
+     * 
+     * 00 0F 88 E5
+     * 00 00
+     * 
+     * 00 00 00 00
+     *
      */
-    public function receive($data) {
+    public function send($data) {
         if (!$this->client) {
             return false;
         }
+    }
 
-        $targetData = [
-            'id'           => $data[0],
-            'size'         => hexdec($data[1]),
-            'senderSerial' => hexdec($data[2] . $data[3] . $data[4] . $data[5]),
-            'flags'        => hexdec($data[6]),
-            'objectSerial' => hexdec($data[7] . $data[8] . $data[9] . $data[10]),
-            'x'            => hexdec($data[11] . $data[12]),
-            'y'            => hexdec($data[13] . $data[14]),
-            'z'            => hexdec($data[15] . $data[16]),
-            'graphic'      => hexdec($data[17] . $data[18]),
-        ];
-        UltimaPHP::$socketClients[$this->client]['account']->player->targetAction($this->client, $targetData);
+    public function addObject($serial = null) {
+        if ($instance === null) {
+            return false;
+        }
+
+        $this->objects[] = $serial;
     }
 }

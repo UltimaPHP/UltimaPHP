@@ -169,4 +169,15 @@ class Object {
             }
         }
     }
+
+    public function showToolTip($client = null) {
+        if ($client === null) {
+            return false;
+        }
+
+        $packet = new packet_0xD6($client);
+        $packet->addObject($this);
+        return $packet->send();
+    }
+
 }

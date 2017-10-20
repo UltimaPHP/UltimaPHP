@@ -111,9 +111,9 @@ class Map {
     public static function readMaps() {
         for ($actualMap = 0; $actualMap < UltimaPHP::$conf["muls"]['maps']; $actualMap++) {
             /* Start reading the map files of actual map */
-            Functions::progressBar(0, 1, "Reading map{$actualMap}.mul file");
+            Functions::progressBar(0, 1, "Reading map{$actualMap}LegacyMUL.uop file");
 
-            $mapFile = UltimaPHP::$conf['muls']['location'] . "map{$actualMap}.mul";
+            $mapFile = UltimaPHP::$conf['muls']['location'] . "map{$actualMap}LegacyMUL.uop";
             $mapSize = explode(",", UltimaPHP::$conf["muls"]["map{$actualMap}"]);
 
             if (!is_file($mapFile)) {
@@ -153,7 +153,7 @@ class Map {
             self::$maps[$actualMap]['size']['x'] = (int) $mapSize[0] >> 3;
             self::$maps[$actualMap]['size']['y'] = (int) $mapSize[1] >> 3;
 
-            Functions::progressBar(1, 1, "Reading map{$actualMap}.mul file");
+            Functions::progressBar(1, 1, "Reading map{$actualMap}LegacyMUL.uop file");
 
             /* Start reading the staidx file of actual map */
             Functions::progressBar(0, 1, "Reading staidx{$actualMap}.mul file");
