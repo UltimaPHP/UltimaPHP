@@ -14,6 +14,5 @@ C:\UltimaPHP\tools\UltimaPHPGumpExporter\obj\x86\Debug\UltimaPHPExport.dll
 C:\UltimaPHP\tools\UltimaPHPGumpExporter\obj\x86\Debug\UltimaPHPExport.pdb
 C:\UltimaPHP\tools\UltimaPHPGumpExporter\bin\Debug\UltimaPHPExport.dll
 C:\UltimaPHP\tools\UltimaPHPGumpExporter\bin\Debug\UltimaPHPExport.pdb
-C:\UltimaPHP\tools\UltimaPHPGumpExporter\bin\Debug\GumpStudioCore.dll
-C:\UltimaPHP\tools\UltimaPHPGumpExporter\bin\Debug\Ultima.dll
-C:\UltimaPHP\tools\UltimaPHPGumpExporter\bin\Debug\UOFont.dll
+C:\UltimaPHP\tools\UltimaPHPGumpExporter\obj\x86\Debug\UltimaPHPExport.csproj.CoreCompileInputs.cache
+C:\UltimaPHP\tools\UltimaPHPGumpExporter\obj\x86\Debug\UltimaPHPExport.csproj.CopyComplete

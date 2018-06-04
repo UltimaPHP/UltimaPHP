@@ -23,7 +23,7 @@ class Gumps {
 
         $this->setType(1);
         $this->setNoClose(false);
-        $this->setNoDispoe(false);
+        $this->setNoDispose(false);
         $this->setNoMove(false);
         $this->setX(50);
         $this->setY(50);
@@ -91,7 +91,7 @@ class Gumps {
         return $this->noMove;
     }
 
-    public function setNoDispoe($noDispose) {
+    public function setNoDispose($noDispose) {
         $this->noDispose = $noDispose;
     }
 

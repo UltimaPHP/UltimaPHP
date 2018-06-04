@@ -123,7 +123,7 @@
                                                     GumpStudio.Elements.ImageElement element9 = element as GumpStudio.Elements.ImageElement;
                                                     if (element9 != null)
                                                     {
-                                                        writer.Write("\n\t\t$this->addGumpPic(" + element9.X + ", "+ element9.Y + ", "+ element9.GumpID + ", "+ element9.Hue + ");");
+                                                        writer.Write("\n\t\t$this->addGumpPic(" + element9.X + ", "+ element9.Y + ", "+ element9.GumpID + ", "+ element9.Hue.Index + ");");
                                                     }
                                                     else
                                                     {
@@ -141,14 +141,14 @@
                                                                 writer.Write(element7.X);
                                                                 writer.Write(", ");
                                                                 writer.Write(element7.Y);
+                                                                writer.Write(", ");
+                                                                writer.Write(element7.Hue.Index);
                                                                 writer.Write(", \"");
                                                                 if (element7.Text != null)
                                                                 {
                                                                     writer.Write(element7.Text.Replace("\"", "\\\""));
-                                                                }
-                                                                writer.Write("\", ");
-                                                                writer.Write(element7.Hue.ToString());
-                                                                writer.WriteLine(");");
+                                                                }                                                              
+                                                                writer.WriteLine("\");");
                                                             }
                                                             else
                                                             {
@@ -190,7 +190,7 @@
                                                                         writer.Write(", ");
                                                                         writer.Write(element3.Height);
                                                                         writer.Write(", ");
-                                                                        writer.Write(element3.Hue.ToString());
+                                                                        writer.Write(element3.Hue.Index);
                                                                         writer.Write(", ");
                                                                         writer.Write(element3.ID);
                                                                         writer.Write(", \"");
@@ -216,7 +216,7 @@
                                                                             writer.Write(", ");
                                                                             writer.Write(element5.GumpID);
                                                                             writer.Write(", ");
-                                                                            writer.Write(element5.Hue.ToString());
+                                                                            writer.Write(element5.Hue.Index);
                                                                             writer.WriteLine(");");
                                                                         }
                                                                         else
