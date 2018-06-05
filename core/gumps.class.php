@@ -182,6 +182,10 @@ class Gumps {
     public function addTilePicHue($x, $y, $item_id, $color) {
         $this->layout .= "{tilepichue $x $y $item_id $color}";
     }
+	
+	public function addTilePic($x, $y, $item_id) {
+        $this->layout .= "{tilepic $x $y $item_id}";
+    }
 
     public function addTextEntry($x, $y, $to_x, $to_y, $color, $id, $text) {
         $this->text[] = $text;
@@ -199,6 +203,13 @@ class Gumps {
         $textId       = count($this->text) - 1;
 
         $this->layout .= "{htmlgump $x $y $info_1 $info_2 $textId $info_4 $info_5}";
+    }
+	
+	public function addXmfHtmlGump($x, $y, $info_1, $info_2, $info_4, $info_5, $text) {
+        $this->text[] = $text;
+        $textId       = count($this->text) - 1;
+
+        $this->layout .= "{xmfhtmlgump $x $y $info_1 $info_2 $textId $info_4 $info_5 $info_6}";
     }
 
     public function addPage($page_id = 0) {

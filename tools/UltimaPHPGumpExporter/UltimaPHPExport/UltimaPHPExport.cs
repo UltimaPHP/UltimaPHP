@@ -68,12 +68,16 @@
                 writer.WriteLine("\t\t$this->setNoMove(" + noMove + ");");
 
                 int num = 0;
+                int pageIndex = 0;
                 if (0 < this.designer.Stacks.Count)
                 {
                     do
                     {
-                        
+                        if (pageIndex > 0)
+                            writer.Write("");
+
                         GumpStudio.Elements.GroupElement element12 = this.designer.Stacks[num] as GumpStudio.Elements.GroupElement;
+                        writer.Write("\n\t\t$this->addPage(" +num+ ");");
                         if (element12 != null)
                         {
                             ArrayList elementsRecursive = element12.GetElementsRecursive();
@@ -243,6 +247,7 @@
                         }
                         writer.WriteLine("");
                         num++;
+                        pageIndex++;
                     }
                     while (num < this.designer.Stacks.Count);
                 }
