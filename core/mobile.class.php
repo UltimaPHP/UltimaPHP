@@ -347,7 +347,7 @@ class Mobile {
         $this->updateMobile();
     }
 
-    public function goTo($position) {
+    public function goToPosition($position) {
         $viewRange = [
             'from' => ['x' => ($this->position['x'] - UltimaPHP::$conf['muls']['render_range']), 'y' => ($this->position['y'] - UltimaPHP::$conf['muls']['render_range'])],
             'to'   => ['x' => ($this->position['x'] + UltimaPHP::$conf['muls']['render_range']), 'y' => ($this->position['y'] + UltimaPHP::$conf['muls']['render_range'])],
@@ -420,7 +420,7 @@ class Mobile {
         if (strstr($message, "goto")) {
             $tmp = explode(",", str_replace("goto ", "", $message));
             $position = ['x' => $tmp[0], 'y' => $tmp[1], 'z' => (isset($tmp[2]) ? $tmp[2] : $this->position['z'])];
-            $this->goTo($position);
+            $this->goToPosition($position);
         }
     }
 }

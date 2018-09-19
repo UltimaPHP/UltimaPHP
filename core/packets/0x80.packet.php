@@ -31,9 +31,26 @@ class packet_0x80 extends Packets {
 			'lastLogin' => false,
 			'plevel' => 1,
 			'status' => 1,
+                        'clientVersion' => null,
 		];
 		UltimaPHP::$db->collection("accounts")->insertOne($obj);
-	}
+    }
+    
+    private function insertClientVersion($account=null)
+    {
+        $result = UltimaPHP::$db->collection("accounts")->find(['account' => $account])->toArray();
+
+        
+        if($result === null)
+        {
+            return false;
+        }               
+        
+        UltimaPHP::$db->collection("accounts")->updateOne(['account' => $account],['$set' => ['clientVersion' => UltimaPHP::$socketClients[$this->client]['version']]]);
+        
+        return true;
+        
+    }
 
     /**
      * Handle the packet receive
@@ -68,6 +85,7 @@ class packet_0x80 extends Packets {
 			}else{
 				UltimaPHP::$socketClients[$this->client]['account']->disconnect(3);					
 		}            
+        $this->insertClientVersion($account);
 
         return true;
     }

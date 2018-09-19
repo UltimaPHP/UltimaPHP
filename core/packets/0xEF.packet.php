@@ -25,13 +25,21 @@ class packet_0xEF extends Packets {
             return false;
         }
 
-        $seed      = hexdec(Functions::implodeByte($data, 1, 4));
-        $major     = hexdec(Functions::implodeByte($data, 5, 8));
-        $minor     = hexdec(Functions::implodeByte($data, 9, 12));
-        $revision  = hexdec(Functions::implodeByte($data, 13, 16));
-        $prototype = hexdec(Functions::implodeByte($data, 17, 20));
+        $seed      = (int) hexdec(Functions::implodeByte($data, 1, 4));
+        $major     = (int) hexdec(Functions::implodeByte($data, 5, 8));
+        $minor     = (int) hexdec(Functions::implodeByte($data, 9, 12));
+        $revision  = (int) hexdec(Functions::implodeByte($data, 13, 16));
+        $prototype = (int) hexdec(Functions::implodeByte($data, 17, 20));
+        
+        /* Check if client version is the sabe as the server default */
+        if (!Functions::isValidClient($major, $minor, $revision, $prototype)) {
+            UltimaPHP::log("Connection attempt blocked from ". UltimaPHP::$socketClients[$this->client]['ip'] . " due wrong client version ($major.$minor.$revision.$prototype)", UltimaPHP::LOG_WARNING);
+            socket_close(UltimaPHP::$socketClients[$this->client]['socket']);
+            unset(UltimaPHP::$socketClients[$this->client]);
+            return false;
+        }
 
-        UltimaPHP::$socketClients[$this->client]['version'] = array(
+        UltimaPHP::$socketClients[$this->client]['version'] = [
             'encrypted' => null,
             'seed'      => $seed,
             'major'     => $major,
@@ -40,7 +48,7 @@ class packet_0xEF extends Packets {
             'prototype' => $prototype,
             'key1'      => EncryptionDefs::VERSION[$major . $minor . $revision][0],
             'key2'      => EncryptionDefs::VERSION[$major . $minor . $revision][1],
-        );
+        ];
 
         return true;
     }

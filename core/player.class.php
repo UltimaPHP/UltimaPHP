@@ -63,6 +63,8 @@ class Player {
     public $damage_max;
     public $karma;
     public $fame;
+    public $kills;
+    public $deaths;
     public $title;
     public $skills = [];
 
@@ -116,6 +118,8 @@ class Player {
             $this->karma           = $result[0]['karma'];
             $this->fame            = $result[0]['fame'];
             $this->title           = $result[0]['title'];
+            $this->kills           = $result[0]['kills'];
+            $this->deaths           = $result[0]['deaths'];
             $this->warmode         = false;
 
             foreach ($result[0]['skills'] as $skill => $value) {
@@ -171,6 +175,7 @@ class Player {
         }
 
         $this->name = $newName;
+        UltimaPHP::$db->collection("players")->updateOne(['_id' => $this->mongoId], ['$set' => ['name' => $this->name]]);
 
         if (!$client) {
             return true;
@@ -401,6 +406,8 @@ class Player {
                     }
                 }
             }
+        } else {
+            $this->removeObjectFromView($serial);
         }
 
         $this->layers[LayersDefs::DRAGGING] = $instance->serial;
@@ -787,10 +794,18 @@ class Player {
                 $instance = Map::getBySerial($serial);
 
                 $tmpEquips .= str_pad($instance->serial, 8, "0", STR_PAD_LEFT);
-                $tmpEquips .= str_pad(dechex(($instance->color > 0 ? ($instance->graphic | 0x8000) : $instance->graphic)), 4, "0", STR_PAD_LEFT);
-                $tmpEquips .= str_pad(dechex($instance->layer), 2, "0", STR_PAD_LEFT);
-                if ($instance->color > 0) {
+
+                if (UltimaPHP::$conf['server']['client']['major'] >= 7 && UltimaPHP::$conf['server']['client']['minor'] >= 0 && UltimaPHP::$conf['server']['client']['revision'] >= 33) {
+                    $tmpEquips .= str_pad(dechex($instance->graphic), 4, "0", STR_PAD_LEFT);
+                    $tmpEquips .= str_pad(dechex($instance->layer), 2, "0", STR_PAD_LEFT);
                     $tmpEquips .= str_pad(dechex($instance->color), 4, "0", STR_PAD_LEFT);
+                } else if ($instance->color > 0) {
+                    $tmpEquips .= str_pad(dechex($instance->graphic | 0x8000), 4, "0", STR_PAD_LEFT);
+                    $tmpEquips .= str_pad(dechex($instance->layer), 2, "0", STR_PAD_LEFT);
+                    $tmpEquips .= str_pad(dechex($instance->color), 4, "0", STR_PAD_LEFT);
+                } else {
+                    $tmpEquips .= str_pad(dechex($instance->graphic), 4, "0", STR_PAD_LEFT);
+                    $tmpEquips .= str_pad(dechex($instance->layer), 2, "0", STR_PAD_LEFT);
                 }
             }
         }
@@ -870,7 +885,7 @@ class Player {
      * Packet sent to confirm player movement request
      *
      */
-    public function movePlayer($runInLot = false, $direction = false, $sequence = false, $running = false, $fastwalk_prevention = 0) {
+    public function movePlayer($runInLot = false, $direction = false, $sequence = false) {
         /**
          * Remove dirname(path)ection flags
          */
@@ -946,6 +961,37 @@ class Player {
         $this->lastMove = time();
 
         $packet = "22" . str_pad($sequence, 2, "0", STR_PAD_LEFT) . "01";
+        Sockets::out($this->client, $packet, false);
+
+        /* Tell server to update player location */
+        Map::updateChunk(null, $this->client);
+
+        /* Update player position on database */
+        UltimaPHP::$db->collection("players")->updateOne(['_id' => $this->mongoId], ['$set' => ['position' => $this->position]]);
+    }
+
+    /**
+     * Packet sent to confirm player movement request
+     *
+     */
+    public function newMovePlayer($runInLot = false, $newPosition = [], $direction = false, $running = false, $count = false) {
+        $tmpPosition = $this->position;
+
+        $tmpPosition['running'] = $running;
+
+        if ((int) $tmpPosition['facing'] != (int) $direction) {
+            $tmpPosition['facing'] = (int) $direction;
+        } else {
+            $tmpPosition['x'] = $newPosition['x'];
+            $tmpPosition['y'] = $newPosition['y'];
+            $tmpPosition['z'] = $newPosition['z'];
+        }
+
+        $this->position = $tmpPosition;
+        $this->lastMove = time();
+
+        $packet = "22" . str_pad($count, 2, "0", STR_PAD_LEFT) . "01";
+
         Sockets::out($this->client, $packet, false);
 
         /* Tell server to update player location */

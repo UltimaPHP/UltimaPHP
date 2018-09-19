@@ -1,0 +1,8447 @@
+{
+	"ServerRegions": {
+		"Facet": [
+			{
+				"region": [
+					{
+						"rect": [
+							{
+								"_x": "1330",
+								"_y": "1991",
+								"_width": "13",
+								"_height": "13"
+							},
+							{
+								"_x": "1494",
+								"_y": "3767",
+								"_width": "12",
+								"_height": "11"
+							},
+							{
+								"_x": "2694",
+								"_y": "685",
+								"_width": "15",
+								"_height": "16"
+							},
+							{
+								"_x": "1823",
+								"_y": "2943",
+								"_width": "11",
+								"_height": "11"
+							},
+							{
+								"_x": "761",
+								"_y": "741",
+								"_width": "19",
+								"_height": "21"
+							},
+							{
+								"_x": "638",
+								"_y": "2062",
+								"_width": "12",
+								"_height": "11"
+							},
+							{
+								"_x": "4459",
+								"_y": "1276",
+								"_width": "16",
+								"_height": "16"
+							},
+							{
+								"_x": "3554",
+								"_y": "2132",
+								"_width": "18",
+								"_height": "18"
+							}
+						],
+						"_type": "GuardedRegion",
+						"_priority": "50",
+						"_name": "Moongates"
+					},
+					{
+						"rect": [
+							{
+								"_x": "2396",
+								"_y": "197",
+								"_width": "11",
+								"_height": "23"
+							},
+							{
+								"_x": "5717",
+								"_y": "428",
+								"_width": "38",
+								"_height": "28"
+							},
+							{
+								"_x": "6085",
+								"_y": "3674",
+								"_width": "23",
+								"_height": "24"
+							},
+							{
+								"_x": "6063",
+								"_y": "3698",
+								"_width": "48",
+								"_height": "52"
+							}
+						],
+						"go": {
+							"_x": "6103",
+							"_y": "3724",
+							"_z": "25"
+						},
+						"_type": "GuardedRegion",
+						"_priority": "50",
+						"_name": "T2A Arena"
+					},
+					{
+						"rect": {
+							"_x": "6911",
+							"_y": "255",
+							"_width": "257",
+							"_height": "257"
+						},
+						"go": {
+							"_x": "6984",
+							"_y": "337",
+							"_z": "0"
+						},
+						"entrance": {
+							"_x": "535",
+							"_y": "995"
+						},
+						"music": {
+							"_name": "ElfCity"
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "The Heartwood"
+					},
+					{
+						"rect": {
+							"_x": "6144",
+							"_y": "0",
+							"_width": "255",
+							"_height": "255"
+						},
+						"go": {
+							"_x": "6174",
+							"_y": "23",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "762",
+							"_y": "1645"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Sanctuary"
+					},
+					{
+						"rect": {
+							"_x": "6240",
+							"_y": "850",
+							"_width": "75",
+							"_height": "70"
+						},
+						"go": {
+							"_x": "6308",
+							"_y": "892",
+							"_z": "-1"
+						},
+						"entrance": {
+							"_x": "1716",
+							"_y": "892"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "The Painted Caves"
+					},
+					{
+						"rect": {
+							"_x": "6400",
+							"_y": "0",
+							"_width": "221",
+							"_height": "255"
+						},
+						"go": {
+							"_x": "6474",
+							"_y": "188",
+							"_z": "0"
+						},
+						"entrance": {
+							"_x": "3784",
+							"_y": "1097",
+							"_z": "14"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "The Prism of Light"
+					},
+					{
+						"rect": {
+							"_x": "6440",
+							"_y": "820",
+							"_width": "160",
+							"_height": "150"
+						},
+						"go": {
+							"_x": "6478",
+							"_y": "863",
+							"_z": "11"
+						},
+						"entrance": {
+							"_x": "587",
+							"_y": "1641",
+							"_z": "-1"
+						},
+						"music": {
+							"_name": "MelisandesLair"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Blighted Grove"
+					},
+					{
+						"rect": {
+							"_x": "6191",
+							"_y": "311",
+							"_width": "370",
+							"_height": "360"
+						},
+						"go": {
+							"_x": "6222",
+							"_y": "335",
+							"_z": "60"
+						},
+						"entrance": {
+							"_x": "5574",
+							"_y": "3024",
+							"_z": "31"
+						},
+						"music": {
+							"_name": "ParoxysmusLair"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "The Palace of Paroxysmus"
+					},
+					{
+						"rect": {
+							"_x": "1302",
+							"_y": "2331",
+							"_width": "38",
+							"_height": "22"
+						},
+						"_priority": "50",
+						"_name": "Bravehorn's drinking pool"
+					},
+					{
+						"rect": {
+							"_x": "1595",
+							"_y": "550",
+							"_width": "120",
+							"_height": "120"
+						},
+						"_priority": "50",
+						"_name": "Huntsman's Forest"
+					},
+					{
+						"rect": [
+							{
+								"_x": "2200",
+								"_y": "1110",
+								"_width": "50",
+								"_height": "50"
+							},
+							{
+								"_x": "2200",
+								"_y": "1160",
+								"_width": "86",
+								"_height": "86"
+							}
+						],
+						"go": {
+							"_x": "2275",
+							"_y": "1210",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Cove"
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Cove"
+					},
+					{
+						"rect": [
+							{
+								"_x": "1416",
+								"_y": "1498",
+								"_width": "324",
+								"_height": "279",
+								"_zmin": "-10"
+							},
+							{
+								"_x": "1500",
+								"_y": "1408",
+								"_width": "46",
+								"_height": "90"
+							},
+							{
+								"_x": "1385",
+								"_y": "1538",
+								"_width": "31",
+								"_height": "239",
+								"_zmin": "-10"
+							},
+							{
+								"_x": "1416",
+								"_y": "1777",
+								"_width": "324",
+								"_height": "60"
+							},
+							{
+								"_x": "1385",
+								"_y": "1777",
+								"_width": "31",
+								"_height": "130"
+							},
+							{
+								"_x": "1093",
+								"_y": "1538",
+								"_width": "292",
+								"_height": "369"
+							}
+						],
+						"go": {
+							"_x": "1495",
+							"_y": "1629",
+							"_z": "10"
+						},
+						"music": {
+							"_name": "Britain1"
+						},
+						"zrange": {
+							"_min": "0"
+						},
+						"region": [
+							{
+								"rect": [
+									{
+										"_x": "1492",
+										"_y": "1602",
+										"_width": "8",
+										"_height": "19"
+									},
+									{
+										"_x": "1500",
+										"_y": "1610",
+										"_width": "8",
+										"_height": "16"
+									},
+									{
+										"_x": "1576",
+										"_y": "1584",
+										"_width": "24",
+										"_height": "16"
+									},
+									{
+										"_x": "1456",
+										"_y": "1512",
+										"_width": "16",
+										"_height": "16"
+									},
+									{
+										"_x": "1472",
+										"_y": "1512",
+										"_width": "8",
+										"_height": "8"
+									},
+									{
+										"_x": "1486",
+										"_y": "1684",
+										"_width": "8",
+										"_height": "8"
+									},
+									{
+										"_x": "1494",
+										"_y": "1676",
+										"_width": "8",
+										"_height": "24"
+									},
+									{
+										"_x": "1424",
+										"_y": "1712",
+										"_width": "8",
+										"_height": "24"
+									},
+									{
+										"_x": "1432",
+										"_y": "1712",
+										"_width": "8",
+										"_height": "12"
+									},
+									{
+										"_x": "1608",
+										"_y": "1584",
+										"_width": "24",
+										"_height": "8"
+									},
+									{
+										"_x": "1616",
+										"_y": "1576",
+										"_width": "8",
+										"_height": "8"
+									},
+									{
+										"_x": "1544",
+										"_y": "1760",
+										"_width": "16",
+										"_height": "16"
+									},
+									{
+										"_x": "1560",
+										"_y": "1760",
+										"_width": "8",
+										"_height": "8"
+									}
+								],
+								"zrange": {
+									"_min": "0"
+								},
+								"logoutDelay": {
+									"_active": "false"
+								}
+							},
+							{
+								"rect": {
+									"_x": "1120",
+									"_y": "1776",
+									"_width": "32",
+									"_height": "32"
+								},
+								"go": {
+									"_x": "1135",
+									"_y": "1791",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "413",
+										"_type": "FarmableWheat",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "8"
+									}
+								},
+								"_name": "A Wheatfield in Britain 1"
+							},
+							{
+								"rect": {
+									"_x": "1184",
+									"_y": "1808",
+									"_width": "32",
+									"_height": "32"
+								},
+								"go": {
+									"_x": "1199",
+									"_y": "1823",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "414",
+										"_type": "FarmableWheat",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "8"
+									}
+								},
+								"_name": "A Wheatfield in Britain 2"
+							},
+							{
+								"rect": {
+									"_x": "1216",
+									"_y": "1872",
+									"_width": "32",
+									"_height": "32"
+								},
+								"go": {
+									"_x": "1231",
+									"_y": "1887",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "415",
+										"_type": "FarmableWheat",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "8"
+									}
+								},
+								"_name": "A Wheatfield in Britain 3"
+							},
+							{
+								"rect": {
+									"_x": "1208",
+									"_y": "1712",
+									"_width": "16",
+									"_height": "24"
+								},
+								"go": {
+									"_x": "1215",
+									"_y": "1723",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "416",
+										"_type": "FarmableCarrot",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "8"
+									}
+								},
+								"_name": "A Carrot Field in Britain 1"
+							},
+							{
+								"rect": {
+									"_x": "1224",
+									"_y": "1712",
+									"_width": "16",
+									"_height": "24"
+								},
+								"go": {
+									"_x": "1231",
+									"_y": "1723",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "417",
+										"_type": "FarmableOnion",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "8"
+									}
+								},
+								"_name": "An Onion Field in Britain 1"
+							},
+							{
+								"rect": {
+									"_x": "1176",
+									"_y": "1672",
+									"_width": "16",
+									"_height": "23"
+								},
+								"go": {
+									"_x": "1183",
+									"_y": "1683",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "418",
+										"_type": "FarmableCabbage",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "8"
+									}
+								},
+								"_name": "A Cabbage Field in Britain 1"
+							},
+							{
+								"rect": {
+									"_x": "1192",
+									"_y": "1672",
+									"_width": "16",
+									"_height": "24"
+								},
+								"go": {
+									"_x": "1199",
+									"_y": "1683",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "419",
+										"_type": "FarmableTurnip",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "8"
+									}
+								},
+								"_name": "A Turnip Field in Britain 1"
+							},
+							{
+								"rect": {
+									"_x": "1104",
+									"_y": "1608",
+									"_width": "32",
+									"_height": "32"
+								},
+								"go": {
+									"_x": "1120",
+									"_y": "1624",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "420",
+										"_type": "FarmableWheat",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "8"
+									}
+								},
+								"_name": "A Wheatfield in Britain 4"
+							},
+							{
+								"rect": {
+									"_x": "1136",
+									"_y": "1560",
+									"_width": "32",
+									"_height": "32"
+								},
+								"go": {
+									"_x": "1152",
+									"_y": "1576",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "421",
+										"_type": "FarmableWheat",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "8"
+									}
+								},
+								"_name": "A Wheatfield in Britain 5"
+							},
+							{
+								"rect": {
+									"_x": "1208",
+									"_y": "1592",
+									"_width": "16",
+									"_height": "24"
+								},
+								"go": {
+									"_x": "1216",
+									"_y": "1604",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "422",
+										"_type": "FarmableTurnip",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "6"
+									}
+								},
+								"_name": "A Turnip Field in Britain 2"
+							},
+							{
+								"rect": {
+									"_x": "1224",
+									"_y": "1592",
+									"_width": "16",
+									"_height": "24"
+								},
+								"go": {
+									"_x": "1232",
+									"_y": "1604",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "423",
+										"_type": "FarmableCarrot",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "6"
+									}
+								},
+								"_name": "A Carrot Field in Britain 2"
+							}
+						],
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Britain"
+					},
+					{
+						"rect": {
+							"_x": "1333",
+							"_y": "1441",
+							"_width": "84",
+							"_height": "82"
+						},
+						"go": {
+							"_x": "1384",
+							"_y": "1492",
+							"_z": "10"
+						},
+						"_type": "NoHousingRegion",
+						"_priority": "50",
+						"_name": "Britain Graveyard"
+					},
+					{
+						"rect": [
+							{
+								"_x": "1111",
+								"_y": "3567",
+								"_width": "33",
+								"_height": "21"
+							},
+							{
+								"_x": "1078",
+								"_y": "3588",
+								"_width": "124",
+								"_height": "121"
+							},
+							{
+								"_x": "1224",
+								"_y": "3592",
+								"_width": "309",
+								"_height": "473"
+							}
+						],
+						"go": {
+							"_x": "1383",
+							"_y": "3815",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Jhelom"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "1303",
+									"_y": "3670",
+									"_width": "189",
+									"_height": "225"
+								},
+								{
+									"_x": "1338",
+									"_y": "3895",
+									"_width": "74",
+									"_height": "28"
+								},
+								{
+									"_x": "1383",
+									"_y": "3951",
+									"_width": "109",
+									"_height": "94"
+								}
+							],
+							"go": {
+								"_x": "1383",
+								"_y": "3815",
+								"_z": "0"
+							},
+							"music": {
+								"_name": "Jhelom"
+							},
+							"zrange": {
+								"_min": "-20"
+							},
+							"region": {
+								"rect": [
+									{
+										"_x": "1352",
+										"_y": "3800",
+										"_width": "16",
+										"_height": "32"
+									},
+									{
+										"_x": "1368",
+										"_y": "3808",
+										"_width": "8",
+										"_height": "16"
+									},
+									{
+										"_x": "1432",
+										"_y": "3768",
+										"_width": "32",
+										"_height": "8"
+									},
+									{
+										"_x": "1440",
+										"_y": "3776",
+										"_width": "24",
+										"_height": "8"
+									}
+								],
+								"zrange": {
+									"_min": "-20"
+								},
+								"logoutDelay": {
+									"_active": "false"
+								}
+							},
+							"_type": "TownRegion",
+							"_name": "Jhelom"
+						},
+						"_type": "NoHousingRegion",
+						"_priority": "50",
+						"_name": "Jhelom Islands"
+					},
+					{
+						"rect": [
+							{
+								"_x": "2411",
+								"_y": "366",
+								"_width": "135",
+								"_height": "241"
+							},
+							{
+								"_x": "2548",
+								"_y": "495",
+								"_width": "72",
+								"_height": "55"
+							},
+							{
+								"_x": "2564",
+								"_y": "585",
+								"_width": "3",
+								"_height": "42"
+							},
+							{
+								"_x": "2567",
+								"_y": "585",
+								"_width": "61",
+								"_height": "61"
+							},
+							{
+								"_x": "2499",
+								"_y": "627",
+								"_width": "68",
+								"_height": "63"
+							}
+						],
+						"go": {
+							"_x": "2466",
+							"_y": "544",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Minoc"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "2457",
+									"_y": "397",
+									"_width": "40",
+									"_height": "8"
+								},
+								{
+									"_x": "2465",
+									"_y": "405",
+									"_width": "8",
+									"_height": "8"
+								},
+								{
+									"_x": "2481",
+									"_y": "405",
+									"_width": "8",
+									"_height": "8"
+								}
+							],
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Minoc"
+					},
+					{
+						"rect": [
+							{
+								"_x": "3587",
+								"_y": "2456",
+								"_width": "119",
+								"_height": "99"
+							},
+							{
+								"_x": "3706",
+								"_y": "2460",
+								"_width": "2",
+								"_height": "95"
+							},
+							{
+								"_x": "3587",
+								"_y": "2555",
+								"_width": "106",
+								"_height": "73"
+							},
+							{
+								"_x": "3590",
+								"_y": "2628",
+								"_width": "103",
+								"_height": "58"
+							},
+							{
+								"_x": "3693",
+								"_y": "2555",
+								"_width": "61",
+								"_height": "144"
+							},
+							{
+								"_x": "3754",
+								"_y": "2558",
+								"_width": "7",
+								"_height": "141"
+							},
+							{
+								"_x": "3761",
+								"_y": "2555",
+								"_width": "7",
+								"_height": "144",
+								"_zmax": "50"
+							},
+							{
+								"_x": "3695",
+								"_y": "2699",
+								"_width": "66",
+								"_height": "13"
+							}
+						],
+						"go": {
+							"_x": "3650",
+							"_y": "2519",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Ocllo"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "3664",
+									"_y": "2608",
+									"_width": "16",
+									"_height": "16"
+								},
+								{
+									"_x": "3664",
+									"_y": "2640",
+									"_width": "8",
+									"_height": "16"
+								},
+								{
+									"_x": "3672",
+									"_y": "2648",
+									"_width": "8",
+									"_height": "8"
+								}
+							],
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Ocllo"
+					},
+					{
+						"rect": [
+							{
+								"_x": "1856",
+								"_y": "2636",
+								"_width": "75",
+								"_height": "28"
+							},
+							{
+								"_x": "1816",
+								"_y": "2664",
+								"_width": "283",
+								"_height": "231"
+							},
+							{
+								"_x": "2099",
+								"_y": "2782",
+								"_width": "18",
+								"_height": "25"
+							},
+							{
+								"_x": "1970",
+								"_y": "2895",
+								"_width": "47",
+								"_height": "32"
+							},
+							{
+								"_x": "1796",
+								"_y": "2696",
+								"_width": "20",
+								"_height": "67",
+								"_zmin": "0"
+							},
+							{
+								"_x": "1800",
+								"_y": "2796",
+								"_width": "16",
+								"_height": "52",
+								"_zmin": "0"
+							}
+						],
+						"go": {
+							"_x": "1867",
+							"_y": "2780",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Trinsic"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "1834",
+									"_y": "2728",
+									"_width": "22",
+									"_height": "16"
+								},
+								{
+									"_x": "2024",
+									"_y": "2784",
+									"_width": "16",
+									"_height": "20"
+								},
+								{
+									"_x": "2026",
+									"_y": "2804",
+									"_width": "14",
+									"_height": "2"
+								},
+								{
+									"_x": "2024",
+									"_y": "2806",
+									"_width": "16",
+									"_height": "7"
+								},
+								{
+									"_x": "1923",
+									"_y": "2786",
+									"_width": "12",
+									"_height": "22"
+								},
+								{
+									"_x": "1935",
+									"_y": "2786",
+									"_width": "7",
+									"_height": "14"
+								}
+							],
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Trinsic"
+					},
+					{
+						"rect": [
+							{
+								"_x": "2893",
+								"_y": "598",
+								"_width": "121",
+								"_height": "50"
+							},
+							{
+								"_x": "2816",
+								"_y": "648",
+								"_width": "249",
+								"_height": "365"
+							},
+							{
+								"_x": "2734",
+								"_y": "944",
+								"_width": "82",
+								"_height": "4"
+							},
+							{
+								"_x": "2728",
+								"_y": "948",
+								"_width": "88",
+								"_height": "53"
+							}
+						],
+						"go": {
+							"_x": "2899",
+							"_y": "676",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Vesper"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "2952",
+									"_y": "864",
+									"_width": "16",
+									"_height": "32"
+								},
+								{
+									"_x": "2968",
+									"_y": "872",
+									"_width": "8",
+									"_height": "16"
+								},
+								{
+									"_x": "2776",
+									"_y": "952",
+									"_width": "16",
+									"_height": "32"
+								},
+								{
+									"_x": "2768",
+									"_y": "960",
+									"_width": "8",
+									"_height": "16"
+								},
+								{
+									"_x": "2892",
+									"_y": "901",
+									"_width": "16",
+									"_height": "19"
+								},
+								{
+									"_x": "2908",
+									"_y": "904",
+									"_width": "8",
+									"_height": "8"
+								}
+							],
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Vesper"
+					},
+					{
+						"rect": [
+							{
+								"_x": "92",
+								"_y": "656",
+								"_width": "349",
+								"_height": "225"
+							},
+							{
+								"_x": "441",
+								"_y": "746",
+								"_width": "216",
+								"_height": "135"
+							},
+							{
+								"_x": "258",
+								"_y": "881",
+								"_width": "399",
+								"_height": "380"
+							},
+							{
+								"_x": "657",
+								"_y": "922",
+								"_width": "42",
+								"_height": "307"
+							},
+							{
+								"_x": "657",
+								"_y": "806",
+								"_width": "17",
+								"_height": "28"
+							},
+							{
+								"_x": "718",
+								"_y": "874",
+								"_width": "38",
+								"_height": "22"
+							}
+						],
+						"go": {
+							"_x": "546",
+							"_y": "992",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Yew"
+						},
+						"zrange": {
+							"_min": "0",
+							"_max": "39"
+						},
+						"region": [
+							{
+								"rect": {
+									"_x": "600",
+									"_y": "808",
+									"_width": "24",
+									"_height": "24"
+								},
+								"zrange": {
+									"_min": "0",
+									"_max": "39"
+								},
+								"logoutDelay": {
+									"_active": "false"
+								}
+							},
+							{
+								"rune": {
+									"_name": "A Field of Sheep in Yew"
+								},
+								"rect": {
+									"_x": "664",
+									"_y": "928",
+									"_width": "22",
+									"_height": "22"
+								},
+								"go": {
+									"_x": "675",
+									"_y": "939",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "301",
+										"_type": "Sheep",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "10"
+									}
+								},
+								"_name": "A Field of Sheep in Yew 1"
+							},
+							{
+								"rune": {
+									"_name": "A Field of Sheep in Yew"
+								},
+								"rect": {
+									"_x": "664",
+									"_y": "1168",
+									"_width": "22",
+									"_height": "22"
+								},
+								"go": {
+									"_x": "675",
+									"_y": "1179",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "302",
+										"_type": "Sheep",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "10"
+									}
+								},
+								"_name": "A Field of Sheep in Yew 2"
+							},
+							{
+								"rune": {
+									"_name": "A Farm in Yew"
+								},
+								"rect": {
+									"_x": "560",
+									"_y": "1088",
+									"_width": "22",
+									"_height": "22"
+								},
+								"go": {
+									"_x": "571",
+									"_y": "1099",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "303",
+										"_type": "Sheep",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "10"
+									}
+								},
+								"_name": "A Farm in Yew"
+							},
+							{
+								"rune": {
+									"_name": "A Wheatfield in Yew"
+								},
+								"rect": {
+									"_x": "560",
+									"_y": "1232",
+									"_width": "16",
+									"_height": "16"
+								},
+								"go": {
+									"_x": "567",
+									"_y": "1239",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "304",
+										"_type": "FarmableWheat",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "5"
+									}
+								},
+								"_name": "A Wheatfield in Yew 1"
+							},
+							{
+								"rune": {
+									"_name": "A Wheatfield in Yew"
+								},
+								"rect": {
+									"_x": "368",
+									"_y": "1176",
+									"_width": "14",
+									"_height": "32"
+								},
+								"go": {
+									"_x": "375",
+									"_y": "1191",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "305",
+										"_type": "FarmableWheat",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "6"
+									}
+								},
+								"_name": "A Wheatfield in Yew 2"
+							}
+						],
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Yew"
+					},
+					{
+						"rect": [
+							{
+								"_x": "5294",
+								"_y": "19",
+								"_width": "72",
+								"_height": "120"
+							},
+							{
+								"_x": "5132",
+								"_y": "58",
+								"_width": "81",
+								"_height": "68"
+							},
+							{
+								"_x": "5197",
+								"_y": "126",
+								"_width": "55",
+								"_height": "78"
+							},
+							{
+								"_x": "5132",
+								"_y": "3",
+								"_width": "70",
+								"_height": "55"
+							},
+							{
+								"_x": "5252",
+								"_y": "112",
+								"_width": "42",
+								"_height": "58"
+							},
+							{
+								"_x": "5213",
+								"_y": "98",
+								"_width": "39",
+								"_height": "28"
+							},
+							{
+								"_x": "5279",
+								"_y": "57",
+								"_width": "15",
+								"_height": "55"
+							},
+							{
+								"_x": "5252",
+								"_y": "170",
+								"_width": "32",
+								"_height": "8"
+							},
+							{
+								"_x": "5286",
+								"_y": "25",
+								"_width": "8",
+								"_height": "32"
+							},
+							{
+								"_x": "5252",
+								"_y": "178",
+								"_width": "20",
+								"_height": "5"
+							},
+							{
+								"_x": "5252",
+								"_y": "183",
+								"_width": "10",
+								"_height": "10"
+							}
+						],
+						"go": {
+							"_x": "5223",
+							"_y": "190",
+							"_z": "5"
+						},
+						"music": {
+							"_name": "Wind"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "5159",
+									"_y": "15",
+									"_width": "25",
+									"_height": "9"
+								},
+								{
+									"_x": "5159",
+									"_y": "24",
+									"_width": "9",
+									"_height": "16"
+								},
+								{
+									"_x": "5175",
+									"_y": "24",
+									"_width": "9",
+									"_height": "8"
+								},
+								{
+									"_x": "5212",
+									"_y": "159",
+									"_width": "9",
+									"_height": "24"
+								},
+								{
+									"_x": "5221",
+									"_y": "171",
+									"_width": "7",
+									"_height": "12"
+								},
+								{
+									"_x": "5206",
+									"_y": "164",
+									"_width": "6",
+									"_height": "15"
+								},
+								{
+									"_x": "5303",
+									"_y": "28",
+									"_width": "16",
+									"_height": "14"
+								}
+							],
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Wind"
+					},
+					{
+						"rect": {
+							"_x": "2868",
+							"_y": "3324",
+							"_width": "205",
+							"_height": "195"
+						},
+						"go": {
+							"_x": "3010",
+							"_y": "3371",
+							"_z": "15"
+						},
+						"music": {
+							"_name": "Serpents"
+						},
+						"zrange": {
+							"_min": "0"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "2960",
+									"_y": "3400",
+									"_width": "16",
+									"_height": "16"
+								},
+								{
+									"_x": "2968",
+									"_y": "3416",
+									"_width": "8",
+									"_height": "16"
+								},
+								{
+									"_x": "3008",
+									"_y": "3450",
+									"_width": "14",
+									"_height": "14"
+								}
+							],
+							"zrange": {
+								"_min": "0"
+							},
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Serpent's Hold"
+					},
+					{
+						"rect": {
+							"_x": "538",
+							"_y": "2107",
+							"_width": "150",
+							"_height": "190"
+						},
+						"go": {
+							"_x": "632",
+							"_y": "2233",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Skarabra"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "600",
+									"_y": "2232",
+									"_width": "16",
+									"_height": "24"
+								},
+								{
+									"_x": "592",
+									"_y": "2240",
+									"_width": "8",
+									"_height": "16"
+								},
+								{
+									"_x": "616",
+									"_y": "2240",
+									"_width": "8",
+									"_height": "16"
+								},
+								{
+									"_x": "552",
+									"_y": "2168",
+									"_width": "16",
+									"_height": "24"
+								},
+								{
+									"_x": "568",
+									"_y": "2168",
+									"_width": "8",
+									"_height": "8"
+								}
+							],
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Skara Brae"
+					},
+					{
+						"rect": {
+							"_x": "3475",
+							"_y": "1000",
+							"_width": "360",
+							"_height": "435"
+						},
+						"go": {
+							"_x": "3732",
+							"_y": "1279",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Nujelm"
+						},
+						"zrange": {
+							"_min": "0"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "3736",
+									"_y": "1184",
+									"_width": "16",
+									"_height": "23"
+								},
+								{
+									"_x": "3728",
+									"_y": "1192",
+									"_width": "8",
+									"_height": "15"
+								},
+								{
+									"_x": "3728",
+									"_y": "1288",
+									"_width": "23",
+									"_height": "15"
+								},
+								{
+									"_x": "3728",
+									"_y": "1303",
+									"_width": "16",
+									"_height": "9"
+								},
+								{
+									"_x": "3728",
+									"_y": "1312",
+									"_width": "12",
+									"_height": "8"
+								},
+								{
+									"_x": "3728",
+									"_y": "1320",
+									"_width": "16",
+									"_height": "23"
+								},
+								{
+									"_x": "3744",
+									"_y": "1328",
+									"_width": "7",
+									"_height": "15"
+								},
+								{
+									"_x": "3760",
+									"_y": "1216",
+									"_width": "12",
+									"_height": "24"
+								},
+								{
+									"_x": "3772",
+									"_y": "1220",
+									"_width": "4",
+									"_height": "16"
+								},
+								{
+									"_x": "3776",
+									"_y": "1224",
+									"_width": "8",
+									"_height": "8"
+								},
+								{
+									"_x": "3728",
+									"_y": "1248",
+									"_width": "16",
+									"_height": "24"
+								},
+								{
+									"_x": "3744",
+									"_y": "1264",
+									"_width": "8",
+									"_height": "8"
+								},
+								{
+									"_x": "3744",
+									"_y": "1248",
+									"_width": "8",
+									"_height": "8"
+								}
+							],
+							"zrange": {
+								"_min": "0"
+							},
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Nujel'm"
+					},
+					{
+						"rect": [
+							{
+								"_x": "4535",
+								"_y": "844",
+								"_width": "20",
+								"_height": "3"
+							},
+							{
+								"_x": "4530",
+								"_y": "847",
+								"_width": "31",
+								"_height": "61"
+							},
+							{
+								"_x": "4521",
+								"_y": "914",
+								"_width": "56",
+								"_height": "49"
+							},
+							{
+								"_x": "4278",
+								"_y": "915",
+								"_width": "54",
+								"_height": "19"
+							},
+							{
+								"_x": "4283",
+								"_y": "944",
+								"_width": "53",
+								"_height": "73"
+							},
+							{
+								"_x": "4377",
+								"_y": "1015",
+								"_width": "59",
+								"_height": "37",
+								"_zmin": "-10"
+							},
+							{
+								"_x": "4367",
+								"_y": "1050",
+								"_width": "142",
+								"_height": "145"
+							},
+							{
+								"_x": "4539",
+								"_y": "1036",
+								"_width": "27",
+								"_height": "18"
+							},
+							{
+								"_x": "4517",
+								"_y": "1053",
+								"_width": "23",
+								"_height": "22"
+							},
+							{
+								"_x": "4389",
+								"_y": "1198",
+								"_width": "47",
+								"_height": "39"
+							},
+							{
+								"_x": "4466",
+								"_y": "1211",
+								"_width": "32",
+								"_height": "25"
+							},
+							{
+								"_x": "4700",
+								"_y": "1108",
+								"_width": "17",
+								"_height": "18"
+							},
+							{
+								"_x": "4656",
+								"_y": "1127",
+								"_width": "26",
+								"_height": "13"
+							},
+							{
+								"_x": "4678",
+								"_y": "1162",
+								"_width": "25",
+								"_height": "25"
+							},
+							{
+								"_x": "4613",
+								"_y": "1196",
+								"_width": "23",
+								"_height": "22"
+							},
+							{
+								"_x": "4646",
+								"_y": "1212",
+								"_width": "14",
+								"_height": "17"
+							},
+							{
+								"_x": "4677",
+								"_y": "1214",
+								"_width": "26",
+								"_height": "22"
+							},
+							{
+								"_x": "4622",
+								"_y": "1316",
+								"_width": "22",
+								"_height": "24"
+							},
+							{
+								"_x": "4487",
+								"_y": "1353",
+								"_width": "59",
+								"_height": "21"
+							},
+							{
+								"_x": "4477",
+								"_y": "1374",
+								"_width": "69",
+								"_height": "35"
+							},
+							{
+								"_x": "4659",
+								"_y": "1387",
+								"_width": "40",
+								"_height": "40"
+							},
+							{
+								"_x": "4549",
+								"_y": "1482",
+								"_width": "29",
+								"_height": "27"
+							},
+							{
+								"_x": "4405",
+								"_y": "1451",
+								"_width": "23",
+								"_height": "23"
+							},
+							{
+								"_x": "4483",
+								"_y": "1468",
+								"_width": "21",
+								"_height": "13"
+							}
+						],
+						"go": {
+							"_x": "4442",
+							"_y": "1172",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Moonglow"
+						},
+						"zrange": {
+							"_min": "0"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "4384",
+									"_y": "1152",
+									"_width": "8",
+									"_height": "24"
+								},
+								{
+									"_x": "4392",
+									"_y": "1160",
+									"_width": "16",
+									"_height": "8"
+								},
+								{
+									"_x": "4400",
+									"_y": "1152",
+									"_width": "8",
+									"_height": "8"
+								},
+								{
+									"_x": "4480",
+									"_y": "1056",
+									"_width": "8",
+									"_height": "16"
+								},
+								{
+									"_x": "4488",
+									"_y": "1060",
+									"_width": "4",
+									"_height": "8"
+								},
+								{
+									"_x": "4476",
+									"_y": "1060",
+									"_width": "4",
+									"_height": "8"
+								}
+							],
+							"zrange": {
+								"_min": "0"
+							},
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Moonglow"
+					},
+					{
+						"rect": [
+							{
+								"_x": "3653",
+								"_y": "2046",
+								"_width": "27",
+								"_height": "48"
+							},
+							{
+								"_x": "3752",
+								"_y": "2046",
+								"_width": "52",
+								"_height": "48"
+							},
+							{
+								"_x": "3680",
+								"_y": "2045",
+								"_width": "72",
+								"_height": "49"
+							},
+							{
+								"_x": "3652",
+								"_y": "2094",
+								"_width": "160",
+								"_height": "180"
+							},
+							{
+								"_x": "3649",
+								"_y": "2256",
+								"_width": "54",
+								"_height": "47"
+							}
+						],
+						"go": {
+							"_x": "3714",
+							"_y": "2220",
+							"_z": "20"
+						},
+						"music": {
+							"_name": "Magincia"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "3680",
+									"_y": "2152",
+									"_width": "24",
+									"_height": "8"
+								},
+								{
+									"_x": "3720",
+									"_y": "2216",
+									"_width": "16",
+									"_height": "16"
+								}
+							],
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Magincia"
+					},
+					{
+						"rect": [
+							{
+								"_x": "2612",
+								"_y": "2057",
+								"_width": "164",
+								"_height": "210"
+							},
+							{
+								"_x": "2604",
+								"_y": "2065",
+								"_width": "8",
+								"_height": "189",
+								"_zmin": "0"
+							}
+						],
+						"go": {
+							"_x": "2706",
+							"_y": "2163",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Bucsden"
+						},
+						"guards": {
+							"_disabled": "true"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "2712",
+									"_y": "2080",
+									"_width": "16",
+									"_height": "16"
+								},
+								{
+									"_x": "2712",
+									"_y": "2096",
+									"_width": "8",
+									"_height": "8"
+								},
+								{
+									"_x": "2664",
+									"_y": "2232",
+									"_width": "24",
+									"_height": "8"
+								},
+								{
+									"_x": "2672",
+									"_y": "2240",
+									"_width": "16",
+									"_height": "8"
+								}
+							],
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Buccaneer's Den"
+					},
+					{
+						"rect": [
+							{
+								"_x": "5376",
+								"_y": "1793",
+								"_width": "201",
+								"_height": "255"
+							},
+							{
+								"_x": "5576",
+								"_y": "1791",
+								"_width": "57",
+								"_height": "257"
+							}
+						],
+						"go": {
+							"_x": "5456",
+							"_y": "1862",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "2499",
+							"_y": "916"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Covetous"
+					},
+					{
+						"rect": {
+							"_x": "5122",
+							"_y": "518",
+							"_width": "248",
+							"_height": "252"
+						},
+						"go": {
+							"_x": "5187",
+							"_y": "635",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "4111",
+							"_y": "429"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Deceit"
+					},
+					{
+						"rect": {
+							"_x": "5377",
+							"_y": "516",
+							"_width": "254",
+							"_height": "506"
+						},
+						"go": {
+							"_x": "5501",
+							"_y": "570",
+							"_z": "59"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "1296",
+							"_y": "1082"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Despise"
+					},
+					{
+						"rect": {
+							"_x": "5120",
+							"_y": "770",
+							"_width": "251",
+							"_height": "258"
+						},
+						"go": {
+							"_x": "5243",
+							"_y": "1004",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "1176",
+							"_y": "2635"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Destard"
+					},
+					{
+						"rect": {
+							"_x": "5898",
+							"_y": "2",
+							"_width": "238",
+							"_height": "244"
+						},
+						"go": {
+							"_x": "5905",
+							"_y": "22",
+							"_z": "44"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "4722",
+							"_y": "3814"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Hythloth"
+					},
+					{
+						"rect": {
+							"_x": "5381",
+							"_y": "1284",
+							"_width": "247",
+							"_height": "225"
+						},
+						"go": {
+							"_x": "5571",
+							"_y": "1302",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "5882",
+							"_y": "3819"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Khaldun"
+					},
+					{
+						"rect": {
+							"_x": "5271",
+							"_y": "1159",
+							"_width": "41",
+							"_height": "33"
+						},
+						"go": {
+							"_x": "5275",
+							"_y": "1163",
+							"_z": "0"
+						},
+						"_type": "Jail",
+						"_priority": "50",
+						"_name": "Jail"
+					},
+					{
+						"rect": {
+							"_x": "5376",
+							"_y": "512",
+							"_width": "767",
+							"_height": "767"
+						},
+						"go": {
+							"_x": "5445",
+							"_y": "1153",
+							"_z": "0"
+						},
+						"_type": "GreenAcres",
+						"_priority": "1",
+						"_name": "Green Acres"
+					},
+					{
+						"rect": [
+							{
+								"_x": "5377",
+								"_y": "2",
+								"_width": "257",
+								"_height": "260"
+							},
+							{
+								"_x": "5635",
+								"_y": "2",
+								"_width": "260",
+								"_height": "124"
+							}
+						],
+						"go": {
+							"_x": "5395",
+							"_y": "126",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "512",
+							"_y": "1559"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Shame"
+					},
+					{
+						"rect": {
+							"_x": "5633",
+							"_y": "511",
+							"_width": "253",
+							"_height": "510"
+						},
+						"go": {
+							"_x": "5825",
+							"_y": "599",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "2042",
+							"_y": "226"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Wrong"
+					},
+					{
+						"rect": [
+							{
+								"_x": "2373",
+								"_y": "900",
+								"_width": "22",
+								"_height": "28"
+							},
+							{
+								"_x": "2395",
+								"_y": "903",
+								"_width": "14",
+								"_height": "16"
+							},
+							{
+								"_x": "2373",
+								"_y": "928",
+								"_width": "10",
+								"_height": "9"
+							},
+							{
+								"_x": "2359",
+								"_y": "927",
+								"_width": "14",
+								"_height": "18"
+							}
+						],
+						"go": {
+							"_x": "2367",
+							"_y": "942",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Cave 1"
+					},
+					{
+						"rect": {
+							"_x": "1887",
+							"_y": "354",
+							"_width": "33",
+							"_height": "23"
+						},
+						"go": {
+							"_x": "1903",
+							"_y": "365",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Cave 2"
+					},
+					{
+						"rect": {
+							"_x": "1925",
+							"_y": "307",
+							"_width": "18",
+							"_height": "18"
+						},
+						"go": {
+							"_x": "1934",
+							"_y": "316",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Cave 3"
+					},
+					{
+						"rect": {
+							"_x": "2323",
+							"_y": "809",
+							"_width": "45",
+							"_height": "42"
+						},
+						"go": {
+							"_x": "2345",
+							"_y": "830",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Cave 4"
+					},
+					{
+						"rect": {
+							"_x": "1436",
+							"_y": "1215",
+							"_width": "29",
+							"_height": "37"
+						},
+						"go": {
+							"_x": "1443",
+							"_y": "1228",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Britain Mine 1"
+					},
+					{
+						"rect": {
+							"_x": "1611",
+							"_y": "1175",
+							"_width": "51",
+							"_height": "29"
+						},
+						"go": {
+							"_x": "1629",
+							"_y": "1189",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Britain Mine 2"
+					},
+					{
+						"rect": {
+							"_x": "2406",
+							"_y": "168",
+							"_width": "22",
+							"_height": "16"
+						},
+						"go": {
+							"_x": "2426",
+							"_y": "177",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Minoc Cave 1"
+					},
+					{
+						"rect": {
+							"_x": "2418",
+							"_y": "81",
+							"_width": "24",
+							"_height": "32"
+						},
+						"go": {
+							"_x": "2440",
+							"_y": "94",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Minoc Cave 2"
+					},
+					{
+						"rect": {
+							"_x": "2447",
+							"_y": "39",
+							"_width": "42",
+							"_height": "28"
+						},
+						"go": {
+							"_x": "2471",
+							"_y": "64",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Minoc Cave 3"
+					},
+					{
+						"rect": [
+							{
+								"_x": "2556",
+								"_y": "501",
+								"_width": "6",
+								"_height": "3"
+							},
+							{
+								"_x": "2556",
+								"_y": "474",
+								"_width": "26",
+								"_height": "27"
+							}
+						],
+						"go": {
+							"_x": "2558",
+							"_y": "499",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Minoc Mine"
+					},
+					{
+						"rect": {
+							"_x": "4594",
+							"_y": "3807",
+							"_width": "23",
+							"_height": "17"
+						},
+						"go": {
+							"_x": "4605",
+							"_y": "3815",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Avatar Isle Cave"
+					},
+					{
+						"rect": {
+							"_x": "4018",
+							"_y": "421",
+							"_width": "49",
+							"_height": "49"
+						},
+						"go": {
+							"_x": "4054",
+							"_y": "440",
+							"_z": "3"
+						},
+						"_priority": "50",
+						"_name": "Ice Isle Cave 1"
+					},
+					{
+						"rect": [
+							{
+								"_x": "4002",
+								"_y": "310",
+								"_width": "43",
+								"_height": "41"
+							},
+							{
+								"_x": "4005",
+								"_y": "298",
+								"_width": "22",
+								"_height": "12"
+							}
+						],
+						"go": {
+							"_x": "4030",
+							"_y": "325",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Ice Isle Cave 2"
+					},
+					{
+						"rect": {
+							"_x": "1973",
+							"_y": "251",
+							"_width": "21",
+							"_height": "23"
+						},
+						"go": {
+							"_x": "1984",
+							"_y": "262",
+							"_z": "8"
+						},
+						"_priority": "50",
+						"_name": "North Territory Cave"
+					},
+					{
+						"rect": {
+							"_x": "766",
+							"_y": "1683",
+							"_width": "12",
+							"_height": "14"
+						},
+						"go": {
+							"_x": "773",
+							"_y": "1684",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Yew Cave"
+					},
+					{
+						"rect": {
+							"_x": "1713",
+							"_y": "1055",
+							"_width": "40",
+							"_height": "25"
+						},
+						"go": {
+							"_x": "1723",
+							"_y": "1065",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "North Territory Mine 1"
+					},
+					{
+						"rect": {
+							"_x": "1604",
+							"_y": "958",
+							"_width": "46",
+							"_height": "51"
+						},
+						"go": {
+							"_x": "1638",
+							"_y": "974",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "North Territory Mine 2"
+					},
+					{
+						"rect": [
+							{
+								"_x": "2552",
+								"_y": "448",
+								"_width": "71",
+								"_height": "59"
+							},
+							{
+								"_x": "2547",
+								"_y": "380",
+								"_width": "43",
+								"_height": "68"
+							},
+							{
+								"_x": "2590",
+								"_y": "413",
+								"_width": "33",
+								"_height": "35"
+							}
+						],
+						"go": {
+							"_x": "2593",
+							"_y": "477",
+							"_z": "60"
+						},
+						"_priority": "50",
+						"_name": "Mt Kendall"
+					},
+					{
+						"rect": [
+							{
+								"_x": "2429",
+								"_y": "866",
+								"_width": "19",
+								"_height": "45"
+							},
+							{
+								"_x": "2448",
+								"_y": "879",
+								"_width": "27",
+								"_height": "28"
+							},
+							{
+								"_x": "2456",
+								"_y": "907",
+								"_width": "19",
+								"_height": "34"
+							}
+						],
+						"go": {
+							"_x": "2445",
+							"_y": "880",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Covetous Mine"
+					},
+					{
+						"rect": [
+							{
+								"_x": "5404",
+								"_y": "3099",
+								"_width": "77",
+								"_height": "68"
+							},
+							{
+								"_x": "5120",
+								"_y": "1530",
+								"_width": "254",
+								"_height": "258"
+							}
+						],
+						"go": {
+							"_x": "5451",
+							"_y": "3143",
+							"_z": "-60"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "5426",
+							"_y": "3120"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Terathan Keep"
+					},
+					{
+						"rect": {
+							"_x": "5635",
+							"_y": "1285",
+							"_width": "245",
+							"_height": "235"
+						},
+						"go": {
+							"_x": "5760",
+							"_y": "2908",
+							"_z": "15"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "2922",
+							"_y": "3402"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Fire"
+					},
+					{
+						"rect": [
+							{
+								"_x": "5668",
+								"_y": "130",
+								"_width": "220",
+								"_height": "138"
+							},
+							{
+								"_x": "5800",
+								"_y": "319",
+								"_width": "63",
+								"_height": "65"
+							},
+							{
+								"_x": "5654",
+								"_y": "300",
+								"_width": "54",
+								"_height": "40"
+							}
+						],
+						"go": {
+							"_x": "5210",
+							"_y": "2322",
+							"_z": "30"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "1996",
+							"_y": "80"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Ice"
+					},
+					{
+						"rect": [
+							{
+								"_x": "5123",
+								"_y": "3942",
+								"_width": "192",
+								"_height": "122"
+							},
+							{
+								"_x": "5147",
+								"_y": "4064",
+								"_width": "125",
+								"_height": "20"
+							},
+							{
+								"_x": "5235",
+								"_y": "3930",
+								"_width": "80",
+								"_height": "12"
+							}
+						],
+						"go": {
+							"_x": "5228",
+							"_y": "3978",
+							"_z": "37"
+						},
+						"region": {
+							"rect": {
+								"_x": "5194",
+								"_y": "4053",
+								"_width": "10",
+								"_height": "20"
+							},
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Delucia"
+					},
+					{
+						"rect": [
+							{
+								"_x": "5639",
+								"_y": "3095",
+								"_width": "192",
+								"_height": "223"
+							},
+							{
+								"_x": "5831",
+								"_y": "3237",
+								"_width": "20",
+								"_height": "30"
+							}
+						],
+						"go": {
+							"_x": "5769",
+							"_y": "3176",
+							"_z": "0"
+						},
+						"region": {
+							"rect": {
+								"_x": "5757",
+								"_y": "3150",
+								"_width": "24",
+								"_height": "24"
+							},
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Papua"
+					},
+					{
+						"rect": {
+							"_x": "1939",
+							"_y": "215",
+							"_width": "134",
+							"_height": "137"
+						},
+						"go": {
+							"_x": "2043",
+							"_y": "236",
+							"_z": "13"
+						},
+						"music": {
+							"_name": "Mountn_a"
+						},
+						"_type": "NoHousingRegion",
+						"_priority": "50",
+						"_name": "Wrong Entrance"
+					},
+					{
+						"rect": {
+							"_x": "2433",
+							"_y": "846",
+							"_width": "128",
+							"_height": "128"
+						},
+						"go": {
+							"_x": "2499",
+							"_y": "918",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Vesper"
+						},
+						"_type": "NoHousingRegion",
+						"_priority": "50",
+						"_name": "Covetous Entrance"
+					},
+					{
+						"rect": {
+							"_x": "1289",
+							"_y": "1064",
+							"_width": "32",
+							"_height": "37"
+						},
+						"go": {
+							"_x": "1298",
+							"_y": "1081",
+							"_z": "0"
+						},
+						"_type": "NoHousingRegion",
+						"_priority": "50",
+						"_name": "Despise Entrance"
+					},
+					{
+						"rect": [
+							{
+								"_x": "1338",
+								"_y": "1060",
+								"_width": "51",
+								"_height": "62"
+							},
+							{
+								"_x": "1354",
+								"_y": "1122",
+								"_width": "42",
+								"_height": "121"
+							},
+							{
+								"_x": "1349",
+								"_y": "1122",
+								"_width": "5",
+								"_height": "102"
+							}
+						],
+						"go": {
+							"_x": "1380",
+							"_y": "1114",
+							"_z": "0"
+						},
+						"_type": "NoHousingRegion",
+						"_priority": "50",
+						"_name": "Despise Passage"
+					},
+					{
+						"rect": {
+							"_x": "5886",
+							"_y": "1281",
+							"_width": "257",
+							"_height": "254"
+						},
+						"go": {
+							"_x": "6032",
+							"_y": "1499",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "1492",
+							"_y": "1641"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Misc Dungeons"
+					},
+					{
+						"rect": [
+							{
+								"_x1": "5281",
+								"_y1": "1283",
+								"_x2": "5373",
+								"_y2": "1386"
+							},
+							{
+								"_x1": "5267",
+								"_y1": "1955",
+								"_x2": "5364",
+								"_y2": "2046"
+							},
+							{
+								"_x1": "5127",
+								"_y1": "1941",
+								"_x2": "5164",
+								"_y2": "2024"
+							}
+						],
+						"go": {
+							"_x": "5137",
+							"_y": "2015",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "1014",
+							"_y": "1434"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Orc Cave"
+					},
+					{
+						"rune": {
+							"_name": "A Cotton Field in Moonglow"
+						},
+						"rect": {
+							"_x": "4557",
+							"_y": "1471",
+							"_width": "20",
+							"_height": "10"
+						},
+						"go": {
+							"_x": "4567",
+							"_y": "1475",
+							"_z": "0"
+						},
+						"spawning": {
+							"object": {
+								"_id": "300",
+								"_type": "FarmableCotton",
+								"_minSpawnTime": "PT10S",
+								"_maxSpawnTime": "PT30S",
+								"_amount": "8"
+							}
+						},
+						"_priority": "50",
+						"_name": "A Cotton Field in Moonglow"
+					},
+					{
+						"rune": {
+							"_name": "A Wheatfield in Skara Brae"
+						},
+						"rect": {
+							"_x": "796",
+							"_y": "2152",
+							"_width": "36",
+							"_height": "24"
+						},
+						"go": {
+							"_x": "813",
+							"_y": "2163",
+							"_z": "0"
+						},
+						"spawning": {
+							"object": {
+								"_id": "306",
+								"_type": "FarmableWheat",
+								"_minSpawnTime": "PT10S",
+								"_maxSpawnTime": "PT30S",
+								"_amount": "6"
+							}
+						},
+						"_priority": "50",
+						"_name": "A Wheatfield in Skara Brae 1"
+					},
+					{
+						"rect": {
+							"_x": "816",
+							"_y": "2251",
+							"_width": "16",
+							"_height": "8"
+						},
+						"go": {
+							"_x": "823",
+							"_y": "2254",
+							"_z": "0"
+						},
+						"spawning": {
+							"object": {
+								"_id": "307",
+								"_type": "FarmableCarrot",
+								"_minSpawnTime": "PT10S",
+								"_maxSpawnTime": "PT30S",
+								"_amount": "6"
+							}
+						},
+						"_priority": "50",
+						"_name": "A Carrot Field in Skara Brae"
+					},
+					{
+						"rect": {
+							"_x": "816",
+							"_y": "2261",
+							"_width": "16",
+							"_height": "8"
+						},
+						"go": {
+							"_x": "823",
+							"_y": "2264",
+							"_z": "0"
+						},
+						"spawning": {
+							"object": {
+								"_id": "308",
+								"_type": "FarmableOnion",
+								"_minSpawnTime": "PT10S",
+								"_maxSpawnTime": "PT30S",
+								"_amount": "6"
+							}
+						},
+						"_priority": "50",
+						"_name": "An Onion Field in Skara Brae"
+					},
+					{
+						"rect": {
+							"_x": "816",
+							"_y": "2271",
+							"_width": "16",
+							"_height": "8"
+						},
+						"go": {
+							"_x": "823",
+							"_y": "2264",
+							"_z": "0"
+						},
+						"spawning": {
+							"object": {
+								"_id": "309",
+								"_type": "FarmableCabbage",
+								"_minSpawnTime": "PT10S",
+								"_maxSpawnTime": "PT30S",
+								"_amount": "6"
+							}
+						},
+						"_priority": "50",
+						"_name": "A Cabbage Field in Skara Brae 1"
+					},
+					{
+						"rect": {
+							"_x": "816",
+							"_y": "2281",
+							"_width": "16",
+							"_height": "8"
+						},
+						"go": {
+							"_x": "823",
+							"_y": "2274",
+							"_z": "0"
+						},
+						"spawning": {
+							"object": {
+								"_id": "310",
+								"_type": "FarmableCabbage",
+								"_minSpawnTime": "PT10S",
+								"_maxSpawnTime": "PT30S",
+								"_amount": "6"
+							}
+						},
+						"_priority": "50",
+						"_name": "A Cabbage Field in Skara Brae 2"
+					},
+					{
+						"rect": {
+							"_x": "835",
+							"_y": "2344",
+							"_width": "16",
+							"_height": "16"
+						},
+						"go": {
+							"_x": "843",
+							"_y": "2352",
+							"_z": "0"
+						},
+						"spawning": {
+							"object": {
+								"_id": "311",
+								"_type": "FarmableWheat",
+								"_minSpawnTime": "PT10S",
+								"_maxSpawnTime": "PT30S",
+								"_amount": "6"
+							}
+						},
+						"_priority": "50",
+						"_name": "A Wheatfield in Skara Brae 2"
+					},
+					{
+						"rect": {
+							"_x": "816",
+							"_y": "2344",
+							"_width": "16",
+							"_height": "24"
+						},
+						"go": {
+							"_x": "823",
+							"_y": "2355",
+							"_z": "0"
+						},
+						"spawning": {
+							"object": {
+								"_id": "312",
+								"_type": "FarmableCotton",
+								"_minSpawnTime": "PT10S",
+								"_maxSpawnTime": "PT30S",
+								"_amount": "6"
+							}
+						},
+						"_priority": "50",
+						"_name": "A Cotton Field in Skara Brae"
+					}
+				],
+				"_name": "Felucca"
+			},
+			{
+				"region": [
+					{
+						"rect": [
+							{
+								"_x": "1330",
+								"_y": "1991",
+								"_width": "13",
+								"_height": "13"
+							},
+							{
+								"_x": "1494",
+								"_y": "3767",
+								"_width": "12",
+								"_height": "11"
+							},
+							{
+								"_x": "2694",
+								"_y": "685",
+								"_width": "15",
+								"_height": "16"
+							},
+							{
+								"_x": "1823",
+								"_y": "2943",
+								"_width": "11",
+								"_height": "11"
+							},
+							{
+								"_x": "761",
+								"_y": "741",
+								"_width": "19",
+								"_height": "21"
+							},
+							{
+								"_x": "638",
+								"_y": "2062",
+								"_width": "12",
+								"_height": "11"
+							},
+							{
+								"_x": "4459",
+								"_y": "1276",
+								"_width": "16",
+								"_height": "16"
+							},
+							{
+								"_x": "3554",
+								"_y": "2132",
+								"_width": "18",
+								"_height": "18"
+							}
+						],
+						"_type": "GuardedRegion",
+						"_priority": "50",
+						"_name": "Moongates"
+					},
+					{
+						"rect": {
+							"_x": "6911",
+							"_y": "255",
+							"_width": "257",
+							"_height": "257"
+						},
+						"go": {
+							"_x": "6984",
+							"_y": "337",
+							"_z": "0"
+						},
+						"entrance": {
+							"_x": "535",
+							"_y": "995"
+						},
+						"music": {
+							"_name": "ElfCity"
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "The Heartwood"
+					},
+					{
+						"rect": {
+							"_x": "6144",
+							"_y": "0",
+							"_width": "255",
+							"_height": "255"
+						},
+						"go": {
+							"_x": "6174",
+							"_y": "23",
+							"_z": "0"
+						},
+						"entrance": {
+							"_x": "762",
+							"_y": "1645"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Sanctuary"
+					},
+					{
+						"rect": {
+							"_x": "6240",
+							"_y": "850",
+							"_width": "75",
+							"_height": "70"
+						},
+						"go": {
+							"_x": "6308",
+							"_y": "892",
+							"_z": "-1"
+						},
+						"entrance": {
+							"_x": "1716",
+							"_y": "892"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "The Painted Caves"
+					},
+					{
+						"rect": {
+							"_x": "6400",
+							"_y": "0",
+							"_width": "221",
+							"_height": "255"
+						},
+						"go": {
+							"_x": "6474",
+							"_y": "188",
+							"_z": "0"
+						},
+						"entrance": {
+							"_x": "3784",
+							"_y": "1097",
+							"_z": "14"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "The Prism of Light"
+					},
+					{
+						"rect": {
+							"_x": "6440",
+							"_y": "820",
+							"_width": "160",
+							"_height": "150"
+						},
+						"go": {
+							"_x": "6478",
+							"_y": "863",
+							"_z": "11"
+						},
+						"entrance": {
+							"_x": "587",
+							"_y": "1641",
+							"_z": "-1"
+						},
+						"music": {
+							"_name": "MelisandesLair"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Blighted Grove"
+					},
+					{
+						"rect": {
+							"_x": "6191",
+							"_y": "311",
+							"_width": "370",
+							"_height": "360"
+						},
+						"go": {
+							"_x": "6222",
+							"_y": "335",
+							"_z": "60"
+						},
+						"entrance": {
+							"_x": "5574",
+							"_y": "3024",
+							"_z": "31"
+						},
+						"music": {
+							"_name": "ParoxysmusLair"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "The Palace of Paroxysmus"
+					},
+					{
+						"rect": {
+							"_x": "1302",
+							"_y": "2331",
+							"_width": "38",
+							"_height": "22"
+						},
+						"_priority": "50",
+						"_name": "Bravehorn's drinking pool"
+					},
+					{
+						"rect": {
+							"_x": "1595",
+							"_y": "550",
+							"_width": "120",
+							"_height": "120"
+						},
+						"_priority": "50",
+						"_name": "Huntsman's Forest"
+					},
+					{
+						"rect": [
+							{
+								"_x": "2200",
+								"_y": "1110",
+								"_width": "50",
+								"_height": "50"
+							},
+							{
+								"_x": "2200",
+								"_y": "1160",
+								"_width": "86",
+								"_height": "86"
+							}
+						],
+						"go": {
+							"_x": "2275",
+							"_y": "1210",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Cove"
+						},
+						"zrange": {
+							"_min": "0"
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Cove"
+					},
+					{
+						"rect": [
+							{
+								"_x": "1416",
+								"_y": "1498",
+								"_width": "324",
+								"_height": "279",
+								"_zmin": "-10"
+							},
+							{
+								"_x": "1500",
+								"_y": "1408",
+								"_width": "46",
+								"_height": "90"
+							},
+							{
+								"_x": "1385",
+								"_y": "1538",
+								"_width": "31",
+								"_height": "239",
+								"_zmin": "-10"
+							},
+							{
+								"_x": "1416",
+								"_y": "1777",
+								"_width": "324",
+								"_height": "60"
+							},
+							{
+								"_x": "1385",
+								"_y": "1777",
+								"_width": "31",
+								"_height": "130"
+							},
+							{
+								"_x": "1093",
+								"_y": "1538",
+								"_width": "292",
+								"_height": "369"
+							}
+						],
+						"go": {
+							"_x": "1495",
+							"_y": "1629",
+							"_z": "10"
+						},
+						"music": {
+							"_name": "Britain1"
+						},
+						"zrange": {
+							"_min": "0"
+						},
+						"region": [
+							{
+								"rect": [
+									{
+										"_x": "1492",
+										"_y": "1602",
+										"_width": "8",
+										"_height": "19"
+									},
+									{
+										"_x": "1500",
+										"_y": "1610",
+										"_width": "8",
+										"_height": "16"
+									},
+									{
+										"_x": "1576",
+										"_y": "1584",
+										"_width": "24",
+										"_height": "16"
+									},
+									{
+										"_x": "1456",
+										"_y": "1512",
+										"_width": "16",
+										"_height": "16"
+									},
+									{
+										"_x": "1472",
+										"_y": "1512",
+										"_width": "8",
+										"_height": "8"
+									},
+									{
+										"_x": "1424",
+										"_y": "1712",
+										"_width": "8",
+										"_height": "24"
+									},
+									{
+										"_x": "1432",
+										"_y": "1712",
+										"_width": "8",
+										"_height": "12"
+									},
+									{
+										"_x": "1486",
+										"_y": "1684",
+										"_width": "8",
+										"_height": "8"
+									},
+									{
+										"_x": "1494",
+										"_y": "1676",
+										"_width": "8",
+										"_height": "24"
+									},
+									{
+										"_x": "1608",
+										"_y": "1584",
+										"_width": "24",
+										"_height": "8"
+									},
+									{
+										"_x": "1616",
+										"_y": "1576",
+										"_width": "8",
+										"_height": "8"
+									},
+									{
+										"_x": "1544",
+										"_y": "1760",
+										"_width": "16",
+										"_height": "16"
+									},
+									{
+										"_x": "1560",
+										"_y": "1760",
+										"_width": "8",
+										"_height": "8"
+									}
+								],
+								"zrange": {
+									"_min": "0"
+								},
+								"logoutDelay": {
+									"_active": "false"
+								}
+							},
+							{
+								"rect": {
+									"_x": "1120",
+									"_y": "1776",
+									"_width": "32",
+									"_height": "32"
+								},
+								"go": {
+									"_x": "1135",
+									"_y": "1791",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "313",
+										"_type": "FarmableWheat",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "8"
+									}
+								},
+								"_name": "A Wheatfield in Britain 1"
+							},
+							{
+								"rect": {
+									"_x": "1184",
+									"_y": "1808",
+									"_width": "32",
+									"_height": "32"
+								},
+								"go": {
+									"_x": "1199",
+									"_y": "1823",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "314",
+										"_type": "FarmableWheat",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "8"
+									}
+								},
+								"_name": "A Wheatfield in Britain 2"
+							},
+							{
+								"rect": {
+									"_x": "1216",
+									"_y": "1872",
+									"_width": "32",
+									"_height": "32"
+								},
+								"go": {
+									"_x": "1231",
+									"_y": "1887",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "315",
+										"_type": "FarmableWheat",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "8"
+									}
+								},
+								"_name": "A Wheatfield in Britain 3"
+							},
+							{
+								"rect": {
+									"_x": "1208",
+									"_y": "1712",
+									"_width": "16",
+									"_height": "24"
+								},
+								"go": {
+									"_x": "1215",
+									"_y": "1723",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "316",
+										"_type": "FarmableCarrot",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "8"
+									}
+								},
+								"_name": "A Carrot Field in Britain 1"
+							},
+							{
+								"rect": {
+									"_x": "1224",
+									"_y": "1712",
+									"_width": "16",
+									"_height": "24"
+								},
+								"go": {
+									"_x": "1231",
+									"_y": "1723",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "317",
+										"_type": "FarmableOnion",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "8"
+									}
+								},
+								"_name": "An Onion Field in Britain 1"
+							},
+							{
+								"rect": {
+									"_x": "1176",
+									"_y": "1672",
+									"_width": "16",
+									"_height": "23"
+								},
+								"go": {
+									"_x": "1183",
+									"_y": "1683",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "318",
+										"_type": "FarmableCabbage",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "8"
+									}
+								},
+								"_name": "A Cabbage Field in Britain 1"
+							},
+							{
+								"rect": {
+									"_x": "1192",
+									"_y": "1672",
+									"_width": "16",
+									"_height": "24"
+								},
+								"go": {
+									"_x": "1199",
+									"_y": "1683",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "319",
+										"_type": "FarmableTurnip",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "8"
+									}
+								},
+								"_name": "A Turnip Field in Britain 1"
+							},
+							{
+								"rect": {
+									"_x": "1104",
+									"_y": "1608",
+									"_width": "32",
+									"_height": "32"
+								},
+								"go": {
+									"_x": "1120",
+									"_y": "1624",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "320",
+										"_type": "FarmableWheat",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "8"
+									}
+								},
+								"_name": "A Wheatfield in Britain 4"
+							},
+							{
+								"rect": {
+									"_x": "1136",
+									"_y": "1560",
+									"_width": "32",
+									"_height": "32"
+								},
+								"go": {
+									"_x": "1152",
+									"_y": "1576",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "321",
+										"_type": "FarmableWheat",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "8"
+									}
+								},
+								"_name": "A Wheatfield in Britain 5"
+							},
+							{
+								"rect": {
+									"_x": "1208",
+									"_y": "1592",
+									"_width": "16",
+									"_height": "24"
+								},
+								"go": {
+									"_x": "1216",
+									"_y": "1604",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "322",
+										"_type": "FarmableTurnip",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "6"
+									}
+								},
+								"_name": "A Turnip Field in Britain 2"
+							},
+							{
+								"rect": {
+									"_x": "1224",
+									"_y": "1592",
+									"_width": "16",
+									"_height": "24"
+								},
+								"go": {
+									"_x": "1232",
+									"_y": "1604",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "323",
+										"_type": "FarmableCarrot",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "6"
+									}
+								},
+								"_name": "A Carrot Field in Britain 2"
+							}
+						],
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Britain"
+					},
+					{
+						"rect": {
+							"_x": "1333",
+							"_y": "1441",
+							"_width": "84",
+							"_height": "82"
+						},
+						"go": {
+							"_x": "1384",
+							"_y": "1492",
+							"_z": "10"
+						},
+						"_type": "NoHousingRegion",
+						"_priority": "50",
+						"_name": "Britain Graveyard"
+					},
+					{
+						"rect": [
+							{
+								"_x": "1111",
+								"_y": "3567",
+								"_width": "33",
+								"_height": "21"
+							},
+							{
+								"_x": "1078",
+								"_y": "3588",
+								"_width": "124",
+								"_height": "121"
+							},
+							{
+								"_x": "1224",
+								"_y": "3592",
+								"_width": "309",
+								"_height": "473"
+							}
+						],
+						"go": {
+							"_x": "1383",
+							"_y": "3815",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Jhelom"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "1303",
+									"_y": "3670",
+									"_width": "189",
+									"_height": "225"
+								},
+								{
+									"_x": "1338",
+									"_y": "3895",
+									"_width": "74",
+									"_height": "28"
+								},
+								{
+									"_x": "1383",
+									"_y": "3951",
+									"_width": "109",
+									"_height": "94"
+								}
+							],
+							"go": {
+								"_x": "1383",
+								"_y": "3815",
+								"_z": "0"
+							},
+							"music": {
+								"_name": "Jhelom"
+							},
+							"zrange": {
+								"_min": "-20"
+							},
+							"region": {
+								"rect": [
+									{
+										"_x": "1352",
+										"_y": "3800",
+										"_width": "16",
+										"_height": "32"
+									},
+									{
+										"_x": "1368",
+										"_y": "3808",
+										"_width": "8",
+										"_height": "16"
+									},
+									{
+										"_x": "1432",
+										"_y": "3768",
+										"_width": "32",
+										"_height": "8"
+									},
+									{
+										"_x": "1440",
+										"_y": "3776",
+										"_width": "24",
+										"_height": "8"
+									}
+								],
+								"zrange": {
+									"_min": "-20"
+								},
+								"logoutDelay": {
+									"_active": "false"
+								}
+							},
+							"_type": "TownRegion",
+							"_name": "Jhelom"
+						},
+						"_type": "NoHousingRegion",
+						"_priority": "50",
+						"_name": "Jhelom Islands"
+					},
+					{
+						"rect": [
+							{
+								"_x": "2411",
+								"_y": "366",
+								"_width": "135",
+								"_height": "241"
+							},
+							{
+								"_x": "2548",
+								"_y": "495",
+								"_width": "72",
+								"_height": "55"
+							},
+							{
+								"_x": "2564",
+								"_y": "585",
+								"_width": "3",
+								"_height": "42"
+							},
+							{
+								"_x": "2567",
+								"_y": "585",
+								"_width": "61",
+								"_height": "61"
+							},
+							{
+								"_x": "2499",
+								"_y": "627",
+								"_width": "68",
+								"_height": "63"
+							}
+						],
+						"go": {
+							"_x": "2466",
+							"_y": "544",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Minoc"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "2457",
+									"_y": "397",
+									"_width": "40",
+									"_height": "8"
+								},
+								{
+									"_x": "2465",
+									"_y": "405",
+									"_width": "8",
+									"_height": "8"
+								},
+								{
+									"_x": "2481",
+									"_y": "405",
+									"_width": "8",
+									"_height": "8"
+								}
+							],
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Minoc"
+					},
+					{
+						"rect": {
+							"_x": "3314",
+							"_y": "2345",
+							"_width": "500",
+							"_height": "750"
+						},
+						"go": {
+							"_x": "3627",
+							"_y": "2606",
+							"_z": "0"
+						},
+						"smartNoHousing": {
+							"_active": "true"
+						},
+						"region": [
+							{
+								"rect": {
+									"_x": "3446",
+									"_y": "2674",
+									"_width": "10",
+									"_height": "10"
+								},
+								"_type": "GuardedRegion",
+								"_name": "New Haven Moongate"
+							},
+							{
+								"rune": {
+									"_name": "New Haven"
+								},
+								"rect": {
+									"_x": "3416",
+									"_y": "2480",
+									"_width": "129",
+									"_height": "168"
+								},
+								"go": {
+									"_x": "3503",
+									"_y": "2574",
+									"_z": "14"
+								},
+								"music": {
+									"_name": "Ocllo"
+								},
+								"region": [
+									{
+										"rune": {
+											"_name": "The Little Shop of Alchemy in New Haven"
+										},
+										"rect": {
+											"_x": "3457",
+											"_y": "2563",
+											"_width": "9",
+											"_height": "9"
+										},
+										"_name": "the New Haven Alchemist"
+									},
+									{
+										"rune": {
+											"_name": "the Bardic Guild in New Haven"
+										},
+										"rect": [
+											{
+												"_x": "3410",
+												"_y": "2598",
+												"_width": "9",
+												"_height": "9"
+											},
+											{
+												"_x": "3419",
+												"_y": "2599",
+												"_width": "2",
+												"_height": "7"
+											},
+											{
+												"_x": "3408",
+												"_y": "2607",
+												"_width": "7",
+												"_height": "5"
+											}
+										],
+										"_name": "the New Haven Bard"
+									},
+									{
+										"rune": {
+											"_name": "the Warrior Guild Hall in New Haven"
+										},
+										"rect": [
+											{
+												"_x": "3520",
+												"_y": "2528",
+												"_width": "23",
+												"_height": "24"
+											},
+											{
+												"_x": "3520",
+												"_y": "2552",
+												"_width": "14",
+												"_height": "11"
+											}
+										],
+										"region": [
+											{
+												"rect": [
+													{
+														"_x": "3523",
+														"_y": "2546",
+														"_width": "6",
+														"_height": "16"
+													},
+													{
+														"_x": "3529",
+														"_y": "2550",
+														"_width": "4",
+														"_height": "12"
+													}
+												],
+												"_name": "the New Haven Warrior"
+											},
+											{
+												"rect": {
+													"_x": "3529",
+													"_y": "2531",
+													"_width": "12",
+													"_height": "19"
+												},
+												"_name": "the New Haven Bowyer"
+											}
+										],
+										"_name": "Warrior's Guild Hall"
+									},
+									{
+										"rune": {
+											"_name": "A Stitch In Time in New Haven"
+										},
+										"rect": [
+											{
+												"_x": "3492",
+												"_y": "2546",
+												"_width": "10",
+												"_height": "11"
+											},
+											{
+												"_x": "3502",
+												"_y": "2546",
+												"_width": "3",
+												"_height": "4"
+											}
+										],
+										"_name": "the New Haven Tailor"
+									},
+									{
+										"rune": {
+											"_name": "Carpenters of New Haven"
+										},
+										"rect": [
+											{
+												"_x": "3439",
+												"_y": "2632",
+												"_width": "9",
+												"_height": "11"
+											},
+											{
+												"_x": "3440",
+												"_y": "2643",
+												"_width": "7",
+												"_height": "5"
+											}
+										],
+										"_name": "the New Haven Carpenter"
+									},
+									{
+										"rune": {
+											"_name": "Mapmakers of New Haven"
+										},
+										"rect": {
+											"_x": "3490",
+											"_y": "2588",
+											"_width": "7",
+											"_height": "7"
+										},
+										"_name": "the New Haven Mapmaker"
+									},
+									{
+										"rune": {
+											"_name": "New Haven Magery School"
+										},
+										"rect": {
+											"_x": "3464",
+											"_y": "2488",
+											"_width": "27",
+											"_height": "16"
+										},
+										"_name": "the New Haven Mage"
+									},
+									{
+										"rune": {
+											"_name": "the Bountiful Harvest Inn in New Haven"
+										},
+										"rect": [
+											{
+												"_x": "3493",
+												"_y": "2513",
+												"_width": "10",
+												"_height": "10"
+											},
+											{
+												"_x": "3503",
+												"_y": "2513",
+												"_width": "7",
+												"_height": "17"
+											}
+										],
+										"logoutDelay": {
+											"_active": "false"
+										},
+										"_name": "the New Haven Inn"
+									},
+									{
+										"rune": {
+											"_name": "the docks in New Haven"
+										},
+										"rect": [
+											{
+												"_x": "3500",
+												"_y": "2592",
+												"_width": "8",
+												"_height": "25"
+											},
+											{
+												"_x": "3508",
+												"_y": "2592",
+												"_width": "8",
+												"_height": "7"
+											},
+											{
+												"_x": "3516",
+												"_y": "2592",
+												"_width": "8",
+												"_height": "16"
+											}
+										],
+										"_name": "the New Haven Docks"
+									},
+									{
+										"rune": {
+											"_name": "the First Bank of New Haven"
+										},
+										"rect": {
+											"_x": "3479",
+											"_y": "2565",
+											"_width": "13",
+											"_height": "15"
+										},
+										"_name": "the New Haven Bank"
+									}
+								],
+								"_type": "TownRegion",
+								"_name": "New Haven"
+							}
+						],
+						"_type": "NoHousingRegion",
+						"_priority": "50",
+						"_name": "Haven Island"
+					},
+					{
+						"rect": [
+							{
+								"_x": "1856",
+								"_y": "2636",
+								"_width": "75",
+								"_height": "28"
+							},
+							{
+								"_x": "1816",
+								"_y": "2664",
+								"_width": "283",
+								"_height": "231"
+							},
+							{
+								"_x": "2099",
+								"_y": "2782",
+								"_width": "18",
+								"_height": "25"
+							},
+							{
+								"_x": "1970",
+								"_y": "2895",
+								"_width": "47",
+								"_height": "32"
+							},
+							{
+								"_x": "1796",
+								"_y": "2696",
+								"_width": "20",
+								"_height": "67",
+								"_zmin": "0"
+							},
+							{
+								"_x": "1800",
+								"_y": "2796",
+								"_width": "16",
+								"_height": "52",
+								"_zmin": "0"
+							}
+						],
+						"go": {
+							"_x": "1867",
+							"_y": "2780",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Trinsic"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "1834",
+									"_y": "2728",
+									"_width": "22",
+									"_height": "16"
+								},
+								{
+									"_x": "2024",
+									"_y": "2784",
+									"_width": "16",
+									"_height": "20"
+								},
+								{
+									"_x": "2026",
+									"_y": "2804",
+									"_width": "14",
+									"_height": "2"
+								},
+								{
+									"_x": "2024",
+									"_y": "2806",
+									"_width": "16",
+									"_height": "7"
+								},
+								{
+									"_x": "1923",
+									"_y": "2786",
+									"_width": "12",
+									"_height": "22"
+								},
+								{
+									"_x": "1935",
+									"_y": "2786",
+									"_width": "7",
+									"_height": "14"
+								}
+							],
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Trinsic"
+					},
+					{
+						"rect": [
+							{
+								"_x": "2893",
+								"_y": "598",
+								"_width": "121",
+								"_height": "50"
+							},
+							{
+								"_x": "2816",
+								"_y": "648",
+								"_width": "249",
+								"_height": "365"
+							},
+							{
+								"_x": "2734",
+								"_y": "944",
+								"_width": "82",
+								"_height": "4"
+							},
+							{
+								"_x": "2728",
+								"_y": "948",
+								"_width": "88",
+								"_height": "53"
+							}
+						],
+						"go": {
+							"_x": "2899",
+							"_y": "676",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Vesper"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "2952",
+									"_y": "864",
+									"_width": "16",
+									"_height": "32"
+								},
+								{
+									"_x": "2968",
+									"_y": "872",
+									"_width": "8",
+									"_height": "16"
+								},
+								{
+									"_x": "2776",
+									"_y": "952",
+									"_width": "16",
+									"_height": "32"
+								},
+								{
+									"_x": "2768",
+									"_y": "960",
+									"_width": "8",
+									"_height": "16"
+								},
+								{
+									"_x": "2892",
+									"_y": "901",
+									"_width": "16",
+									"_height": "19"
+								},
+								{
+									"_x": "2908",
+									"_y": "904",
+									"_width": "8",
+									"_height": "8"
+								}
+							],
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Vesper"
+					},
+					{
+						"rect": [
+							{
+								"_x": "92",
+								"_y": "656",
+								"_width": "349",
+								"_height": "225"
+							},
+							{
+								"_x": "441",
+								"_y": "746",
+								"_width": "216",
+								"_height": "135"
+							},
+							{
+								"_x": "258",
+								"_y": "881",
+								"_width": "399",
+								"_height": "380"
+							},
+							{
+								"_x": "657",
+								"_y": "922",
+								"_width": "42",
+								"_height": "307"
+							},
+							{
+								"_x": "657",
+								"_y": "806",
+								"_width": "17",
+								"_height": "28"
+							},
+							{
+								"_x": "718",
+								"_y": "874",
+								"_width": "38",
+								"_height": "22"
+							}
+						],
+						"go": {
+							"_x": "546",
+							"_y": "992",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Yew"
+						},
+						"zrange": {
+							"_min": "0",
+							"_max": "39"
+						},
+						"region": [
+							{
+								"rect": {
+									"_x": "600",
+									"_y": "808",
+									"_width": "24",
+									"_height": "24"
+								},
+								"zrange": {
+									"_min": "0",
+									"_max": "39"
+								},
+								"logoutDelay": {
+									"_active": "false"
+								}
+							},
+							{
+								"rune": {
+									"_name": "A Field of Sheep in Yew"
+								},
+								"rect": {
+									"_x": "664",
+									"_y": "928",
+									"_width": "22",
+									"_height": "22"
+								},
+								"go": {
+									"_x": "675",
+									"_y": "939",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "401",
+										"_type": "Sheep",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "10"
+									}
+								},
+								"_name": "A Field of Sheep in Yew 1"
+							},
+							{
+								"rune": {
+									"_name": "A Field of Sheep in Yew"
+								},
+								"rect": {
+									"_x": "664",
+									"_y": "1168",
+									"_width": "22",
+									"_height": "22"
+								},
+								"go": {
+									"_x": "675",
+									"_y": "1179",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "402",
+										"_type": "Sheep",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "10"
+									}
+								},
+								"_name": "A Field of Sheep in Yew 2"
+							},
+							{
+								"rune": {
+									"_name": "A Farm in Yew"
+								},
+								"rect": {
+									"_x": "560",
+									"_y": "1088",
+									"_width": "22",
+									"_height": "22"
+								},
+								"go": {
+									"_x": "571",
+									"_y": "1099",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "403",
+										"_type": "Sheep",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "10"
+									}
+								},
+								"_name": "A Farm in Yew"
+							},
+							{
+								"rune": {
+									"_name": "A Wheatfield in Yew"
+								},
+								"rect": {
+									"_x": "560",
+									"_y": "1232",
+									"_width": "16",
+									"_height": "16"
+								},
+								"go": {
+									"_x": "567",
+									"_y": "1239",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "404",
+										"_type": "FarmableWheat",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "5"
+									}
+								},
+								"_name": "A Wheatfield in Yew 1"
+							},
+							{
+								"rune": {
+									"_name": "A Wheatfield in Yew"
+								},
+								"rect": {
+									"_x": "368",
+									"_y": "1176",
+									"_width": "14",
+									"_height": "32"
+								},
+								"go": {
+									"_x": "375",
+									"_y": "1191",
+									"_z": "0"
+								},
+								"spawning": {
+									"object": {
+										"_id": "405",
+										"_type": "FarmableWheat",
+										"_minSpawnTime": "PT10S",
+										"_maxSpawnTime": "PT30S",
+										"_amount": "6"
+									}
+								},
+								"_name": "A Wheatfield in Yew 2"
+							}
+						],
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Yew"
+					},
+					{
+						"rect": [
+							{
+								"_x": "5294",
+								"_y": "19",
+								"_width": "72",
+								"_height": "120"
+							},
+							{
+								"_x": "5132",
+								"_y": "58",
+								"_width": "81",
+								"_height": "68"
+							},
+							{
+								"_x": "5197",
+								"_y": "126",
+								"_width": "55",
+								"_height": "78"
+							},
+							{
+								"_x": "5132",
+								"_y": "3",
+								"_width": "70",
+								"_height": "55"
+							},
+							{
+								"_x": "5252",
+								"_y": "112",
+								"_width": "42",
+								"_height": "58"
+							},
+							{
+								"_x": "5213",
+								"_y": "98",
+								"_width": "39",
+								"_height": "28"
+							},
+							{
+								"_x": "5279",
+								"_y": "57",
+								"_width": "15",
+								"_height": "55"
+							},
+							{
+								"_x": "5252",
+								"_y": "170",
+								"_width": "32",
+								"_height": "8"
+							},
+							{
+								"_x": "5286",
+								"_y": "25",
+								"_width": "8",
+								"_height": "32"
+							},
+							{
+								"_x": "5252",
+								"_y": "178",
+								"_width": "20",
+								"_height": "5"
+							},
+							{
+								"_x": "5252",
+								"_y": "183",
+								"_width": "10",
+								"_height": "10"
+							}
+						],
+						"go": {
+							"_x": "5223",
+							"_y": "190",
+							"_z": "5"
+						},
+						"music": {
+							"_name": "Wind"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "5159",
+									"_y": "15",
+									"_width": "25",
+									"_height": "9"
+								},
+								{
+									"_x": "5159",
+									"_y": "24",
+									"_width": "9",
+									"_height": "16"
+								},
+								{
+									"_x": "5175",
+									"_y": "24",
+									"_width": "9",
+									"_height": "8"
+								},
+								{
+									"_x": "5212",
+									"_y": "159",
+									"_width": "9",
+									"_height": "24"
+								},
+								{
+									"_x": "5221",
+									"_y": "171",
+									"_width": "7",
+									"_height": "12"
+								},
+								{
+									"_x": "5206",
+									"_y": "164",
+									"_width": "6",
+									"_height": "15"
+								},
+								{
+									"_x": "5303",
+									"_y": "28",
+									"_width": "16",
+									"_height": "14"
+								}
+							],
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Wind"
+					},
+					{
+						"rect": {
+							"_x": "2868",
+							"_y": "3324",
+							"_width": "205",
+							"_height": "195"
+						},
+						"go": {
+							"_x": "3010",
+							"_y": "3371",
+							"_z": "15"
+						},
+						"music": {
+							"_name": "Serpents"
+						},
+						"zrange": {
+							"_min": "0"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "2960",
+									"_y": "3400",
+									"_width": "16",
+									"_height": "16"
+								},
+								{
+									"_x": "2968",
+									"_y": "3416",
+									"_width": "8",
+									"_height": "16"
+								},
+								{
+									"_x": "3008",
+									"_y": "3450",
+									"_width": "14",
+									"_height": "14"
+								}
+							],
+							"zrange": {
+								"_min": "0"
+							},
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Serpent's Hold"
+					},
+					{
+						"rect": {
+							"_x": "538",
+							"_y": "2107",
+							"_width": "150",
+							"_height": "190"
+						},
+						"go": {
+							"_x": "632",
+							"_y": "2233",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Skarabra"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "600",
+									"_y": "2232",
+									"_width": "16",
+									"_height": "24"
+								},
+								{
+									"_x": "592",
+									"_y": "2240",
+									"_width": "8",
+									"_height": "16"
+								},
+								{
+									"_x": "616",
+									"_y": "2240",
+									"_width": "8",
+									"_height": "16"
+								},
+								{
+									"_x": "552",
+									"_y": "2168",
+									"_width": "16",
+									"_height": "24"
+								},
+								{
+									"_x": "568",
+									"_y": "2168",
+									"_width": "8",
+									"_height": "8"
+								}
+							],
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Skara Brae"
+					},
+					{
+						"rect": {
+							"_x": "3475",
+							"_y": "1000",
+							"_width": "360",
+							"_height": "435"
+						},
+						"go": {
+							"_x": "3732",
+							"_y": "1279",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Nujelm"
+						},
+						"zrange": {
+							"_min": "0"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "3736",
+									"_y": "1184",
+									"_width": "16",
+									"_height": "23"
+								},
+								{
+									"_x": "3728",
+									"_y": "1192",
+									"_width": "8",
+									"_height": "15"
+								},
+								{
+									"_x": "3728",
+									"_y": "1288",
+									"_width": "23",
+									"_height": "15"
+								},
+								{
+									"_x": "3728",
+									"_y": "1303",
+									"_width": "16",
+									"_height": "9"
+								},
+								{
+									"_x": "3728",
+									"_y": "1312",
+									"_width": "12",
+									"_height": "8"
+								},
+								{
+									"_x": "3728",
+									"_y": "1320",
+									"_width": "16",
+									"_height": "23"
+								},
+								{
+									"_x": "3744",
+									"_y": "1328",
+									"_width": "7",
+									"_height": "15"
+								},
+								{
+									"_x": "3760",
+									"_y": "1216",
+									"_width": "12",
+									"_height": "24"
+								},
+								{
+									"_x": "3772",
+									"_y": "1220",
+									"_width": "4",
+									"_height": "16"
+								},
+								{
+									"_x": "3776",
+									"_y": "1224",
+									"_width": "8",
+									"_height": "8"
+								},
+								{
+									"_x": "3728",
+									"_y": "1248",
+									"_width": "16",
+									"_height": "24"
+								},
+								{
+									"_x": "3744",
+									"_y": "1248",
+									"_width": "8",
+									"_height": "8"
+								},
+								{
+									"_x": "3744",
+									"_y": "1264",
+									"_width": "8",
+									"_height": "8"
+								}
+							],
+							"zrange": {
+								"_min": "0"
+							},
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Nujel'm"
+					},
+					{
+						"rect": [
+							{
+								"_x": "4535",
+								"_y": "844",
+								"_width": "20",
+								"_height": "3"
+							},
+							{
+								"_x": "4530",
+								"_y": "847",
+								"_width": "31",
+								"_height": "61"
+							},
+							{
+								"_x": "4521",
+								"_y": "914",
+								"_width": "56",
+								"_height": "49"
+							},
+							{
+								"_x": "4278",
+								"_y": "915",
+								"_width": "54",
+								"_height": "19"
+							},
+							{
+								"_x": "4283",
+								"_y": "944",
+								"_width": "53",
+								"_height": "73"
+							},
+							{
+								"_x": "4377",
+								"_y": "1015",
+								"_width": "59",
+								"_height": "37",
+								"_zmin": "-10"
+							},
+							{
+								"_x": "4367",
+								"_y": "1050",
+								"_width": "142",
+								"_height": "145"
+							},
+							{
+								"_x": "4539",
+								"_y": "1036",
+								"_width": "27",
+								"_height": "18"
+							},
+							{
+								"_x": "4517",
+								"_y": "1053",
+								"_width": "23",
+								"_height": "22"
+							},
+							{
+								"_x": "4389",
+								"_y": "1198",
+								"_width": "47",
+								"_height": "39"
+							},
+							{
+								"_x": "4466",
+								"_y": "1211",
+								"_width": "32",
+								"_height": "25"
+							},
+							{
+								"_x": "4700",
+								"_y": "1108",
+								"_width": "17",
+								"_height": "18"
+							},
+							{
+								"_x": "4656",
+								"_y": "1127",
+								"_width": "26",
+								"_height": "13"
+							},
+							{
+								"_x": "4678",
+								"_y": "1162",
+								"_width": "25",
+								"_height": "25"
+							},
+							{
+								"_x": "4613",
+								"_y": "1196",
+								"_width": "23",
+								"_height": "22"
+							},
+							{
+								"_x": "4646",
+								"_y": "1212",
+								"_width": "14",
+								"_height": "17"
+							},
+							{
+								"_x": "4677",
+								"_y": "1214",
+								"_width": "26",
+								"_height": "22"
+							},
+							{
+								"_x": "4622",
+								"_y": "1316",
+								"_width": "22",
+								"_height": "24"
+							},
+							{
+								"_x": "4487",
+								"_y": "1353",
+								"_width": "59",
+								"_height": "21"
+							},
+							{
+								"_x": "4477",
+								"_y": "1374",
+								"_width": "69",
+								"_height": "35"
+							},
+							{
+								"_x": "4659",
+								"_y": "1387",
+								"_width": "40",
+								"_height": "40"
+							},
+							{
+								"_x": "4549",
+								"_y": "1482",
+								"_width": "29",
+								"_height": "27"
+							},
+							{
+								"_x": "4405",
+								"_y": "1451",
+								"_width": "23",
+								"_height": "23"
+							},
+							{
+								"_x": "4483",
+								"_y": "1468",
+								"_width": "21",
+								"_height": "13"
+							}
+						],
+						"go": {
+							"_x": "4442",
+							"_y": "1172",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Moonglow"
+						},
+						"zrange": {
+							"_min": "0"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "4384",
+									"_y": "1152",
+									"_width": "8",
+									"_height": "24"
+								},
+								{
+									"_x": "4392",
+									"_y": "1160",
+									"_width": "16",
+									"_height": "8"
+								},
+								{
+									"_x": "4400",
+									"_y": "1152",
+									"_width": "8",
+									"_height": "8"
+								},
+								{
+									"_x": "4480",
+									"_y": "1056",
+									"_width": "8",
+									"_height": "16"
+								},
+								{
+									"_x": "4488",
+									"_y": "1060",
+									"_width": "4",
+									"_height": "8"
+								},
+								{
+									"_x": "4476",
+									"_y": "1060",
+									"_width": "4",
+									"_height": "8"
+								}
+							],
+							"zrange": {
+								"_min": "0"
+							},
+							"logoutDelay": {
+								"_active": "false"
+							},
+							"_name": "The Scholar's Inn"
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Moonglow"
+					},
+					{
+						"rect": [
+							{
+								"_x": "3653",
+								"_y": "2046",
+								"_width": "27",
+								"_height": "48"
+							},
+							{
+								"_x": "3752",
+								"_y": "2046",
+								"_width": "52",
+								"_height": "48"
+							},
+							{
+								"_x": "3680",
+								"_y": "2045",
+								"_width": "72",
+								"_height": "49"
+							},
+							{
+								"_x": "3652",
+								"_y": "2094",
+								"_width": "160",
+								"_height": "180"
+							},
+							{
+								"_x": "3649",
+								"_y": "2256",
+								"_width": "54",
+								"_height": "47"
+							}
+						],
+						"go": {
+							"_x": "3714",
+							"_y": "2220",
+							"_z": "20"
+						},
+						"music": {
+							"_name": "Magincia"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "3680",
+									"_y": "2152",
+									"_width": "24",
+									"_height": "8"
+								},
+								{
+									"_x": "3720",
+									"_y": "2216",
+									"_width": "16",
+									"_height": "16"
+								}
+							],
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Magincia"
+					},
+					{
+						"rect": [
+							{
+								"_x": "2612",
+								"_y": "2057",
+								"_width": "164",
+								"_height": "210"
+							},
+							{
+								"_x": "2604",
+								"_y": "2065",
+								"_width": "8",
+								"_height": "189",
+								"_zmin": "0"
+							}
+						],
+						"go": {
+							"_x": "2706",
+							"_y": "2163",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "BucsDen"
+						},
+						"guards": {
+							"_disabled": "true"
+						},
+						"region": {
+							"rect": [
+								{
+									"_x": "2712",
+									"_y": "2080",
+									"_width": "16",
+									"_height": "16"
+								},
+								{
+									"_x": "2712",
+									"_y": "2096",
+									"_width": "8",
+									"_height": "8"
+								},
+								{
+									"_x": "2664",
+									"_y": "2232",
+									"_width": "24",
+									"_height": "8"
+								},
+								{
+									"_x": "2672",
+									"_y": "2240",
+									"_width": "16",
+									"_height": "8"
+								}
+							],
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Buccaneer's Den"
+					},
+					{
+						"rect": [
+							{
+								"_x": "5376",
+								"_y": "1793",
+								"_width": "201",
+								"_height": "255"
+							},
+							{
+								"_x": "5576",
+								"_y": "1791",
+								"_width": "57",
+								"_height": "257"
+							}
+						],
+						"go": {
+							"_x": "5456",
+							"_y": "1862",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "2499",
+							"_y": "916"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Covetous"
+					},
+					{
+						"rect": {
+							"_x": "5122",
+							"_y": "518",
+							"_width": "248",
+							"_height": "252"
+						},
+						"go": {
+							"_x": "5187",
+							"_y": "635",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "4111",
+							"_y": "429"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Deceit"
+					},
+					{
+						"rect": {
+							"_x": "5377",
+							"_y": "516",
+							"_width": "254",
+							"_height": "506"
+						},
+						"go": {
+							"_x": "5501",
+							"_y": "570",
+							"_z": "59"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "1296",
+							"_y": "1082"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Despise"
+					},
+					{
+						"rect": {
+							"_x": "5120",
+							"_y": "770",
+							"_width": "251",
+							"_height": "258"
+						},
+						"go": {
+							"_x": "5243",
+							"_y": "1004",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "1176",
+							"_y": "2635"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Destard"
+					},
+					{
+						"rect": {
+							"_x": "5898",
+							"_y": "2",
+							"_width": "238",
+							"_height": "244"
+						},
+						"go": {
+							"_x": "5905",
+							"_y": "22",
+							"_z": "44"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "4722",
+							"_y": "3814"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Hythloth"
+					},
+					{
+						"rect": {
+							"_x": "5271",
+							"_y": "1159",
+							"_width": "41",
+							"_height": "33"
+						},
+						"go": {
+							"_x": "5275",
+							"_y": "1163",
+							"_z": "0"
+						},
+						"_type": "Jail",
+						"_priority": "50",
+						"_name": "Jail"
+					},
+					{
+						"rect": {
+							"_x": "5376",
+							"_y": "512",
+							"_width": "767",
+							"_height": "767"
+						},
+						"go": {
+							"_x": "5445",
+							"_y": "1153",
+							"_z": "0"
+						},
+						"_type": "GreenAcres",
+						"_priority": "1",
+						"_name": "Green Acres"
+					},
+					{
+						"rect": [
+							{
+								"_x": "5377",
+								"_y": "2",
+								"_width": "257",
+								"_height": "260"
+							},
+							{
+								"_x": "5635",
+								"_y": "2",
+								"_width": "260",
+								"_height": "124"
+							}
+						],
+						"go": {
+							"_x": "5395",
+							"_y": "126",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "512",
+							"_y": "1559"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Shame"
+					},
+					{
+						"rect": {
+							"_x": "5633",
+							"_y": "511",
+							"_width": "253",
+							"_height": "510"
+						},
+						"go": {
+							"_x": "5825",
+							"_y": "599",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "2042",
+							"_y": "226"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Wrong"
+					},
+					{
+						"rect": [
+							{
+								"_x": "2373",
+								"_y": "900",
+								"_width": "22",
+								"_height": "28"
+							},
+							{
+								"_x": "2395",
+								"_y": "903",
+								"_width": "14",
+								"_height": "16"
+							},
+							{
+								"_x": "2373",
+								"_y": "928",
+								"_width": "10",
+								"_height": "9"
+							},
+							{
+								"_x": "2359",
+								"_y": "927",
+								"_width": "14",
+								"_height": "18"
+							}
+						],
+						"go": {
+							"_x": "2367",
+							"_y": "942",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Cave 1"
+					},
+					{
+						"rect": {
+							"_x": "1887",
+							"_y": "354",
+							"_width": "33",
+							"_height": "23"
+						},
+						"go": {
+							"_x": "1903",
+							"_y": "365",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Cave 2"
+					},
+					{
+						"rect": {
+							"_x": "1925",
+							"_y": "307",
+							"_width": "18",
+							"_height": "18"
+						},
+						"go": {
+							"_x": "1934",
+							"_y": "316",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Cave 3"
+					},
+					{
+						"rect": {
+							"_x": "2323",
+							"_y": "809",
+							"_width": "45",
+							"_height": "42"
+						},
+						"go": {
+							"_x": "2345",
+							"_y": "830",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Cave 4"
+					},
+					{
+						"rect": {
+							"_x": "1436",
+							"_y": "1215",
+							"_width": "29",
+							"_height": "37"
+						},
+						"go": {
+							"_x": "1443",
+							"_y": "1228",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Britain Mine 1"
+					},
+					{
+						"rect": {
+							"_x": "1611",
+							"_y": "1175",
+							"_width": "51",
+							"_height": "29"
+						},
+						"go": {
+							"_x": "1629",
+							"_y": "1189",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Britain Mine 2"
+					},
+					{
+						"rect": {
+							"_x": "2406",
+							"_y": "168",
+							"_width": "22",
+							"_height": "16"
+						},
+						"go": {
+							"_x": "2426",
+							"_y": "177",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Minoc Cave 1"
+					},
+					{
+						"rect": {
+							"_x": "2418",
+							"_y": "81",
+							"_width": "24",
+							"_height": "32"
+						},
+						"go": {
+							"_x": "2440",
+							"_y": "94",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Minoc Cave 2"
+					},
+					{
+						"rect": {
+							"_x": "2447",
+							"_y": "39",
+							"_width": "42",
+							"_height": "28"
+						},
+						"go": {
+							"_x": "2471",
+							"_y": "64",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Minoc Cave 3"
+					},
+					{
+						"rect": [
+							{
+								"_x": "2556",
+								"_y": "501",
+								"_width": "6",
+								"_height": "3"
+							},
+							{
+								"_x": "2556",
+								"_y": "474",
+								"_width": "26",
+								"_height": "27"
+							}
+						],
+						"go": {
+							"_x": "2558",
+							"_y": "499",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Minoc Mine"
+					},
+					{
+						"rect": {
+							"_x": "4594",
+							"_y": "3807",
+							"_width": "23",
+							"_height": "17"
+						},
+						"go": {
+							"_x": "4605",
+							"_y": "3815",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Avatar Isle Cave"
+					},
+					{
+						"rect": {
+							"_x": "4018",
+							"_y": "421",
+							"_width": "49",
+							"_height": "49"
+						},
+						"go": {
+							"_x": "4054",
+							"_y": "440",
+							"_z": "3"
+						},
+						"_priority": "50",
+						"_name": "Ice Isle Cave 1"
+					},
+					{
+						"rect": [
+							{
+								"_x": "4002",
+								"_y": "310",
+								"_width": "43",
+								"_height": "41"
+							},
+							{
+								"_x": "4005",
+								"_y": "298",
+								"_width": "22",
+								"_height": "12"
+							}
+						],
+						"go": {
+							"_x": "4030",
+							"_y": "325",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Ice Isle Cave 2"
+					},
+					{
+						"rect": {
+							"_x": "1973",
+							"_y": "251",
+							"_width": "21",
+							"_height": "23"
+						},
+						"go": {
+							"_x": "1984",
+							"_y": "262",
+							"_z": "8"
+						},
+						"_priority": "50",
+						"_name": "North Territory Cave"
+					},
+					{
+						"rect": {
+							"_x": "766",
+							"_y": "1683",
+							"_width": "12",
+							"_height": "14"
+						},
+						"go": {
+							"_x": "773",
+							"_y": "1684",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Yew Cave"
+					},
+					{
+						"rect": {
+							"_x": "1713",
+							"_y": "1055",
+							"_width": "40",
+							"_height": "25"
+						},
+						"go": {
+							"_x": "1723",
+							"_y": "1065",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "North Territory Mine 1"
+					},
+					{
+						"rect": {
+							"_x": "1604",
+							"_y": "958",
+							"_width": "46",
+							"_height": "51"
+						},
+						"go": {
+							"_x": "1638",
+							"_y": "974",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "North Territory Mine 2"
+					},
+					{
+						"rect": [
+							{
+								"_x": "2552",
+								"_y": "448",
+								"_width": "71",
+								"_height": "59"
+							},
+							{
+								"_x": "2547",
+								"_y": "380",
+								"_width": "43",
+								"_height": "68"
+							},
+							{
+								"_x": "2590",
+								"_y": "413",
+								"_width": "33",
+								"_height": "35"
+							}
+						],
+						"go": {
+							"_x": "2593",
+							"_y": "477",
+							"_z": "60"
+						},
+						"_priority": "50",
+						"_name": "Mt Kendall"
+					},
+					{
+						"rect": [
+							{
+								"_x": "2429",
+								"_y": "866",
+								"_width": "19",
+								"_height": "45"
+							},
+							{
+								"_x": "2448",
+								"_y": "879",
+								"_width": "27",
+								"_height": "28"
+							},
+							{
+								"_x": "2456",
+								"_y": "907",
+								"_width": "19",
+								"_height": "34"
+							}
+						],
+						"go": {
+							"_x": "2445",
+							"_y": "880",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Covetous Mine"
+					},
+					{
+						"rect": [
+							{
+								"_x": "5404",
+								"_y": "3099",
+								"_width": "77",
+								"_height": "68"
+							},
+							{
+								"_x": "5120",
+								"_y": "1530",
+								"_width": "254",
+								"_height": "258"
+							}
+						],
+						"go": {
+							"_x": "5451",
+							"_y": "3143",
+							"_z": "-60"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "5426",
+							"_y": "3120"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Terathan Keep"
+					},
+					{
+						"rect": {
+							"_x": "5635",
+							"_y": "1285",
+							"_width": "245",
+							"_height": "235"
+						},
+						"go": {
+							"_x": "5760",
+							"_y": "2908",
+							"_z": "15"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "2922",
+							"_y": "3402"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Fire"
+					},
+					{
+						"rect": [
+							{
+								"_x": "5668",
+								"_y": "130",
+								"_width": "220",
+								"_height": "138"
+							},
+							{
+								"_x": "5800",
+								"_y": "319",
+								"_width": "63",
+								"_height": "65"
+							},
+							{
+								"_x": "5654",
+								"_y": "300",
+								"_width": "54",
+								"_height": "40"
+							}
+						],
+						"go": {
+							"_x": "5210",
+							"_y": "2322",
+							"_z": "30"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "1996",
+							"_y": "80"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Ice"
+					},
+					{
+						"rect": [
+							{
+								"_x": "5123",
+								"_y": "3942",
+								"_width": "192",
+								"_height": "122"
+							},
+							{
+								"_x": "5147",
+								"_y": "4064",
+								"_width": "125",
+								"_height": "20"
+							},
+							{
+								"_x": "5235",
+								"_y": "3930",
+								"_width": "80",
+								"_height": "12"
+							}
+						],
+						"go": {
+							"_x": "5228",
+							"_y": "3978",
+							"_z": "37"
+						},
+						"region": {
+							"rect": {
+								"_x": "5194",
+								"_y": "4053",
+								"_width": "10",
+								"_height": "20"
+							},
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Delucia"
+					},
+					{
+						"rect": [
+							{
+								"_x": "5639",
+								"_y": "3095",
+								"_width": "192",
+								"_height": "223"
+							},
+							{
+								"_x": "5831",
+								"_y": "3237",
+								"_width": "20",
+								"_height": "30"
+							}
+						],
+						"go": {
+							"_x": "5769",
+							"_y": "3176",
+							"_z": "0"
+						},
+						"region": {
+							"rect": {
+								"_x": "5757",
+								"_y": "3150",
+								"_width": "24",
+								"_height": "24"
+							},
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Papua"
+					},
+					{
+						"rect": {
+							"_x": "1939",
+							"_y": "215",
+							"_width": "134",
+							"_height": "137"
+						},
+						"go": {
+							"_x": "2043",
+							"_y": "236",
+							"_z": "13"
+						},
+						"music": {
+							"_name": "Mountn_a"
+						},
+						"_type": "NoHousingRegion",
+						"_priority": "50",
+						"_name": "Wrong Entrance"
+					},
+					{
+						"rect": {
+							"_x": "2433",
+							"_y": "846",
+							"_width": "128",
+							"_height": "128"
+						},
+						"go": {
+							"_x": "2499",
+							"_y": "918",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Vesper"
+						},
+						"_type": "NoHousingRegion",
+						"_priority": "50",
+						"_name": "Covetous Entrance"
+					},
+					{
+						"rect": {
+							"_x": "1289",
+							"_y": "1064",
+							"_width": "32",
+							"_height": "37"
+						},
+						"go": {
+							"_x": "1298",
+							"_y": "1081",
+							"_z": "0"
+						},
+						"_type": "NoHousingRegion",
+						"_priority": "50",
+						"_name": "Despise Entrance"
+					},
+					{
+						"rect": [
+							{
+								"_x": "1338",
+								"_y": "1060",
+								"_width": "51",
+								"_height": "62"
+							},
+							{
+								"_x": "1354",
+								"_y": "1122",
+								"_width": "42",
+								"_height": "121"
+							},
+							{
+								"_x": "1349",
+								"_y": "1122",
+								"_width": "5",
+								"_height": "102"
+							}
+						],
+						"go": {
+							"_x": "1380",
+							"_y": "1114",
+							"_z": "0"
+						},
+						"_type": "NoHousingRegion",
+						"_priority": "50",
+						"_name": "Despise Passage"
+					},
+					{
+						"rect": {
+							"_x": "5886",
+							"_y": "1281",
+							"_width": "257",
+							"_height": "254"
+						},
+						"go": {
+							"_x": "6032",
+							"_y": "1499",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "1492",
+							"_y": "1641"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Misc Dungeons"
+					},
+					{
+						"rect": [
+							{
+								"_x1": "5281",
+								"_y1": "1283",
+								"_x2": "5373",
+								"_y2": "1386"
+							},
+							{
+								"_x1": "5267",
+								"_y1": "1955",
+								"_x2": "5364",
+								"_y2": "2046"
+							},
+							{
+								"_x1": "5127",
+								"_y1": "1941",
+								"_x2": "5164",
+								"_y2": "2024"
+							}
+						],
+						"go": {
+							"_x": "5137",
+							"_y": "2015",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "1014",
+							"_y": "1434"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Orc Cave"
+					},
+					{
+						"rune": {
+							"_name": "A Cotton Field in Moonglow"
+						},
+						"rect": {
+							"_x": "4557",
+							"_y": "1471",
+							"_width": "20",
+							"_height": "10"
+						},
+						"go": {
+							"_x": "4567",
+							"_y": "1475",
+							"_z": "0"
+						},
+						"spawning": {
+							"object": {
+								"_id": "400",
+								"_type": "FarmableCotton",
+								"_minSpawnTime": "PT10S",
+								"_maxSpawnTime": "PT30S",
+								"_amount": "8"
+							}
+						},
+						"_priority": "50",
+						"_name": "A Cotton Field in Moonglow"
+					},
+					{
+						"rune": {
+							"_name": "A Wheatfield in Skara Brae"
+						},
+						"rect": {
+							"_x": "796",
+							"_y": "2152",
+							"_width": "36",
+							"_height": "24"
+						},
+						"go": {
+							"_x": "813",
+							"_y": "2163",
+							"_z": "0"
+						},
+						"spawning": {
+							"object": {
+								"_id": "406",
+								"_type": "FarmableWheat",
+								"_minSpawnTime": "PT10S",
+								"_maxSpawnTime": "PT30S",
+								"_amount": "6"
+							}
+						},
+						"_priority": "50",
+						"_name": "A Wheatfield in Skara Brae 1"
+					},
+					{
+						"rect": {
+							"_x": "816",
+							"_y": "2251",
+							"_width": "16",
+							"_height": "8"
+						},
+						"go": {
+							"_x": "823",
+							"_y": "2254",
+							"_z": "0"
+						},
+						"spawning": {
+							"object": {
+								"_id": "407",
+								"_type": "FarmableCarrot",
+								"_minSpawnTime": "PT10S",
+								"_maxSpawnTime": "PT30S",
+								"_amount": "6"
+							}
+						},
+						"_priority": "50",
+						"_name": "A Carrot Field in Skara Brae"
+					},
+					{
+						"rect": {
+							"_x": "816",
+							"_y": "2261",
+							"_width": "16",
+							"_height": "8"
+						},
+						"go": {
+							"_x": "823",
+							"_y": "2264",
+							"_z": "0"
+						},
+						"spawning": {
+							"object": {
+								"_id": "408",
+								"_type": "FarmableOnion",
+								"_minSpawnTime": "PT10S",
+								"_maxSpawnTime": "PT30S",
+								"_amount": "6"
+							}
+						},
+						"_priority": "50",
+						"_name": "An Onion Field in Skara Brae"
+					},
+					{
+						"rect": {
+							"_x": "816",
+							"_y": "2271",
+							"_width": "16",
+							"_height": "8"
+						},
+						"go": {
+							"_x": "823",
+							"_y": "2264",
+							"_z": "0"
+						},
+						"spawning": {
+							"object": {
+								"_id": "409",
+								"_type": "FarmableCabbage",
+								"_minSpawnTime": "PT10S",
+								"_maxSpawnTime": "PT30S",
+								"_amount": "6"
+							}
+						},
+						"_priority": "50",
+						"_name": "A Cabbage Field in Skara Brae 1"
+					},
+					{
+						"rect": {
+							"_x": "816",
+							"_y": "2281",
+							"_width": "16",
+							"_height": "8"
+						},
+						"go": {
+							"_x": "823",
+							"_y": "2274",
+							"_z": "0"
+						},
+						"spawning": {
+							"object": {
+								"_id": "410",
+								"_type": "FarmableCabbage",
+								"_minSpawnTime": "PT10S",
+								"_maxSpawnTime": "PT30S",
+								"_amount": "6"
+							}
+						},
+						"_priority": "50",
+						"_name": "A Cabbage Field in Skara Brae 2"
+					},
+					{
+						"rect": {
+							"_x": "835",
+							"_y": "2344",
+							"_width": "16",
+							"_height": "16"
+						},
+						"go": {
+							"_x": "843",
+							"_y": "2352",
+							"_z": "0"
+						},
+						"spawning": {
+							"object": {
+								"_id": "411",
+								"_type": "FarmableWheat",
+								"_minSpawnTime": "PT10S",
+								"_maxSpawnTime": "PT30S",
+								"_amount": "6"
+							}
+						},
+						"_priority": "50",
+						"_name": "A Wheatfield in Skara Brae 2"
+					},
+					{
+						"rect": {
+							"_x": "816",
+							"_y": "2344",
+							"_width": "16",
+							"_height": "24"
+						},
+						"go": {
+							"_x": "823",
+							"_y": "2355",
+							"_z": "0"
+						},
+						"spawning": {
+							"object": {
+								"_id": "412",
+								"_type": "FarmableCotton",
+								"_minSpawnTime": "PT10S",
+								"_maxSpawnTime": "PT30S",
+								"_amount": "6"
+							}
+						},
+						"_priority": "50",
+						"_name": "A Cotton Field in Skara Brae"
+					}
+				],
+				"_name": "Trammel"
+			},
+			{
+				"region": [
+					{
+						"rect": {
+							"_x": "2107",
+							"_y": "1145",
+							"_width": "147",
+							"_height": "135"
+						},
+						"go": {
+							"_x": "2189",
+							"_y": "1253",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "DreadHornArea"
+						},
+						"entrance": {
+							"_x": "1450",
+							"_y": "1473",
+							"_z": "-23"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Twisted Weald"
+					},
+					{
+						"rect": {
+							"_x": "1298",
+							"_y": "1307",
+							"_width": "38",
+							"_height": "37"
+						},
+						"_priority": "50",
+						"_name": "Sheep Farm"
+					},
+					{
+						"rect": {
+							"_x": "512",
+							"_y": "200",
+							"_width": "32",
+							"_height": "32"
+						},
+						"go": {
+							"_x": "539",
+							"_y": "221",
+							"_z": "-36"
+						},
+						"_priority": "37",
+						"_name": "Shrine of Valor"
+					},
+					{
+						"rect": {
+							"_x": "1736",
+							"_y": "224",
+							"_width": "24",
+							"_height": "24"
+						},
+						"go": {
+							"_x": "1748",
+							"_y": "236",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Chaos Shrine"
+					},
+					{
+						"rect": {
+							"_x": "1160",
+							"_y": "1280",
+							"_width": "32",
+							"_height": "16"
+						},
+						"go": {
+							"_x": "1196",
+							"_y": "1290",
+							"_z": "-25"
+						},
+						"_priority": "50",
+						"_name": "Shrine of Sacrifice"
+					},
+					{
+						"rect": {
+							"_x": "712",
+							"_y": "1344",
+							"_width": "24",
+							"_height": "32"
+						},
+						"go": {
+							"_x": "725",
+							"_y": "1355",
+							"_z": "-61"
+						},
+						"_priority": "37",
+						"_name": "Shrine of Honesty"
+					},
+					{
+						"rect": {
+							"_x": "1200",
+							"_y": "448",
+							"_width": "32",
+							"_height": "40"
+						},
+						"go": {
+							"_x": "1223",
+							"_y": "475",
+							"_z": "-16"
+						},
+						"_priority": "50",
+						"_name": "Shrine of Compassion"
+					},
+					{
+						"rect": {
+							"_x": "1520",
+							"_y": "1336",
+							"_width": "16",
+							"_height": "16"
+						},
+						"go": {
+							"_x": "1528",
+							"_y": "1344",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Shrine of Spirituality"
+					},
+					{
+						"rect": {
+							"_x": "272",
+							"_y": "1008",
+							"_width": "24",
+							"_height": "16"
+						},
+						"go": {
+							"_x": "284",
+							"_y": "1016",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Shrine of Humility"
+					},
+					{
+						"rect": {
+							"_x": "736",
+							"_y": "712",
+							"_width": "24",
+							"_height": "32"
+						},
+						"go": {
+							"_x": "748",
+							"_y": "728",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Shrine of Honor"
+					},
+					{
+						"rect": {
+							"_x": "528",
+							"_y": "376",
+							"_width": "96",
+							"_height": "88"
+						},
+						"go": {
+							"_x": "568",
+							"_y": "430",
+							"_z": "41"
+						},
+						"_priority": "11",
+						"_name": "Terort Skitas"
+					},
+					{
+						"rect": [
+							{
+								"_x": "824",
+								"_y": "552",
+								"_width": "32",
+								"_height": "176"
+							},
+							{
+								"_x": "752",
+								"_y": "576",
+								"_width": "72",
+								"_height": "128"
+							},
+							{
+								"_x": "856",
+								"_y": "576",
+								"_width": "48",
+								"_height": "128"
+							},
+							{
+								"_x": "904",
+								"_y": "624",
+								"_width": "24",
+								"_height": "32"
+							}
+						],
+						"go": {
+							"_x": "840",
+							"_y": "571",
+							"_z": "0"
+						},
+						"region": {
+							"rect": {
+								"_x": "827",
+								"_y": "694",
+								"_width": "26",
+								"_height": "33"
+							},
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Gargoyle City"
+					},
+					{
+						"rect": {
+							"_x": "736",
+							"_y": "480",
+							"_width": "32",
+							"_height": "24"
+						},
+						"go": {
+							"_x": "745",
+							"_y": "492",
+							"_z": "-66"
+						},
+						"music": {
+							"_name": "Stones2"
+						},
+						"_priority": "50",
+						"_name": "Pormir Harm"
+					},
+					{
+						"rect": {
+							"_x": "472",
+							"_y": "336",
+							"_width": "40",
+							"_height": "32"
+						},
+						"go": {
+							"_x": "472",
+							"_y": "352",
+							"_z": "-78"
+						},
+						"_priority": "50",
+						"_name": "Pormir Felwis"
+					},
+					{
+						"rect": {
+							"_x": "880",
+							"_y": "1256",
+							"_width": "56",
+							"_height": "112"
+						},
+						"go": {
+							"_x": "901",
+							"_y": "1297",
+							"_z": "-71"
+						},
+						"_priority": "50",
+						"_name": "Cyclops Temple"
+					},
+					{
+						"rect": {
+							"_x": "616",
+							"_y": "792",
+							"_width": "56",
+							"_height": "56"
+						},
+						"go": {
+							"_x": "642",
+							"_y": "845",
+							"_z": "-58"
+						},
+						"_priority": "50",
+						"_name": "Rat Fort"
+					},
+					{
+						"rect": {
+							"_x": "160",
+							"_y": "736",
+							"_width": "32",
+							"_height": "32"
+						},
+						"go": {
+							"_x": "171",
+							"_y": "750",
+							"_z": "-28"
+						},
+						"_priority": "50",
+						"_name": "Rat Fort Cellar"
+					},
+					{
+						"rect": {
+							"_x": "1136",
+							"_y": "584",
+							"_width": "16",
+							"_height": "16"
+						},
+						"go": {
+							"_x": "1141",
+							"_y": "594",
+							"_z": "-80"
+						},
+						"_priority": "50",
+						"_name": "Entrance to Central Ilshenar 1"
+					},
+					{
+						"rect": {
+							"_x": "1232",
+							"_y": "576",
+							"_width": "8",
+							"_height": "16"
+						},
+						"go": {
+							"_x": "1238",
+							"_y": "583",
+							"_z": "-19"
+						},
+						"_priority": "50",
+						"_name": "Entrance to Central Ilshenar 2"
+					},
+					{
+						"rect": [
+							{
+								"_x": "1576",
+								"_y": "272",
+								"_width": "144",
+								"_height": "96"
+							},
+							{
+								"_x": "1616",
+								"_y": "200",
+								"_width": "80",
+								"_height": "72"
+							},
+							{
+								"_x": "1696",
+								"_y": "144",
+								"_width": "40",
+								"_height": "128"
+							},
+							{
+								"_x": "1736",
+								"_y": "144",
+								"_width": "32",
+								"_height": "64"
+							}
+						],
+						"go": {
+							"_x": "1646",
+							"_y": "319",
+							"_z": "48"
+						},
+						"guards": {
+							"_disabled": "true"
+						},
+						"_type": "TownRegion",
+						"_priority": "41",
+						"_name": "Montor"
+					},
+					{
+						"rect": [
+							{
+								"_x": "1520",
+								"_y": "368",
+								"_width": "232",
+								"_height": "128"
+							},
+							{
+								"_x": "1520",
+								"_y": "296",
+								"_width": "56",
+								"_height": "72"
+							},
+							{
+								"_x": "1752",
+								"_y": "440",
+								"_width": "24",
+								"_height": "40"
+							}
+						],
+						"go": {
+							"_x": "1636",
+							"_y": "432",
+							"_z": "0"
+						},
+						"_priority": "40",
+						"_name": "Termir Flam"
+					},
+					{
+						"rect": {
+							"_x": "1448",
+							"_y": "496",
+							"_width": "104",
+							"_height": "104"
+						},
+						"go": {
+							"_x": "1516",
+							"_y": "542",
+							"_z": "85"
+						},
+						"guards": {
+							"_disabled": "true"
+						},
+						"_type": "TownRegion",
+						"_priority": "11",
+						"_name": "Ancient Citadel"
+					},
+					{
+						"rect": {
+							"_x": "1272",
+							"_y": "352",
+							"_width": "168",
+							"_height": "240"
+						},
+						"go": {
+							"_x": "1396",
+							"_y": "432",
+							"_z": "-17"
+						},
+						"guards": {
+							"_disabled": "true"
+						},
+						"_type": "TownRegion",
+						"_priority": "41",
+						"_name": "Alexandretta's Bowl"
+					},
+					{
+						"rect": {
+							"_x": "1784",
+							"_y": "560",
+							"_width": "8",
+							"_height": "16"
+						},
+						"go": {
+							"_x": "1784",
+							"_y": "568",
+							"_z": "100"
+						},
+						"_priority": "2",
+						"_name": "Entrance to Rock Dungeon"
+					},
+					{
+						"rect": [
+							{
+								"_x": "2176",
+								"_y": "288",
+								"_width": "24",
+								"_height": "40"
+							},
+							{
+								"_x": "2088",
+								"_y": "8",
+								"_width": "160",
+								"_height": "176"
+							}
+						],
+						"go": {
+							"_x": "2187",
+							"_y": "316",
+							"_z": "-7"
+						},
+						"entrance": {
+							"_x": "1788",
+							"_y": "571"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "2",
+						"_name": "Rock Dungeon"
+					},
+					{
+						"rect": {
+							"_x": "1560",
+							"_y": "792",
+							"_width": "232",
+							"_height": "120"
+						},
+						"go": {
+							"_x": "1673",
+							"_y": "876",
+							"_z": "-25"
+						},
+						"guards": {
+							"_disabled": "true"
+						},
+						"_type": "TownRegion",
+						"_priority": "5",
+						"_name": "Lenmir Anfinmotas"
+					},
+					{
+						"rect": {
+							"_x": "1400",
+							"_y": "896",
+							"_width": "40",
+							"_height": "24"
+						},
+						"go": {
+							"_x": "1418",
+							"_y": "915",
+							"_z": "-19"
+						},
+						"_priority": "2",
+						"_name": "Entrance to Spider Cave"
+					},
+					{
+						"rect": [
+							{
+								"_x": "1752",
+								"_y": "952",
+								"_width": "112",
+								"_height": "48"
+							},
+							{
+								"_x": "1480",
+								"_y": "864",
+								"_width": "48",
+								"_height": "32"
+							}
+						],
+						"go": {
+							"_x": "1785",
+							"_y": "991",
+							"_z": "-28"
+						},
+						"entrance": {
+							"_x": "1420",
+							"_y": "910"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Spider Cave"
+					},
+					{
+						"rect": {
+							"_x": "1536",
+							"_y": "1032",
+							"_width": "48",
+							"_height": "40"
+						},
+						"go": {
+							"_x": "1560",
+							"_y": "1052",
+							"_z": "0"
+						},
+						"region": {
+							"rect": {
+								"_x": "1546",
+								"_y": "1037",
+								"_width": "21",
+								"_height": "20"
+							},
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_priority": "48",
+						"_name": "Twin Oaks"
+					},
+					{
+						"rect": {
+							"_x": "1328",
+							"_y": "1008",
+							"_width": "80",
+							"_height": "112"
+						},
+						"go": {
+							"_x": "1363",
+							"_y": "1055",
+							"_z": "-13"
+						},
+						"guards": {
+							"_disabled": "true"
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Reg Volon"
+					},
+					{
+						"rect": {
+							"_x": "1360",
+							"_y": "1030",
+							"_width": "6",
+							"_height": "4"
+						},
+						"go": {
+							"_x": "1363",
+							"_y": "1033",
+							"_z": "-8"
+						},
+						"_priority": "2",
+						"_name": "Entrance Spectre Dungeon"
+					},
+					{
+						"rect": {
+							"_x": "1936",
+							"_y": "1000",
+							"_width": "96",
+							"_height": "120"
+						},
+						"go": {
+							"_x": "1983",
+							"_y": "1107",
+							"_z": "-18"
+						},
+						"entrance": {
+							"_x": "1362",
+							"_y": "1031"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "2",
+						"_name": "Spectre Dungeon"
+					},
+					{
+						"rect": {
+							"_x": "1736",
+							"_y": "1224",
+							"_width": "24",
+							"_height": "16"
+						},
+						"go": {
+							"_x": "1747",
+							"_y": "1227",
+							"_z": "-1"
+						},
+						"_priority": "2",
+						"_name": "Entrance Blood Dungeon"
+					},
+					{
+						"rect": {
+							"_x": "2032",
+							"_y": "808",
+							"_width": "168",
+							"_height": "256"
+						},
+						"go": {
+							"_x": "2114",
+							"_y": "839",
+							"_z": "-28"
+						},
+						"entrance": {
+							"_x": "1745",
+							"_y": "1236"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "2",
+						"_name": "Blood Dungeon"
+					},
+					{
+						"rect": {
+							"_x": "1448",
+							"_y": "1320",
+							"_width": "16",
+							"_height": "16"
+						},
+						"go": {
+							"_x": "1460",
+							"_y": "1329",
+							"_z": "-25"
+						},
+						"_priority": "2",
+						"_name": "Entrance Mushroom Cave"
+					},
+					{
+						"rect": {
+							"_x": "1392",
+							"_y": "1448",
+							"_width": "104",
+							"_height": "120"
+						},
+						"go": {
+							"_x": "1476",
+							"_y": "1494",
+							"_z": "-28"
+						},
+						"_priority": "11",
+						"_name": "Mushroom Cave"
+					},
+					{
+						"rect": {
+							"_x": "1144",
+							"_y": "1072",
+							"_width": "120",
+							"_height": "128"
+						},
+						"go": {
+							"_x": "1212",
+							"_y": "1144",
+							"_z": "-25"
+						},
+						"guards": {
+							"_disabled": "true"
+						},
+						"_type": "TownRegion",
+						"_priority": "48",
+						"_name": "Lake Shire"
+					},
+					{
+						"rect": {
+							"_x": "1024",
+							"_y": "1152",
+							"_width": "8",
+							"_height": "8"
+						},
+						"go": {
+							"_x": "1031",
+							"_y": "1154",
+							"_z": "-24"
+						},
+						"_priority": "2",
+						"_name": "Entrance Rat Cave"
+					},
+					{
+						"rect": {
+							"_x": "1144",
+							"_y": "1440",
+							"_width": "224",
+							"_height": "144"
+						},
+						"go": {
+							"_x": "1345",
+							"_y": "1511",
+							"_z": "-3"
+						},
+						"_priority": "2",
+						"_name": "Rat Cave Territory"
+					},
+					{
+						"rect": [
+							{
+								"_x": "1264",
+								"_y": "1448",
+								"_width": "96",
+								"_height": "128"
+							},
+							{
+								"_x": "1152",
+								"_y": "1456",
+								"_width": "104",
+								"_height": "104"
+							}
+						],
+						"go": {
+							"_x": "1348",
+							"_y": "1511",
+							"_z": "-3"
+						},
+						"_priority": "2",
+						"_name": "Ratman Cave"
+					},
+					{
+						"rect": {
+							"_x": "1232",
+							"_y": "936",
+							"_width": "40",
+							"_height": "48"
+						},
+						"go": {
+							"_x": "1238",
+							"_y": "974",
+							"_z": "-34"
+						},
+						"guards": {
+							"_disabled": "true"
+						},
+						"_type": "TownRegion",
+						"_priority": "48",
+						"_name": "Bet-Lem Reg"
+					},
+					{
+						"rect": [
+							{
+								"_x": "744",
+								"_y": "984",
+								"_width": "168",
+								"_height": "168"
+							},
+							{
+								"_x": "744",
+								"_y": "1152",
+								"_width": "48",
+								"_height": "24"
+							}
+						],
+						"go": {
+							"_x": "818",
+							"_y": "1073",
+							"_z": "-30"
+						},
+						"guards": {
+							"_disabled": "true"
+						},
+						"region": {
+							"rect": {
+								"_x": "752",
+								"_y": "1131",
+								"_width": "16",
+								"_height": "21"
+							},
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "48",
+						"_name": "Mistas"
+					},
+					{
+						"rect": {
+							"_x": "800",
+							"_y": "864",
+							"_width": "16",
+							"_height": "16"
+						},
+						"go": {
+							"_x": "808",
+							"_y": "872",
+							"_z": "5"
+						},
+						"_priority": "2",
+						"_name": "Entrance Serpentine Passage"
+					},
+					{
+						"rect": {
+							"_x": "368",
+							"_y": "1488",
+							"_width": "192",
+							"_height": "104"
+						},
+						"go": {
+							"_x": "533",
+							"_y": "1526",
+							"_z": "-25"
+						},
+						"_priority": "11",
+						"_name": "Serpentine Passage"
+					},
+					{
+						"rect": [
+							{
+								"_x": "0",
+								"_y": "1248",
+								"_width": "176",
+								"_height": "344"
+							},
+							{
+								"_x": "568",
+								"_y": "1152",
+								"_width": "16",
+								"_height": "8"
+							}
+						],
+						"go": {
+							"_x": "156",
+							"_y": "1484",
+							"_z": "-28"
+						},
+						"entrance": {
+							"_x": "668",
+							"_y": "928"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "2",
+						"_name": "Ankh Dungeon"
+					},
+					{
+						"rect": {
+							"_x": "0",
+							"_y": "800",
+							"_width": "192",
+							"_height": "400"
+						},
+						"go": {
+							"_x": "11",
+							"_y": "881",
+							"_z": "-29"
+						},
+						"_priority": "11",
+						"_name": "Kirin passage"
+					},
+					{
+						"rect": {
+							"_x": "312",
+							"_y": "1328",
+							"_width": "8",
+							"_height": "8"
+						},
+						"go": {
+							"_x": "314",
+							"_y": "1331",
+							"_z": "-37"
+						},
+						"_priority": "2",
+						"_name": "Entrance Lizards Passage"
+					},
+					{
+						"rect": [
+							{
+								"_x": "616",
+								"_y": "1480",
+								"_width": "88",
+								"_height": "96"
+							},
+							{
+								"_x": "704",
+								"_y": "1544",
+								"_width": "24",
+								"_height": "32"
+							},
+							{
+								"_x": "704",
+								"_y": "1480",
+								"_width": "40",
+								"_height": "40"
+							},
+							{
+								"_x": "816",
+								"_y": "1448",
+								"_width": "96",
+								"_height": "136"
+							},
+							{
+								"_x": "944",
+								"_y": "1416",
+								"_width": "56",
+								"_height": "40"
+							},
+							{
+								"_x": "912",
+								"_y": "1456",
+								"_width": "112",
+								"_height": "128"
+							},
+							{
+								"_x": "832",
+								"_y": "1424",
+								"_width": "48",
+								"_height": "24"
+							},
+							{
+								"_x": "744",
+								"_y": "1504",
+								"_width": "72",
+								"_height": "80"
+							},
+							{
+								"_x": "744",
+								"_y": "1456",
+								"_width": "56",
+								"_height": "48"
+							}
+						],
+						"go": {
+							"_x": "628",
+							"_y": "1524",
+							"_z": "-28"
+						},
+						"entrance": {
+							"_x": "652",
+							"_y": "1301"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "2",
+						"_name": "Wisp Dungeon"
+					},
+					{
+						"rect": {
+							"_x": "256",
+							"_y": "1560",
+							"_width": "80",
+							"_height": "32"
+						},
+						"go": {
+							"_x": "285",
+							"_y": "1585",
+							"_z": "-27"
+						},
+						"_priority": "11",
+						"_name": "Lizard Passage"
+					},
+					{
+						"rect": {
+							"_x": "1832",
+							"_y": "16",
+							"_width": "248",
+							"_height": "200"
+						},
+						"go": {
+							"_x": "1966",
+							"_y": "117",
+							"_z": "-28"
+						},
+						"entrance": {
+							"_x": "827",
+							"_y": "777"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Exodus Dungeon"
+					},
+					{
+						"rect": {
+							"_x": "264",
+							"_y": "1280",
+							"_width": "56",
+							"_height": "96"
+						},
+						"go": {
+							"_x": "298",
+							"_y": "1336",
+							"_z": "-24"
+						},
+						"_priority": "48",
+						"_name": "Lizard Man's Huts"
+					},
+					{
+						"rect": {
+							"_x": "344",
+							"_y": "1112",
+							"_width": "144",
+							"_height": "128"
+						},
+						"go": {
+							"_x": "416",
+							"_y": "1176",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Nox Tereg"
+					},
+					{
+						"rect": [
+							{
+								"_x": "368",
+								"_y": "0",
+								"_width": "120",
+								"_height": "120"
+							},
+							{
+								"_x": "200",
+								"_y": "0",
+								"_width": "168",
+								"_height": "112"
+							},
+							{
+								"_x": "256",
+								"_y": "120",
+								"_width": "32",
+								"_height": "32"
+							},
+							{
+								"_x": "48",
+								"_y": "0",
+								"_width": "136",
+								"_height": "136"
+							},
+							{
+								"_x": "224",
+								"_y": "112",
+								"_width": "24",
+								"_height": "32"
+							}
+						],
+						"go": {
+							"_x": "429",
+							"_y": "108",
+							"_z": "-28"
+						},
+						"entrance": {
+							"_x": "546",
+							"_y": "455"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "2",
+						"_name": "Sorcerer's Dungeon"
+					},
+					{
+						"rect": {
+							"_x": "936",
+							"_y": "488",
+							"_width": "8",
+							"_height": "8"
+						},
+						"go": {
+							"_x": "940",
+							"_y": "503",
+							"_z": "-30"
+						},
+						"_priority": "50",
+						"_name": "Entrance Ancient Lair"
+					},
+					{
+						"rect": {
+							"_x": "24",
+							"_y": "664",
+							"_width": "112",
+							"_height": "96"
+						},
+						"go": {
+							"_x": "86",
+							"_y": "744",
+							"_z": "-28"
+						},
+						"entrance": {
+							"_x": "938",
+							"_y": "494"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "2",
+						"_name": "Ancient Lair"
+					},
+					{
+						"rect": {
+							"_x": "480",
+							"_y": "520",
+							"_width": "56",
+							"_height": "48"
+						},
+						"go": {
+							"_x": "504",
+							"_y": "536",
+							"_z": "-60"
+						},
+						"_priority": "50",
+						"_name": "Gypsy Camp"
+					},
+					{
+						"rect": {
+							"_x": "1480",
+							"_y": "600",
+							"_width": "56",
+							"_height": "40"
+						},
+						"go": {
+							"_x": "1508",
+							"_y": "620",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Gypsy Camp 1"
+					},
+					{
+						"rect": {
+							"_x": "1592",
+							"_y": "528",
+							"_width": "40",
+							"_height": "40"
+						},
+						"go": {
+							"_x": "1612",
+							"_y": "548",
+							"_z": "0"
+						},
+						"region": {
+							"rect": {
+								"_x": "1617",
+								"_y": "546",
+								"_width": "12",
+								"_height": "8"
+							},
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_priority": "48",
+						"_name": "Gypsy Camp 2"
+					},
+					{
+						"rect": {
+							"_x": "1192",
+							"_y": "656",
+							"_width": "112",
+							"_height": "136"
+						},
+						"go": {
+							"_x": "1248",
+							"_y": "724",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Juka Camp"
+					},
+					{
+						"rect": {
+							"_x": "928",
+							"_y": "408",
+							"_width": "40",
+							"_height": "40"
+						},
+						"go": {
+							"_x": "948",
+							"_y": "428",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Gypsy Camp 3"
+					},
+					{
+						"rect": {
+							"_x": "840",
+							"_y": "440",
+							"_width": "40",
+							"_height": "48"
+						},
+						"go": {
+							"_x": "860",
+							"_y": "464",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Gypsy Camp 4"
+					},
+					{
+						"rect": [
+							{
+								"_x": "1216",
+								"_y": "520",
+								"_width": "24",
+								"_height": "48"
+							},
+							{
+								"_x": "1248",
+								"_y": "568",
+								"_width": "16",
+								"_height": "24"
+							}
+						],
+						"go": {
+							"_x": "1228",
+							"_y": "544",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Gypsy Camp 5"
+					},
+					{
+						"rect": {
+							"_x": "1376",
+							"_y": "416",
+							"_width": "32",
+							"_height": "32"
+						},
+						"go": {
+							"_x": "1392",
+							"_y": "432",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Gypsy Camp 6"
+					},
+					{
+						"rect": [
+							{
+								"_x": "1048",
+								"_y": "616",
+								"_width": "72",
+								"_height": "72"
+							},
+							{
+								"_x": "1080",
+								"_y": "688",
+								"_width": "24",
+								"_height": "24"
+							}
+						],
+						"go": {
+							"_x": "1084",
+							"_y": "652",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Lord Blackthorn's Ilshenar Castle"
+					},
+					{
+						"rect": {
+							"_x": "1072",
+							"_y": "376",
+							"_width": "64",
+							"_height": "56"
+						},
+						"go": {
+							"_x": "1104",
+							"_y": "404",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Shrine of the Virtues"
+					},
+					{
+						"rect": [
+							{
+								"_x": "848",
+								"_y": "288",
+								"_width": "120",
+								"_height": "48"
+							},
+							{
+								"_x": "936",
+								"_y": "232",
+								"_width": "32",
+								"_height": "56"
+							},
+							{
+								"_x": "968",
+								"_y": "248",
+								"_width": "120",
+								"_height": "56"
+							},
+							{
+								"_x": "1000",
+								"_y": "304",
+								"_width": "24",
+								"_height": "16"
+							},
+							{
+								"_x": "1048",
+								"_y": "304",
+								"_width": "136",
+								"_height": "56"
+							},
+							{
+								"_x": "1184",
+								"_y": "336",
+								"_width": "64",
+								"_height": "56"
+							}
+						],
+						"go": {
+							"_x": "908",
+							"_y": "312",
+							"_z": "0"
+						},
+						"_priority": "50",
+						"_name": "Pass of Karnaugh"
+					},
+					{
+						"rect": {
+							"_x": "658",
+							"_y": "654",
+							"_width": "13",
+							"_height": "24"
+						},
+						"go": {
+							"_x": "656",
+							"_y": "666",
+							"_z": "-36"
+						},
+						"region": {
+							"rect": {
+								"_x": "658",
+								"_y": "654",
+								"_width": "13",
+								"_height": "24"
+							},
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_priority": "50",
+						"_name": "Vinculum Inn"
+					}
+				],
+				"_name": "Ilshenar"
+			},
+			{
+				"region": [
+					{
+						"rect": {
+							"_x": "1532",
+							"_y": "857",
+							"_width": "300",
+							"_height": "200"
+						},
+						"go": {
+							"_x": "1731",
+							"_y": "981",
+							"_z": "-79"
+						},
+						"smartNoHousing": {
+							"_active": "true"
+						},
+						"_type": "NoHousingRegion",
+						"_priority": "50",
+						"_name": "Ilse of the Divide"
+					},
+					{
+						"rect": {
+							"_x": "75",
+							"_y": "1590",
+							"_width": "135",
+							"_height": "170"
+						},
+						"go": {
+							"_x": "117",
+							"_y": "1681",
+							"_z": "0"
+						},
+						"entrance": {
+							"_x": "2068",
+							"_y": "1372",
+							"_z": "-75"
+						},
+						"music": {
+							"_name": "GrizzleDungeon"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Bedlam"
+					},
+					{
+						"rect": {
+							"_x": "60",
+							"_y": "1855",
+							"_width": "135",
+							"_height": "135"
+						},
+						"go": {
+							"_x": "106",
+							"_y": "1884",
+							"_z": "0"
+						},
+						"entrance": {
+							"_x": "1349",
+							"_y": "769",
+							"_z": "14"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "The Citadel"
+					},
+					{
+						"rect": {
+							"_x": "945",
+							"_y": "490",
+							"_width": "91",
+							"_height": "61"
+						},
+						"go": {
+							"_x": "989",
+							"_y": "520",
+							"_z": "-50"
+						},
+						"music": {
+							"_name": "tavern04"
+						},
+						"region": {
+							"rect": {
+								"_x": "986",
+								"_y": "509",
+								"_width": "18",
+								"_height": "21"
+							},
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Luna"
+					},
+					{
+						"rect": [
+							{
+								"_x": "2042",
+								"_y": "1265",
+								"_width": "48",
+								"_height": "13"
+							},
+							{
+								"_x": "1960",
+								"_y": "1278",
+								"_width": "146",
+								"_height": "135"
+							},
+							{
+								"_x": "2004",
+								"_y": "1413",
+								"_width": "36",
+								"_height": "6"
+							}
+						],
+						"go": {
+							"_x": "2049",
+							"_y": "1344",
+							"_z": "-85"
+						},
+						"region": {
+							"rect": {
+								"_x": "2031",
+								"_y": "1311",
+								"_width": "15",
+								"_height": "14"
+							},
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Umbra"
+					},
+					{
+						"rect": {
+							"_x": "256",
+							"_y": "1795",
+							"_width": "243",
+							"_height": "230"
+						},
+						"go": {
+							"_x": "336",
+							"_y": "1970",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "1731",
+							"_y": "981",
+							"_z": "-79"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Labyrinth"
+					},
+					{
+						"rect": {
+							"_x": "256",
+							"_y": "0",
+							"_width": "256",
+							"_height": "304"
+						},
+						"go": {
+							"_x": "2366",
+							"_y": "1268",
+							"_z": "-85"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "2357",
+							"_y": "1268"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Doom"
+					},
+					{
+						"rect": {
+							"_x": "256",
+							"_y": "304",
+							"_width": "256",
+							"_height": "256"
+						},
+						"go": {
+							"_x": "429",
+							"_y": "340",
+							"_z": "-1"
+						},
+						"music": {
+							"_name": "Dungeon9"
+						},
+						"entrance": {
+							"_x": "2357",
+							"_y": "1268"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Doom Gauntlet"
+					},
+					{
+						"rect": {
+							"_x": "1295",
+							"_y": "1189",
+							"_width": "100",
+							"_height": "105"
+						},
+						"go": {
+							"_x": "1340",
+							"_y": "1226",
+							"_z": "-90"
+						},
+						"_priority": "50",
+						"_name": "Orc Fortress"
+					},
+					{
+						"rect": {
+							"_x": "1176",
+							"_y": "509",
+							"_width": "43",
+							"_height": "13"
+						},
+						"go": {
+							"_x": "1195",
+							"_y": "515",
+							"_z": "-90"
+						},
+						"_type": "NoHousingRegion",
+						"_priority": "50",
+						"_name": "Crystal Cave Entrance"
+					},
+					{
+						"rect": [
+							{
+								"_x": "1976",
+								"_y": "101",
+								"_width": "472",
+								"_height": "244"
+							},
+							{
+								"_x": "2051",
+								"_y": "345",
+								"_width": "305",
+								"_height": "37"
+							},
+							{
+								"_x": "2026",
+								"_y": "345",
+								"_width": "25",
+								"_height": "25"
+							},
+							{
+								"_x": "2069",
+								"_y": "382",
+								"_width": "75",
+								"_height": "14"
+							},
+							{
+								"_x": "2254",
+								"_y": "382",
+								"_width": "98",
+								"_height": "38"
+							},
+							{
+								"_x": "2222",
+								"_y": "382",
+								"_width": "32",
+								"_height": "20"
+							}
+						],
+						"go": {
+							"_x": "2104",
+							"_y": "380",
+							"_z": "-90"
+						},
+						"smartNoHousing": {
+							"_active": "true"
+						},
+						"_type": "NoHousingRegion",
+						"_priority": "50",
+						"_name": "Protected Island"
+					},
+					{
+						"rect": {
+							"_x": "919",
+							"_y": "622",
+							"_width": "43",
+							"_height": "30"
+						},
+						"go": {
+							"_x": "961",
+							"_y": "637",
+							"_z": "-90"
+						},
+						"smartNoHousing": {
+							"_active": "false"
+						},
+						"_type": "NoHousingRegion",
+						"_priority": "50",
+						"_name": "Grand Arena"
+					},
+					{
+						"rect": [
+							{
+								"_x": "1049",
+								"_y": "1420",
+								"_width": "13",
+								"_height": "25"
+							},
+							{
+								"_x": "1062",
+								"_y": "1420",
+								"_width": "3",
+								"_height": "11"
+							},
+							{
+								"_x": "1062",
+								"_y": "1439",
+								"_width": "3",
+								"_height": "6"
+							}
+						],
+						"go": {
+							"_x": "1063",
+							"_y": "1435",
+							"_z": "-90"
+						},
+						"logoutDelay": {
+							"_active": "false"
+						},
+						"_priority": "50",
+						"_name": "Hanse's Hostel"
+					},
+					{
+						"rect": {
+							"_x": "0",
+							"_y": "0",
+							"_width": "129",
+							"_height": "129"
+						},
+						"go": {
+							"_x": "6",
+							"_y": "118",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "TokunoDungeon"
+						},
+						"entrance": {
+							"_x": "259",
+							"_y": "783",
+							"_map": "Tokuno"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Yomotsu Mines"
+					},
+					{
+						"rect": {
+							"_x": "40",
+							"_y": "320",
+							"_width": "170",
+							"_height": "400"
+						},
+						"go": {
+							"_x": "71",
+							"_y": "337",
+							"_z": "0"
+						},
+						"music": {
+							"_name": "TokunoDungeon"
+						},
+						"entrance": {
+							"_x": "977",
+							"_y": "223",
+							"_map": "Tokuno"
+						},
+						"_type": "DungeonRegion",
+						"_priority": "50",
+						"_name": "Fan Dancer's Dojo"
+					},
+					{
+						"rect": {
+							"_x": "320",
+							"_y": "690",
+							"_width": "115",
+							"_height": "100"
+						},
+						"music": {
+							"_name": "Zento"
+						},
+						"region": [
+							{
+								"rect": {
+									"_x": "368",
+									"_y": "772",
+									"_width": "7",
+									"_height": "5"
+								},
+								"quest": {
+									"_type": "HaochisTrialsQuest"
+								},
+								"_type": "QuestOfferRegion"
+							},
+							{
+								"rect": {
+									"_x": "388",
+									"_y": "772",
+									"_width": "9",
+									"_height": "9"
+								},
+								"quest": {
+									"_type": "HaochisTrialsQuest"
+								},
+								"_type": "CancelQuestRegion"
+							},
+							{
+								"rect": {
+									"_x": "363",
+									"_y": "747",
+									"_width": "6",
+									"_height": "6"
+								},
+								"quest": {
+									"_type": "HaochisTrialsQuest",
+									"_min": "FirstTrialIntroObjective",
+									"_message": "1063163"
+								},
+								"_type": "QuestNoEntryRegion"
+							},
+							{
+								"rect": {
+									"_x": "333",
+									"_y": "768",
+									"_width": "11",
+									"_height": "3"
+								},
+								"quest": {
+									"_type": "HaochisTrialsQuest",
+									"_complete": "FirstTrialIntroObjective"
+								},
+								"_type": "QuestCompleteObjectiveRegion"
+							},
+							{
+								"rect": {
+									"_x": "364",
+									"_y": "738",
+									"_width": "5",
+									"_height": "4"
+								},
+								"quest": {
+									"_type": "HaochisTrialsQuest",
+									"_min": "SecondTrialIntroObjective",
+									"_message": "1063163"
+								},
+								"_type": "QuestNoEntryRegion"
+							},
+							{
+								"rect": {
+									"_x": "328",
+									"_y": "729",
+									"_width": "22",
+									"_height": "22"
+								},
+								"quest": {
+									"_type": "HaochisTrialsQuest",
+									"_complete": "SecondTrialIntroObjective"
+								},
+								"_type": "QuestCompleteObjectiveRegion"
+							},
+							{
+								"rect": {
+									"_x": "363",
+									"_y": "727",
+									"_width": "6",
+									"_height": "6"
+								},
+								"quest": {
+									"_type": "HaochisTrialsQuest",
+									"_min": "ThirdTrialIntroObjective",
+									"_message": "1063163"
+								},
+								"_type": "QuestNoEntryRegion"
+							},
+							{
+								"rect": {
+									"_x": "328",
+									"_y": "696",
+									"_width": "23",
+									"_height": "23"
+								},
+								"quest": {
+									"_type": "HaochisTrialsQuest",
+									"_complete": "ThirdTrialIntroObjective"
+								},
+								"_type": "QuestCompleteObjectiveRegion"
+							},
+							{
+								"rect": {
+									"_x": "377",
+									"_y": "722",
+									"_width": "6",
+									"_height": "6"
+								},
+								"quest": {
+									"_type": "HaochisTrialsQuest",
+									"_min": "FourthTrialIntroObjective",
+									"_message": "1063163"
+								},
+								"_type": "QuestNoEntryRegion"
+							},
+							{
+								"rect": {
+									"_x": "369",
+									"_y": "697",
+									"_width": "23",
+									"_height": "22"
+								},
+								"quest": {
+									"_type": "HaochisTrialsQuest",
+									"_complete": "FourthTrialIntroObjective"
+								},
+								"_type": "QuestCompleteObjectiveRegion"
+							},
+							{
+								"rect": {
+									"_x": "391",
+									"_y": "729",
+									"_width": "4",
+									"_height": "5"
+								},
+								"quest": {
+									"_type": "HaochisTrialsQuest",
+									"_min": "FifthTrialIntroObjective",
+									"_message": "1063163"
+								},
+								"_type": "QuestNoEntryRegion"
+							},
+							{
+								"rect": {
+									"_x": "391",
+									"_y": "738",
+									"_width": "4",
+									"_height": "4"
+								},
+								"quest": {
+									"_type": "HaochisTrialsQuest",
+									"_min": "SixthTrialIntroObjective",
+									"_message": "1063163"
+								},
+								"_type": "QuestNoEntryRegion"
+							},
+							{
+								"rect": {
+									"_x": "397",
+									"_y": "747",
+									"_width": "4",
+									"_height": "5"
+								},
+								"quest": {
+									"_type": "HaochisTrialsQuest",
+									"_min": "SeventhTrialIntroObjective",
+									"_message": "1063163"
+								},
+								"_type": "QuestNoEntryRegion"
+							}
+						],
+						"_priority": "50",
+						"_name": "Samurai start location"
+					},
+					{
+						"rect": {
+							"_x": "360",
+							"_y": "795",
+							"_width": "80",
+							"_height": "40"
+						},
+						"music": {
+							"_name": "Zento"
+						},
+						"region": [
+							{
+								"rect": {
+									"_x": "407",
+									"_y": "807",
+									"_width": "24",
+									"_height": "14"
+								},
+								"quest": {
+									"_type": "EminosUndertakingQuest"
+								},
+								"_type": "QuestOfferRegion"
+							},
+							{
+								"rect": {
+									"_x": "374",
+									"_y": "801",
+									"_width": "4",
+									"_height": "3"
+								},
+								"quest": {
+									"_type": "EminosUndertakingQuest"
+								},
+								"_type": "CancelQuestRegion"
+							}
+						],
+						"_priority": "50",
+						"_name": "Ninja start location"
+					},
+					{
+						"rect": {
+							"_x": "360",
+							"_y": "960",
+							"_width": "100",
+							"_height": "215"
+						},
+						"_priority": "50",
+						"_name": "Ninja cave"
+					}
+				],
+				"_name": "Malas"
+			},
+			{
+				"region": [
+					{
+						"rect": [
+							{
+								"_x": "1167",
+								"_y": "996",
+								"_width": "4",
+								"_height": "4"
+							},
+							{
+								"_x": "799",
+								"_y": "1201",
+								"_width": "6",
+								"_height": "6"
+							},
+							{
+								"_x": "267",
+								"_y": "625",
+								"_width": "7",
+								"_height": "7"
+							}
+						],
+						"_type": "GuardedRegion",
+						"_priority": "50",
+						"_name": "Moongates"
+					},
+					{
+						"rect": {
+							"_x": "656",
+							"_y": "1192",
+							"_width": "160",
+							"_height": "128"
+						},
+						"go": {
+							"_x": "736",
+							"_y": "1256",
+							"_z": "30"
+						},
+						"music": {
+							"_name": "Zento"
+						},
+						"region": {
+							"rect": {
+								"_x": "674",
+								"_y": "1203",
+								"_width": "25",
+								"_height": "16"
+							},
+							"logoutDelay": {
+								"_active": "false"
+							}
+						},
+						"_type": "TownRegion",
+						"_priority": "50",
+						"_name": "Zento"
+					},
+					{
+						"rect": {
+							"_x": "969",
+							"_y": "194",
+							"_width": "23",
+							"_height": "30"
+						},
+						"go": {
+							"_x": "977",
+							"_y": "223",
+							"_z": "23"
+						},
+						"smartNoHousing": {
+							"_active": "true"
+						},
+						"_type": "NoHousingRegion",
+						"_priority": "50",
+						"_name": "Fan Dancer's Dojo"
+					},
+					{
+						"rect": {
+							"_x": "283",
+							"_y": "361",
+							"_width": "68",
+							"_height": "102"
+						},
+						"go": {
+							"_x": "320",
+							"_y": "408",
+							"_z": "32"
+						},
+						"smartNoHousing": {
+							"_active": "true"
+						},
+						"_type": "NoHousingRegion",
+						"_priority": "50",
+						"_name": "Bushido Dojo"
+					}
+				],
+				"_name": "Tokuno"
+			}
+		]
+	}
+}

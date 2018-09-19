@@ -13,8 +13,9 @@ class Map {
     public static $chunks               = [];
     public static $chunkSize            = 512; // Number in square
     public static $tileMatrix           = [];
-    public static $serialData          = [];
-    public static $serialDataHolded    = [];
+    public static $serialData           = [];
+    public static $serialDataHolded     = [];
+    public static $gumpsIds             = [];
     private static $tiledata            = [];
     private static $lastSerial          = [
         'mobile' => 0,
@@ -110,9 +111,9 @@ class Map {
     public static function readMaps() {
         for ($actualMap = 0; $actualMap < UltimaPHP::$conf["muls"]['maps']; $actualMap++) {
             /* Start reading the map files of actual map */
-            Functions::progressBar(0, 1, "Reading map{$actualMap}.mul file");
+            Functions::progressBar(0, 1, "Reading map{$actualMap}LegacyMUL.uop file");
 
-            $mapFile = UltimaPHP::$conf['muls']['location'] . "map{$actualMap}.mul";
+            $mapFile = UltimaPHP::$conf['muls']['location'] . "map{$actualMap}LegacyMUL.uop";
             $mapSize = explode(",", UltimaPHP::$conf["muls"]["map{$actualMap}"]);
 
             if (!is_file($mapFile)) {
@@ -152,7 +153,7 @@ class Map {
             self::$maps[$actualMap]['size']['x'] = (int) $mapSize[0] >> 3;
             self::$maps[$actualMap]['size']['y'] = (int) $mapSize[1] >> 3;
 
-            Functions::progressBar(1, 1, "Reading map{$actualMap}.mul file");
+            Functions::progressBar(1, 1, "Reading map{$actualMap}LegacyMUL.uop file");
 
             /* Start reading the staidx file of actual map */
             Functions::progressBar(0, 1, "Reading staidx{$actualMap}.mul file");
@@ -717,8 +718,14 @@ class Map {
             foreach ($chunkData as $serialTest => $dataTest) {
                 if ($dataTest['type'] != "player") {
                     if (($actual_player->position['map'] != $dataTest['instance']->position['map']) || (abs($actual_player->position['x'] - $dataTest['instance']->position['x']) > $actual_player->render_range || abs($actual_player->position['y'] - $dataTest['instance']->position['y']) > $actual_player->render_range)) {
-                        $actual_player->removeObjectFromView($serialTest);
-                    } else {
+                        if (isset($actual_player->mapRange[$serialTest])) {
+                            $actual_player->removeObjectFromView($serialTest);
+                        }
+                    } else if (!isset($actual_player->mapRange[$serialTest])) {
+                        $actual_player->mapRange[$serialTest] = [
+                            'status' => true,
+                            'lastupdate' => time()
+                        ];
                         $dataTest['instance']->draw($actual_player->client);
                     }
                 } else {
@@ -732,6 +739,7 @@ class Map {
 
                     if (($actual_player->position['map'] != $player->position['map'] || abs($actual_player->position['x'] - $player->position['x']) > $actual_player->render_range || abs($actual_player->position['y'] - $player->position['y']) > $actual_player->render_range) || ($player->hidden && $actual_player_plevel < $player_plevel)) {
                         if (isset($actual_player->mapRange[$player->serial])) {
+                            echo "Removing (2): " . $player->serial . "\n";
                             $actual_player->removeObjectFromView($player->serial);
                         }
                         continue;

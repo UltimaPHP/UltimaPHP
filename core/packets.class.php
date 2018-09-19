@@ -46,7 +46,7 @@ class Packets {
         $packet = str_pad(dechex($this->packet), 2, "0", STR_PAD_LEFT);
 
         if ($this->length === false) {
-            $packet .= str_pad(dechex(count($this->packetBytes) + 3), 4, "0", STR_PAD_LEFT);
+            $packet .= str_pad(dechex((strlen(implode("", $this->packetBytes)) / 2) + 3), 4, "0", STR_PAD_LEFT);
         }
 
         $packet .= implode("", $this->packetBytes);
@@ -55,8 +55,8 @@ class Packets {
     }
 
     public function addText($text = "", $maxByteSyze = false, $fill_zeros = true, $pad_direction = STR_PAD_RIGHT) {
-        $hexStr = str_split(str_pad(Functions::strToHex($text), ($maxByteSyze ? ($maxByteSyze*2) : $maxByteSyze), "0", $pad_direction), 2);
-
+        $hexStr = str_split(str_pad(Functions::strToHex($text), ($maxByteSyze ? ($maxByteSyze*2) : $maxByteSyze), "0", $pad_direction), 2);       
+        
         foreach ($hexStr as $hex) {
             $this->packetBytes[] = $hex;
         }
@@ -139,8 +139,8 @@ class Packets {
         return is_array($i) ? $i[1] : $i;
     }
 
-    public static function int32($i) {
-        return is_int($i) ? pack("l", $i) : unpack("l", $i)[1];
+    public static function int32($i) {        
+        return sprintf("%08X", $i);
     }
 
     public static function uInt32($i, $endianness = false) {

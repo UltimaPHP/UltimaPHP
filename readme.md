@@ -6,9 +6,7 @@ This server was created for thoes who ever wanted to create differend addaptatio
 
 I decided to build this project for study propose i've re-scripted the entire socket server to understand how it works and after that i decided to create a lightweight standalone version of the server that runs in any OS easly.
 
-Note 1: The server works with clients 6.0.13 or greater, since this version many packets was changed and we will not spent time with older clients for now.
-
-Note 2: I'm developing using the Ultima Online Classic Client Patch version 59 - 7.0.20.0
+Note: The server only works with the last updated Ultima Online client (7.0.59.5) and we will not spent time with older clients for now.
 
 ## How to install?
 
@@ -65,8 +63,8 @@ make install
  * Login multiple chars
  * Equip multiple objects
  * PickUp / Drag / Drop item
- * Walk / Run in any world
- * Unicode Sysmessage
+ * Walk / Run in any of the 6 worlds
+ * Send and receive unicode Sysmessage
  * Where Command
  * Teleport command to any world
  * Invis command
@@ -80,17 +78,25 @@ make install
  * Store objects inside multiple containers
  * Save the player objects
  * Save the world objects
+ * Mobile walking using pathfinding (Still need to work on it, see issues)
+ * Dialogs (With Gump Studio Exporter plugin allready working, tools folder)
+ * Containers
+ * Many other things
 
 ### Usefull links that could help you code
 
  * [Sublime Text 3](http://www.sublimetext.com/3) recommended IDE used to program the server
- * [CodeFormatter](https://github.com/akalongman/sublimetext-codeformatter) used to format the code in K&R style
  * [SocketSniff](http://nirsoft.net/utils/socket_sniffer.html) program i use to monitor an program sockets communication
  * [POL Packet Guide](http://docs.polserver.com/packets/index.php) for learning all about the packages sent trought server and client
  * [Sphere 0.56d source](https://github.com/Sphereserver/Source) to discover how things works, maybe...
  * [RunUO repository](https://github.com/runuo/runuo) to see how things works
  * [POL Repository](https://github.com/polserver/polserver) to see how things works
- * [Ultima Online Classic - Patch 59 - 7.0.20.0](https://docs.google.com/uc?id=0B5JIbJ4zjyOaTnZEMmhjZW5oYnc&export=download) to download the same version i'm using to build the server
+ * [Ultima Online Classic](http://uo.com)
+
+### Do you feel like you coul help in anyway this projet?
+
+Feel free to join us and help this project grow in whatever you can!
+We always like to hear new ideas and feedbacks, so why don't you create an issue to tell us what can you do to help us grow?
 
 ### Coding standards
 
@@ -107,34 +113,6 @@ make install
  * All secure information, like passwords, must be stored encrypted
  * All relashionship must have an foreign key linkng the table columns
  * All tables names must be LOWERCASE and words separated with underline, IE: good_table_name
-
-#### CodeFormatter PHP configuration default:
-```js
-"codeformatter_php_path": "C:/php/php.exe",
-"codeformatter_php_options":
-{
-    "indent_size": 1,
-    "indent_with_tabs": true,
-    "indent_style": "k&r",
-    "newline_before_comment": true,
-    "new_line_before": "",
-    "new_line_after": "",
-    "format_array_nested": true,
-    "pear": true,
-    "pear_add_header": "",
-    "pear_newline_class": true,
-    "pear_newline_trait": true,
-    "pear_newline_function": false,
-    "pear_switch_without_indent": false,
-    "lowercase": true,
-    "fluent": false,
-    "list_class_function": false,
-    "equals_align": false,
-    "phpbb": false,
-    "space_in_paren": false,
-    "space_in_square": false
-}
-```
 
 ### Authors
 

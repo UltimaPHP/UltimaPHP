@@ -30,6 +30,7 @@ class Account {
 
     /* Logged player variables */
     public $player = null;
+    
 
     /**
      * Looks for the account credentials in the database and define the base variables
@@ -63,23 +64,23 @@ class Account {
         $this->featuresFlags = 0;
 
         if (UltimaPHP::$conf['features']['featuret2a'] & 0x01) {
-            $this->featuresFlags |= 0x4;
+            $this->featuresFlags |= 0x04;
         }
 
         if (UltimaPHP::$conf['features']['featuret2a'] & 0x02) {
-            $this->featuresFlags |= 0x1;
+            $this->featuresFlags |= 0x01;
         }
 
         if (UltimaPHP::$conf['features']['featurelbr'] & 0x01) {
-            $this->featuresFlags |= 0x8;
+            $this->featuresFlags |= 0x08;
         }
 
         if (UltimaPHP::$conf['features']['featurelbr'] & 0x02) {
-            $this->featuresFlags |= 0x2;
+            $this->featuresFlags |= 0x02;
         }
 
         if (UltimaPHP::$conf['features']['featureaos'] & 0x01) {
-            $this->featuresFlags |= (0x10 | 0x8000);
+            $this->featuresFlags |= (0x10|0x8000);
         }
 
         if (UltimaPHP::$conf['features']['featurese'] & 0x01) {
@@ -127,7 +128,6 @@ class Account {
         }
 
         // Only for KR or Enhanced
-        // if ( m_NetState->isClientKR() || m_NetState->isClientEnhanced() ) {}
         if (UltimaPHP::$conf['features']['featureextra'] & 0x20) {
             $this->featuresFlags |= 0x2000;
         }
@@ -137,7 +137,7 @@ class Account {
         $this->charListFlags = 0;
 
         if (UltimaPHP::$conf['features']['featureaos'] & 0x02) {
-            $this->charListFlags |= 0x20;
+            $this->charListFlags |= 0x020;
         }
 
         if (UltimaPHP::$conf['features']['featureaos'] & 0x04) {
@@ -145,7 +145,7 @@ class Account {
         }
 
         if (UltimaPHP::$conf['features']['featurese'] & 0x02) {
-            $this->charListFlags |= 0x80;
+            $this->charListFlags |= 0x080;
         }
 
         if (UltimaPHP::$conf['features']['featureml'] & 0x01) {
@@ -165,14 +165,11 @@ class Account {
         } else if (UltimaPHP::$conf['accounts']['max_chars'] == 6) {
             $this->charListFlags |= 0x40;
         } else if (UltimaPHP::$conf['accounts']['max_chars'] == 1) {
-            $this->charListFlags |= (0x10 | 0x4);
+            $this->charListFlags |= (0x10|0x04);
         }
 
-        /* Disable the "overwrite configuration file" */
-        $this->charListFlags |= 0x02;
-
-        // if ( m_NetState->isClientKR() || m_NetState->isClientEnhanced() )       // tooltips must be always enabled on enhanced clients
-        //     $charListFlags |= (0x400|0x200|0x20);
+        /* Enable the "overwrite configuration file" */
+        // $this->charListFlags |= 0x02;
 
         $this->tooltipEnabled = ($this->charListFlags & 0x20 ? true : false);
     }
@@ -206,6 +203,16 @@ class Account {
         } else {
             return $this->characters;
         }
+    }
+    
+    public function getVersionClient($runInLot = false)
+    {
+        // Update the variable as array
+        $result = UltimaPHP::$db->collection("account")->find(['clientVersion' => $this->clientVersion]);
+        
+        $clientVersion                  = explode(".", $result);
+        
+        return $clientVersion[0] . $clientVersion[1] . $clientVersion[2] . $clientVersion[3];
     }
 
     /**
@@ -258,8 +265,8 @@ class Account {
             $tmpPacket .= str_pad("", 8, "0", STR_PAD_RIGHT);
         }
 
-        $tmpPacket .= str_pad($this->charListFlags, 8, "0", STR_PAD_LEFT);
-        $tmpPacket .= "FFFF";
+        $tmpPacket .= str_pad(dechex($this->charListFlags), 8, "0", STR_PAD_LEFT);
+        $tmpPacket .= "0000";
 
         $packet = "A9";
         $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 4), 4, "0", STR_PAD_LEFT);
@@ -408,7 +415,6 @@ class Account {
      *
      * Create New Char New clientes > 7.0.20
      *
-     * @return
      */
     public function createNewChar($info = []) {
         $statSum = $info['stats']['str'] + $info['stats']['dex'] + $info['stats']['int'];
@@ -531,6 +537,8 @@ class Account {
             'karma'           => 0,
             'fame'            => 0,
             'title'           => $info['title'],
+            'kills'           => 0,
+            'deaths'          => 0
         ];
 
         UltimaPHP::$db->collection("players")->insertOne($obj);

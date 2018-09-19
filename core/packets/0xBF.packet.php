@@ -29,24 +29,32 @@ class packet_0xBF extends Packets {
         $length    = hexdec($data[1] . $data[2]);
         $subcomand = hexdec($data[3] . $data[4]);
         switch ($subcomand) {
-            case 5:
-                // Screen Size
-                $unknow1 = Functions::hexToChr($data, 5, 6, true);
-                $x       = Functions::hexToChr($data, 7, 8, true);
-                $y       = Functions::hexToChr($data, 9, 10, true);
-                $unknow2 = Functions::hexToChr($data, 11, 12, true);
-                break;
-            case 11:
-                // Client language
-                $language                                      = Functions::hexToChr($data, 5, 8);
-                UltimaPHP::$socketClients[$this->client]['language'] = $language;
-                break;
-            case 15:
-                // ClientType
-                $unk1                                      = hexdec($data[5]);
-                $ClientType                                = Functions::hexToChr($data, 6, 9);
-                UltimaPHP::$socketClients[$this->client]['type'] = $ClientType;
-                break;
+        case 5:
+            // Screen Size
+            $unknow1 = Functions::hexToChr($data, 5, 6, true);
+            $x       = Functions::hexToChr($data, 7, 8, true);
+            $y       = Functions::hexToChr($data, 9, 10, true);
+            $unknow2 = Functions::hexToChr($data, 11, 12, true);
+            break;
+        case 11:
+            // Client language
+            $language                                            = Functions::hexToChr($data, 5, 8);
+            UltimaPHP::$socketClients[$this->client]['language'] = $language;
+            break;
+        case 15:
+            // ClientType
+            $unk1                                            = hexdec($data[5]);
+            $ClientType                                      = Functions::hexToChr($data, 6, 9);
+            UltimaPHP::$socketClients[$this->client]['type'] = $ClientType;
+            break;
+        case 19:
+            // Tooltip request
+            $objectSerial = $data[5] . $data[6] . $data[7] . $data[8];
+
+            $instance = Map::getBySerial($objectSerial);
+            $instance->showToolTip($this->client);
+            break;
+
         }
 
         return true;

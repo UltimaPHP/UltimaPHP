@@ -39,7 +39,7 @@ class packet_0x02 extends Packets {
         $direction           = Functions::strToHex(Functions::hexToChr($data, 1, 1, true));
         $sequence_number     = Functions::strToHex(Functions::hexToChr($data, 2, 2, true));
         $fastwalk_prevention = Functions::strToHex(Functions::hexToChr($data, 3, 6, true));
-        UltimaPHP::$socketClients[$this->client]['account']->player->movePlayer(false, $direction, $sequence_number, $fastwalk_prevention);
+        UltimaPHP::$socketClients[$this->client]['account']->player->movePlayer(false, $direction, $sequence_number);
 
         return true;
     }

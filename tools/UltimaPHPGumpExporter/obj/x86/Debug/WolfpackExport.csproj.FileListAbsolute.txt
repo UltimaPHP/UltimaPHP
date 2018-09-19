@@ -1,0 +1,9 @@
+C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\bin\Debug\WolfpackExport.dll
+C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\bin\Debug\WolfpackExport.pdb
+C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\bin\Debug\GumpStudioCore.dll
+C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\bin\Debug\Ultima.dll
+C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\bin\Debug\UOFont.dll
+C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\obj\x86\Debug\WolfpackExport.csprojResolveAssemblyReference.cache
+C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\obj\x86\Debug\WolfpackExport.csproj.CoreCompileInputs.cache
+C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\obj\x86\Debug\WolfpackExport.dll
+C:\Users\Administrador.000\Desktop\WolfpackGumpExporter\obj\x86\Debug\WolfpackExport.pdb

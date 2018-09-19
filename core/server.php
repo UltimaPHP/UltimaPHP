@@ -161,6 +161,17 @@ class UltimaPHP {
                 self::stop();
             }
         }
+        
+        // Load gumps
+        $defFiles = glob(self::$basedir . "scripts/gumps/*.gump.php");
+        $totalFiles = count($defFiles);
+        foreach ($defFiles as $fileCount => $file) {
+            Functions::progressBar($fileCount+1, $totalFiles, "Loading gumps");
+            if (!require_once ($file)) {
+                self::setStatus(self::STATUS_FILE_READ_FAIL);
+                self::stop();
+            }
+        }
 
         // Load scripts
         $scripts = Functions::rglob(self::$conf['scripts']['load'] . "*.php");
@@ -285,16 +296,7 @@ class UltimaPHP {
                     break;
                 }
             }
-        }
-
-        // Update the variable as array
-        $clientVersion                  = explode(".", self::$conf['server']['client']);
-        self::$conf['server']['client'] = array(
-            'major'     => $clientVersion[0],
-            'minor'     => $clientVersion[1],
-            'revision'  => $clientVersion[2],
-            'prototype' => $clientVersion[3],
-        );
+        }        
 
         // Update the debug variable
         self::$conf['logs']['debug'] = (bool) self::$conf['logs']['debug'];
