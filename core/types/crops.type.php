@@ -3,6 +3,6 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-class TypeCrops extends Object {
+class TypeCrops extends UObject {
 	public function typeStart() {}
 }

@@ -3,7 +3,7 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-class TypeContainer extends Object {
+class TypeContainer extends UObject {
     public $gump;
     /* access properties */
     public $owner;
@@ -14,8 +14,8 @@ class TypeContainer extends Object {
     /* Weight properties */
     public $maxWeightCapacity;
     public $actualWeight;
-    /* Inside objects */
-    public $objects = [];
+    /* Inside UObjects */
+    public $UObjects = [];
 
     public function typeStart() {
         $this->actualCarry  = 0;
@@ -29,15 +29,15 @@ class TypeContainer extends Object {
             return false;
         }
         
-        return $this->message($this->name . " (".count($this->objects)." item ". (count($this->objects) > 1 ? "s" : "") .")", 0, 3, $client);
+        return $this->message($this->name . " (".count($this->UObjects)." item ". (count($this->UObjects) > 1 ? "s" : "") .")", 0, 3, $client);
     }
 
     public function dclick($client = null) {
         return $this->open($client);
     }
 
-    public function addItem($client = false, Object $object, $position = false, $noUpdate = false) {
-        if (!$object || !$client) {
+    public function addItem($client = false, UObject $UObject, $position = false, $noUpdate = false) {
+        if (!$UObject || !$client) {
             return false;
         }
 
@@ -48,47 +48,47 @@ class TypeContainer extends Object {
             ];
         }
 
-        $object->position['x'] = $position['x'];
-        $object->position['y'] = $position['y'];
-        $object->position['z'] = null;
-        $object->position['map'] = null;
-        $object->holder = $this->serial;
-        $object->save();
+        $UObject->position['x'] = $position['x'];
+        $UObject->position['y'] = $position['y'];
+        $UObject->position['z'] = null;
+        $UObject->position['map'] = null;
+        $UObject->holder = $this->serial;
+        $UObject->save();
 
-        $this->objects[] = $object->serial;
+        $this->UObjects[] = $UObject->serial;
         $this->save();
 
-        if (Map::isValidSerial($object->serial)) {
-            Map::updateObjectHolder($object);
+        if (Map::isValidSerial($UObject->serial)) {
+            Map::updateUObjectHolder($UObject);
         } else {
-            Map::addHoldedObject($object);
+            Map::addHoldedUObject($UObject);
         }
 
         if (Map::isValidSerial($this->serial)) {
-            Map::updateObjectHolder($this);
+            Map::updateUObjectHolder($this);
         } else {
-            Map::addHoldedObject($this);
+            Map::addHoldedUObject($this);
         }
 
         if (!$noUpdate) {
-            $this->addItemToOpenedContainer($client, $object);
+            $this->addItemToOpenedContainer($client, $UObject);
             // $this->renderItems($client);
         }
 
         return true;
     }
 
-    public function removeItem($client = false, $objectSerial = false) {
-        if (!$objectSerial || !$client) {
+    public function removeItem($client = false, $UObjectSerial = false) {
+        if (!$UObjectSerial || !$client) {
             return false;
         }
 
-        if(($key = array_search($objectSerial, $this->objects)) !== false) {
-            unset($this->objects[$key]);
+        if(($key = array_search($UObjectSerial, $this->UObjects)) !== false) {
+            unset($this->UObjects[$key]);
             $this->save();
         }
 
-        Map::updateObjectHolder($this);
+        Map::updateUObjectHolder($this);
         return true;
     }
 
@@ -103,21 +103,21 @@ class TypeContainer extends Object {
         $packet .= "007F";
         Sockets::out($client, $packet);
 
-        if (count($this->objects) > 0) {
+        if (count($this->UObjects) > 0) {
             $this->renderItems($client);
         }
 
         return true;
     }
 
-    public function addItemToOpenedContainer($client = false, Object $instance) {
+    public function addItemToOpenedContainer($client = false, UObject $instance) {
         $packet = new packet_0x25($client, $instance);
         $packet->send();
     }
 
     public function renderItems($client) {
-        $tmpPacket = str_pad(dechex(count($this->objects)), 4, "0", STR_PAD_LEFT);
-        foreach ($this->objects as $key => $serial) {
+        $tmpPacket = str_pad(dechex(count($this->UObjects)), 4, "0", STR_PAD_LEFT);
+        foreach ($this->UObjects as $key => $serial) {
             $instance = Map::getBySerial($serial);
 
             $tmpPacket .= str_pad($instance->serial, 8, "0", STR_PAD_LEFT);

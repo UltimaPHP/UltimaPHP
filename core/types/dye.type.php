@@ -3,6 +3,6 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-class TypeDye extends Object {
+class TypeDye extends UObject {
 	public function typeStart() {}
 }
