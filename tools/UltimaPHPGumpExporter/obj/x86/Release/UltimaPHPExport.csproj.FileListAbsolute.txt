@@ -1,4 +1,0 @@
-C:\UltimaPHP\tools\UltimaPHPGumpExporter\obj\x86\Release\UltimaPHPExport.csprojResolveAssemblyReference.cache
-C:\UltimaPHP\tools\UltimaPHPGumpExporter\obj\x86\Release\UltimaPHPExport.UltimaPHPExportForm.resources
-C:\UltimaPHP\tools\UltimaPHPGumpExporter\obj\x86\Release\UltimaPHPExport.csproj.GenerateResource.cache
-C:\UltimaPHP\tools\UltimaPHPGumpExporter\obj\x86\Release\UltimaPHPExport.csproj.CoreCompileInputs.cache

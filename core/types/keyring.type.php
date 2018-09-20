@@ -3,6 +3,6 @@
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
  */
-class TypeKeyring extends Object {
+class TypeKeyring extends UObject {
 	public function typeStart() {}
 }
