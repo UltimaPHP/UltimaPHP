@@ -22,16 +22,16 @@ class Functions {
     {
         $isValidClient = FALSE;
         if($major === null || $minor === null || $revision === null || $prototype === null)
-        {
+        { 
             return $isValidClient;
         }
         
         $client_versions = explode(",", UltimaPHP::$conf['server']['client']);
-        
+
         foreach ($client_versions as $value) {
             $version = explode(".", $value);
-            
-            if($major === $version[0] && $minor === $version[1] && $revision === $version[2] && $prototype === $version[3])
+
+            if(($major === (int)$version[0]) && ($minor === (int)$version[1]) && ($revision === (int)$version[2]) && ($prototype === (int)$version[3]))
             {
                 echo "True\n\n";
                 $isValidClient = TRUE;
