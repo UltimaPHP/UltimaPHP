@@ -17,31 +17,27 @@ class Functions {
 
         return UltimaPHP::$socketClients[$client]['version'];
     }
-    
-    public static function isValidClient($major, $minor, $revision, $prototype)
-    {
+
+    public static function isValidClient($major, $minor, $revision, $prototype) {
         $isValidClient = FALSE;
-        if($major === null || $minor === null || $revision === null || $prototype === null)
-        { 
+        if ($major === null || $minor === null || $revision === null || $prototype === null) {
             return $isValidClient;
         }
-        
+
         $client_versions = explode(",", UltimaPHP::$conf['server']['client']);
 
         foreach ($client_versions as $value) {
             $version = explode(".", $value);
 
-            if(($major === (int)$version[0]) && ($minor === (int)$version[1]) && ($revision === (int)$version[2]) && ($prototype === (int)$version[3]))
-            {
+            if (($major === (int) $version[0]) && ($minor === (int) $version[1]) && ($revision === (int) $version[2]) && ($prototype === (int) $version[3])) {
                 echo "True\n\n";
                 $isValidClient = TRUE;
             }
 
         }
-        echo "isValid: ".$isValidClient .  "\n\n";
+        echo "isValid: " . $isValidClient . "\n\n";
         return $isValidClient;
     }
-    
 
     public static function RandomList($list) {
         if ($list === null) {
@@ -154,14 +150,14 @@ class Functions {
         }
 
         switch ($length) {
-            case 4:$val = unpack('l', $val);
-                break;
-            case 2:$val = unpack('s', $val);
-                break;
-            case 1:$val = unpack('c', $val);
-                break;
-            default:$val = unpack('l*', $val);
-                return $val;
+        case 4:$val = unpack('l', $val);
+            break;
+        case 2:$val = unpack('s', $val);
+            break;
+        case 1:$val = unpack('c', $val);
+            break;
+        default:$val = unpack('l*', $val);
+            return $val;
         }
         return ($val[1]);
     }

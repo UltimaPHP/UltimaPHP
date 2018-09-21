@@ -5,18 +5,18 @@
  * Version: 0.1 - Pre Alpha
  */
 class PlayerCallbacks {
-	public $client;
+    public $client;
 
-	public function __construct($client = false) {
-		if (!$client) {
-			return false;
-		}
+    public function __construct($client = false) {
+        if (!$client) {
+            return false;
+        }
 
-		$this->client = $client;
-	}
+        $this->client = $client;
+    }
 
     public function GeneralCommandCallback($target, $args) {
-        $instance = Map::getBySerial((int)$target['serial']);
+        $instance = Map::getBySerial((int) $target['serial']);
 
         if ($instance->instanceType == UltimaPHP::INSTANCE_PLAYER) {
             $command = "." . $args['command'] . (count($args['args']) > 0 ? " " . implode(",", $args['args']) : "");
@@ -38,8 +38,8 @@ class PlayerCallbacks {
         $z = $target['z'];
 
         if ($target['serial'] != "00000000") {
-        	new SysmessageCommand($this->client, ["Invalid location to go."]);
-        	return false;
+            new SysmessageCommand($this->client, ["Invalid location to go."]);
+            return false;
         }
 
         return Command::threatCommand($this->client, ".tele $x,$y,$z");
@@ -74,13 +74,13 @@ class PlayerCallbacks {
 
             echo "Land tiles at target: \n";
             print_r($landTiles);
-            
+
             echo "Static tiles at target: \n";
             print_r($staticsTiles);
-            
+
             echo "Top Level Item: \n";
             print_r($topLevel);
-            
+
             new SysmessageCommand($this->client, ["Target at " . $target['x'] . "," . $target['y'] . "," . $target['z'] . "."]);
         } else {
             $this->target = null;

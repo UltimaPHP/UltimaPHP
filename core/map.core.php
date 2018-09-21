@@ -8,16 +8,16 @@ class Map {
     /**
      * Map loading variables
      */
-    public static $maps                 = [];
-    public static $mapSizes             = [];
-    public static $chunks               = [];
-    public static $chunkSize            = 512; // Number in square
-    public static $tileMatrix           = [];
-    public static $serialData           = [];
-    public static $serialDataHolded     = [];
-    public static $gumpsIds             = [];
-    private static $tiledata            = [];
-    private static $lastSerial          = [
+    public static $maps             = [];
+    public static $mapSizes         = [];
+    public static $chunks           = [];
+    public static $chunkSize        = 512; // Number in square
+    public static $tileMatrix       = [];
+    public static $serialData       = [];
+    public static $serialDataHolded = [];
+    public static $gumpsIds         = [];
+    private static $tiledata        = [];
+    private static $lastSerial      = [
         'mobile' => 0,
         'object' => 0,
     ];
@@ -222,7 +222,7 @@ class Map {
 
             foreach ($objects as $count => $object) {
                 $itemClass = $object['objectName'];
-                $instance = new $itemClass($object['serial'], $object['id']);
+                $instance  = new $itemClass($object['serial'], $object['id']);
 
                 /* Update last object serial stored on server */
                 if (self::$lastSerial['object'] < $object['id']) {
@@ -253,7 +253,7 @@ class Map {
     }
 
     /* Tries do define what is the right Z position from */
-    public static function getTopItemFrom($x = 0, $y = 0, $z = 0,  $map = 0, $maxHeight = 10) {
+    public static function getTopItemFrom($x = 0, $y = 0, $z = 0, $map = 0, $maxHeight = 10) {
         if ($x == 0 || $y == 0) {
             return false;
         }
@@ -267,7 +267,7 @@ class Map {
             return false;
         }
 
-        $land = self::getTerrainLand($x, $y, $z, $map, $maxHeight);
+        $land    = self::getTerrainLand($x, $y, $z, $map, $maxHeight);
         $statics = self::getTerrainStatics($x, $y, $z, $map, $maxHeight);
 
         if (count($land) == 0 && count($statics) == 0) {
@@ -290,8 +290,8 @@ class Map {
 
             if ($itemFinalZ >= $topItem['position']['z']) {
                 $item['position']['z_orig'] = $item['position']['z'];
-                $item['position']['z'] = $itemFinalZ;
-                $topItem = $item;
+                $item['position']['z']      = $itemFinalZ;
+                $topItem                    = $item;
             }
         }
 
@@ -462,7 +462,7 @@ class Map {
             'facing'  => 0,
             'running' => 0,
         ];
-        
+
         $object->holder = ($holderSerial !== null ? $holderSerial : null);
         $object->save();
 
@@ -471,12 +471,12 @@ class Map {
         self::$chunks[$pos_m][$chunk['x']][$chunk['y']][$object->serial] = [
             'type'     => 'object',
             'client'   => null,
-            'holder'  => $holderSerial,
+            'holder'   => $holderSerial,
             'instance' => $object,
         ];
 
         self::$serialData[$object->serial] = ['map' => $pos_m, 'x' => $chunk['x'], 'y' => $chunk['y']];
-        
+
         self::updateChunk($chunk, false, $pos_m);
 
         return true;
@@ -550,14 +550,14 @@ class Map {
         $info  = self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']][$serial];
 
         switch ($info['type']) {
-            case 'player':
-            case 'mobile':
-            case 'object':
-                return true;
-                break;
-            default:
-                return false;
-                break;
+        case 'player':
+        case 'mobile':
+        case 'object':
+            return true;
+            break;
+        default:
+            return false;
+            break;
         }
     }
 
@@ -580,16 +580,16 @@ class Map {
         $info  = self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']][$serial];
 
         switch ($info['type']) {
-            case 'player':
-                return UltimaPHP::$socketClients[$info['client']]['account']->player;
-                break;
-            case 'mobile':
-            case 'object':
-                return $info['instance'];
-                break;
-            default:
-                return false;
-                break;
+        case 'player':
+            return UltimaPHP::$socketClients[$info['client']]['account']->player;
+            break;
+        case 'mobile':
+        case 'object':
+            return $info['instance'];
+            break;
+        default:
+            return false;
+            break;
         }
     }
 
@@ -723,8 +723,8 @@ class Map {
                         }
                     } else if (!isset($actual_player->mapRange[$serialTest])) {
                         $actual_player->mapRange[$serialTest] = [
-                            'status' => true,
-                            'lastupdate' => time()
+                            'status'     => true,
+                            'lastupdate' => time(),
                         ];
                         $dataTest['instance']->draw($actual_player->client);
                     }
