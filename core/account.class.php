@@ -30,7 +30,6 @@ class Account {
 
     /* Logged player variables */
     public $player = null;
-    
 
     /**
      * Looks for the account credentials in the database and define the base variables
@@ -80,7 +79,7 @@ class Account {
         }
 
         if (UltimaPHP::$conf['features']['featureaos'] & 0x01) {
-            $this->featuresFlags |= (0x10|0x8000);
+            $this->featuresFlags |= (0x10 | 0x8000);
         }
 
         if (UltimaPHP::$conf['features']['featurese'] & 0x01) {
@@ -165,7 +164,7 @@ class Account {
         } else if (UltimaPHP::$conf['accounts']['max_chars'] == 6) {
             $this->charListFlags |= 0x40;
         } else if (UltimaPHP::$conf['accounts']['max_chars'] == 1) {
-            $this->charListFlags |= (0x10|0x04);
+            $this->charListFlags |= (0x10 | 0x04);
         }
 
         /* Enable the "overwrite configuration file" */
@@ -204,14 +203,13 @@ class Account {
             return $this->characters;
         }
     }
-    
-    public function getVersionClient($runInLot = false)
-    {
+
+    public function getVersionClient($runInLot = false) {
         // Update the variable as array
         $result = UltimaPHP::$db->collection("account")->find(['clientVersion' => $this->clientVersion]);
-        
-        $clientVersion                  = explode(".", $result);
-        
+
+        $clientVersion = explode(".", $result);
+
         return $clientVersion[0] . $clientVersion[1] . $clientVersion[2] . $clientVersion[3];
     }
 
@@ -538,7 +536,7 @@ class Account {
             'fame'            => 0,
             'title'           => $info['title'],
             'kills'           => 0,
-            'deaths'          => 0
+            'deaths'          => 0,
         ];
 
         UltimaPHP::$db->collection("players")->insertOne($obj);

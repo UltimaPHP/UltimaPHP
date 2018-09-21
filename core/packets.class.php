@@ -55,8 +55,8 @@ class Packets {
     }
 
     public function addText($text = "", $maxByteSyze = false, $fill_zeros = true, $pad_direction = STR_PAD_RIGHT) {
-        $hexStr = str_split(str_pad(Functions::strToHex($text), ($maxByteSyze ? ($maxByteSyze*2) : $maxByteSyze), "0", $pad_direction), 2);       
-        
+        $hexStr = str_split(str_pad(Functions::strToHex($text), ($maxByteSyze ? ($maxByteSyze * 2) : $maxByteSyze), "0", $pad_direction), 2);
+
         foreach ($hexStr as $hex) {
             $this->packetBytes[] = $hex;
         }
@@ -79,16 +79,16 @@ class Packets {
     }
 
     public function addUInt16($value = 0) {
-        $hexStr = str_split(strtoupper(str_pad(dechex($this->uInt16($value)), 4, "0", STR_PAD_LEFT)),2);
-        
+        $hexStr = str_split(strtoupper(str_pad(dechex($this->uInt16($value)), 4, "0", STR_PAD_LEFT)), 2);
+
         foreach ($hexStr as $hex) {
             $this->packetBytes[] = $hex;
         }
     }
 
     public function addInt16($value = 0) {
-        $hexStr = str_split($this->int16($value) ,2);
-        
+        $hexStr = str_split($this->int16($value), 2);
+
         foreach ($hexStr as $hex) {
             $this->packetBytes[] = $hex;
         }
@@ -139,7 +139,7 @@ class Packets {
         return is_array($i) ? $i[1] : $i;
     }
 
-    public static function int32($i) {        
+    public static function int32($i) {
         return sprintf("%08X", $i);
     }
 

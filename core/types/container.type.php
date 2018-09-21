@@ -28,8 +28,8 @@ class TypeContainer extends UObject {
         if ($client === null) {
             return false;
         }
-        
-        return $this->message($this->name . " (".count($this->UObjects)." item ". (count($this->UObjects) > 1 ? "s" : "") .")", 0, 3, $client);
+
+        return $this->message($this->name . " (" . count($this->UObjects) . " item " . (count($this->UObjects) > 1 ? "s" : "") . ")", 0, 3, $client);
     }
 
     public function dclick($client = null) {
@@ -43,31 +43,31 @@ class TypeContainer extends UObject {
 
         if (!$position) {
             $position = [
-                'x' => rand(1,127),
-                'y' => rand(1,127)
+                'x' => rand(1, 127),
+                'y' => rand(1, 127),
             ];
         }
 
-        $UObject->position['x'] = $position['x'];
-        $UObject->position['y'] = $position['y'];
-        $UObject->position['z'] = null;
+        $UObject->position['x']   = $position['x'];
+        $UObject->position['y']   = $position['y'];
+        $UObject->position['z']   = null;
         $UObject->position['map'] = null;
-        $UObject->holder = $this->serial;
+        $UObject->holder          = $this->serial;
         $UObject->save();
 
         $this->UObjects[] = $UObject->serial;
         $this->save();
 
         if (Map::isValidSerial($UObject->serial)) {
-            Map::updateUObjectHolder($UObject);
+            Map::updateObjectHolder($UObject);
         } else {
-            Map::addHoldedUObject($UObject);
+            Map::addHoldedObject($UObject);
         }
 
         if (Map::isValidSerial($this->serial)) {
-            Map::updateUObjectHolder($this);
+            Map::updateObjectHolder($this);
         } else {
-            Map::addHoldedUObject($this);
+            Map::addHoldedObject($this);
         }
 
         if (!$noUpdate) {
@@ -83,12 +83,12 @@ class TypeContainer extends UObject {
             return false;
         }
 
-        if(($key = array_search($UObjectSerial, $this->UObjects)) !== false) {
+        if (($key = array_search($UObjectSerial, $this->UObjects)) !== false) {
             unset($this->UObjects[$key]);
             $this->save();
         }
 
-        Map::updateUObjectHolder($this);
+        Map::updateObjectHolder($this);
         return true;
     }
 

@@ -121,7 +121,7 @@ class UObject {
 
         $tmpPacket = Functions::mbStrToHex($text, true);
 
-        $packet    = "AE";
+        $packet = "AE";
         $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 50), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($this->graphic), 4, "0", STR_PAD_LEFT);
@@ -145,7 +145,7 @@ class UObject {
 
         return false;
     }
- 
+
     public function click($client = null) {
         if ($client === null) {
             return false;
@@ -176,7 +176,7 @@ class UObject {
         }
 
         $packet = new packet_0xD6($client);
-        $packet->addUObject($this);
+        $packet->addObject($this);
         return $packet->send();
     }
 

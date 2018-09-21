@@ -236,43 +236,43 @@ class Mobile {
         $oldPos = $this->position;
 
         switch (hexdec($direction)) {
-            case 0: /* North */
-                $this->position['y']--;
-                break;
-            case 1: /* Northeast */
-                $this->position['x']++;
-                $this->position['y']--;
-                break;
-            case 2: /* East */
-                $this->position['x']++;
-                break;
-            case 3: /* Southeast */
-                $this->position['x']++;
-                $this->position['y']++;
-                break;
-            case 4: /* South */
-                $this->position['y']++;
-                break;
-            case 5: /* Southwest */
-                $this->position['x']--;
-                $this->position['y']++;
-                break;
-            case 6: /* West */
-                $this->position['x']--;
-                break;
-            case 7: /* Northwest */
-                $this->position['x']--;
-                $this->position['y']--;
-                break;
-            default:
-                return false;
-                break;
+        case 0: /* North */
+            $this->position['y']--;
+            break;
+        case 1: /* Northeast */
+            $this->position['x']++;
+            $this->position['y']--;
+            break;
+        case 2: /* East */
+            $this->position['x']++;
+            break;
+        case 3: /* Southeast */
+            $this->position['x']++;
+            $this->position['y']++;
+            break;
+        case 4: /* South */
+            $this->position['y']++;
+            break;
+        case 5: /* Southwest */
+            $this->position['x']--;
+            $this->position['y']++;
+            break;
+        case 6: /* West */
+            $this->position['x']--;
+            break;
+        case 7: /* Northwest */
+            $this->position['x']--;
+            $this->position['y']--;
+            break;
+        default:
+            return false;
+            break;
         }
         $this->position['facing'] = $direction;
 
         /* Check if can go to position */
         $landTile = Map::getTerrainLand($this->position['x'], $this->position['y'], $this->position['z'], $this->position['map']);
-        $canWalk = true;
+        $canWalk  = true;
 
         if ($landTile) {
             if ($landTile['flags'] & TiledataDefs::WALL || $landTile['flags'] & TiledataDefs::IMPASSABLE || $landTile['flags'] & TiledataDefs::DOOR) {
@@ -297,7 +297,7 @@ class Mobile {
 
         if ($canWalk) {
             $chunkInfo = Map::getChunk($this->position['x'], $this->position['y']);
-            $chunkData     = Map::$chunks[$this->position['map']][$chunkInfo['x']][$chunkInfo['y']];
+            $chunkData = Map::$chunks[$this->position['map']][$chunkInfo['x']][$chunkInfo['y']];
 
             foreach ($chunkData as $serial => $data) {
                 if ($data['type'] == "player") {
@@ -358,7 +358,7 @@ class Mobile {
         $mY = 0;
         for ($y = $viewRange['from']['y']; $y <= $viewRange['to']['y']; $y++) {
             $map[$mY] = [];
-            $mX = 0;
+            $mX       = 0;
 
             for ($x = $viewRange['from']['x']; $x <= $viewRange['to']['x']; $x++) {
                 $canWalk = true;
@@ -393,7 +393,7 @@ class Mobile {
         }
 
         $flowPath = new FlowPath($map, true);
-        $steps = $flowPath->getPath();
+        $steps    = $flowPath->getPath();
 
         // $flowPath->dumpPath();
 
@@ -405,7 +405,7 @@ class Mobile {
             $this->position['running'] = true;
         }
 
-        foreach($steps as $stepId => $dir) {
+        foreach ($steps as $stepId => $dir) {
             Sockets::addSerialEvent($this->serial, [
                 "option" => "mobile",
                 "method" => "move",
@@ -418,7 +418,7 @@ class Mobile {
         $this->say("I've heard this: " . $message . " :)", 0, 3);
 
         if (strstr($message, "goto")) {
-            $tmp = explode(",", str_replace("goto ", "", $message));
+            $tmp      = explode(",", str_replace("goto ", "", $message));
             $position = ['x' => $tmp[0], 'y' => $tmp[1], 'z' => (isset($tmp[2]) ? $tmp[2] : $this->position['z'])];
             $this->goToPosition($position);
         }

@@ -5,14 +5,14 @@
  * Version: 0.1 - Pre Alpha
  */
 class Reader {
-    const FILE_STRING           = 0x00;
-    const FILE_TILEDATA         = 0x01;
-    const FILE_MAP_FILE         = 0x02;
-    const FILE_MAP_DIF          = 0x03;
-    const FILE_STATIC_INDEX     = 0x04;
-    const FILE_STATIC_FILE      = 0x05;
-    const FILE_TEXTURE_INDEX    = 0x06;
-    const FILE_TEXTURE_FILE     = 0x07;
+    const FILE_STRING        = 0x00;
+    const FILE_TILEDATA      = 0x01;
+    const FILE_MAP_FILE      = 0x02;
+    const FILE_MAP_DIF       = 0x03;
+    const FILE_STATIC_INDEX  = 0x04;
+    const FILE_STATIC_FILE   = 0x05;
+    const FILE_TEXTURE_INDEX = 0x06;
+    const FILE_TEXTURE_FILE  = 0x07;
 
     /* Class variables */
     public $fileType;

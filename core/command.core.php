@@ -31,12 +31,12 @@ class Command {
         'sendpacket' => [
             'minPlevel' => 7,
         ],
-        'info' => [
+        'info'       => [
             'minPlevel' => 4,
         ],
-        'update' => [
+        'update'     => [
             'minPlevel' => 2,
-        ]
+        ],
     ];
 
     static $commandAlias = [
@@ -66,7 +66,7 @@ class Command {
 
         $tmp  = array_slice($tmp, 1);
         $args = (count($tmp) > 0 ? explode(",", implode(" ", $tmp)) : []);
-		
+
         return self::runCommand($client, $command, $args, $sentFrom, $ignorePlevel);
     }
 
@@ -100,7 +100,7 @@ class Command {
             if (!$ignorePlevel && self::$list[$command]['minPlevel'] > UltimaPHP::$socketClients[$sentFrom]['account']->plevel) {
                 new SysmessageCommand($client, ["Sorry, but you can't run this command, your account have no rights to do that."]);
                 return false;
-            }    
+            }
         } else {
             if (!$ignorePlevel && self::$list[$command]['minPlevel'] > UltimaPHP::$socketClients[$client]['account']->plevel) {
                 new SysmessageCommand($client, ["Sorry, but you can't run this command, your account have no rights to do that."]);
