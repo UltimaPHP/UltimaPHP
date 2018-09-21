@@ -63,63 +63,67 @@ class Account {
         $this->featuresFlags = 0;
 
         if (UltimaPHP::$conf['features']['featuret2a'] & 0x01) {
-            $this->featuresFlags |= 0x04;
+            $this->featuresFlags |= 0x00000004;
         }
 
         if (UltimaPHP::$conf['features']['featuret2a'] & 0x02) {
-            $this->featuresFlags |= 0x01;
+            $this->featuresFlags |= 0x00000001;
         }
 
         if (UltimaPHP::$conf['features']['featurelbr'] & 0x01) {
-            $this->featuresFlags |= 0x08;
+            $this->featuresFlags |= 0x00000008;
         }
 
         if (UltimaPHP::$conf['features']['featurelbr'] & 0x02) {
-            $this->featuresFlags |= 0x02;
+            $this->featuresFlags |= 0x00000002;
         }
 
         if (UltimaPHP::$conf['features']['featureaos'] & 0x01) {
-            $this->featuresFlags |= (0x10 | 0x8000);
+            $this->featuresFlags |= (0x00000010 | 0x00008000);
         }
 
         if (UltimaPHP::$conf['features']['featurese'] & 0x01) {
-            $this->featuresFlags |= 0x40;
+            $this->featuresFlags |= 0x00000040;
         }
 
         if (UltimaPHP::$conf['features']['featureml'] & 0x01) {
-            $this->featuresFlags |= 0x80;
+            $this->featuresFlags |= 0x00000080;
         }
 
         if (UltimaPHP::$conf['features']['featuresa'] & 0x01) {
-            $this->featuresFlags |= 0x10000;
+            $this->featuresFlags |= 0x00010000;
         }
 
         if (UltimaPHP::$conf['features']['featuretol'] & 0x01) {
-            $this->featuresFlags |= 0x400000;
+            $this->featuresFlags |= 0x00400000;
+        }
+
+        if (UltimaPHP::$conf['features']['featureej'] & 0x01) {
+            $this->featuresFlags |= 0x00800000;
         }
 
         if (UltimaPHP::$conf['accounts']['max_chars'] > 6) {
-            $this->featuresFlags |= 0x1000;
+            $this->featuresFlags |= 0x00001000;
         }
 
         if (UltimaPHP::$conf['accounts']['max_chars'] == 6) {
-            $this->featuresFlags |= 0x20;
+            $this->featuresFlags |= 0x00000020;
         }
 
         if (UltimaPHP::$conf['features']['featureextra'] & 0x01) {
-            $this->featuresFlags |= 0x200;
+            $this->featuresFlags |= 0x00000200;
         }
 
         if (UltimaPHP::$conf['features']['featureextra'] & 0x02) {
-            $this->featuresFlags |= 0x40000;
+            $this->featuresFlags |= 0x00040000;
         }
 
         if (UltimaPHP::$conf['features']['featureextra'] & 0x04) {
-            $this->featuresFlags |= 0x80000;
+            $this->featuresFlags |= 0x00080000;
         }
 
         if (UltimaPHP::$conf['features']['featureextra'] & 0x08) {
-            $this->featuresFlags |= 0x100000;
+            $this->featuresFlags |= 0x00100000;
         }
 
         if (UltimaPHP::$conf['features']['featureextra'] & 0x10) {
@@ -128,49 +132,53 @@ class Account {
 
         // Only for KR or Enhanced
         if (UltimaPHP::$conf['features']['featureextra'] & 0x20) {
-            $this->featuresFlags |= 0x2000;
+            $this->featuresFlags |= 0x00002000;
         }
     }
 
     public function updateCharListFlags() {
-        $this->charListFlags = 0;
+        $this->charListFlags = 0x00000000;
 
         if (UltimaPHP::$conf['features']['featureaos'] & 0x02) {
-            $this->charListFlags |= 0x020;
+            $this->charListFlags |= 0x00000020;
         }
 
         if (UltimaPHP::$conf['features']['featureaos'] & 0x04) {
-            $this->charListFlags |= 0x08;
+            $this->charListFlags |= 0x00000008;
         }
 
         if (UltimaPHP::$conf['features']['featurese'] & 0x02) {
-            $this->charListFlags |= 0x080;
+            $this->charListFlags |= 0x00000080;
         }
 
         if (UltimaPHP::$conf['features']['featureml'] & 0x01) {
-            $this->charListFlags |= 0x100;
+            $this->charListFlags |= 0x00000100;
         }
 
         if (UltimaPHP::$conf['features']['featurekr'] & 0x01) {
-            $this->charListFlags |= 0x200;
+            $this->charListFlags |= 0x00000200;
         }
 
         if (UltimaPHP::$conf['features']['featuresa'] & 0x02) {
-            $this->charListFlags |= 0x4000;
+            $this->charListFlags |= 0x00004000;
+        }
+
+        if (UltimaPHP::$conf['features']['featureej'] & 0x01) {
+            $this->charListFlags |= 0x00008000;
         }
 
         if (UltimaPHP::$conf['accounts']['max_chars'] > 6) {
-            $this->charListFlags |= 0x1000;
+            $this->charListFlags |= 0x00001000;
         } else if (UltimaPHP::$conf['accounts']['max_chars'] == 6) {
-            $this->charListFlags |= 0x40;
+            $this->charListFlags |= 0x00000040;
         } else if (UltimaPHP::$conf['accounts']['max_chars'] == 1) {
-            $this->charListFlags |= (0x10 | 0x04);
+            $this->charListFlags |= (0x0000010 | 0x00000004);
         }
 
         /* Enable the "overwrite configuration file" */
         // $this->charListFlags |= 0x02;
 
-        $this->tooltipEnabled = ($this->charListFlags & 0x20 ? true : false);
+        $this->tooltipEnabled = ($this->charListFlags & 0x00000020 ? true : false);
     }
 
     /**
