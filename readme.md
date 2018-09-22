@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/UltimaPHP/UltimaPHP.svg?branch=master)](https://travis-ci.org/UltimaPHP/UltimaPHP)
+
 ## UltimaPHP - Ultima Online OpenSource Server
 
 UltimaPHP is a modern Ultima Online server written in PHP 7.0.

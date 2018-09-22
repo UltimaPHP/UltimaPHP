@@ -1,0 +1,9 @@
+language: php
+php:
+  - 7.2
+before_install: pecl install mongodb-1.5.2
+before_install: echo "extension = mongodb.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+script: php startserver.php
+
+notifications:
+  irc: "irc.youhide.com.br#ultimaphp"
