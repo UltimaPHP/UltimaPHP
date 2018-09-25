@@ -22,7 +22,16 @@ class packet_0xB1 extends Packets {
             return false;
         }
 
-        print_r($data);
+        $command  = $data[0];
+        $packetSize = hexdec(Functions::implodeByte($data, 1, 2));
+        $serial = hexdec(Functions::implodeByte($data, 3, 6));
+        $gumpID = hexdec(Functions::implodeByte($data, 7, 10));
+        $buttonID = hexdec(Functions::implodeByte($data, 11, 14));
+        $switchesCount = hexdec(Functions::implodeByte($data, 15, 18));
+
+        $dialogQueVeioNoPacote = Map::$gumpsIds[$gumpId];
+
+        print_r($dialogQueVeioNoPacote);
 
         return true;
     }
