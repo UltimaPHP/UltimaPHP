@@ -119,7 +119,7 @@ class Player {
             $this->fame            = $result[0]['fame'];
             $this->title           = $result[0]['title'];
             $this->kills           = $result[0]['kills'];
-            $this->deaths           = $result[0]['deaths'];
+            $this->deaths          = $result[0]['deaths'];
             $this->warmode         = false;
 
             foreach ($result[0]['skills'] as $skill => $value) {
@@ -161,7 +161,7 @@ class Player {
         }
 
         $this->mapRange = [];
-        
+
         $this->updateCursorColor(false, $this->position['map']);
         $this->drawChar();
         $this->drawPlayer();
@@ -275,7 +275,7 @@ class Player {
             return false;
         }
 
-        $instance = Map::getBySerial($serial);
+        $instance          = Map::getBySerial($serial);
         $containerInstance = Map::getBySerial($container);
 
         if ($instance->holder !== null) {
@@ -288,7 +288,7 @@ class Player {
 
                     if ($instance->objectName == "Backpack") {
                         $instance->holder = $this->serial;
-                        
+
                         if (Map::isValidSerial($instance->serial)) {
                             Map::updateObjectHolder($instance);
                         } else {
@@ -337,7 +337,7 @@ class Player {
             if (!$playerBackpack) {
                 if ($instance->objectName == "Backpack") {
                     $instance->holder = $this->serial;
-                    
+
                     if (Map::isValidSerial($instance->serial)) {
                         Map::updateObjectHolder($instance);
                     } else {
@@ -356,17 +356,17 @@ class Player {
                 }
             }
 
-            $layerInstance = Map::getBySerial($this->layers[$instance->layer]);
+            $layerInstance                                                                        = Map::getBySerial($this->layers[$instance->layer]);
             UltimaPHP::$socketClients[$this->client]['account']->player->layers[$instance->layer] = null;
 
-            $playerBackpack->addItem($this->client, $layerInstance, ['x' => rand(1,127), 'y' => rand(1,127), 'z' => 0, 'map' => null]);
+            $playerBackpack->addItem($this->client, $layerInstance, ['x' => rand(1, 127), 'y' => rand(1, 127), 'z' => 0, 'map' => null]);
         }
 
         $this->layers[$instance->layer] = $instance->serial;
 
         $instance->holder = $this->serial;
         $instance->save();
-        
+
         if (Map::isValidSerial($instance->serial)) {
             Map::updateObjectHolder($instance);
         } else {
@@ -411,9 +411,9 @@ class Player {
         }
 
         $this->layers[LayersDefs::DRAGGING] = $instance->serial;
-        $instance->holder = $this->serial;
+        $instance->holder                   = $this->serial;
         $instance->save();
-        
+
         Map::addHoldedObject($instance);
 
         return true;
@@ -447,10 +447,10 @@ class Player {
 
         if ($containerInstance->instanceType == UltimaPHP::INSTANCE_OBJECT) {
             if ($position['x'] == 65535) {
-                $position['x'] = rand(1,127);
+                $position['x'] = rand(1, 127);
             }
             if ($position['y'] == 65535) {
-                $position['y'] = rand(1,127);
+                $position['y'] = rand(1, 127);
             }
             $containerInstance->addItem($this->client, $instance, $position);
             return $this->dropAccept();
@@ -463,7 +463,7 @@ class Player {
 
                 if ($instance->objectName == "Backpack") {
                     $instance->holder = $this->serial;
-                    
+
                     if (Map::isValidSerial($instance->serial)) {
                         Map::updateObjectHolder($instance);
                     } else {
@@ -485,7 +485,7 @@ class Player {
 
             $instance->holder = $playerBackpack->serial;
 
-            $playerBackpack->addItem($this->client, $instance, ['x' => rand(1,127), 'y' => rand(1,127), 'z' => 0, 'map' => null]);
+            $playerBackpack->addItem($this->client, $instance, ['x' => rand(1, 127), 'y' => rand(1, 127), 'z' => 0, 'map' => null]);
 
             return $this->dropAccept();
         }
@@ -495,7 +495,7 @@ class Player {
 
             $instance->holder = $mobileBackpack->serial;
 
-            $mobileBackpack->addItem($this->client, $instance, ['x' => rand(1,127), 'y' => rand(1,127), 'z' => 0, 'map' => null]);
+            $mobileBackpack->addItem($this->client, $instance, ['x' => rand(1, 127), 'y' => rand(1, 127), 'z' => 0, 'map' => null]);
 
             return $this->dropAccept();
         }
@@ -792,21 +792,10 @@ class Player {
 
             if ($serial !== null) {
                 $instance = Map::getBySerial($serial);
-
                 $tmpEquips .= str_pad($instance->serial, 8, "0", STR_PAD_LEFT);
-
-                if (UltimaPHP::$conf['server']['client']['major'] >= 7 && UltimaPHP::$conf['server']['client']['minor'] >= 0 && UltimaPHP::$conf['server']['client']['revision'] >= 33) {
-                    $tmpEquips .= str_pad(dechex($instance->graphic), 4, "0", STR_PAD_LEFT);
-                    $tmpEquips .= str_pad(dechex($instance->layer), 2, "0", STR_PAD_LEFT);
-                    $tmpEquips .= str_pad(dechex($instance->color), 4, "0", STR_PAD_LEFT);
-                } else if ($instance->color > 0) {
-                    $tmpEquips .= str_pad(dechex($instance->graphic | 0x8000), 4, "0", STR_PAD_LEFT);
-                    $tmpEquips .= str_pad(dechex($instance->layer), 2, "0", STR_PAD_LEFT);
-                    $tmpEquips .= str_pad(dechex($instance->color), 4, "0", STR_PAD_LEFT);
-                } else {
-                    $tmpEquips .= str_pad(dechex($instance->graphic), 4, "0", STR_PAD_LEFT);
-                    $tmpEquips .= str_pad(dechex($instance->layer), 2, "0", STR_PAD_LEFT);
-                }
+                $tmpEquips .= str_pad(dechex($instance->graphic), 4, "0", STR_PAD_LEFT);
+                $tmpEquips .= str_pad(dechex($instance->layer), 2, "0", STR_PAD_LEFT);
+                $tmpEquips .= str_pad(dechex($instance->color), 4, "0", STR_PAD_LEFT);
             }
         }
 
@@ -904,34 +893,34 @@ class Player {
             $tmpPosition['facing'] = (int) $tmpDirection;
         } else {
             switch (hexdec($tmpDirection)) {
-                case 0: /* North */
-                    $tmpPosition['y']--;
-                    break;
-                case 1: /* Northeast */
-                    $tmpPosition['x']++;
-                    $tmpPosition['y']--;
-                    break;
-                case 2: /* East */
-                    $tmpPosition['x']++;
-                    break;
-                case 3: /* Southeast */
-                    $tmpPosition['x']++;
-                    $tmpPosition['y']++;
-                    break;
-                case 4: /* South */
-                    $tmpPosition['y']++;
-                    break;
-                case 5: /* Southwest */
-                    $tmpPosition['x']--;
-                    $tmpPosition['y']++;
-                    break;
-                case 6: /* West */
-                    $tmpPosition['x']--;
-                    break;
-                case 7: /* Northwest */
-                    $tmpPosition['x']--;
-                    $tmpPosition['y']--;
-                    break;
+            case 0: /* North */
+                $tmpPosition['y']--;
+                break;
+            case 1: /* Northeast */
+                $tmpPosition['x']++;
+                $tmpPosition['y']--;
+                break;
+            case 2: /* East */
+                $tmpPosition['x']++;
+                break;
+            case 3: /* Southeast */
+                $tmpPosition['x']++;
+                $tmpPosition['y']++;
+                break;
+            case 4: /* South */
+                $tmpPosition['y']++;
+                break;
+            case 5: /* Southwest */
+                $tmpPosition['x']--;
+                $tmpPosition['y']++;
+                break;
+            case 6: /* West */
+                $tmpPosition['x']--;
+                break;
+            case 7: /* Northwest */
+                $tmpPosition['x']--;
+                $tmpPosition['y']--;
+                break;
             }
         }
 
@@ -943,16 +932,16 @@ class Player {
             /*
             // This code is commented ultill we find a solution to fix the Z detection from textured land tiles
             if (abs($topItem['position']['z'] - $this->position['z']) > 10) {
-                new SysmessageCommand($this->client, ["You can't walk in there."]);
+            new SysmessageCommand($this->client, ["You can't walk in there."]);
 
-                $packet = new packet_0x21($this->client);
-                $packet->setPosition($tmpPosition['x'], $tmpPosition['y'], $tmpPosition['z'], $tmpPosition['facing'], $sequence);
-                $packet->send();
+            $packet = new packet_0x21($this->client);
+            $packet->setPosition($tmpPosition['x'], $tmpPosition['y'], $tmpPosition['z'], $tmpPosition['facing'], $sequence);
+            $packet->send();
 
-                $this->update();
-                return true;
+            $this->update();
+            return true;
             }
-            */
+             */
 
             $tmpPosition['z'] = $topItem['position']['z'];
         }
@@ -1239,5 +1228,9 @@ class Player {
         $packet .= str_pad(dechex($delay), 2, "0", STR_PAD_LEFT);
 
         //Sockets::out($this->client, $packet);
+    }
+
+    public function showToolTip($client = null) {
+        
     }
 }

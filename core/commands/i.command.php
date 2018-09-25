@@ -25,7 +25,7 @@ class ICommand {
             return false;
         }
 
-        if (!isset(class_parents($itemDef)['Object'])) {
+        if (!isset(class_parents($itemDef)['UObject'])) {
             new SysmessageCommand($client, ["Sorry, but you are trying to add a mobile as an item, use .m " . $itemDef . " to add this mobile."]);
             return false;
         }

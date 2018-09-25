@@ -6,7 +6,7 @@ class Mongodb extends MongoDB\Client {
 
     public function __construct() {
         $this->database = UltimaPHP::$conf['mongodb']['database'];
-        $dsn = 'mongodb://' . UltimaPHP::$conf['mongodb']['host'] . ':27017/' . $this->database;
+        $dsn            = 'mongodb://' . UltimaPHP::$conf['mongodb']['host'] . ':27017/' . $this->database;
         parent::__construct($dsn, ['readPreference' => 'secondaryPreferred', 'keepAlive' => 1, 'connectTimeoutMS' => 30000, 'socketTimeoutMS' => 0], ['typeMap' => ['root' => 'array', 'document' => 'array', 'array' => 'array']]);
         $this->selectDatabase($this->database);
     }

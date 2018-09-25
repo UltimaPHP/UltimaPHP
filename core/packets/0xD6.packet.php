@@ -39,14 +39,14 @@ class packet_0xD6 extends Packets {
      * 00 00 00 00
      *
      */
-    public function send($data) {
+    public function send() {
         if (!$this->client) {
             return false;
         }
     }
 
     public function addObject($serial = null) {
-        if ($instance === null) {
+        if ($serial === null) {
             return false;
         }
 

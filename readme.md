@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/UltimaPHP/UltimaPHP.svg?branch=master)](https://travis-ci.org/UltimaPHP/UltimaPHP)
+
 ## UltimaPHP - Ultima Online OpenSource Server
 
 UltimaPHP is a modern Ultima Online server written in PHP 7.0.
@@ -6,7 +8,7 @@ This server was created for thoes who ever wanted to create differend addaptatio
 
 I decided to build this project for study propose i've re-scripted the entire socket server to understand how it works and after that i decided to create a lightweight standalone version of the server that runs in any OS easly.
 
-Note: The server only works with the last updated Ultima Online client (7.0.59.5) and we will not spent time with older clients for now.
+Note: The server only works with the last updated Ultima Online client (7.0.70.10) and we will not spent time with older clients for now.
 
 ## How to install?
 
@@ -118,3 +120,4 @@ We always like to hear new ideas and feedbacks, so why don't you create an issue
 
  * João Escribano - Brazil
  * Maurício Nunes - Brazil
+ * Youri Theodorakopoulos - Brazil

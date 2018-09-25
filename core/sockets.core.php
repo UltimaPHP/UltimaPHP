@@ -10,7 +10,7 @@ class Sockets {
      * The socket server constructor!
      * This method creates an socket to listen the choosen port to monitor ultima online communication
      */
-    function __construct() {
+    public function __construct() {
         // Create a TCP Stream socket
         if (false == (UltimaPHP::$socketServer = @socket_create(AF_INET, SOCK_STREAM, 0))) {
             UltimaPHP::log("Could not start socket listening.", UltimaPHP::LOG_DANGER);
@@ -39,8 +39,8 @@ class Sockets {
     public static function monitor() {
         $microtime = microtime(true);
         if ($socket = @socket_accept(UltimaPHP::$socketServer)) {
-            $timeout = array('sec'=>0.1,'usec'=> 1000);
-            socket_set_option($socket,SOL_SOCKET,SO_RCVTIMEO,$timeout);
+            $timeout = array('sec' => 0.1, 'usec' => 1000);
+            socket_set_option($socket, SOL_SOCKET, SO_RCVTIMEO, $timeout);
 
             $id = count(UltimaPHP::$socketClients) + 1;
 
@@ -48,13 +48,13 @@ class Sockets {
             // Create the socket between the client and the server
             socket_getpeername(UltimaPHP::$socketClients[$id]['socket'], UltimaPHP::$socketClients[$id]['ip'], UltimaPHP::$socketClients[$id]['port']);
 
-            UltimaPHP::$socketClients[$id]['LastInput'] = $microtime;
-            UltimaPHP::$socketClients[$id]['packets'] = [];
-            UltimaPHP::$socketClients[$id]['relayed'] = false;
+            UltimaPHP::$socketClients[$id]['LastInput']  = $microtime;
+            UltimaPHP::$socketClients[$id]['packets']    = [];
+            UltimaPHP::$socketClients[$id]['relayed']    = false;
             UltimaPHP::$socketClients[$id]['compressed'] = false;
-            UltimaPHP::$socketClients[$id]['packetLot'] = null;
-            UltimaPHP::$socketClients[$id]['version'] = null;
-            UltimaPHP::$socketClients[$id]['tempSeed'] = null;
+            UltimaPHP::$socketClients[$id]['packetLot']  = null;
+            UltimaPHP::$socketClients[$id]['version']    = null;
+            UltimaPHP::$socketClients[$id]['tempSeed']   = null;
         }
 
         foreach (UltimaPHP::$socketClients as $client => $socket) {
@@ -67,19 +67,19 @@ class Sockets {
                             $packetTemp = Functions::strToHex($packet['packet']);
 
                             if (isset(UltimaPHP::$socketClients[$client]['compressed']) && UltimaPHP::$socketClients[$client]['compressed'] === true) {
-                                echo "----------------------------------------------\nSending compressed packet to socket #$client (Length: ".(strlen($packetTemp)/2) .") :: " . $packetTemp . "\n----------------------------------------------\n";
+                                echo "----------------------------------------------\nSending compressed packet to socket #$client (Length: " . (strlen($packetTemp) / 2) . ") :: " . $packetTemp . "\n----------------------------------------------\n";
                             } else {
-                                echo "----------------------------------------------\nSending packet to socket #$client (Length: ".(strlen($packetTemp)/2) .") :: " . $packetTemp . "\n----------------------------------------------\n";
+                                echo "----------------------------------------------\nSending packet to socket #$client (Length: " . (strlen($packetTemp) / 2) . ") :: " . $packetTemp . "\n----------------------------------------------\n";
                             }
                         }
 
-                        $err = null;
+                        $err                                                        = null;
                         @socket_write($socket['socket'], $packet['packet']) or $err = socket_last_error($socket['socket']);
 
                         if ($err === null) {
                             unset(UltimaPHP::$socketClients[$client]['packets'][$packet_id]);
                         }
- 
+
                         // Release the socket from server after send disconnect packet
                         if (!isset($packet['packet'][0])) {
                             unset(UltimaPHP::$socketClients[$client]);
@@ -94,7 +94,7 @@ class Sockets {
                 }
 
                 $input = "";
-                @socket_recv($socket['socket'], $input, 4096,  (PHP_OS == "Linux" ? MSG_WAITALL : 0));
+                @socket_recv($socket['socket'], $input, 4096, (PHP_OS == "Linux" ? MSG_WAITALL : 0));
 
                 $buffer = ($input ? str_split(Functions::strToHex($input), 2) : false);
                 $length = ($buffer ? count($buffer) : 0);
@@ -108,8 +108,8 @@ class Sockets {
 
                     if ($length == 69 && hexdec($buffer[4]) == 0x91) {
                         UltimaPHP::$socketClients[$client]['tempSeed'] = hexdec(implode("", array_slice($buffer, 0, 4)));
-                        $buffer = array_slice($buffer, 4);
-                        $length = 65;
+                        $buffer                                        = array_slice($buffer, 4);
+                        $length                                        = 65;
 
                         UltimaPHP::$socketClients[$client]['LastInput'] = $microtime;
                         self::in($buffer, $client);
@@ -118,7 +118,7 @@ class Sockets {
 
                     // If player isn't relayed and not tested for encryption
                     if ($socket['version'] !== null && is_array($socket['version']) && isset($socket['version']['encrypted'])) {
-                        if($socket['version']['encrypted'] === null && hexdec($buffer[0]) != 0x80 && $length == 62) {
+                        if ($socket['version']['encrypted'] === null && hexdec($buffer[0]) != 0x80 && $length == 62) {
                             $converted = Encrypt::decryptLoginPacket($buffer, $socket['version']);
 
                             if (hexdec($converted[0]) != 0x80) {
@@ -127,8 +127,8 @@ class Sockets {
                                 continue;
                             }
 
-                            $buffer = $converted;
-                            $length = count($buffer);
+                            $buffer                                                    = $converted;
+                            $length                                                    = count($buffer);
                             UltimaPHP::$socketClients[$client]['version']['encrypted'] = true;
                         }
 
@@ -160,13 +160,13 @@ class Sockets {
 
         if (class_exists($packetMethod)) {
             if (true === UltimaPHP::$conf['logs']['debug']) {
-                echo "----------------------------------------------\nReceived packet from socket #$client (Length: ". count($input) . ") :: " . implode("", $input) . "\n----------------------------------------------\n";
+                echo "----------------------------------------------\nReceived packet from socket #$client (Length: " . count($input) . ") :: " . implode("", $input) . "\n----------------------------------------------\n";
             }
 
             $packet = new $packetMethod($client);
             $packet->receive($input);
         } else {
-            echo "----------------------------------------------\nReceived unknow packet from socket #$client (Length: ". count($input) . ") :: " . implode("", $input) . "\n----------------------------------------------\n";
+            echo "----------------------------------------------\nReceived unknow packet from socket #$client (Length: " . count($input) . ") :: " . implode("", $input) . "\n----------------------------------------------\n";
             if (isset(UltimaPHP::$socketClients[$client]['account'])) {
                 //UltimaPHP::$socketClients[$client]['account']->disconnect();
             }
@@ -185,7 +185,7 @@ class Sockets {
 
         if (false === $dontCompress && isset(UltimaPHP::$socketClients[$client]['compressed']) && true === UltimaPHP::$socketClients[$client]['compressed']) {
             $compression = new Compression();
-            $packet = unpack('H*', $compression->compress(strtoupper($packet)))[1];
+            $packet      = unpack('H*', $compression->compress(strtoupper($packet)))[1];
         }
 
         if (false === $dontConvert) {
@@ -193,17 +193,17 @@ class Sockets {
         }
 
         if (is_array($lot) && count($lot) == 2 && isset($lot[0]) && isset($lot[1]) && true === $lot[0] && $lot[1] === false) {
-            UltimaPHP::$socketClients[$client]['packetLot'].= $packet;
+            UltimaPHP::$socketClients[$client]['packetLot'] .= $packet;
             $packet = null;
         } else if (is_array($lot) && count($lot) == 2 && isset($lot[0]) && isset($lot[1]) && true === $lot[0] && $lot[1] === true) {
-            $packet = UltimaPHP::$socketClients[$client]['packetLot'] . $packet;
+            $packet                                         = UltimaPHP::$socketClients[$client]['packetLot'] . $packet;
             UltimaPHP::$socketClients[$client]['packetLot'] = null;
         }
 
         if ($packet !== null) {
             UltimaPHP::$socketClients[$client]['packets'][] = array(
                 'packet' => $packet,
-                'time' => (microtime(true) + 0.00100),
+                'time'   => (microtime(true) + 0.00100),
             );
         }
 
@@ -221,12 +221,12 @@ class Sockets {
             return false;
         } else {
             UltimaPHP::$socketEvents[$mt][] = array(
-                'event' => $event,
+                'event'  => $event,
                 'client' => $client,
-                'time' => ($mt + $time),
-                'lot' => array(
+                'time'   => ($mt + $time),
+                'lot'    => array(
                     $runInLot,
-                    $dispatchLot
+                    $dispatchLot,
                 ),
             );
             return true;
@@ -244,12 +244,12 @@ class Sockets {
             return false;
         } else {
             UltimaPHP::$socketEvents[$mt][] = array(
-                'event' => $event,
+                'event'  => $event,
                 'serial' => $serial,
-                'time' => ($mt + $time),
-                'lot' => array(
+                'time'   => ($mt + $time),
+                'lot'    => array(
                     false,
-                    false
+                    false,
                 ),
             );
             return true;
@@ -308,7 +308,7 @@ class Sockets {
             if ($expectedLength > 0) {
                 if (count($inputArray) > $expectedLength) {
                     $return[] = array_slice($inputArray, 0, $expectedLength);
-                    $next = self::validatePacket(array_slice($inputArray, $expectedLength));
+                    $next     = self::validatePacket(array_slice($inputArray, $expectedLength));
                     if (false !== $next) {
                         foreach ($next as $key => $value) {
                             $return[] = $value;
@@ -324,7 +324,7 @@ class Sockets {
                 $length = hexdec($inputArray[1] . $inputArray[2]);
 
                 $return[] = array_slice($inputArray, 0, $length);
-                $next = self::validatePacket(array_slice($inputArray, $length));
+                $next     = self::validatePacket(array_slice($inputArray, $length));
                 if (false !== $next) {
                     foreach ($next as $key => $value) {
                         $return[] = $value;
