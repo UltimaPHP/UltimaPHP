@@ -10,6 +10,13 @@ class InfoCommand extends Command {
         if ($client === null) {
             return false;
         }
+		
+		if (isset($args[0]) && $args[0] == "gump") {	
+			// $teste = new TestGump($client);	
+			$teste = new GoMenuGump($client);	
+			$teste->show();	
+			return true;	
+		}
 
         if (isset($args[0]) && $args[0] == "around") {
             $position = UltimaPHP::$socketClients[$client]['account']->player->position;
