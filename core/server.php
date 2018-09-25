@@ -218,7 +218,7 @@ class UltimaPHP {
         if (self::$status != self::STATUS_STOP) {
             self::setStatus(self::STATUS_STOP);
         }
-        exit();
+        exit(1);
     }
 
     private static function loadIni() {
