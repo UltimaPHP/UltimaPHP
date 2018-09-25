@@ -116,6 +116,7 @@ abstract class EncryptionDefs {
         '205'  => [0x2C0B97AD, 0xA310DE7F],
         '204'  => [0x2DF385BD, 0xA3ED127F],
         //Clients enhanced 
-        '67058' => [0X139EE5D, 0xB51FA27F ],
+        '67070' => [0x2E5E99D, 0xB498227F],
+        '67058' => [0x139EE5D, 0xB51FA27F],
     ];
 }
