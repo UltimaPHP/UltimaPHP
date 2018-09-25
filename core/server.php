@@ -186,6 +186,9 @@ class UltimaPHP {
             }
         }
 
+        if (getenv("CI_BUILD"))
+            exit(0);
+
         Map::readTiledata();
 
         self::setStatus(self::STATUS_DATABASE_CONNECTING);
