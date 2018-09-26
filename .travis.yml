@@ -7,7 +7,7 @@ services:
   - mongodb
 before_script:
   - sleep 15
-  - mongo ultimaphp
+  - mongo ultimaphp --eval 'db.createUser({user:"ultimaphp",pwd:"ultimaphp",roles:["readWrite"]});'
 
 before_install:
   - sudo apt-get update
