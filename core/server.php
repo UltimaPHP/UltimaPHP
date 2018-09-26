@@ -208,14 +208,14 @@ class UltimaPHP {
             self::$conf['server']['port'],
         ));
 
+        /* Kill server after start for CI Building */
+        if (getenv("CI_BUILD"))
+            exit(0);
+
         while (self::STATUS_FATAL != self::$status && self::STATUS_STOP != self::$status) {
             Sockets::monitor();
             Sockets::runEvents();
         }
-
-        /* Kill server after start for CI Building */
-        if (getenv("CI_BUILD"))
-            exit(0);
     }
 
     public static function stop() {
