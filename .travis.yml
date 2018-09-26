@@ -5,6 +5,9 @@ php:
 
 services:
   - mongodb
+before_script:
+  - sleep 15
+  - mongo ultimaphp
 
 before_install:
   - sudo apt-get update
