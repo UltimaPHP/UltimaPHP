@@ -6,9 +6,7 @@ php:
 services:
   - mongodb
 before_script:
-  - sleep 15
-  - mongo ultimaphp --eval 'db.createUser({user:"ultimaphp",pwd:"ultimaphp",roles:["readWrite"]});'
-  - echo "extension=mongo.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+  - pecl -q install mongo && echo "extension=mongo.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
 
 before_install:
   - sudo apt-get update
