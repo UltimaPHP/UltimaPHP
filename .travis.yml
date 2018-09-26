@@ -1,10 +1,16 @@
 language: php
+
 php:
   - 7.2
-before_install: pecl install mongodb-1.5.2
-before_install: echo "extension = mongodb.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-before_install: wget -O UOLocation.zip  https://ultimaphp.nyc3.digitaloceanspaces.com/ultimaphpmuls.zip
-before_install: unzip UOLocation.zip -d UOLocation
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get unzip
+  - pecl install mongodb-1.5.2
+  - echo "extension = mongodb.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - wget -O UOLocation.zip  https://ultimaphp.nyc3.digitaloceanspaces.com/ultimaphpmuls.zip
+  - unzip UOLocation.zip -d UOLocation
+
 script: php startserver.php
 
 notifications:
