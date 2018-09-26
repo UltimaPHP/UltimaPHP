@@ -3,6 +3,12 @@ language: php
 php:
   - 7.2
 
+services:
+  - mongodb
+before_script:
+  - sleep 15
+  - mongo ultimaphp
+
 before_install:
   - sudo apt-get update
   - sudo apt-get install -y unzip
