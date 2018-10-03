@@ -208,6 +208,10 @@ class UltimaPHP {
             self::$conf['server']['port'],
         ));
 
+        /* Kill server after start for CI Building */
+        if (getenv("CI_BUILD"))
+            exit(0);
+
         while (self::STATUS_FATAL != self::$status && self::STATUS_STOP != self::$status) {
             Sockets::monitor();
             Sockets::runEvents();
@@ -218,7 +222,7 @@ class UltimaPHP {
         if (self::$status != self::STATUS_STOP) {
             self::setStatus(self::STATUS_STOP);
         }
-        exit();
+        exit(1);
     }
 
     private static function loadIni() {
