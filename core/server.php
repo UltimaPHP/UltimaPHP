@@ -191,6 +191,7 @@ class UltimaPHP {
         self::setStatus(self::STATUS_DATABASE_CONNECTING);
         try {
             self::$db = new Mongodb();
+            self::setStatus(self::STATUS_DATABASE_CONNECTED);
         } catch (Exception $e) {
             self::setStatus(self::STATUS_DATABASE_CONNECTION_FAILED, array(
                 "\n" . $e->getMessage(),
