@@ -4,12 +4,15 @@ MAINTAINER Youri hideOut <youri@youhide.com.br>
 
 RUN apk add mongodb autoconf g++ make openssl-dev libmcrypt-dev
 
+<<<<<<< Updated upstream
 RUN mkdir -p /data/db
 RUN mongod --fork --logpath /tmp/mongod.log
 RUN sleep 5
 RUN cat /tmp/mongod.log
 RUN mongo redirect --eval 'db.createCollection("ultimaphp")'
 
+=======
+>>>>>>> Stashed changes
 RUN pecl -q install mongodb \
     && docker-php-ext-install sockets \
     && docker-php-ext-enable mongodb
