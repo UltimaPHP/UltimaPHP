@@ -191,6 +191,7 @@ class UltimaPHP {
         self::setStatus(self::STATUS_DATABASE_CONNECTING);
         try {
             self::$db = new Mongodb();
+            self::setStatus(self::STATUS_DATABASE_CONNECTED);
         } catch (Exception $e) {
             self::setStatus(self::STATUS_DATABASE_CONNECTION_FAILED, array(
                 "\n" . $e->getMessage(),
@@ -257,8 +258,12 @@ class UltimaPHP {
             $iniMessage = "Server save time not defined";
         } elseif (!isset(self::$conf['server']['client'])) {
             $iniMessage = "Server client not defined";
-        } elseif (!isset(self::$conf['mongodb']['host'])) {
-            $iniMessage = "Server mongodb host not defined";
+        } elseif (!isset(self::$conf['mongodb']['URI'])) {
+            if (!isset(self::$conf['mongodb']['host'])) {
+                $iniMessage = "Server mongodb host not defined";
+            } elseif (!isset(self::$conf['mongodb']['port'])) {
+                $iniMessage = "Server mongodb port not defined";
+            }
         } elseif (!isset(self::$conf['mongodb']['database'])) {
             $iniMessage = "Server mongodb database not defined";
         } elseif (!isset(self::$conf['accounts']['auto_create'])) {
