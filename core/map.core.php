@@ -117,7 +117,7 @@ class Map {
             $mapSize = explode(",", UltimaPHP::$conf["muls"]["map{$actualMap}"]);
 
             if (!is_file($mapFile)) {
-                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL);
+                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$mapFile]);
                 UltimaPHP::stop();
             }
 
@@ -161,7 +161,7 @@ class Map {
             $indexFile = UltimaPHP::$conf['muls']['location'] . "staidx{$actualMap}.mul";
 
             if (!is_file($indexFile)) {
-                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL);
+                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$indexFile]);
                 UltimaPHP::stop();
             }
 
@@ -178,7 +178,7 @@ class Map {
             $staticFile = UltimaPHP::$conf['muls']['location'] . "statics{$actualMap}.mul";
 
             if (!is_file($staticFile)) {
-                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL);
+                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$staticFile]);
                 UltimaPHP::stop();
             }
 

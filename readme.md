@@ -4,28 +4,28 @@
 
 UltimaPHP is a modern Ultima Online server written in PHP 7.0.
 
-This server was created for thoes who ever wanted to create differend addaptations on the core of your shard.
+This server was created for those who ever wanted to create different adaptations on the core of your shard.
 
-I decided to build this project for study propose i've re-scripted the entire socket server to understand how it works and after that i decided to create a lightweight standalone version of the server that runs in any OS easly.
+I decided to build this project for study propose I've re-scripted the entire socket server to understand how it works and after that i decided to create a lightweight standalone version of the server that runs in any OS easily.
 
-Note: The server only works with the last updated Ultima Online client (7.0.70.10) and we will not spent time with older clients for now.
+Note: The server only works with the last updated Ultima Online client (7.0.70.10) and we will not spend time with older clients for now.
 
 ## How to install?
 
-First of all you will need to install PHP 7.0 or greater and MongoDb 3.4+, I reccomend you to use PHP 7.1 it's ultra fast and lightweight, for that:
+First of all, you will need to install PHP 7.0 or greater and MongoDB 3.4+, I recommend you to use PHP 7.1 it's ultra-fast and lightweight, for that:
 
 * [PHP download page](http://php.net/downloads.php) and get the version of PHP you want to use
-* [MongoDB page](https://www.mongodb.com) and get the right version of mongodb for your machine.
+* [MongoDB page](https://www.mongodb.com) and get the right version of MongoDB for your machine.
 
-After install PHP and MongoDB on the machine, edit the file ```ultimaphp.ini``` as you wish, create a mongodb database named "ultimaphp" (or anyone, just need to change at the ultimaphp.ini) and create/import all collections from ```tools/Mongo Database/*.json``` (file name is the collection name) and follow the next steps to start the server:
+After installing PHP and MongoDB on the machine, edit the file ```ultimaphp.ini``` as you wish, create a MongoDB database named "ultimaphp" (or anyone, just need to change at the ultimaphp.ini) and create/import all collections from ```tools/Mongo Database/*.json``` (file name is the collection name) and follow the next steps to start the server:
 
-Note 1: You can use some program to visualize and work with mongodb like: [RoboMongo](https://robomongo.org/download) or [MongoChef](https://studio3t.com/download/)
+Note 1: You can use some program to visualize and work with MongoDB like: [RoboMongo](https://robomongo.org/download) or [MongoChef](https://studio3t.com/download/)
 
 Note 2: The default owner account/password in the database is: test/test
 
 Note 3: The default player account/password in the database is: test2/test
 
-Note 4: Passwords is allways stored in MD5 encryption both in database and in server variables
+Note 4: Passwords is always stored in MD5 encryption both in the database and in server variables
 
 Note 5: UltimaPHP only works (till now) with no-encrypted clients.
 
@@ -36,7 +36,7 @@ Note 5: UltimaPHP only works (till now) with no-encrypted clients.
 
 ### Mac
 
- * We need someone with mac to help us :)
+ * We need someone with a mac to help us :)
 
 ### Windows
 
@@ -57,7 +57,7 @@ make install
  * 3D Client
  * Login
  * Create Character
- * Open Paperdol (self/other players)
+ * Open Paper doll (self/other players)
  * Open status bar (self/other players/mobiles)
  * Show all names (Players/other players/mobiles)
  * Add objects
@@ -66,11 +66,11 @@ make install
  * Equip multiple objects
  * PickUp / Drag / Drop item
  * Walk / Run in any of the 6 worlds
- * Send and receive unicode Sysmessage
+ * Send and receive Unicode Sysmessage
  * Where Command
  * Teleport command to any world
  * Invis command
- * Change mobile name
+ * Change the mobile name
  * Change player name (if is GM)
  * Click on players/mobiles/objects
  * DClick on players/mobiles/objects
@@ -81,11 +81,11 @@ make install
  * Save the player objects
  * Save the world objects
  * Mobile walking using pathfinding (Still need to work on it, see issues)
- * Dialogs (With Gump Studio Exporter plugin allready working, tools folder)
+ * Dialogs (With Gump Studio Exporter plugin already working, tools folder)
  * Containers
  * Many other things
 
-### Usefull links that could help you code
+### Useful links that could help you code
 
  * [Sublime Text 3](http://www.sublimetext.com/3) recommended IDE used to program the server
  * [SocketSniff](http://nirsoft.net/utils/socket_sniffer.html) program i use to monitor an program sockets communication
@@ -95,7 +95,7 @@ make install
  * [POL Repository](https://github.com/polserver/polserver) to see how things works
  * [Ultima Online Classic](http://uo.com)
 
-### Do you feel like you coul help in anyway this projet?
+### Do you feel like you could help in any way this project?
 
 Feel free to join us and help this project grow in whatever you can!
 We always like to hear new ideas and feedbacks, so why don't you create an issue to tell us what can you do to help us grow?
@@ -104,20 +104,14 @@ We always like to hear new ideas and feedbacks, so why don't you create an issue
 
  * All .php files should start with `<?php` and end without `?>`
  * All .php files should have the comment line header
- * All class names starts with UPPERCASE character, IE: class ClassName {...}
- * All method names must start with LOWERCASE character and all next words start with UPPERCASE character with no space, IE: goodMethodName()
- * All codes must be idented with tab
- * All codes must be formatted in K&R style before commited, manually or using your preffered tool
-
-### Database standards
-
- * All data storage tables must have an ID indexed
- * All secure information, like passwords, must be stored encrypted
- * All relashionship must have an foreign key linkng the table columns
- * All tables names must be LOWERCASE and words separated with underline, IE: good_table_name
+ * All class names start with an UPPERCASE character, IE: class ClassName {...}
+ * All method names must start with LOWERCASE character and all next words start with an UPPERCASE character with no space, IE: goodMethodName()
+ * All codes must be indented with a tab
+ * All codes must be formatted in K&R style before committed, manually or using your preferred tool
 
 ### Authors
 
  * João Escribano - Brazil
  * Maurício Nunes - Brazil
  * Youri Theodorakopoulos - Brazil
+ * Gökay Gürcan - Netherlands

@@ -50,7 +50,7 @@ class Command {
     public function __construct() {
         foreach (glob(UltimaPHP::$basedir . 'core/commands/*.command.php') as $file) {
             if (!require_once ($file)) {
-                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL);
+                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$file]);
                 UltimaPHP::stop();
             }
         }
