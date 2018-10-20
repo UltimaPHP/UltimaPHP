@@ -85,7 +85,7 @@ class UltimaPHP {
             Functions::progressBar($fileCount + 1, $totalFiles, "Loading core");
 
             if (!require_once ($file)) {
-                self::setStatus(self::STATUS_FILE_READ_FAIL);
+                self::setStatus(self::STATUS_FILE_READ_FAIL, [$file]);
                 self::stop();
             }
 
@@ -100,7 +100,7 @@ class UltimaPHP {
         foreach ($classFiles as $fileCount => $file) {
             Functions::progressBar($fileCount + 1, $totalFiles, "Loading classes");
             if (!require_once ($file)) {
-                self::setStatus(self::STATUS_FILE_READ_FAIL);
+                self::setStatus(self::STATUS_FILE_READ_FAIL, [$file]);
                 self::stop();
             }
         }
@@ -113,7 +113,7 @@ class UltimaPHP {
             Functions::progressBar($fileCount + 1, $totalFiles, "Loading packets");
 
             if (!require_once ($file)) {
-                self::setStatus(self::STATUS_FILE_READ_FAIL);
+                self::setStatus(self::STATUS_FILE_READ_FAIL, [$file]);
                 self::stop();
             }
         }
@@ -124,7 +124,7 @@ class UltimaPHP {
         foreach ($skillFiles as $fileCount => $file) {
             Functions::progressBar($fileCount + 1, $totalFiles, "Loading skills");
             if (!require_once ($file)) {
-                self::setStatus(self::STATUS_FILE_READ_FAIL);
+                self::setStatus(self::STATUS_FILE_READ_FAIL, [$file]);
                 self::stop();
             }
         }
@@ -135,7 +135,7 @@ class UltimaPHP {
         foreach ($defFiles as $fileCount => $file) {
             Functions::progressBar($fileCount + 1, $totalFiles, "Loading definitions");
             if (!require_once ($file)) {
-                self::setStatus(self::STATUS_FILE_READ_FAIL);
+                self::setStatus(self::STATUS_FILE_READ_FAIL, [$file]);
                 self::stop();
             }
         }
@@ -146,7 +146,7 @@ class UltimaPHP {
         foreach ($defFiles as $fileCount => $file) {
             Functions::progressBar($fileCount + 1, $totalFiles, "Loading types");
             if (!require_once ($file)) {
-                self::setStatus(self::STATUS_FILE_READ_FAIL);
+                self::setStatus(self::STATUS_FILE_READ_FAIL, [$file]);
                 self::stop();
             }
         }
@@ -157,7 +157,7 @@ class UltimaPHP {
         foreach ($defFiles as $fileCount => $file) {
             Functions::progressBar($fileCount + 1, $totalFiles, "Loading artificial intelligence");
             if (!require_once ($file)) {
-                self::setStatus(self::STATUS_FILE_READ_FAIL);
+                self::setStatus(self::STATUS_FILE_READ_FAIL, [$file]);
                 self::stop();
             }
         }
@@ -168,7 +168,7 @@ class UltimaPHP {
         foreach ($defFiles as $fileCount => $file) {
             Functions::progressBar($fileCount + 1, $totalFiles, "Loading gumps");
             if (!require_once ($file)) {
-                self::setStatus(self::STATUS_FILE_READ_FAIL);
+                self::setStatus(self::STATUS_FILE_READ_FAIL, [$file]);
                 self::stop();
             }
         }
@@ -228,7 +228,7 @@ class UltimaPHP {
 
     private static function loadIni() {
         if (!is_file(self::$basedir . "ultimaphp.ini")) {
-            self::setStatus(self::STATUS_FILE_READ_FAIL);
+            self::setStatus(self::STATUS_FILE_READ_FAIL, ["ultimaphp.ini"]);
             self::stop();
         }
 

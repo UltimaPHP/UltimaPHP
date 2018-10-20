@@ -13,10 +13,10 @@ class Mongodb extends MongoDB\Client {
         $host = UltimaPHP::$conf['mongodb']['host'];
         $port = UltimaPHP::$conf['mongodb']['port'];
 
-        if (isset($URI)) {
+        if (!empty($URI)) {
             $dsn = $URI . $this->database;
         } else {
-            if (isset($username) && isset($password)) {
+            if (!empty($username) && !empty($password)) {
                 $dsn = 'mongodb://' . $username . ':' . $password . '@' . $host . ':' . $port . '/' . $this->database;
             } else {
                 $dsn = 'mongodb://' . $host . ':' . $port . '/' . $this->database;
