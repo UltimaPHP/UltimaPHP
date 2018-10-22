@@ -175,57 +175,60 @@ class Map {
             }
 
             /* Proccess the UOP file into the server memory */
+            if (!UltimaPHP::$testMode) {
+                UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->setPosition(0);
 
-            UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->setPosition(0);
-
-            $magicSeed = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
-            $version   = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
-            $signature = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
-            $nextTable = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt64();
-
-            $offsets = [];
-
-            while ($nextTable != 0) {
-                UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->setPosition($nextTable);
-
-                $entries   = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
+                $magicSeed = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
+                $version   = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
+                $signature = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
                 $nextTable = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt64();
 
-                for ($i = 0; $i < $entries; $i++) {
-                    /*
-                     * Empty entries are read too, because they do not always indicate the
-                     * end of the table. (Example: 7.0.26.4+ Fel/Tram maps)
-                     */
-                    $tmp = [
-                        'offset'           => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt64(),
-                        'headerLength'     => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt32(), // header length
-                        'size'             => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt32(), // compressed size
-                        'sizeDecompressed' => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt32(), // decompressed size
-                        'identifier'       => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadUInt64(), // filename hash (HashLittle2)
-                        'hash'             => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadUInt32(), // data hash (Adler32)
-                        'compression'      => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt16(), // compression method (0 = none, 1 = zlib)
-                    ];
+                $offsets = [];
 
-                    if ($tmp['offset'] <= 0 || $tmp['size'] <= 0) {
-                        continue;
+                while ($nextTable != 0) {
+                    UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->setPosition($nextTable);
+
+                    $entries   = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
+                    $nextTable = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt64();
+
+                    for ($i = 0; $i < $entries; $i++) {
+                        /*
+                         * Empty entries are read too, because they do not always indicate the
+                         * end of the table. (Example: 7.0.26.4+ Fel/Tram maps)
+                         */
+                        $tmp = [
+                            'offset'           => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt64(),
+                            'headerLength'     => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt32(), // header length
+                            'size'             => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt32(), // compressed size
+                            'sizeDecompressed' => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt32(), // decompressed size
+                            'identifier'       => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadUInt64(), // filename hash (HashLittle2)
+                            'hash'             => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadUInt32(), // data hash (Adler32)
+                            'compression'      => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt16(), // compression method (0 = none, 1 = zlib)
+                        ];
+
+                        if ($tmp['offset'] <= 0 || $tmp['size'] <= 0) {
+                            continue;
+                        }
+
+                        $offsets[] = $tmp;
                     }
-
-                    $offsets[] = $tmp;
                 }
+
+                $offsetCount = count($offsets);
+
+                foreach ($offsets as $offsetKey => $offset) {
+                    UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->setPosition(($offset['offset'] + $offset['headerLength']));
+                    $rawData = Functions::strToHex(UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->read($offset['size']));
+                    
+                    // TODO: Proccess the block raw data
+
+                    Functions::progressBar($offsetKey, $offsetCount, "Reading map{$actualMap}LegacyMUL.uop file");
+                }
+
+                Functions::progressBar($offsetCount, $offsetCount, "Reading map{$actualMap}LegacyMUL.uop file");
+            } else {
+                Functions::progressBar(1, 1, "Reading map{$actualMap}LegacyMUL.uop file");
             }
-
-            $offsetCount = count($offsets);
-
-            foreach ($offsets as $offsetKey => $offset) {
-                UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->setPosition(($offset['offset'] + $offset['headerLength']));
-                $rawData = Functions::strToHex(UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->read($offset['size']));
-                
-                // TODO: Proccess the block raw data
-
-                Functions::progressBar($offsetKey, $offsetCount, "Reading map{$actualMap}LegacyMUL.uop file");
-            }
-
-            Functions::progressBar($offsetCount, $offsetCount, "Reading map{$actualMap}LegacyMUL.uop file");
 
             /* Start reading the staidx file of actual map */
             Functions::progressBar(0, 1, "Reading staidx{$actualMap}.mul file");

@@ -14,7 +14,7 @@ before_install:
   - wget -O /tmp/UOLocation.zip https://ultimaphp.nyc3.digitaloceanspaces.com/ultimaphpmuls.zip
   - unzip /tmp/UOLocation.zip -d ./UOLocation
 
-script: php startserver.php
+script: php startserver.php test
 
 notifications:
   irc: "irc.youhide.com.br#ultimaphp"

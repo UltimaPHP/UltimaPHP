@@ -45,6 +45,7 @@ class UltimaPHP {
 
     /* Server Variables */
     static $status = self::STATUS_UNKNOWN;
+    static $testMode;
     static $start_time;
     static $basedir;
     static $conf;
@@ -67,8 +68,9 @@ class UltimaPHP {
     static $items              = 0;
     static $npcs               = 0;
 
-    public function __construct($dir) {
+    public function __construct($dir, $testMode = false) {
         self::$basedir = $dir . "/";
+        self::$testMode = $testMode;
     }
 
     public function start() {

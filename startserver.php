@@ -13,5 +13,7 @@ error_reporting(E_ALL);
 
 require_once 'core/server.php';
 require_once 'core/functions.php';
-$server = new UltimaPHP(dirname(__FILE__));
+
+$testMode = (isset($argv[1]) ? ($argv[1] == "test" ? true : false) : false);
+$server = new UltimaPHP(dirname(__FILE__), $testMode);
 $server->start();
