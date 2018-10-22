@@ -8,7 +8,7 @@
 class Llama extends Mobile {
 	public function summon() {
 		$this->name = "a llama";
-		$this->body = 0;
+		$this->body = 0xdc;
 		$this->type = "";
 		$this->flags = 0x00;
 		$this->color = 0x00;

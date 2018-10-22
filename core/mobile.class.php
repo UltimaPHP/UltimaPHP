@@ -37,11 +37,11 @@ class Mobile {
     public $maxmana;
     public $stam;
     public $maxstam;
-    public $str;
+    public $str = 1;
     public $maxstr;
-    public $int;
+    public $int = 1;
     public $maxint;
-    public $dex;
+    public $dex = 1;
     public $maxdex;
     public $statscap;
     public $pets;
@@ -441,6 +441,9 @@ class Mobile {
 				if ($this->maxstr == 0) {
 						$this->maxstr = $this->str;
 				}
+				else {
+						$this->str = $this->maxstr;
+				}
 
 				if ($this->hits == 0) {
 						if ($this->maxhits > 0) {
@@ -455,6 +458,9 @@ class Mobile {
 				if ($this->maxint == 0) {
 						$this->maxint = $this->int;
 				}
+				else {
+						$this->int = $this->maxint;
+				}
 
 				if ($this->mana == 0) {
 						if ($this->maxmana > 0) {
@@ -468,6 +474,9 @@ class Mobile {
 
 				if ($this->maxdex == 0) {
 						$this->maxdex = $this->dex;
+				}
+				else {
+						$this->dex = $this->maxdex;
 				}
 
 				if ($this->stam == 0) {

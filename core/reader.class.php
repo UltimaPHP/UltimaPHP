@@ -18,11 +18,13 @@ class Reader {
     public $fileType;
     public $fileHolder;
     public $fileLength;
+		public $fileHash;
 
     public function __construct($filePath = null, $type = self::FILE_STRING) {
         $this->fileType   = $type;
         $this->fileHolder = fopen($filePath, "rb");
         $this->fileLength = filesize($filePath);
+				$this->fileHash = Cache::getFileHash($filePath);
         return $this;
     }
 
