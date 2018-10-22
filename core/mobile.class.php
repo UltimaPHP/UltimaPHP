@@ -68,9 +68,22 @@ class Mobile {
         if ($serial === null) {
             $this->id     = Map::newSerial('mobile');
             $this->serial = $this->id;
-        }
+				}
+
+				$skillDefs = new ReflectionClass('SkillsDefs');
+				$constants = $skillDefs->getConstants();
+
+				foreach ($constants as $skill => $value) {
+						if (strpos($skill, 'SKILL_FLAG') === false && $skill != 'SKILL_ALLSKILLS') {
+                $skillclass = "Skill" . ucfirst(strtolower(substr($skill, strlen('SKILL_'))));
+								$skilldef = "SkillsDefs::" . $skill;
+								$this->skills[constant($skilldef)] = new $skillclass((float) 0);
+						}
+				}
+
         $this->summon();
-    }
+				$this->normalizeStats();
+		}
 
     public function setName($newName = false, $client = false) {
         if (!$newName) {
@@ -423,4 +436,48 @@ class Mobile {
             $this->goToPosition($position);
         }
     }
+
+		private function normalizeStats() {
+				if ($this->maxstr == 0) {
+						$this->maxstr = $this->str;
+				}
+
+				if ($this->hits == 0) {
+						if ($this->maxhits > 0) {
+								$this->hits = $this->maxhits;
+						}
+						else {
+								$this->hits = $this->str;
+								$this->maxhits = $this->str;
+						}
+				}
+
+				if ($this->maxint == 0) {
+						$this->maxint = $this->int;
+				}
+
+				if ($this->mana == 0) {
+						if ($this->maxmana > 0) {
+								$this->mana = $this->maxmana;
+						}
+						else {
+								$this->mana = $this->int;
+								$this->maxmana = $this->int;
+						}
+				}
+
+				if ($this->maxdex == 0) {
+						$this->maxdex = $this->dex;
+				}
+
+				if ($this->stam == 0) {
+						if ($this->maxstam > 0) {
+								$this->stam = $this->maxstam;
+						}
+						else {
+								$this->stam = $this->dex;
+								$this->maxstam = $this->dex;
+						}
+				}
+		}
 }
