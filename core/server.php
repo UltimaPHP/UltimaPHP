@@ -353,6 +353,9 @@ class UltimaPHP {
 
         case self::STATUS_FILE_READ_FAIL:
             $message = "Loading file " . (isset($args[0]) ? $args[0] . " " : "") . "failed!";
+            if (isset($args[1])) {
+                $message .= " ({$args[1]})";
+            }
             $type    = self::LOG_DANGER;
             break;
 

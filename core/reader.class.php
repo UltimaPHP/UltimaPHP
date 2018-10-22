@@ -35,7 +35,7 @@ class Reader {
     }
 
     public function setPosition($offset = 0) {
-        fseek($this->fileHolder, $offset);
+        return fseek($this->fileHolder, $offset);
     }
 
     public function readUInt8() {
