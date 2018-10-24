@@ -453,7 +453,7 @@ class Map {
                 ];
 
                 // if (isset(self::$tiledata[Others::TILEDATA_LAND][$info['tile']]) && $info['position']['x'] == $p_x && $info['position']['y'] == $p_y && abs($info['position']['z'] - $p_z) < $maxHeight) {
-                if (isset(self::$tiledata[Others::TILEDATA_LAND][$info['tile']]) && $info['position']['x'] == $p_x && $info['position']['y'] == $p_y) {
+                if (isset(self::$tiledata[Others::TILEDATA_LAND][$info['tile']]) && is_array(self::$tiledata[Others::TILEDATA_LAND][$info['tile']]) && $info['position']['x'] == $p_x && $info['position']['y'] == $p_y) {
                     return array_merge(self::$tiledata[Others::TILEDATA_LAND][$info['tile']], ['tile' => $info['tile'], 'position' => $info['position']]);
                 }
             }
