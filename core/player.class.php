@@ -52,6 +52,7 @@ class Player {
     public $statscap;
     public $pets;
     public $maxpets;
+    public $mounted;
     public $resist_physical;
     public $resist_fire;
     public $resist_cold;
@@ -107,6 +108,7 @@ class Player {
             $this->statscap        = $result[0]['statscap'];
             $this->pets            = $result[0]['pets'];
             $this->maxpets         = $result[0]['maxpets'];
+            $this->mounted         = $result[0]['mounted'];
             $this->resist_physical = $result[0]['resist_physical'];
             $this->resist_fire     = $result[0]['resist_fire'];
             $this->resist_cold     = $result[0]['resist_cold'];
@@ -148,8 +150,21 @@ class Player {
                 }
             }
 
+            /* Look if there is any mobile owned by the player */
+            $mobiles = UltimaPHP::$db->collection('mobiles')->find(['owner' => $this->serial], ['projection' => ['serial' => true]])->toArray();
+
+
+            if (count($mobiles)) {
+                $instance = Map::getBySerial($mobiles[0]['serial']);
+                
+                if ($this->layers[$instance->layer] === null) {
+                    $this->layers[$instance->layer] = $mobiles[0]['serial'];
+                }
+            }
+
             return true;
         }
+
         UltimaPHP::$socketClients[$this->client]['account']->disconnect();
         return false;
     }
@@ -219,7 +234,7 @@ class Player {
         } else if ($instance->instanceType == UltimaPHP::INSTANCE_PLAYER) {
             return $this->openPaperdoll($serial, (UltimaPHP::$socketClients[$this->client]['account']->plevel > 1 ? true : false));
         } else if ($instance->instanceType == UltimaPHP::INSTANCE_MOBILE) {
-            // TODO: Detect if it's a humanoid mobile, if yes: open paperdoll
+            $instance->dclick($this->client);
         } else if ($instance->instanceType == UltimaPHP::INSTANCE_OBJECT) {
             if ($instance->holder === null) {
                 $face = Functions::getRelativeFace([$this->position['x'], $this->position['y']], [$instance->position['x'], $instance->position['y']]);

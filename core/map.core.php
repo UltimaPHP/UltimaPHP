@@ -15,11 +15,12 @@ class Map {
     public static $tileMatrix       = [];
     public static $serialData       = [];
     public static $serialDataHolded = [];
+    public static $serialMobsHolded = [];
     public static $gumpsIds         = [];
     private static $tiledata        = [];
     private static $lastSerial      = [
         'mobile' => 0,
-        'object' => 0,
+        'object' => 100000,
     ];
 
     public function __construct() {
@@ -312,9 +313,44 @@ class Map {
                 }
 
                 if ($instance->holder === null) {
-                    Map::addObjectToMap($instance, $instance->position['x'], $instance->position['y'], $instance->position['z'], $instance->position['map']);
+                    self::addObjectToMap($instance, $instance->position['x'], $instance->position['y'], $instance->position['z'], $instance->position['map']);
                 } else {
-                    Map::addHoldedObject($instance);
+                    self::addHoldedObject($instance);
+                }
+            }
+
+            Functions::progressBar(1, 1, "Reading world objects");
+        }
+
+        return true;
+    }
+
+    public static function readMobiles() {
+        $objects = UltimaPHP::$db->collection('mobiles')->find([])->toArray();
+
+        $total = count($objects);
+
+        if ($total) {
+            Functions::progressBar(0, 1, "Reading world mobiles");
+
+            foreach ($objects as $count => $mobile) {
+                $itemClass = $mobile['objectName'];
+                $instance  = new $itemClass($mobile['serial'], ($mobile['ridable'] ? $mobile['owner'] : null));
+
+                /* Update last object serial stored on server */
+                if (self::$lastSerial['mobile'] < $mobile['id']) {
+                    self::$lastSerial['mobile'] = $mobile['id'];
+                }
+
+                /* Clear database object before update variables */
+                foreach ($mobile as $attr => $value) {
+                    $instance->$attr = (in_array($attr, ['serial', 'owner']) && $value !== null ? strtoupper($value) : $value);
+                }
+
+                if (!$instance->riding) {
+                    self::addMobileToMap($instance, $instance->position['x'], $instance->position['y'], $instance->position['z'], $instance->position['map']);
+                } else {
+                    self::addHoldedObject($instance);
                 }
             }
 
@@ -329,6 +365,11 @@ class Map {
         return true;
     }
 
+    public static function addHoldedMobile(Mobile $instance) {
+        self::$serialMobsHolded[$instance->serial] = $instance;
+        return true;
+    }
+
     /* Tries do define what is the right Z position from */
     public static function getTopItemFrom($x = 0, $y = 0, $z = 0, $map = 0, $maxHeight = 10) {
         if ($x == 0 || $y == 0) {
@@ -339,7 +380,7 @@ class Map {
             return false;
         }
 
-        $mapBoundries = Map::$mapSizes[$map];
+        $mapBoundries = self::$mapSizes[$map];
         if ($x <= 0 || $x > $mapBoundries['x'] || $y <= 0 || $y > $mapBoundries['y']) {
             return false;
         }
@@ -497,7 +538,11 @@ class Map {
             if ($evenHolded && isset(self::$serialDataHolded[$serial])) {
                 unset(self::$serialDataHolded[$serial]);
             } else {
-                return false;
+                if ($evenHolded && isset(self::$serialMobsHolded[$serial])) {
+                    unset(self::$serialMobsHolded[$serial]);
+                } else {
+                    return false;
+                }
             }
         } else {
             $instance = self::getBySerial($serial);
@@ -569,6 +614,16 @@ class Map {
         return true;
     }
 
+    public static function updateMobileHolder(Mobile $instance) {
+        if (!$instance || !isset(self::$serialMobsHolded[$instance->serial])) {
+            return false;
+        }
+
+        self::$serialMobsHolded[$instance->serial] = $instance;
+
+        return true;
+    }
+
     public static function updateChunkForced($position = null) {
         if ($position === null) {
             return false;
@@ -592,6 +647,7 @@ class Map {
             'running' => 0,
         ];
         $mobile->location = "map";
+        $mobile->save();
 
         $chunk = self::getChunk($pos_x, $pos_y);
 
@@ -617,7 +673,11 @@ class Map {
 
         if (!isset(self::$serialData[$serial])) {
             if (!isset(self::$serialDataHolded[$serial])) {
-                return false;
+                if (!isset(self::$serialMobsHolded[$serial])) {
+                    return false;
+                } else {
+                    return true;
+                }
             } else {
                 return true;
             }
@@ -647,7 +707,11 @@ class Map {
 
         if (!isset(self::$serialData[$serial])) {
             if (!isset(self::$serialDataHolded[$serial])) {
-                return false;
+                if (!isset(self::$serialMobsHolded[$serial])) {
+                    return false;
+                } else {
+                    return self::$serialMobsHolded[$serial];
+                }
             } else {
                 return self::$serialDataHolded[$serial];
             }
@@ -794,11 +858,14 @@ class Map {
             /* Loop trought every items and mobiles to update on player view */
             foreach ($chunkData as $serialTest => $dataTest) {
                 if ($dataTest['type'] != "player") {
-                    if (($actual_player->position['map'] != $dataTest['instance']->position['map']) || (abs($actual_player->position['x'] - $dataTest['instance']->position['x']) > $actual_player->render_range || abs($actual_player->position['y'] - $dataTest['instance']->position['y']) > $actual_player->render_range)) {
+                    if (($dataTest['type'] == "mobile" && $dataTest['instance']->ridable && $dataTest['instance']->riding) || ($actual_player->position['map'] != $dataTest['instance']->position['map']) || (abs($actual_player->position['x'] - $dataTest['instance']->position['x']) > $actual_player->render_range || abs($actual_player->position['y'] - $dataTest['instance']->position['y']) > $actual_player->render_range)) {
                         if (isset($actual_player->mapRange[$serialTest])) {
                             $actual_player->removeObjectFromView($serialTest);
                         }
                     } else if (!isset($actual_player->mapRange[$serialTest])) {
+                        if ($dataTest['type'] == "mobile" && $dataTest['instance']->ridable && $dataTest['instance']->riding) {
+                            continue;
+                        }
                         $actual_player->mapRange[$serialTest] = [
                             'status'     => true,
                             'lastupdate' => time(),

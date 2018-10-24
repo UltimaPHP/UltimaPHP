@@ -11,10 +11,16 @@ class Mobile {
     /* Player variables */
     public $id;
     public $serial;
+    public $objectName;
     public $name;
     public $body;
     public $color;
     public $sex;
+    public $owner;
+    // Riding flags
+    public $ridable;
+    public $riding;
+    public $layer;
     // Flags -- init
     public $frozen;
     public $female;
@@ -64,12 +70,39 @@ class Mobile {
     /* Temporary Variables */
     public $mapRange = [];
 
-    public function __construct($serial = null) {
+    public function __construct($serial = null, $ownerSerial = false) {
+        $this->summon();
+        $this->objectName = get_class($this);
+
+        if ($this->ridable) {
+            $this->layer = LayersDefs::MOUNT; 
+        }
+
         if ($serial === null) {
             $this->id     = Map::newSerial('mobile');
             $this->serial = $this->id;
+
+            if ($ownerSerial) {
+                $this->owner = $ownerSerial;
+            }
+
+            /* Creates the item at the database */
+            UltimaPHP::$db->collection("mobiles")->insertOne($this);
+        } else {
+            $this->id     = $serial;
+            $this->serial = $serial;
         }
-        $this->summon();
+    }
+
+    /**
+     * Updates the database record about the object instance
+     */
+    public function save() {
+        UltimaPHP::$db->collection('mobiles')->updateOne(['id' => $this->id], ['$set' => $this]);
+        return true;
+    }
+
+    public function showTooltip($client = false) {
     }
 
     public function setName($newName = false, $client = false) {
@@ -162,6 +195,44 @@ class Mobile {
         }
 
         return $this->message($this->name, 0, 3, $client);
+    }
+
+    public function dclick($client = null) {
+        if ($client === null) {
+            return false;
+        }
+
+        if ($this->owner == $this->serial || UltimaPHP::$socketClients[$client]['account']->plevel > 1) {
+            if ($this->ridable) {
+                $this->mount($client);
+            }
+        } else {
+            // DCLICK on mobile
+        }
+
+        return true;
+    }
+
+    public function mount($client = nul) {
+        if ($client === null) {
+            return false;
+        }
+
+        $this->riding = true;
+        $this->owner = UltimaPHP::$socketClients[$client]['account']->player->serial;
+        $this->save();
+
+        UltimaPHP::$socketClients[$client]['account']->player->layers[LayersDefs::MOUNT] = $this->serial;
+        UltimaPHP::$socketClients[$client]['account']->player->mounted = true;
+
+        $packet = "1D";
+        $packet .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);
+
+        Map::removeSerialData($this->serial);
+        Map::addHoldedMobile($this);
+
+        Map::sendPacketRangePosition($packet, $this->position);
+        UltimaPHP::$socketClients[$client]['account']->player->update();        
     }
 
     /**
