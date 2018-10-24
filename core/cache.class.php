@@ -5,48 +5,48 @@
  * Version: 0.1 - Pre Alpha
  */
 class Cache {
-		public $fileHash;
-		public $fileContents;
+	public $fileHash;
+	public $fileContents;
 
-		public static function getFileHash($filePath) {
-				return md5_file($filePath);
+	public static function getFileHash($filePath) {
+		return md5_file($filePath);
+	}
+
+	public static function readFile($filePath) {
+		$filePath = self::replaceExtension($filePath);
+
+		if (is_file($filePath)) {
+			$json = file_get_contents($filePath);
+
+			$cache = json_decode($json);
+			return $cache;
 		}
 
-		public static function readFile($filePath) {
-				$filePath = self::replaceExtension($filePath);
+		return new Cache();
+	}
 
-				if (is_file($filePath)) {
-						$json = file_get_contents($filePath);
+	public static function writeFile($filePath, $contents) {
+		$fileHash = Cache::getFileHash($filePath);
+		$filePath = self::replaceExtension($filePath);
 
-						$cache = json_decode($json);
-						return $cache;
-				}
+		$cache               = new Cache();
+		$cache->fileHash     = $fileHash;
+		$cache->fileContents = $contents;
 
-				return new Cache();
-		}
+		file_put_contents($filePath, json_encode($cache));
+	}
 
-		public static function writeFile($filePath, $contents) {
-				$fileHash = Cache::getFileHash($filePath);
-				$filePath = self::replaceExtension($filePath);
+	public static function exists($filePath) {
+		$fileHash = getFileHash($filePath);
+		$filePath = self::replaceExtension($filePath);
 
-				$cache = new Cache();
-				$cache->fileHash = $fileHash;
-				$cache->fileContents = $contents;
+		$cacheHash = Cache::readFile($filePath);
 
-				file_put_contents($filePath, json_encode($cache));
-		}
+		return $fileHash == $cacheHash->fileHash;
+	}
 
-		public static function exists($filePath) {
-				$fileHash = getFileHash($filePath);
-				$filePath = self::replaceExtension($filePath);
-
-				$cacheHash = Cache::readFile($filePath);
-
-				return $fileHash == $cacheHash->fileHash;
-		}
-
-		private static function replaceExtension($filePath) {
-				$info = pathinfo($filePath);
-    		return $info['dirname'] . '/' . $info['filename'] . '.cache';
-		}
+	private static function replaceExtension($filePath) {
+		$info = pathinfo($filePath);
+		return $info['dirname'] . '/' . $info['filename'] . '.cache';
+	}
 }

@@ -46,22 +46,21 @@ class Functions {
         $newList = array_rand($list, 1);
 
         return $newList[0];
-		}
+    }
 
-    public function RandomWeighted(array $elements)
-    {
-			 	$elements = [];
-				$weights = [];
-				$totalWeight = 0;
+    public function RandomWeighted(array $elements) {
+        $elements    = [];
+        $weights     = [];
+        $totalWeight = 0;
 
         foreach ($elements as $value => $weight) {
-						if ($weight < 1) {
-								throw new \InvalidArgumentException('Weight must be a positive integer.');
-						}
-						$elements[] = $value;
-						$weights[] = $weight;
-						$totalWeight += $weight;
-				}
+            if ($weight < 1) {
+                throw new \InvalidArgumentException('Weight must be a positive integer.');
+            }
+            $elements[] = $value;
+            $weights[]  = $weight;
+            $totalWeight += $weight;
+        }
 
         if ($totalWeight !== 0) {
             $value = random_int(1, $totalWeight);
