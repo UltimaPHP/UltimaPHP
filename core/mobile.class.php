@@ -43,11 +43,11 @@ class Mobile {
     public $maxmana;
     public $stam;
     public $maxstam;
-    public $str;
+    public $str = 1;
     public $maxstr;
-    public $int;
+    public $int = 1;
     public $maxint;
-    public $dex;
+    public $dex = 1;
     public $maxdex;
     public $statscap;
     public $pets;
@@ -75,7 +75,7 @@ class Mobile {
         $this->objectName = get_class($this);
 
         if ($this->ridable) {
-            $this->layer = LayersDefs::MOUNT; 
+            $this->layer = LayersDefs::MOUNT;
         }
 
         if ($serial === null) {
@@ -85,6 +85,19 @@ class Mobile {
             if ($ownerSerial) {
                 $this->owner = $ownerSerial;
             }
+
+            $skillDefs = new ReflectionClass('SkillsDefs');
+            $constants = $skillDefs->getConstants();
+
+            foreach ($constants as $skill => $value) {
+                if (strpos($skill, 'SKILL_FLAG') === false && $skill != 'SKILL_ALLSKILLS') {
+                    $skillclass                        = "Skill" . ucfirst(strtolower(substr($skill, strlen('SKILL_'))));
+                    $skilldef                          = "SkillsDefs::" . $skill;
+                    $this->skills[constant($skilldef)] = new $skillclass((float) 0);
+                }
+            }
+
+            $this->normalizeStats();
 
             /* Creates the item at the database */
             UltimaPHP::$db->collection("mobiles")->insertOne($this);
@@ -492,6 +505,53 @@ class Mobile {
             $tmp      = explode(",", str_replace("goto ", "", $message));
             $position = ['x' => $tmp[0], 'y' => $tmp[1], 'z' => (isset($tmp[2]) ? $tmp[2] : $this->position['z'])];
             $this->goToPosition($position);
+        }
+    }
+
+    private function normalizeStats() {
+        if ($this->maxstr == 0) {
+            $this->maxstr = $this->str;
+        } else {
+            $this->str = $this->maxstr;
+        }
+
+        if ($this->hits == 0) {
+            if ($this->maxhits > 0) {
+                $this->hits = $this->maxhits;
+            } else {
+                $this->hits    = $this->str;
+                $this->maxhits = $this->str;
+            }
+        }
+
+        if ($this->maxint == 0) {
+            $this->maxint = $this->int;
+        } else {
+            $this->int = $this->maxint;
+        }
+
+        if ($this->mana == 0) {
+            if ($this->maxmana > 0) {
+                $this->mana = $this->maxmana;
+            } else {
+                $this->mana    = $this->int;
+                $this->maxmana = $this->int;
+            }
+        }
+
+        if ($this->maxdex == 0) {
+            $this->maxdex = $this->dex;
+        } else {
+            $this->dex = $this->maxdex;
+        }
+
+        if ($this->stam == 0) {
+            if ($this->maxstam > 0) {
+                $this->stam = $this->maxstam;
+            } else {
+                $this->stam    = $this->dex;
+                $this->maxstam = $this->dex;
+            }
         }
     }
 }
