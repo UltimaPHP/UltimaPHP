@@ -112,7 +112,7 @@
                                                 }
                                                 else if (element4.ButtonType == GumpStudio.Elements.ButtonTypeEnum.Page)
                                                 {
-                                                    writer.Write("\n\t\t$this->addButton(" + element4.X + ", " + element4.Y + ", " + element4.NormalID + ", " + element4.PressedID + ", 0, " + element4.Z + ", " + element4.Param + ");");
+                                                    writer.Write("\n\t\t$this->addButton(" + element4.X + ", " + element4.Y + ", " + element4.NormalID + ", " + element4.PressedID + ", 0, " + element4.Param + ", " + element4.Z + ");");
                                                 }
                                             }
                                             else

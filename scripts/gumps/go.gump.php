@@ -17,8 +17,8 @@
 
 
 		$this->addPage(1);
-		$this->addButton(144, 153, 5603, 5607, 0, 0, 6);
-		$this->addButton(277, 153, 5601, 5605, 0, 1, 2);
+		$this->addButton(144, 153, 5603, 5607, 0, 6, 0);
+		$this->addButton(277, 153, 5601, 5605, 0, 2, 1);
 		$this->addText(199, 152, 0, "Felucca");
 
 		$this->addGumpPic(335, 137, 5593, 0);
@@ -33,10 +33,10 @@
 		$this->addPage(2);
 		$this->addGumpPic(335, 137, 5594, 0);
 		$this->addGumpPic(331, 131, 5599, 0);
-		$this->addButton(278, 153, 5601, 5605, 0, 2, 3);
+		$this->addButton(278, 153, 5601, 5605, 0, 3, 2);
 		$this->addText(199, 152, 0, "Trammel");
 
-		$this->addButton(144, 153, 5603, 5607, 0, 4, 1);
+		$this->addButton(144, 153, 5603, 5607, 0, 1, 4);
 		$this->addText(185, 208, 0, "Towns");
 
 		$this->addText(187, 243, 0, "Dungeons");
@@ -50,7 +50,7 @@
 		$this->addGumpPic(335, 137, 5595, 0);
 		$this->addGumpPic(331, 131, 5599, 0);
 		$this->addButton(144, 153, 5603, 5607, 0, 2, 2);
-		$this->addButton(278, 153, 5601, 5605, 0, 3, 4);
+		$this->addButton(278, 153, 5601, 5605, 0, 4, 3);
 		$this->addText(199, 152, 0, "Ilshenar");
 
 		$this->addText(185, 208, 0, "Towns");
@@ -65,8 +65,8 @@
 		$this->addPage(4);
 		$this->addGumpPic(335, 137, 5596, 0);
 		$this->addGumpPic(331, 131, 5599, 0);
-		$this->addButton(144, 153, 5603, 5607, 0, 2, 3);
-		$this->addButton(278, 153, 5601, 5605, 0, 3, 5);
+		$this->addButton(144, 153, 5603, 5607, 0, 3, 2);
+		$this->addButton(278, 153, 5601, 5605, 0, 5, 3);
 		$this->addText(199, 152, 0, "Malas");
 
 		$this->addText(185, 208, 0, "Towns");
@@ -81,8 +81,8 @@
 		$this->addPage(5);
 		$this->addGumpPic(335, 137, 5597, 0);
 		$this->addGumpPic(331, 131, 5599, 0);
-		$this->addButton(144, 153, 5603, 5607, 0, 2, 4);
-		$this->addButton(279, 153, 5601, 5605, 0, 3, 6);
+		$this->addButton(144, 153, 5603, 5607, 0, 4, 2);
+		$this->addButton(279, 153, 5601, 5605, 0, 6, 3);
 		$this->addText(199, 152, 0, "Tokuno");
 
 		$this->addText(185, 208, 0, "Towns");
@@ -95,10 +95,10 @@
 		$this->addButton(156, 246, 11410, 11412, 1, 9, 19);
 
 		$this->addPage(6);
-		$this->addButton(277, 153, 5601, 5605, 0, 0, 1);
+		$this->addButton(277, 153, 5601, 5605, 0, 1, 0);
 		$this->addGumpPic(335, 137, 5598, 0);
 		$this->addGumpPic(331, 131, 5599, 0);
-		$this->addButton(144, 153, 5603, 5607, 0, 3, 5);
+		$this->addButton(144, 153, 5603, 5607, 0, 5, 3);
 		$this->addText(199, 152, 0, "TerMur");
 
 		$this->addText(185, 208, 0, "Towns");
@@ -135,7 +135,7 @@
 		$this->addText(184, 298, 0, "Nujel'm");
 
 		$this->addButton(156, 300, 11410, 11412, 1, 15, 107);
-		$this->addButton(142, 90, 5603, 5607, 0, 16, 1);
+		$this->addButton(142, 90, 5603, 5607, 0, 1, 16);
 		$this->addText(179, 89, 0, "Felucca - Towns");
 
 		$this->addGumpPic(335, 137, 5593, 0);
@@ -193,7 +193,7 @@
 		$this->addText(184, 300, 0, "Miscellaneous");
 
 		$this->addButton(156, 302, 11410, 11412, 1, 15, 107);
-		$this->addButton(142, 90, 5603, 5607, 0, 16, 1);
+		$this->addButton(142, 90, 5603, 5607, 0, 1, 16);
 		$this->addText(179, 89, 0, "Felucca - Dungeons");
 
 		$this->addGumpPic(335, 137, 5593, 0);
