@@ -262,9 +262,14 @@ class Player {
         }
 
         if ($this->serial == $instance->serial) {
-            return $this->openPaperdoll($serial, true);
+            if ($this->mounted) {
+                $mount = Map::getBySerial($this->layers[LayersDefs::MOUNT]);
+                return $mount->dclick($this->client);
+            } else {
+                return $this->openPaperdoll($serial);
+            }
         } else if ($instance->instanceType == UltimaPHP::INSTANCE_PLAYER) {
-            return $this->openPaperdoll($serial, (UltimaPHP::$socketClients[$this->client]['account']->plevel > 1 ? true : false));
+            return $this->openPaperdoll($serial);
         } else if ($instance->instanceType == UltimaPHP::INSTANCE_MOBILE) {
             return $instance->dclick($this->client);
         } else if ($instance->instanceType == UltimaPHP::INSTANCE_OBJECT) {
@@ -756,7 +761,7 @@ class Player {
         UltimaPHP::$db->collection("players")->updateOne(['_id' => $this->mongoId], ['$set' => ['position' => $this->position]]);
     }
 
-    public function openPaperdoll($serial, $canLift) {
+    public function openPaperdoll($serial) {
         if ($serial == $this->serial) {
             $instance = $this;
         } else {
@@ -766,6 +771,8 @@ class Player {
         if (!$instance) {
             return false;
         }
+
+        $canLift = UltimaPHP::$socketClients[$this->client]['account']->serial == $serial || UltimaPHP::$socketClients[$this->client]['account']->plevel > 1 ? true : false;
 
         $packet = "88";
         $packet .= str_pad($instance->serial, 8, "0", STR_PAD_LEFT);
@@ -1008,7 +1015,7 @@ class Player {
         $packet .= str_pad(dechex($warmode), 2, "0", STR_PAD_LEFT);
         $packet .= "003200";
 
-        $this->warmode = $warmode;
+        $this->warmode = $warmode === 1;
 
         Sockets::out($this->client, $packet, $runInLot);
     }

@@ -123,7 +123,11 @@ class Mobile {
 
         if ($this->owner == $this->serial || UltimaPHP::$socketClients[$client]['account']->plevel > 1) {
             if ($this->ridable) {
-                $this->mount($client);
+                if ($this->riding) {
+                    return $this->unmount($client);
+                } else {
+                    return $this->mount($client);
+                }
             }
         } else {
             // DCLICK on mobile
@@ -214,6 +218,28 @@ class Mobile {
 
         Map::sendPacketRangePosition($packet, $this->position);
         UltimaPHP::$socketClients[$client]['account']->player->update();
+        return true;
+    }
+
+    public function unmount($client = nul) {
+        if ($client === null) {
+            return false;
+        }
+
+        $this->riding = false;
+        $this->save();
+
+        $owner = Map::getBySerial($this->owner);
+        $owner->layers[LayersDefs::MOUNT] = null;
+        $owner->mounted = false;
+
+        $packet = "1D";
+        $packet .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);
+
+        Map::addMobileToMap($this, $owner->position['x'], $owner->position['y'], $owner->position['z'], $owner->position['map']);
+        Map::sendPacketRangePosition($packet, $owner->position);
+        $owner->update();
+        return true;
     }
 
     public function move($direction = false) {
