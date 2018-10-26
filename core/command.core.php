@@ -12,7 +12,10 @@ class Command {
         ],
         'm'          => [
             'minPlevel' => 6,
-        ],
+				],
+				'color'			 => [
+					'minPlevel' => 2,
+				],
         'tele'       => [
             'minPlevel' => 2,
         ],

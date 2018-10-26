@@ -266,7 +266,7 @@ class Player {
         } else if ($instance->instanceType == UltimaPHP::INSTANCE_PLAYER) {
             return $this->openPaperdoll($serial, (UltimaPHP::$socketClients[$this->client]['account']->plevel > 1 ? true : false));
         } else if ($instance->instanceType == UltimaPHP::INSTANCE_MOBILE) {
-            return $instance::dclick($this->client);
+            return $instance->dclick($this->client);
         } else if ($instance->instanceType == UltimaPHP::INSTANCE_OBJECT) {
             if ($instance->holder === null) {
                 $face = Functions::getRelativeFace([$this->position['x'], $this->position['y']], [$instance->position['x'], $instance->position['y']]);
