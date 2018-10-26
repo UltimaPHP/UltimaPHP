@@ -128,7 +128,7 @@ class TypeContainer extends UObject {
             $tmpPacket .= str_pad(dechex($instance->position['y']), 4, "0", STR_PAD_LEFT);
             $tmpPacket .= "00";
             $tmpPacket .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(dechex($this->color), 4, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(dechex($instance->color), 4, "0", STR_PAD_LEFT);
         }
 
         $packet = "3C";

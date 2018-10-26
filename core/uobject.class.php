@@ -20,14 +20,14 @@ class UObject {
     public $maxHits;
     public $direction;
     public $flags;
-    public $color  = 0;
-    public $value  = 0;
+    public $color = 0;
+    public $value = 0;
     public $amount = 1;
 
     /* Equipable info */
     public $twohands = false;
-    public $equiped  = false;
-    public $layer    = LayersDefs::INVALID;
+    public $equiped = false;
+    public $layer = LayersDefs::INVALID;
 
     public function __construct($serial = null, $id = null, $holderSerial = false) {
         $this->build();
@@ -35,7 +35,7 @@ class UObject {
         $this->objectName = get_class($this);
 
         if ($serial === null) {
-            $this->id     = Map::newSerial("object");
+            $this->id = Map::newSerial("object");
             $this->serial = strtoupper(dechex(UltimaPHP::BITMASK_ITEM | $this->id));
 
             if ($holderSerial) {
@@ -45,7 +45,7 @@ class UObject {
             /* Creates the item at the database */
             UltimaPHP::$db->collection("objects")->insertOne($this);
         } else {
-            $this->id     = $id;
+            $this->id = $id;
             $this->serial = $serial;
         }
     }
@@ -55,6 +55,14 @@ class UObject {
      */
     public function save() {
         UltimaPHP::$db->collection('objects')->updateOne(['id' => $this->id], ['$set' => $this]);
+        return true;
+    }
+
+    /**
+     * Removes the database record about the object instance
+     */
+    public function remove() {
+        UltimaPHP::$db->collection('objects')->deleteOne(['id' => $this->id]);
         return true;
     }
 
@@ -90,7 +98,7 @@ class UObject {
         }
 
         $tmpPacket = Functions::strToHex($text);
-        $packet    = "1C";
+        $packet = "1C";
         $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 45), 4, "0", STR_PAD_LEFT);
         $packet .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);
         $packet .= str_pad(dechex($this->graphic), 4, "0", STR_PAD_LEFT);

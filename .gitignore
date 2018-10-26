@@ -1,4 +1,6 @@
-/.vscode/settings.json
-/nbproject/private/
+.vscode/settings.json
+nbproject/private/
 ultimaphp\.ini
 UOLocation/
+tools/UltimaPHPGumpExporter/bin/
+tools/UltimaPHPGumpExporter/obj/
