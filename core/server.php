@@ -205,6 +205,9 @@ class UltimaPHP {
 
         /* Load map objects */
         Map::readObjects();
+        
+        /* Load map mobiles */
+        Map::readMobiles();
 
         self::setStatus(self::STATUS_RUNNING, array(
             self::$conf['server']['ip'],
