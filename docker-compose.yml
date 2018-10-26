@@ -4,13 +4,8 @@ services:
 
   ultimaphp:
     build: ./
-    # restart: always
     ports:
       - "2593:2593"
-    # volumes:
-    #   - ./data/local:/var/lib/data
-    environment:
-      ASD: xxx
     networks:
       - ultimaphp
 
