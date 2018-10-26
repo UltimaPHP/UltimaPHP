@@ -108,7 +108,7 @@
                                             {
                                                 if (element4.ButtonType == GumpStudio.Elements.ButtonTypeEnum.Reply)
                                                 {
-                                                    writer.Write("\n\t\t$this->addButton(" + element4.X+", "+ element4.Y + ", "+ element4.NormalID + ", "+ element4.PressedID + ", 1, "+ element4.Param + ", " + element4.Z+");");
+                                                    writer.Write("\n\t\t$this->addButton(" + element4.X+", "+ element4.Y + ", "+ element4.NormalID + ", "+ element4.PressedID +  ", 1, " + element4.Z + ", " + element4.Param + ");");
                                                 }
                                                 else if (element4.ButtonType == GumpStudio.Elements.ButtonTypeEnum.Page)
                                                 {

@@ -1,5 +1,11 @@
 <?php
 
+class MapCache {
+	public $map = [];
+	public $mapSizes = [];
+	public $chunks = [];
+	public $tileMatrix = [];
+}
 /**
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
@@ -8,18 +14,19 @@ class Map {
     /**
      * Map loading variables
      */
-    public static $maps             = [];
-    public static $mapSizes         = [];
-    public static $chunks           = [];
-    public static $chunkSize        = 512; // Number in square
-    public static $tileMatrix       = [];
-    public static $serialData       = [];
+    public static $maps = [];
+    public static $mapSizes = [];
+    public static $chunks = [];
+    public static $chunkSize = 512; // Number in square
+    public static $tileMatrix = [];
+    public static $serialData = [];
     public static $serialDataHolded = [];
-    public static $gumpsIds         = [];
-    private static $tiledata        = [];
-    private static $lastSerial      = [
+    public static $serialMobsHolded = [];
+    public static $gumpsIds = [];
+    private static $tiledata = [];
+    private static $lastSerial = [
         'mobile' => 0,
-        'object' => 0,
+        'object' => 100000,
     ];
 
     public function __construct() {
@@ -34,260 +41,301 @@ class Map {
         }
 
         self::$tiledata = [
-            Others::TILEDATA_LAND   => [],
+            Others::TILEDATA_LAND => [],
             Others::TILEDATA_STATIC => [],
         ];
 
         UltimaPHP::$files[Reader::FILE_TILEDATA] = new Reader($tiledata, Reader::FILE_TILEDATA);
 
-        Functions::progressBar(0, 1, "Reading tiledata.mul");
+        $cache = Cache::exists($tiledata);
 
-        $highSeas = true;
+				if (!is_null($cache)) {
+            self::$tiledata = $cache->fileContents;
+            Functions::progressBar(1, 1, "Reading tiledata.mul (cache)");
+        } else {
+            Functions::progressBar(0, 1, "Reading tiledata.mul");
 
-        for ($i = 0; $i < 0x4000; $i += 32) {
-            $header = UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt32();
+            $highSeas = true;
 
-            for ($count = 0; $count < 32; ++$count) {
-                if (!$highSeas) {
-                    $blockInfo = [
-                        'type'    => 'land',
-                        'flags'   => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt32(),
-                        'texture' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt16(),
-                        'name'    => trim(Functions::readUnicodeStringSafe(str_split(Functions::strToHex(UltimaPHP::$files[Reader::FILE_TILEDATA]->read(20)), 2))),
-                    ];
-                } else {
-                    $blockInfo = [
-                        'type'    => 'land',
-                        'flags'   => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt32(),
-                        'unknown' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt32(),
-                        'texture' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt16(),
-                        'name'    => trim(Functions::readUnicodeStringSafe(str_split(Functions::strToHex(UltimaPHP::$files[Reader::FILE_TILEDATA]->read(20)), 2))),
-                    ];
+            for ($i = 0; $i < 0x4000; $i += 32) {
+                $header = UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt32();
+
+                for ($count = 0; $count < 32; ++$count) {
+                    if (!$highSeas) {
+                        $blockInfo = [
+                            'type' => 'land',
+                            'flags' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt32(),
+                            'texture' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt16(),
+                            'name' => trim(Functions::readUnicodeStringSafe(str_split(Functions::strToHex(UltimaPHP::$files[Reader::FILE_TILEDATA]->read(20)), 2))),
+                        ];
+                    } else {
+                        $blockInfo = [
+                            'type' => 'land',
+                            'flags' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt32(),
+                            'unknown' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt32(),
+                            'texture' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt16(),
+                            'name' => trim(Functions::readUnicodeStringSafe(str_split(Functions::strToHex(UltimaPHP::$files[Reader::FILE_TILEDATA]->read(20)), 2))),
+                        ];
+                    }
+
+                    self::$tiledata[Others::TILEDATA_LAND][$i + $count] = $blockInfo;
                 }
-
-                self::$tiledata[Others::TILEDATA_LAND][$i + $count] = $blockInfo;
             }
-        }
 
-        $remaining = UltimaPHP::$files[Reader::FILE_TILEDATA]->fileLength - UltimaPHP::$files[Reader::FILE_TILEDATA]->getAcutalPosition();
+            $remaining = UltimaPHP::$files[Reader::FILE_TILEDATA]->fileLength - UltimaPHP::$files[Reader::FILE_TILEDATA]->getAcutalPosition();
 
-        $staticItemSize   = (!$highSeas ? 37 : 41);
-        $remainingHeaders = ($remaining / (($staticItemSize * 32) + 4));
-        $totalStaticItems = $remainingHeaders * 32;
+            $staticItemSize = (!$highSeas ? 37 : 41);
+            $remainingHeaders = ($remaining / (($staticItemSize * 32) + 4));
+            $totalStaticItems = $remainingHeaders * 32;
 
-        for ($i = 0; $i < $totalStaticItems; $i += 32) {
-            $header = UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt32();
+            for ($i = 0; $i < $totalStaticItems; $i += 32) {
+                $header = UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt32();
 
-            for ($count = 0; $count < 32; ++$count) {
-                $blockInfo = [
-                    'type'           => 'static',
-                    'flags'          => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt32(),
-                    'unknown1'       => (!$highSeas ? 0 : UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt32()),
-                    'weight'         => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
-                    'quality'        => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
-                    'miscdata'       => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt16(),
-                    'unknown2'       => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
-                    'quantity'       => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
-                    'animation'      => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt16(),
-                    'unknown3'       => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
-                    'hue'            => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
-                    'stackingoffset' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
-                    'value'          => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
-                    'height'         => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
-                    'name'           => Functions::readUnicodeStringSafe(str_split(Functions::strToHex(UltimaPHP::$files[Reader::FILE_TILEDATA]->read(20)), 2)),
-                ];
+                for ($count = 0; $count < 32; ++$count) {
+                    $blockInfo = [
+                        'type' => 'static',
+                        'flags' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt32(),
+                        'unknown1' => (!$highSeas ? 0 : UltimaPHP::$files[Reader::FILE_TILEDATA]->readUInt32()),
+                        'weight' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
+                        'quality' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
+                        'miscdata' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt16(),
+                        'unknown2' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
+                        'quantity' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
+                        'animation' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt16(),
+                        'unknown3' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
+                        'hue' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
+                        'stackingoffset' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
+                        'value' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
+                        'height' => UltimaPHP::$files[Reader::FILE_TILEDATA]->readInt8(),
+                        'name' => Functions::readUnicodeStringSafe(str_split(Functions::strToHex(UltimaPHP::$files[Reader::FILE_TILEDATA]->read(20)), 2)),
+                    ];
 
-                self::$tiledata[Others::TILEDATA_STATIC][$i + $count] = $blockInfo;
+                    self::$tiledata[Others::TILEDATA_STATIC][$i + $count] = $blockInfo;
+                }
             }
-        }
 
-        Functions::progressBar(1, 1, "Reading tiledata.mul");
+            Functions::progressBar(1, 1, "Reading tiledata.mul");
+            Cache::writeFile($tiledata, self::$tiledata);
+        }
         self::readMaps();
-    }
+		}
+		
+		private static function readMapFile($mapFile, $mapName) {
+			if (!is_file($mapFile)) {
+					UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$mapFile]);
+					UltimaPHP::stop();
+			}
+
+			if (!isset(UltimaPHP::$files[$mapName])) {
+				UltimaPHP::$files[mapName] = [];
+			}
+
+			return new Reader($mapFile, mapName);
+		}
 
     /**
      * Render the maps inside chunk arrays
      */
     public static function readMaps() {
         for ($actualMap = 0; $actualMap < UltimaPHP::$conf["muls"]['maps']; $actualMap++) {
-            /* Start reading the map files of actual map */
-            Functions::progressBar(0, 1, "Reading map{$actualMap}LegacyMUL.uop file");
-
-            $mapFile = UltimaPHP::$conf['muls']['location'] . "map{$actualMap}LegacyMUL.uop";
-            $mapSize = explode(",", UltimaPHP::$conf["muls"]["map{$actualMap}"]);
+						$mapFile = UltimaPHP::$conf['muls']['location'] . "map{$actualMap}LegacyMUL.uop";
 
             if (!is_file($mapFile)) {
-                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$mapFile]);
-                UltimaPHP::stop();
-            }
+								UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$mapFile]);
+								UltimaPHP::stop();
+						}
 
-            if (!isset(UltimaPHP::$files[Reader::FILE_MAP_FILE])) {
-                UltimaPHP::$files[Reader::FILE_MAP_FILE] = [];
-            }
+						if (!isset(UltimaPHP::$files[Reader::FILE_MAP_FILE])) {
+								UltimaPHP::$files[Reader::FILE_MAP_FILE] = [];
+						}
 
-            UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap] = new Reader($mapFile, Reader::FILE_MAP_FILE);
+						UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap] = new Reader($mapFile, Reader::FILE_MAP_FILE);
+				
+            $cache = Cache::exists($mapFile);
 
-            if (dechex(UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32()) == 0x50594D) {
-                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$mapFile, 'The file doesn\'t seems to be a valid UOP file.']);
-                UltimaPHP::stop();
-            }
+            if (!is_null($cache)) {
+                $cache = $cache->fileContents;
+    						self::$maps[$actualMap] = $cache->map;
+    						self::$mapSizes[$actualMap] = $cache->mapSizes;
+    						self::$chunks[$actualMap] = $cache->chunks;
+								self::$tileMatrix[$actualMap] = $cache->tileMatrix;
 
-            $chunks_x = ceil($mapSize[0] / self::$chunkSize);
-            $chunks_y = ceil($mapSize[1] / self::$chunkSize);
+                Functions::progressBar(1, 1, "Reading " . $mapFile . " (cache)");
+            } else {
+                /* Start reading the map files of actual map */
+                Functions::progressBar(0, 1, "Reading map{$actualMap}LegacyMUL.uop file");
 
-            // Build the array that will store map chunks
-            for ($xChunk = 0; $xChunk < $chunks_x; $xChunk++) {
-                self::$chunks[$actualMap][$xChunk] = [];
-                for ($yChunk = 0; $yChunk < $chunks_y; $yChunk++) {
-                    self::$chunks[$actualMap][$xChunk][$yChunk] = [];
+                $mapSize = explode(",", UltimaPHP::$conf["muls"]["map{$actualMap}"]);
+
+                if (dechex(UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32()) == 0x50594D) {
+                    UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$mapFile, 'The file doesn\'t seems to be a valid UOP file.']);
+                    UltimaPHP::stop();
                 }
-            }
 
-            // Store information about the map muls and size
-            self::$maps[$actualMap] = [
-                'mul'  => null,
-                'size' => [
-                    'x' => null,
-                    'y' => null,
-                ],
-            ];
+                $chunks_x = ceil($mapSize[0] / self::$chunkSize);
+                $chunks_y = ceil($mapSize[1] / self::$chunkSize);
 
-            self::$mapSizes[$actualMap]['x']     = $mapSize[0];
-            self::$mapSizes[$actualMap]['y']     = $mapSize[1];
-            self::$maps[$actualMap]['mul']       = fopen($mapFile, "rb");
-            self::$maps[$actualMap]['size']['x'] = (int) $mapSize[0] >> 3;
-            self::$maps[$actualMap]['size']['y'] = (int) $mapSize[1] >> 3;
-
-            /* Creates the empty map tile matrix */
-            if (!isset(self::$tileMatrix[$actualMap])) {
-                self::$tileMatrix[$actualMap] = [];
-            }
-
-            for ($bx = 0; $bx <= self::$maps[$actualMap]['size']['x']; $bx++) {
-                if (!isset(self::$tileMatrix[$actualMap][$bx])) {
-                    self::$tileMatrix[$actualMap][$bx] = [];
-                }
-                for ($by = 0; $by <= self::$maps[$actualMap]['size']['y']; $by++) {
-                    if (!isset(self::$tileMatrix[$actualMap][$bx][$by])) {
-                        self::$tileMatrix[$actualMap][$bx][$by] = [];
+                // Build the array that will store map chunks
+                for ($xChunk = 0; $xChunk < $chunks_x; $xChunk++) {
+                    self::$chunks[$actualMap][$xChunk] = [];
+                    for ($yChunk = 0; $yChunk < $chunks_y; $yChunk++) {
+                        self::$chunks[$actualMap][$xChunk][$yChunk] = [];
                     }
                 }
-            }
 
-            /* Proccess the UOP file into the server memory */
-            if (!UltimaPHP::$testMode) {
-                UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->setPosition(0);
+                // Store information about the map muls and size
+                self::$maps[$actualMap] = [
+                    'mul' => null,
+                    'size' => [
+                        'x' => null,
+                        'y' => null,
+                    ],
+                ];
 
-                $magicSeed = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
-                $version   = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
-                $signature = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
-                $nextTable = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt64();
+                self::$mapSizes[$actualMap]['x'] = $mapSize[0];
+                self::$mapSizes[$actualMap]['y'] = $mapSize[1];
+                self::$maps[$actualMap]['mul'] = fopen($mapFile, "rb");
+                self::$maps[$actualMap]['size']['x'] = (int) $mapSize[0] >> 3;
+                self::$maps[$actualMap]['size']['y'] = (int) $mapSize[1] >> 3;
 
-                $offsets = [];
+                /* Creates the empty map tile matrix */
+                if (!isset(self::$tileMatrix[$actualMap])) {
+                    self::$tileMatrix[$actualMap] = [];
+                }
 
-                while ($nextTable != 0) {
-                    UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->setPosition($nextTable);
+                for ($bx = 0; $bx <= self::$maps[$actualMap]['size']['x']; $bx++) {
+                    if (!isset(self::$tileMatrix[$actualMap][$bx])) {
+                        self::$tileMatrix[$actualMap][$bx] = [];
+                    }
+                    for ($by = 0; $by <= self::$maps[$actualMap]['size']['y']; $by++) {
+                        if (!isset(self::$tileMatrix[$actualMap][$bx][$by])) {
+                            self::$tileMatrix[$actualMap][$bx][$by] = [];
+                        }
+                    }
+                }
 
-                    $entries   = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
+                /* Proccess the UOP file into the server memory */
+                if (!UltimaPHP::$testMode) {
+                    UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->setPosition(0);
+
+                    $magicSeed = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
+                    $version = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
+                    $signature = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
                     $nextTable = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt64();
 
-                    for ($i = 0; $i < $entries; $i++) {
-                        /*
-                         * Empty entries are read too, because they do not always indicate the
-                         * end of the table. (Example: 7.0.26.4+ Fel/Tram maps)
-                         */
-                        $tmp = [
-                            'offset'           => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt64(),
-                            'headerLength'     => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt32(), // header length
-                            'size'             => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt32(), // compressed size
-                            'sizeDecompressed' => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt32(), // decompressed size
-                            'identifier'       => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadUInt64(), // filename hash (HashLittle2)
-                            'hash'             => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadUInt32(), // data hash (Adler32)
-                            'compression'      => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt16(), // compression method (0 = none, 1 = zlib)
-                        ];
+                    $offsets = [];
 
-                        if ($tmp['offset'] <= 0 || $tmp['size'] <= 0) {
-                            continue;
+                    while ($nextTable != 0) {
+                        UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->setPosition($nextTable);
+
+                        $entries = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
+                        $nextTable = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt64();
+
+                        for ($i = 0; $i < $entries; $i++) {
+                            /*
+                             * Empty entries are read too, because they do not always indicate the
+                             * end of the table. (Example: 7.0.26.4+ Fel/Tram maps)
+                             */
+                            $tmp = [
+                                'offset' => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt64(),
+                                'headerLength' => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt32(), // header length
+                                'size' => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt32(), // compressed size
+                                'sizeDecompressed' => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt32(), // decompressed size
+                                'identifier' => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadUInt64(), // filename hash (HashLittle2)
+                                'hash' => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadUInt32(), // data hash (Adler32)
+                                'compression' => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt16(), // compression method (0 = none, 1 = zlib)
+                            ];
+
+                            if ($tmp['offset'] <= 0 || $tmp['size'] <= 0) {
+                                continue;
+                            }
+
+                            $offsets[] = $tmp;
                         }
-
-                        $offsets[] = $tmp;
-                    }
-                }
-
-                $offsetCount = count($offsets);
-
-                foreach ($offsets as $offsetKey => $offset) {
-                    UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->setPosition(($offset['offset'] + $offset['headerLength']));
-                    $rawData = Functions::strToHex(UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->read($offset['size']));
-                    
-                    // TODO: Proccess the block raw data
-
-                    Functions::progressBar($offsetKey, $offsetCount, "Reading map{$actualMap}LegacyMUL.uop file");
-                }
-
-                Functions::progressBar($offsetCount, $offsetCount, "Reading map{$actualMap}LegacyMUL.uop file");
-            } else {
-                Functions::progressBar(1, 1, "Reading map{$actualMap}LegacyMUL.uop file");
-            }
-
-            /* Start reading the staidx file of actual map */
-            Functions::progressBar(0, 1, "Reading staidx{$actualMap}.mul file");
-
-            $indexFile = UltimaPHP::$conf['muls']['location'] . "staidx{$actualMap}.mul";
-
-            if (!is_file($indexFile)) {
-                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$indexFile]);
-                UltimaPHP::stop();
-            }
-
-            if (!isset(UltimaPHP::$files[Reader::FILE_STATIC_INDEX])) {
-                UltimaPHP::$files[Reader::FILE_STATIC_INDEX] = [];
-            }
-
-            UltimaPHP::$files[Reader::FILE_STATIC_INDEX][$actualMap] = new Reader($indexFile, Reader::FILE_MAP_FILE);
-
-            Functions::progressBar(1, 1, "Reading staidx{$actualMap}.mul file");
-
-            /* Start reading the statics file of actual map */
-            Functions::progressBar(0, 1, "Reading statics{$actualMap}.mul file");
-            $staticFile = UltimaPHP::$conf['muls']['location'] . "statics{$actualMap}.mul";
-
-            if (!is_file($staticFile)) {
-                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$staticFile]);
-                UltimaPHP::stop();
-            }
-
-            if (!isset(UltimaPHP::$files[Reader::FILE_STATIC_FILE])) {
-                UltimaPHP::$files[Reader::FILE_STATIC_FILE] = [];
-            }
-            UltimaPHP::$files[Reader::FILE_STATIC_FILE][$actualMap] = new Reader($staticFile, Reader::FILE_MAP_FILE);
-
-            Functions::progressBar(1, 1, "Reading statics{$actualMap}.mul file");
-
-            /* Start reading the mapdif file of actual map, if enabled */
-            if (UltimaPHP::$conf['muls']['useDif']) {
-                $diffFile = UltimaPHP::$conf['muls']['location'] . "mapdif{$actualMap}.mul";
-
-                if (file_exists($diffFile)) {
-                    Functions::progressBar(0, 1, "Reading mapdif{$actualMap}.mul file");
-
-                    if (!isset(UltimaPHP::$files[Reader::FILE_MAP_DIF])) {
-                        UltimaPHP::$files[Reader::FILE_MAP_DIF] = [];
                     }
 
-                    if (!isset(UltimaPHP::$files[Reader::FILE_MAP_DIF][$actualMap])) {
-                        UltimaPHP::$files[Reader::FILE_MAP_DIF][$actualMap] = null;
+                    $offsetCount = count($offsets);
+
+                    foreach ($offsets as $offsetKey => $offset) {
+                        UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->setPosition(($offset['offset'] + $offset['headerLength']));
+                        $rawData = Functions::strToHex(UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->read($offset['size']));
+
+                        // TODO: Proccess the block raw data
+
+                        Functions::progressBar($offsetKey, $offsetCount, "Reading map{$actualMap}LegacyMUL.uop file");
                     }
 
-                    if (is_file($diffFile)) {
-                        UltimaPHP::$files[Reader::FILE_MAP_DIF][$actualMap] = new Reader($diffFile, Reader::FILE_MAP_DIF);
-                    }
+                    Functions::progressBar($offsetCount, $offsetCount, "Reading map{$actualMap}LegacyMUL.uop file");
+                } else {
+                    Functions::progressBar(1, 1, "Reading map{$actualMap}LegacyMUL.uop file");
+								}
 
-                    Functions::progressBar(1, 1, "Reading mapdif{$actualMap}.mul file");
-                }
-            }
+								$cache = new MapCache();
+								$cache->map = self::$maps[$actualMap];
+								$cache->mapSizes = self::$mapSizes[$actualMap];
+								$cache->chunks = self::$chunks[$actualMap];
+								$cache->tileMatrix = self::$tileMatrix[$actualMap];
+								Cache::writeFile($mapFile, $cache);
+							}
+
+							/* Start reading the staidx file of actual map */
+							Functions::progressBar(0, 1, "Reading staidx{$actualMap}.mul file");
+
+							$indexFile = UltimaPHP::$conf['muls']['location'] . "staidx{$actualMap}.mul";
+
+							if (!is_file($indexFile)) {
+									UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$indexFile]);
+									UltimaPHP::stop();
+							}
+
+							if (!isset(UltimaPHP::$files[Reader::FILE_STATIC_INDEX])) {
+									UltimaPHP::$files[Reader::FILE_STATIC_INDEX] = [];
+							}
+
+							UltimaPHP::$files[Reader::FILE_STATIC_INDEX][$actualMap] = new Reader($indexFile, Reader::FILE_MAP_FILE);
+
+							Functions::progressBar(1, 1, "Reading staidx{$actualMap}.mul file");
+
+							/* Start reading the statics file of actual map */
+							Functions::progressBar(0, 1, "Reading statics{$actualMap}.mul file");
+							$staticFile = UltimaPHP::$conf['muls']['location'] . "statics{$actualMap}.mul";
+
+							if (!is_file($staticFile)) {
+									UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$staticFile]);
+									UltimaPHP::stop();
+							}
+
+							if (!isset(UltimaPHP::$files[Reader::FILE_STATIC_FILE])) {
+									UltimaPHP::$files[Reader::FILE_STATIC_FILE] = [];
+							}
+							UltimaPHP::$files[Reader::FILE_STATIC_FILE][$actualMap] = new Reader($staticFile, Reader::FILE_MAP_FILE);
+
+							Functions::progressBar(1, 1, "Reading statics{$actualMap}.mul file");
+
+							/* Start reading the mapdif file of actual map, if enabled */
+							if (UltimaPHP::$conf['muls']['useDif']) {
+									$diffFile = UltimaPHP::$conf['muls']['location'] . "mapdif{$actualMap}.mul";
+
+									if (file_exists($diffFile)) {
+											Functions::progressBar(0, 1, "Reading mapdif{$actualMap}.mul file");
+
+											if (!isset(UltimaPHP::$files[Reader::FILE_MAP_DIF])) {
+													UltimaPHP::$files[Reader::FILE_MAP_DIF] = [];
+											}
+
+											if (!isset(UltimaPHP::$files[Reader::FILE_MAP_DIF][$actualMap])) {
+													UltimaPHP::$files[Reader::FILE_MAP_DIF][$actualMap] = null;
+											}
+
+											if (is_file($diffFile)) {
+													UltimaPHP::$files[Reader::FILE_MAP_DIF][$actualMap] = new Reader($diffFile, Reader::FILE_MAP_DIF);
+											}
+
+											Functions::progressBar(1, 1, "Reading mapdif{$actualMap}.mul file");
+									}
+							}
         }
-    }
+		}
 
     public static function readObjects() {
         $objects = UltimaPHP::$db->collection('objects')->find([])->toArray();
@@ -299,7 +347,7 @@ class Map {
 
             foreach ($objects as $count => $object) {
                 $itemClass = $object['objectName'];
-                $instance  = new $itemClass($object['serial'], $object['id']);
+                $instance = new $itemClass($object['serial'], $object['id']);
 
                 /* Update last object serial stored on server */
                 if (self::$lastSerial['object'] < $object['id']) {
@@ -312,9 +360,9 @@ class Map {
                 }
 
                 if ($instance->holder === null) {
-                    Map::addObjectToMap($instance, $instance->position['x'], $instance->position['y'], $instance->position['z'], $instance->position['map']);
+                    self::addObjectToMap($instance, $instance->position['x'], $instance->position['y'], $instance->position['z'], $instance->position['map']);
                 } else {
-                    Map::addHoldedObject($instance);
+                    self::addHoldedObject($instance);
                 }
             }
 
@@ -324,8 +372,48 @@ class Map {
         return true;
     }
 
+    public static function readMobiles() {
+        $objects = UltimaPHP::$db->collection('mobiles')->find([])->toArray();
+
+        $total = count($objects);
+
+        if ($total) {
+            Functions::progressBar(0, 1, "Reading world mobiles");
+
+            foreach ($objects as $count => $mobile) {
+                $itemClass = $mobile['objectName'];
+                $instance = new $itemClass($mobile['serial'], ($mobile['ridable'] ? $mobile['owner'] : null));
+
+                /* Update last object serial stored on server */
+                if (self::$lastSerial['mobile'] < $mobile['id']) {
+                    self::$lastSerial['mobile'] = $mobile['id'];
+                }
+
+                /* Clear database object before update variables */
+                foreach ($mobile as $attr => $value) {
+                    $instance->$attr = (in_array($attr, ['serial', 'owner']) && $value !== null ? strtoupper($value) : $value);
+                }
+
+                if (!$instance->riding) {
+                    self::addMobileToMap($instance, $instance->position['x'], $instance->position['y'], $instance->position['z'], $instance->position['map']);
+                } else {
+                    self::addHoldedObject($instance);
+                }
+            }
+
+            Functions::progressBar(1, 1, "Reading world mobiles");
+        }
+
+        return true;
+    }
+
     public static function addHoldedObject(Object $instance) {
         self::$serialDataHolded[$instance->serial] = $instance;
+        return true;
+    }
+
+    public static function addHoldedMobile(Mobile $instance) {
+        self::$serialMobsHolded[$instance->serial] = $instance;
         return true;
     }
 
@@ -339,12 +427,12 @@ class Map {
             return false;
         }
 
-        $mapBoundries = Map::$mapSizes[$map];
+        $mapBoundries = self::$mapSizes[$map];
         if ($x <= 0 || $x > $mapBoundries['x'] || $y <= 0 || $y > $mapBoundries['y']) {
             return false;
         }
 
-        $land    = self::getTerrainLand($x, $y, $z, $map, $maxHeight);
+        $land = self::getTerrainLand($x, $y, $z, $map, $maxHeight);
         $statics = self::getTerrainStatics($x, $y, $z, $map, $maxHeight);
 
         if (count($land) == 0 && count($statics) == 0) {
@@ -367,8 +455,8 @@ class Map {
 
             if ($itemFinalZ >= $topItem['position']['z']) {
                 $item['position']['z_orig'] = $item['position']['z'];
-                $item['position']['z']      = $itemFinalZ;
-                $topItem                    = $item;
+                $item['position']['z'] = $itemFinalZ;
+                $topItem = $item;
             }
         }
 
@@ -393,9 +481,8 @@ class Map {
 
         for ($bx = 0; $bx < 8; $bx++) {
             for ($by = 0; $by < 8; $by++) {
-
                 $info = [
-                    'tile'     => UltimaPHP::$files[Reader::FILE_MAP_FILE][$map]->readInt16(),
+                    'tile' => UltimaPHP::$files[Reader::FILE_MAP_FILE][$map]->readInt16(),
                     'position' => [
                         'x' => ($x << 3) + $bx,
                         'y' => ($y << 3) + $by,
@@ -404,7 +491,7 @@ class Map {
                 ];
 
                 // if (isset(self::$tiledata[Others::TILEDATA_LAND][$info['tile']]) && $info['position']['x'] == $p_x && $info['position']['y'] == $p_y && abs($info['position']['z'] - $p_z) < $maxHeight) {
-                if (isset(self::$tiledata[Others::TILEDATA_LAND][$info['tile']]) && $info['position']['x'] == $p_x && $info['position']['y'] == $p_y) {
+                if (isset(self::$tiledata[Others::TILEDATA_LAND][$info['tile']]) && is_array(self::$tiledata[Others::TILEDATA_LAND][$info['tile']]) && $info['position']['x'] == $p_x && $info['position']['y'] == $p_y) {
                     return array_merge(self::$tiledata[Others::TILEDATA_LAND][$info['tile']], ['tile' => $info['tile'], 'position' => $info['position']]);
                 }
             }
@@ -441,13 +528,13 @@ class Map {
         $tiles = [];
         for ($i = 0; $i <= $length / 7; $i++) {
             $info = [
-                'tile'     => UltimaPHP::$files[Reader::FILE_STATIC_FILE][$map]->readInt16(),
+                'tile' => UltimaPHP::$files[Reader::FILE_STATIC_FILE][$map]->readInt16(),
                 'position' => [
                     'x' => ($x << 3) + UltimaPHP::$files[Reader::FILE_STATIC_FILE][$map]->readUInt8(),
                     'y' => ($y << 3) + UltimaPHP::$files[Reader::FILE_STATIC_FILE][$map]->readUInt8(),
                     'z' => UltimaPHP::$files[Reader::FILE_STATIC_FILE][$map]->readInt8(),
                 ],
-                'hue'      => UltimaPHP::$files[Reader::FILE_STATIC_FILE][$map]->readInt16(),
+                'hue' => UltimaPHP::$files[Reader::FILE_STATIC_FILE][$map]->readInt16(),
             ];
 
             if (isset(self::$tiledata[Others::TILEDATA_STATIC][$info['tile']]) && $info['position']['x'] == $p_x && $info['position']['y'] == $p_y) {
@@ -497,12 +584,16 @@ class Map {
             if ($evenHolded && isset(self::$serialDataHolded[$serial])) {
                 unset(self::$serialDataHolded[$serial]);
             } else {
-                return false;
+                if ($evenHolded && isset(self::$serialMobsHolded[$serial])) {
+                    unset(self::$serialMobsHolded[$serial]);
+                } else {
+                    return false;
+                }
             }
         } else {
             $instance = self::getBySerial($serial);
-            $pos      = $instance->position;
-            $chunk    = self::getChunk($pos['x'], $pos['y']);
+            $pos = $instance->position;
+            $chunk = self::getChunk($pos['x'], $pos['y']);
             unset(self::$serialData[$serial]);
             unset(self::$chunks[$pos['map']][$chunk['x']][$chunk['y']][$serial]);
         }
@@ -517,8 +608,8 @@ class Map {
         $chunk = self::getChunk($player->position['x'], $player->position['y']);
 
         self::$chunks[$player->position['map']][$chunk['x']][$chunk['y']][(int) $player->serial] = [
-            'type'     => "player",
-            'client'   => $player->client,
+            'type' => "player",
+            'client' => $player->client,
             'instance' => null,
         ];
 
@@ -532,11 +623,11 @@ class Map {
      */
     public static function addObjectToMap(Object $object, $pos_x, $pos_y, $pos_z, $pos_m, $holderSerial = null) {
         $object->position = [
-            'x'       => $pos_x,
-            'y'       => $pos_y,
-            'z'       => $pos_z,
-            'map'     => $pos_m,
-            'facing'  => 0,
+            'x' => $pos_x,
+            'y' => $pos_y,
+            'z' => $pos_z,
+            'map' => $pos_m,
+            'facing' => 0,
             'running' => 0,
         ];
 
@@ -546,9 +637,9 @@ class Map {
         $chunk = self::getChunk($pos_x, $pos_y);
 
         self::$chunks[$pos_m][$chunk['x']][$chunk['y']][$object->serial] = [
-            'type'     => 'object',
-            'client'   => null,
-            'holder'   => $holderSerial,
+            'type' => 'object',
+            'client' => null,
+            'holder' => $holderSerial,
             'instance' => $object,
         ];
 
@@ -569,6 +660,16 @@ class Map {
         return true;
     }
 
+    public static function updateMobileHolder(Mobile $instance) {
+        if (!$instance || !isset(self::$serialMobsHolded[$instance->serial])) {
+            return false;
+        }
+
+        self::$serialMobsHolded[$instance->serial] = $instance;
+
+        return true;
+    }
+
     public static function updateChunkForced($position = null) {
         if ($position === null) {
             return false;
@@ -584,20 +685,21 @@ class Map {
      */
     public static function addMobileToMap(Mobile $mobile, $pos_x, $pos_y, $pos_z, $pos_m) {
         $mobile->position = [
-            'x'       => $pos_x,
-            'y'       => $pos_y,
-            'z'       => $pos_z,
-            'map'     => $pos_m,
-            'facing'  => random_int(0, 6),
+            'x' => $pos_x,
+            'y' => $pos_y,
+            'z' => $pos_z,
+            'map' => $pos_m,
+            'facing' => random_int(0, 6),
             'running' => 0,
         ];
         $mobile->location = "map";
+        $mobile->save();
 
         $chunk = self::getChunk($pos_x, $pos_y);
 
         self::$chunks[$pos_m][$chunk['x']][$chunk['y']][$mobile->serial] = [
-            'type'     => "mobile",
-            'client'   => null,
+            'type' => "mobile",
+            'client' => null,
             'instance' => $mobile,
         ];
 
@@ -617,24 +719,28 @@ class Map {
 
         if (!isset(self::$serialData[$serial])) {
             if (!isset(self::$serialDataHolded[$serial])) {
-                return false;
+                if (!isset(self::$serialMobsHolded[$serial])) {
+                    return false;
+                } else {
+                    return true;
+                }
             } else {
                 return true;
             }
         }
 
         $chunk = self::$serialData[$serial];
-        $info  = self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']][$serial];
+        $info = self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']][$serial];
 
         switch ($info['type']) {
-        case 'player':
-        case 'mobile':
-        case 'object':
-            return true;
-            break;
-        default:
-            return false;
-            break;
+            case 'player':
+            case 'mobile':
+            case 'object':
+                return true;
+                break;
+            default:
+                return false;
+                break;
         }
     }
 
@@ -647,26 +753,30 @@ class Map {
 
         if (!isset(self::$serialData[$serial])) {
             if (!isset(self::$serialDataHolded[$serial])) {
-                return false;
+                if (!isset(self::$serialMobsHolded[$serial])) {
+                    return false;
+                } else {
+                    return self::$serialMobsHolded[$serial];
+                }
             } else {
                 return self::$serialDataHolded[$serial];
             }
         }
 
         $chunk = self::$serialData[$serial];
-        $info  = self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']][$serial];
+        $info = self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']][$serial];
 
         switch ($info['type']) {
-        case 'player':
-            return UltimaPHP::$socketClients[$info['client']]['account']->player;
-            break;
-        case 'mobile':
-        case 'object':
-            return $info['instance'];
-            break;
-        default:
-            return false;
-            break;
+            case 'player':
+                return UltimaPHP::$socketClients[$info['client']]['account']->player;
+                break;
+            case 'mobile':
+            case 'object':
+                return $info['instance'];
+                break;
+            default:
+                return false;
+                break;
         }
     }
 
@@ -681,11 +791,11 @@ class Map {
         $actual_player = UltimaPHP::$socketClients[$client]['account']->player;
 
         $chunkInfo = self::getChunk($actual_player->position['x'], $actual_player->position['y']);
-        $chunk     = self::$chunks[$actual_player->position['map']][$chunkInfo['x']][$chunkInfo['y']];
+        $chunk = self::$chunks[$actual_player->position['map']][$chunkInfo['x']][$chunkInfo['y']];
 
         $updateRange = [
             'from' => ['x' => ($actual_player->position['x'] - UltimaPHP::$conf['muls']['render_range']), 'y' => ($actual_player->position['y'] - UltimaPHP::$conf['muls']['render_range'])],
-            'to'   => ['x' => ($actual_player->position['x'] + UltimaPHP::$conf['muls']['render_range']), 'y' => ($actual_player->position['y'] + UltimaPHP::$conf['muls']['render_range'])],
+            'to' => ['x' => ($actual_player->position['x'] + UltimaPHP::$conf['muls']['render_range']), 'y' => ($actual_player->position['y'] + UltimaPHP::$conf['muls']['render_range'])],
         ];
 
         foreach ($chunk as $serial => $data) {
@@ -712,11 +822,11 @@ class Map {
         $actual_player = UltimaPHP::$socketClients[$client]['account']->player;
 
         $chunkInfo = self::getChunk($actual_player->position['x'], $actual_player->position['y']);
-        $chunk     = self::$chunks[$actual_player->position['map']][$chunkInfo['x']][$chunkInfo['y']];
+        $chunk = self::$chunks[$actual_player->position['map']][$chunkInfo['x']][$chunkInfo['y']];
 
         $updateRange = [
             'from' => ['x' => ($actual_player->position['x'] - UltimaPHP::$conf['muls']['render_range']), 'y' => ($actual_player->position['y'] - UltimaPHP::$conf['muls']['render_range'])],
-            'to'   => ['x' => ($actual_player->position['x'] + UltimaPHP::$conf['muls']['render_range']), 'y' => ($actual_player->position['y'] + UltimaPHP::$conf['muls']['render_range'])],
+            'to' => ['x' => ($actual_player->position['x'] + UltimaPHP::$conf['muls']['render_range']), 'y' => ($actual_player->position['y'] + UltimaPHP::$conf['muls']['render_range'])],
         ];
 
         foreach ($chunk as $serial => $data) {
@@ -735,11 +845,11 @@ class Map {
         }
 
         $chunkInfo = self::getChunk($position['x'], $position['y']);
-        $chunk     = self::$chunks[$position['map']][$chunkInfo['x']][$chunkInfo['y']];
+        $chunk = self::$chunks[$position['map']][$chunkInfo['x']][$chunkInfo['y']];
 
         $updateRange = [
             'from' => ['x' => ($position['x'] - UltimaPHP::$conf['muls']['render_range']), 'y' => ($position['y'] - UltimaPHP::$conf['muls']['render_range'])],
-            'to'   => ['x' => ($position['x'] + UltimaPHP::$conf['muls']['render_range']), 'y' => ($position['y'] + UltimaPHP::$conf['muls']['render_range'])],
+            'to' => ['x' => ($position['x'] + UltimaPHP::$conf['muls']['render_range']), 'y' => ($position['y'] + UltimaPHP::$conf['muls']['render_range'])],
         ];
 
         foreach ($chunk as $serial => $data) {
@@ -762,7 +872,7 @@ class Map {
     public static function updateChunk($chunk = null, $client = false, $map = null, $forceItemUpdate = false) {
         if ($chunk === null && $client !== false) {
             $chunk = self::getChunk(UltimaPHP::$socketClients[$client]['account']->player->position['x'], UltimaPHP::$socketClients[$client]['account']->player->position['y']);
-            $map   = UltimaPHP::$socketClients[$client]['account']->player->position['map'];
+            $map = UltimaPHP::$socketClients[$client]['account']->player->position['map'];
         }
 
         if ($chunk === null) {
@@ -783,30 +893,33 @@ class Map {
                 continue;
             }
 
-            $actual_player        = UltimaPHP::$socketClients[$data['client']]['account']->player;
+            $actual_player = UltimaPHP::$socketClients[$data['client']]['account']->player;
             $actual_player_plevel = UltimaPHP::$socketClients[$data['client']]['account']->plevel;
 
             $updateRange = [
                 'from' => ['x' => ($actual_player->position['x'] - $actual_player->render_range), 'y' => ($actual_player->position['y'] - $actual_player->render_range)],
-                'to'   => ['x' => ($actual_player->position['x'] + $actual_player->render_range), 'y' => ($actual_player->position['y'] + $actual_player->render_range)],
+                'to' => ['x' => ($actual_player->position['x'] + $actual_player->render_range), 'y' => ($actual_player->position['y'] + $actual_player->render_range)],
             ];
 
             /* Loop trought every items and mobiles to update on player view */
             foreach ($chunkData as $serialTest => $dataTest) {
                 if ($dataTest['type'] != "player") {
-                    if (($actual_player->position['map'] != $dataTest['instance']->position['map']) || (abs($actual_player->position['x'] - $dataTest['instance']->position['x']) > $actual_player->render_range || abs($actual_player->position['y'] - $dataTest['instance']->position['y']) > $actual_player->render_range)) {
+                    if (($dataTest['type'] == "mobile" && $dataTest['instance']->ridable && $dataTest['instance']->riding) || ($actual_player->position['map'] != $dataTest['instance']->position['map']) || (abs($actual_player->position['x'] - $dataTest['instance']->position['x']) > $actual_player->render_range || abs($actual_player->position['y'] - $dataTest['instance']->position['y']) > $actual_player->render_range)) {
                         if (isset($actual_player->mapRange[$serialTest])) {
                             $actual_player->removeObjectFromView($serialTest);
                         }
                     } else if (!isset($actual_player->mapRange[$serialTest])) {
+                        if ($dataTest['type'] == "mobile" && $dataTest['instance']->ridable && $dataTest['instance']->riding) {
+                            continue;
+                        }
                         $actual_player->mapRange[$serialTest] = [
-                            'status'     => true,
+                            'status' => true,
                             'lastupdate' => time(),
                         ];
                         $dataTest['instance']->draw($actual_player->client);
                     }
                 } else {
-                    $player        = UltimaPHP::$socketClients[$dataTest['client']]['account']->player;
+                    $player = UltimaPHP::$socketClients[$dataTest['client']]['account']->player;
                     $player_plevel = UltimaPHP::$socketClients[$dataTest['client']]['account']->plevel;
 
                     /* Remove running flags if player stoped */
@@ -825,7 +938,7 @@ class Map {
                     if ($actual_player->serial != $player->serial) {
                         if (!isset($actual_player->mapRange[$player->serial]) || (time() - $actual_player->mapRange[$player->serial]['lastupdate']) > 2 || $player->forceUpdate == true) {
                             $actual_player->mapRange[$player->serial] = [
-                                'status'     => true,
+                                'status' => true,
                                 'lastupdate' => time(),
                             ];
                             $actual_player->drawChar(false, $player->client);

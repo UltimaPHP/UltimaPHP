@@ -30,12 +30,10 @@ class Functions {
             $version = explode(".", $value);
 
             if (($major === (int) $version[0]) && ($minor === (int) $version[1]) && ($revision === (int) $version[2]) && ($prototype === (int) $version[3])) {
-                echo "True\n\n";
                 $isValidClient = TRUE;
             }
 
         }
-        echo "isValid: " . $isValidClient . "\n\n";
         return $isValidClient;
     }
 
@@ -46,6 +44,32 @@ class Functions {
         $newList = array_rand($list, 1);
 
         return $newList[0];
+    }
+
+    public function RandomWeighted(array $elements) {
+        $elements    = [];
+        $weights     = [];
+        $totalWeight = 0;
+
+        foreach ($elements as $value => $weight) {
+            if ($weight < 1) {
+                throw new \InvalidArgumentException('Weight must be a positive integer.');
+            }
+            $elements[] = $value;
+            $weights[]  = $weight;
+            $totalWeight += $weight;
+        }
+
+        if ($totalWeight !== 0) {
+            $value = random_int(1, $totalWeight);
+            foreach ($weights as $key => $weight) {
+                $value -= $weight;
+                if ($value <= 0) {
+                    return $elements[$key];
+                }
+            }
+        }
+        throw new \RuntimeException('No elements have been added.');
     }
 
     public static function strToHex($string, $addEmptyByte = false) {
