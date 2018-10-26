@@ -232,6 +232,7 @@ class Mobile {
         $owner = Map::getBySerial($this->owner);
         $owner->layers[LayersDefs::MOUNT] = null;
         $owner->mounted = false;
+        $owner->save();
 
         $packet = "1D";
         $packet .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);
@@ -440,6 +441,21 @@ class Mobile {
      */
     public function save() {
         UltimaPHP::$db->collection('mobiles')->updateOne(['id' => $this->id], ['$set' => $this]);
+        return true;
+    }
+
+    /**
+     * Removes the database record about the object instance
+     */
+    public function remove() {
+        if ($this->riding) {
+            $owner = Map::getBySerial($this->owner);
+            $owner->mounted = false;
+            $owner->layers[LayersDefs::MOUNT] = null;
+            //$owner->pets--;
+            $owner->save();
+        }
+        UltimaPHP::$db->collection('mobiles')->deleteOne(['id' => $this->id]);
         return true;
     }
 

@@ -13,6 +13,9 @@ class Command {
         'm' => [
             'minPlevel' => 6,
         ],
+        'r' => [
+            'minPlevel' => 6,
+        ],
         'color' => [
             'minPlevel' => 2,
         ],
@@ -45,6 +48,7 @@ class Command {
     static $commandAlias = [
         'add' => 'i',
         'addchar' => 'm',
+        'remove' => 'r',
         'go' => 'tele',
         'sysm' => 'sysmessage',
         'hide' => 'invis',

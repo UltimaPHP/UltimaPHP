@@ -26,13 +26,13 @@ class ColorCommand extends Command {
         }
 
         if ($target === null || $target == "00000000") {
-            new SysmessageCommand($client, ["Sorry, but the map you'r trying to go doesn't exists."]);
+            new SysmessageCommand($client, ["Sorry, object you are trying to paint does not exist."]);
             return false;
         }
 
         $instance = Map::getBySerial($target);
         $instance->color = intval($color);
-				$instance->save();
+        $instance->save();
 
         if ($instance->holder !== null) {
             $holder = Map::getBySerial($instance->holder);
