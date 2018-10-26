@@ -157,11 +157,11 @@ class Player {
             }
 
             /* Look if there is any mobile owned by the player */
-            $mobiles = UltimaPHP::$db->collection('mobiles')->find(['owner' => $this->serial], ['projection' => ['serial' => true]])->toArray();
+            $mobiles = UltimaPHP::$db->collection('mobiles')->find(['owner' => $this->serial, 'riding' => true], ['projection' => ['serial' => true]])->toArray();
 
             if (count($mobiles)) {
                 $instance = Map::getBySerial($mobiles[0]['serial']);
-
+                
                 if ($this->layers[$instance->layer] === null) {
                     $this->layers[$instance->layer] = $mobiles[0]['serial'];
                 }
@@ -262,11 +262,17 @@ class Player {
         }
 
         if ($this->serial == $instance->serial) {
-            if ($this->mounted) {
-                $mount = Map::getBySerial($this->layers[LayersDefs::MOUNT]);
-                return $mount->dclick($this->client);
-            } else {
+            /* Login fix for mounts */
+            if (!$this->mounted && !empty($this->layers[LayersDefs::MOUNT])) {
+                $this->mounted = true;
                 return $this->openPaperdoll($serial);
+            } else {
+                if (!$this->warmode && $this->mounted) {
+                    $mount = Map::getBySerial($this->layers[LayersDefs::MOUNT]);
+                    return $mount->dclick($this->client);
+                } else {
+                    return $this->openPaperdoll($serial);
+                }
             }
         } else if ($instance->instanceType == UltimaPHP::INSTANCE_PLAYER) {
             return $this->openPaperdoll($serial);

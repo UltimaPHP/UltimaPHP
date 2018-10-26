@@ -205,6 +205,7 @@ class UltimaPHP {
 
         /* Load map objects */
         Map::readObjects();
+        
         /* Load map mobiles */
         Map::readMobiles();
 

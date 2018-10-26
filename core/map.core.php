@@ -401,7 +401,7 @@ class Map {
                 }
             }
 
-            Functions::progressBar(1, 1, "Reading world objects");
+            Functions::progressBar(1, 1, "Reading world mobiles");
         }
 
         return true;

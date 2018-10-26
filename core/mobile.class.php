@@ -232,7 +232,6 @@ class Mobile {
         $owner = Map::getBySerial($this->owner);
         $owner->layers[LayersDefs::MOUNT] = null;
         $owner->mounted = false;
-        $owner->save();
 
         $packet = "1D";
         $packet .= str_pad($this->serial, 8, "0", STR_PAD_LEFT);
