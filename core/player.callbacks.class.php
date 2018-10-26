@@ -42,7 +42,7 @@ class PlayerCallbacks {
             return false;
         }
 
-				$command = array_shift($args);
+        $command = array_shift($args);
         return Command::threatCommand($this->client, "." . $command . " $x,$y,$z");
     }
 
@@ -52,8 +52,8 @@ class PlayerCallbacks {
             return false;
         }
 
-				$command = array_shift($args);
-				array_push($args, $target['serial']);
+        $command = array_shift($args);
+        array_push($args, $target['serial']);
         return Command::threatCommand($this->client, "." . $command . " " . implode(",", $args));
     }
 
@@ -77,9 +77,9 @@ class PlayerCallbacks {
         } elseif ($target['target'] == TargetDefs::LAND) {
             $playerPos = UltimaPHP::$socketClients[$this->client]['account']->player->position;
 
-            $landTiles    = Map::getTerrainLand($target['x'], $target['y'], $target['z'], $playerPos['map']);
+            $landTiles = Map::getTerrainLand($target['x'], $target['y'], $target['z'], $playerPos['map']);
             $staticsTiles = Map::getTerrainStatics($target['x'], $target['y'], $target['z'], $playerPos['map']);
-            $topLevel     = Map::getTopItemFrom($target['x'], $target['y'], $target['z'], $playerPos['map']);
+            $topLevel = Map::getTopItemFrom($target['x'], $target['y'], $target['z'], $playerPos['map']);
 
             echo "Target:\n";
             print_r($target);
