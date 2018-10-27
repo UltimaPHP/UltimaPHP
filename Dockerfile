@@ -7,13 +7,13 @@ RUN pecl install mongodb \
     && docker-php-ext-install sockets \
     && docker-php-ext-enable mongodb
 
-
 RUN wget -O /tmp/UOLocation.zip https://ultimaphp.nyc3.digitaloceanspaces.com/ultimaphpmuls.zip
 
 WORKDIR /ultimaphp
 COPY . ./
 RUN mkdir UOLocation
 RUN unzip /tmp/UOLocation.zip -d ./UOLocation
+RUN sed -i -- 's/host=127.0.0.1/host=mongo/g' ultimaphp.ini
 CMD [ "php", "startserver.php" ]
 
 EXPOSE 2593
