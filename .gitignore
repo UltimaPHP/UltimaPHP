@@ -2,3 +2,12 @@
 /nbproject/private/
 ultimaphp\.ini
 UOLocation/
+tools/UltimaPHPGumpExporter/.vs/UltimaPHPExport/v15/.suo
+tools/UltimaPHPGumpExporter/.vs/UltimaPHPExport/v15/Server/sqlite3/db.lock
+tools/UltimaPHPGumpExporter/.vs/UltimaPHPExport/v15/Server/sqlite3/storage.ide
+ultimaphp.ini
+tools/UltimaPHPGumpExporter/.vs/UltimaPHPExport/v15/Server/sqlite3/storage.ide-shm
+tools/UltimaPHPGumpExporter/.vs/UltimaPHPExport/v15/Server/sqlite3/storage.ide-wal
+tools/UltimaPHPGumpExporter/obj/x86/Release/build.force
+tools/UltimaPHPGumpExporter/obj/Debug/UltimaPHPExport.csprojAssemblyReference.cache
+
