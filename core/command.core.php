@@ -7,44 +7,51 @@
 class Command {
     /* Server variables */
     static $list = [
-        'i'          => [
+        'i' => [
             'minPlevel' => 6,
         ],
-        'm'          => [
+        'm' => [
             'minPlevel' => 6,
         ],
-        'tele'       => [
+        'r' => [
+            'minPlevel' => 6,
+        ],
+        'color' => [
             'minPlevel' => 2,
         ],
-        'invis'      => [
+        'tele' => [
+            'minPlevel' => 2,
+        ],
+        'invis' => [
             'minPlevel' => 4,
         ],
-        'where'      => [
+        'where' => [
             'minPlevel' => 1,
         ],
         'sysmessage' => [
             'minPlevel' => 2,
         ],
-        'emote'      => [
+        'emote' => [
             'minPlevel' => 2,
         ],
         'sendpacket' => [
             'minPlevel' => 7,
         ],
-        'info'       => [
+        'info' => [
             'minPlevel' => 4,
         ],
-        'update'     => [
+        'update' => [
             'minPlevel' => 2,
         ],
     ];
 
     static $commandAlias = [
-        'add'     => 'i',
+        'add' => 'i',
         'addchar' => 'm',
-        'go'      => 'tele',
-        'sysm'    => 'sysmessage',
-        'hide'    => 'invis',
+        'remove' => 'r',
+        'go' => 'tele',
+        'sysm' => 'sysmessage',
+        'hide' => 'invis',
     ];
 
     public function __construct() {
@@ -61,10 +68,10 @@ class Command {
             return false;
         }
 
-        $tmp     = explode(" ", $command);
+        $tmp = explode(" ", $command);
         $command = strtolower(substr($tmp[0], 1));
 
-        $tmp  = array_slice($tmp, 1);
+        $tmp = array_slice($tmp, 1);
         $args = (count($tmp) > 0 ? explode(",", implode(" ", $tmp)) : []);
 
         return self::runCommand($client, $command, $args, $sentFrom, $ignorePlevel);

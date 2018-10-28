@@ -30,12 +30,10 @@ class Functions {
             $version = explode(".", $value);
 
             if (($major === (int) $version[0]) && ($minor === (int) $version[1]) && ($revision === (int) $version[2]) && ($prototype === (int) $version[3])) {
-                echo "True\n\n";
                 $isValidClient = TRUE;
             }
 
         }
-        echo "isValid: " . $isValidClient . "\n\n";
         return $isValidClient;
     }
 

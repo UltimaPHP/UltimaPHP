@@ -32,17 +32,29 @@ class PlayerCallbacks {
         }
     }
 
-    public function TeleCommandCallback($target, $args = []) {
+    public function GroundCommandCallback($target, $args = []) {
         $x = $target['x'];
         $y = $target['y'];
         $z = $target['z'];
 
         if ($target['serial'] != "00000000") {
-            new SysmessageCommand($this->client, ["Invalid location to go."]);
+            new SysmessageCommand($this->client, ["Invalid location."]);
             return false;
         }
 
-        return Command::threatCommand($this->client, ".tele $x,$y,$z");
+        $command = array_shift($args);
+        return Command::threatCommand($this->client, "." . $command . " $x,$y,$z");
+    }
+
+    public function ObjectCommandCallback($target, $args = []) {
+        if ($target['serial'] == "00000000") {
+            new SysmessageCommand($this->client, ["Invalid object."]);
+            return false;
+        }
+
+        $command = array_shift($args);
+        array_push($args, $target['serial']);
+        return Command::threatCommand($this->client, "." . $command . " " . implode(",", $args));
     }
 
     public function InfoCommandCallback($target, $args = []) {
@@ -65,9 +77,9 @@ class PlayerCallbacks {
         } elseif ($target['target'] == TargetDefs::LAND) {
             $playerPos = UltimaPHP::$socketClients[$this->client]['account']->player->position;
 
-            $landTiles    = Map::getTerrainLand($target['x'], $target['y'], $target['z'], $playerPos['map']);
+            $landTiles = Map::getTerrainLand($target['x'], $target['y'], $target['z'], $playerPos['map']);
             $staticsTiles = Map::getTerrainStatics($target['x'], $target['y'], $target['z'], $playerPos['map']);
-            $topLevel     = Map::getTopItemFrom($target['x'], $target['y'], $target['z'], $playerPos['map']);
+            $topLevel = Map::getTopItemFrom($target['x'], $target['y'], $target['z'], $playerPos['map']);
 
             echo "Target:\n";
             print_r($target);

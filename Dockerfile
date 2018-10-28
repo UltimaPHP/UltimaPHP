@@ -2,20 +2,18 @@ FROM php:7.2-cli-alpine3.8
 
 MAINTAINER Youri hideOut <youri@youhide.com.br>
 
-RUN apk add mongodb autoconf g++ make openssl-dev libmcrypt-dev
+RUN apk add autoconf g++ make openssl-dev libmcrypt-dev
+RUN pecl install mongodb \
+    && docker-php-ext-install sockets \
+    && docker-php-ext-enable mongodb
 
-RUN mkdir -p /data/db
-RUN mongod --fork --logpath /tmp/mongod.log
-RUN sleep 5
-RUN cat /tmp/mongod.log
-RUN mongo redirect --eval 'db.createCollection("ultimaphp")'
-
-# RUN wget -O /tmp/UOLocation.zip https://ultimaphp.nyc3.digitaloceanspaces.com/ultimaphpmuls.zip
+RUN wget -O /tmp/UOLocation.zip https://ultimaphp.nyc3.digitaloceanspaces.com/ultimaphpmuls.zip
 
 WORKDIR /ultimaphp
 COPY . ./
-# RUN mkdir UOLocation
-# RUN unzip /tmp/UOLocation.zip -d ./UOLocation
+RUN mkdir UOLocation
+RUN unzip /tmp/UOLocation.zip -d ./UOLocation
+RUN sed -i -- 's/host=127.0.0.1/host=mongo/g' ultimaphp.ini
 CMD [ "php", "startserver.php" ]
 
 EXPOSE 2593

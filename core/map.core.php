@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Ultima PHP - OpenSource Ultima Online Server written in PHP
  * Version: 0.1 - Pre Alpha
@@ -41,9 +40,9 @@ class Map {
 
         UltimaPHP::$files[Reader::FILE_TILEDATA] = new Reader($tiledata, Reader::FILE_TILEDATA);
 
-        $cache = Cache::readFile($tiledata);
+        $cache = Cache::exists($tiledata);
 
-        if ($cache->fileHash == UltimaPHP::$files[Reader::FILE_TILEDATA]->fileHash) {
+        if (!is_null($cache)) {
             self::$tiledata = $cache->fileContents;
             Functions::progressBar(1, 1, "Reading tiledata.mul (cache)");
         } else {
@@ -114,16 +113,25 @@ class Map {
         self::readMaps();
     }
 
+    private static function readMapFile($mapFile, $mapName) {
+        if (!is_file($mapFile)) {
+            UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$mapFile]);
+            UltimaPHP::stop();
+        }
+
+        if (!isset(UltimaPHP::$files[$mapName])) {
+            UltimaPHP::$files[mapName] = [];
+        }
+
+        return new Reader($mapFile, mapName);
+    }
+
     /**
      * Render the maps inside chunk arrays
      */
     public static function readMaps() {
         for ($actualMap = 0; $actualMap < UltimaPHP::$conf["muls"]['maps']; $actualMap++) {
-            /* Start reading the map files of actual map */
-            Functions::progressBar(0, 1, "Reading map{$actualMap}LegacyMUL.uop file");
-
             $mapFile = UltimaPHP::$conf['muls']['location'] . "map{$actualMap}LegacyMUL.uop";
-            $mapSize = explode(",", UltimaPHP::$conf["muls"]["map{$actualMap}"]);
 
             if (!is_file($mapFile)) {
                 UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$mapFile]);
@@ -136,11 +144,9 @@ class Map {
 
             UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap] = new Reader($mapFile, Reader::FILE_MAP_FILE);
 
-            if (dechex(UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32()) == 0x50594D) {
-                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$mapFile, 'The file doesn\'t seems to be a valid UOP file.']);
-                UltimaPHP::stop();
-            }
-
+            // Defines map infos and chunks
+            $mapSize = explode(",", UltimaPHP::$conf["muls"]["map{$actualMap}"]);
+            
             $chunks_x = ceil($mapSize[0] / self::$chunkSize);
             $chunks_y = ceil($mapSize[1] / self::$chunkSize);
 
@@ -167,6 +173,14 @@ class Map {
             self::$maps[$actualMap]['size']['x'] = (int) $mapSize[0] >> 3;
             self::$maps[$actualMap]['size']['y'] = (int) $mapSize[1] >> 3;
 
+            /* Start reading the map files of actual map */
+            Functions::progressBar(0, 1, "Reading map{$actualMap}LegacyMUL.uop file");
+
+            if (dechex(UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32()) == 0x50594D) {
+                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$mapFile, 'The file doesn\'t seems to be a valid UOP file.']);
+                UltimaPHP::stop();
+            }
+            
             /* Creates the empty map tile matrix */
             if (!isset(self::$tileMatrix[$actualMap])) {
                 self::$tileMatrix[$actualMap] = [];
@@ -225,19 +239,29 @@ class Map {
 
                 $offsetCount = count($offsets);
 
+                UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->setPosition(0);
+
                 foreach ($offsets as $offsetKey => $offset) {
-                    UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->setPosition(($offset['offset'] + $offset['headerLength']));
-                    $rawData = Functions::strToHex(UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->read($offset['size']));
-                    
                     // TODO: Proccess the block raw data
+                    UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->setPosition($offset['offset'] + $offset['headerLength']);
+                    for ($block_x=0; $block_x < 64; $block_x++) {
+                        for ($block_y=0; $block_y < 64; $block_y++) {
+                            $rawblockHeader = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->read(4);
+                            $rawBlockData = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->read(192);
+                            // file_put_contents("map{$actualMap}_test.mul", $rawblockHeader.$rawBlockData, FILE_BINARY | FILE_APPEND);
+                            // echo "{$block_x},{$block_y} = {$rawblockHeader} {$rawBlockData}\n";
+                        }
+                    }
 
                     Functions::progressBar($offsetKey, $offsetCount, "Reading map{$actualMap}LegacyMUL.uop file");
                 }
 
+                // UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap] = new Reader("map{$actualMap}_test.mul", Reader::FILE_MAP_FILE);
                 Functions::progressBar($offsetCount, $offsetCount, "Reading map{$actualMap}LegacyMUL.uop file");
             } else {
                 Functions::progressBar(1, 1, "Reading map{$actualMap}LegacyMUL.uop file");
             }
+
 
             /* Start reading the staidx file of actual map */
             Functions::progressBar(0, 1, "Reading staidx{$actualMap}.mul file");
@@ -295,6 +319,8 @@ class Map {
                     Functions::progressBar(1, 1, "Reading mapdif{$actualMap}.mul file");
                 }
             }
+
+            // print_r(self::getTerrainLand(1, 1, $actualMap, 0));
         }
     }
 
@@ -362,7 +388,7 @@ class Map {
                 }
             }
 
-            Functions::progressBar(1, 1, "Reading world objects");
+            Functions::progressBar(1, 1, "Reading world mobiles");
         }
 
         return true;
@@ -442,7 +468,6 @@ class Map {
 
         for ($bx = 0; $bx < 8; $bx++) {
             for ($by = 0; $by < 8; $by++) {
-
                 $info = [
                     'tile'     => UltimaPHP::$files[Reader::FILE_MAP_FILE][$map]->readInt16(),
                     'position' => [

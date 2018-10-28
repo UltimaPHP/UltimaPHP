@@ -26,7 +26,7 @@ class packet_0x72 extends Packets {
         }
 
         $command = $data[0];
-        $flag    = $data[1];
+        $flag    = intval($data[1]);
         $unknow  = $data[2] . $data[3] . $data[4];
         return UltimaPHP::$socketClients[$this->client]['account']->player->setWarMode(false, $flag);
     }
