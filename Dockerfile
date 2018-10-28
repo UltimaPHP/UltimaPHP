@@ -13,6 +13,8 @@ WORKDIR /ultimaphp
 COPY . ./
 RUN mkdir UOLocation
 RUN unzip /tmp/UOLocation.zip -d ./UOLocation
+# RUN DOCKER_IP=$(awk 'END{print $1}' /etc/hosts); sed -i -- "s/ip=127.0.0.1/ip=${DOCKER_IP}/g" ultimaphp.ini
+RUN sed -i -- 's/ip=127.0.0.1/ip=0.0.0.0/g' ultimaphp.ini
 RUN sed -i -- 's/host=127.0.0.1/host=mongo/g' ultimaphp.ini
 CMD [ "php", "startserver.php" ]
 
