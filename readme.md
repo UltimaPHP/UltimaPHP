@@ -114,4 +114,5 @@ We always like to hear new ideas and feedbacks, so why don't you create an issue
  * João Escribano - Brazil
  * Maurício Nunes - Brazil
  * Youri Theodorakopoulos - Brazil
+ * Fábio Henrique - Brazil
  * Gökay Gürcan - Netherlands
