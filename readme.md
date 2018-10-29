@@ -36,7 +36,7 @@ Note 5: UltimaPHP only works (till now) with no-encrypted clients.
 
 ### Mac
 
- * We need someone with a mac to help us :)
+ * Docker Stack is coming :)
 
 ### Windows
 
