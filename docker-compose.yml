@@ -16,4 +16,5 @@ services:
       # - ./data/local:/var/lib/data
 
   mongo-seed:
-    build: ./tools/Mongo_Database
+    build:
+      context: ./tools/Mongo_Database
