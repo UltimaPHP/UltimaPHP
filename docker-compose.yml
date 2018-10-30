@@ -5,6 +5,7 @@ services:
   uphp-server:
     build:
       context: .
+    image: ultimaphp
     ports:
       - "2593:2593"
 
