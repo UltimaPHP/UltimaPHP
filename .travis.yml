@@ -18,7 +18,8 @@ before_install:
 
 script:
   - php startserver.php test
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t ultimephp .
+  - $(echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin)
   - docker tag ultimaphp hideout/ultimaphp
   - docker push hideout/ultimaphp
 
