@@ -4,7 +4,7 @@ services:
 
   uphp-server:
     build:
-      context: ./
+      context: .
     ports:
       - "2593:2593"
 
