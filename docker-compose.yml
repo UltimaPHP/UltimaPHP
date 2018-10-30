@@ -2,28 +2,20 @@ version: '3.1'
 
 services:
 
-  ultimaphp:
-    build: ./
+  uphp-server:
+    build:
+      context: .
+    image: ultimaphp
     ports:
       - "2593:2593"
-    networks:
-      - ultimaphp
 
   mongo:
     image: mongo
-    restart: always
     ports:
       - "27017:27017"
     # volumes:
       # - ./data/local:/var/lib/data
-    networks:
-      - ultimaphp
 
   mongo-seed:
-    build: ./tools/Mongo_Database
-    networks:
-      - ultimaphp
-
-networks:
-    ultimaphp:
-      driver: bridge
+    build:
+      context: ./tools/Mongo_Database

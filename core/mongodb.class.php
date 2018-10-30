@@ -7,11 +7,11 @@ class Mongodb extends MongoDB\Client {
     public function __construct() {
         $this->database = UltimaPHP::$conf['mongodb']['database'];
 
-        $URI = UltimaPHP::$conf['mongodb']['URI'];
-        $username = UltimaPHP::$conf['mongodb']['username'];
-        $password = UltimaPHP::$conf['mongodb']['password'];
-        $host = UltimaPHP::$conf['mongodb']['host'];
-        $port = UltimaPHP::$conf['mongodb']['port'];
+        $URI = getenv('UPHP_MONGO_URI') ?: UltimaPHP::$conf['mongodb']['URI'];
+        $username = getenv('UPHP_MONGO_USER') ?: UltimaPHP::$conf['mongodb']['username'];
+        $password = getenv('UPHP_MONGO_PW') ?: UltimaPHP::$conf['mongodb']['password'];
+        $host = getenv('UPHP_MONGO_HOST') ?: UltimaPHP::$conf['mongodb']['host'];
+        $port = getenv('UPHP_MONGO_PORT') ?: UltimaPHP::$conf['mongodb']['port'];
 
         if (!empty($URI)) {
             $dsn = $URI . $this->database;

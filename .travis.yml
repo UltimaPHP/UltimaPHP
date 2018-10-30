@@ -5,6 +5,8 @@ php:
 
 services:
   - mongodb
+  - docker
+
 before_script:
   - echo "extension=mongodb.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
 
@@ -14,7 +16,17 @@ before_install:
   - wget -O /tmp/UOLocation.zip https://ultimaphp.nyc3.digitaloceanspaces.com/ultimaphpmuls.zip
   - unzip /tmp/UOLocation.zip -d ./UOLocation
 
-script: php startserver.php test
+script:
+  - php startserver.php test
+
+after_success:
+  - echo $DOCKER_PASSWORD || docker login --username $DOCKER_USERNAME --password-stdin
+  - export REPO=hideout/ultimaphp
+  - export TAG=$(if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi)
+  - docker build -f Dockerfile -t $REPO:$COMMIT .
+  - docker tag $REPO:$COMMIT $REPO:$TAG
+  - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+  - docker push $REPO
 
 notifications:
   irc: "irc.youhide.com.br#ultimaphp"
