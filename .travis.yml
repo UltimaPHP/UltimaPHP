@@ -18,10 +18,15 @@ before_install:
 
 script:
   - php startserver.php test
-  - docker build -t ultimephp .
-  - echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin
-  - docker tag ultimaphp hideout/ultimaphp
-  - docker push hideout/ultimaphp
+
+after_success:
+  - docker login -e $DOCKER_EMAIL -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+  - export REPO=hideout/ultimaphp
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - docker build -f Dockerfile -t $REPO:$COMMIT .
+  - docker tag $REPO:$COMMIT $REPO:$TAG
+  - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+  - docker push $REPO
 
 notifications:
   irc: "irc.youhide.com.br#ultimaphp"
