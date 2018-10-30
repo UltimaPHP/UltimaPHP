@@ -7,6 +7,10 @@ services:
   - mongodb
   - docker
 
+env:
+  global:
+    - COMMIT=${TRAVIS_COMMIT::8}  
+
 before_script:
   - echo "extension=mongodb.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
 
@@ -20,7 +24,7 @@ script:
   - php startserver.php test
 
 after_success:
-  - echo $DOCKER_PASSWORD || docker login --username $DOCKER_USERNAME --password-stdin
+  - echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin
   - export REPO=hideout/ultimaphp
   - export TAG=$(if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi)
   - docker build -f Dockerfile -t $REPO:$COMMIT .
