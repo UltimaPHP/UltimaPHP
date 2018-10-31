@@ -43,6 +43,29 @@ class PlayerCallbacks {
         }
 
         $command = array_shift($args);
+
+        $argsEffect = array(
+            "type" => HuedEffectType::STAY_WITH_DESTINATION,
+            "serialSrc" => UltimaPHP::$socketClients[$this->client]['account']->player->serial,
+            "serialTarget" => $target['serial'],
+            "objectId" => 14120,
+            "srcPos" => UltimaPHP::$socketClients[$this->client]['account']->player->position,
+            "dstPos" => $target,
+            "speed" => 10,
+            "duration" => 10,
+            "explodes" => 0,
+            "fixedPosition" => 1,
+            "hue" => 0,
+            "renderMode" => 0
+        );
+
+        Sockets::addEvent($this->client, array(
+            "option" => "player",
+            "method" => "huedEffect",
+            "args"   => $argsEffect
+        ), 0.0, true, true);
+        
+
         return Command::threatCommand($this->client, "." . $command . " $x,$y,$z");
     }
 

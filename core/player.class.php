@@ -295,6 +295,31 @@ class Player {
     }
 
     /**
+     * Draw effect Hued
+     */
+    public function huedEffect($runInLot = false, $argsEffect = array()) 
+    {
+        print_r($argsEffect);
+
+        $effect = new packet_0xC0($this->client);
+        $effect->setType($argsEffect['type']);
+        $effect->setSerialSource($argsEffect['serialSrc']);
+        $effect->setSerialTarget($argsEffect['serialTarget']);
+        $effect->setObjectId($argsEffect['objectId']);
+        $effect->setSrcPosition($argsEffect['srcPos']); 
+        $effect->setDstPosition($argsEffect['dstPos']);
+        $effect->setSpeed($argsEffect['speed']);
+        $effect->setDuration($argsEffect['duration']);
+        $effect->setExplodes($argsEffect['explodes']);
+        $effect->setFixedDirection($argsEffect['fixedPosition']);
+        $effect->setHue($argsEffect['hue']);
+        $effect->setRenderMode($argsEffect['renderMode']);
+        $effect->send();
+        echo $effect->getPacketStr();
+
+    }
+
+    /**
      * Draw character on client
      */
     public function drawChar($runInLot = false, $client_id = null) {

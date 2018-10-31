@@ -78,6 +78,14 @@ class Packets {
         $this->packetBytes[] = $this->int8($value);
     }
 
+    public function toChar8($int = 0) {
+        if ($int < -127 || $int > 127) {
+            return "00";
+        }
+
+        $this->packetBytes[] = str_pad(dechex(ord(pack("c", $int))), 2, "0", STR_PAD_LEFT);
+    }    
+
     public function addUInt16($value = 0) {
         $hexStr = str_split(strtoupper(str_pad(dechex($this->uInt16($value)), 4, "0", STR_PAD_LEFT)), 2);
 

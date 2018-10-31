@@ -14,6 +14,7 @@ class TeleCommand extends Command {
             new SysmessageCommand($client, ["Where do you want to go?"]);
             array_unshift($args, 'tele');
             UltimaPHP::$socketClients[$client]['account']->player->attachTarget($client, ['method' => "GroundCommandCallback", 'args' => $args]);
+            
             return true;
         }
 
