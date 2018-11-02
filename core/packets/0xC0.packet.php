@@ -20,7 +20,7 @@ class packet_0xC0 extends Packets {
     private $dstZ;
     private $speed;
     private $duration;
-    private $unk1 = 0x00;
+    private $unk1 = 0;
     private $boolDirection;
     private $boolExplodes;
     private $hue;

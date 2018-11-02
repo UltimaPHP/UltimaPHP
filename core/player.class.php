@@ -299,7 +299,6 @@ class Player {
      */
     public function huedEffect($runInLot = false, $argsEffect = array()) 
     {
-        print_r($argsEffect);
 
         $effect = new packet_0xC0($this->client);
         $effect->setType($argsEffect['type']);
@@ -315,7 +314,18 @@ class Player {
         $effect->setHue($argsEffect['hue']);
         $effect->setRenderMode($argsEffect['renderMode']);
         $effect->send();
-        echo $effect->getPacketStr();
+
+    }
+
+    /**
+     * PlaySound 
+     */
+    public function playSound($runInLot = false, $args = array()){
+
+        $playSound = new packet_0x54($this->client);
+        $playSound->setSoundID($args[0]);
+        $playSound->setTargetPosition($args[1]);
+        $playSound->send();
 
     }
 

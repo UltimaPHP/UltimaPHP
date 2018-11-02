@@ -64,6 +64,12 @@ class PlayerCallbacks {
             "method" => "huedEffect",
             "args"   => $argsEffect
         ), 0.0, true, true);
+
+        Sockets::addEvent($this->client, array(
+            "option" => "player",
+            "method" => "playSound",
+            "args"   => array(0x1FE, $target)
+        ), 0.0, true, true);
         
 
         return Command::threatCommand($this->client, "." . $command . " $x,$y,$z");
