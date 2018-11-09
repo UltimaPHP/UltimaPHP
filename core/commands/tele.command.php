@@ -18,6 +18,13 @@ class TeleCommand extends Command {
             return true;
         }
 
+        // If client called the travel gump
+        if ($args[0] == "dialog") {
+            $teste = new GoMenuGump($client);
+            $teste->show();
+            return true;
+        }
+
         $x = $args[0];
         $y = $args[1];
         $z = (isset($args[2]) ? $args[2] : 0);
