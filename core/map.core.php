@@ -143,7 +143,9 @@ class Map {
                 } else {
                     Functions::progressBar(0, 1, "Converting map{$actualMap}LegacyMUL.uop file");
                     require_once UltimaPHP::$basedir . "includes/UOPConverter/uopconverter.class.php";
-                    $converter = new UOPConverter();
+                    if (!isset($converter)) {
+                        $converter = new UOPConverter();
+                    }
                     UOPConverter::fromUOP($tmpMapFile, $mapFile, null, 2, $actualMap);
                     Functions::progressBar(1, 1, "Converting map{$actualMap}LegacyMUL.uop file");
                 }

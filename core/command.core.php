@@ -16,6 +16,9 @@ class Command {
         'r' => [
             'minPlevel' => 6,
         ],
+        'mapdump' => [
+            'minPlevel' => 6,
+        ],
         'color' => [
             'minPlevel' => 2,
         ],

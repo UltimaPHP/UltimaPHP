@@ -173,7 +173,7 @@ class FlowPath {
 
         $from = $this->source;
 
-        if (!$this->mapPathSteps | count($this->mapPathSteps) == 0) {
+        if (!$this->mapPathSteps || empty($this->mapPathSteps)) {
             return false;
         }
         
