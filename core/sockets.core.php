@@ -161,16 +161,13 @@ class Sockets {
 
         if (class_exists($packetMethod)) {
             if (true === UltimaPHP::$conf['logs']['debug']) {
-                echo "----------------------------------------------\nReceived packet " . $input[0] . " from socket #$client (Length: " . count($input) . ") :: " . implode("", $input) . "\n----------------------------------------------\n";
+                echo "----------------------------------------------\nReceived packet 0x" . strtoupper($input[0]) . " from socket #$client (Length: " . count($input) . ") :: " . implode("", $input) . "\n----------------------------------------------\n";
             }
 
             $packet = new $packetMethod($client);
             $packet->receive($input);
         } else {
-            echo "----------------------------------------------\nReceived unknow packet " . $input[0] . " from socket #$client (Length: " . count($input) . ") :: " . implode("", $input) . "\n----------------------------------------------\n";
-            if (isset(UltimaPHP::$socketClients[$client]['account'])) {
-                //UltimaPHP::$socketClients[$client]['account']->disconnect();
-            }
+            echo "----------------------------------------------\nReceived unknow packet 0x" . strtoupper($input[0]) . " from socket #$client (Length: " . count($input) . ") :: " . implode("", $input) . "\n----------------------------------------------\n";
         }
     }
 
