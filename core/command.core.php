@@ -40,6 +40,12 @@ class Command {
         'info' => [
             'minPlevel' => 4,
         ],
+        'sound' => [
+            'minPlevel' => 2,
+        ],
+        'music' => [
+            'minPlevel' => 2,
+        ],
         'update' => [
             'minPlevel' => 2,
         ],

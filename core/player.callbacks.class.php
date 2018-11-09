@@ -68,7 +68,7 @@ class PlayerCallbacks {
         Sockets::addEvent($this->client, array(
             "option" => "player",
             "method" => "playSound",
-            "args"   => array(0x1FE, $target)
+            "args"   => array(510, $target) // 0x1FE
         ), 0.0, true, true);
         
 
