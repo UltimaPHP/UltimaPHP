@@ -188,4 +188,40 @@ class Packets {
 
         return is_array($i) ? $i[1] : $i;
     }
+
+    public static function getInt32(&$var)
+    {       
+        $packet = array_slice($var, 0, 4);
+        $var = array_slice($var,4);
+
+        return implode($packet);        
+    }
+
+    public static function getInt16(&$var)
+    {
+        $packet = array_slice($var, 0, 2);
+        $var = array_slice($var,2);
+
+        return implode($packet);
+    }
+
+    public static function getInt8(&$var)
+    {    
+        $packet = array_slice($var, 0, 1);
+        $var = array_slice($var,1);
+
+
+        return implode($packet);
+    }
+
+    public static function getSByte(&$var)
+    {
+        $packet = array_slice($var, 0, 1);
+        $var = array_slice($var,1);
+
+        var_dump($packet);
+        var_dump(implode($packet));
+        
+        return Functions::fromChar8(implode($packet));
+    }
 }

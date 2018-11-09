@@ -174,38 +174,29 @@ class Player {
         return false;
     }
 
-    public function actionNewVersion($serial) {
-        $type = 0;
-        $action = 0;
-        $delay = 0;
+    public function actionNewVersion($serial, $animationType, $action, $delay) {
 
-        $packet = "E2";
-        $packet .= str_pad($serial, 8, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($type), 4, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($action), 4, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($delay), 2, "0", STR_PAD_LEFT);
-
-        //Sockets::out($this->client, $packet);
+        $packet = new packet_0xE2($this->client);
+        $packet->setMobileSerial($serial);
+        $packet->setAnimationType($animationType);
+        $packet->setAction($action);
+        $packet->setDelay($delay);
+        $packet->send();
+        
     }
 
-    public function actionOldVersion($serial) {
-        $frameCount = 0;
-        $action = 0;
-        $delay = 0;
-        $repeat = 0;
-        $repeatTimes = 0x00;
-        $forward = 0x00;
+    public function actionOldVersion($serial, $action, $frameCount, $repeateTimes) {
 
-        $packet = "6E";
-        $packet .= str_pad($serial, 8, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($action), 4, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($frameCount), 4, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($repeatTimes), 4, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($forward), 2, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($repeat), 2, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($delay), 2, "0", STR_PAD_LEFT);
+        $packet = new packet_0x6E($client);
+        $packet->setSerial($serial);
+        $packet->setAction($action);
+        $packet->setFrameCount($frameCount);
+        $packet->setRepeatTimes($repeatTimes);
+        $packet->setForward($forward);
+        $packet->setRepeat($repeat);
+        $packet->setDelay($delay);
+        $packet->send();
 
-        //Sockets::out($this->client, $packet);
     }
 
     public function attachTarget($client, $callback = null) {

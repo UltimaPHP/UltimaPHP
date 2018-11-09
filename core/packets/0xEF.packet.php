@@ -11,6 +11,7 @@ class packet_0xEF extends Packets {
      */
     public function __construct($client = false) {
         $this->setPacket(0xEF);
+        $this->setLength(21);
 
         if ($client) {
             $this->client = $client;
@@ -23,13 +24,14 @@ class packet_0xEF extends Packets {
     public function receive($data) {
         if (!$this->client) {
             return false;
-        }
+        }        
 
-        $seed      = (int) hexdec(Functions::implodeByte($data, 1, 4));
-        $major     = (int) hexdec(Functions::implodeByte($data, 5, 8));
-        $minor     = (int) hexdec(Functions::implodeByte($data, 9, 12));
-        $revision  = (int) hexdec(Functions::implodeByte($data, 13, 16));
-        $prototype = (int) hexdec(Functions::implodeByte($data, 17, 20));
+        $id        = $this->getInt8($data);
+        $seed      = hexdec($this->getInt32($data));
+        $major     = hexdec($this->getInt32($data));
+        $minor     = hexdec($this->getInt32($data));
+        $revision  = hexdec($this->getInt32($data));
+        $prototype = hexdec($this->getInt32($data));
         
         /* Check if client version is the sabe as the server default */
         if (!Functions::isValidClient($major, $minor, $revision, $prototype)) {
