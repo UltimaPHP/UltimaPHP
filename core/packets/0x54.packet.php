@@ -40,8 +40,7 @@ class packet_0x54 extends Packets {
         $this->addInt16($this->volume);
         $this->addInt16($this->targetX);
         $this->addInt16($this->targetY);
-        $this->addInt16($this->targetZ);
-        
+        $this->addUInt16($this->targetZ);
         
         return Sockets::out($this->client, $this);
     }

@@ -302,7 +302,7 @@ class Mobile {
         }
 
         if ($canWalk) {
-            $staticsTiles = Map::getTerrainStatics($this->position['x'], $this->position['y'], $this->position['map']);
+            $staticsTiles = Map::getTerrainStatics($this->position['x'], $this->position['y'], $this->position['z'], $this->position['map']);
             if ($staticsTiles) {
                 foreach ($staticsTiles as $tile) {
                     if (abs($tile['position']['z'] - $this->position['z']) >= 20) {
@@ -343,7 +343,7 @@ class Mobile {
 
         $this->lastMove = time();
 
-        if ($statics = Map::getTerrainStatics($this->position['x'], $this->position['y'], $this->position['map'])) {
+        if ($statics = Map::getTerrainStatics($this->position['x'], $this->position['y'], $this->position['z'], $this->position['map'])) {
             $bz = $this->position['z'];
 
             foreach ($statics as $tile) {
@@ -384,7 +384,8 @@ class Mobile {
             for ($x = $viewRange['from']['x']; $x <= $viewRange['to']['x']; $x++) {
                 $canWalk = true;
 
-                $staticsTiles = Map::getTerrainStatics($x, $y, $this->position['map']);
+                $staticsTiles = Map::getTerrainStatics($x, $y, $this->position['z'], $this->position['map']);
+                
                 if ($staticsTiles) {
                     foreach ($staticsTiles as $tile) {
                         if (abs($tile['position']['z'] - $this->position['z']) >= 20) {
