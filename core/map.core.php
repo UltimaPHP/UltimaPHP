@@ -879,11 +879,16 @@ class Map {
         }
 
         if ($map === null) {
-            UltimaPHP::log("Server tryied to update an chunk form invalid map", UltimaPHP::LOG_WARNING);
+            UltimaPHP::log("Server tryied to update an chunk from invalid map", UltimaPHP::LOG_WARNING);
             return false;
         }
 
         $chunkData = self::$chunks[$map][$chunk['x']][$chunk['y']];
+
+        if (empty($chunkData)) {
+            UltimaPHP::log("Server tryied to update an invalid chunk ({$chunk['x']},{$chunk['y']}) from map {$map}", UltimaPHP::LOG_WARNING);
+            return false;
+        }
 
         /* Loop trought every player and updates everything in view range */
         foreach ($chunkData as $serial => $data) {
