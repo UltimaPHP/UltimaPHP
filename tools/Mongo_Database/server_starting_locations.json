@@ -1,9 +1,9 @@
-{"_id":{"$oid":"590fd983ce927e7dc8096680"},"name":"Yew","area":"The Empath Abbey","position":{"x":633,"y":858,"z":0,"map":0},"clioc":1075072}
-{"_id":{"$oid":"590fd983ce927e7dc8096681"},"name":"Minoc","area":"The Barnacle Tavern","position":{"x":2476,"y":413,"z":15,"map":0},"clioc":1075073}
-{"_id":{"$oid":"590fd983ce927e7dc8096682"},"name":"Britain","area":"The Wayfarer's Inn","position":{"x":1602,"y":1591,"z":20,"map":0},"clioc":1075074}
-{"_id":{"$oid":"590fd983ce927e7dc8096683"},"name":"Moonglow","area":"The Scholars Inn","position":{"x":4408,"y":1168,"z":0,"map":0},"clioc":1075075}
-{"_id":{"$oid":"590fd983ce927e7dc8096684"},"name":"Trinsic","area":"The Traveller's Inn","position":{"x":1845,"y":2745,"z":0,"map":0},"clioc":1075076}
-{"_id":{"$oid":"590fd983ce927e7dc8096685"},"name":"New Haven","area":"New Haven Bank","position":{"x":3667,"y":2625,"z":0,"map":0},"clioc":1150168}
-{"_id":{"$oid":"590fd983ce927e7dc8096686"},"name":"Jhelom","area":"The Mercenary Inn","position":{"x":1374,"y":3826,"z":0,"map":0},"clioc":1075078}
-{"_id":{"$oid":"590fd983ce927e7dc8096687"},"name":"Skara Brae","area":"The Falconers Inn","position":{"x":618,"y":2234,"z":0,"map":0},"clioc":1075079}
-{"_id":{"$oid":"590fd983ce927e7dc8096688"},"name":"Vesper","area":"The Ironwood Inn","position":{"x":2771,"y":976,"z":0,"map":0},"clioc":1075080}
+{"_id":{"$oid":"590fd983ce927e7dc8096680"},"name":"Yew","area":"The Empath Abbey","position":{"x":633,"y":858,"z":0,"map":0},"cliloc":1075072}
+{"_id":{"$oid":"590fd983ce927e7dc8096681"},"name":"Minoc","area":"The Barnacle Tavern","position":{"x":2476,"y":413,"z":15,"map":0},"cliloc":1075073}
+{"_id":{"$oid":"590fd983ce927e7dc8096682"},"name":"Britain","area":"The Wayfarer's Inn","position":{"x":1602,"y":1591,"z":20,"map":0},"cliloc":1075074}
+{"_id":{"$oid":"590fd983ce927e7dc8096683"},"name":"Moonglow","area":"The Scholars Inn","position":{"x":4408,"y":1168,"z":0,"map":0},"cliloc":1075075}
+{"_id":{"$oid":"590fd983ce927e7dc8096684"},"name":"Trinsic","area":"The Traveller's Inn","position":{"x":1845,"y":2745,"z":0,"map":0},"cliloc":1075076}
+{"_id":{"$oid":"590fd983ce927e7dc8096685"},"name":"New Haven","area":"New Haven Bank","position":{"x":3667,"y":2625,"z":0,"map":0},"cliloc":1150168}
+{"_id":{"$oid":"590fd983ce927e7dc8096686"},"name":"Jhelom","area":"The Mercenary Inn","position":{"x":1374,"y":3826,"z":0,"map":0},"cliloc":1075078}
+{"_id":{"$oid":"590fd983ce927e7dc8096687"},"name":"Skara Brae","area":"The Falconers Inn","position":{"x":618,"y":2234,"z":0,"map":0},"cliloc":1075079}
+{"_id":{"$oid":"590fd983ce927e7dc8096688"},"name":"Vesper","area":"The Ironwood Inn","position":{"x":2771,"y":976,"z":0,"map":0},"cliloc":1075080}
