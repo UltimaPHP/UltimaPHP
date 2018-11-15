@@ -267,7 +267,7 @@ class Account {
             $tmpPacket .= str_pad(strtoupper(dechex($location['position']['y'])), 8, "0", STR_PAD_LEFT);
             $tmpPacket .= str_pad(strtoupper(dechex($location['position']['z'])), 8, "0", STR_PAD_LEFT);
             $tmpPacket .= str_pad(strtoupper(dechex($location['position']['map'])), 8, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(strtoupper(dechex($location['clioc'])), 8, "0", STR_PAD_LEFT);
+            $tmpPacket .= str_pad(strtoupper(dechex($location['cliloc'])), 8, "0", STR_PAD_LEFT);
             $tmpPacket .= str_pad("", 8, "0", STR_PAD_RIGHT);
         }
 
