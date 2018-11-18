@@ -373,7 +373,10 @@ class Account {
      * 7 - General IGR authentication failure.
      */
     public function disconnect($reason = 4) {
-        $packet = "82" . strtoupper(str_pad(dechex($reason), 2, "0", STR_PAD_LEFT));
+
+        $packet = new packet_0x82($this->client);
+        $packet->setReason(RejectionReason::COMMUNICATION_PROBLEM);
+        $packet->send();
 
         UltimaPHP::log("Client " . UltimaPHP::$socketClients[$this->client]['ip'] . " disconnected from the server");
         Sockets::out($this->client, $packet);
