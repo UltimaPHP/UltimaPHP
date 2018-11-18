@@ -253,7 +253,7 @@ class Account {
         $newPacket->setFlags($this->charListFlags);
         $newPacket->setLastCharLost(0);
         $newPacket->send();
-                
+
     }
 
     /**
