@@ -185,8 +185,10 @@ class Account {
      * Send ping response to the client
      */
     public function sendPingResponse($runInLot = false) {
-        $packet = "7301";
-        Sockets::out($this->client, $packet, $runInLot);
+        $packet = new packet_0x73();
+        $packet->setValue(1);
+        $packet->send();
+        
     }
 
     /**
@@ -344,20 +346,14 @@ class Account {
     public function sendConnectionConfirmation($runInLot = false) {
         if (isset(UltimaPHP::$socketClients[$this->client]['connected_server'])) {
             $ip = explode(".", UltimaPHP::$servers[UltimaPHP::$socketClients[$this->client]['connected_server']]['ip']);
+            $port = UltimaPHP::$servers[UltimaPHP::$socketClients[$this->client]['connected_server']]['port'];
 
-            $packet = "8C";
-            $packet .= str_pad(dechex($ip[0]), 2, "0", STR_PAD_LEFT);
-            $packet .= str_pad(dechex($ip[1]), 2, "0", STR_PAD_LEFT);
-            $packet .= str_pad(dechex($ip[2]), 2, "0", STR_PAD_LEFT);
-            $packet .= str_pad(dechex($ip[3]), 2, "0", STR_PAD_LEFT);
-            $packet .= str_pad(dechex(UltimaPHP::$servers[UltimaPHP::$socketClients[$this->client]['connected_server']]['port']), 4, "0", STR_PAD_LEFT);
+            $packet = new packet_0x8C($this->client);
+            $packet->setIp($ip);
+            $packet->setPort($port);
+            $packet->setAuthID(UltimaPHP::$socketClients[$this->client]['version']);
+            $packet->send();
 
-            $packet .= str_pad(dechex(UltimaPHP::$socketClients[$this->client]['version']['major']), 2, "0", STR_PAD_LEFT);
-            $packet .= str_pad(dechex(UltimaPHP::$socketClients[$this->client]['version']['minor']), 2, "0", STR_PAD_LEFT);
-            $packet .= str_pad(dechex(UltimaPHP::$socketClients[$this->client]['version']['revision']), 2, "0", STR_PAD_LEFT);
-            $packet .= str_pad(dechex(UltimaPHP::$socketClients[$this->client]['version']['prototype']), 2, "0", STR_PAD_LEFT);
-
-            Sockets::out($this->client, $packet, $runInLot);
         } else {
             $this->disconnect(4);
         }
