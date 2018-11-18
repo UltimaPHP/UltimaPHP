@@ -56,7 +56,6 @@ class Packets {
 
     public function addText($text = "", $maxByteSyze = false, $fill_zeros = true, $pad_direction = STR_PAD_RIGHT) {
         $hexStr = str_split(str_pad(Functions::strToHex($text), ($maxByteSyze ? ($maxByteSyze * 2) : $maxByteSyze), "0", $pad_direction), 2);
-
         foreach ($hexStr as $hex) {
             $this->packetBytes[] = $hex;
         }
@@ -96,7 +95,7 @@ class Packets {
 
     public function addInt16($value = 0) {
         $hexStr = str_split($this->int16($value), 2);
-
+        
         foreach ($hexStr as $hex) {
             $this->packetBytes[] = $hex;
         }
@@ -218,10 +217,16 @@ class Packets {
     {
         $packet = array_slice($var, 0, 1);
         $var = array_slice($var,1);
-
-        var_dump($packet);
-        var_dump(implode($packet));
         
         return Functions::fromChar8(implode($packet));
+    }
+
+    public static function getUnicodeStringSafe($sendString, $byteSize = 30)
+    {    
+        $text = "";
+
+        $text = str_pad(strtoupper(Functions::strToHex($sendString)), $byteSize*2, "0", STR_PAD_RIGHT);
+
+        return $text;
     }
 }

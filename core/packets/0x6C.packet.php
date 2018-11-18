@@ -6,6 +6,15 @@
 
 class packet_0x6C extends Packets {
 
+    private $type;
+    private $senderSerial;
+    private $flags;
+    private $objectSerial;
+    private $X;
+    private $Y;
+    private $Z;
+    private $graphic;
+
     /**
      * Defines the packet, the length and if there is a client send
      */
@@ -38,9 +47,67 @@ class packet_0x6C extends Packets {
             'graphic' => hexdec($this->getInt16($data)),
         ];
 
-        print_r($targetData);
-
         UltimaPHP::$socketClients[$this->client]['account']->player->targetAction($this->client, $targetData);
         
+    }
+
+    /**s
+     * Handle the packet transmission
+     */
+    public function send() {
+        if (!$this->client) {
+            return false;
+        }
+
+        $this->addInt8($this->type);
+        $this->addInt32($this->senderSerial);
+        $this->addInt8($this->flags);
+        $this->addInt32($this->objectSerial);
+        $this->addInt16($this->X);
+        $this->addInt16($this->Y);
+        $this->addInt16($this->Z);
+        $this->addInt16($this->graphic);
+                    
+        return Sockets::out($this->client, $this);
+    }
+
+    public function setType($type){
+        $this->type = $type;
+        return true;
+    }
+
+    public function setSenderSerial($senderSerial){
+        $this->senderSerial = $senderSerial;
+        return true;
+    }
+
+    public function setFlags($flags){
+        $this->flags = $flags;
+        return true;
+    }
+
+    public function setObjectSerial($objectSerial){
+        $this->objectSerial = $objectSerial;
+        return true;
+    }
+
+    public function setX($X){
+        $this->X = $X;
+        return true;
+    }
+
+    public function setY($Y){
+        $this->Y = $Y;
+        return true;
+    }
+
+    public function setZ($Z){
+        $this->Z = $Z;
+        return true;
+    }
+
+    public function setGraphic($graphic){
+        $this->graphic = $graphic;
+        return true;
     }
 }

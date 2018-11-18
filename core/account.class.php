@@ -233,53 +233,27 @@ class Account {
      * Enable locked client features
      */
     public function enableLockedFeatures($runInLot = false) {
-        $packet = "B9";
-        $packet .= str_pad(dechex($this->featuresFlags), 8, "0", STR_PAD_LEFT);
-        Sockets::out($this->client, $packet, $runInLot);
+        $packet = new packet_0xB9($this->client);
+        $packet->setFlags(dechex($this->featuresFlags));    
+        $packet->send();
     }
 
     /**
      * Send the account characters list to the client
      */
     public function sendCharacterList($runInLot = false) {
-        $characters        = $this->characters;
+        $characters = $this->characters;
         $startingLocations = UltimaPHP::$starting_locations;
 
-        $charLimit = 7;
-        $tmpPacket = "";
-
-        for ($i = 0; $i < $charLimit; $i++) {
-            if ($i < count($characters)) {
-                $tmpPacket .= str_pad((isset($characters[$i]) ? Functions::strToHex($characters[$i]['name']) : 0), 60, "0", STR_PAD_RIGHT);
-                $tmpPacket .= str_pad("00", 60, "0", STR_PAD_RIGHT);
-            } else {
-                $tmpPacket .= str_pad("00", 120, "0", STR_PAD_RIGHT);
-            }
-        }
-        $tmpPacket .= str_pad(dechex(count($startingLocations)), 2, "0", STR_PAD_LEFT);
-
-        foreach ($startingLocations as $key => $location) {
-            // If Client version is bigger then 7.0.13.0
-            $tmpPacket .= str_pad(dechex($key + 1), 2, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(strtoupper(Functions::strToHex($location['name'])), 64, "0", STR_PAD_RIGHT);
-            $tmpPacket .= str_pad(strtoupper(Functions::strToHex($location['area'])), 64, "0", STR_PAD_RIGHT);
-            $tmpPacket .= str_pad(strtoupper(dechex($location['position']['x'])), 8, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(strtoupper(dechex($location['position']['y'])), 8, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(strtoupper(dechex($location['position']['z'])), 8, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(strtoupper(dechex($location['position']['map'])), 8, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad(strtoupper(dechex($location['clioc'])), 8, "0", STR_PAD_LEFT);
-            $tmpPacket .= str_pad("", 8, "0", STR_PAD_RIGHT);
-        }
-
-        $tmpPacket .= str_pad(dechex($this->charListFlags), 8, "0", STR_PAD_LEFT);
-        $tmpPacket .= "0000";
-
-        $packet = "A9";
-        $packet .= str_pad(dechex(ceil(strlen($tmpPacket) / 2) + 4), 4, "0", STR_PAD_LEFT);
-        $packet .= "07";
-        $packet .= $tmpPacket;
-
-        Sockets::out($this->client, $packet, $runInLot);
+        $newPacket = new packet_0xA9($this->client);
+        $newPacket->setCharCount(7);
+        $newPacket->setChars($characters);
+        $newPacket->setCitiesCount(count($startingLocations));
+        $newPacket->setCities($startingLocations);
+        $newPacket->setFlags($this->charListFlags);
+        $newPacket->setLastCharLost(0);
+        $newPacket->send();
+                
     }
 
     /**
