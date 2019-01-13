@@ -13,6 +13,8 @@ class MapdumpCommand {
         $player = UltimaPHP::$socketClients[$client]['account']->player;
 
         $position = $player->position;
+
+        print_r($position);
         // $position['x']--;
 
         $viewRange = [

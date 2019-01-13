@@ -2,6 +2,7 @@
 
 abstract class EncryptionDefs {
     const VERSION = [
+        '7074'  => [0x3F89695D, 0xABCCA27F],
         '7073'  => [0x2042036D, 0xA5D1BE7F],
         '7072'  => [0x207B217D, 0xA5C7527F],
         '7071'  => [0x203CC38D, 0xA5FDFE7F],

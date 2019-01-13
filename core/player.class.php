@@ -671,6 +671,8 @@ class Player {
 
         $tmpPosition = $this->position;
 
+        $oldChunk = Map::getChunk($this->position['x'], $this->position['y']);
+
         if ((int) $direction >= 80) {
             $tmpPosition['running'] = true;
         } else {
@@ -736,6 +738,20 @@ class Player {
 
         $this->position = $tmpPosition;
         $this->lastMove = time();
+
+        $newChunk = Map::getChunk($this->position['x'], $this->position['y']);
+
+        if ($oldChunk['x'] != $newChunk['x'] || $oldChunk['y'] != $newChunk['y']) {
+            if (isset(Map::$chunks[$this->position['map']][$oldChunk['x']][$oldChunk['y']][(int) $this->serial])) {
+                $instance = Map::$chunks[$this->position['map']][$oldChunk['x']][$oldChunk['y']][(int) $this->serial];
+
+                // Remover o player do chunk antigo (da memória)
+                Map::removeSerialData($this->serial);
+
+                // Adicionar o player do chunk novo (em memória, ligando o chunk no server)
+                Map::$chunks[$this->position['map']][$newChunk['x']][$newChunk['y']][(int) $this->serial] = $instance;
+            }
+        }
 
         $packet = "22" . str_pad($sequence, 2, "0", STR_PAD_LEFT) . "01";
         Sockets::out($this->client, $packet, false);
@@ -840,7 +856,7 @@ class Player {
 
         Map::removeSerialData($serial, ($instance->holder === null ? false : true));
 
-        /* Remove the intem from the container */
+        /* Remove item from container */
         if ($instance->holder !== null) {
             $container = Map::getBySerial($instance->holder);
 
@@ -854,7 +870,13 @@ class Player {
                 }
             }
         } else {
-            $this->removeObjectFromView($serial);
+            //$this->removeObjectFromView($serial);
+            $event = [
+                'method' => 'removeObjectFromView',
+                'args' => $serial
+            ];
+            Map::sendEventRangePosition($this->position['map'], Map::getChunk($this->position['x'], $this->position['y']), $event);
+            //Map::updateChunk(null, $this->client);
         }
 
         $this->layers[LayersDefs::DRAGGING] = $instance->serial;

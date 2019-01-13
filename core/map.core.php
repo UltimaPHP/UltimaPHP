@@ -10,7 +10,7 @@ class Map {
     public static $maps             = [];
     public static $mapSizes         = [];
     public static $chunks           = [];
-    public static $chunkSize        = 512; // Number in square
+    public static $chunkSize        = 128; // Number in square
     public static $tileMatrix       = [];
     public static $serialData       = [];
     public static $serialDataHolded = [];
@@ -523,7 +523,7 @@ class Map {
             'type'     => "player",
             'client'   => $player->client,
             'instance' => null,
-        ];
+        ];  
 
         self::$serialData[(int) $player->serial] = ['map' => $player->position['map'], 'x' => $chunk['x'], 'y' => $chunk['y']];
 
@@ -776,12 +776,25 @@ class Map {
         }
     }
 
+    public static function sendEventRangePosition($map, $chunk, $event) {
+        foreach (self::$chunks[$map][$chunk['x']][$chunk['y']] as $serial => $data) {
+            if ($data['type'] == 'player') {
+                $method = $event['method'];
+                $args = $event['args'];
+                if (UltimaPHP::$conf['logs']['debug']) {
+                    echo "Running event {$method}({$args}) at player " . UltimaPHP::$socketClients[$data['client']]['account']->player->name . "\n";
+                }
+                UltimaPHP::$socketClients[$data['client']]['account']->player->$method($args);
+            }
+        }
+    }
+
     /**
      * Update players with objects from desired chunk
      * $map is only used in case of the request come from a mobile or items
      */
     //self::updateChunk($chunk, false, $position['map'], true);
-    public static function updateChunk($chunk = null, $client = false, $map = null, $forceItemUpdate = false) {
+    public static function updateChunk($chunk = null, $client = false, $map = null) {
         if ($chunk === null && $client !== false) {
             $chunk = self::getChunk(UltimaPHP::$socketClients[$client]['account']->player->position['x'], UltimaPHP::$socketClients[$client]['account']->player->position['y']);
             $map   = UltimaPHP::$socketClients[$client]['account']->player->position['map'];
