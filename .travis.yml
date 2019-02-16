@@ -5,7 +5,7 @@ php:
 
 services:
   - mongodb
-  - docker
+#  - docker
 
 env:
   global:
@@ -17,8 +17,12 @@ before_script:
 before_install:
   - sudo apt-get update
   - sudo apt-get install -y unzip
-  - wget -O /tmp/UOLocation.zip https://ultimaphp.nyc3.digitaloceanspaces.com/ultimaphpmuls.zip
-  - unzip /tmp/UOLocation.zip -d ./UOLocation
+  - ggID='1SsMQsIq_EhAbofKECYXkiKzSM0D63YE-'
+  - ggURL='https://drive.google.com/uc?export=download'
+  - filename="$(curl -sc /tmp/gcokie "${ggURL}&id=${ggID}" | grep -o '="uc-name.*</span>' | sed 's/.*">//;s/<.a> .*//')"
+  - getcode="$(awk '/_warning_/ {print $NF}' /tmp/gcokie)"
+  - curl -Lb /tmp/gcokie "${ggURL}&confirm=${getcode}&id=${ggID}" -o "/tmp/${filename}"
+  - unzip /tmp/Muls.zip -d ./UOLocation
 
 script:
   - php startserver.php test
