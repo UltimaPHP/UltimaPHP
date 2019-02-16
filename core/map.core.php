@@ -10,7 +10,7 @@ class Map {
     public static $maps             = [];
     public static $mapSizes         = [];
     public static $chunks           = [];
-    public static $chunkSize        = 512; // Number in square
+    public static $chunkSize        = 128; // Number in square
     public static $tileMatrix       = [];
     public static $serialData       = [];
     public static $serialDataHolded = [];
@@ -110,7 +110,6 @@ class Map {
             Functions::progressBar(1, 1, "Reading tiledata.mul");
             Cache::writeFile($tiledata, self::$tiledata);
         }
-        self::readMaps();
     }
 
     private static function readMapFile($mapFile, $mapName) {
@@ -131,11 +130,25 @@ class Map {
      */
     public static function readMaps() {
         for ($actualMap = 0; $actualMap < UltimaPHP::$conf["muls"]['maps']; $actualMap++) {
-            $mapFile = UltimaPHP::$conf['muls']['location'] . "map{$actualMap}LegacyMUL.uop";
+            Functions::progressBar(0, 1, "Reading map{$actualMap}.mul file");
+            $mapFile = UltimaPHP::$conf['muls']['location'] . "map{$actualMap}.mul";
 
+            // Test if there is a .mul map file to read
             if (!is_file($mapFile)) {
-                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$mapFile]);
-                UltimaPHP::stop();
+                // If not, see if there is the .uop map file to convert
+                $tmpMapFile = UltimaPHP::$conf['muls']['location'] . "map{$actualMap}LegacyMUL.uop";
+                if (!is_file($tmpMapFile)) {
+                    UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$mapFile]);
+                    UltimaPHP::stop();
+                } else {
+                    Functions::progressBar(0, 1, "Converting map{$actualMap}LegacyMUL.uop file");
+                    require_once UltimaPHP::$basedir . "includes/UOPConverter/uopconverter.class.php";
+                    if (!isset($converter)) {
+                        $converter = new UOPConverter();
+                    }
+                    UOPConverter::fromUOP($tmpMapFile, $mapFile, null, 2, $actualMap);
+                    Functions::progressBar(1, 1, "Converting map{$actualMap}LegacyMUL.uop file");
+                }
             }
 
             if (!isset(UltimaPHP::$files[Reader::FILE_MAP_FILE])) {
@@ -173,95 +186,7 @@ class Map {
             self::$maps[$actualMap]['size']['x'] = (int) $mapSize[0] >> 3;
             self::$maps[$actualMap]['size']['y'] = (int) $mapSize[1] >> 3;
 
-            /* Start reading the map files of actual map */
-            Functions::progressBar(0, 1, "Reading map{$actualMap}LegacyMUL.uop file");
-
-            if (dechex(UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32()) == 0x50594D) {
-                UltimaPHP::setStatus(UltimaPHP::STATUS_FILE_READ_FAIL, [$mapFile, 'The file doesn\'t seems to be a valid UOP file.']);
-                UltimaPHP::stop();
-            }
-            
-            /* Creates the empty map tile matrix */
-            if (!isset(self::$tileMatrix[$actualMap])) {
-                self::$tileMatrix[$actualMap] = [];
-            }
-
-            for ($bx = 0; $bx <= self::$maps[$actualMap]['size']['x']; $bx++) {
-                if (!isset(self::$tileMatrix[$actualMap][$bx])) {
-                    self::$tileMatrix[$actualMap][$bx] = [];
-                }
-                for ($by = 0; $by <= self::$maps[$actualMap]['size']['y']; $by++) {
-                    if (!isset(self::$tileMatrix[$actualMap][$bx][$by])) {
-                        self::$tileMatrix[$actualMap][$bx][$by] = [];
-                    }
-                }
-            }
-
-            /* Proccess the UOP file into the server memory */
-            if (!UltimaPHP::$testMode) {
-                UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->setPosition(0);
-
-                $magicSeed = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
-                $version   = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
-                $signature = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
-                $nextTable = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt64();
-
-                $offsets = [];
-
-                while ($nextTable != 0) {
-                    UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->setPosition($nextTable);
-
-                    $entries   = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt32();
-                    $nextTable = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->readInt64();
-
-                    for ($i = 0; $i < $entries; $i++) {
-                        /*
-                         * Empty entries are read too, because they do not always indicate the
-                         * end of the table. (Example: 7.0.26.4+ Fel/Tram maps)
-                         */
-                        $tmp = [
-                            'offset'           => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt64(),
-                            'headerLength'     => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt32(), // header length
-                            'size'             => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt32(), // compressed size
-                            'sizeDecompressed' => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt32(), // decompressed size
-                            'identifier'       => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadUInt64(), // filename hash (HashLittle2)
-                            'hash'             => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadUInt32(), // data hash (Adler32)
-                            'compression'      => UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->ReadInt16(), // compression method (0 = none, 1 = zlib)
-                        ];
-
-                        if ($tmp['offset'] <= 0 || $tmp['size'] <= 0) {
-                            continue;
-                        }
-
-                        $offsets[] = $tmp;
-                    }
-                }
-
-                $offsetCount = count($offsets);
-
-                UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->setPosition(0);
-
-                foreach ($offsets as $offsetKey => $offset) {
-                    // TODO: Proccess the block raw data
-                    UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->setPosition($offset['offset'] + $offset['headerLength']);
-                    for ($block_x=0; $block_x < 64; $block_x++) {
-                        for ($block_y=0; $block_y < 64; $block_y++) {
-                            $rawblockHeader = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->read(4);
-                            $rawBlockData = UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap]->read(192);
-                            // file_put_contents("map{$actualMap}_test.mul", $rawblockHeader.$rawBlockData, FILE_BINARY | FILE_APPEND);
-                            // echo "{$block_x},{$block_y} = {$rawblockHeader} {$rawBlockData}\n";
-                        }
-                    }
-
-                    Functions::progressBar($offsetKey, $offsetCount, "Reading map{$actualMap}LegacyMUL.uop file");
-                }
-
-                // UltimaPHP::$files[Reader::FILE_MAP_FILE][$actualMap] = new Reader("map{$actualMap}_test.mul", Reader::FILE_MAP_FILE);
-                Functions::progressBar($offsetCount, $offsetCount, "Reading map{$actualMap}LegacyMUL.uop file");
-            } else {
-                Functions::progressBar(1, 1, "Reading map{$actualMap}LegacyMUL.uop file");
-            }
-
+            Functions::progressBar(1, 1, "Reading map{$actualMap}.mul file");
 
             /* Start reading the staidx file of actual map */
             Functions::progressBar(0, 1, "Reading staidx{$actualMap}.mul file");
@@ -598,7 +523,7 @@ class Map {
             'type'     => "player",
             'client'   => $player->client,
             'instance' => null,
-        ];
+        ];  
 
         self::$serialData[(int) $player->serial] = ['map' => $player->position['map'], 'x' => $chunk['x'], 'y' => $chunk['y']];
 
@@ -851,12 +776,25 @@ class Map {
         }
     }
 
+    public static function sendEventRangePosition($map, $chunk, $event) {
+        foreach (self::$chunks[$map][$chunk['x']][$chunk['y']] as $serial => $data) {
+            if ($data['type'] == 'player') {
+                $method = $event['method'];
+                $args = $event['args'];
+                if (UltimaPHP::$conf['logs']['debug']) {
+                    echo "Running event {$method}({$args}) at player " . UltimaPHP::$socketClients[$data['client']]['account']->player->name . "\n";
+                }
+                UltimaPHP::$socketClients[$data['client']]['account']->player->$method($args);
+            }
+        }
+    }
+
     /**
      * Update players with objects from desired chunk
      * $map is only used in case of the request come from a mobile or items
      */
     //self::updateChunk($chunk, false, $position['map'], true);
-    public static function updateChunk($chunk = null, $client = false, $map = null, $forceItemUpdate = false) {
+    public static function updateChunk($chunk = null, $client = false, $map = null) {
         if ($chunk === null && $client !== false) {
             $chunk = self::getChunk(UltimaPHP::$socketClients[$client]['account']->player->position['x'], UltimaPHP::$socketClients[$client]['account']->player->position['y']);
             $map   = UltimaPHP::$socketClients[$client]['account']->player->position['map'];
@@ -868,11 +806,16 @@ class Map {
         }
 
         if ($map === null) {
-            UltimaPHP::log("Server tryied to update an chunk form invalid map", UltimaPHP::LOG_WARNING);
+            UltimaPHP::log("Server tryied to update an chunk from invalid map", UltimaPHP::LOG_WARNING);
             return false;
         }
 
         $chunkData = self::$chunks[$map][$chunk['x']][$chunk['y']];
+
+        if (empty($chunkData)) {
+            UltimaPHP::log("Server tryied to update an invalid chunk ({$chunk['x']},{$chunk['y']}) from map {$map}", UltimaPHP::LOG_WARNING);
+            return false;
+        }
 
         /* Loop trought every player and updates everything in view range */
         foreach ($chunkData as $serial => $data) {

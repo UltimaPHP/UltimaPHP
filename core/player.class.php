@@ -174,38 +174,29 @@ class Player {
         return false;
     }
 
-    public function actionNewVersion($serial) {
-        $type = 0;
-        $action = 0;
-        $delay = 0;
+    public function actionNewVersion($serial, $animationType, $action, $delay) {
 
-        $packet = "E2";
-        $packet .= str_pad($serial, 8, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($type), 4, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($action), 4, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($delay), 2, "0", STR_PAD_LEFT);
-
-        //Sockets::out($this->client, $packet);
+        $packet = new packet_0xE2($this->client);
+        $packet->setMobileSerial($serial);
+        $packet->setAnimationType($animationType);
+        $packet->setAction($action);
+        $packet->setDelay($delay);
+        $packet->send();
+        
     }
 
-    public function actionOldVersion($serial) {
-        $frameCount = 0;
-        $action = 0;
-        $delay = 0;
-        $repeat = 0;
-        $repeatTimes = 0x00;
-        $forward = 0x00;
+    public function actionOldVersion($serial, $action, $frameCount, $repeateTimes) {
 
-        $packet = "6E";
-        $packet .= str_pad($serial, 8, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($action), 4, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($frameCount), 4, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($repeatTimes), 4, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($forward), 2, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($repeat), 2, "0", STR_PAD_LEFT);
-        $packet .= str_pad(dechex($delay), 2, "0", STR_PAD_LEFT);
+        $packet = new packet_0x6E($client);
+        $packet->setSerial($serial);
+        $packet->setAction($action);
+        $packet->setFrameCount($frameCount);
+        $packet->setRepeatTimes($repeatTimes);
+        $packet->setForward($forward);
+        $packet->setRepeat($repeat);
+        $packet->setDelay($delay);
+        $packet->send();
 
-        //Sockets::out($this->client, $packet);
     }
 
     public function attachTarget($client, $callback = null) {
@@ -292,6 +283,41 @@ class Player {
         }
 
         return false;
+    }
+
+    /**
+     * Draw effect Hued
+     */
+    public function huedEffect($runInLot = false, $argsEffect = array()) 
+    {
+
+        $effect = new packet_0xC0($this->client);
+        $effect->setType($argsEffect['type']);
+        $effect->setSerialSource($argsEffect['serialSrc']);
+        $effect->setSerialTarget($argsEffect['serialTarget']);
+        $effect->setObjectId($argsEffect['objectId']);
+        $effect->setSrcPosition($argsEffect['srcPos']); 
+        $effect->setDstPosition($argsEffect['dstPos']);
+        $effect->setSpeed($argsEffect['speed']);
+        $effect->setDuration($argsEffect['duration']);
+        $effect->setExplodes($argsEffect['explodes']);
+        $effect->setFixedDirection($argsEffect['fixedPosition']);
+        $effect->setHue($argsEffect['hue']);
+        $effect->setRenderMode($argsEffect['renderMode']);
+        $effect->send();
+
+    }
+
+    /**
+     * PlaySound 
+     */
+    public function playSound($runInLot = false, $args = array()){
+
+        $playSound = new packet_0x54($this->client);
+        $playSound->setSoundID($args[0]);
+        $playSound->setTargetPosition($args[1]);
+        $playSound->send();
+
     }
 
     /**
@@ -645,6 +671,8 @@ class Player {
 
         $tmpPosition = $this->position;
 
+        $oldChunk = Map::getChunk($this->position['x'], $this->position['y']);
+
         if ((int) $direction >= 80) {
             $tmpPosition['running'] = true;
         } else {
@@ -710,6 +738,20 @@ class Player {
 
         $this->position = $tmpPosition;
         $this->lastMove = time();
+
+        $newChunk = Map::getChunk($this->position['x'], $this->position['y']);
+
+        if ($oldChunk['x'] != $newChunk['x'] || $oldChunk['y'] != $newChunk['y']) {
+            if (isset(Map::$chunks[$this->position['map']][$oldChunk['x']][$oldChunk['y']][(int) $this->serial])) {
+                $instance = Map::$chunks[$this->position['map']][$oldChunk['x']][$oldChunk['y']][(int) $this->serial];
+
+                // Remover o player do chunk antigo (da memória)
+                Map::removeSerialData($this->serial);
+
+                // Adicionar o player do chunk novo (em memória, ligando o chunk no server)
+                Map::$chunks[$this->position['map']][$newChunk['x']][$newChunk['y']][(int) $this->serial] = $instance;
+            }
+        }
 
         $packet = "22" . str_pad($sequence, 2, "0", STR_PAD_LEFT) . "01";
         Sockets::out($this->client, $packet, false);
@@ -814,7 +856,7 @@ class Player {
 
         Map::removeSerialData($serial, ($instance->holder === null ? false : true));
 
-        /* Remove the intem from the container */
+        /* Remove item from container */
         if ($instance->holder !== null) {
             $container = Map::getBySerial($instance->holder);
 
@@ -828,7 +870,13 @@ class Player {
                 }
             }
         } else {
-            $this->removeObjectFromView($serial);
+            //$this->removeObjectFromView($serial);
+            $event = [
+                'method' => 'removeObjectFromView',
+                'args' => $serial
+            ];
+            Map::sendEventRangePosition($this->position['map'], Map::getChunk($this->position['x'], $this->position['y']), $event);
+            //Map::updateChunk(null, $this->client);
         }
 
         $this->layers[LayersDefs::DRAGGING] = $instance->serial;

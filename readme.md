@@ -8,7 +8,7 @@ This server was created for those who ever wanted to create different adaptation
 
 I decided to build this project for study propose I've re-scripted the entire socket server to understand how it works and after that i decided to create a lightweight standalone version of the server that runs in any OS easily.
 
-Note: The server only works with the last updated Ultima Online client (7.0.70.10) and we will not spend time with older clients for now.
+Note: The server only works with the last updated Ultima Online client (7.0.74.28) and we will not spend time with older clients for now.
 
 ## How to install?
 

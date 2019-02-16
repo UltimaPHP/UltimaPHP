@@ -1,0 +1,74 @@
+<?php
+
+abstract class MusicName
+{
+
+    const Invalid = -1;
+    const OldUlt01 = 0;
+    const Create1 = 1;
+    const DragFlit = 2;
+    const OldUlt02 = 3;
+    const OldUlt03 = 4;
+    const OldUlt04 = 5;
+    const OldUlt05 = 6;
+    const OldUlt06 = 7;
+    const Stones2 = 8;
+    const Britain1 = 9;
+    const Britain2 = 10;
+    const Bucsden = 11;
+    const Jhelom = 12;
+    const LBCastle = 13;
+    const Linelle = 14;
+    const Magincia = 15;
+    const Minoc = 16;
+    const Ocllo = 17;
+    const Samlethe = 18;
+    const Serpents = 19;
+    const Skarabra = 20;
+    const Trinsic = 21;
+    const Vesper = 22;
+    const Wind = 23;
+    const Yew = 24;
+    const Cave01 = 25;
+    const Dungeon9 = 26;
+    const Forest_a = 27;
+    const InTown01 = 28;
+    const Jungle_a = 29;
+    const Mountn_a = 30;
+    const Plains_a = 31;
+    const Sailing = 32;
+    const Swamp_a = 33;
+    const Tavern01 = 34;
+    const Tavern02 = 35;
+    const Tavern03 = 36;
+    const Tavern04 = 37;
+    const Combat1 = 38;
+    const Combat2 = 39;
+    const Combat3 = 40;
+    const Approach = 41;
+    const Death = 42;
+    const Victory = 43;
+    const BTCastle = 44;
+    const Nujelm = 45;
+    const Dungeon2 = 46;
+    const Cove = 47;
+    const Moonglow = 48;
+    const Zento = 49;
+    const TokunoDungeon = 50;
+    const Taiko = 51;
+    const DreadHornArea = 52;
+    const ElfCity = 53;
+    const GrizzleDungeon = 54;
+    const MelisandesLair = 55;
+    const ParoxysmusLair = 56;
+    const GwennoConversation = 57;
+    const GoodEndGame = 58;
+    const GoodVsEvil = 59;
+    const GreatEarthSerpents = 60;
+    const Humanoids_U9 = 61;
+    const MinocNegative = 62;
+    const Paws = 63;
+    const SelimsBar = 64;
+    const SerpentIsleCombat_U7 = 65;
+    const ValoriaShips = 66;
+}

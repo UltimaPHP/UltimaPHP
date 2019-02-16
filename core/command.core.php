@@ -16,6 +16,9 @@ class Command {
         'r' => [
             'minPlevel' => 6,
         ],
+        'mapdump' => [
+            'minPlevel' => 6,
+        ],
         'color' => [
             'minPlevel' => 2,
         ],
@@ -39,6 +42,12 @@ class Command {
         ],
         'info' => [
             'minPlevel' => 4,
+        ],
+        'sound' => [
+            'minPlevel' => 2,
+        ],
+        'music' => [
+            'minPlevel' => 2,
         ],
         'update' => [
             'minPlevel' => 2,

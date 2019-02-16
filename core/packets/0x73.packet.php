@@ -6,6 +6,8 @@
 
 class packet_0x73 extends Packets {
 
+    private $value;
+
     /**
      * Defines the packet, the length and if there is a client send
      */
@@ -31,5 +33,25 @@ class packet_0x73 extends Packets {
             socket_close(UltimaPHP::$socketClients[$this->client]['socket']);
             unset(UltimaPHP::$socketClients[$this->client]);
         }
+    }
+
+    /**s
+     * Handle the packet receive
+     */
+    public function send() {
+        if (!$this->client) {
+            return false;
+        }
+
+        $this->addInt8($this->value);
+
+        Sockets::out($this->client, $this);
+        return true;
+
+    } 
+
+    public function setValue($value) {
+        $this->value = $value;
+        return true;
     }
 }

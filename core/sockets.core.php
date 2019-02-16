@@ -64,9 +64,13 @@ class Sockets {
                             $packetTemp = Functions::strToHex($packet['packet']);
 
                             if (isset(UltimaPHP::$socketClients[$client]['compressed']) && UltimaPHP::$socketClients[$client]['compressed'] === true) {
-                                echo "----------------------------------------------\nSending compressed packet " . $packet_id . " to socket #$client (Length: " . (strlen($packetTemp) / 2) . ") :: " . $packetTemp . "\n----------------------------------------------\n";
+                                $compression = new Compression();
+                                $decompressed = implode("", $compression->decompress(strtoupper($packetTemp)));
+                                $packet_cmd = strtoupper(substr($decompressed, 0, 2));
+                                echo "----------------------------------------------\nSending compressed packet 0x" . $packet_cmd . " to socket #$client (Length: " . (strlen($decompressed) / 2) . ") :: " . $decompressed . "\n----------------------------------------------\n";
                             } else {
-                                echo "----------------------------------------------\nSending packet " . $packet_id . " to socket #$client (Length: " . (strlen($packetTemp) / 2) . ") :: " . $packetTemp . "\n----------------------------------------------\n";
+                                $packet_cmd = strtoupper(substr($packetTemp, 0, 2));
+                                echo "----------------------------------------------\nSending packet 0x" . $packet_cmd . " to socket #$client (Length: " . (strlen($packetTemp) / 2) . ") :: " . $packetTemp . "\n----------------------------------------------\n";
                             }
                         }
 
@@ -157,16 +161,13 @@ class Sockets {
 
         if (class_exists($packetMethod)) {
             if (true === UltimaPHP::$conf['logs']['debug']) {
-                echo "----------------------------------------------\nReceived packet " . $input[0] . " from socket #$client (Length: " . count($input) . ") :: " . implode("", $input) . "\n----------------------------------------------\n";
+                echo "----------------------------------------------\nReceived packet 0x" . strtoupper($input[0]) . " from socket #$client (Length: " . count($input) . ") :: " . implode("", $input) . "\n----------------------------------------------\n";
             }
 
             $packet = new $packetMethod($client);
             $packet->receive($input);
         } else {
-            echo "----------------------------------------------\nReceived unknow packet " . $input[0] . " from socket #$client (Length: " . count($input) . ") :: " . implode("", $input) . "\n----------------------------------------------\n";
-            if (isset(UltimaPHP::$socketClients[$client]['account'])) {
-                //UltimaPHP::$socketClients[$client]['account']->disconnect();
-            }
+            echo "----------------------------------------------\nReceived unknow packet 0x" . strtoupper($input[0]) . " from socket #$client (Length: " . count($input) . ") :: " . implode("", $input) . "\n----------------------------------------------\n";
         }
     }
 

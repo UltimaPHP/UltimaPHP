@@ -56,7 +56,6 @@ class Packets {
 
     public function addText($text = "", $maxByteSyze = false, $fill_zeros = true, $pad_direction = STR_PAD_RIGHT) {
         $hexStr = str_split(str_pad(Functions::strToHex($text), ($maxByteSyze ? ($maxByteSyze * 2) : $maxByteSyze), "0", $pad_direction), 2);
-
         foreach ($hexStr as $hex) {
             $this->packetBytes[] = $hex;
         }
@@ -78,6 +77,14 @@ class Packets {
         $this->packetBytes[] = $this->int8($value);
     }
 
+    public function toChar8($int = 0) {
+        if ($int < -127 || $int > 127) {
+            return "00";
+        }
+
+        $this->packetBytes[] = str_pad(dechex(ord(pack("c", $int))), 2, "0", STR_PAD_LEFT);
+    }    
+
     public function addUInt16($value = 0) {
         $hexStr = str_split(strtoupper(str_pad(dechex($this->uInt16($value)), 4, "0", STR_PAD_LEFT)), 2);
 
@@ -88,7 +95,7 @@ class Packets {
 
     public function addInt16($value = 0) {
         $hexStr = str_split($this->int16($value), 2);
-
+        
         foreach ($hexStr as $hex) {
             $this->packetBytes[] = $hex;
         }
@@ -179,5 +186,47 @@ class Packets {
         }
 
         return is_array($i) ? $i[1] : $i;
+    }
+
+    public static function getInt32(&$var)
+    {       
+        $packet = array_slice($var, 0, 4);
+        $var = array_slice($var,4);
+
+        return implode($packet);        
+    }
+
+    public static function getInt16(&$var)
+    {
+        $packet = array_slice($var, 0, 2);
+        $var = array_slice($var,2);
+
+        return implode($packet);
+    }
+
+    public static function getInt8(&$var)
+    {    
+        $packet = array_slice($var, 0, 1);
+        $var = array_slice($var,1);
+
+
+        return implode($packet);
+    }
+
+    public static function getSByte(&$var)
+    {
+        $packet = array_slice($var, 0, 1);
+        $var = array_slice($var,1);
+        
+        return Functions::fromChar8(implode($packet));
+    }
+
+    public static function getUnicodeStringSafe($sendString, $byteSize = 30)
+    {    
+        $text = "";
+
+        $text = str_pad(strtoupper(Functions::strToHex($sendString)), $byteSize*2, "0", STR_PAD_RIGHT);
+
+        return $text;
     }
 }

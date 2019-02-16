@@ -189,6 +189,7 @@ class UltimaPHP {
         }
 
         Map::readTiledata();
+        Map::readMaps();
 
         self::setStatus(self::STATUS_DATABASE_CONNECTING);
         try {
