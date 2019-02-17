@@ -44,6 +44,12 @@ Note 5: UltimaPHP only works (till now) with no-encrypted clients.
  * Navigate to PHP installation folder ```cd c:\php\installation\folder\```
  * And start the server ```php.exe c:\ultimaphp\instalation\folder\startserver.php```
 
+### Docker
+
+  * With docker and docker-compose installed, clone that repository and run docker-compose up.
+  * This will bring up uphp and mongo container.
+  * 😄
+
 ## Base PHP compilation
 #### For those, like me, who preffer to use an most performatic standalone PHP, with only what it really needs
 ```bash
