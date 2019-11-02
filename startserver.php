@@ -15,5 +15,5 @@ require_once 'core/server.php';
 require_once 'core/functions.php';
 
 $testMode = (isset($argv[1]) ? ($argv[1] == "test" ? true : false) : false);
-$server = new UltimaPHP(dirname(__FILE__), $testMode);
+$server = new UltimaPHP($testMode);
 $server->start();

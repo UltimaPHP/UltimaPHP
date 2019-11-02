@@ -259,22 +259,25 @@ class Map {
 
             foreach ($objects as $count => $object) {
                 $itemClass = $object['objectName'];
-                $instance  = new $itemClass($object['serial'], $object['id']);
+                
+                if (class_exists($itemClass)) {
+                    $instance  = new $itemClass($object['serial'], $object['id']);
 
-                /* Update last object serial stored on server */
-                if (self::$lastSerial['object'] < $object['id']) {
-                    self::$lastSerial['object'] = $object['id'];
-                }
+                    /* Update last object serial stored on server */
+                    if (self::$lastSerial['object'] < $object['id']) {
+                        self::$lastSerial['object'] = $object['id'];
+                    }
 
-                /* Clear database object before update variables */
-                foreach ($object as $attr => $value) {
-                    $instance->$attr = (in_array($attr, ['serial', 'holder']) && $value !== null ? strtoupper($value) : $value);
-                }
+                    /* Clear database object before update variables */
+                    foreach ($object as $attr => $value) {
+                        $instance->$attr = (in_array($attr, ['serial', 'holder']) && $value !== null ? strtoupper($value) : $value);
+                    }
 
-                if ($instance->holder === null) {
-                    self::addObjectToMap($instance, $instance->position['x'], $instance->position['y'], $instance->position['z'], $instance->position['map']);
-                } else {
-                    self::addHoldedObject($instance);
+                    if ($instance->holder === null) {
+                        self::addObjectToMap($instance, $instance->position['x'], $instance->position['y'], $instance->position['z'], $instance->position['map']);
+                    } else {
+                        self::addHoldedObject($instance);
+                    }
                 }
             }
 
