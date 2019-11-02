@@ -118,9 +118,20 @@ class Sockets {
                     }
 
                     // If player isn't relayed and not tested for encryption
-                    if ($socket['version'] !== null && is_array($socket['version']) && isset($socket['version']['encrypted'])) {
-                        if ($socket['version']['encrypted'] === null && hexdec($buffer[0]) != 0x80 && $length == 62) {
-                            $converted = Encrypt::decryptLoginPacket($buffer, $socket['version']);
+                    if ($socket['version'] !== null && is_array($socket['version'])) {
+                        if (UltimaPHP::$conf['logs']['debug'] === true) {
+                            echo "Handling encryption\n";
+                            print_r($socket['version']);
+                        }
+
+                        if ($socket['version']['encrypted'] === null) {
+                            $converted = Encrypt::decryptPacket($buffer, $socket['version']);
+
+                            if (UltimaPHP::$conf['logs']['debug'] === true) {
+                                echo "converted 1:\n\n";
+                                echo "Buffer:" . implode("", $buffer) . "\n";
+                                echo "Decrypted:" . implode("", $converted) . "\n";
+                            }
 
                             if (hexdec($converted[0]) != 0x80) {
                                 UltimaPHP::log("Client tries to connect using unknow client version.", UltimaPHP::LOG_WARNING);
@@ -129,12 +140,22 @@ class Sockets {
                             }
 
                             $buffer = $converted;
-                            $length = count($buffer);
                             UltimaPHP::$socketClients[$client]['version']['encrypted'] = true;
                         }
 
                         if ($socket['version']['encrypted'] === null && hexdec($buffer[0]) == 0x80) {
                             UltimaPHP::$socketClients[$client]['version']['encrypted'] = false;
+                        }
+                    }
+
+                    if (UltimaPHP::$socketClients[$client]['version']['encrypted'] === true) {
+                        if (UltimaPHP::$conf['logs']['debug'] === true) {
+                            echo "converted 2:\n\n";
+                            echo "Buffer:" . implode("", $buffer) . "\n";
+                        }
+                        $buffer = Encrypt::decryptPacket($buffer, $socket['version']);
+                        if (UltimaPHP::$conf['logs']['debug'] === true) {
+                            echo "Decrypted:" . implode("", $buffer) . "\n";
                         }
                     }
 
@@ -319,13 +340,15 @@ class Sockets {
                 }
             } elseif (-1 == $expectedLength) {
                 // The packet have the information of lenth
-                $length = hexdec($inputArray[1] . $inputArray[2]);
+                if (isset($inputArray[1]) && isset($inputArray[2])) {
+                    $length = hexdec($inputArray[1] . $inputArray[2]);
 
-                $return[] = array_slice($inputArray, 0, $length);
-                $next = self::validatePacket(array_slice($inputArray, $length));
-                if (false !== $next) {
-                    foreach ($next as $key => $value) {
-                        $return[] = $value;
+                    $return[] = array_slice($inputArray, 0, $length);
+                    $next = self::validatePacket(array_slice($inputArray, $length));
+                    if (false !== $next) {
+                        foreach ($next as $key => $value) {
+                            $return[] = $value;
+                        }
                     }
                 }
             } elseif (false === $expectedLength) {
