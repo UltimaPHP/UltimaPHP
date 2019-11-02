@@ -48,8 +48,8 @@ class packet_0xEF extends Packets {
             'minor'     => $minor,
             'revision'  => $revision,
             'prototype' => $prototype,
-            'key1'      => EncryptionDefs::VERSION[$major . $minor . $revision][0],
-            'key2'      => EncryptionDefs::VERSION[$major . $minor . $revision][1],
+            'key1'      => (isset(EncryptionDefs::VERSION[$major . $minor . $revision]) ? EncryptionDefs::VERSION[$major . $minor . $revision][0] : false),
+            'key2'      => (isset(EncryptionDefs::VERSION[$major . $minor . $revision]) ? EncryptionDefs::VERSION[$major . $minor . $revision][1] : false),
         ];
 
         return true;
