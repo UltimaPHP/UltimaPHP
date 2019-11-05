@@ -49,7 +49,6 @@ class Sockets {
 
             UltimaPHP::$socketClients[$id]['LastInput'] = $microtime;
             UltimaPHP::$socketClients[$id]['packets'] = [];
-            UltimaPHP::$socketClients[$id]['relayed'] = false;
             UltimaPHP::$socketClients[$id]['compressed'] = false;
             UltimaPHP::$socketClients[$id]['packetLot'] = null;
             UltimaPHP::$socketClients[$id]['version'] = null;
@@ -63,7 +62,7 @@ class Sockets {
                         if (UltimaPHP::$conf['logs']['debug']) {
                             $packetTemp = Functions::strToHex($packet['packet']);
 
-                            if (isset(UltimaPHP::$socketClients[$client]['compressed']) && UltimaPHP::$socketClients[$client]['compressed'] === true) {
+                            if (isset($socket['compressed']) && $socket['compressed'] === true) {
                                 $compression = new Compression();
                                 $decompressed = implode("", $compression->decompress(strtoupper($packetTemp)));
                                 $packet_cmd = strtoupper(substr($decompressed, 0, 2));
@@ -101,10 +100,20 @@ class Sockets {
                 $length = ($buffer ? count($buffer) : 0);
 
                 if ($buffer) {
-                    if ($socket['version'] === null && $buffer[0] == 0xEF && $length == 21) {
-                        UltimaPHP::$socketClients[$client]['LastInput'] = $microtime;
-                        self::in($buffer, $client);
-                        continue;
+                    if ($socket['version'] === null) {
+                        if ($length == 20 && $buffer[0] != 0xEF) {
+                            array_unshift($buffer, "EF");
+                        }
+
+                        if ($buffer[0] == 0xEF && $length == 1) {
+                            continue;
+                        }
+
+                        if ($buffer[0] == 0xEF && $length == 21) {
+                            UltimaPHP::$socketClients[$client]['LastInput'] = $microtime;
+                            self::in($buffer, $client);
+                            continue;
+                        }
                     }
 
                     if ($length == 69 && hexdec($buffer[4]) == 0x91) {
@@ -118,29 +127,34 @@ class Sockets {
                     }
 
                     // If player isn't relayed and not tested for encryption
-                    if ($socket['version'] !== null && is_array($socket['version'])) {
+                    if ($socket['version'] !== null && is_array($socket['version']) && isset($socket['version']['encrypted'])) {
                         if (UltimaPHP::$conf['logs']['debug'] === true) {
                             echo "Handling encryption\n";
                             print_r($socket['version']);
                         }
 
                         if ($socket['version']['encrypted'] === null) {
-                            $converted = Encrypt::decryptPacket($buffer, $socket['version']);
+                            if ($buffer[0] == 0x80 || $buffer[0] == "80") {
+                                UltimaPHP::log("Client tries to connect using know unecrypted client version.", UltimaPHP::LOG_WARNING);
+                                UltimaPHP::$socketClients[$client]['version']['encrypted'] = false;
+                            } else {
+                                $converted = Encrypt::decryptPacket($buffer, $socket['version']);
 
-                            if (UltimaPHP::$conf['logs']['debug'] === true) {
-                                echo "converted 1:\n\n";
-                                echo "Buffer:" . implode("", $buffer) . "\n";
-                                echo "Decrypted:" . implode("", $converted) . "\n";
+                                if (UltimaPHP::$conf['logs']['debug'] === true) {
+                                    echo "converted 1:\n\n";
+                                    echo "Buffer:" . implode("", $buffer) . "\n";
+                                    echo "Decrypted:" . implode("", $converted) . "\n";
+                                }
+
+                                if (hexdec($converted[0]) != 0x80) {
+                                    UltimaPHP::log("Client tries to connect using unknow client version.", UltimaPHP::LOG_WARNING);
+                                    UltimaPHP::$socketClients[$client]['account']->disconnect(4);
+                                    continue;
+                                }
+
+                                $buffer = $converted;
+                                UltimaPHP::$socketClients[$client]['version']['encrypted'] = true;
                             }
-
-                            if (hexdec($converted[0]) != 0x80) {
-                                UltimaPHP::log("Client tries to connect using unknow client version.", UltimaPHP::LOG_WARNING);
-                                UltimaPHP::$socketClients[$client]['account']->disconnect(4);
-                                continue;
-                            }
-
-                            $buffer = $converted;
-                            UltimaPHP::$socketClients[$client]['version']['encrypted'] = true;
                         }
 
                         if ($socket['version']['encrypted'] === null && hexdec($buffer[0]) == 0x80) {
@@ -148,7 +162,7 @@ class Sockets {
                         }
                     }
 
-                    if (UltimaPHP::$socketClients[$client]['version']['encrypted'] === true) {
+                    if (isset($socket['version']) && isset($socket['version']['encrypted']) && $socket['version']['encrypted'] === true) {
                         if (UltimaPHP::$conf['logs']['debug'] === true) {
                             echo "converted 2:\n\n";
                             echo "Buffer:" . implode("", $buffer) . "\n";

@@ -41,8 +41,6 @@ class packet_0xA8 extends Packets {
             $this->addInt8($ip[0]);
         }
 
-        UltimaPHP::$socketClients[$this->client]['relayed'] = true;
-        
         Sockets::out($this->client, $this);
         return true;
     }

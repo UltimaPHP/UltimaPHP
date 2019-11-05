@@ -36,7 +36,6 @@ class packet_0x91 extends Packets {
         if (UltimaPHP::$socketClients[$this->client]['account']->isValid) {
             UltimaPHP::log("Account $account logged from IP " . UltimaPHP::$socketClients[$this->client]['ip']);
             // Set the flag on the connection to send next packets compressed
-            UltimaPHP::$socketClients[$this->client]['relayed'] = true;
             UltimaPHP::$socketClients[$this->client]['compressed'] = true;
             UltimaPHP::$socketClients[$this->client]['account']->enableLockedFeatures();
             UltimaPHP::$socketClients[$this->client]['account']->sendCharacterList();
