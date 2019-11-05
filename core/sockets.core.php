@@ -44,8 +44,8 @@ class Sockets {
             $timeout = array('sec' => 0.1, 'usec' => 1000);
             socket_set_option($socket, SOL_SOCKET, SO_RCVTIMEO, $timeout);
 
-            $id = self::$socketsTotal;
             self::$socketsTotal++;
+            $id = self::$socketsTotal;
 
             UltimaPHP::$socketClients[$id]['socket'] = $socket;
             // Create the socket between the client and the server
