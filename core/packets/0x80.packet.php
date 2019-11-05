@@ -75,15 +75,28 @@ class packet_0x80 extends Packets {
         UltimaPHP::$socketClients[$this->client]['account'] = new Account($account, md5($password), $this->client);
 
         if (UltimaPHP::$socketClients[$this->client]['account']->isValid) {
+            // Verify if account is already in use
+            $inUse = false;
+            foreach (UltimaPHP::$socketClients as $client => $socket) {
+                if ($this->client != $client) {
+                    if (isset($socket['account']) && isset($socket['account']->account) && $socket['account']->account == UltimaPHP::$socketClients[$this->client]['account']->account) {
+                        $inUse = true;
+                    }
+                }
+            }
+            if ($inUse) {
+                UltimaPHP::$socketClients[$this->client]['account']->disconnect(1);
+                UltimaPHP::log("Account $account already connected.");
+                return false;
+            }
             UltimaPHP::log("Account $account connected from " . UltimaPHP::$socketClients[$this->client]['ip']);
-
             // Send to the client the server list
             UltimaPHP::$socketClients[$this->client]['account']->sendServerList();
         } elseif (UltimaPHP::$conf['accounts']['auto_create'] == 1){
 				$this->insertAccount($account, md5($password));
 				$this->receive($data);						
 			}else{
-				UltimaPHP::$socketClients[$this->client]['account']->disconnect(3);					
+				UltimaPHP::$socketClients[$this->client]['account']->disconnect(3);
 		}            
         $this->insertClientVersion($account);
 

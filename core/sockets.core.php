@@ -5,13 +5,15 @@
  * Version: 0.1 - Pre Alpha
  */
 class Sockets {
+    static $socketsTotal = 0;
     /**
      * The socket server constructor!
      * This method creates an socket to listen the choosen port to monitor ultima online communication
      */
     public function __construct() {
         // Create a TCP Stream socket
-        if (false == (UltimaPHP::$socketServer = @socket_create(AF_INET, SOCK_STREAM, 0))) {
+        // if (false == (UltimaPHP::$socketServer = @socket_create(AF_INET, SOCK_STREAM, 0))) {
+        if (false == (UltimaPHP::$socketServer = @socket_create(AF_INET, SOCK_STREAM, SOL_TCP))) {
             UltimaPHP::log("Could not start socket listening.", UltimaPHP::LOG_DANGER);
             UltimaPHP::stop();
         }
@@ -29,7 +31,8 @@ class Sockets {
             UltimaPHP::log("Server could not listen on " . UltimaPHP::$conf['server']['ip'] . " at port " . UltimaPHP::$conf['server']['port'], UltimaPHP::LOG_DANGER);
             UltimaPHP::stop();
         }
-        socket_listen(UltimaPHP::$socketServer);
+
+        socket_listen(UltimaPHP::$socketServer, UltimaPHP::$conf['server']['max_players']);
     }
 
     /**
@@ -41,7 +44,8 @@ class Sockets {
             $timeout = array('sec' => 0.1, 'usec' => 1000);
             socket_set_option($socket, SOL_SOCKET, SO_RCVTIMEO, $timeout);
 
-            $id = count(UltimaPHP::$socketClients) + 1;
+            $id = self::$socketsTotal;
+            self::$socketsTotal++;
 
             UltimaPHP::$socketClients[$id]['socket'] = $socket;
             // Create the socket between the client and the server
@@ -95,12 +99,7 @@ class Sockets {
                         }
 
                         // Release the socket from server after send disconnect packet
-                        if (!isset($packet['packet'][0])) {
-                            unset(UltimaPHP::$socketClients[$client]);
-                            continue 2;
-                        }
-
-                        if (dechex(ord($packet['packet'][0])) == 82) {
+                        if (!isset($packet['packet'][0])|| dechex(ord($packet['packet'][0])) == 82) {
                             unset(UltimaPHP::$socketClients[$client]);
                             continue 2;
                         }
@@ -115,11 +114,11 @@ class Sockets {
 
                 if ($buffer) {
                     if ($socket['version'] === null) {
-                        if ($length == 20 && $buffer[0] != 0xEF) {
+                        if ($length == 20 && ($buffer[0] != 0xEF && $buffer[0] != "EF")) {
                             array_unshift($buffer, "EF");
                         }
 
-                        if ($buffer[0] == 0xEF && $length == 21) {
+                        if (($buffer[0] == 0xEF || $buffer[0] == 0xEF) && $length == 21) {
                             UltimaPHP::$socketClients[$client]['LastInput'] = $microtime;
                             self::in($buffer, $client);
                             continue;
@@ -385,4 +384,15 @@ class Sockets {
         return $return;
     }
 
+    public static function removeSerialFromEverybodyView($serial) {
+        foreach (UltimaPHP::$socketClients as $client => $socket) {
+            if (isset(UltimaPHP::$socketClients[$client]['account']) && isset(UltimaPHP::$socketClients[$client]['account']->player)) {
+                if (UltimaPHP::$conf['logs']['debug']) {
+                    UltimaPHP::log("Removing {$serial} from player " . UltimaPHP::$socketClients[$client]['account']->player->serial, UltimaPHP::LOG_WARNING);
+                }
+
+                UltimaPHP::$socketClients[$client]['account']->player->removeObjectFromView($serial);
+            }
+        }
+    }
 }
