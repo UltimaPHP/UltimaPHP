@@ -105,10 +105,6 @@ class Sockets {
                             array_unshift($buffer, "EF");
                         }
 
-                        if ($buffer[0] == 0xEF && $length == 1) {
-                            continue;
-                        }
-
                         if ($buffer[0] == 0xEF && $length == 21) {
                             UltimaPHP::$socketClients[$client]['LastInput'] = $microtime;
                             self::in($buffer, $client);
