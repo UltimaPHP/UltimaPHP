@@ -63,7 +63,7 @@ class Sockets {
             // Socket Killer
             if ($microtime - UltimaPHP::$socketClients[$client]['LastInput'] > UltimaPHP::$conf['server']['socketTimeout']) {
                 if (isset(UltimaPHP::$socketClients[$client]['account'])) {
-                    UltimaPHP::$socketClients[$client]['account']->disconnect(4);
+                    UltimaPHP::$socketClients[$client]['account']->disconnect(RejectionReason::COMMUNICATION_PROBLEM);
                 }
 
                 unset(UltimaPHP::$socketClients[$client]);
@@ -157,7 +157,7 @@ class Sockets {
 
                                 if (hexdec($converted[0]) != 0x80) {
                                     UltimaPHP::log("Client tries to connect using unknow client version.", UltimaPHP::LOG_WARNING);
-                                    UltimaPHP::$socketClients[$client]['account']->disconnect(4);
+                                    UltimaPHP::$socketClients[$client]['account']->disconnect(RejectionReason::COMMUNICATION_PROBLEM);
                                     continue;
                                 }
 

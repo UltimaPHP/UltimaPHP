@@ -40,7 +40,7 @@ class packet_0x91 extends Packets {
             UltimaPHP::$socketClients[$this->client]['account']->enableLockedFeatures();
             UltimaPHP::$socketClients[$this->client]['account']->sendCharacterList();
         } else {
-            UltimaPHP::$socketClients[$this->client]['account']->disconnect(3);
+            UltimaPHP::$socketClients[$this->client]['account']->disconnect(RejectionReason::WRONG_PASSWORD);
         }
 
         return true;
