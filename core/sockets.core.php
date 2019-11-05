@@ -56,6 +56,20 @@ class Sockets {
         }
 
         foreach (UltimaPHP::$socketClients as $client => $socket) {
+            // Socket Killer
+            if ($microtime - UltimaPHP::$socketClients[$client]['LastInput'] > UltimaPHP::$conf['server']['socketTimeout']) {
+                if (isset(UltimaPHP::$socketClients[$client]['account'])) {
+                    UltimaPHP::$socketClients[$client]['account']->disconnect(4);
+                }
+
+                unset(UltimaPHP::$socketClients[$client]);
+
+                if (UltimaPHP::$conf['logs']['debug']) {
+                    UltimaPHP::log("Socket {$client} disconnected.", UltimaPHP::LOG_WARNING);
+                }
+                continue;
+            }
+
             if (isset($socket) && isset($socket['socket']) && null != $socket['socket']) {
                 foreach ($socket['packets'] as $packet_id => $packet) {
                     if ($packet['time'] <= $microtime) {
