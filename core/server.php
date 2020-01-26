@@ -68,8 +68,8 @@ class UltimaPHP {
     static $items              = 0;
     static $npcs               = 0;
 
-    public function __construct($dir, $testMode = false) {
-        self::$basedir = $dir . "/";
+    public function __construct($testMode = false) {
+        self::$basedir = __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR ;
         self::$testMode = $testMode;
     }
 
@@ -153,7 +153,7 @@ class UltimaPHP {
             }
         }
 
-        // Load types
+        // Load AI
         $defFiles   = glob(self::$basedir . "core/AI/*.ai.php");
         $totalFiles = count($defFiles);
         foreach ($defFiles as $fileCount => $file) {
@@ -176,7 +176,7 @@ class UltimaPHP {
         }
 
         // Load scripts
-        $scripts      = Functions::rglob(self::$conf['scripts']['load'] . "*.php");
+        $scripts      = Functions::rglob(self::$basedir . DIRECTORY_SEPARATOR . self::$conf['scripts']['load'] . DIRECTORY_SEPARATOR . "*.php");
         $scriptsTotal = count($scripts);
         foreach ($scripts as $scriptKey => $file) {
             Functions::progressBar($scriptKey + 1, $scriptsTotal, "Loading scripts");

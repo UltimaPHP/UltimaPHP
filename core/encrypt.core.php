@@ -9,7 +9,7 @@ class Encrypt {
     /**
      * Decrypts the packets received from the client on the first connection
      */
-    public static function decryptLoginPacket($data, $version = null) {
+    public static function decryptPacket($data, $version = null) {
         if ($version === null || !is_array($version) || $version['major'] <= 0) {
             return $data;
         }
@@ -34,13 +34,28 @@ class Encrypt {
         return $data;
     }
 
-    public static function gameDecrypt($data, $version = null) {
-        if ($version === null || !is_array($version) || $version['major'] <= 0) {
-            return $data;
-        }
+    /**
+     * Retrive the client key based on the version
+     * Converted from: https://github.com/gokaygurcan/poc/blob/develop/index.js#L79-L98
+     */
+    public static function calculateKeys($major, $minor, $revision, $prototype) {
+        $key1 = ($major << 23) | ($minor << 14) | ($revision << 4);
+        $key1 ^= ($revision * $revision) << 9;
+        $key1 ^= $minor * $minor;
+        $key1 ^= ($minor * 11) << 24;
+        $key1 ^= ($revision * 7) << 19;
+        $key1 ^= 0x2c13a5fd;
 
-        $seed = $version['seed'];
-        $key1 = $version['key1'];
-        $key2 = $version['key2'];
+        $key2 = ($major << 22) | ($revision << 13) | ($minor << 3);
+        $key2 ^= ($revision * $revision * 3) << 10;
+        $key2 ^= $minor * $minor;
+        $key2 ^= ($minor * 13) << 23;
+        $key2 ^= ($revision * 7) << 18;
+        $key2 ^= 0xa31d527f;
+
+        return [
+            $key1,
+            $key2
+        ];
     }
 }

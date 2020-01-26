@@ -336,7 +336,7 @@ class Account {
                 "args"   => 29,
             ), 0.0, true, true);
         } else {
-            $this->disconnect(4);
+            $this->disconnect(RejectionReason::COMMUNICATION_PROBLEM);
         }
     }
 
@@ -355,7 +355,7 @@ class Account {
             $packet->send();
 
         } else {
-            $this->disconnect(4);
+            $this->disconnect(RejectionReason::COMMUNICATION_PROBLEM);
         }
     }
 
@@ -372,7 +372,7 @@ class Account {
      * 6 - The IGR time limit has been met.
      * 7 - General IGR authentication failure.
      */
-    public function disconnect($reason = 4) {
+    public function disconnect($reason = RejectionReason::COMMUNICATION_PROBLEM) {
 
         $packet = new packet_0x82($this->client);
         $packet->setReason(RejectionReason::COMMUNICATION_PROBLEM);

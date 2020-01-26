@@ -906,6 +906,10 @@ class Player {
             return false;
         }
 
+        if (!isset($this->mapRange[$serial])) {
+            return false;
+        }
+
         $packet = "1D";
         $packet .= str_pad($serial, 8, "0", STR_PAD_LEFT);
 

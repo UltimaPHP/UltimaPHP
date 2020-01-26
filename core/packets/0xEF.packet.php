@@ -41,6 +41,7 @@ class packet_0xEF extends Packets {
             return false;
         }
 
+        $keys = Encrypt::calculateKeys($major, $minor, $revision, $prototype);
         UltimaPHP::$socketClients[$this->client]['version'] = [
             'encrypted' => null,
             'seed'      => $seed,
@@ -48,8 +49,8 @@ class packet_0xEF extends Packets {
             'minor'     => $minor,
             'revision'  => $revision,
             'prototype' => $prototype,
-            'key1'      => EncryptionDefs::VERSION[$major . $minor . $revision][0],
-            'key2'      => EncryptionDefs::VERSION[$major . $minor . $revision][1],
+            'key1'      => $keys[0],
+            'key2'      => $keys[1]
         ];
 
         return true;

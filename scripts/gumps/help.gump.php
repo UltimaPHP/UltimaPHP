@@ -55,4 +55,27 @@ class HelpMenuGump extends Gumps {
         $this->addPage(4);
         $this->addHtmlGump(243, 158, 228, 225, 19, 0, "Status server info.");
     }
+
+    public static function callback($client, $buttonId)
+	{
+        
+        switch($buttonId)
+		{									
+            case 1:
+                new SysmessageCommand($client, ["Go To Help Room"]);
+                break;
+            case 2:
+                new SysmessageCommand($client, ["Send Page"]);
+                break;
+            case 3:
+                new SysmessageCommand($client, ["Staffers"]);
+                break;
+            case 4:
+                new SysmessageCommand($client, ["Site"]);
+				break;
+			case 5:
+                new SysmessageCommand($client, ["Forum"]);
+                break;              
+		}
+    }
 }

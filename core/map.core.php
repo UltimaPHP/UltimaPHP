@@ -259,22 +259,25 @@ class Map {
 
             foreach ($objects as $count => $object) {
                 $itemClass = $object['objectName'];
-                $instance  = new $itemClass($object['serial'], $object['id']);
+                
+                if (class_exists($itemClass)) {
+                    $instance  = new $itemClass($object['serial'], $object['id']);
 
-                /* Update last object serial stored on server */
-                if (self::$lastSerial['object'] < $object['id']) {
-                    self::$lastSerial['object'] = $object['id'];
-                }
+                    /* Update last object serial stored on server */
+                    if (self::$lastSerial['object'] < $object['id']) {
+                        self::$lastSerial['object'] = $object['id'];
+                    }
 
-                /* Clear database object before update variables */
-                foreach ($object as $attr => $value) {
-                    $instance->$attr = (in_array($attr, ['serial', 'holder']) && $value !== null ? strtoupper($value) : $value);
-                }
+                    /* Clear database object before update variables */
+                    foreach ($object as $attr => $value) {
+                        $instance->$attr = (in_array($attr, ['serial', 'holder']) && $value !== null ? strtoupper($value) : $value);
+                    }
 
-                if ($instance->holder === null) {
-                    self::addObjectToMap($instance, $instance->position['x'], $instance->position['y'], $instance->position['z'], $instance->position['map']);
-                } else {
-                    self::addHoldedObject($instance);
+                    if ($instance->holder === null) {
+                        self::addObjectToMap($instance, $instance->position['x'], $instance->position['y'], $instance->position['z'], $instance->position['map']);
+                    } else {
+                        self::addHoldedObject($instance);
+                    }
                 }
             }
 
@@ -645,14 +648,14 @@ class Map {
         $info  = self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']][$serial];
 
         switch ($info['type']) {
-        case 'player':
-        case 'mobile':
-        case 'object':
-            return true;
-            break;
-        default:
-            return false;
-            break;
+            case 'player':
+            case 'mobile':
+            case 'object':
+                return true;
+                break;
+            default:
+                return false;
+                break;
         }
     }
 
@@ -675,20 +678,23 @@ class Map {
             }
         }
 
-        $chunk = self::$serialData[$serial];
-        $info  = self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']][$serial];
+        $chunk = (isset(self::$serialData[$serial]) ? self::$serialData[$serial] : self::$serialData[str_pad($serial, 8, "0", STR_PAD_LEFT)]);
+        $info  = (isset(self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']][$serial]) ? self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']][$serial] : self::$chunks[$chunk['map']][$chunk['x']][$chunk['y']][str_pad($serial, 8, "0", STR_PAD_LEFT)]);
 
         switch ($info['type']) {
-        case 'player':
-            return UltimaPHP::$socketClients[$info['client']]['account']->player;
-            break;
-        case 'mobile':
-        case 'object':
-            return $info['instance'];
-            break;
-        default:
-            return false;
-            break;
+            case 'player':
+                if (!isset(UltimaPHP::$socketClients[$info['client']]) || !isset(UltimaPHP::$socketClients[$info['client']]['account']) || !isset(UltimaPHP::$socketClients[$info['client']]['account']->player)) {
+                    return false;
+                }
+                return UltimaPHP::$socketClients[$info['client']]['account']->player;
+                break;
+            case 'mobile':
+            case 'object':
+                return $info['instance'];
+                break;
+            default:
+                return false;
+                break;
         }
     }
 
@@ -810,16 +816,26 @@ class Map {
             return false;
         }
 
-        $chunkData = self::$chunks[$map][$chunk['x']][$chunk['y']];
-
-        if (empty($chunkData)) {
+        if (empty(self::$chunks[$map][$chunk['x']][$chunk['y']])) {
             UltimaPHP::log("Server tryied to update an invalid chunk ({$chunk['x']},{$chunk['y']}) from map {$map}", UltimaPHP::LOG_WARNING);
             return false;
         }
 
         /* Loop trought every player and updates everything in view range */
-        foreach ($chunkData as $serial => $data) {
+        foreach (self::$chunks[$map][$chunk['x']][$chunk['y']] as $serial => $data) {
+            $serial = str_pad($serial, 8, "0", STR_PAD_LEFT);
+
             if ($data['type'] != "player") {
+                continue;
+            }
+
+            if (!isset(UltimaPHP::$socketClients[$data['client']]) || !isset(UltimaPHP::$socketClients[$data['client']]['account']) || !isset(UltimaPHP::$socketClients[$data['client']]['account']->player)) {
+                /* temporary fix to packet mess */
+                unset(self::$chunks[$map][$chunk['x']][$chunk['y']][(int)$serial]);
+                unset(self::$chunks[$map][$chunk['x']][$chunk['y']][$serial]);
+                Sockets::removeSerialFromEverybodyView($serial);
+                Sockets::removeSerialFromEverybodyView((int)$serial);
+                unset(UltimaPHP::$socketClients[$data['client']]);
                 continue;
             }
 
@@ -832,7 +848,9 @@ class Map {
             ];
 
             /* Loop trought every items and mobiles to update on player view */
-            foreach ($chunkData as $serialTest => $dataTest) {
+            foreach (self::$chunks[$map][$chunk['x']][$chunk['y']] as $serialTest => $dataTest) {
+                $serialTest = str_pad($serialTest, 8, "0", STR_PAD_LEFT);
+
                 if ($dataTest['type'] != "player") {
                     if (($dataTest['type'] == "mobile" && $dataTest['instance']->ridable && $dataTest['instance']->riding) || ($actual_player->position['map'] != $dataTest['instance']->position['map']) || (abs($actual_player->position['x'] - $dataTest['instance']->position['x']) > $actual_player->render_range || abs($actual_player->position['y'] - $dataTest['instance']->position['y']) > $actual_player->render_range)) {
                         if (isset($actual_player->mapRange[$serialTest])) {
@@ -849,6 +867,16 @@ class Map {
                         $dataTest['instance']->draw($actual_player->client);
                     }
                 } else {
+                    if (!isset(UltimaPHP::$socketClients[$dataTest['client']]) || !isset(UltimaPHP::$socketClients[$dataTest['client']]['account']) || !isset(UltimaPHP::$socketClients[$dataTest['client']]['account']->player)) {
+                        /* temporary fix to packet mess */
+                        unset(self::$chunks[$map][$chunk['x']][$chunk['y']][(int)$serialTest]);
+                        unset(self::$chunks[$map][$chunk['x']][$chunk['y']][$serialTest]);
+                        Sockets::removeSerialFromEverybodyView($serialTest);
+                        Sockets::removeSerialFromEverybodyView((int)$serialTest);
+                        unset(UltimaPHP::$socketClients[$dataTest['client']]);
+                        continue;
+                    }
+
                     $player        = UltimaPHP::$socketClients[$dataTest['client']]['account']->player;
                     $player_plevel = UltimaPHP::$socketClients[$dataTest['client']]['account']->plevel;
 

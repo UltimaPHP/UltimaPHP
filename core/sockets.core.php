@@ -5,13 +5,15 @@
  * Version: 0.1 - Pre Alpha
  */
 class Sockets {
+    static $socketsTotal = 0;
     /**
      * The socket server constructor!
      * This method creates an socket to listen the choosen port to monitor ultima online communication
      */
     public function __construct() {
         // Create a TCP Stream socket
-        if (false == (UltimaPHP::$socketServer = @socket_create(AF_INET, SOCK_STREAM, 0))) {
+        // if (false == (UltimaPHP::$socketServer = @socket_create(AF_INET, SOCK_STREAM, 0))) {
+        if (false == (UltimaPHP::$socketServer = @socket_create(AF_INET, SOCK_STREAM, SOL_TCP))) {
             UltimaPHP::log("Could not start socket listening.", UltimaPHP::LOG_DANGER);
             UltimaPHP::stop();
         }
@@ -29,7 +31,8 @@ class Sockets {
             UltimaPHP::log("Server could not listen on " . UltimaPHP::$conf['server']['ip'] . " at port " . UltimaPHP::$conf['server']['port'], UltimaPHP::LOG_DANGER);
             UltimaPHP::stop();
         }
-        socket_listen(UltimaPHP::$socketServer);
+
+        socket_listen(UltimaPHP::$socketServer, UltimaPHP::$conf['server']['max_players']);
     }
 
     /**
@@ -41,7 +44,8 @@ class Sockets {
             $timeout = array('sec' => 0.1, 'usec' => 1000);
             socket_set_option($socket, SOL_SOCKET, SO_RCVTIMEO, $timeout);
 
-            $id = count(UltimaPHP::$socketClients) + 1;
+            self::$socketsTotal++;
+            $id = self::$socketsTotal;
 
             UltimaPHP::$socketClients[$id]['socket'] = $socket;
             // Create the socket between the client and the server
@@ -49,7 +53,6 @@ class Sockets {
 
             UltimaPHP::$socketClients[$id]['LastInput'] = $microtime;
             UltimaPHP::$socketClients[$id]['packets'] = [];
-            UltimaPHP::$socketClients[$id]['relayed'] = false;
             UltimaPHP::$socketClients[$id]['compressed'] = false;
             UltimaPHP::$socketClients[$id]['packetLot'] = null;
             UltimaPHP::$socketClients[$id]['version'] = null;
@@ -57,13 +60,27 @@ class Sockets {
         }
 
         foreach (UltimaPHP::$socketClients as $client => $socket) {
+            // Socket Killer
+            if ($microtime - UltimaPHP::$socketClients[$client]['LastInput'] > UltimaPHP::$conf['server']['socketTimeout']) {
+                if (isset(UltimaPHP::$socketClients[$client]['account'])) {
+                    UltimaPHP::$socketClients[$client]['account']->disconnect(RejectionReason::COMMUNICATION_PROBLEM);
+                }
+
+                unset(UltimaPHP::$socketClients[$client]);
+
+                if (UltimaPHP::$conf['logs']['debug']) {
+                    UltimaPHP::log("Socket {$client} disconnected.", UltimaPHP::LOG_WARNING);
+                }
+                continue;
+            }
+
             if (isset($socket) && isset($socket['socket']) && null != $socket['socket']) {
                 foreach ($socket['packets'] as $packet_id => $packet) {
                     if ($packet['time'] <= $microtime) {
                         if (UltimaPHP::$conf['logs']['debug']) {
                             $packetTemp = Functions::strToHex($packet['packet']);
 
-                            if (isset(UltimaPHP::$socketClients[$client]['compressed']) && UltimaPHP::$socketClients[$client]['compressed'] === true) {
+                            if (isset($socket['compressed']) && $socket['compressed'] === true) {
                                 $compression = new Compression();
                                 $decompressed = implode("", $compression->decompress(strtoupper($packetTemp)));
                                 $packet_cmd = strtoupper(substr($decompressed, 0, 2));
@@ -82,12 +99,7 @@ class Sockets {
                         }
 
                         // Release the socket from server after send disconnect packet
-                        if (!isset($packet['packet'][0])) {
-                            unset(UltimaPHP::$socketClients[$client]);
-                            continue 2;
-                        }
-
-                        if (dechex(ord($packet['packet'][0])) == 82) {
+                        if (!isset($packet['packet'][0])|| dechex(ord($packet['packet'][0])) == 82) {
                             unset(UltimaPHP::$socketClients[$client]);
                             continue 2;
                         }
@@ -101,10 +113,16 @@ class Sockets {
                 $length = ($buffer ? count($buffer) : 0);
 
                 if ($buffer) {
-                    if ($socket['version'] === null && $buffer[0] == 0xEF && $length == 21) {
-                        UltimaPHP::$socketClients[$client]['LastInput'] = $microtime;
-                        self::in($buffer, $client);
-                        continue;
+                    if ($socket['version'] === null) {
+                        if ($length == 20 && ($buffer[0] != 0xEF && $buffer[0] != "EF")) {
+                            array_unshift($buffer, "EF");
+                        }
+
+                        if (($buffer[0] == 0xEF || $buffer[0] == 0xEF) && $length == 21) {
+                            UltimaPHP::$socketClients[$client]['LastInput'] = $microtime;
+                            self::in($buffer, $client);
+                            continue;
+                        }
                     }
 
                     if ($length == 69 && hexdec($buffer[4]) == 0x91) {
@@ -119,22 +137,48 @@ class Sockets {
 
                     // If player isn't relayed and not tested for encryption
                     if ($socket['version'] !== null && is_array($socket['version']) && isset($socket['version']['encrypted'])) {
-                        if ($socket['version']['encrypted'] === null && hexdec($buffer[0]) != 0x80 && $length == 62) {
-                            $converted = Encrypt::decryptLoginPacket($buffer, $socket['version']);
+                        if (UltimaPHP::$conf['logs']['debug'] === true) {
+                            echo "Handling encryption\n";
+                            print_r($socket['version']);
+                        }
 
-                            if (hexdec($converted[0]) != 0x80) {
-                                UltimaPHP::log("Client tries to connect using unknow client version.", UltimaPHP::LOG_WARNING);
-                                UltimaPHP::$socketClients[$client]['account']->disconnect(4);
-                                continue;
+                        if ($socket['version']['encrypted'] === null) {
+                            if ($buffer[0] == 0x80 || $buffer[0] == "80") {
+                                UltimaPHP::log("Client tries to connect using know unecrypted client version.", UltimaPHP::LOG_WARNING);
+                                UltimaPHP::$socketClients[$client]['version']['encrypted'] = false;
+                            } else {
+                                $converted = Encrypt::decryptPacket($buffer, $socket['version']);
+
+                                if (UltimaPHP::$conf['logs']['debug'] === true) {
+                                    echo "converted 1:\n\n";
+                                    echo "Buffer:" . implode("", $buffer) . "\n";
+                                    echo "Decrypted:" . implode("", $converted) . "\n";
+                                }
+
+                                if (hexdec($converted[0]) != 0x80) {
+                                    UltimaPHP::log("Client tries to connect using unknow client version.", UltimaPHP::LOG_WARNING);
+                                    UltimaPHP::$socketClients[$client]['account']->disconnect(RejectionReason::COMMUNICATION_PROBLEM);
+                                    continue;
+                                }
+
+                                $buffer = $converted;
+                                UltimaPHP::$socketClients[$client]['version']['encrypted'] = true;
                             }
-
-                            $buffer = $converted;
-                            $length = count($buffer);
-                            UltimaPHP::$socketClients[$client]['version']['encrypted'] = true;
                         }
 
                         if ($socket['version']['encrypted'] === null && hexdec($buffer[0]) == 0x80) {
                             UltimaPHP::$socketClients[$client]['version']['encrypted'] = false;
+                        }
+                    }
+
+                    if (isset($socket['version']) && isset($socket['version']['encrypted']) && $socket['version']['encrypted'] === true) {
+                        if (UltimaPHP::$conf['logs']['debug'] === true) {
+                            echo "converted 2:\n\n";
+                            echo "Buffer:" . implode("", $buffer) . "\n";
+                        }
+                        $buffer = Encrypt::decryptPacket($buffer, $socket['version']);
+                        if (UltimaPHP::$conf['logs']['debug'] === true) {
+                            echo "Decrypted:" . implode("", $buffer) . "\n";
                         }
                     }
 
@@ -319,13 +363,15 @@ class Sockets {
                 }
             } elseif (-1 == $expectedLength) {
                 // The packet have the information of lenth
-                $length = hexdec($inputArray[1] . $inputArray[2]);
+                if (isset($inputArray[1]) && isset($inputArray[2])) {
+                    $length = hexdec($inputArray[1] . $inputArray[2]);
 
-                $return[] = array_slice($inputArray, 0, $length);
-                $next = self::validatePacket(array_slice($inputArray, $length));
-                if (false !== $next) {
-                    foreach ($next as $key => $value) {
-                        $return[] = $value;
+                    $return[] = array_slice($inputArray, 0, $length);
+                    $next = self::validatePacket(array_slice($inputArray, $length));
+                    if (false !== $next) {
+                        foreach ($next as $key => $value) {
+                            $return[] = $value;
+                        }
                     }
                 }
             } elseif (false === $expectedLength) {
@@ -338,4 +384,15 @@ class Sockets {
         return $return;
     }
 
+    public static function removeSerialFromEverybodyView($serial) {
+        foreach (UltimaPHP::$socketClients as $client => $socket) {
+            if (isset(UltimaPHP::$socketClients[$client]['account']) && isset(UltimaPHP::$socketClients[$client]['account']->player)) {
+                if (UltimaPHP::$conf['logs']['debug']) {
+                    UltimaPHP::log("Removing {$serial} from player " . UltimaPHP::$socketClients[$client]['account']->player->serial, UltimaPHP::LOG_WARNING);
+                }
+
+                UltimaPHP::$socketClients[$client]['account']->player->removeObjectFromView($serial);
+            }
+        }
+    }
 }
