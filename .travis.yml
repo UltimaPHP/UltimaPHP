@@ -11,4 +11,4 @@ env:
     - COMMIT=${TRAVIS_COMMIT::8}
 
 script:
-  - docker-compose up
+  - docker-compose up -e CI_BUILD=true
