@@ -16,8 +16,8 @@ RUN ggID='1SsMQsIq_EhAbofKECYXkiKzSM0D63YE-' \
 
 WORKDIR /ultimaphp
 COPY . ./
-RUN mkdir -p UOLocation
-RUN unzip -o /tmp/Muls.zip -d ./UOLocation
+RUN mkdir -p /UOLocation
+RUN unzip -o /tmp/Muls.zip -d /UOLocation
 RUN rm -rf /tmp/Muls.zip
 
 # RUN DOCKER_IP=$(awk 'END{print $1}' /etc/hosts); sed -i -- "s/ip=127.0.0.1/ip=${DOCKER_IP}/g" ultimaphp.ini

@@ -1,18 +1,16 @@
 version: '3.1'
-
 services:
-
   uphp-server:
     build: ./
     ports:
-      - "2593:2593"
+      - '2593:2593'
+    volumes:
+    - ./ /ultimaphp
 
   mongo:
     image: mongo
     ports:
-      - "27017:27017"
-    # volumes:
-      # - ./data/local:/var/lib/data
+      - '27017:27017'
 
   mongo-seed:
     build:
