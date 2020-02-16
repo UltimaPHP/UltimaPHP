@@ -388,17 +388,17 @@ class UltimaPHP {
 
         case self::STATUS_DATABASE_CONNECTING:
             $message = "Trying to connect to the database";
-            $type    = SELF::LOG_NORMAL;
+            $type    = self::LOG_NORMAL;
             break;
 
         case self::STATUS_DATABASE_CONNECTED:
             $message = "Database connected successfully";
-            $type    = SELF::LOG_NORMAL;
+            $type    = self::LOG_NORMAL;
             break;
 
         case self::STATUS_DATABASE_CONNECTION_FAILED:
             $message  = "Server could not connect to the database with error: " . $args[0];
-            $type     = SELF::LOG_DANGER;
+            $type     = self::LOG_DANGER;
             $shutdown = true;
             break;
 
