@@ -243,5 +243,6 @@ abstract class PacketsDefs {
         0xF3 => 24,
         0xF5 => 21,
         0xF8 => 106,
+        0xFA => 1,
     ];
 }

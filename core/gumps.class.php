@@ -151,6 +151,13 @@ class Gumps {
         $this->layout .= "{text $x $y $color $textId}";
     }
 
+    public function addLabelCropped($x, $y, $width, $height, $color, $text) {
+        $this->text[] = $text;
+        $textId       = count($this->text) - 1;
+
+        $this->layout .= "{croppedtext $x $y $width $height $color $textId}";
+    }
+
     public function addGumpPic($x, $y, $gump, $color = false) {
         if (!$color) {
             $this->layout .= "{gumppic $x $y $gump}";
@@ -205,17 +212,28 @@ class Gumps {
         $this->layout .= "{htmlgump $x $y $info_1 $info_2 $textId $info_4 $info_5}";
     }
 
-    public function addXmfHtmlGump($x, $y, $info_1, $info_2, $info_4, $info_5, $text) {
-        $this->text[] = $text;
-        $textId       = count($this->text) - 1;
-
-        $this->layout .= "{xmfhtmlgump $x $y $info_1 $info_2 $textId $info_4 $info_5 $info_6}";
+    public function addXmfHtmlGump($x, $y, $width, $height, $number, $background, $scrollbar) {
+        $this->layout .= "{xmfhtmlgump $x $y $width $height $number $background $scrollbar}";
     }
+
+    public function addXmfHtmlGumpColor($x, $y, $width, $height, $number, $color, $background, $scrollbar) {
+        $this->layout .= "{xmfhtmlgumpcolor $x $y $width $height $number $background $scrollbar $color}";
+    }
+
+    public function addXmfHtmlTok($x, $y, $width, $height, $args, $number, $color, $background, $scrollbar) {
+        $this->layout .= "{xmfhtmltok $x $y $width $height $background $scrollbar $color $number $args}";
+    }
+    
 
     public function addPage($page_id = 0) {
         if ($page_id == 0) {
             return true;
         }
         $this->layout .= "{page $page_id}";
+    }
+
+    public function addECHandleInput() {
+        
+        $this->layout .= "{ echandleinput }";
     }
 }

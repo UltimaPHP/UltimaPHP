@@ -131,6 +131,17 @@ class UltimaPHP {
             }
         }
 
+        // Load Systems
+        $sysFiles = glob(self::$basedir . "core/systems/uostore/*.sys.php");
+        $totalFiles = count($sysFiles);
+        foreach ($sysFiles as $fileCount => $file) {
+            Functions::progressBar($fileCount + 1, $totalFiles, "Loading systems");
+            if (!require_once ($file)) {
+                self::setStatus(self::STATUS_FILE_READ_FAIL, [$file]);
+                self::stop();
+            }
+        }
+
         // Load definitions
         $defFiles   = glob(self::$basedir . "core/defs/*.def.php");
         $totalFiles = count($defFiles);
