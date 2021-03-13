@@ -97,7 +97,7 @@ class Functions {
 
     public static function hexToChr($data, $from = null, $to = null, $explodeOnChr = false) {
         if (is_array($data)) {
-            $hex = self::implodeByte($data, $from, $to);
+            $hex = self::implodeByte($from, $to, $data);
         } else {
             $hex = $data;
         }
@@ -115,7 +115,7 @@ class Functions {
         return $string;
     }
 
-    public static function implodeByte($byteArray = array(), $from, $to) {
+    public static function implodeByte($from, $to, $byteArray = array()) {
         $ret = "";
         $err = false;
         for ($i = $from; $i <= $to; $i++) {

@@ -26,8 +26,8 @@ class packet_0x98 extends Packets {
         }
 
         $command = $data[0];
-        $size    = hexdec(Functions::implodeByte($data, 1, 2));
-        $serial  = Functions::implodeByte($data, 3, 6);
+        $size    = hexdec(Functions::implodeByte(1, 2, $data));
+        $serial  = Functions::implodeByte(3, 6, $data);
 
         if (Functions::isChar($serial) || Functions::isMobile($serial)) {
             UltimaPHP::$socketClients[$this->client]['account']->player->sendCharName($serial);
