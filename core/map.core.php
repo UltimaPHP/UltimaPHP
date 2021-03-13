@@ -732,7 +732,7 @@ class Map {
     /**
      * Send the text message to the NPC's and mobile around player as hearing action
      */
-    public static function sendHearMessage($text = null, $client) {
+    public static function sendHearMessage($client, $text = null) {
         if ($text === null) {
             return false;
         }
