@@ -111,7 +111,7 @@ class TypeContainer extends UObject {
     }
 
     public function addItemToOpenedContainer(UObject $instance, $client = false) {
-        $packet = new packet_0x25($client, $instance);
+        $packet = new packet_0x25($instance, $client);
         $packet->send();
     }
 
