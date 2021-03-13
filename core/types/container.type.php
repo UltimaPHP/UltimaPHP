@@ -36,7 +36,7 @@ class TypeContainer extends UObject {
         return $this->open($client);
     }
 
-    public function addItem($client = false, UObject $UObject, $position = false, $noUpdate = false) {
+    public function addItem(UObject $UObject, $client = false, $position = false, $noUpdate = false) {
         if (!$UObject || !$client) {
             return false;
         }
