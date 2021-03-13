@@ -71,7 +71,7 @@ class TypeContainer extends UObject {
         }
 
         if (!$noUpdate) {
-            $this->addItemToOpenedContainer($client, $UObject);
+            $this->addItemToOpenedContainer($UObject, $client);
             // $this->renderItems($client);
         }
 
@@ -110,7 +110,7 @@ class TypeContainer extends UObject {
         return true;
     }
 
-    public function addItemToOpenedContainer($client = false, UObject $instance) {
+    public function addItemToOpenedContainer(UObject $instance, $client = false) {
         $packet = new packet_0x25($client, $instance);
         $packet->send();
     }
