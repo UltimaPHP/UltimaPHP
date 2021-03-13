@@ -701,7 +701,7 @@ class Map {
     /**
      * Send desired packet to a range of players around the client
      */
-    public static function sendPacketRange($packet = null, $client) {
+    public static function sendPacketRange($client, $packet = null) {
         if ($packet === null) {
             return false;
         }

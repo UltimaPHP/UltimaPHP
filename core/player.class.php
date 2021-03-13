@@ -1154,7 +1154,7 @@ class Player {
             $packet .= $tmpPacket;
             $packet .= "0000";
 
-            Map::sendPacketRange($packet, $this->client);
+            Map::sendPacketRange($this->client, $packet);
             Map::sendHearMessage($this->client, $text);
         }
         Sockets::out($this->client, $packet, false);
