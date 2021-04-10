@@ -5,4 +5,4 @@
 #
 # Line endings under PSR-12 standard:
 # https://www.php-fig.org/psr/psr-12/#22-files
-*.php text=auto
+* text=auto
