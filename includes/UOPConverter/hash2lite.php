@@ -13,18 +13,18 @@ function hashLittle2($inStr) {
     //roll through inStr one byte at a time until length is less than 13
     $i = 0; // Use increase $i to push to next byte
     while ($length > 12) {
-        $a += ord($inStr{$i});
-        $a += ord($inStr{$i + 1}) << 8;
-        $a += ord($inStr{$i + 2}) << 16;
-        $a += ord($inStr{$i + 3}) << 24;
-        $b += ord($inStr{$i + 4});
-        $b += ord($inStr{$i + 5}) << 8;
-        $b += ord($inStr{$i + 6}) << 16;
-        $b += ord($inStr{$i + 7}) << 24;
-        $c += ord($inStr{$i + 8});
-        $c += ord($inStr{$i + 9}) << 8;
-        $c += ord($inStr{$i + 10}) << 16;
-        $c += ord($inStr{$i + 11}) << 24;
+        $a += ord($inStr[$i]);
+        $a += ord($inStr[$i + 1]) << 8;
+        $a += ord($inStr[$i + 2]) << 16;
+        $a += ord($inStr[$i + 3]) << 24;
+        $b += ord($inStr[$i + 4]);
+        $b += ord($inStr[$i + 5]) << 8;
+        $b += ord($inStr[$i + 6]) << 16;
+        $b += ord($inStr[$i + 7]) << 24;
+        $c += ord($inStr[$i + 8]);
+        $c += ord($inStr[$i + 9]) << 8;
+        $c += ord($inStr[$i + 10]) << 16;
+        $c += ord($inStr[$i + 11]) << 24;
 
         $a = castUInt($a);
         $b = castUInt($b);
@@ -77,22 +77,22 @@ function hashLittle2($inStr) {
     if ($length != 0) {
         switch ($length) {
             // add each remaining byte according to length left
-            case 12:$c += ord($inStr{$i + 11}) << 24;
-            case 11:$c += ord($inStr{$i + 10}) << 16;
-            case 10:$c += ord($inStr{$i + 9}) << 8;
-            case 9:$c += ord($inStr{$i + 8});
+            case 12:$c += ord($inStr[$i + 11]) << 24;
+            case 11:$c += ord($inStr[$i + 10]) << 16;
+            case 10:$c += ord($inStr[$i + 9]) << 8;
+            case 9:$c += ord($inStr[$i + 8]);
                 $c = castUInt($c);
 
-            case 8:$b += ord($inStr{$i + 7}) << 24;
-            case 7:$b += ord($inStr{$i + 6}) << 16;
-            case 6:$b += ord($inStr{$i + 5}) << 8;
-            case 5:$b += ord($inStr{$i + 4});
+            case 8:$b += ord($inStr[$i + 7]) << 24;
+            case 7:$b += ord($inStr[$i + 6]) << 16;
+            case 6:$b += ord($inStr[$i + 5]) << 8;
+            case 5:$b += ord($inStr[$i + 4]);
                 $b = castUInt($b);
 
-            case 4:$a += ord($inStr{$i + 3}) << 24;
-            case 3:$a += ord($inStr{$i + 2}) << 16;
-            case 2:$a += ord($inStr{$i + 1}) << 8;
-            case 1:$a += ord($inStr{$i});
+            case 4:$a += ord($inStr[$i + 3]) << 24;
+            case 3:$a += ord($inStr[$i + 2]) << 16;
+            case 2:$a += ord($inStr[$i + 1]) << 8;
+            case 1:$a += ord($inStr[$i]);
                 $a = castUInt($a);
 
                 break;

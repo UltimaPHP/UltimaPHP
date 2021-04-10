@@ -26,12 +26,12 @@ class packet_0x08 extends Packets {
         }
 
         $command          = $data[0];
-        $item_serial      = Functions::implodeByte($data, 1, 4);
-        $x                = hexdec(Functions::implodeByte($data, 5, 6));
-        $y                = hexdec(Functions::implodeByte($data, 7, 8));
+        $item_serial      = Functions::implodeByte(1, 4, $data);
+        $x                = hexdec(Functions::implodeByte(5, 6, $data));
+        $y                = hexdec(Functions::implodeByte(7, 8, $data));
         $z                = hexdec(Functions::fromChar8($data[9]));
         $grid_location    = $data[10];
-        $conatiner_serial = Functions::implodeByte($data, 11, 14);
+        $conatiner_serial = Functions::implodeByte(11, 14, $data);
         return UltimaPHP::$socketClients[$this->client]['account']->player->dropItem($item_serial, ['x' => $x, 'y' => $y, 'z' => $z], $grid_location, $conatiner_serial);
     }
 }

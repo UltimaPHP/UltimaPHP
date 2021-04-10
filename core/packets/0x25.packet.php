@@ -20,7 +20,7 @@ class packet_0x25 extends Packets {
     /**
      * Defines the packet, the length and if there is a client send
      */
-    public function __construct($client = false, Object $instance) {
+    public function __construct(UObject $instance, $client = false) {
         $this->setPacket(0x25);
 
         if ($client) {

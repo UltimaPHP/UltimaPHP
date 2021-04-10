@@ -28,7 +28,7 @@ class packet_0x34 extends Packets {
         $command = $data[0];
         $unknow  = $data[1] . $data[2] . $data[3] . $data[4];
         $type    = $data[5];
-        $serial  = Functions::implodeByte($data, 6, 9);
+        $serial  = Functions::implodeByte(6, 9, $data);
         switch ($type) {
             case 0x00:
                 // God client ???

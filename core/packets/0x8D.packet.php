@@ -21,11 +21,11 @@
             return false;
         }
          $command     = $data[0];
-        $size        = hexdec(Functions::implodeByte($data, 1, 2));
-        $unknown1    = hexdec(Functions::implodeByte($data, 3, 6));
-        $charSlot    = hexdec(Functions::implodeByte($data, 7, 10));
-        $charName    = Functions::readUnicodeStringSafe(str_split(Functions::implodeByte($data, 11, 40), 2));
-        $charUnknown = Functions::readUnicodeStringSafe(str_split(Functions::implodeByte($data, 41, 70), 2));
+        $size        = hexdec(Functions::implodeByte(1, 2, $data));
+        $unknown1    = hexdec(Functions::implodeByte(3, 6, $data));
+        $charSlot    = hexdec(Functions::implodeByte(7, 10, $data));
+        $charName    = Functions::readUnicodeStringSafe(str_split(Functions::implodeByte(11, 40, $data), 2));
+        $charUnknown = Functions::readUnicodeStringSafe(str_split(Functions::implodeByte(41, 70, $data), 2));
         $profession  = hexdec($data[71]);
         $cityIndex   = hexdec($data[72]);
         $gender      = hexdec($data[73]);
@@ -33,9 +33,9 @@
         $str         = hexdec($data[75]);
         $dex         = hexdec($data[76]);
         $int         = hexdec($data[77]);
-        $skinColor   = hexdec(Functions::implodeByte($data, 78, 79));
-        $unknown2    = hexdec(Functions::implodeByte($data, 80, 83));
-        $unknown3    = hexdec(Functions::implodeByte($data, 84, 87));
+        $skinColor   = hexdec(Functions::implodeByte(78, 79, $data));
+        $unknown2    = hexdec(Functions::implodeByte(80, 83, $data));
+        $unknown3    = hexdec(Functions::implodeByte(84, 87, $data));
         $skillid1    = hexdec($data[88]);
         $skillvalue1 = hexdec($data[89]);
         $skillid2    = hexdec($data[90]);
@@ -44,21 +44,21 @@
         $skillvalue3 = hexdec($data[93]);
         $skillid4    = hexdec($data[94]);
         $skillvalue4 = hexdec($data[95]);
-        $unknown4    = hexdec(Functions::implodeByte($data, 96, 120));
+        $unknown4    = hexdec(Functions::implodeByte(96, 120, $data));
         $unknown5    = hexdec($data[121]);
-        $hairColor   = hexdec(Functions::implodeByte($data, 122, 123));
-        $hairStyle   = hexdec(Functions::implodeByte($data, 124, 125));
+        $hairColor   = hexdec(Functions::implodeByte(122, 123, $data));
+        $hairStyle   = hexdec(Functions::implodeByte(124, 125, $data));
         $unknown6    = hexdec($data[126]);    
-        $unknown7    = hexdec(Functions::implodeByte($data, 127, 130));            
+        $unknown7    = hexdec(Functions::implodeByte(127, 130, $data));
         $unknown8    = hexdec($data[131]);
-        $shirtColor  = hexdec(Functions::implodeByte($data, 132, 133));
-        $shirtItemId = hexdec(Functions::implodeByte($data, 134, 135));
+        $shirtColor  = hexdec(Functions::implodeByte(132, 133, $data));
+        $shirtItemId = hexdec(Functions::implodeByte(134, 135, $data));
         $unknown9    = hexdec($data[136]);
-        $faceColor   = hexdec(Functions::implodeByte($data, 137, 138));
-        $faceId      = hexdec(Functions::implodeByte($data, 139, 140));
+        $faceColor   = hexdec(Functions::implodeByte(137, 138, $data));
+        $faceId      = hexdec(Functions::implodeByte(139, 140, $data));
         $unknown10   = hexdec($data[141]);
-        $beardColor  = hexdec(Functions::implodeByte($data, 142, 143));
-        $beardStyle  = hexdec(Functions::implodeByte($data, 144, 145));
+        $beardColor  = hexdec(Functions::implodeByte(142, 143, $data));
+        $beardStyle  = hexdec(Functions::implodeByte(144, 145, $data));
          switch ($profession) {
 	        case 1: // Warrior
 	            $skillid1        = skillsDefs::SKILL_SWORDSMANSHIP;

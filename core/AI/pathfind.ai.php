@@ -105,13 +105,13 @@ class FlowPath {
 
     public function canGoTo($from = [], $direction = 0, $checkFlow = false, $step = null) {
         if (!$checkFlow) {
-            if ($this->getNodeFrom($from, $direction) === FlowPath::TYPE_WALL) {
+            if ($this->getNodeFrom($direction, $from) === FlowPath::TYPE_WALL) {
                 return false;
             }
             return true;
         }
 
-        $stepT = $this->getFlowNodeFrom($from, $direction);
+        $stepT = $this->getFlowNodeFrom($direction, $from);
 
         if ($stepT != $step) {
             return false;
@@ -320,7 +320,7 @@ class FlowPath {
         }
 
         $dir  = $this->getDirection($from, $this->destination, true, $steps);
-        $next = $this->getFlowNodeFrom($from, $dir);
+        $next = $this->getFlowNodeFrom($dir, $from);
 
         if ($next == $steps) {
             $nDir = $this->getNodeDir($from, $dir);
@@ -422,7 +422,7 @@ class FlowPath {
         }
     }
 
-    public function getNodeFrom($from = [], $direction) {
+    public function getNodeFrom($direction, $from = []) {
         switch ($direction) {
             case self::DIR_NORTH:
                 if (!isset($this->map[($from[1] - 1)]) || !isset($this->map[($from[1] - 1)][($from[0])])) {
@@ -509,18 +509,18 @@ class FlowPath {
 
     public function getAroundNodes($from = []) {
         return [
-            self::DIR_NORTH     => [0 => ($from[0]), 1 => ($from[1] - 1), 3 => $this->getNodeFrom($from, self::DIR_NORTH)],
-            self::DIR_NORTHEAST => [0 => ($from[0] + 1), 1 => ($from[1] - 1), 3 => $this->getNodeFrom($from, self::DIR_NORTHEAST)],
-            self::DIR_EAST      => [0 => ($from[0] + 1), 1 => ($from[1]), 3 => $this->getNodeFrom($from, self::DIR_EAST)],
-            self::DIR_SOUTHEAST => [0 => ($from[0] + 1), 1 => ($from[1] + 1), 3 => $this->getNodeFrom($from, self::DIR_SOUTHEAST)],
-            self::DIR_SOUTH     => [0 => ($from[0]), 1 => ($from[1] + 1), 3 => $this->getNodeFrom($from, self::DIR_SOUTH)],
-            self::DIR_SOUTHWEST => [0 => ($from[0] - 1), 1 => ($from[1] + 1), 3 => $this->getNodeFrom($from, self::DIR_SOUTHWEST)],
-            self::DIR_WEST      => [0 => ($from[0] - 1), 1 => ($from[1]), 3 => $this->getNodeFrom($from, self::DIR_WEST)],
-            self::DIR_NORTHWEST => [0 => ($from[0] - 1), 1 => ($from[1] - 1), 3 => $this->getNodeFrom($from, self::DIR_NORTHWEST)],
+            self::DIR_NORTH     => [0 => ($from[0]), 1 => ($from[1] - 1), 3 => $this->getNodeFrom(self::DIR_NORTH, $from)],
+            self::DIR_NORTHEAST => [0 => ($from[0] + 1), 1 => ($from[1] - 1), 3 => $this->getNodeFrom(self::DIR_NORTHEAST), $from],
+            self::DIR_EAST      => [0 => ($from[0] + 1), 1 => ($from[1]), 3 => $this->getNodeFrom(self::DIR_EAST), $from],
+            self::DIR_SOUTHEAST => [0 => ($from[0] + 1), 1 => ($from[1] + 1), 3 => $this->getNodeFrom( self::DIR_SOUTHEAST), $from],
+            self::DIR_SOUTH     => [0 => ($from[0]), 1 => ($from[1] + 1), 3 => $this->getNodeFrom(self::DIR_SOUTH), $from],
+            self::DIR_SOUTHWEST => [0 => ($from[0] - 1), 1 => ($from[1] + 1), 3 => $this->getNodeFrom(self::DIR_SOUTHWEST), $from],
+            self::DIR_WEST      => [0 => ($from[0] - 1), 1 => ($from[1]), 3 => $this->getNodeFrom(self::DIR_WEST), $from],
+            self::DIR_NORTHWEST => [0 => ($from[0] - 1), 1 => ($from[1] - 1), 3 => $this->getNodeFrom(self::DIR_NORTHWEST), $from],
         ];
     }
 
-    public function getFlowNodeFrom($from = [], $direction) {
+    public function getFlowNodeFrom($direction, $from = []) {
         switch ($direction) {
             case self::DIR_NORTH:
                 return (isset($this->mapFlow[($from[1] - 1)][($from[0])]) ? $this->mapFlow[($from[1] - 1)][($from[0])] : -1);
@@ -608,14 +608,14 @@ class FlowPath {
 
     public function getAroundFlowNodes($from = []) {
         $ret = [
-            self::DIR_NORTH     => [0 => ($from[0]), 1 => ($from[1] - 1), 3 => $this->getFlowNodeFrom($from, self::DIR_NORTH)],
-            self::DIR_NORTHEAST => [0 => ($from[0] + 1), 1 => ($from[1] - 1), 3 => $this->getFlowNodeFrom($from, self::DIR_NORTHEAST)],
-            self::DIR_EAST      => [0 => ($from[0] + 1), 1 => ($from[1]), 3 => $this->getFlowNodeFrom($from, self::DIR_EAST)],
-            self::DIR_SOUTHEAST => [0 => ($from[0] + 1), 1 => ($from[1] + 1), 3 => $this->getFlowNodeFrom($from, self::DIR_SOUTHEAST)],
-            self::DIR_SOUTH     => [0 => ($from[0]), 1 => ($from[1] + 1), 3 => $this->getFlowNodeFrom($from, self::DIR_SOUTH)],
-            self::DIR_SOUTHWEST => [0 => ($from[0] - 1), 1 => ($from[1] + 1), 3 => $this->getFlowNodeFrom($from, self::DIR_SOUTHWEST)],
-            self::DIR_WEST      => [0 => ($from[0] - 1), 1 => ($from[1]), 3 => $this->getFlowNodeFrom($from, self::DIR_WEST)],
-            self::DIR_NORTHWEST => [0 => ($from[0] - 1), 1 => ($from[1] - 1), 3 => $this->getFlowNodeFrom($from, self::DIR_NORTHWEST)],
+            self::DIR_NORTH     => [0 => ($from[0]), 1 => ($from[1] - 1), 3 => $this->getFlowNodeFrom(self::DIR_NORTH, $from)],
+            self::DIR_NORTHEAST => [0 => ($from[0] + 1), 1 => ($from[1] - 1), 3 => $this->getFlowNodeFrom(self::DIR_NORTHEAST, $from)],
+            self::DIR_EAST      => [0 => ($from[0] + 1), 1 => ($from[1]), 3 => $this->getFlowNodeFrom(self::DIR_EAST, $from)],
+            self::DIR_SOUTHEAST => [0 => ($from[0] + 1), 1 => ($from[1] + 1), 3 => $this->getFlowNodeFrom(self::DIR_SOUTHEAST, $from)],
+            self::DIR_SOUTH     => [0 => ($from[0]), 1 => ($from[1] + 1), 3 => $this->getFlowNodeFrom(self::DIR_SOUTH, $from)],
+            self::DIR_SOUTHWEST => [0 => ($from[0] - 1), 1 => ($from[1] + 1), 3 => $this->getFlowNodeFrom(self::DIR_SOUTHWEST, $from)],
+            self::DIR_WEST      => [0 => ($from[0] - 1), 1 => ($from[1]), 3 => $this->getFlowNodeFrom(self::DIR_WEST, $from)],
+            self::DIR_NORTHWEST => [0 => ($from[0] - 1), 1 => ($from[1] - 1), 3 => $this->getFlowNodeFrom(self::DIR_NORTHWEST, $from)],
         ];
 
         foreach ($ret as $nk => $node) {

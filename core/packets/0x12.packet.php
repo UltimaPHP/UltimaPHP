@@ -26,7 +26,7 @@ class packet_0x12 extends Packets {
         }
 
         $command = $data[0];
-        $size    = hexdec(Functions::implodeByte($data, 1, 2));
+        $size    = hexdec(Functions::implodeByte(1, 2, $data));
         $type    = $data[3];
         $args    = Functions::hexToChr($data, 4, ($size - 1));
         $unknown = 0x00;

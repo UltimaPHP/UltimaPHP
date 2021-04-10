@@ -456,7 +456,7 @@ class Player {
 
             $instance->holder = $playerBackpack->serial;
 
-            $playerBackpack->addItem($this->client, $instance, ['x' => rand(1, 127), 'y' => rand(1, 127), 'z' => 0, 'map' => null]);
+            $playerBackpack->addItem($instance, $this->client, ['x' => rand(1, 127), 'y' => rand(1, 127), 'z' => 0, 'map' => null]);
 
             return $this->dropAccept();
         }
@@ -589,7 +589,7 @@ class Player {
             $layerInstance = Map::getBySerial($this->layers[$instance->layer]);
             UltimaPHP::$socketClients[$this->client]['account']->player->layers[$instance->layer] = null;
 
-            $playerBackpack->addItem($this->client, $layerInstance, ['x' => rand(1, 127), 'y' => rand(1, 127), 'z' => 0, 'map' => null]);
+            $playerBackpack->addItem($layerInstance, $this->client, ['x' => rand(1, 127), 'y' => rand(1, 127), 'z' => 0, 'map' => null]);
         }
 
         $this->layers[$instance->layer] = $instance->serial;
@@ -1154,8 +1154,8 @@ class Player {
             $packet .= $tmpPacket;
             $packet .= "0000";
 
-            Map::sendPacketRange($packet, $this->client);
-            Map::sendHearMessage($text, $this->client);
+            Map::sendPacketRange($this->client, $packet);
+            Map::sendHearMessage($this->client, $text);
         }
         Sockets::out($this->client, $packet, false);
     }
