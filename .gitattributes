@@ -1,0 +1,8 @@
+# Set the default behavior for line-endings, in case people don't have core.autocrlf set.
+#
+# Detailed explanation:
+# https://docs.github.com/en/github/getting-started-with-github/configuring-git-to-handle-line-endings#per-repository-settings
+#
+# Line endings under PSR-12 standard:
+# https://www.php-fig.org/psr/psr-12/#22-files
+*.php text=auto
