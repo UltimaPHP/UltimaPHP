@@ -113,15 +113,18 @@ class Sockets {
                 $length = ($buffer ? count($buffer) : 0);
 
                 if ($buffer) {
+                    /**
+                     * 0xEF - First socket connection packet fix
+                     */
                     if ($socket['version'] === null) {
-                        if ($length == 20 && ($buffer[0] != 0xEF && $buffer[0] != "EF")) {
-                            array_unshift($buffer, "EF");
+                        // Single 0xEF packet receiving skipping
+                        if ($buffer[0] == "EF" && $length == 1) {
+                            continue;
                         }
 
-                        if (($buffer[0] == 0xEF || $buffer[0] == 0xEF) && $length == 21) {
-                            UltimaPHP::$socketClients[$client]['LastInput'] = $microtime;
-                            self::in($buffer, $client);
-                            continue;
+                        // When the second bytestrem received, adds the 0xEF to the packet start
+                        if (($length == 20 && ($buffer[0] != 0xEF && $buffer[0] != "EF")) ||  $length == 82){
+                            array_unshift($buffer, "EF");
                         }
                     }
 

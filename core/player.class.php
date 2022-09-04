@@ -1215,7 +1215,7 @@ class Player {
             $packet .= str_pad(dechex($this->damage_min), 4, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex($this->damage_max), 4, "0", STR_PAD_LEFT);
             $packet .= "00000000";
-            Sockets::out($this->client, $packet, $runInLot[0]);
+            Sockets::out($this->client, $packet, $runInLot);
         }
     }
 

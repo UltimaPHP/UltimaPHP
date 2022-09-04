@@ -33,34 +33,31 @@ class packet_0xA9 extends Packets {
             return false;
         }
 
-        $this->addInt8($this->charCount);           
+        $this->addInt8($this->charCount);
 
-        for($i=0;$i<$this->charCount;$i++)
-        {            
+        for ($i = 0; $i < $this->charCount; $i++) {
             if ($i < count($this->chars)) {
-                $this->addText($this->chars[$i]['name'], 30);              
+                $this->addText($this->chars[$i]['name'], 30);
                 $this->addText("", 30);
             } else {
                 $this->addText("", 60);
             }
         }
 
-        $this->addInt8(dechex($this->citiesCount));        
+        $this->addInt8($this->citiesCount);
 
-        foreach ($this->cities as $key => $location) 
-        {
-            $this->addInt8(dechex($key+1));        
+        foreach ($this->cities as $key => $location) {
+            $this->addInt8($key);
             $this->addText($location['name'], 32);
             $this->addText($location['area'], 32);
-            $this->addInt32(dechex($location['position']['x']));
-            $this->addInt32(dechex($location['position']['y']));
-            $this->addInt32(dechex($location['position']['z']));
-            $this->addInt32(dechex($location['position']['map']));
-            $this->addUInt32(dechex($location['cliloc']));
+            $this->addInt32($location['position']['x']);
+            $this->addInt32($location['position']['y']);
+            $this->addInt32($location['position']['z']);
+            $this->addInt32($location['position']['map']);
+            $this->addInt32($location['cliloc']);
             $this->addInt32(0);
         }
 
-        
         $this->addInt32(dechex($this->flags));
         $this->addInt16($this->lastCharLost);
 
@@ -74,7 +71,7 @@ class packet_0xA9 extends Packets {
     }
 
     public function setCharCount($charCount) {
-        $this->charCount = (int)$charCount;
+        $this->charCount = (int) $charCount;
         return true;
     }
 
@@ -84,7 +81,7 @@ class packet_0xA9 extends Packets {
     }
 
     public function setCitiesCount($citiesCount) {
-        $this->citiesCount = (int)$citiesCount;
+        $this->citiesCount = (int) $citiesCount;
         return true;
     }
 
@@ -99,7 +96,7 @@ class packet_0xA9 extends Packets {
     }
 
     public function setLastCharLost($lastCharLost) {
-        $this->lastCharLost = (int)$lastCharLost;
+        $this->lastCharLost = (int) $lastCharLost;
         return true;
     }
 }
