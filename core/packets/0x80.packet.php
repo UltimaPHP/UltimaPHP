@@ -60,6 +60,7 @@ class packet_0x80 extends Packets {
 		$account  = Functions::hexToChr($data, 1, 30, true);
 		$password = Functions::hexToChr($data, 31, 61, true);
 
+		// Account / Password validadion
 		$test = UltimaPHP::$db->collection("accounts")->find(['account' => $account])->toArray();
 		if (!empty($test[0]) && md5($password) != $test[0]['password']) {
 			// Send disconnect packet without account instance
@@ -71,7 +72,6 @@ class packet_0x80 extends Packets {
 			return false;
 		}
 
-		// Account / Password validadion TODO
 		UltimaPHP::$socketClients[$this->client]['account'] = array(
 			'account'  => $account,
 			'password' => md5($password),
