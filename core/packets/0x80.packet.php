@@ -60,7 +60,16 @@ class packet_0x80 extends Packets {
 		$account  = Functions::hexToChr($data, 1, 30, true);
 		$password = Functions::hexToChr($data, 31, 61, true);
 
-		$login = false;
+		$test = UltimaPHP::$db->collection("accounts")->find(['account' => $account])->toArray();
+		if (!empty($test[0]) && md5($password) != $test[0]['password']) {
+			// Send disconnect packet without account instance
+			$packet = new packet_0x82($this->client);
+	        $packet->setReason(RejectionReason::COMMUNICATION_PROBLEM);
+	        $packet->send();
+	        
+			UltimaPHP::log("Account $account tried to login with wrong password.");
+			return false;
+		}
 
 		// Account / Password validadion TODO
 		UltimaPHP::$socketClients[$this->client]['account'] = array(
