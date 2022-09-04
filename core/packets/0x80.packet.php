@@ -64,7 +64,7 @@ class packet_0x80 extends Packets {
 		if (!empty($test[0]) && md5($password) != $test[0]['password']) {
 			// Send disconnect packet without account instance
 			$packet = new packet_0x82($this->client);
-	        $packet->setReason(RejectionReason::COMMUNICATION_PROBLEM);
+	        $packet->setReason(RejectionReason::WRONG_PASSWORD);
 	        $packet->send();
 	        
 			UltimaPHP::log("Account $account tried to login with wrong password.");
