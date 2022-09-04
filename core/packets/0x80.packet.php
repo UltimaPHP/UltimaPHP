@@ -101,7 +101,7 @@ class packet_0x80 extends Packets {
 			$this->insertAccount($account, md5($password));
 			$this->receive($data);
 		} else {
-			UltimaPHP::$socketClients[$this->client]['account']->disconnect(RejectionReason::WRONG_PASSWORD);
+			UltimaPHP::$socketClients[$this->client]['account']->disconnect(RejectionReason::INVALID);
 		}
 		$this->insertClientVersion($account);
 
