@@ -30,7 +30,12 @@ class ColorCommand extends Command {
             return false;
         }
 
-        $instance = Map::getBySerial($target);
+        $instance = Map::getBySerial(strtoupper(dechex($target)));
+        if (empty($instance)) {
+            new SysmessageCommand($client, ["Sorry, something went wrong."]);
+            return false;
+        }
+
         $instance->color = intval($color);
         $instance->save();
 
@@ -38,7 +43,7 @@ class ColorCommand extends Command {
             $holder = Map::getBySerial($instance->holder);
 
             if ($holder->instanceType == UltimaPHP::INSTANCE_OBJECT) {
-                $holder->addItemToOpenedContainer($client, $instance);
+                $holder->addItemToOpenedContainer($instance, $client);
                 return true;
             }
         } else {
