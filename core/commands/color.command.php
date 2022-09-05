@@ -36,7 +36,7 @@ class ColorCommand extends Command {
             return false;
         }
 
-        $instance->color = intval($color);
+        $instance->color = hexdec($color);
         $instance->save();
 
         if ($instance->holder !== null) {
