@@ -519,9 +519,16 @@ class Player {
         if (!in_array($instance->layer, [LayersDefs::HAND_ONE, LayersDefs::HAND_TWO, LayersDefs::SHOES, LayersDefs::PANTS, LayersDefs::SHIRT, LayersDefs::HELM, LayersDefs::GLOVES, LayersDefs::RING, LayersDefs::TALISMAN, LayersDefs::NECK, LayersDefs::WAIST, LayersDefs::INNER_TORSO, LayersDefs::BRACELET, LayersDefs::MIDDLE_TORSO, LayersDefs::EAR_RINGS, LayersDefs::ARMS, LayersDefs::CLOAK, LayersDefs::OUTER_TORSO, LayersDefs::OUTER_LEGS, LayersDefs::INNER_LEGS])) {
             // Sends the item to the player's backpack in case it doesn't fit the layer or the item isn't implemented yet
             if ($this->layers[LayersDefs::DRAGGING] == $serial) {
-                $this->dropItem($serial, false, $container, true);
+                // TODO: Add weight checks if the player has a backpack
+                if (empty($this->layers[LayersDefs::BACKPACK])) {
+                    $msg = "You don't know what to do with this item. You put it on the ground.";
+                    $this->dropItem($serial, $this->position, 'FFFFFFFF', false);
+                } else {
+                    $this->dropItem($serial, false, $this->layers[LayersDefs::BACKPACK], false);
+                    $msg = "You don't know what to do with this item. You put it on yours backpack.";
+                }
+                new SysmessageCommand($this->client, [$msg]);
             }
-            new SysmessageCommand($this->client, ["You don't know what to do with this item."]);
             return false;
         }
 
