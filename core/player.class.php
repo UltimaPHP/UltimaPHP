@@ -391,7 +391,7 @@ class Player {
         return true;
     }
 
-    public function dropItem($serial = null, $position = null, $grid = null, $container = null) {
+    public function dropItem($serial = null, $position = null, $container = null, $grid = null, $dropAccept = true) {
         if ($serial === null || $position === null || $grid === null || $container === null) {
             return false;
         }
@@ -418,14 +418,21 @@ class Player {
         }
 
         if ($containerInstance->instanceType == UltimaPHP::INSTANCE_OBJECT) {
+            if (empty($position)) {
+                $position = [
+                    'x' => 65535,
+                    'y' => 65535,
+                    'z' => 0
+                ];
+            }
             if ($position['x'] == 65535) {
                 $position['x'] = rand(1, 127);
             }
             if ($position['y'] == 65535) {
                 $position['y'] = rand(1, 127);
             }
-            $containerInstance->addItem($this->client, $instance, $position);
-            return $this->dropAccept();
+            $containerInstance->addItem($instance, $this->client, $position);
+            return ($dropAccept ? $this->dropAccept() : true);
         }
 
         if ($containerInstance->serial == $this->serial) {
@@ -444,7 +451,7 @@ class Player {
                     $this->layers[LayersDefs::BACKPACK] = $instance->serial;
                     $this->update();
 
-                    return $this->dropAccept();
+                    return ($dropAccept ? $this->dropAccept() : true);
                 }
 
                 $playerBackpack = new Backpack(null, null, $this->serial);
@@ -458,7 +465,7 @@ class Player {
 
             $playerBackpack->addItem($instance, $this->client, ['x' => rand(1, 127), 'y' => rand(1, 127), 'z' => 0, 'map' => null]);
 
-            return $this->dropAccept();
+            return ($dropAccept ? $this->dropAccept() : true);
         }
 
         if ($containerInstance->instanceType == UltimaPHP::INSTANCE_MOBILE) {
@@ -466,14 +473,14 @@ class Player {
 
             $instance->holder = $mobileBackpack->serial;
 
-            $mobileBackpack->addItem($this->client, $instance, ['x' => rand(1, 127), 'y' => rand(1, 127), 'z' => 0, 'map' => null]);
+            $mobileBackpack->addItem($instance, $this->client, ['x' => rand(1, 127), 'y' => rand(1, 127), 'z' => 0, 'map' => null]);
 
-            return $this->dropAccept();
+            return ($dropAccept ? $this->dropAccept() : true);
         }
 
         if ($containerInstance->instanceType == UltimaPHP::INSTANCE_PLAYER) {
             /* Trade window */
-            return $this->dropAccept();
+            return ($dropAccept ? $this->dropAccept() : true);
         }
 
         return false;
@@ -508,6 +515,22 @@ class Player {
 
         $instance = Map::getBySerial($serial);
         $containerInstance = Map::getBySerial($container);
+
+        if (!in_array($instance->layer, [LayersDefs::HAND_ONE, LayersDefs::HAND_TWO, LayersDefs::SHOES, LayersDefs::PANTS, LayersDefs::SHIRT, LayersDefs::HELM, LayersDefs::GLOVES, LayersDefs::RING, LayersDefs::TALISMAN, LayersDefs::NECK, LayersDefs::WAIST, LayersDefs::INNER_TORSO, LayersDefs::BRACELET, LayersDefs::MIDDLE_TORSO, LayersDefs::EAR_RINGS, LayersDefs::ARMS, LayersDefs::CLOAK, LayersDefs::OUTER_TORSO, LayersDefs::OUTER_LEGS, LayersDefs::INNER_LEGS])) {
+            // Sends the item to the player's backpack in case it doesn't fit the layer or the item isn't implemented yet
+            if ($this->layers[LayersDefs::DRAGGING] == $serial) {
+                // TODO: Add weight checks if the player has a backpack
+                if (empty($this->layers[LayersDefs::BACKPACK])) {
+                    $msg = "You don't know what to do with this item. You put it on the ground.";
+                    $this->dropItem($serial, $this->position, 'FFFFFFFF', false);
+                } else {
+                    $this->dropItem($serial, false, $this->layers[LayersDefs::BACKPACK], false);
+                    $msg = "You don't know what to do with this item. You put it on yours backpack.";
+                }
+                new SysmessageCommand($this->client, [$msg]);
+            }
+            return false;
+        }
 
         if ($instance->holder !== null) {
             $holder = Map::getBySerial($instance->holder);
@@ -1215,7 +1238,7 @@ class Player {
             $packet .= str_pad(dechex($this->damage_min), 4, "0", STR_PAD_LEFT);
             $packet .= str_pad(dechex($this->damage_max), 4, "0", STR_PAD_LEFT);
             $packet .= "00000000";
-            Sockets::out($this->client, $packet, $runInLot[0]);
+            Sockets::out($this->client, $packet, $runInLot);
         }
     }
 

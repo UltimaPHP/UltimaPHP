@@ -30,15 +30,20 @@ class ColorCommand extends Command {
             return false;
         }
 
-        $instance = Map::getBySerial($target);
-        $instance->color = intval($color);
+        $instance = Map::getBySerial(strtoupper(dechex($target)));
+        if (empty($instance)) {
+            new SysmessageCommand($client, ["Sorry, something went wrong."]);
+            return false;
+        }
+
+        $instance->color = hexdec($color);
         $instance->save();
 
         if ($instance->holder !== null) {
             $holder = Map::getBySerial($instance->holder);
 
             if ($holder->instanceType == UltimaPHP::INSTANCE_OBJECT) {
-                $holder->addItemToOpenedContainer($client, $instance);
+                $holder->addItemToOpenedContainer($instance, $client);
                 return true;
             }
         } else {

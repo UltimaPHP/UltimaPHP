@@ -380,6 +380,7 @@ class Account {
 
         UltimaPHP::log("Client " . UltimaPHP::$socketClients[$this->client]['ip'] . " disconnected from the server");
         Sockets::out($this->client, $packet);
+        unset(UltimaPHP::$socketClients[$this->client]);
     }
 
     public function disconnectEvent($lot, $args) {
@@ -505,6 +506,7 @@ class Account {
             'statscap'        => UltimaPHP::$conf['accounts']['statscap'],
             'pets'            => 0,
             'maxpets'         => $maxPets,
+            'mounted'         => false,
             'resist_physical' => 0,
             'resist_fire'     => 0,
             'resist_cold'     => 0,

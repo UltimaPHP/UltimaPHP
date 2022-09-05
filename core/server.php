@@ -285,8 +285,6 @@ class UltimaPHP {
             $iniMessage = "Server mongodb database not defined";
         } elseif (!isset(self::$conf['accounts']['auto_create'])) {
             $iniMessage = "Server accounts auto create not defined";
-        } elseif (!isset(self::$conf['accounts']['password_crypt'])) {
-            $iniMessage = "Server accounts password encrypt not defined";
         } elseif (!isset(self::$conf['accounts']['max_chars'])) {
             $iniMessage = "Server accounts maximum characters per account not defined";
         } elseif (!isset(self::$conf['accounts']['char_delete_time'])) {
