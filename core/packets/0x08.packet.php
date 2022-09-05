@@ -32,6 +32,6 @@ class packet_0x08 extends Packets {
         $z                = hexdec(Functions::fromChar8($data[9]));
         $grid_location    = $data[10];
         $conatiner_serial = Functions::implodeByte(11, 14, $data);
-        return UltimaPHP::$socketClients[$this->client]['account']->player->dropItem($item_serial, ['x' => $x, 'y' => $y, 'z' => $z], $grid_location, $conatiner_serial);
+        return UltimaPHP::$socketClients[$this->client]['account']->player->dropItem($item_serial, ['x' => $x, 'y' => $y, 'z' => $z], $conatiner_serial, $grid_location);
     }
 }
